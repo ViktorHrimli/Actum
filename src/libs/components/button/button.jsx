@@ -1,16 +1,9 @@
-/* eslint-disable react/button-has-type */
-import clsx from 'clsx';
+import clsx from "clsx";
 
+import { ButtonType } from "../../enums/enums";
 
-import {
-  ButtonColor,
-  ButtonType,
-  IconName,
-  IconSize
-} from '~/libs/enums/enums.js';
-
-import { Icon } from '../icon/icon.jsx';
-import styles from './styles.module.scss';
+import { Icon } from "../icon/icon.jsx";
+import styles from "./styles.module.scss";
 
 const Button = ({
   onClick,
@@ -24,7 +17,7 @@ const Button = ({
   isLoading,
   isPrimary,
   isDisabled,
-  children
+  children,
 }) => {
   const hasIcon = Boolean(iconName);
 
@@ -61,7 +54,7 @@ Button.defaultProps = {
   isFluid: false,
   isLoading: false,
   isPrimary: false,
-  isDisabled: false
+  isDisabled: false,
 };
 
 export { Button };

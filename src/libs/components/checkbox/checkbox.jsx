@@ -21,10 +21,4 @@ const Checkbox = ({ name, label, control }) => {
   );
 };
 
-Checkbox.propTypes = {
-  name: PropTypes.string.isRequired,
-  control: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  label: PropTypes.string.isRequired,
-};
-
 export { Checkbox };

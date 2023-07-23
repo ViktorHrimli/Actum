@@ -22,7 +22,6 @@ const iconNameToSvgIcon = {
   [IconName.AT]: faAt,
   [IconName.COMMENT]: faComment,
   [IconName.COPY]: faCopy,
-  // thjs-3-delete-post
   [IconName.DELETE]: faTrashCan,
   [IconName.FROWN]: faFrown,
   [IconName.IMAGE]: faImage,
@@ -34,7 +33,6 @@ const iconNameToSvgIcon = {
   [IconName.THUMBS_DOWN]: faThumbsDown,
   [IconName.USER]: faUser,
   [IconName.USER_CIRCLE]: faUserCircle,
-  // thjs-2-add-update-post
   [IconName.EDIT]: faPenToSquare,
 };
 
