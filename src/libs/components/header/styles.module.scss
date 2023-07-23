@@ -1,0 +1,30 @@
+.headerWrp {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  background-color: white;
+  padding: 1em 2em;
+}
+
+.userWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: black;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.logoutBtn,
+.logoutBtn:hover {
+  border: none;
+  box-shadow: none;
+}
+
+.menuBtn {
+  color: gray;
+
+  &:hover {
+    color: black !important;
+  }
+}
