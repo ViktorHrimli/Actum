@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
+
 
 import {
   ButtonColor,
@@ -47,21 +47,6 @@ const Button = ({
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-  type: PropTypes.oneOf(Object.values(ButtonType)),
-  color: PropTypes.oneOf(Object.values(ButtonColor)),
-  className: PropTypes.string,
-  iconName: PropTypes.oneOf(Object.values(IconName)),
-  iconSize: PropTypes.oneOf(Object.values(IconSize)),
-  isBasic: PropTypes.bool,
-  isFluid: PropTypes.bool,
-  isLoading: PropTypes.bool,
-  isPrimary: PropTypes.bool,
-  isDisabled: PropTypes.bool
 };
 
 Button.defaultProps = {
