@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
-import { useController } from 'react-hook-form';
+import { useController } from "react-hook-form";
 
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 const Checkbox = ({ name, label, control }) => {
   const { field } = useController({ name, control });
@@ -25,7 +24,7 @@ const Checkbox = ({ name, label, control }) => {
 Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   control: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
 };
 
 export { Checkbox };

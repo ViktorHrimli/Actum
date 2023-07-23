@@ -13,10 +13,10 @@ import {
   faThumbsUp,
   faTrashCan,
   faUser,
-  faUserCircle
-} from '@fortawesome/free-solid-svg-icons';
+  faUserCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
-import { IconName } from '~/libs/enums/enums.js';
+import { IconName } from "../../enums/enums";
 
 const iconNameToSvgIcon = {
   [IconName.AT]: faAt,
@@ -35,7 +35,7 @@ const iconNameToSvgIcon = {
   [IconName.USER]: faUser,
   [IconName.USER_CIRCLE]: faUserCircle,
   // thjs-2-add-update-post
-  [IconName.EDIT]: faPenToSquare
+  [IconName.EDIT]: faPenToSquare,
 };
 
 export { iconNameToSvgIcon };

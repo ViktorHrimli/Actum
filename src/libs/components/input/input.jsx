@@ -1,12 +1,12 @@
-import { ErrorMessage } from '@hookform/error-message';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import { useController } from 'react-hook-form';
+import { ErrorMessage } from "@hookform/error-message";
+import clsx from "clsx";
 
-import { IconName } from '~/libs/enums/enums.js';
+import { useController } from "react-hook-form";
 
-import { Icon } from '../icon/icon.jsx';
-import styles from './styles.module.scss';
+import { IconName } from "../../enums/enums";
+
+import { Icon } from "../icon/icon.jsx";
+import styles from "./styles.module.scss";
 
 const Input = ({
   name,
@@ -17,7 +17,7 @@ const Input = ({
   disabled,
   iconName,
   placeholder,
-  className
+  className,
 }) => {
   const { field } = useController({ name, control });
   const isTextarea = Boolean(rows);
@@ -59,25 +59,13 @@ const Input = ({
   );
 };
 
-Input.propTypes = {
-  name: PropTypes.string.isRequired,
-  control: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  errors: PropTypes.oneOfType([PropTypes.object]),
-  disabled: PropTypes.bool,
-  iconName: PropTypes.oneOf(Object.values(IconName)),
-  placeholder: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  type: PropTypes.oneOf(['email', 'password', 'submit', 'text']),
-  rows: PropTypes.number
-};
-
 Input.defaultProps = {
   disabled: false,
   iconName: null,
-  className: '',
-  type: 'text',
+  className: "",
+  type: "text",
   rows: 0,
-  errors: {}
+  errors: {},
 };
 
 export { Input };

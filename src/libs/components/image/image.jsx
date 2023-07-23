@@ -1,9 +1,8 @@
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
+import clsx from "clsx";
 
-import { ImageSize } from '~/libs/enums/enums.js';
+import { ImageSize } from "../../enums/enums";
 
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 const Image = ({
   alt,
@@ -13,7 +12,7 @@ const Image = ({
   height,
   size,
   src,
-  width
+  width,
 }) => (
   <img
     className={clsx(
@@ -30,24 +29,13 @@ const Image = ({
   />
 );
 
-Image.propTypes = {
-  alt: PropTypes.string.isRequired,
-  isCentered: PropTypes.bool,
-  isCircular: PropTypes.bool,
-  className: PropTypes.string,
-  height: PropTypes.string,
-  size: PropTypes.oneOf(Object.values(ImageSize)),
-  src: PropTypes.string.isRequired,
-  width: PropTypes.string
-};
-
 Image.defaultProps = {
   isCentered: false,
   isCircular: false,
   className: undefined,
   height: undefined,
   size: undefined,
-  width: undefined
+  width: undefined,
 };
 
 export { Image };

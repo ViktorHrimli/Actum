@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import { IconName } from '~/libs/enums/enums.js';
+import { IconName } from "../../enums/enums";
 
-import { Icon } from '../icon/icon.jsx';
-import styles from './styles.module.scss';
+import { Icon } from "../icon/icon.jsx";
+import styles from "./styles.module.scss";
 
 const CopyBufferInput = forwardRef(({ onCopy, value }, reference) => (
   <div className={styles.copyContainer}>
@@ -24,11 +23,11 @@ const CopyBufferInput = forwardRef(({ onCopy, value }, reference) => (
   </div>
 ));
 
-CopyBufferInput.displayName = 'CopyBufferInput';
+CopyBufferInput.displayName = "CopyBufferInput";
 
 CopyBufferInput.propTypes = {
   onCopy: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
 };
 
 export { CopyBufferInput };
