@@ -1,9 +1,9 @@
 import "./globals.scss";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
 import Header from "@/libs/components/header/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
 export const metadata = {
   title: "Юридичне Бюро Актум",
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <Header />
         <main>{children}</main>
       </body>

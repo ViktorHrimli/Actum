@@ -2,12 +2,21 @@ import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
 
-export default function Navigation({ links }) {
+export default function Navigation({ links, route }) {
   return (
-    <ul>
+    <ul className={styles.nav_list}>
       {links.map(({ path, title }, id) => (
         <li key={id}>
-          <Link href={path}>{title.toUpperCase()}</Link>
+          <Link
+            className={
+              route === path
+                ? `${styles.link} ${styles.active_link}`
+                : styles.link
+            }
+            href={path}
+          >
+            {title.toUpperCase()}
+          </Link>
         </li>
       ))}
     </ul>

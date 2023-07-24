@@ -1,0 +1,16 @@
+@import '/src/assets/css/styles';
+
+
+
+.nav_list {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 48px;
+}
+
+.active_link {
+    text-decoration-line: underline;
+}
