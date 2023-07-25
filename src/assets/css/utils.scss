@@ -9,3 +9,20 @@
         text-decoration-line: underline;
     }
 }
+
+.title_text {
+    color: var(--2, #F8F5F5);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.text {
+    color: var(--2, #F8F5F5);
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: lowercase;
+    word-wrap: break-word;
+}
