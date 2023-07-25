@@ -2,6 +2,7 @@ import "./globals.scss";
 import { Montserrat } from "next/font/google";
 
 import Header from "@/libs/components/header/Header";
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <Header />
+        <ContactPanel />
         <main>{children}</main>
       </body>
     </html>
