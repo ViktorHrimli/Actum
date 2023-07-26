@@ -10,6 +10,7 @@
 
     padding-top: 92px;
     padding-right: 160px;
+    padding-left: 53px;
 }
 
 .about_conteiner {
@@ -23,8 +24,6 @@
 
 .title_text {
     font-size: 40px;
-
-
     margin-bottom: 64px;
 }
 
@@ -36,27 +35,84 @@
     line-height: normal;
 
     text-transform: none;
+    z-index: 2;
+}
+
+.conteiner_map {
+    position: relative;
+
+
+}
+
+.ukraine_inner_text {
+    position: absolute;
+
+    width: 245px;
+
+    top: 65px;
+    left: 72px;
+
+    font-size: 15px;
+    text-align: center;
+
+    z-index: 2;
+}
+
+.ukraine_inner_city {
+    position: absolute;
+
+    width: 279px;
+
+    top: 115px;
+    left: 308px;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    z-index: 2;
+
+}
+
+.bold_text {
+    color: #F8F5F5;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
 }
 
 .conteiner_partner_natalia {
+    position: relative;
     display: flex;
     align-items: end;
 
     width: 410px;
 
     margin-left: 95px;
-    margin-bottom: 37px;
+    margin-top: 30px;
+    margin-bottom: 77px;
 
     gap: 10px;
 
+    z-index: 2;
 }
 
+.signature {
+    position: absolute;
+
+    top: -36px;
+    right: 21px;
+}
 
 .conteiner_partner_olena {
     display: flex;
     align-items: end;
     gap: 10px;
 
+
+    z-index: 2;
 }
 
 .partner {
@@ -69,4 +125,31 @@
     text-transform: uppercase;
 
     word-wrap: break-word;
+
+    z-index: 2;
+}
+
+
+.natalia_conteiner {
+    position: absolute;
+    width: 526px;
+    height: 745px;
+
+
+    bottom: 0;
+    left: 259px;
+
+    z-index: 2;
+}
+
+.olga_conteiner {
+    position: absolute;
+    width: 430px;
+    height: 700px;
+
+
+    bottom: 0;
+    left: -14px;
+
+    z-index: 2;
 }
