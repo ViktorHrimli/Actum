@@ -16,7 +16,7 @@ export default function Hero() {
           alt="ACTUM"
           width={700}
           height={120.61}
-          loading="lazy"
+          loading="eager"
         />
       </div>
 
@@ -26,7 +26,7 @@ export default function Hero() {
           alt="Femida"
           width={1303}
           height={848}
-          loading="lazy"
+          loading="eager"
           priority
           placeholder="blur"
         />
