@@ -51,7 +51,7 @@ export default function AboutCompany() {
             alt="Olga"
             width={430}
             height={700}
-            loading="lazy"
+            loading="eager"
             placeholder="blur"
           />
         </div>
@@ -61,7 +61,7 @@ export default function AboutCompany() {
             alt="Natalia"
             width={526}
             height={745}
-            loading="lazy"
+            loading="eager"
             placeholder="blur"
           />
         </div>
@@ -91,7 +91,7 @@ export default function AboutCompany() {
               src={XO}
               width={60}
               height={60}
-              loading="lazy"
+              loading="eager"
               alt="Підпис"
             />
           </div>
@@ -101,7 +101,7 @@ export default function AboutCompany() {
               src={XN}
               width={100}
               height={88}
-              loading="lazy"
+              loading="eager"
               alt="Підпис"
               className={styles.signature}
             />
