@@ -15,7 +15,14 @@ export default function Hero() {
       </div>
 
       <div className={styles.image_conteiner}>
-        <Image src={femida} alt="Femida" width={1303} height={848} />
+        <Image
+          src={femida}
+          alt="Femida"
+          width={1303}
+          height={848}
+          priority
+          placeholder="blur"
+        />
       </div>
       <h2 className={styles.title_text}>Адвокатське об’Єднання</h2>
       <div className={styles.under_line}></div>

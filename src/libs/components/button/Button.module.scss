@@ -18,16 +18,17 @@
     cursor: pointer;
 
     border: 1px solid transparent;
-    border-image: var(--border-gradient);
+    border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+    ;
 
-    -moz-border-image: -moz-linear-gradient(275deg,
-            #E32F7A 0%,
-            #D70F74 42%,
-            #912E6F 81%);
-    -webkit-border-image: -webkit-linear-gradient(275deg,
-            #E32F7A 0%,
-            #D70F74 42%,
-            #912E6F 81%);
+    -moz-border-image: -moz-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    -webkit-border-image: -webkit-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
     border-image-slice: 1;
 
 
