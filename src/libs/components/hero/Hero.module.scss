@@ -1,0 +1,112 @@
+@import '/src/assets/css/styles.scss';
+
+.hero_conteiner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 230px;
+    padding-left: 70px;
+    padding-bottom: 116px;
+}
+
+.conteiner_wordmark {
+    margin-bottom: 57.5px;
+}
+
+
+.under_line {
+    width: 235px;
+    height: 0;
+
+    margin-top: 29px;
+    margin-bottom: 4px;
+
+    border: 0.50px var(--color-text) solid
+}
+
+
+.main_gradient {
+    position: absolute;
+
+    bottom: 50px;
+    right: 0px;
+
+    width: 695.78px;
+    height: 598px;
+    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    filter: blur(200px);
+
+    z-index: 1;
+}
+
+.second_gradient {
+    position: absolute;
+
+    top: 330px;
+    right: 90px;
+
+    width: 155px;
+    height: 167px;
+
+    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    filter: blur(200px);
+
+    border-radius: 100px;
+
+
+    z-index: 2;
+}
+
+
+.thirhd_gradient {
+    position: absolute;
+
+    bottom: 10px;
+    right: 200px;
+
+    width: 242px;
+    height: 233px;
+
+    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    filter: blur(200px);
+
+    z-index: 2;
+}
+
+.fourth_gradient {
+
+    position: absolute;
+
+
+    top: 170px;
+    right: 550px;
+
+
+    width: 242px;
+    height: 233px;
+
+    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    filter: blur(200px);
+
+    z-index: 2;
+}
+
+
+.image_conteiner {
+    position: absolute;
+
+    bottom: 0px;
+    right: 10px;
+
+    z-index: 2;
+}
+
+
+.title_text {
+    font-size: var(--title-text_desktop);
+}
+
+.text {
+    margin-bottom: 246px;
+}

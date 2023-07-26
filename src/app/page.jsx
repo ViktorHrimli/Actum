@@ -2,7 +2,7 @@ import styles from "./page.module.scss";
 
 import Hero from "@/libs/components/hero/Hero";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
-import Direction from "@/libs/components/ourDirection/Direction";
+import Direction from "@/libs/components/ourDirections/Direction";
 
 
 export default function Home() {
