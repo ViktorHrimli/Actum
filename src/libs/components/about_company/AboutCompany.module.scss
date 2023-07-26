@@ -1,0 +1,72 @@
+@import '/src/assets/css/styles.scss';
+
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    width: 100%;
+    height: 1024px;
+
+    padding-top: 92px;
+    padding-right: 160px;
+}
+
+.about_conteiner {
+    display: flex;
+    flex-direction: column;
+
+    width: 445px;
+
+    margin-left: auto;
+}
+
+.title_text {
+    font-size: 40px;
+
+
+    margin-bottom: 64px;
+}
+
+.text {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-style: normal;
+
+    line-height: normal;
+
+    text-transform: none;
+}
+
+.conteiner_partner_natalia {
+    display: flex;
+    align-items: end;
+
+    width: 410px;
+
+    margin-left: 95px;
+    margin-bottom: 37px;
+
+    gap: 10px;
+
+}
+
+
+.conteiner_partner_olena {
+    display: flex;
+    align-items: end;
+    gap: 10px;
+
+}
+
+.partner {
+    color: var(--color-text);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+
+    word-wrap: break-word;
+}
