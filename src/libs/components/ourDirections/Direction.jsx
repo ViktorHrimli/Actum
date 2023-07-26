@@ -5,12 +5,12 @@ import styles from "./Direction.module.scss";
 
 
 export default function Direction() {
-  return <section>
-    <div>
+  return <section className={styles.direction_section}>
+    <div className={styles.direction_container}>
       <div>
-        <span></span>
+        <span className={styles.direction_line}></span>
           <p>наші напрями</p>
-        <span></span>
+        <span className={styles.direction_line}></span>
       </div>
       <div>
         <span></span>

@@ -1,11 +1,19 @@
 .direction_section {
-  width: 1280px;
-  height: 832px;
+  width: 1440px;
+  height: 1020px;
   background-color: #E2E0E0;
+    padding-left: 70px;
+      padding-top: 102px;
+      padding-bottom: 102px;
 }
 
 .direction_container {
-  padding-left: 53px;
-  padding-top: 76px;
-  padding-bottom: 76px;
+
+}
+
+.direction_line {
+  width: 169px;
+  height: 169px;
+  // border: 2px solid #E32F7A;
+  // background-color: #E32F7A;
 }
