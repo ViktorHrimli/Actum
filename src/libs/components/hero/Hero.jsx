@@ -11,7 +11,13 @@ export default function Hero() {
   return (
     <div className={styles.hero_conteiner}>
       <div className={styles.conteiner_wordmark}>
-        <Image src={watemark} alt="ACTUM" width={700} height={120.61} />
+        <Image
+          src={watemark}
+          alt="ACTUM"
+          width={700}
+          height={120.61}
+          loading="lazy"
+        />
       </div>
 
       <div className={styles.image_conteiner}>
@@ -20,6 +26,7 @@ export default function Hero() {
           alt="Femida"
           width={1303}
           height={848}
+          loading="lazy"
           priority
           placeholder="blur"
         />
