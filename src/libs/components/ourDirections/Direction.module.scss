@@ -115,7 +115,7 @@
 .img_hands {
   width: 492px;
   height: 518px;
-  background-image: url(../../../assets/svg/Hands.png);
+  background-image: url(/src/assets/svg/Hands.png);
   z-index: 5;
   position: absolute;
   top: 0;
@@ -129,14 +129,14 @@
 .img_halmet {
   width: 916px;
   height: 649px;
-  background-image: url(../../../assets/svg/Helmet.png);
+  background-image: url(/src/assets/svg/Helmet.png);
   z-index: 4;
 }
 
 .img_criminal {
   width: 492px;
   height: 518px;
-  background-image: url(../../../assets/svg/criminal.png);
+  background-image: url(/src/assets/svg/Criminal.png);
   z-index: 7;
   position: absolute;
   bottom: 0;
@@ -179,7 +179,7 @@
   visibility: visible;
 }
 
-.hover_criminal:hover .modal_criminal{
+.hover_criminal:hover .modal_criminal {
   opacity: 1;
   visibility: visible;
 }
@@ -197,10 +197,10 @@
   padding: 24px 71px;
 
   color: #1F1F1F;
-    font-size: 19.5px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-    margin-left: 638px;
+  font-size: 19.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-left: 638px;
 }
