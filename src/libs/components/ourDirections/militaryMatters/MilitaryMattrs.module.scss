@@ -1,0 +1,41 @@
+.military {
+  width: 916px;
+  height: 650px;
+  background-color: #414040;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 34px;
+  // z-index: 50;
+  padding: 74px 70px 96px 70px;
+  margin-bottom: 54px;
+  position: relative;
+}
+
+.military_title {
+  color:  #F8F5F5;
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.military_text {
+  color: #F8F5F5;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.military_text_bold {
+  font-weight: 700;
+}
+
+.military_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

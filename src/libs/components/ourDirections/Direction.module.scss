@@ -1,11 +1,206 @@
 .direction_section {
-  width: 1280px;
-  height: 832px;
+  width: 1440px;
+  height: 1020px;
   background-color: #E2E0E0;
+  padding-left: 70px;
+  padding-top: 102px;
+  padding-bottom: 102px;
+  overflow: hidden;
+  z-index: 20;
 }
 
 .direction_container {
-  padding-left: 53px;
-  padding-top: 76px;
-  padding-bottom: 76px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.box_title {
+  width: 49px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 69px;
+}
+
+.direction_line {
+  width: 4px;
+  height: 169px;
+  background-color: #E32F7A;
+}
+
+.flex_position {
+  display: flex;
+  flex-direction: column;
+}
+
+.direction_title {
+  color: #1F1F1F;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+.box_img {
+  position: relative;
+  width: 916px;
+  height: 649px;
+  margin-top: 66px;
+  // border: 1px solid red;
+  margin-bottom: 33px;
+  display: flex;
+  overflow: hidden;
+}
+
+.block_hover_hands {
+  width: 400px;
+  height: 750px;
+  z-index: 10;
+  position: absolute;
+  left: -108px;
+  top: -241px;
+  transform: rotate(43.4deg);
+}
+
+.block_hover_hands_background {
+  width: 400px;
+  height: 750px;
+  z-index: 8;
+  position: absolute;
+  left: -108px;
+  top: -241px;
+  transform: rotate(43.4deg);
+  background-color: rgba(227, 47, 122, 0.2);
+}
+
+
+.block_hover_halmet {
+  width: 393px;
+  height: 1200px;
+  z-index: 10;
+  position: absolute;
+  left: 267px;
+  top: -283px;
+  transform: rotate(43.5deg);
+}
+
+.block_hover_criminal {
+  width: 400px;
+  height: 750px;
+  z-index: 10;
+  position: absolute;
+  left: 623px;
+  top: 138px;
+  transform: rotate(43.5deg);
+}
+
+.block_hover_criminal_background {
+  width: 400px;
+  height: 750px;
+  z-index: 8;
+  position: absolute;
+  left: 623px;
+  top: 138px;
+  transform: rotate(43.5deg);
+  background-color: rgba(63, 46, 100, 0.5);
+}
+
+.img_hands {
+  width: 492px;
+  height: 518px;
+  background-image: url(/src/assets/svg/Hands.png);
+  z-index: 5;
+  position: absolute;
+  top: 0;
+}
+
+.touch_icon {
+  margin-top: 44px;
+  margin-left: 44px;
+}
+
+.img_halmet {
+  width: 916px;
+  height: 649px;
+  background-image: url(/src/assets/svg/Helmet.png);
+  z-index: 4;
+}
+
+.img_criminal {
+  width: 492px;
+  height: 518px;
+  background-image: url(/src/assets/svg/Criminal.png);
+  z-index: 7;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+// ------------- FAMILY matters
+
+.modal_family {
+  position: absolute;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.55s opacity, 0.55s visibility;
+}
+
+.modal_military {
+  position: absolute;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.55s opacity, 0.55s visibility;
+}
+
+.modal_criminal {
+  position: absolute;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.55s opacity, 0.55s visibility;
+}
+
+.hover_hands:hover .modal_family {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hover_halmet:hover .modal_military {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hover_criminal:hover .modal_criminal {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+// ------------- btn
+
+.box_btn {
+  width: 100%;
+  // border: 1px solid red;
+}
+
+.direction_btn {
+  border: 1px solid #E32F7A;
+  padding: 24px 71px;
+
+  color: #1F1F1F;
+  font-size: 19.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-left: 638px;
 }
