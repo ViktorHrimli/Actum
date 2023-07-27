@@ -1,0 +1,38 @@
+@import '/src/assets/css/styles.scss';
+
+.section {
+    width: 100%;
+
+    padding: 102px 95px;
+
+
+    background: var(--primary-back);
+}
+
+
+.conteiner_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rigth_conteiner {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 177px;
+
+}
+
+.conteiner_text {
+    width: 482px;
+
+    margin-bottom: 97px;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-transform: none;
+}
