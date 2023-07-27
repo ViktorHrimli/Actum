@@ -11,11 +11,25 @@ export default function Hero() {
   return (
     <div className={styles.hero_conteiner}>
       <div className={styles.conteiner_wordmark}>
-        <Image src={watemark} alt="ACTUM" width={700} height={120.61} />
+        <Image
+          src={watemark}
+          alt="ACTUM"
+          width={700}
+          height={120.61}
+          loading="eager"
+        />
       </div>
 
       <div className={styles.image_conteiner}>
-        <Image src={femida} alt="Femida" width={1303} height={848} />
+        <Image
+          src={femida}
+          alt="Femida"
+          width={1303}
+          height={848}
+          loading="eager"
+          priority
+          placeholder="blur"
+        />
       </div>
       <h2 className={styles.title_text}>Адвокатське об’Єднання</h2>
       <div className={styles.under_line}></div>
