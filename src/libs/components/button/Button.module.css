@@ -1,0 +1,33 @@
+.button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 355px;
+  padding: 20px 26px;
+  font-size: 20px;
+  color: var(--color-text);
+  background-color: transparent;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  cursor: pointer;
+  border: 1px solid transparent;
+  -o-border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+     border-image: -webkit-gradient(linear, left top, right top, from(#E32F7A), color-stop(#912E6F), to(#3F2E64));
+     border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+  -webkit-border-image: -webkit-linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+  border-image-slice: 1;
+  -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button:hover {
+  color: var(--secondary-color);
+  background-color: var(--secondary-bacground);
+}
+/*# sourceMappingURL=Button.module.css.map */

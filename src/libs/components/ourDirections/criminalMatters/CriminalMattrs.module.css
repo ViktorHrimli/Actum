@@ -1,0 +1,47 @@
+.criminal {
+  width: 916px;
+  height: 650px;
+  background-color: #3F2E64;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 25px;
+  padding: 74px 70px 96px 70px;
+  position: relative;
+}
+
+.criminal_title {
+  color: #F8F5F5;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.criminal_text {
+  color: #F8F5F5;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.criminal_text_bold {
+  font-weight: 700;
+}
+
+.criminal_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/*# sourceMappingURL=CriminalMattrs.module.css.map */
