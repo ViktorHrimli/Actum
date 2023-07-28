@@ -50,7 +50,6 @@ export default function Direction() {
             </div>
           </div>
 
-
           <div className={styles.img_hands}>
             <Image src={Touch_icon} alt="Touch" width={40} height={40} className={styles.touch_icon} />
             <Image src={Hands} alt="Hands" width={492} height={518} className={styles.img} />
@@ -71,7 +70,6 @@ export default function Direction() {
           <button className={styles.direction_btn}>усі послуги</button>
         </div>
       </div>
-
     </div>
   </section>
 }
