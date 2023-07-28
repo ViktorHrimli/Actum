@@ -43,7 +43,6 @@
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-
   transform: rotate(-90deg);
   white-space: nowrap;
 }
@@ -53,11 +52,22 @@
   width: 916px;
   height: 649px;
   margin-top: 66px;
-  // border: 1px solid red;
   margin-bottom: 33px;
   display: flex;
   overflow: hidden;
 }
+
+.img {
+  position: absolute;
+}
+
+.touch_icon {
+  position: absolute;
+  top: 44px;
+  left: 44px;
+  z-index: 10;
+}
+
 
 .block_hover_hands {
   width: 400px;
@@ -115,28 +125,21 @@
 .img_hands {
   width: 492px;
   height: 518px;
-  background-image: url(../../../assets/svg/Hands.png);
   z-index: 5;
   position: absolute;
   top: 0;
-}
-
-.touch_icon {
-  margin-top: 44px;
-  margin-left: 44px;
+  left: 0;
 }
 
 .img_halmet {
   width: 916px;
   height: 649px;
-  background-image: url(../../../assets/svg/Helmet.png);
   z-index: 4;
 }
 
 .img_criminal {
   width: 492px;
   height: 518px;
-  background-image: url(../../../assets/svg/criminal.png);
   z-index: 7;
   position: absolute;
   bottom: 0;
