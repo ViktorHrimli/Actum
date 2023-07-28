@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <Header />
 
         <main className={styles.section}>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

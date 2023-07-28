@@ -12,16 +12,27 @@
 .direction_container {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .box_title {
   width: 49px;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 69px;
 }
 
@@ -32,8 +43,13 @@
 }
 
 .flex_position {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .direction_title {
@@ -43,7 +59,8 @@
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   white-space: nowrap;
 }
 
@@ -53,6 +70,8 @@
   height: 649px;
   margin-top: 66px;
   margin-bottom: 33px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
 }
@@ -68,7 +87,6 @@
   z-index: 10;
 }
 
-
 .block_hover_hands {
   width: 400px;
   height: 750px;
@@ -76,7 +94,8 @@
   position: absolute;
   left: -108px;
   top: -241px;
-  transform: rotate(43.4deg);
+  -webkit-transform: rotate(43.4deg);
+          transform: rotate(43.4deg);
 }
 
 .block_hover_hands_background {
@@ -86,10 +105,10 @@
   position: absolute;
   left: -108px;
   top: -241px;
-  transform: rotate(43.4deg);
+  -webkit-transform: rotate(43.4deg);
+          transform: rotate(43.4deg);
   background-color: rgba(227, 47, 122, 0.2);
 }
-
 
 .block_hover_halmet {
   width: 393px;
@@ -98,7 +117,8 @@
   position: absolute;
   left: 267px;
   top: -283px;
-  transform: rotate(43.5deg);
+  -webkit-transform: rotate(43.5deg);
+          transform: rotate(43.5deg);
 }
 
 .block_hover_criminal {
@@ -108,7 +128,8 @@
   position: absolute;
   left: 623px;
   top: 138px;
-  transform: rotate(43.5deg);
+  -webkit-transform: rotate(43.5deg);
+          transform: rotate(43.5deg);
 }
 
 .block_hover_criminal_background {
@@ -118,7 +139,8 @@
   position: absolute;
   left: 623px;
   top: 138px;
-  transform: rotate(43.5deg);
+  -webkit-transform: rotate(43.5deg);
+          transform: rotate(43.5deg);
   background-color: rgba(63, 46, 100, 0.5);
 }
 
@@ -146,13 +168,12 @@
   right: 0;
 }
 
-// ------------- FAMILY matters
-
 .modal_family {
   position: absolute;
   z-index: 9;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: 0.55s opacity, 0.55s visibility;
   transition: 0.55s opacity, 0.55s visibility;
 }
 
@@ -161,6 +182,7 @@
   z-index: 9;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: 0.55s opacity, 0.55s visibility;
   transition: 0.55s opacity, 0.55s visibility;
 }
 
@@ -169,6 +191,7 @@
   z-index: 9;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: 0.55s opacity, 0.55s visibility;
   transition: 0.55s opacity, 0.55s visibility;
 }
 
@@ -187,18 +210,13 @@
   visibility: visible;
 }
 
-
-// ------------- btn
-
 .box_btn {
   width: 100%;
-  // border: 1px solid red;
 }
 
 .direction_btn {
   border: 1px solid #E32F7A;
   padding: 24px 71px;
-
   color: #1F1F1F;
   font-size: 19.5px;
   font-style: normal;
@@ -207,3 +225,4 @@
   text-transform: uppercase;
   margin-left: 638px;
 }
+/*# sourceMappingURL=Direction.module.css.map */
