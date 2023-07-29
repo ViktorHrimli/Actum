@@ -37,6 +37,10 @@ html,
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   color: var(--color-text);
   font-family: var(--fonts-text);
   background: var(--background);

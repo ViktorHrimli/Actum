@@ -56,14 +56,7 @@ export default function AboutCompany() {
           />
         </div>
         <div className={styles.natalia_conteiner}>
-          <Image
-            src={Natalia}
-            alt="Natalia"
-            width={526}
-            height={745}
-            loading="eager"
-            placeholder="blur"
-          />
+          <Image src={Natalia} alt="Natalia" placeholder="blur" />
         </div>
       </div>
       <div className={styles.about_conteiner}>
@@ -86,7 +79,7 @@ export default function AboutCompany() {
 
         <div>
           <div className={styles.conteiner_partner_olena}>
-            <h4 className={styles.partner}>партнер Хоменко Олена</h4>
+            <p className={styles.partner}>партнер Хоменко Олена</p>
             <Image
               src={XO}
               width={60}
@@ -96,7 +89,7 @@ export default function AboutCompany() {
             />
           </div>
           <div className={styles.conteiner_partner_natalia}>
-            <h4 className={styles.partner}>партнер Коровіна Наталя</h4>
+            <p className={styles.partner}>партнер Коровіна Наталя</p>
             <Image
               src={XN}
               width={100}
@@ -108,7 +101,12 @@ export default function AboutCompany() {
           </div>
         </div>
 
-        <Button onClick={handleClick} params={"service"} type={"button"} />
+        <Button
+          onClick={handleClick}
+          style={"button_prymary"}
+          text={"наша команда"}
+          type={"button"}
+        />
       </div>
     </section>
   );

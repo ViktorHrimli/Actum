@@ -51,7 +51,11 @@ export default function Footer() {
             </a>
           </div>
 
-          <Button />
+          <Button
+            style={"button_prymary"}
+            text={"замовити консультацію"}
+            type={"button"}
+          />
         </div>
       </div>
     </div>
