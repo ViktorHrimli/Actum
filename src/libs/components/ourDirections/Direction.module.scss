@@ -15,22 +15,6 @@
   display: flex;
 }
 
-.box_title {
-  width: 49px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 69px;
-}
-
-.direction_line {
-  width: 4px;
-  height: 169px;
-  background-color: #E32F7A;
-}
-
 .flex_position {
   display: flex;
   flex-direction: column;
@@ -191,19 +175,7 @@
 // ------------- btn
 
 .box_btn {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
-  // border: 1px solid red;
-}
-
-.direction_btn {
-  border: 1px solid #E32F7A;
-  padding: 24px 71px;
-
-  color: #1F1F1F;
-  font-size: 19.5px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-  margin-left: 638px;
 }

@@ -1,5 +1,6 @@
 import Button from "../button/Button";
 import Card from "../card/Card";
+import LeftBar from "../left_bar_text/LeftBar";
 import styles from "./Response.module.scss";
 
 import Card1 from "@/assets/svg/Card_1.png";
@@ -24,11 +25,7 @@ export default function Response() {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner_section}>
-        <div className={styles.box_title}>
-          <div className={styles.direction_line}></div>
-          <h2 className={styles.title_text}>наші напрями</h2>
-          <div className={styles.direction_line}></div>
-        </div>
+        <LeftBar text={"наші відгуки"} />
 
         <div className={styles.rigth_conteiner}>
           <div className={styles.conteiner_text}>
@@ -44,7 +41,12 @@ export default function Response() {
               <Card key={id} {...item} />
             ))}
           </ul>
-          <Button onClick={() => {}} params={"consult"} type={"button"} />
+          <Button
+            onClick={() => {}}
+            text={"залишити відгук"}
+            style={"button_service"}
+            type={"button"}
+          />
         </div>
       </div>
     </section>
