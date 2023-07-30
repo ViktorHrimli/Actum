@@ -10,15 +10,33 @@
     padding-left: 70px;
     padding-bottom: 116px;
 
+    @media screen and (min-width: 1280px) {
+        height: auto;
+        padding-top: 243px;
+    }
 
-    @media screen and (min-width: 1439px) {
-        width: 1440px;
-        height: 1020px;
+
+    @media screen and (min-width: 1440px) {
+        height: auto;
     }
 }
 
 .conteiner_wordmark {
-    margin-bottom: 57.5px;
+    position: relative;
+
+    @media screen and (min-width: 1280px) {
+        width: 620px;
+        height: 106.829px;
+        margin-bottom: 37.5px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 700px;
+        height: 120.613px;
+        margin-bottom: 57.5px;
+    }
+
+    z-index: 5;
 }
 
 
@@ -29,7 +47,12 @@
     margin-top: 29px;
     margin-bottom: 4px;
 
-    border: 0.50px var(--color-text) solid
+    border: 0.50px var(--color-text) solid;
+
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 21px;
+    }
 }
 
 
@@ -106,14 +129,45 @@
     bottom: -4px;
     right: 0;
 
+
+
+    @media screen and (min-width: 1280px) {
+        width: 1046px;
+        height: 720px;
+
+        bottom: 0px;
+        right: 28px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 1303px;
+        height: 848px;
+    }
+
+
     z-index: 2;
 }
 
 
 .title_text {
     font-size: var(--title-text_desktop);
+
+    @media screen and (min-width: 1280px) {
+        font-size: 36px;
+    }
+
+
+    z-index: 2;
+
+
 }
 
 .text {
     margin-bottom: 246px;
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 110px;
+    }
+
+    z-index: 2;
 }

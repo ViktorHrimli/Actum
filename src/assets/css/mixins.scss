@@ -2,3 +2,10 @@
   border: 1px solid var(--light-shadow);
   border-radius: 0.29rem;
 }
+
+
+@mixin desktop {
+  @media screen and (min-width: 1439px) {
+    width: 1440px;
+  }
+}
