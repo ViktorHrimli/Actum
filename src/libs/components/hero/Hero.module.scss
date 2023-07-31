@@ -5,24 +5,36 @@
     display: flex;
     flex-direction: column;
 
+    height: auto;
+
 
     padding-top: 230px;
     padding-left: 70px;
     padding-bottom: 116px;
 
+
+
+    @media screen and (min-width: 768px) {
+        padding-bottom: 34px;
+        padding-left: 53px;
+        padding-top: 130px;
+    }
+
     @media screen and (min-width: 1280px) {
-        height: auto;
         padding-top: 243px;
     }
 
-
-    @media screen and (min-width: 1440px) {
-        height: auto;
-    }
+    @media screen and (min-width: 1440px) {}
 }
 
 .conteiner_wordmark {
     position: relative;
+
+    @media screen and (min-width: 768px) {
+        width: 500px;
+        height: 86.152px;
+        margin-bottom: 24.5px;
+    }
 
     @media screen and (min-width: 1280px) {
         width: 620px;
@@ -49,25 +61,49 @@
 
     border: 0.50px var(--color-text) solid;
 
+    @media screen and (min-width: 768px) {
+        margin-top: 26px;
+    }
+
 
     @media screen and (min-width: 1280px) {
         margin-top: 21px;
     }
+
+
 }
 
 
 .main_gradient {
     position: absolute;
 
-    bottom: 50px;
-    right: 0px;
-
     width: 695.78px;
     height: 598px;
+
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
     z-index: 1;
+
+    @media screen and (min-width: 768px) {
+        bottom: 55px;
+        right: -10px;
+
+        width: 600px;
+        height: 500px;
+    }
+
+
+    @media screen and (min-width: 1280px) {
+        bottom: 50px;
+        right: -120px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        bottom: 50px;
+        right: 0px;
+    }
+
 }
 
 .second_gradient {
@@ -92,8 +128,7 @@
 .thirhd_gradient {
     position: absolute;
 
-    bottom: 10px;
-    right: 200px;
+
 
     width: 242px;
     height: 233px;
@@ -102,16 +137,25 @@
     filter: blur(200px);
 
     z-index: 2;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+
+    @media screen and (min-width: 1280px) {
+        bottom: 50px;
+        right: 60px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        bottom: 10px;
+        right: 200px;
+    }
+
 }
 
 .fourth_gradient {
-
     position: absolute;
-
-
-    top: 170px;
-    right: 550px;
-
 
     width: 242px;
     height: 233px;
@@ -120,6 +164,16 @@
     filter: blur(200px);
 
     z-index: 2;
+
+    @media screen and (min-width: 1280px) {
+        bottom: 50px;
+        right: 400px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: 170px;
+        right: 550px;
+    }
 }
 
 
@@ -131,12 +185,20 @@
 
 
 
+    @media screen and (min-width: 768px) {
+        bottom: 0px;
+        right: -40px;
+
+        width: 984px;
+        height: 689px;
+    }
+
     @media screen and (min-width: 1280px) {
         width: 1046px;
         height: 720px;
 
         bottom: 0px;
-        right: 28px;
+        right: 0px;
     }
 
     @media screen and (min-width: 1440px) {
@@ -145,12 +207,17 @@
     }
 
 
+
     z-index: 2;
 }
 
 
 .title_text {
     font-size: var(--title-text_desktop);
+
+    @media screen and (min-width: 768px) {
+        font-size: 28px;
+    }
 
     @media screen and (min-width: 1280px) {
         font-size: 36px;
@@ -163,10 +230,20 @@
 }
 
 .text {
-    margin-bottom: 246px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 552px;
+        font-size: 16px;
+    }
 
     @media screen and (min-width: 1280px) {
         margin-bottom: 110px;
+        font-size: 20px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        margin-bottom: 246px;
+        font-size: 22px;
     }
 
     z-index: 2;
