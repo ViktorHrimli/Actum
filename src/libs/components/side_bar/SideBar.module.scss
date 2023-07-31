@@ -4,11 +4,43 @@
     top: 0;
     left: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
-    background-color: var(--background);
+    padding: 28px 40px;
 
-    overflow: hidden;
-    background-color: #0f021c;
+    background: var(--background);
+
+    z-index: 30;
+}
+
+
+.head_conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.logo_conteiner {
+    position: relative;
+    width: 28px;
+    height: 25.91px;
+
+
+}
+
+.main_gradient {
+    position: absolute;
+    height: 523px;
+    width: 206px;
+
+    top: 0;
+    right: 0;
+
+    border: 0px none;
+    background: var(--primary-color);
+    border-radius: 103px/261.5px;
+
+    filter: blur(220px);
 }

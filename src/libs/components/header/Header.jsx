@@ -19,8 +19,8 @@ import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
 const variants = {
-  open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: "-100%" },
+  open: { x: "-40px", y: "-53px" },
+  closed: { x: "100%", y: 0 },
 };
 
 export default function Header() {
@@ -48,9 +48,14 @@ export default function Header() {
       </div>
 
       {isSideBar && (
-        <motion.nav animate={isSideBar ? "open" : "closed"} variants={variants}>
-          <SideBar />
-        </motion.nav>
+        <motion.div
+          animate={isSideBar ? "open" : "closed"}
+          variants={variants}
+          initial={{ x: "100%", y: "0" }}
+          transition={{ ease: "easeInOut" }}
+        >
+          <SideBar onClick={handleClickOnBar} isBarSide={isSideBar} />
+        </motion.div>
       )}
     </section>
   );
