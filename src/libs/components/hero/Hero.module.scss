@@ -18,13 +18,20 @@
         padding-bottom: 34px;
         padding-left: 53px;
         padding-top: 130px;
+
+        width: 768px;
     }
 
     @media screen and (min-width: 1280px) {
         padding-top: 243px;
+        width: 1280px;
     }
 
-    @media screen and (min-width: 1440px) {}
+    @media screen and (min-width: 1440px) {
+        width: 1440px;
+    }
+
+    z-index: 10;
 }
 
 .conteiner_wordmark {

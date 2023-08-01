@@ -1,5 +1,9 @@
+@import '/src/assets/css/styles.scss';
+
 .menu {
-    position: absolute;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
     top: 0;
     left: 0;
@@ -11,24 +15,22 @@
 
     background: var(--background);
 
-    z-index: 30;
+
+
+    z-index: 40;
 }
 
 
-.head_conteiner {
+.conteiner {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 
+    margin-top: 100px;
 }
 
-.logo_conteiner {
-    position: relative;
-    width: 28px;
-    height: 25.91px;
 
-
-}
 
 .main_gradient {
     position: absolute;
@@ -36,11 +38,40 @@
     width: 206px;
 
     top: 0;
-    right: 0;
+    right: 100px;
 
-    border: 0px none;
-    background: var(--primary-color);
-    border-radius: 103px/261.5px;
-
+    background: var(--border-gradient);
     filter: blur(220px);
+
+
+}
+
+
+.wrapper_info {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 688px;
+
+    margin-top: auto;
+}
+
+.icon_list {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+
+    gap: 16px;
+}
+
+.phone_conteiner {
+    display: block;
+
+    margin-top: auto;
+}
+
+.text {
+    font-size: 16px;
 }

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
@@ -19,8 +19,8 @@ import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
 const variants = {
-  open: { x: "-40px", y: "-53px" },
-  closed: { x: "100%", y: 0 },
+  open: { x: "-44px", y: "-64px", opacity: 1 },
+  closed: { x: "-100%", y: 0 },
 };
 
 export default function Header() {
@@ -47,16 +47,21 @@ export default function Header() {
         )}
       </div>
 
-      {isSideBar && (
-        <motion.div
-          animate={isSideBar ? "open" : "closed"}
-          variants={variants}
-          initial={{ x: "100%", y: "0" }}
-          transition={{ ease: "easeInOut" }}
-        >
-          <SideBar onClick={handleClickOnBar} isBarSide={isSideBar} />
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isSideBar && (
+          <motion.div
+            animate={isSideBar ? "open" : "closed"}
+            variants={variants}
+            initial={{ x: "100%", y: "-44px", opacity: 0 }}
+            exit={{ x: "120%", opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.7 }}
+          >
+            <SideBar>
+              <Navigation links={PathsPageHeader} route={path} />
+            </SideBar>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
