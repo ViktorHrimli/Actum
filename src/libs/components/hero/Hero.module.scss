@@ -13,6 +13,15 @@
     padding-bottom: 116px;
 
 
+    @media screen and (min-width: 320px) {
+        padding-bottom: 23px;
+        padding-left: 21px;
+        padding-right: 21px;
+        padding-top: 70px;
+
+        width: 320px;
+    }
+
 
     @media screen and (min-width: 768px) {
         padding-bottom: 34px;
@@ -37,21 +46,36 @@
 .conteiner_wordmark {
     position: relative;
 
+
+    @media screen and (min-width: 320px) {
+        width: 240px;
+        height: 41.353px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     @media screen and (min-width: 768px) {
         width: 500px;
         height: 86.152px;
+        margin-left: 0;
+        margin-right: 0;
         margin-bottom: 24.5px;
     }
 
     @media screen and (min-width: 1280px) {
         width: 620px;
         height: 106.829px;
+        margin-left: 0;
+        margin-right: 0;
         margin-bottom: 37.5px;
     }
 
     @media screen and (min-width: 1440px) {
         width: 700px;
         height: 120.613px;
+        margin-left: 0;
+        margin-right: 0;
         margin-bottom: 57.5px;
     }
 
@@ -60,7 +84,6 @@
 
 
 .under_line {
-    width: 235px;
     height: 0;
 
     margin-top: 29px;
@@ -68,16 +91,28 @@
 
     border: 0.50px var(--color-text) solid;
 
+    @media screen and (min-width: 320px) {
+        margin-top: 17px;
+        width: 130px;
+        margin-left: auto;
+    }
+
     @media screen and (min-width: 768px) {
         margin-top: 26px;
+        margin-left: 0;
+        width: 172px;
     }
 
 
     @media screen and (min-width: 1280px) {
         margin-top: 21px;
+        width: 213px;
     }
 
-
+    @media screen and (min-width: 1440px) {
+        margin-top: 21px;
+        width: 235px;
+    }
 }
 
 
@@ -91,6 +126,15 @@
     filter: blur(200px);
 
     z-index: 1;
+
+    @media screen and (min-width: 320px) {
+        width: 380px;
+        height: 557px;
+
+        bottom: 30px;
+        right: -100px;
+
+    }
 
     @media screen and (min-width: 768px) {
         bottom: 55px;
@@ -129,13 +173,15 @@
 
 
     z-index: 2;
+
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
 }
 
 
 .thirhd_gradient {
     position: absolute;
-
-
 
     width: 242px;
     height: 233px;
@@ -144,6 +190,10 @@
     filter: blur(200px);
 
     z-index: 2;
+
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
 
     @media screen and (min-width: 768px) {
         display: none;
@@ -172,6 +222,10 @@
 
     z-index: 2;
 
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
+
     @media screen and (min-width: 1280px) {
         bottom: 50px;
         right: 400px;
@@ -190,6 +244,14 @@
     bottom: -4px;
     right: 0;
 
+
+    @media screen and (min-width: 320px) {
+        bottom: 0px;
+        right: -70px;
+
+        width: 590px;
+        height: 465px;
+    }
 
 
     @media screen and (min-width: 768px) {
@@ -222,6 +284,10 @@
 .title_text {
     font-size: var(--title-text_desktop);
 
+    @media screen and (min-width: 320px) {
+        font-size: 18px;
+    }
+
     @media screen and (min-width: 768px) {
         font-size: 28px;
     }
@@ -238,9 +304,16 @@
 
 .text {
 
+    @media screen and (min-width: 320px) {
+        margin-bottom: 386px;
+        font-size: 12px;
+        margin-left: auto;
+    }
+
     @media screen and (min-width: 768px) {
         margin-bottom: 552px;
         font-size: 16px;
+        margin-left: 0;
     }
 
     @media screen and (min-width: 1280px) {

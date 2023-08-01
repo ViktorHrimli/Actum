@@ -5,6 +5,16 @@
     padding-left: 44px;
     padding-right: 40px;
 
+
+    @media screen and (min-width: 320px) {
+        width: 320px;
+
+        padding-top: 40px;
+        padding-right: 28px;
+        padding-left: 28px;
+    }
+
+
     @media screen and (min-width: 768px) {
         width: 768px;
     }
@@ -25,7 +35,7 @@
 
 .header_conteiner {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 
     gap: 115px;
 

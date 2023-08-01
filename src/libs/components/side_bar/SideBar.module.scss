@@ -40,9 +40,12 @@
     top: 0;
     right: 100px;
 
-    background: var(--border-gradient);
-    filter: blur(220px);
+    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    filter: blur(200px);
 
+    @media screen and (min-width: 320px) {
+        right: -100px;
+    }
 
 }
 
@@ -56,6 +59,10 @@
     width: 688px;
 
     margin-top: auto;
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+    }
 }
 
 .icon_list {
@@ -64,6 +71,8 @@
     margin-left: auto;
 
     gap: 16px;
+
+    z-index: 20;
 }
 
 .phone_conteiner {

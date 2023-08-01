@@ -18,6 +18,10 @@
 
 
     z-index: 30;
+
+    @media screen and (max-width: 767px) {
+        width: 28px;
+    }
 }
 
 .crossed_left {
@@ -26,4 +30,8 @@
 
 .crossed_right {
     transform: translateY(-7px) rotate(45deg);
+
+    @media screen and (max-width: 767px) {
+        transform: translateY(-6px) rotate(45deg);
+    }
 }
