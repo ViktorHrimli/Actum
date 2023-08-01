@@ -11,11 +11,23 @@ export default function Hero() {
   return (
     <section className={styles.hero_section}>
       <div className={styles.conteiner_wordmark}>
-        <Image src={watemark} alt="ACTUM" />
+        <Image
+          src={watemark}
+          alt="ACTUM"
+          priority={true}
+          placeholder="blur"
+          fill
+        />
       </div>
 
       <div className={styles.image_conteiner}>
-        <Image src={femida} alt="Femida" priority placeholder="blur" />
+        <Image
+          src={femida}
+          alt="Femida"
+          priority={true}
+          placeholder="blur"
+          fill
+        />
       </div>
       <h2 className={styles.title_text}>Адвокатське об’Єднання</h2>
       <div className={styles.under_line}></div>

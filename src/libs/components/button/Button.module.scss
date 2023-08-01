@@ -34,12 +34,22 @@
 
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+
+
     &:hover {
         color: var(--secondary-color);
         background-color: var(--secondary-bacground);
     }
 
     z-index: 15;
+
+
+    @media screen and (max-width: 768px) {
+        width: 210px;
+        padding: 14px 12px;
+
+        font-size: 12px;
+    }
 
 }
 

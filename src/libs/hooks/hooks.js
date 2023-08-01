@@ -10,3 +10,5 @@ export {
 } from "react";
 
 export { usePathname, useParams, useRouter } from "next/navigation";
+
+export { useMediaQuery } from "react-responsive";
