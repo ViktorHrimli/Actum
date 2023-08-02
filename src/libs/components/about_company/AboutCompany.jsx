@@ -76,27 +76,18 @@ export default function AboutCompany() {
           спеціаліста або повернемо гроші.
         </p>
 
-        <div>
+        <div className={styles.wrapper_signatur}>
           <div className={styles.conteiner_partner_olena}>
             <p className={styles.partner}>партнер Хоменко Олена</p>
-            <Image
-              src={XO}
-              width={60}
-              height={60}
-              loading="eager"
-              alt="Підпис"
-            />
+            <div className={styles.wrapper_signatur_olena}>
+              <Image src={XO} loading="eager" alt="Підпис" fill />
+            </div>
           </div>
           <div className={styles.conteiner_partner_natalia}>
             <p className={styles.partner}>партнер Коровіна Наталя</p>
-            <Image
-              src={XN}
-              width={100}
-              height={88}
-              loading="eager"
-              alt="Підпис"
-              className={styles.signature}
-            />
+            <div className={styles.wrapper_signatur_natalia}>
+              <Image src={XN} loading="eager" alt="Підпис" fill />
+            </div>
           </div>
         </div>
 
