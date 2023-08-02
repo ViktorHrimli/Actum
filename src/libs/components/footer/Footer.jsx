@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
         <div className={styles.footer_contact}>
           <p className={styles.footer_contact_title}>Email:</p>
-          <a className={styles.email} href="email:info@actum.com.ua">info@actum.com.ua</a>
+          <a className={styles.email} href="mailto:info@actum.com.ua">info@actum.com.ua</a>
         </div>
 
         <div className={styles.policy}>
