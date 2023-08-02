@@ -1,41 +1,171 @@
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .military {
-  width: 916px;
-  height: 650px;
+
   background-color: #414040;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 34px;
-  // z-index: 50;
-  padding: 74px 70px 96px 70px;
-  margin-bottom: 54px;
   position: relative;
+
+    @media screen and (min-width: 320px) {
+      padding: 28px 28px 67px 28px;
+      border-radius: 4px;
+      width: 289px;
+      height: 528px;
+      gap: 18px;
+    }
+    
+    @media screen and (min-width: 480px) {}
+  
+    @media screen and (min-width: 768px) {
+      width: 321px;
+      height: 528px;
+      gap: 18px;
+      padding: 32px 32px 97px 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-in-out forwards;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      width: 849px;
+      height: 559px;
+      gap: 25px;
+      padding: 54px 50px 96px 50px;
+    }
+  
+    @media screen and (min-width: 1440px) {
+      width: 916px;
+      height: 650px;
+      gap: 34px;
+      padding: 74px 70px 96px 70px;
+    }
 }
 
 .military_title {
   color:  #F8F5F5;
     text-align: center;
-    font-size: 40px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     text-transform: uppercase;
+
+    @media screen and (min-width: 320px) {
+      font-size: 20px;
+    }
+    
+    @media screen and (min-width: 480px) {}
+  
+    @media screen and (min-width: 768px) {
+      font-size: 20px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      font-size: 30px;
+    }
+  
+    @media screen and (min-width: 1440px) {
+      font-size: 40px;
+    }
 }
 
 .military_text {
   color: #F8F5F5;
-    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    
+    @media screen and (min-width: 320px) {
+      font-size: 14px;
+    }
+    
+    @media screen and (min-width: 480px) {}
+  
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      font-size: 20px;
+    }
+  
+    @media screen and (min-width: 1440px) {
+      font-size: 24px;
+    }
 }
 
 .military_text_bold {
-  font-weight: 700;
+  @media screen and (min-width: 768px) {
+    font-weight: 400;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-weight: 700;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-weight: 700;
+  }
 }
 
 .military_icon {
   position: absolute;
   right: 0;
   bottom: 0;
+  animation: spin 20s linear 0s infinite;
+  @media screen and (min-width: 320px) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.criminal_icon_click {
+  position: absolute;
+
+  @media screen and (min-width: 320px) {
+    width: 18px;
+    height: 18px;
+    right: 32px;
+    bottom: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 40px;
+    height: 40px;
+    right: 70px;
+    bottom: 70px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 40px;
+    height: 40px;
+    right: 70px;
+    bottom: 70px;
+  }
 }

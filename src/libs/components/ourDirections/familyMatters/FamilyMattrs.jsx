@@ -1,6 +1,8 @@
 import Image from "next/image";
 
-import LinkedPath from "@/assets/svg/Linked_Path.png";
+import LinkedPath from "@/assets/svg/Detail_icon.png";
+import Click from "@/assets/svg/Klick_icon.png";
+
 
 import styles from "./FamilyMattrs.module.scss";
 
@@ -31,6 +33,14 @@ export default function FamilyMattrs() {
         width={180}
         height={180}
         className={styles.family_icon}
+      />
+
+      <Image
+        src={Click}
+        alt="Click"
+        width={40}
+        height={40}
+        className={styles.family_icon_click}
       />
     </div>
   );

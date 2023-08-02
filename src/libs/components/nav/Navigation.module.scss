@@ -4,11 +4,18 @@
 
 .nav_list {
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     gap: 48px;
+
+    @media screen and (max-width: 1279px) {
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+
+        gap: 20px;
+    }
 }
 
 .active_link {

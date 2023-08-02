@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="uk-UA">
       <body className={montserrat.className}>
         <Header />
 

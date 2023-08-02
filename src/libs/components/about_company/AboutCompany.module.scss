@@ -3,72 +3,272 @@
 .section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-
     width: 100%;
-    height: 1024px;
 
-    padding-top: 92px;
-    padding-right: 160px;
-    padding-left: 53px;
+    @media screen and (min-width: 320px) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+
+        padding-top: 44px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 36px;
+
+    }
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        justify-items: normal;
+
+        padding-top: 48px;
+        padding-right: 45px;
+        padding-left: 20px;
+        padding-bottom: 43px;
+
+        height: 828px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        grid-template-columns: 1fr 1fr;
+        justify-items: normal;
+        padding-top: 85px;
+        padding-right: 117px;
+        padding-left: 50px;
+        padding-bottom: 58px;
+
+        height: 832px;
+
+    }
+
+    @media screen and (min-width: 1440px) {
+        grid-template-columns: 1fr 1fr;
+        justify-items: normal;
+        height: 1024px;
+
+        padding-top: 92px;
+        padding-right: 160px;
+        padding-left: 53px;
+        padding-bottom: 0px;
+    }
+
+
 }
 
 .about_conteiner {
     display: flex;
     flex-direction: column;
 
-    width: 445px;
+    @media screen and (min-width: 320px) {
+        align-items: center;
+        width: 280px;
+    }
 
-    margin-left: auto;
+    @media screen and (min-width: 768px) {
+        width: 283px;
+        margin-left: auto;
+        align-items: normal;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 427px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 445px;
+    }
 }
 
 .title_text {
-    font-size: 40px;
-    margin-bottom: 64px;
+
+    @media screen and (min-width: 320px) {
+        font-size: 22px;
+        margin-bottom: 286px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 28px;
+        margin-bottom: 48.5px;
+    }
+
+
+    @media screen and (min-width: 1280px) {
+        font-size: 36px;
+        margin-bottom: 42.5px;
+    }
+
+    @media screen and (min-width: 1440px) {
+
+        font-size: 40px;
+        margin-bottom: 64px;
+    }
+
+    z-index: 5;
 }
 
 .text {
-    margin-bottom: 40px;
-    font-size: 20px;
-    font-style: normal;
 
+    font-style: normal;
     line-height: normal;
 
     text-transform: none;
     z-index: 2;
+
+    @media screen and (min-width: 320px) {
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        margin-bottom: 24px;
+
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    @media screen and (min-width: 1440px) {
+
+        margin-bottom: 40px;
+        font-size: 20px;
+    }
+
+    z-index: 5;
 }
 
 .conteiner_map {
     position: relative;
+}
+
+.ukraine_map {
+    position: absolute;
 
 
+    @media screen and (min-width:320px) {
+        width: 280px;
+        height: 187.193px;
+
+        top: 65px;
+        left: -142px;
+    }
+
+
+    @media screen and (min-width: 768px) {
+        top: 20px;
+        left: 0px;
+        width: 350px;
+        height: 233.991px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        top: -40px;
+        left: 0px;
+        width: 600px;
+        height: 401.127px;
+    }
+
+    @media screen and (min-width: 1440px) {
+
+        top: -20px;
+        left: 0px;
+        width: 650px;
+        height: 447.511px;
+    }
 }
 
 .ukraine_inner_text {
     position: absolute;
 
-    width: 245px;
-
-    top: 65px;
-    left: 72px;
-
-    font-size: 15px;
     text-align: center;
+
+    @media screen and (min-width:320px) {
+        width: 118px;
+
+        top: 110px;
+        left: -124px;
+
+        font-size: 7px;
+        line-height: 9px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 8px;
+        line-height: 10px;
+        width: 142px;
+        top: 69px;
+        left: 30px;
+    }
+
+
+    @media screen and (min-width: 1280px) {
+        width: 187px;
+
+        top: 36px;
+        left: 72px;
+
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+
+    @media screen and (min-width: 1440px) {
+
+        width: 245px;
+
+        top: 65px;
+        left: 72px;
+
+        font-size: 15px;
+        line-height: 19px;
+    }
 
     z-index: 2;
 }
 
 .ukraine_inner_city {
     position: absolute;
-
-    width: 279px;
-
-    top: 115px;
-    left: 308px;
-
-    font-size: 15px;
-
     text-align: center;
+
+    @media screen and (min-width:320px) {
+        font-size: 7px;
+        line-height: 9px;
+
+        top: 128px;
+        left: -8px;
+
+        width: 123px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 8px;
+        line-height: 10px;
+        width: 144px;
+        top: 90px;
+        left: 170px;
+    }
+
+
+    @media screen and (min-width: 1280px) {
+        width: 264px;
+
+        top: 95px;
+        left: 308px;
+        line-height: 14px;
+        font-size: 12px;
+    }
+
+
+    @media screen and (min-width: 1440px) {
+        width: 279px;
+
+        top: 115px;
+        left: 308px;
+
+        font-size: 15px;
+        line-height: 20px;
+    }
 
     z-index: 2;
 
@@ -76,11 +276,30 @@
 
 .bold_text {
     color: #F8F5F5;
-    font-size: 15px;
     font-style: normal;
     font-weight: 700;
     line-height: 20px;
     text-transform: uppercase;
+
+    @media screen and (min-width:320px) {
+        font-size: 7px;
+        line-height: 9px;
+    }
+
+    @media screen and (min-width:768px) {
+        font-size: 8px;
+        line-height: 10px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 15px;
+        line-height: 20px;
+    }
 }
 
 .conteiner_partner_natalia {
@@ -88,29 +307,161 @@
     display: flex;
     align-items: end;
 
-    width: 410px;
-
-    margin-left: 95px;
-    margin-top: 30px;
-    margin-bottom: 77px;
 
     gap: 10px;
 
     z-index: 2;
+
+    @media screen and (min-width: 320px) {
+        margin-bottom: 43px;
+        margin-top: 13px;
+        margin-left: 0;
+
+        width: 223px;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 48px;
+        margin-top: 13px;
+        margin-left: 16px;
+
+        width: 300px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 48.5px;
+        margin-left: 60px;
+        margin-top: 30px;
+
+        width: 410px;
+    }
+
+    @media screen and (min-width: 1440px) {
+
+        margin-left: 95px;
+        margin-top: 30px;
+        margin-bottom: 77px;
+
+        width: 410px;
+
+    }
 }
 
-.signature {
+
+.wrapper_signatur {
+    position: relative;
+
+    @media screen and (min-width: 320px) {
+        margin-top: 211px;
+    }
+
+    @media screen and (min-width:768px) {
+        margin-top: 0;
+    }
+}
+
+.wrapper_signatur_natalia {
     position: absolute;
 
-    top: -36px;
-    right: 21px;
+
+    @media screen and (min-width:320px) {
+        width: 50px;
+        height: 56.884px;
+
+        top: -23px;
+        right: -33px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 60px;
+        height: 68px;
+
+        top: -29px;
+        right: 4px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        top: -33px;
+        right: 57px;
+
+        width: 70px;
+        height: 79px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 88px;
+        height: 100px;
+
+        top: -45px;
+        right: 21px;
+    }
+}
+
+.wrapper_signatur_olena {
+    position: absolute;
+
+    @media screen and (min-width:320px) {
+        top: 0px;
+        right: 36px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: 768px) {
+        top: 0px;
+        right: 11px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        top: -26px;
+        right: 108px;
+
+        width: 50px;
+        height: 50px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        top: -26px;
+        right: 90px;
+
+        width: 60px;
+        height: 60px;
+    }
+
+    z-index: 5;
 }
 
 .conteiner_partner_olena {
     display: flex;
     align-items: end;
     gap: 10px;
+    width: 410px;
 
+    @media screen and (min-width: 320px) {
+        width: 283px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 300px;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 410px;
+        margin-left: 0;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 410px;
+        margin-left: 0;
+    }
 
     z-index: 2;
 }
@@ -118,7 +469,6 @@
 .partner {
     color: var(--color-text);
     font-family: Montserrat;
-    font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -127,29 +477,94 @@
     word-wrap: break-word;
 
     z-index: 2;
+
+    @media screen and (min-width:320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 20px;
+    }
 }
 
 
 .natalia_conteiner {
     position: absolute;
-    width: 526px;
-    height: 745px;
+
+    @media screen and (min-width: 320px) {
+        width: 181px;
+        height: 263px;
+        bottom: -900px;
+        left: -70px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 370px;
+        height: 524.049px;
+
+        bottom: -43px;
+        left: 90px;
+
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 420px;
+        height: 594.867px;
+        bottom: -58px;
+        left: 185px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 526px;
+        height: 745px;
 
 
-    bottom: 0;
-    left: 259px;
+        bottom: 0;
+        left: 259px;
+    }
 
     z-index: 2;
 }
 
 .olga_conteiner {
     position: absolute;
-    width: 430px;
-    height: 700px;
 
+    @media screen and (min-width: 320px) {
+        width: 148px;
+        height: 252px;
 
-    bottom: 0;
-    left: -14px;
+        bottom: -900px;
+        left: -152px;
+    }
+
+    @media screen and (min-width:768px) {
+        width: 300px;
+        height: 488.372px;
+        bottom: -43px;
+        left: -41px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 350px;
+        height: 569.767px;
+        bottom: -58px;
+        left: -60px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 430px;
+        height: 700px;
+        bottom: 0;
+        left: -14px;
+    }
 
     z-index: 2;
 }
