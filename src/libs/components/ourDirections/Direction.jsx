@@ -19,7 +19,7 @@ export default function Direction() {
   return (
     <section className={styles.direction_section}>
       <div className={styles.direction_container}>
-        <LeftBar text={"наші напрями"} />
+        {/* <LeftBar text={"наші напрями"} /> */}
 
         <div className={styles.flex_position}>
           <div className={styles.box_img}>
@@ -83,14 +83,14 @@ export default function Direction() {
             <div className={styles.block_hover_criminal_background}></div>
           </div>
 
-          <div className={styles.box_btn}>
+          {/* <div className={styles.box_btn}>
             <Button
               onClick={() => {}}
               style={"button_service"}
               type={"button"}
               text={"усі послуги"}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
