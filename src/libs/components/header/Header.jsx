@@ -18,13 +18,15 @@ import Logo from "@/assets/svg/LOGO.png";
 import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
-const variants = {
-  open: { x: "-28px", y: "-64px", opacity: 1 },
-};
-
 export default function Header() {
   const [isSideBar, setIsSideBar] = useState(false);
   const path = usePathname();
+
+  const isMobile = useMediaQuery({ query: "(max-width: 450px)" });
+
+  const variants = {
+    open: { x: isMobile ? "-55px" : "-28px", y: "-64px", opacity: 1 },
+  };
 
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1279px)" });
@@ -52,10 +54,14 @@ export default function Header() {
             animate={isSideBar ? "open" : "closed"}
             variants={variants}
             initial={{ x: "100%", y: "-44px" }}
-            exit={{ x: "120%", duration: 0.5 }}
+            exit={{ x: "100%", duration: 0.5 }}
             transition={{ ease: "linear", duration: 0.5 }}
             style={{
-              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+
+              width: "100vw",
               height: "100vh",
               position: "absolute",
               zIndex: "15",

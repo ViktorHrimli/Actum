@@ -1,13 +1,16 @@
 @import '/src/assets/css/styles.scss';
 
 .section {
-    position: relative;
+
     display: flex;
     flex-direction: column;
     background: var(--primary-back);
 
+
     height: auto;
-    width: 100%;
+    width: 100vw;
+    transform: translate(-50% -50%);
+
 
     @media screen and (min-width: 320px) {
         padding: 44px 20px 38px 20px;
