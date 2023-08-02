@@ -1,6 +1,7 @@
 @import '/src/assets/css/styles.scss';
 
 .section {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: var(--primary-back);
@@ -8,7 +9,9 @@
     height: auto;
     width: 100%;
 
-    @media screen and (min-width: 320px) {}
+    @media screen and (min-width: 320px) {
+        padding: 44px 20px 38px 20px;
+    }
 
 
     @media screen and (min-width: 768px) {
@@ -25,6 +28,8 @@
         padding: 102px 70px;
         height: 1024px;
     }
+
+    z-index: 5;
 }
 
 
@@ -77,9 +82,17 @@
 .conteiner_text {
     margin-right: auto;
 
-    @media screen and (min-width: 320px) {}
+    @media screen and (min-width: 320px) {
+        width: 280px;
 
-    @media screen and (min-width: 768px) {}
+        margin-bottom: 42px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 482px;
+
+        margin-bottom: 86px;
+    }
 
     @media screen and (min-width: 1280px) {
         width: 482px;
@@ -98,11 +111,23 @@
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 320px) {}
+    @media screen and (min-width: 320px) {
+        margin-bottom: 36px;
+        flex-direction: column;
+
+        :nth-child(1) {
+            display: none;
+        }
+    }
 
     @media screen and (min-width: 768px) {
         gap: 70px;
         margin-bottom: 42px;
+        flex-direction: row;
+
+        :nth-child(1) {
+            display: block;
+        }
     }
 
     @media screen and (min-width: 1280px) {
@@ -121,16 +146,24 @@
     color: var(--secondary-color);
     text-transform: none;
 
-    @media screen and (min-width: 320px) {}
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+        line-height: 16px;
+    }
 
 
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 19px;
+    }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
+        line-height: 21px;
     }
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
+        line-height: 24px;
     }
 }
