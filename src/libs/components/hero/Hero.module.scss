@@ -244,13 +244,15 @@
     bottom: -4px;
     right: 0;
 
+    object-fit: cover;
+    aspect-ratio: auto;
 
     @media screen and (min-width: 320px) {
         bottom: 0px;
         right: -70px;
 
-        width: 590px;
-        height: 465px;
+        width: 651px;
+        height: 443px;
     }
 
 

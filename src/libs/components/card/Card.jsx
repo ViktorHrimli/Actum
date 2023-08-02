@@ -5,14 +5,9 @@ import styles from "./Card.module.scss";
 export default function Card({ name, photo, date, body }) {
   return (
     <li className={styles.conteiner}>
-      <Image
-        src={photo}
-        alt="Person"
-        width={73}
-        height={73}
-        loading="lazy"
-        className={styles.image}
-      />
+      <div className={styles.wrapper_image}>
+        <Image src={photo} alt="Person" fill loading="lazy" />
+      </div>
 
       <p className={styles.text_name}>{name}</p>
       <p className={styles.text}>{body}</p>

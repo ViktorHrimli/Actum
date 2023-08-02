@@ -19,7 +19,7 @@ import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
 const variants = {
-  open: { x: "-44px", y: "-64px", opacity: 1 },
+  open: { x: "-28px", y: "-64px", opacity: 1 },
 };
 
 export default function Header() {
@@ -46,14 +46,20 @@ export default function Header() {
         )}
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="popLayout">
         {isSideBar && (
           <motion.div
             animate={isSideBar ? "open" : "closed"}
             variants={variants}
-            initial={{ x: "100%", y: "-44px", opacity: 0 }}
-            exit={{ x: "120%", duration: 0.5, opacity: 0 }}
+            initial={{ x: "100%", y: "-44px" }}
+            exit={{ x: "120%", duration: 0.5 }}
             transition={{ ease: "linear", duration: 0.5 }}
+            style={{
+              width: "100%",
+              height: "100vh",
+              position: "absolute",
+              zIndex: "15",
+            }}
           >
             <SideBar>
               <Navigation links={PathsPageHeader} route={path} />

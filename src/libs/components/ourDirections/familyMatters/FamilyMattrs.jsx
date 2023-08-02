@@ -3,7 +3,6 @@ import Image from "next/image";
 import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 
-
 import styles from "./FamilyMattrs.module.scss";
 
 export default function FamilyMattrs() {
@@ -32,6 +31,7 @@ export default function FamilyMattrs() {
         alt="Linked"
         width={180}
         height={180}
+        loading="lazy"
         className={styles.family_icon}
       />
 
@@ -40,6 +40,7 @@ export default function FamilyMattrs() {
         alt="Click"
         width={40}
         height={40}
+        loading="lazy"
         className={styles.family_icon_click}
       />
     </div>

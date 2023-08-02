@@ -1,6 +1,7 @@
 import Button from "../button/Button";
 import Card from "../card/Card";
 import LeftBar from "../left_bar_text/LeftBar";
+
 import styles from "./Response.module.scss";
 
 import Card1 from "@/assets/svg/Card_1.png";
