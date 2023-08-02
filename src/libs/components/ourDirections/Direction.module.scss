@@ -1,18 +1,114 @@
 .direction_section {
-  width: 1440px;
-  height: 1020px;
-  background-color: #E2E0E0;
-  padding-left: 70px;
-  padding-top: 102px;
-  padding-bottom: 102px;
 
-  z-index: 20;
+  background-color: #E2E0E0;
+
+  overflow: hidden;
+  z-index: 200;
+  
+  @media screen and (min-width: 320px) {
+    min-width: 320px;
+    height: 1920px;
+    padding-top: 44px;
+    padding-left: auto;
+    padding-right: auto;
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 1179px;
+    padding-top: 48px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  width: 1280px;
+  height: 832px;
+
+  padding-left: 53px;
+  padding-top: 76px;
+  padding-bottom: 61px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    height: 1020px;
+    padding-left: 70px;
+    padding-top: 102px;
+    padding-bottom: 102px;
+  }
 }
 
 .direction_container {
   width: 100%;
   height: 100%;
   display: flex;
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+.box_title {
+  display: flex;
+
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    margin-bottom: 53px;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px){
+    width: 100%;
+    height: 40px;
+    margin-bottom: 63px;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 49px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 69px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 49px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 69px;
+  }
+}
+
+.direction_line {
+  background-color: #E32F7A;
+  @media screen and (min-width: 320px) {
+    width: 30px;
+    height: 2px;
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    width: 50px;
+    height: 2px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 4px;
+    height: 140px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 4px;
+    height: 169px;
+  }
 }
 
 .flex_position {
@@ -22,127 +118,315 @@
 
 .direction_title {
   color: #1F1F1F;
-  font-size: 40px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  transform: rotate(-90deg);
   white-space: nowrap;
+
+  @media screen and (min-width: 320px) {
+    font-size: 22px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 36px;
+    transform: rotate(-90deg);
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 40px;
+    transform: rotate(-90deg);
+  }
 }
 
 .box_img {
   position: relative;
-  width: 916px;
-  height: 649px;
-  margin-top: 66px;
-  margin-bottom: 33px;
+
   display: flex;
   overflow: hidden;
+
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    width: 849px;
+    height: 559px;
+    margin-top: 58px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 916px;
+    height: 649px;
+    margin-top: 66px;
+    margin-bottom: 33px;
+  }
 }
 
 .img {
   position: absolute;
 }
 
-.touch_icon {
+// -------- animations -------------
+
+.touch_icon_hands {
   position: absolute;
   top: 44px;
   left: 44px;
-  z-index: 10;
+  z-index: 11;
 }
 
+.touch_icon_halmet {
+  position: absolute;
+  top: 45%;
+  left: 47%;
+  z-index: 11;
+}
+
+.touch_icon_criminal {
+  position: absolute;
+  bottom: 44px;
+  right: 44px;
+  z-index: 11;
+}
+
+// ----------- block hover --------
 
 .block_hover_hands {
-  width: 400px;
   height: 750px;
-  z-index: 10;
+  z-index: 13;
   position: absolute;
-  left: -108px;
-  top: -241px;
-  transform: rotate(43.4deg);
+  // left: -108px;
+  // top: -241px;
+  
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 330px;
+    transform: rotate(44.4deg);
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    transform: rotate(43.4deg);
+  }
 }
 
 .block_hover_hands_background {
-  width: 400px;
   height: 750px;
-  z-index: 8;
-  position: absolute;
-  left: -108px;
-  top: -241px;
-  transform: rotate(43.4deg);
-  background-color: rgba(227, 47, 122, 0.2);
-}
-
-
-.block_hover_halmet {
-  width: 393px;
-  height: 1200px;
   z-index: 10;
   position: absolute;
-  left: 267px;
-  top: -283px;
-  transform: rotate(43.5deg);
+  top: -241px;
+  background-color: rgba(227, 47, 122, 0.2);
+
+  @media screen and (min-width: 320px) {
+  }
+  @media screen and (min-width: 480px) {
+  }
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    width: 330px;
+    transform: rotate(44.7deg);
+    left: -111px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    left: -109px;
+    transform: rotate(43.4deg);
+  }
+}
+
+.block_hover_halmet {
+  height: 1200px;
+  z-index: 13;
+  position: absolute;
+
+  @media screen and (min-width: 320px) {
+  }
+  @media screen and (min-width: 480px) {
+  }
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    width: 390px;
+    left: 182px;
+    top: -283px;
+    transform: rotate(44.7deg);
+  }
+  @media screen and (min-width: 1440px) {
+    width: 393px;
+    left: 267px;
+    top: -283px;
+    transform: rotate(43.5deg);
+  }
 }
 
 .block_hover_criminal {
-  width: 400px;
   height: 750px;
-  z-index: 10;
+  z-index: 13;
   position: absolute;
-  left: 623px;
-  top: 138px;
-  transform: rotate(43.5deg);
+
+
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    width: 330px;
+    transform: rotate(44.7deg);
+    left: 566px;
+    top: 95px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+      left: 623px;
+        top: 138px;
+        transform: rotate(43.5deg);
+  }
 }
 
 .block_hover_criminal_background {
-  width: 400px;
   height: 750px;
-  z-index: 8;
+  z-index: 10;
   position: absolute;
-  left: 623px;
-  top: 138px;
-  transform: rotate(43.5deg);
   background-color: rgba(63, 46, 100, 0.5);
+
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    width: 330px;
+    transform: rotate(44.7deg);
+    left: 566px;
+    top: 95px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+      left: 623px;
+        top: 138px;
+    transform: rotate(43.5deg);
+  }
 }
+// ---------------- img
 
 .img_hands {
-  width: 492px;
-  height: 518px;
   z-index: 5;
   position: absolute;
   top: 0;
   left: 0;
+
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    width: 419px;
+    height: 422px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 492px;
+    height: 518px;
+  }
 }
 
 .img_halmet {
-  width: 916px;
-  height: 649px;
   z-index: 4;
+
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    width: 849px;
+    height: 559px;
+  }
+  @media screen and (min-width: 1440px) {
+      width: 916px;
+        height: 649px;
+  }
 }
 
 .img_criminal {
-  width: 492px;
-  height: 518px;
+
   z-index: 7;
   position: absolute;
   bottom: 0;
   right: 0;
+
+  @media screen and (min-width: 320px) {
+    
+  }
+  @media screen and (min-width: 480px) {
+    
+  }
+  @media screen and (min-width: 768px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    width: 419px;
+    height: 422px;
+  }
+  @media screen and (min-width: 1440px) {
+      width: 492px;
+        height: 518px;
+  }
 }
 
 // ------------- FAMILY matters
 
 .modal_family {
   position: absolute;
-  z-index: 9;
+  z-index: 12;
   opacity: 0;
   visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
+
 }
 
 .modal_military {
   position: absolute;
-  z-index: 9;
+  z-index: 12;
   opacity: 0;
   visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
@@ -150,7 +434,7 @@
 
 .modal_criminal {
   position: absolute;
-  z-index: 9;
+  z-index: 12;
   opacity: 0;
   visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
@@ -178,4 +462,199 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
+
+  @media screen and (min-width: 320px) and (max-width: 767px){
+    display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px){
+    width: 672px;
+    display: flex;
+    justify-content: center;
+  }
 }
+
+.direction_btn {
+  border: 1px solid #E32F7A;
+
+  color: #1F1F1F;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 320px) {
+    padding: 12px 62px 12px 61px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  @media screen and (min-width: 480px) {
+    
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px){
+    margin-bottom: 25px;
+    padding: 17px 68px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 24px 71px;
+    margin-left: 576px;
+    font-size: 19.5px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 24px 71px;
+    margin-left: 638px;
+    font-size: 19.5px;
+  }
+}
+
+// ---------- tablet and mob
+
+.tablet_img {
+  position: relative;
+  width: 100%;
+  display: flex;
+  
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    height: 920px;
+    gap: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.tablet_img_hands {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 528px;
+  border-radius: 4px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    width: 320px;
+  }
+}
+
+.tablet_img_halmet {
+  position: absolute;
+  right: 0;
+  width: 320px;
+  height: 528px;
+  border-radius: 4px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+    
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    top: 0;
+  }
+}
+
+.tablet_img_criminal {
+  height: 365px;
+  position: absolute;
+  left: 0;
+  bottom:  0;
+  border-radius: 4px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width:671px;
+  }
+}
+
+//  ---------- mob
+
+.mob_img {
+  position: relative;
+  width: 100%;
+  display: flex;
+
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    flex-direction: column;
+    height: 1674px;
+    gap: 40px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.mob_img_hands_gradient {
+  position: absolute;
+  z-index: 2;
+  width: 290px;
+  height: 528px;
+  border-radius: 4px;
+  background: rgba(227, 47, 122, 0.20);
+}
+
+
+.mob_img_hands {
+  z-index: 1;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+}
+
+.mob_img_halmet{
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mob_img_criminal {
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+// ------------------
+
+@keyframes delayAppear {
+  to {
+    opacity: 1;
+  }
+}
+
+.show {
+  opacity: 0;
+  animation: delayAppear 1s linear forwards;
+}
+
+.show_hands,
+.show_halmet,
+.show_criminal {
+  opacity: 0;
+}
+
