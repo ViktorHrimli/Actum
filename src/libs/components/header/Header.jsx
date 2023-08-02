@@ -20,7 +20,6 @@ import SideBar from "../side_bar/SideBar";
 
 const variants = {
   open: { x: "-44px", y: "-64px", opacity: 1 },
-  closed: { x: "-100%", y: 0 },
 };
 
 export default function Header() {
@@ -53,8 +52,8 @@ export default function Header() {
             animate={isSideBar ? "open" : "closed"}
             variants={variants}
             initial={{ x: "100%", y: "-44px", opacity: 0 }}
-            exit={{ x: "120%", opacity: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.7 }}
+            exit={{ x: "120%", duration: 0.5, opacity: 0 }}
+            transition={{ ease: "linear", duration: 0.5 }}
           >
             <SideBar>
               <Navigation links={PathsPageHeader} route={path} />

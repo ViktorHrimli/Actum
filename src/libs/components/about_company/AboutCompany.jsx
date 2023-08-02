@@ -30,17 +30,11 @@ export default function AboutCompany() {
               Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон,
               Покровськ.
             </span>
-            : надаємо онлайн-консультації або виїзджаємо до Вас.
           </p>
         </div>
-        <Image
-          src={Ukraine}
-          alt="Ukraine"
-          width={650}
-          height={448}
-          style={{ position: "absolute", top: "-40px", left: "0px" }}
-        />
-
+        <div className={styles.ukraine_map}>
+          <Image src={Ukraine} alt="Ukraine" fill loading="lazy" />
+        </div>
         {/* GRADIENTS */}
         <div className={gradient.main_gradient}></div>
         <div className={gradient.second_gradient}></div>
@@ -49,14 +43,19 @@ export default function AboutCompany() {
           <Image
             src={Olga}
             alt="Olga"
-            width={430}
-            height={700}
+            fill
             loading="eager"
             placeholder="blur"
           />
         </div>
         <div className={styles.natalia_conteiner}>
-          <Image src={Natalia} alt="Natalia" placeholder="blur" />
+          <Image
+            src={Natalia}
+            alt="Natalia"
+            fill
+            loading="eager"
+            placeholder="blur"
+          />
         </div>
       </div>
       <div className={styles.about_conteiner}>
@@ -77,27 +76,18 @@ export default function AboutCompany() {
           спеціаліста або повернемо гроші.
         </p>
 
-        <div>
+        <div className={styles.wrapper_signatur}>
           <div className={styles.conteiner_partner_olena}>
             <p className={styles.partner}>партнер Хоменко Олена</p>
-            <Image
-              src={XO}
-              width={60}
-              height={60}
-              loading="eager"
-              alt="Підпис"
-            />
+            <div className={styles.wrapper_signatur_olena}>
+              <Image src={XO} loading="eager" alt="Підпис" fill />
+            </div>
           </div>
           <div className={styles.conteiner_partner_natalia}>
             <p className={styles.partner}>партнер Коровіна Наталя</p>
-            <Image
-              src={XN}
-              width={100}
-              height={88}
-              loading="eager"
-              alt="Підпис"
-              className={styles.signature}
-            />
+            <div className={styles.wrapper_signatur_natalia}>
+              <Image src={XN} loading="eager" alt="Підпис" fill />
+            </div>
           </div>
         </div>
 
