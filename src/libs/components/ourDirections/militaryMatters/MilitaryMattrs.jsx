@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import LinkedPath from "@/assets/svg/Linked_Path.png";
+import LinkedPath from "@/assets/svg/Detail_icon.png";
+import Click from "@/assets/svg/Klick_icon.png";
 
 import styles from "./MilitaryMattrs.module.scss";
 
@@ -30,6 +31,14 @@ export default function MilitaryMattrs() {
         width={180}
         height={180}
         className={styles.military_icon}
+      />
+
+      <Image
+        src={Click}
+        alt="Click"
+        width={40}
+        height={40}
+        className={styles.criminal_icon_click}
       />
     </div>
   );

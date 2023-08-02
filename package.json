@@ -16,12 +16,13 @@
     "@hookform/resolvers": "3.1.1",
     "@reduxjs/toolkit": "1.9.5",
     "clsx": "1.2.1",
-    "react-hook-form": "7.44.3",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.44.3",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "sass": "1.63.4",
