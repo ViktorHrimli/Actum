@@ -1,0 +1,29 @@
+@import '/src/assets/css/styles.scss';
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 49px;
+    height: inherit;
+
+    margin-right: 69px;
+}
+
+.line {
+    width: 4px;
+    height: 169px;
+    background-color: #E32F7A;
+}
+
+.title_text {
+    color: var(--secondary-color);
+
+    font-size: 40px;
+    font-weight: 500;
+
+    transform: rotate(-90deg);
+    white-space: nowrap;
+}

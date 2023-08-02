@@ -50,6 +50,7 @@
   }
 }
 
+
 .box_title {
   display: flex;
 
@@ -458,6 +459,8 @@
 // ------------- btn
 
 .box_btn {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
 
   @media screen and (min-width: 320px) and (max-width: 767px){
@@ -654,3 +657,4 @@
 .show_criminal {
   opacity: 0;
 }
+

@@ -4,6 +4,7 @@
   --secondary-color: #1F1F1F;
   --secondary-bacground: #D9D9D9;
   --background: #0F021C;
+  --primary-back: #E2E0E0;
 
 
   --border-gradient: linear-gradient(275deg, #E32F7A 0%, #D70F74 42%, #912E6F 81%);
@@ -36,6 +37,12 @@ html,
 }
 
 body {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   color: var(--color-text);
   font-family: var(--fonts-text);
   background: var(--background);

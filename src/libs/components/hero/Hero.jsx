@@ -9,14 +9,14 @@ import styles from "./Hero.module.scss";
 
 export default function Hero() {
   return (
-    <div className={styles.hero_conteiner}>
+    <section className={styles.hero_section}>
       <div className={styles.conteiner_wordmark}>
         <Image
           src={watemark}
           alt="ACTUM"
-          width={700}
-          height={120.61}
-          loading="eager"
+          priority={true}
+          placeholder="blur"
+          fill
         />
       </div>
 
@@ -24,11 +24,9 @@ export default function Hero() {
         <Image
           src={femida}
           alt="Femida"
-          width={1303}
-          height={848}
-          loading="eager"
-          priority
+          priority={true}
           placeholder="blur"
+          fill
         />
       </div>
       <h2 className={styles.title_text}>Адвокатське об’Єднання</h2>
@@ -40,7 +38,12 @@ export default function Hero() {
       <div className={styles.thirhd_gradient}></div>
       <div className={styles.fourth_gradient}></div>
 
-      <Button onClick={() => {}} type={"button"} params={"consult"} />
-    </div>
+      <Button
+        onClick={() => {}}
+        type={"button"}
+        text="замовити консультацію"
+        style="button_prymary"
+      />
+    </section>
   );
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 import Image from "next/image";
+
 import styles from "./Direction.module.scss";
 
 import FamilyMattrs from "./familyMatters/FamilyMattrs";
@@ -28,7 +29,8 @@ import Hands from "@/assets/svg/Hands.png";
 import Helmet from "@/assets/svg/Helmet.png";
 import HelmetAnimations from "@/assets/svg/Halmet_animation.jpeg";
 import Criminal from "@/assets/svg/Criminal.png";
-
+import Button from "@/libs/components/button/Button";
+import LeftBar from "@/libs/components/left_bar_text/LeftBar";
 
 export default function Direction() {
   const [activeElementIndex, setActiveElementIndex] = useState(0);
@@ -44,7 +46,7 @@ export default function Direction() {
   const [showSecondCard, setShowSecondCard] = useState(false);
   const [showThirdCard, setShowThirdCard] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
       setShowCards(entry.isIntersecting);
@@ -63,9 +65,9 @@ export default function Direction() {
         observer.unobserve(cardsRef.current);
       }
     };
-    }, []);
+  }, []);
   
-    useEffect(() => {
+  useEffect(() => {
     if (showCards) {
       const firstCardTimeout = setTimeout(() => {
         setShowFirstCard(true);
@@ -145,7 +147,7 @@ export default function Direction() {
           {showCards && <div className={`${!showFirstCard ? styles.show_hands : ''}`}><FamilyMattrs /></div>}
         </div>
 
-        <div  className={styles.tablet_img_halmet}>
+        <div className={styles.tablet_img_halmet}>
           <Image src={TabletHalmet} alt="Halmet" fill className={styles.tablet_img_halmet} />
 
           {showCards && <div className={`${!showSecondCard ? styles.show_halmet : ''}`}><MilitaryMattrs /></div>}
@@ -188,6 +190,7 @@ export default function Direction() {
             </div>
           </div>
 
+
           <div className={styles.img_hands} >
             <Image src={Hands} alt="Hands" fill className={styles.img} />
           </div>
@@ -210,3 +213,4 @@ export default function Direction() {
     </div>
   </section >
 }
+
