@@ -325,14 +325,17 @@ export default function Direction() {
                   : {}
               }
             ></div>
-            
-            <div className={styles.block_hover_hands_background} style={activeElementIndex === 0 && activeAnimations ? { background: "rgba(227, 47, 122, 0.40)" } : {}}></div>
-            <div className={styles.block_hover_criminal_background} style={activeElementIndex === 2 && activeAnimations ? { background: "rgba(63, 46, 100, 0.80)" } : {}}></div>
           </div>
           
+            <div className={styles.marker_box}>
+              <div className={styles.marker} style={{ background: "#E32F7A" }}></div>
+              <div className={styles.marker} style={{ background: "#1F1F1F)" }}></div>
+              <div className={styles.marker} style={{ background: "#3F2E64" }}></div>
+            </div>
+
             <div className={styles.box_btn}>
             <Button
-              style={"button_prymary"}
+              style={"button_service"}
               text={"усі послуги"}
               type={"button"}
             />
