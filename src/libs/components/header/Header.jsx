@@ -21,12 +21,12 @@ import SideBar from "../side_bar/SideBar";
 
 export default function Header() {
   const [isSideBar, setIsSideBar] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const path = usePathname();
 
   useEffect(() => {
     if (isSideBar) {
       document.body.style.position = "fixed";
-      document.body.style.width = "100vw";
       document.body.style.top = `-${window.scrollY}px`;
     }
 
@@ -35,12 +35,16 @@ export default function Header() {
       document.body.style.top = "";
     };
   }, [isSideBar]);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const variants = {
     open: { x: 0, y: 0, opacity: 1 },
   };
 
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1279px)" });
 
   const handleClickOnBar = useCallback(() => setIsSideBar(!isSideBar));
 
@@ -51,10 +55,9 @@ export default function Header() {
           <Image src={Logo} alt="Logo" fill priority={true} />
         </div>
 
-        {isDesktopOrLaptop && (
+        {isDesktopOrLaptop && isClient ? (
           <Navigation links={PathsPageHeader} route={path} />
-        )}
-        {isTabletOrMobile && (
+        ) : (
           <BtnSideBar isBarSide={isSideBar} onClick={handleClickOnBar} />
         )}
       </div>
