@@ -172,14 +172,14 @@
     width: 849px;
     height: 559px;
     margin-top: 58px;
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 916px;
     height: 649px;
     margin-top: 66px;
-    margin-bottom: 33px;
+    // margin-bottom: 33px;
   }
 }
 
@@ -338,7 +338,7 @@
 
   @media screen and (min-width: 1440px) {
     width: 400px;
-    left: 623px;
+    left: 629px;
     top: 138px;
     transform: rotate(43.5deg);
   }
@@ -413,6 +413,32 @@
   }
 }
 
+.marker_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  
+  @media screen and (min-width: 320px) and (max-width: 1279px){
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 33px;
+    
+  }
+}
+
+.marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+
 // ------------- FAMILY matters
 
 .modal_family {
@@ -472,43 +498,6 @@
     width: 672px;
     display: flex;
     justify-content: center;
-  }
-}
-
-.direction_btn {
-  border: 1px solid #E32F7A;
-
-  color: #1F1F1F;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-
-  @media screen and (min-width: 320px) {
-    padding: 12px 62px 12px 61px;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-  }
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    margin-bottom: 25px;
-    padding: 17px 68px;
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding: 24px 71px;
-    margin-left: 576px;
-    font-size: 19.5px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 24px 71px;
-    margin-left: 638px;
-    font-size: 19.5px;
   }
 }
 
