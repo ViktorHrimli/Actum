@@ -329,7 +329,7 @@ export default function Direction() {
           
             <div className={styles.marker_box}>
               <div className={styles.marker} style={{ background: "#E32F7A" }}></div>
-              <div className={styles.marker} style={{ background: "#1F1F1F)" }}></div>
+              <div className={styles.marker} style={{ background: "#1F1F1F" }}></div>
               <div className={styles.marker} style={{ background: "#3F2E64" }}></div>
             </div>
 
