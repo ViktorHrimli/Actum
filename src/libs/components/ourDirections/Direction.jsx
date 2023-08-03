@@ -326,9 +326,6 @@ export default function Direction() {
               }
             ></div>
           </div>
-          <div className={styles.box_btn}>
-            <button className={styles.direction_btn}>усі послуги</button>
-          </div>
           
           <div className={styles.block_hover_hands_background} style={activeElementIndex === 0 && activeAnimations ? { background: "rgba(227, 47, 122, 0.40)" } : {}}></div>
           <div className={styles.block_hover_criminal_background} style={activeElementIndex === 2 && activeAnimations ? { background: "rgba(63, 46, 100, 0.80)" } : {}}></div>
