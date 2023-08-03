@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   useCallback,
   useState,
+  useEffect,
 } from "@/libs/hooks/hooks";
 
 import Logo from "@/assets/svg/LOGO.png";
@@ -22,10 +23,20 @@ export default function Header() {
   const [isSideBar, setIsSideBar] = useState(false);
   const path = usePathname();
 
-  const isMobile = useMediaQuery({ query: "(max-width: 450px)" });
+  useEffect(() => {
+    if (isSideBar) {
+      document.body.style.position = "fixed";
+      document.body.style.width = "100vw";
+      document.body.style.top = `-${window.scrollY}px`;
+    }
 
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+    };
+  }, [isSideBar]);
   const variants = {
-    open: { x: isMobile ? "-55px" : "-28px", y: "-64px", opacity: 1 },
+    open: { x: 0, y: 0, opacity: 1 },
   };
 
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
@@ -48,19 +59,18 @@ export default function Header() {
         )}
       </div>
 
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence>
         {isSideBar && (
           <motion.div
             animate={isSideBar ? "open" : "closed"}
             variants={variants}
-            initial={{ x: "100%", y: "-44px" }}
+            initial={{ x: "100%", y: "0" }}
             exit={{ x: "100%", duration: 0.5 }}
-            transition={{ ease: "linear", duration: 0.5 }}
+            transition={{ ease: "easeInOut", duration: 0.5 }}
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-
+              top: 0,
+              left: 0,
+              overflow: "hidden",
               width: "100vw",
               height: "100vh",
               position: "absolute",
