@@ -207,7 +207,11 @@ export default function Direction() {
           
         </div>
         <div className={styles.box_btn}>
-          <button className={styles.direction_btn}>усі послуги</button>
+          <Button
+            style={"button_prymary"}
+            text={"замовити консультацію"}
+            type={"button"}
+          />
         </div>
       </div>
     </div>
