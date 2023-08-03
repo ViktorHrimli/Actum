@@ -8,20 +8,22 @@ export default function Footer() {
   return (
     <div className={styles.footer_section}>
       <div className={styles.footer_container}>
-        <Image src={Logo} alt="Logo" width={400} height={117} />
-        <div>
-          <p className={styles.footer_title}>Головний офіс:</p>
-          
-        <p className={styles.footer_text}>Україна, м. Київ, вул. Оболонська набережна 15, корпус 5</p>
-        
-          <p className={styles.footer_title}>Філії по містах:</p>
+        <Image src={Logo} alt="Logo" width={400} height={117} className={styles.footer_logo}/>
+        <div className={styles.footer_text_box}>
 
-          <p className={styles.footer_text}>
+          <p className={styles.footer_title_phone_only}><span className={styles.footer_title_bold_phone_only}>Головний офіс:</span> Україна, м. Київ, вул. Оболонська набережна 15, корпус 5</p>
+          <div className={styles.display_none}>
+            <p className={styles.footer_title}>Головний офіс:</p>
+            <p className={styles.footer_text}>Україна, м. Київ, вул. Оболонська набережна 15, корпус 5</p>
+          </div>
+            <p className={styles.footer_title}>Філії по містах:</p>
+
+            <p className={styles.footer_text}>
             Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон, Покровськ
           </p>
           <div className={styles.footer_gradient}></div>
         </div>
-        <div>
+        <div className={styles.footer_contact_box}>
           <div className={styles.footer_contact}>
             <p className={styles.footer_contact_title}>Phone:</p>
             <div>
@@ -46,6 +48,9 @@ export default function Footer() {
             </a>
             <a className={styles.policy_text} href="">
               Правила надання онлайн-консультації
+            </a>
+            <a className={styles.policy_text} href="">
+              Мапа сайту
             </a>
           </div>
 
