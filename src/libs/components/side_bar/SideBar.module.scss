@@ -1,7 +1,7 @@
 @import '/src/assets/css/styles.scss';
 
 .menu {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
