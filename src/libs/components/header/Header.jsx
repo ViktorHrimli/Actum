@@ -74,7 +74,7 @@ export default function Header() {
               width: "100vw",
               height: "100vh",
               position: "absolute",
-              zIndex: "15",
+              zIndex: "20",
             }}
           >
             <SideBar>
