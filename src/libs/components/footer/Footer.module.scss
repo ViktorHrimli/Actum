@@ -56,9 +56,8 @@
 .footer_gradient {
   position: absolute;
 
-
   // background-color: #E32F7A;
-  background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+  background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
   filter: blur(150px);
 
   z-index: 1;
