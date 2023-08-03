@@ -7,8 +7,11 @@ import Button from "../button/Button";
 export default function Footer() {
   return (
     <div className={styles.footer_section}>
+      <div className={styles.footer_gradient}></div>
+
       <div className={styles.footer_container}>
-        <Image src={Logo} alt="Logo" width={400} height={117} className={styles.footer_logo}/>
+        <Image src={Logo} alt="Logo" width={400} height={117} className={styles.footer_logo} />
+        
         <div className={styles.footer_text_box}>
 
           <p className={styles.footer_title_phone_only}><span className={styles.footer_title_bold_phone_only}>Головний офіс:</span> Україна, м. Київ, вул. Оболонська набережна 15, корпус 5</p>
@@ -21,7 +24,6 @@ export default function Footer() {
             <p className={styles.footer_text}>
             Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон, Покровськ
           </p>
-          <div className={styles.footer_gradient}></div>
         </div>
         <div className={styles.footer_contact_box}>
           <div className={styles.footer_contact}>

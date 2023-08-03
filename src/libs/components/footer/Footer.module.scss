@@ -40,6 +40,7 @@
   @media screen and (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
+    z-index: 3;
   }
   @media screen and (min-width: 768px) {
     gap: 33px;
@@ -111,10 +112,11 @@
 .footer_text_box{
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 264px;
-    // z-index: 3;
+    z-index: 3;
   }
   @media screen and (min-width: 768px) {
     width: 304px;
+    z-index: 3;
   }
 }
 
@@ -140,6 +142,7 @@
   } 
   @media screen and (min-width: 768px) {
     display: block;
+    z-index: 3;
   }
 }
 
@@ -195,9 +198,9 @@
 }
 
 .footer_contact_box {
+    z-index: 3;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 262px;
-    z-index: 3;
   }
 }
 
