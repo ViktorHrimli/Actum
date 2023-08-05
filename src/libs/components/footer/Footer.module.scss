@@ -91,6 +91,12 @@
   }
 }
 
+.box_logo {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .footer_logo {
   z-index: 2;
@@ -115,7 +121,7 @@
     z-index: 3;
   }
   @media screen and (min-width: 768px) {
-    width: 304px;
+    // width: 304px;
     z-index: 3;
   }
 }
@@ -271,20 +277,32 @@
   font-weight: 400;
   line-height: normal;
   text-transform: lowercase;
-  margin-bottom: 36px;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-left: 10px;
     font-size: 14px;
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: 768px) {
     margin-left: 0px;
     font-size: 14px;
+    margin-bottom: 48px;
   }
   @media screen and (min-width: 1280px) {
     margin-left: 10px;
     font-size: 20px;
+    margin-bottom: 80px;
+  }
+}
+
+.policy_mob_none {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 36px;
+  z-index: 2;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
   }
 }
 
@@ -292,6 +310,10 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 36px;
+  z-index: 2;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .policy_text {
