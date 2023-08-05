@@ -1,0 +1,132 @@
+.button_prymary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+    color: var(--color-text);
+    background-color: transparent;
+
+    text-transform: uppercase;
+    word-wrap: break-word;
+    cursor: pointer;
+
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+    ;
+
+    -moz-border-image: -moz-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    -webkit-border-image: -webkit-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    border-image-slice: 1;
+
+
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+
+
+    &:hover {
+        color: var(--secondary-color);
+        background-color: var(--secondary-bacground);
+    }
+
+    z-index: 15;
+
+
+    @media screen and (max-width: 767px) {
+        width: 210px;
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        padding: 14px 12px;
+        max-width: 280px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+        width: 355px;
+
+        padding: 20px 26px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 20px;
+        width: 355px;
+
+        padding: 20px 26px;
+
+    }
+
+}
+
+.button_service {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 71px;
+
+    color: var(--secondary-color);
+    background-color: var(--color-text);
+
+    text-transform: uppercase;
+    word-wrap: break-word;
+    cursor: pointer;
+
+    border-radius: 4px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+
+
+    -moz-border-image: -moz-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    -webkit-border-image: -webkit-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    border-image-slice: 1;
+
+
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    z-index: 15;
+
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+        padding: 12px 30px;
+        width: 250px;
+    }
+
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 20px;
+    }
+
+    &:hover {
+        color: var(--color-text);
+        background-color: var(--primary-color);
+    }
+
+
+
+}
