@@ -19,9 +19,12 @@
         padding: 56px 64px 66px 64px
     }
 
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: 1280px) {
+        padding: 130px 140px 188px 64px;
+    }
 
-    @media screen and (min-width: 1439px) {
+    @media screen and (min-width: 1440px) {
+        padding: 150px 140px 200px 70px;
         width: 1440px;
         overflow: hidden;
     }
@@ -41,6 +44,15 @@
         width: 636px;
     }
 
+    @media screen and (min-width: 1280px) {
+        width: 992px;
+    }
+
+
+    @media screen and (min-width: 1440px) {
+        width: 1147px;
+    }
+
 }
 
 .about_border_text_conteiner {
@@ -49,22 +61,38 @@
     justify-content: center;
 
     height: 260px;
+
+    margin-bottom: 84px;
     gap: 18px;
 
     @media screen and (min-width: 768px) {
         gap: 20px;
         height: 220px;
+        margin-bottom: 90px;
+
+    }
+
+    @media screen and (min-width: 1280px) {
+        gap: 37px;
+        height: 220px;
+        margin-bottom: 170px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        gap: 40px;
+        height: 220px;
+        margin-bottom: 184px;
     }
 
 }
 
 .borders {
-    width: 2px;
+    width: 4px;
     height: 100%;
     background-color: var(--primary-color);
 
     @media screen and (min-width: 768px) {
-        width: 4px;
+        width: 10px;
     }
 }
 
@@ -75,5 +103,13 @@
 
     @media screen and (min-width: 768px) {
         font-size: 26px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 36px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 40px;
     }
 }
