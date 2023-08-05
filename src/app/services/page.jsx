@@ -1,4 +1,7 @@
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import AboutServices from "@/libs/pages/services/components/about/AboutServices";
+
+import ServiceHero from "@/libs/pages/services/components/hero/ServiceHero";
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,
@@ -6,5 +9,10 @@ export const metadata = {
 };
 
 export default function Services() {
-  return <h1>Services</h1>;
+  return (
+    <>
+      <ServiceHero />
+      <AboutServices />
+    </>
+  );
 }

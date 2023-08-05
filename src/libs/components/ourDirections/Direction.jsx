@@ -30,7 +30,10 @@ import HelmetAnimations from "@/assets/svg/Halmet_animation.jpeg";
 import Criminal from "@/assets/svg/Criminal.png";
 
 import Button from "@/libs/components/button/Button";
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+
+const ONE = 0;
+const SECOND = 1;
+const THERD = 2;
 
 export default function Direction() {
   const [activeElementIndex, setActiveElementIndex] = useState(0);
@@ -330,15 +333,23 @@ export default function Direction() {
           <div className={styles.marker_box}>
             <div
               className={styles.marker}
-              style={{ background: "#E32F7A" }}
+              style={{
+                background: activeElementIndex === ONE ? "#E32F7A" : "#1F1F1F",
+              }}
             ></div>
             <div
               className={styles.marker}
-              style={{ background: "#1F1F1F" }}
+              style={{
+                background:
+                  activeElementIndex === SECOND ? "#E32F7A" : "#1F1F1F",
+              }}
             ></div>
             <div
               className={styles.marker}
-              style={{ background: "#3F2E64" }}
+              style={{
+                background:
+                  activeElementIndex === THERD ? "#E32F7A" : "#1F1F1F",
+              }}
             ></div>
           </div>
 
