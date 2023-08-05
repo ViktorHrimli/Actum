@@ -62,13 +62,7 @@ export default function Header() {
         )}
       </div>
 
-      {isSideBar && (
-        <SideBar>
-          <Navigation links={PathsPageHeader} route={path} />
-        </SideBar>
-      )}
-
-      {/* <AnimatePresence>
+      <AnimatePresence>
         {isSideBar && (
           <motion.div
             animate={isSideBar ? "open" : "closed"}
@@ -91,7 +85,7 @@ export default function Header() {
             </SideBar>
           </motion.div>
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
     </section>
   );
 }
