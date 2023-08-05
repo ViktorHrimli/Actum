@@ -1,6 +1,7 @@
 .footer_section {
   position: relative;
   background-color: #0F021C;
+  
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 320px;
@@ -32,6 +33,7 @@
     padding-top: 67px;
     padding-left: 57px;
     padding-right: 150px;
+    overflow: hidden;
   }
 }
 

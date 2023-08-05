@@ -7,7 +7,7 @@ import Response from "@/libs/components/response/Response";
 export default function Home() {
   return (
     <>
-      {/* <ContactPanel /> */}
+      <ContactPanel />
       <Hero />
       <Direction />
       <AboutCompany />
