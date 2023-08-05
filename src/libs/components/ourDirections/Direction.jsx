@@ -34,7 +34,7 @@ import LeftBar from "@/libs/components/left_bar_text/LeftBar";
 
 export default function Direction() {
   const [activeElementIndex, setActiveElementIndex] = useState(0);
-  const [activeAnimations, setActiveAnimations] = useState(true);
+  const [activeAnimations, setActiveAnimations] = useState(false);
   // ----------- Animations Tablet
 
   const [showCards, setShowCards] = useState(false);
@@ -326,14 +326,23 @@ export default function Direction() {
               }
             ></div>
           </div>
-          
-            <div className={styles.marker_box}>
-              <div className={styles.marker} style={{ background: "#E32F7A" }}></div>
-              <div className={styles.marker} style={{ background: "#1F1F1F" }}></div>
-              <div className={styles.marker} style={{ background: "#3F2E64" }}></div>
-            </div>
 
-            <div className={styles.box_btn}>
+          <div className={styles.marker_box}>
+            <div
+              className={styles.marker}
+              style={{ background: "#E32F7A" }}
+            ></div>
+            <div
+              className={styles.marker}
+              style={{ background: "#1F1F1F" }}
+            ></div>
+            <div
+              className={styles.marker}
+              style={{ background: "#3F2E64" }}
+            ></div>
+          </div>
+
+          <div className={styles.box_btn}>
             <Button
               style={"button_service"}
               text={"усі послуги"}

@@ -1,6 +1,6 @@
-import Button from "@/libs/components/button/Button";
-import Card from "@/libs/components/card/Card";
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import Button from "../button/Button";
+import Card from "../card/Card";
+import LeftBar from "../left_bar_text/LeftBar";
 
 import styles from "./Response.module.scss";
 
