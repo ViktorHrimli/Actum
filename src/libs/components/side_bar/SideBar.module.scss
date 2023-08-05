@@ -1,17 +1,6 @@
 @import '/src/assets/css/styles.scss';
 
-@keyframes slide {
-    0% {
 
-        right: -100%;
-    }
-
-    100% {
-
-        left: 0;
-    }
-
-}
 
 .menu {
     position: absolute;
@@ -28,11 +17,6 @@
     margin: 0 auto;
 
     padding: 28px 40px;
-
-
-    transition: transform 0.8s;
-
-    animation: slide 0.7s ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
 
     background: var(--background);
     z-index: 40;
@@ -72,6 +56,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin-top: auto;
 
 }
 

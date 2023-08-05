@@ -14,7 +14,7 @@
         padding-bottom: 23px;
         padding-left: 21px;
         padding-right: 21px;
-        padding-top: 70px;
+        padding-top: 130px;
 
         width: 320px;
     }
@@ -35,9 +35,11 @@
 
     @media screen and (min-width: 1440px) {
         width: 1440px;
+        overflow-x: hidden;
     }
 
     z-index: 10;
+
 }
 
 .conteiner_wordmark {
@@ -76,7 +78,7 @@
         margin-bottom: 57.5px;
     }
 
-    z-index: 5;
+    z-index: 2;
 }
 
 
@@ -122,7 +124,7 @@
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
-    z-index: 1;
+    z-index: 2;
 
     @media screen and (min-width: 320px) {
         width: 380px;
@@ -157,23 +159,28 @@
 .second_gradient {
     position: absolute;
 
-    top: 330px;
-    right: 90px;
 
-    width: 155px;
-    height: 167px;
 
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
-    border-radius: 100px;
+    z-index: 10;
 
-
-    z-index: 2;
-
-    @media screen and (max-width: 1279px) {
-        display: none;
+    @media screen and (min-width: 320px) {
+        width: 300px;
+        right: 0;
+        top: 330px;
+        height: 241;
     }
+
+    @media screen and (min-width: 1280px) {
+        top: 330px;
+        right: 90px;
+
+        width: 155px;
+        height: 167px;
+    }
+
 }
 
 
@@ -186,14 +193,16 @@
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
-    z-index: 2;
+    z-index: 5;
 
-    @media screen and (max-width: 1279px) {
+    @media screen and (max-width: 767px) {
         display: none;
     }
 
     @media screen and (min-width: 768px) {
-        display: none;
+        bottom: 50px;
+        right: 60px;
+        width: 300px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -217,10 +226,18 @@
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
-    z-index: 2;
+    z-index: 5;
 
-    @media screen and (max-width: 1279px) {
+    @media screen and (max-width: 767px) {
         display: none;
+
+    }
+
+    @media screen and (min-width: 768px) {
+        bottom: 50px;
+        right: 400px;
+
+        width: 300px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -276,7 +293,7 @@
 
 
 
-    z-index: 2;
+    z-index: 3;
 }
 
 
@@ -296,7 +313,7 @@
     }
 
 
-    z-index: 2;
+    z-index: 1;
 
 
 }
