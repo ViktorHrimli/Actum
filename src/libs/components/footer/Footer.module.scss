@@ -4,14 +4,20 @@
   overflow: hidden;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 100%;
+    width: 320px;
     // height: 525px;
-
+    padding-top: 44px;
+    padding-left: 28px;
+    padding-right: 28px;
+    margin-bottom: 51px;
   }
   @media screen and (min-width: 768px) {
-    width: 100%;
+    width: 768px;
     height: 332px;
-    
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;  
+    padding-bottom: 35px;
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
@@ -36,19 +42,10 @@
   @media screen and (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
-    // z-index: 3;
-    padding-top: 44px;
-    padding-left: 28px;
-    padding-right: 28px;
-    margin-bottom: 51px;
+    z-index: 3;
   }
   @media screen and (min-width: 768px) {
     gap: 26px;
-    justify-content: center;
-    padding-top: 70px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 35px;
   }
 
   @media screen and (min-width: 1280px) {
