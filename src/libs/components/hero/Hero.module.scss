@@ -52,6 +52,7 @@
         margin-bottom: 20px;
         margin-left: auto;
         margin-right: auto;
+        z-index: 5;
     }
 
     @media screen and (min-width: 768px) {
@@ -68,6 +69,7 @@
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 37.5px;
+        z-index: 2;
     }
 
     @media screen and (min-width: 1440px) {
@@ -130,7 +132,7 @@
         width: 380px;
         height: 557px;
 
-        bottom: 30px;
+        bottom: -200px;
         right: -100px;
 
     }
@@ -167,10 +169,10 @@
     z-index: 10;
 
     @media screen and (min-width: 320px) {
-        width: 300px;
+        width: 400px;
         right: 0;
         top: 330px;
-        height: 241;
+        height: 241px;
     }
 
     @media screen and (min-width: 1280px) {
