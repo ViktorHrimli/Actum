@@ -26,13 +26,13 @@ export default function Header() {
 
   useEffect(() => {
     if (isSideBar) {
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
     }
 
     return () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
+      document.body.style.overflow = "auto";
+      document.body.style.maxHeight = "100%";
     };
   }, [isSideBar]);
 

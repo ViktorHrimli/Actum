@@ -37,11 +37,28 @@
 
 .title_text {
     color: var(--2, #F8F5F5);
-    font-size: 28px;
+
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
+    font-size: var(--title-text_desktop);
+
+    @media screen and (min-width: 320px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 36px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 40px;
+    }
 }
 
 .text {

@@ -300,24 +300,9 @@
 
 
 .title_text {
-    font-size: var(--title-text_desktop);
-
-    @media screen and (min-width: 320px) {
-        font-size: 18px;
-    }
-
-    @media screen and (min-width: 768px) {
-        font-size: 28px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        font-size: 36px;
-    }
 
 
     z-index: 1;
-
-
 }
 
 .text {
