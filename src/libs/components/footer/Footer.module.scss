@@ -2,23 +2,15 @@
   position: relative;
   background-color: #0F021C;
 
+  overflow: hidden;
+
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 320px;
-    // height: 525px;
-    padding-top: 44px;
-    padding-left: 28px;
-    padding-right: 28px;
-    margin-bottom: 51px;
+    width: 100%;
   }
 
   @media screen and (min-width: 768px) {
-    width: 768px;
-    height: 332px;
-    padding-top: 70px;
-    padding-left: 32px;
-    padding-right: 38px;
-    padding-bottom: 35px;
+    width: 100%;
   }
 
   @media screen and (min-width: 1280px) {
@@ -46,11 +38,19 @@
   @media screen and (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
-    z-index: 3;
+    padding-top: 44px;
+    padding-left: 28px;
+    padding-right: 28px;
+    margin-bottom: 51px;
   }
 
   @media screen and (min-width: 768px) {
-    gap: 33px;
+    justify-content: center;
+    gap: 26px;
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 35px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -69,7 +69,9 @@
   background: linear-gradient(to right, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
   filter: blur(150px);
 
+
   z-index: 1;
+
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 844px;
@@ -278,7 +280,7 @@
   line-height: normal;
   text-transform: lowercase;
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
     font-size: 14px;
   }
 
@@ -346,8 +348,10 @@
   font-weight: 400;
   line-height: normal;
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
     font-size: 14px;
+    width: 217px;
   }
 
   @media screen and (min-width: 1280px) {
