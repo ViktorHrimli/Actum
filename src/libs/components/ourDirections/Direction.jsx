@@ -34,7 +34,7 @@ import LeftBar from "@/libs/components/left_bar_text/LeftBar";
 
 export default function Direction() {
   const [activeElementIndex, setActiveElementIndex] = useState(0);
-  const [activeAnimations, setActiveAnimations] = useState(true);
+  const [activeAnimations, setActiveAnimations] = useState(false);
   // ----------- Animations Tablet
 
   const [showCards, setShowCards] = useState(false);
