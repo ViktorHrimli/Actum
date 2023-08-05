@@ -1,7 +1,7 @@
 .footer_section {
   position: relative;
   background-color: #0F021C;
-  
+
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 320px;
@@ -11,14 +11,16 @@
     padding-right: 28px;
     margin-bottom: 51px;
   }
+
   @media screen and (min-width: 768px) {
     width: 768px;
     height: 332px;
     padding-top: 70px;
     padding-left: 32px;
-    padding-right: 38px;  
+    padding-right: 38px;
     padding-bottom: 35px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 1280px;
     height: 367px;
@@ -26,10 +28,11 @@
     padding-left: 45px;
     padding-right: 60px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 1440px;
     height: 428px;
-  
+
     padding-top: 67px;
     padding-left: 57px;
     padding-right: 150px;
@@ -39,11 +42,13 @@
 
 .footer_container {
   display: flex;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
     z-index: 3;
   }
+
   @media screen and (min-width: 768px) {
     gap: 33px;
   }
@@ -51,6 +56,7 @@
   @media screen and (min-width: 1280px) {
     gap: 52px;
   }
+
   @media screen and (min-width: 1440px) {
     gap: 62px;
   }
@@ -64,22 +70,25 @@
   filter: blur(150px);
 
   z-index: 1;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 844px;
     height: 233px;
     top: 159px;
     left: -343px;
   }
+
   @media screen and (min-width: 768px) {
     width: 844px;
     height: 259px;
     top: 146px;
     left: -104px;
   }
+
   @media screen and (min-width: 1280px) {
     top: 127px;
     left: 35px;
-  
+
     width: 844px;
     height: 233px;
   }
@@ -87,7 +96,7 @@
   @media screen and (min-width: 1440px) {
     top: 127px;
     left: 35px;
-  
+
     width: 844px;
     height: 233px;
   }
@@ -102,26 +111,30 @@
 
 .footer_logo {
   z-index: 2;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 230px;
     height: 68px;
     margin-bottom: 41px;
   }
+
   @media screen and (min-width: 768px) {
     width: 200px;
     height: 59px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 400px;
     height: 118px;
   }
 }
 
-.footer_text_box{
+.footer_text_box {
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 264px;
     z-index: 3;
   }
+
   @media screen and (min-width: 768px) {
     // width: 304px;
     z-index: 3;
@@ -147,14 +160,15 @@
 .display_none {
   @media screen and (min-width: 320px) and (max-width: 767px) {
     display: none;
-  } 
+  }
+
   @media screen and (min-width: 768px) {
     display: block;
     z-index: 3;
   }
 }
 
-.footer_title_bold_phone_only{
+.footer_title_bold_phone_only {
   font-weight: 600;
 }
 
@@ -167,6 +181,7 @@
   @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
   }
+
   @media screen and (min-width: 1280px) {
     font-size: 18px;
   }
@@ -199,6 +214,7 @@
     width: 172px;
     font-size: 14px;
   }
+
   @media screen and (min-width: 1280px) {
     font-size: 20px;
     width: 304px;
@@ -206,7 +222,8 @@
 }
 
 .footer_contact_box {
-    z-index: 3;
+  z-index: 3;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 262px;
   }
@@ -214,14 +231,16 @@
 
 .footer_contact {
   display: flex;
-  
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-bottom: 0;
   }
+
   @media screen and (min-width: 768px) {
     flex-direction: column;
     margin-bottom: 7px;
   }
+
   @media screen and (min-width: 1280px) {
     flex-direction: row;
     margin-bottom: 7px;
@@ -233,7 +252,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
     margin-right: 5px;
@@ -262,7 +281,7 @@
   @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
   }
-  
+
   @media screen and (min-width: 1280px) {
     font-size: 20px;
   }
@@ -291,6 +310,7 @@
     font-size: 14px;
     margin-bottom: 48px;
   }
+
   @media screen and (min-width: 1280px) {
     margin-left: 10px;
     font-size: 20px;
@@ -303,6 +323,7 @@
   flex-direction: column;
   margin-bottom: 36px;
   z-index: 2;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     display: none;
   }
@@ -313,6 +334,7 @@
   flex-direction: column;
   margin-bottom: 36px;
   z-index: 2;
+
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -323,9 +345,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
   }
+
   @media screen and (min-width: 1280px) {
     font-size: 20px;
   }
