@@ -16,7 +16,7 @@
   @media screen and (min-width: 480px) {}
 
   @media screen and (min-width: 768px) {
-    width: 768px;
+    width: 100vw;
     height: 1179px;
     padding-top: 48px;
     padding-left: 48px;
@@ -38,6 +38,12 @@
     padding-left: 70px;
     padding-top: 102px;
     padding-bottom: 102px;
+    @media screen and (min-height: 700px) and (max-height: 799px){
+      height: 700px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      
+    }
   }
 }
 
@@ -115,6 +121,9 @@
   @media screen and (min-width: 1440px) {
     width: 4px;
     height: 169px;
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+      height: 70px;
+    }
   }
 }
 
@@ -172,14 +181,16 @@
     width: 849px;
     height: 559px;
     margin-top: 58px;
-    // margin-bottom: 24px;
+    margin-bottom: 24px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 916px;
     height: 649px;
     margin-top: 66px;
-    // margin-bottom: 33px;
+    @media screen and (min-width: 1440px) and (max-height: 799px){
+      margin-top: 0;
+    }
   }
 }
 
@@ -216,8 +227,8 @@
   height: 750px;
   z-index: 13;
   position: absolute;
-  // left: -108px;
-  // top: -241px;
+  left: -108px;
+  top: -241px;
 
   @media screen and (min-width: 320px) {}
 
@@ -276,8 +287,8 @@
   @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
-    width: 390px;
-    left: 182px;
+    width: 398px;
+    left: 188px;
     top: -283px;
     transform: rotate(44.7deg);
   }
@@ -287,6 +298,10 @@
     left: 267px;
     top: -283px;
     transform: rotate(43.5deg);
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+      width: 310px;
+      left: 250px;
+    }
   }
 }
 
@@ -305,7 +320,7 @@
   @media screen and (min-width: 1280px) {
     width: 330px;
     transform: rotate(44.7deg);
-    left: 566px;
+    left: 582px;
     top: 95px;
   }
 
@@ -314,6 +329,10 @@
     left: 623px;
     top: 138px;
     transform: rotate(43.5deg);
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+      left: 606px;
+        top: 32px;
+    }
   }
 }
 
@@ -332,7 +351,7 @@
   @media screen and (min-width: 1280px) {
     width: 330px;
     transform: rotate(44.7deg);
-    left: 566px;
+    left: 582px;
     top: 95px;
   }
 
@@ -341,6 +360,10 @@
     left: 629px;
     top: 138px;
     transform: rotate(43.5deg);
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+      left: 606px;
+        top: 32px;
+    }
   }
 }
 
