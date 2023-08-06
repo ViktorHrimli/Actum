@@ -1,4 +1,4 @@
-import styles from "./Items.module.scss"
+import styles from "./Items.module.scss";
 import Button from "@/libs/components/button/Button";
 
 
