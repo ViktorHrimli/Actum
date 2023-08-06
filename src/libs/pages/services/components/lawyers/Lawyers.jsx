@@ -1,6 +1,6 @@
 import styles from "./Lawyers.module.scss";
 
-import Items from "./Items";
+import Items from "./items/Items";
 
 
 export default function Lawyers() {
