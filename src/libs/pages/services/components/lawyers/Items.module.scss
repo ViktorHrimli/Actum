@@ -1,0 +1,228 @@
+.container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 72px;
+  }
+    @media screen and (min-width: 1280px) {
+      gap: 61px;
+    }
+}
+
+.container_cards {
+  width: 280px;
+  height: 238px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 377px;
+    height: 316px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 484px;
+    height: 275px;
+  }
+}
+
+.border {
+  z-index: 5;
+  position: relative;
+  width: 257px;
+  rotate: (180deg);
+  border: 1px solid transparent;
+
+  border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+  ;
+
+  -moz-border-image: -moz-linear-gradient(to right,
+      #E32F7A,
+      #912E6F,
+      #3F2E64);
+  -webkit-border-image: -webkit-linear-gradient(to right,
+      #E32F7A,
+      #912E6F,
+      #3F2E64);
+
+  border-image-slice: 1;
+  margin-left: auto;
+  margin-bottom: 17px;
+
+  @media screen and (min-width: 1280px) {
+    width: 346px;
+    margin-bottom: 43px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 376px;
+  }
+}
+
+.border_right {
+  z-index: 5;
+  width: 139px;
+  border: 1px solid var(--primary-color);
+  rotate: (90deg);
+  position: absolute;
+  top: -70px;
+  right: 186px;
+  @media screen and (min-width: 1280px) {
+    width: 176px;
+    right: 256px;
+    top: -90px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 157px;
+    right: 296px;
+    top: -79px;
+  }
+}
+
+.border_bottom {
+  z-index: 5;
+  position: relative;
+  width: 257px;
+  rotate: (360deg);
+  border: 1px solid transparent;
+  margin-top: auto;
+
+  border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+  ;
+
+  -moz-border-image: -moz-linear-gradient(to right,
+      #E32F7A,
+      #912E6F,
+      #3F2E64);
+  -webkit-border-image: -webkit-linear-gradient(to right,
+      #E32F7A,
+      #912E6F,
+      #3F2E64);
+
+  border-image-slice: 1;
+  
+  @media screen and (min-width: 1280px) {
+      width: 346px;
+    }
+  
+  @media screen and (min-width: 1440px) {
+    width: 376px;
+  }
+}
+
+.border_left {
+  z-index: 5;
+  width: 139px;
+  border: 1px solid var(--primary-color);
+  rotate: (90deg);
+  position: absolute;
+  top: -70px;
+  right: 186px;
+  @media screen and (min-width: 1280px) {
+    width: 176px;
+    right: 256px;
+    top: -90px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 157px;
+    right: 296px;
+    top: -79px;
+  }
+}
+
+
+.title {
+  z-index: 5;
+  margin-left: 34px;
+  width: 176px;
+  color:  #F8F5F5;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    width: 293px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 370px;
+    font-size: 28px;
+    margin-bottom: 36px;
+  }
+  
+}
+
+.marker {
+  z-index: 5;
+  display: block;
+  width: 7px;
+  height: 7px;
+  background-color: #F8F5F5;
+  rotate: (45deg);
+  margin-right: 8px;
+  margin-left: 32px;
+}
+
+.list {
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  @media screen and (min-width: 1280px) {
+    justify-content: flex-start;
+  }
+}
+
+.link {
+  z-index: 5;
+  width: 219px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 406px;
+  }
+}
+
+// ---------------
+.description {
+  color: #F8F5F5;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  z-index: 3;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+  }
+}
+
+.container_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: auto;
+    justify-content: flex-start
+  }
+}
