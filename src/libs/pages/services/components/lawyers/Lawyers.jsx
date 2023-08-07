@@ -18,7 +18,7 @@ export default function Lawyers() {
             </div>
           <div className={styles.line}></div>
         </div>
-        <div style={{ height: '100%'}}>
+        <div>
           <Items />
         </div>
       </div>

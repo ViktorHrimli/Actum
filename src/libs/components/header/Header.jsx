@@ -31,8 +31,8 @@ export default function Header() {
     }
 
     return () => {
-      document.body.style.overflow = "auto";
-      document.body.style.maxHeight = "100%";
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
     };
   }, [isSideBar]);
 
@@ -46,7 +46,7 @@ export default function Header() {
 
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
 
-  const handleClickOnBar = useCallback(() => setIsSideBar(!isSideBar));
+  const handleClickOnBar = useCallback(() => setIsSideBar(!isSideBar), [isSideBar]);
 
   return (
     <section className={styles.header_section}>

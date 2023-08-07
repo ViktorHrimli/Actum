@@ -15,7 +15,7 @@ export default function ServiceHero() {
         alt="bacground photo"
         fill
         priority={true}
-        style={{ zIndex: -1 }}
+        style={{ zIndex: -1, objectFit: 'cover' }}
       />
 
       <div className={styles.conteiner_hero_watemark}>
