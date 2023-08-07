@@ -7,8 +7,10 @@ import XO from "@/assets/svg/XO.png";
 import XN from "@/assets/svg/XN.png";
 import Ukraine from "@/assets/svg/Ukraine.png";
 
-import Olga from "@/assets/svg/Olga.png";
-import Natalia from "@/assets/svg/Natalia.png";
+// import Olga from "@/assets/svg/Olga.png";
+// import Natalia from "@/assets/svg/Natalia.png";
+import OlgaNatalia from "@/assets/svg/Olga_Natalia_new.png";
+
 
 import Button from "../button/Button";
 
@@ -40,15 +42,22 @@ export default function AboutCompany() {
         <div className={gradient.second_gradient}></div>
         {/* PHOTO */}
         <div className={styles.olga_conteiner}>
-          <Image
+          {/* <Image
             src={Olga}
             alt="Olga"
             fill
             loading="eager"
             placeholder="blur"
+          /> */}
+          <Image
+            src={OlgaNatalia}
+            alt="Natalia"
+            fill
+            loading="eager"
+            placeholder="blur"
           />
         </div>
-        <div className={styles.natalia_conteiner}>
+        {/* <div className={styles.natalia_conteiner}>
           <Image
             src={Natalia}
             alt="Natalia"
@@ -56,7 +65,7 @@ export default function AboutCompany() {
             loading="eager"
             placeholder="blur"
           />
-        </div>
+        </div> */}
       </div>
       <div className={styles.about_conteiner}>
         <h2 className={styles.title_text}>Про компанію</h2>
@@ -64,7 +73,7 @@ export default function AboutCompany() {
           Адвокатське об’єднання Актум – спільнота правників з відмінним знанням
           законодавства та багатим досвідом юридичної практики.
         </p>
-        <p className={styles.text}>
+        <p className={styles.text_adaptive_display}>
           Намагаємось працювати краще всіх, щоб наш клієнт мав бажаний результат
           – як наслідок адвокатської праці. Роз’яснюємо закони без води простою
           мовою, ніколи не спізнюємось і не примушуємо себе чекати, не ведемо
