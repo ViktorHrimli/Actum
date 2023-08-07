@@ -29,12 +29,16 @@
     @media screen and (min-width: 1280px) {
         width: 395px;
         padding: 77px 56px 10px 56px;
+        
     }
 
     @media screen and (min-width: 1440px) {
         width: 395px;
         height: 439px;
         padding: 77px 56px 10px 56px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+                height: 400px;
+            }
     }
 
 }
@@ -95,6 +99,9 @@
     @media screen and (min-width: 1440px) {
         font-size: 20px;
         margin-bottom: 96px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+                margin-bottom: 50px;
+            }
     }
 }
 
