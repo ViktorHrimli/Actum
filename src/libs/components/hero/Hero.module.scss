@@ -32,6 +32,7 @@
         padding-top: 243px;
         width: 1280px;
         height: 100vh;
+        max-height: 833px;
         @media screen and (min-height: 700px) and (max-height: 799px) {
             padding-top: 170px;
         }
@@ -248,7 +249,7 @@
     }
 
     @media screen and (min-width: 1280px) {
-        bottom: 50px;
+        bottom: 344px;
         right: 400px;
     }
 
