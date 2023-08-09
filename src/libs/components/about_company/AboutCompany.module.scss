@@ -213,7 +213,7 @@
 
 .ukraine_map {
     position: absolute;
-
+    z-index: 2;
 
     @media screen and (min-width:320px) {
         width: 280px;
@@ -277,7 +277,7 @@
         width: 187px;
 
         top: 36px;
-        left: 72px;
+        left: 90px;
 
         font-size: 12px;
         line-height: 16px;
@@ -289,7 +289,7 @@
         width: 245px;
 
         top: 65px;
-        left: 72px;
+        left: 80px;
 
         font-size: 15px;
         line-height: 19px;
@@ -325,7 +325,7 @@
         width: 264px;
 
         top: 95px;
-        left: 308px;
+        left: 300px;
         line-height: 14px;
         font-size: 12px;
     }
@@ -335,7 +335,7 @@
         width: 279px;
 
         top: 115px;
-        left: 308px;
+        left: 315px;
 
         font-size: 15px;
         line-height: 20px;
@@ -541,7 +541,7 @@
 
 .partner {
     color: var(--color-text);
-    font-family: Montserrat;
+    // font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -573,35 +573,46 @@
     position: absolute;
 
     @media screen and (min-width: 320px) {
-        width: 181px;
-        height: 263px;
-        bottom: -900px;
-        left: -70px;
+        width: 145px;
+        height: 259px;
+        bottom: -924px;
+        left: -52px;
+        z-index: 1;
     }
 
     @media screen and (min-width: 768px) {
-        width: 370px;
-        height: 524.049px;
+        width: 270px;
+        height: 461px;
 
         bottom: -43px;
-        left: 90px;
-
+        left: 151px;
+        z-index: 2;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 420px;
-        height: 594.867px;
-        bottom: -58px;
-        left: 185px;
+        width: 300px;
+        height: 505px;
+        bottom: -72px;
+        left: 306px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+            width: 240px;
+            height: 390px;
+            bottom: 0;
+            left: 322px;
+        }
     }
 
     @media screen and (min-width: 1440px) {
-        width: 526px;
-        height: 745px;
-
-
+        width: 340px;
+        height: 608px;
         bottom: 0;
-        left: 259px;
+        left: 314px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+            width: 240px;
+            height: 390px;
+            bottom: 0;
+            left: 322px;
+        }
     }
 
     z-index: 2;
@@ -611,42 +622,43 @@
     position: absolute;
 
     @media screen and (min-width: 320px) {
-        width: 172px;
-        height: 243px;
-        bottom: -900px;
-        left: -95px;
+        width: 150px;
+        height: 255px;
+        bottom: -924px;
+        left: -150px;
+        z-index: 2;
     }
 
     @media screen and (min-width:768px) {
-        width: 330px;
-        height: 488.372px;
+        width: 270px;
+        height: 461px;
         bottom: -43px;
-        left: 20px;
+        left: -20px;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 400px;
-        height: 569px;
+        width: 300px;
+        height: 505px;
         bottom: -58px;
-        left: 90px;
+        left: 60px;
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            width: 350px;
-            height: 450px;
+            width: 240px;
+            height: 390px;
             bottom: 0;
-            left: 130px;
+            left: 110px;
         }
     }
 
     @media screen and (min-width: 1440px) {
-        width: 516px;
-        height: 700px;
+        width: 360px;
+        height: 614px;
         bottom: 0;
-        left: 60px;
+        left: 20px;
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            width: 360px;
-            height: 460px;
+            width: 240px;
+            height: 390px;
             bottom: 0;
-            left: 141px;
+            left: 110px;
         }
     }
 
