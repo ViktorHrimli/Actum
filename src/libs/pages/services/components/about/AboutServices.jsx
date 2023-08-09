@@ -1,4 +1,5 @@
 import styles from "./AboutServices.module.scss";
+import Items from "./Items";
 
 export default function AboutServices() {
   return (
@@ -13,6 +14,7 @@ export default function AboutServices() {
           </p>
           <span className={styles.borders}></span>
         </div>
+        <Items />
       </div>
     </section>
   );

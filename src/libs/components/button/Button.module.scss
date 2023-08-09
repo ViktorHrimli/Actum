@@ -35,6 +35,7 @@
     &:hover {
         color: var(--secondary-color);
         background-color: var(--secondary-bacground);
+        border: none;
     }
 
     z-index: 15;
@@ -87,6 +88,7 @@
     border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
 
 
+
     -moz-border-image: -moz-linear-gradient(to right,
             #E32F7A,
             #912E6F,
@@ -129,5 +131,6 @@
     &:hover {
         color: var(--color-text);
         background-color: var(--primary-color);
+        border: none;
     }
 }
