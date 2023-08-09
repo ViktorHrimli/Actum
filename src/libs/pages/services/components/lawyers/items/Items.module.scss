@@ -21,8 +21,8 @@
     margin-bottom: 0;
   }
   @media screen and (min-width: 1280px) {
-    width: 377px;
-    height: 316px;
+      width: 400px;
+      height: 270px;
   }
   @media screen and (min-width: 1440px) {
     width: 484px;
@@ -159,11 +159,10 @@
 
 .marker {
   z-index: 5;
-  display: block;
   width: 7px;
   height: 7px;
   background-color: #F8F5F5;
-  rotate: (45deg);
+  rotate: (-45deg);
   margin-right: 8px;
   margin-left: 32px;
 }
@@ -225,4 +224,61 @@
     margin-top: auto;
     justify-content: flex-start
   }
+}
+
+.container_cards:hover:not(:last-child) {
+  background: #F8F5F5;
+  z-index: 5;
+  transition: all 0.5s;
+
+  border: 1px solid transparent;
+    border-image: linear-gradient(45deg, #E32F7A, #912E6F, #3F2E64);
+    ;
+  
+    -moz-border-image: -moz-linear-gradient(45deg,
+        #E32F7A,
+        #912E6F,
+        #3F2E64);
+    -webkit-border-image: -webkit-linear-gradient(45deg,
+        #E32F7A,
+        #912E6F,
+        #3F2E64);
+    border-image-slice: 1;
+  
+  
+    // transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.container_cards:hover .marker {
+  background-color: #1F1F1F;
+  z-index: 5;
+  transition: all 0.5s;
+}
+
+.container_cards:hover .title {
+  color: #1F1F1F;
+  z-index: 5;
+  transition: all 0.5s;
+}
+
+.container_cards:hover .link {
+  color: #1F1F1F;
+  z-index: 5;
+  transition: all 0.5s;
+}
+
+.container_cards:hover .border {
+  border: transparent;
+}
+
+.container_cards:hover .border_left {
+  border: transparent;
+}
+
+.container_cards:hover .border_bottom {
+  border: transparent;
+}
+
+.container_cards:hover .border_right{
+  border: transparent;
 }
