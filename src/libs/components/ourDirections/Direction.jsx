@@ -315,7 +315,7 @@ export default function Direction() {
             <div
               className={styles.block_hover_hands_background}
               style={
-                activeElementIndex === 0 && activeAnimations
+                activeElementIndex === ONE && activeAnimations
                   ? { background: "rgba(227, 47, 122, 0.40)" }
                   : {}
               }
@@ -323,7 +323,7 @@ export default function Direction() {
             <div
               className={styles.block_hover_criminal_background}
               style={
-                activeElementIndex === 2 && activeAnimations
+                activeElementIndex === THERD && activeAnimations
                   ? { background: "rgba(63, 46, 100, 0.80)" }
                   : {}
               }
