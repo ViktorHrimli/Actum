@@ -4,6 +4,7 @@ import Button from "@/libs/components/button/Button";
 import photo_army from "@/assets/svg/sevices_photo_army.png";
 import photo_family from "@/assets/svg/sevices_photo_family.png";
 import photo_crime from "@/assets/svg/sevices_photo_crime.png";
+import Link from "next/link";
 
 const itemsLis = [
   {
@@ -15,10 +16,13 @@ const itemsLis = [
       " Спеціалізуємось на сімейних спорах особливої складності: позбавлення батьківських прав, розірвання шлюбів в іноземних юрисдикціях з поділом майна, визнання недійсним заповітів та шлюбних контрактів.",
     ],
     img: photo_family,
+    path: "/paid-priority-family",
   },
   {
     title: "вІйськові питання",
     style: "",
+    path: "/paid-priority-army",
+
     text: [
       "Юристи Актуму – вузькоспеціалізовані військові адвокати для військовозобов’язаних, резервістів, УБД та військовослужбовців ЗСУ, НГУ, ДПСУ, СБУ та інших формувань. А також сімей військових.",
       "Працюємо в галузі військового права з 2014 року. Правники Актуму мають досвід роботи у військовій прокуратурі та багату судову практику в галузі військового права.",
@@ -29,6 +33,7 @@ const itemsLis = [
   {
     title: "кримінальні питання",
     style: "background_crime",
+    path: "/paid-priority-crime",
     text: [
       "Юристи Актуму – вузькоспеціалізовані військові адвокати для військовозобов’язаних, резервістів, УБД та військовослужбовців ЗСУ, НГУ, ДПСУ, СБУ та інших формувань. А також сімей військових.",
       "Працюємо в галузі військового права з 2014 року. Правники Актуму мають досвід роботи у військовій прокуратурі та багату судову практику в галузі військового права.",
@@ -55,11 +60,13 @@ export default function Items() {
               />
               <div className={styles[el.style]}></div>
               <div className={styles.img_btn}>
-                <Button
-                  text="детальніше"
-                  type="button"
-                  style="button_service"
-                />
+                <Link href={el?.path}>
+                  <Button
+                    text="детальніше"
+                    type="button"
+                    style="button_service"
+                  />
+                </Link>
               </div>
             </div>
             <ul className={styles.text_list}>
