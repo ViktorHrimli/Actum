@@ -7,10 +7,10 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function PaidArmy() {
+export default function Crimes() {
   return (
     <>
-      <HeroLawyers type={"army"} />
+      <HeroLawyers type={"crime"} />
     </>
   );
 }
