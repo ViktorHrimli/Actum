@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "../button/Button";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
-import femida from "@/assets/svg/HERO_FEMIDA.png";
+// import femida from "@/assets/svg/HERO_FEMIDA.png";
 
 import styles from "./Hero.module.scss";
 
@@ -21,13 +21,13 @@ export default function Hero() {
       </div>
 
       <div className={styles.image_conteiner}>
-        <Image
+        {/* <Image
           src={femida}
           alt="Femida"
           priority={true}
           placeholder="blur"
           fill
-        />
+        /> */}
       </div>
       <h2 className={styles.title_text}>Адвокатське об’Єднання</h2>
       <div className={styles.under_line}></div>
