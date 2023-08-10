@@ -1,21 +1,46 @@
+"use client";
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 
-import { FooterEnums } from "./libs/enums";
+import { useEffect, useState } from "@/libs/hooks/hooks";
+
+import { footerEnums } from "./libs/enums";
+import { usePathname } from "next/navigation";
 
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
 
-export default function Footer({ type }) {
-  const style = FooterEnums[type];
+export default function Footer() {
+  const [isStyleFooter, setIsStyleFooter] = useState(null);
+
+  const path = usePathname().replace("/", "");
+
+  useEffect(() => {
+    if (footerEnums[path]) {
+      setIsStyleFooter(footerEnums[path]);
+    } else {
+      setIsStyleFooter(null);
+    }
+  }, [path]);
+
   return (
     <div className={styles.footer_section}>
-      <div className={styles[style]}></div>
+      <div
+        className={
+          isStyleFooter ? styles[isStyleFooter] : styles.footer_gradient
+        }
+      ></div>
 
       <div className={styles.footer_container}>
         <div className={styles.box_logo}>
-        <Image src={Logo} alt="Logo" width={400} height={117} className={styles.footer_logo} />
-        <div className={styles.policy_mob_none}>
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={400}
+            height={117}
+            className={styles.footer_logo}
+          />
+          <div className={styles.policy_mob_none}>
             <a className={styles.policy_text} href="">
               Політика конфідеційності
             </a>
@@ -27,17 +52,23 @@ export default function Footer({ type }) {
             </a>
           </div>
         </div>
-        
+
         <div className={styles.footer_text_box}>
-          
-          <p className={styles.footer_title_phone_only}><span className={styles.footer_title_bold_phone_only}>Головний офіс:</span> Україна, м. Київ, вул. Оболонська набережна 15, корпус 5</p>
+          <p className={styles.footer_title_phone_only}>
+            <span className={styles.footer_title_bold_phone_only}>
+              Головний офіс:
+            </span>{" "}
+            Україна, м. Київ, вул. Оболонська набережна 15, корпус 5
+          </p>
           <div className={styles.display_none}>
             <p className={styles.footer_title}>Головний офіс:</p>
-            <p className={styles.footer_text}>Україна, м. Київ, вул. Оболонська набережна 15, корпус 5</p>
-          </div>
-            <p className={styles.footer_title}>Філії по містах:</p>
-
             <p className={styles.footer_text}>
+              Україна, м. Київ, вул. Оболонська набережна 15, корпус 5
+            </p>
+          </div>
+          <p className={styles.footer_title}>Філії по містах:</p>
+
+          <p className={styles.footer_text}>
             Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон, Покровськ
           </p>
         </div>
@@ -73,13 +104,11 @@ export default function Footer({ type }) {
           </div>
           <div>
             <Button
-            style={"button_prymary"}
-            text={"замовити консультацію"}
-            type={"button"}
+              style={"button_prymary"}
+              text={"замовити консультацію"}
+              type={"button"}
             />
           </div>
-
-          
         </div>
       </div>
     </div>

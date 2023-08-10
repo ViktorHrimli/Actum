@@ -1,13 +1,7 @@
-const FooterEnums = {
-  family: {
-    style: "footer_gradient",
-  },
-  army: {
-    style: "footer_army_gradient",
-  },
-  crime: {
-    style: "footer_criminal_gradient",
-  },
+const footerEnums = {
+  "paid-priority-crime": "footer_criminal_gradient",
+
+  "paid-priority-army": "footer_army_gradient",
 };
 
-export { FooterEnums };
+export { footerEnums };
