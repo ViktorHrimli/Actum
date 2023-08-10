@@ -16,7 +16,7 @@ export default function Services() {
       <ServiceHero />
       <AboutServices />
       <Lawyers />
-      <Descrition />
+      <Descrition type={"classic"}/>
     </>
   );
 }
