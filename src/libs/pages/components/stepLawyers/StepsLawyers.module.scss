@@ -7,7 +7,7 @@
 
 .container {
   width: 320px;
-  height: 1060px;
+  height: 100%;
   padding: 77px 29px 0 29px;
   margin: 0 auto;
 
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-
+  margin-bottom: 36px;
 }
 
 .link {
@@ -86,4 +86,22 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.box_btn {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 65px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 672px;
+    display: flex;
+    justify-content: center;
+  }
 }

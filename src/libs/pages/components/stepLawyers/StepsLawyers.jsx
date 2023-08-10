@@ -3,6 +3,8 @@ import Image from "next/image";
 import StepsImageMob from "src/assets/svg/StepsLawyersMob.jpg";
 
 import styles from "./StepsLawyers.module.scss";
+import Button from "@/libs/components/button/Button";
+
 
 export default function StepsLawyers() {
   return (
@@ -55,6 +57,13 @@ export default function StepsLawyers() {
             </div>
           </li>
         </ul>
+        <div className={styles.box_btn}>
+            <Button
+              style={"button_service"}
+              text={"замовити консультацію"}
+              type={"button"}
+            />
+          </div>
       </div>
     </section>
   );
