@@ -1,0 +1,100 @@
+.conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100vw;
+    height: 26px;
+
+    padding-left: 40px;
+
+    background-color: var(--secondary-bacground);
+
+    @media screen and (min-width: 768px) {
+        padding-left: 57px;
+        height: 37px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding-left: 92px;
+        height: 50px;
+    }
+}
+
+.wrapper_path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    @media screen and (min-width: 768px) {
+        gap: 21px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        gap: 8px;
+    }
+}
+
+
+.service_text {
+    color: var(--secondary-color);
+
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 16px;
+    }
+}
+
+.arrow_icon {
+    width: 12px;
+    height: 12px;
+
+    @media screen and (min-width: 768px) {
+        width: 13.4px;
+        height: 14px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.path_text {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 16px;
+    }
+}
+
+.family_color {
+    color: var(--primary-color);
+}
+
+.army_color {
+    color: var(--army-color);
+}
+
+.crime_color {
+    color: var(--crime-color);
+}

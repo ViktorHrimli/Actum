@@ -6,17 +6,16 @@
     // font-family: Montserrat;
 
     color: var(--color-text);
-    background: rgba(31, 31, 31, 0.40);
+    background-color: transparent;
 
     text-transform: uppercase;
     word-wrap: break-word;
     cursor: pointer;
 
-
     border: 1px solid transparent;
     border-radius: 4px;
     border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-
+    ;
 
     -moz-border-image: -moz-linear-gradient(to right,
             #E32F7A,
@@ -107,7 +106,7 @@
 
     @media screen and (min-width: 320px) {
         font-size: 14px;
-        padding: 12px 24px;
+        padding: 12px 42px;
     }
 
 

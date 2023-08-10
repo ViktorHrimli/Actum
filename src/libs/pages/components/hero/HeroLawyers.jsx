@@ -1,11 +1,14 @@
 import Image from "next/image";
 
+import Path from "@/libs/pages/components/path/Path";
+
 import { lawyersHeroEnums } from "./libs/enums/enums";
 
 import styles from "./HeroLawyers.module.scss";
 
 export default function HeroLawyers({ type }) {
-  const { img, title, text, style } = lawyersHeroEnums[type];
+  const { img, title, text, style, color } = lawyersHeroEnums[type];
+
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
@@ -13,10 +16,9 @@ export default function HeroLawyers({ type }) {
           src={img}
           alt={text}
           fill
-          loading="lazy"
+          loading="eager"
           style={{ objectFit: "cover" }}
         />
-
         <div className={styles.conteiner_hero_watemark}>
           <div className={styles.title_wotemark}>
             <Image src={title} alt="ACTUM" fill loading="eager" />
@@ -25,6 +27,7 @@ export default function HeroLawyers({ type }) {
         </div>
         <div className={styles[style]}></div>
       </div>
+      <Path path={text} type={color} />
     </section>
   );
 }
