@@ -1,13 +1,16 @@
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 
+import { FooterEnums } from "./libs/enums";
+
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
 
-export default function Footer() {
+export default function Footer({ type }) {
+  const style = FooterEnums[type];
   return (
     <div className={styles.footer_section}>
-      <div className={styles.footer_gradient}></div>
+      <div className={styles[style]}></div>
 
       <div className={styles.footer_container}>
         <div className={styles.box_logo}>
