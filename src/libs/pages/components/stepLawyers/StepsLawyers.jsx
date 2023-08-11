@@ -26,7 +26,7 @@ export default function StepsLawyers() {
             </div>
             <div className={styles.container_text}>
               <p className={styles.title}>знайомтесь з варіантами наших послуг</p>
-              <p lassName={styles.text}>Оберіть варіант запропонованої послуги: супровід справи, консультація в офісі або онлайн.</p>
+              <p className={styles.text}>Оберіть варіант запропонованої послуги: супровід справи, консультація в офісі або онлайн.</p>
             </div>
           </li>
           <li className={styles.link}>
@@ -35,7 +35,7 @@ export default function StepsLawyers() {
             </div>
             <div className={styles.container_text}>
               <p className={styles.title}>Зв’яжіться з помічником Адвокатів “Актум”</p>
-              <p lassName={styles.text}>Опишіть якісно свою проблему. Заповніть форму або подзвоніть нам, щоб обрати час бесіди і фахівця.</p>
+              <p className={styles.text}>Опишіть якісно свою проблему. Заповніть форму або подзвоніть нам, щоб обрати час бесіди і фахівця.</p>
             </div>
           </li>
           <li className={styles.link}>
@@ -44,7 +44,7 @@ export default function StepsLawyers() {
             </div>
             <div className={styles.container_text}>
               <p className={styles.title}>Отримайте консультацію адвоката</p>
-              <p lassName={styles.text}>Проведіть бесіду з адвокатом за допомогою месенджера, телефонного дзвінка або бесіди в нашому офісі. Отримайте відповіді на всі питання та доцільний план дій.</p>
+              <p className={styles.text}>Проведіть бесіду з адвокатом за допомогою месенджера, телефонного дзвінка або бесіди в нашому офісі. Отримайте відповіді на всі питання та доцільний план дій.</p>
             </div>
           </li>
           <li className={styles.link}>
@@ -53,7 +53,7 @@ export default function StepsLawyers() {
             </div>
             <div className={styles.container_text}>
               <p className={styles.title}>Залишайтесь під захистом</p>
-              <p lassName={styles.text}>Підтримуйте зв’язок з адвокатом та вирішуйте наявні п роблеми. Якщо адвокат буде працювати з Вами після консультації, консультація, за яку Ви заплатили, буде безкоштовна.</p>
+              <p className={styles.text}>Підтримуйте зв’язок з адвокатом та вирішуйте наявні проблеми. Якщо адвокат буде працювати з Вами після консультації, консультація, за яку Ви заплатили, буде безкоштовна.</p>
             </div>
           </li>
         </ul>
