@@ -13,7 +13,7 @@
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: 1302px;
+    padding: 112px 64px 86px 64px;
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
@@ -38,6 +38,10 @@
   flex-direction: column;
   gap: 50px;
   margin-bottom: 36px;
+  @media screen and (min-width: 768px) { 
+    gap: 0;
+    margin-bottom: 40px;
+  }
 }
 
 .link {
@@ -45,10 +49,18 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
 }
 
 .link:nth-child(2n) {
   flex-direction: row-reverse;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    margin-left: 330px;
+  }
 }
 
 
@@ -57,7 +69,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-right: 12px;
+  }
 }
+
 .number {
   display: block;
   color: #F8F5F5;
@@ -65,10 +81,16 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 70px;
+  }
 }
 
 .container_text {
   width: 181px;
+  @media screen and (min-width: 768px) {
+    width: 210px;
+  }
 }
 
 .title {
@@ -78,14 +100,22 @@
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .text {
   color: #F8F5F5;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .box_btn {
