@@ -18,10 +18,16 @@
   @media screen and (min-width: 1280px) {
     width: 1280px;
     height: 859px;
+    padding: 0px  30px 44px 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-end;
   }
   @media screen and (min-width:1440px) {
     width: 1440px;
     height: 859px;
+    padding: 0px 51px 66px 51px;
   }
 }
 
@@ -33,6 +39,26 @@
   z-index: -1;
 }
 
+.img_tel {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.img_tab {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.img_pc {
+  display: none;
+  @media screen and (min-width: 1280px) {
+    display: block;
+  }
+}
+
 .list {
   display: flex;
   flex-direction: column;
@@ -41,6 +67,10 @@
   @media screen and (min-width: 768px) { 
     gap: 0;
     margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
   }
 }
 
@@ -53,6 +83,10 @@
   @media screen and (min-width: 768px) {
     justify-content: flex-start;
   }
+  @media screen and (min-width: 1280px) {
+    margin-top: auto;
+    margin-right: 18px;
+  }
 }
 
 .link:nth-child(2n) {
@@ -60,6 +94,26 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
     margin-left: 330px;
+  @media screen and (min-width: 1280px) {
+    margin-left: 0;
+  }
+  }
+}
+
+
+.link:nth-child(2) {
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 65px;
+  }
+}
+.link:nth-child(3) {
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 107px;
+  }
+}
+.link:nth-child(4) {
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 41px;
   }
 }
 
@@ -91,6 +145,12 @@
   @media screen and (min-width: 768px) {
     width: 210px;
   }
+  @media screen and (min-width: 1280px) {
+    width: 193px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 210px;
+  }
 }
 
 .title {
@@ -102,6 +162,12 @@
   text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 1280px) {
     font-size: 20px;
   }
 }
@@ -116,7 +182,14 @@
   @media screen and (min-width: 768px) {
     font-size: 20px;
   }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
 }
+
 
 .box_btn {
   display: flex;
@@ -124,14 +197,11 @@
   width: 100%;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    display: flex;
     justify-content: center;
     margin-bottom: 65px;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 672px;
-    display: flex;
+  @media screen and (min-width: 768px) {
     justify-content: center;
   }
 }

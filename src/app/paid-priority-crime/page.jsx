@@ -3,6 +3,8 @@ import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import Description from "@/libs/pages/services/components/description/Description";
+import Response from "@/libs/components/response/Response";
+
 
 
 export const metadata = {
@@ -15,6 +17,7 @@ export default function Crimes() {
     <>
       <HeroLawyers type={"crime"} />
       <Description type={"crime"} />
+      <Response />
       <StepsLawyers />
     </>
   );
