@@ -1,6 +1,10 @@
 import Image from "next/image";
 
 import StepsImageMob from "src/assets/svg/StepsLawyersMob.jpg";
+import StepsImageTab from "src/assets/svg/StepsLawyersTab.jpg";
+import StepsImagePc from "src/assets/svg/StepsLawyersPC.jpg";
+
+
 
 import styles from "./StepsLawyers.module.scss";
 import Button from "@/libs/components/button/Button";
@@ -11,7 +15,24 @@ export default function StepsLawyers() {
     <section className={styles.section}>
       <div className={styles.img}>
         <Image
+          className={styles.img_tel}
           src={StepsImageMob}
+          alt={"our team"}
+          fill
+          loading="lazy"
+          style={{objectFit: "cover" }}
+        />
+        <Image
+          className={styles.img_tab}
+          src={StepsImageTab}
+          alt={"our team"}
+          fill
+          loading="lazy"
+          style={{objectFit: "cover" }}
+        />
+        <Image
+          className={styles.img_pc}
+          src={StepsImagePc}
           alt={"our team"}
           fill
           loading="lazy"
