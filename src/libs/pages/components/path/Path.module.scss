@@ -7,8 +7,8 @@
     height: 26px;
 
     padding-left: 40px;
-
-    background-color: var(--secondary-bacground);
+    background: #F8F5F5;
+    box-shadow: 0px 0px 0px 0px rgba(120, 115, 115, 0.10), 0px 8px 19px 0px rgba(120, 115, 115, 0.10), 0px 34px 34px 0px rgba(120, 115, 115, 0.09), 0px 76px 45px 0px rgba(120, 115, 115, 0.05), 0px 135px 54px 0px rgba(120, 115, 115, 0.01), 0px 210px 59px 0px rgba(120, 115, 115, 0.00);
 
     @media screen and (min-width: 768px) {
         padding-left: 57px;
@@ -46,6 +46,7 @@
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
         font-size: 14px;
