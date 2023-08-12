@@ -21,25 +21,22 @@ export default function Accordion({ title, text }) {
           backgroundColor: isOpen ? "#E32F7A" : "rgba(15, 2, 28, 0.80)",
         }}
         onClick={() => setIsOpen(!isOpen)}
-        children={
-          <>
-            <p className={styles.header_text}>{title}</p>
-            <motion.div
-              animate={{ rotate: isOpen ? "180deg" : "0deg" }}
-              transition={{ duration: 0.5 }}
-            >
-              <Image
-                src={arrow}
-                alt="arrow"
-                width={20}
-                height={20}
-                loading="lazy"
-                className={styles.icon}
-              />
-            </motion.div>
-          </>
-        }
-      />
+      >
+        <p className={styles.header_text}>{title}</p>
+        <motion.div
+          animate={{ rotate: isOpen ? "180deg" : "0deg" }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src={arrow}
+            alt="arrow"
+            width={20}
+            height={20}
+            loading="lazy"
+            className={styles.icon}
+          />
+        </motion.div>
+      </motion.div>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.section
@@ -55,7 +52,7 @@ export default function Accordion({ title, text }) {
           >
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{text}</p>
-              <ClickIcon />
+              {/* <ClickIcon /> */}
             </div>
           </motion.section>
         )}
