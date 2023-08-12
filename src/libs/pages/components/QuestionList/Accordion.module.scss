@@ -1,0 +1,42 @@
+@import '/src/assets/css/styles.scss';
+
+
+.header_conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 280px;
+
+
+    padding: 13px 8px;
+
+    border-radius: 4px;
+    background: rgba(15, 2, 28, 0.80);
+}
+
+.header_text {
+    color: var(--color-text);
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+
+    max-width: 244px;
+}
+
+.conteiner_text {
+    position: relative;
+    width: 280px;
+    border-radius: 4px;
+    background: var(--color-text);
+
+    padding: 18px 12px 90px 12px;
+}
+
+.text {
+    font-size: 14px;
+    color: var(--secondary-color);
+}
