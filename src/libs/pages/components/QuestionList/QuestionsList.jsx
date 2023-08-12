@@ -44,6 +44,7 @@ export default function QuestionsList({ type }) {
             src={natalia}
             loading="lazy"
             placeholder="blur"
+            alt="natalia"
             fill
             style={{ objectFit: "cover", borderRadius: "4px" }}
           />
