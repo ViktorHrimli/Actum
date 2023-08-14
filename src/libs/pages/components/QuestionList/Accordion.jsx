@@ -26,12 +26,12 @@ export default function Accordion({ title, text }) {
         <motion.div
           animate={{ rotate: isOpen ? "180deg" : "0deg" }}
           transition={{ duration: 0.5 }}
+          className={styles.conteiner_icon}
         >
           <Image
             src={arrow}
             alt="arrow"
-            width={20}
-            height={20}
+            fill
             loading="lazy"
             className={styles.icon}
           />

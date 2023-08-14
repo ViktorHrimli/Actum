@@ -28,14 +28,13 @@
     border-image-slice: 1;
 
 
-    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s;
 
 
 
     &:hover {
         color: var(--secondary-color);
         background-color: var(--secondary-bacground);
-        border: none;
     }
 
     z-index: 15;
@@ -72,7 +71,7 @@
     justify-content: center;
     align-items: center;
 
-    // font-family: Montserrat;
+
 
     padding: 20px 71px;
 
@@ -87,8 +86,6 @@
     border: 1px solid transparent;
     border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
 
-
-
     -moz-border-image: -moz-linear-gradient(to right,
             #E32F7A,
             #912E6F,
@@ -100,7 +97,7 @@
     border-image-slice: 1;
 
 
-    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s;
 
     z-index: 15;
 
@@ -131,6 +128,5 @@
     &:hover {
         color: var(--color-text);
         background-color: var(--primary-color);
-        border: none;
     }
 }
