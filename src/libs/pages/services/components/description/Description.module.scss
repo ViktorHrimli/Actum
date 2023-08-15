@@ -80,6 +80,7 @@
     filter: blur(150px);
     border-radius: 783px;
   }
+
   @media screen and (min-width: 1280px) {
     top: 15px;
     left: 201px;
@@ -87,6 +88,7 @@
     height: 313px;
     border-radius: 783px;
   }
+
   @media screen and (min-width: 1440px) {
     top: 56px;
     left: -144px;
@@ -173,10 +175,12 @@
   height: 260px;
   background-color: #E32F7A;
   z-index: 2;
+
   @media screen and (min-width: 768px) {
     height: 210px;
     width: 4px;
   }
+
   @media screen and (min-width: 1280px) {
     height: 220px;
   }
@@ -230,14 +234,11 @@
   display: flex;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
-  }
+  @media screen and (min-width: 768px) {}
 
-  @media screen and (min-width: 1280px) {
-  }
+  @media screen and (min-width: 1280px) {}
 
-  @media screen and (min-width: 1280px) {
-  }
+  @media screen and (min-width: 1280px) {}
 }
 
 .container_title {

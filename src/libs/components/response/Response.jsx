@@ -42,12 +42,14 @@ export default function Response() {
               <Card key={id} {...item} />
             ))}
           </ul>
-          <Button
-            onClick={() => {}}
-            text={"залишити відгук"}
-            style={"button_service"}
-            type={"button"}
-          />
+          <div className={styles.btn_wrapper}>
+            <Button
+              onClick={() => {}}
+              text={"залишити відгук"}
+              style={"button_service"}
+              type={"button"}
+            />
+          </div>
         </div>
       </div>
     </section>

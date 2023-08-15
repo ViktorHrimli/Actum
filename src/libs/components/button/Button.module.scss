@@ -3,10 +3,11 @@
     justify-content: center;
     align-items: center;
 
-    // font-family: Montserrat;
+    width: 100%;
+    height: 100%;
 
     color: var(--color-text);
-    background-color: transparent;
+    background-color: rgba(31, 31, 31, 0.40);
 
     text-transform: uppercase;
     word-wrap: break-word;
@@ -15,7 +16,6 @@
     border: 1px solid transparent;
     border-radius: 4px;
     border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-    ;
 
     -moz-border-image: -moz-linear-gradient(to right,
             #E32F7A,
@@ -27,41 +27,30 @@
             #3F2E64);
     border-image-slice: 1;
 
-
     transition: all 0.4s;
-
-
+    z-index: 15;
 
     &:hover {
         color: var(--secondary-color);
         background-color: var(--secondary-bacground);
     }
 
-    z-index: 15;
 
 
-    @media screen and (max-width: 767px) {
-        padding: 12px 14px;
+    @media screen and (min-width: 320px) {
         font-size: 12px;
-        width: 209px;
     }
 
     @media screen and (min-width: 768px) {
-        font-size: 14px;
-        width: auto;
-        max-width: 319px;
-        padding: 18px 30px;
+        font-size: 16px;
     }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
-        padding: 18px 24px;
-        max-width: 355px;
     }
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
-        padding: 20px 26px;
     }
 
 }
@@ -71,12 +60,18 @@
     justify-content: center;
     align-items: center;
 
+    text-align: center;
 
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
-    padding: 20px 71px;
+    width: 100%;
+    height: 100%;
 
     color: var(--secondary-color);
     background-color: var(--color-text);
+
 
     text-transform: uppercase;
     word-wrap: break-word;
@@ -102,27 +97,19 @@
     z-index: 15;
 
     @media screen and (min-width: 320px) {
-        font-size: 14px;
-        padding: 12px 24px;
+        font-size: 12px;
     }
-
 
     @media screen and (min-width: 768px) {
         font-size: 16px;
-        padding: 16px 62px;
-
     }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
-        padding: 16px 62px;
-
     }
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
-        padding: 20px 71px;
-
     }
 
     &:hover {

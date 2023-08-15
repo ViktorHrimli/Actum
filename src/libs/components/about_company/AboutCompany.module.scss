@@ -37,6 +37,7 @@
         padding-bottom: 58px;
 
         height: 832px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             height: 100vh;
             // padding-top: 40px;
@@ -57,6 +58,7 @@
         width: 1440px;
 
         overflow: hidden;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             height: 100vh;
             padding-top: 40px;
@@ -82,6 +84,7 @@
 
     @media screen and (min-width: 1280px) {
         width: 427px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             display: flex;
             flex-direction: column;
@@ -92,6 +95,7 @@
 
     @media screen and (min-width: 1440px) {
         width: 445px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             display: flex;
             flex-direction: column;
@@ -117,6 +121,7 @@
     @media screen and (min-width: 1280px) {
         font-size: 36px;
         margin-bottom: 42.5px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             margin-bottom: 50px;
         }
@@ -190,6 +195,7 @@
     @media screen and (min-width: 1280px) {
         font-size: 18px;
         margin-bottom: 24px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             display: none;
         }
@@ -198,6 +204,7 @@
     @media screen and (min-width: 1440px) {
         margin-bottom: 40px;
         font-size: 20px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             display: none;
         }
@@ -205,6 +212,7 @@
 
     z-index: 5;
 }
+
 // -------------- and adaptive
 
 .conteiner_map {
@@ -594,6 +602,7 @@
         height: 505px;
         bottom: -72px;
         left: 306px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             width: 270px;
             height: 460px;
@@ -607,6 +616,7 @@
         height: 608px;
         bottom: 0;
         left: 314px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             width: 270px;
             height: 460px;
@@ -641,6 +651,7 @@
         height: 505px;
         bottom: -58px;
         left: 60px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             width: 270px;
             height: 460px;
@@ -654,6 +665,7 @@
         height: 614px;
         bottom: 0;
         left: 20px;
+
         @media screen and (min-height: 700px) and (max-height: 799px) {
             width: 270px;
             height: 460px;
@@ -663,4 +675,29 @@
     }
 
     z-index: 2;
+}
+
+.btn_wrapper {
+    border-radius: 4px;
+    z-index: 5;
+
+    @media screen and (min-width: 320px) {
+        width: 209px;
+        height: 39px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 260px;
+        height: 54px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 319px;
+        height: 54px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 324px;
+        height: 64px;
+    }
 }

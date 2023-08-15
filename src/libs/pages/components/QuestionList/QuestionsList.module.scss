@@ -181,21 +181,29 @@
 
 .btn_wrapper {
     position: absolute;
+    border-radius: 4px;
 
-    bottom: -15px;
-    left: 8%;
+    @media screen and (min-width: 320px) {
+        bottom: -15px;
+        left: 14%;
+        width: 209px;
+        height: 39px;
+    }
 
     @media screen and (min-width: 768px) {
-        width: 320px;
-        left: -4%;
+        width: 319px;
+        height: 54px;
+        left: -3%;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 381px;
+        height: 54px;
+        width: 356px;
         left: 40%;
     }
 
     @media screen and (min-width: 1440px) {
+        height: 66px;
         width: 440px;
         left: 47%;
     }
