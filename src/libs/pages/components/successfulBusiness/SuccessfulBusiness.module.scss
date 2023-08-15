@@ -1,0 +1,244 @@
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  background: rgba(15, 2, 28, 0.70);
+  z-index: -1;
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 865px;
+  }
+
+  @media screen and (min-width:1440px) {
+    width: 1440px;
+    height: 995px;
+  }
+}
+
+.container {
+  width: 320px;
+  height: 728px;
+  padding: 36px 11px 69px 11px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 571px;
+    padding: 60px 64px 61px 64px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 100%;
+    padding: 95px 142px 44px 64px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width:1440px) {
+    width: 1440px;
+    padding: 145px 180px 104px 70px;
+  }
+}
+
+.container_title {
+  margin-bottom: 43px;
+  z-index: 2;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 54px;
+  }
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 48px;
+    }
+    @media screen and (min-width:1440px) {
+      margin-bottom: 78px;
+    }
+}
+
+.title {
+  color: #F8F5F5;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    text-align: start;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 36px;
+  }
+}
+
+.gradient_family {
+  position: absolute;
+  top: 64px;
+  left: -181px;
+  width: 338px;
+  height: 483px;
+  border-radius: 483px;
+  background: #E32F7A;
+  filter: blur(175px);
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: -354px;
+    width: 583px;
+    height: 526px;
+    border-radius: 583px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 200px;
+    left: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(300px);
+  }
+  @media screen and (min-width: 1440px) {
+    top: 250px;
+    left: -635px;
+  }
+}
+
+.gradient_army {
+  position: absolute;
+  top: 64px;
+  left: -181px;
+  width: 338px;
+  height: 483px;
+  border-radius: 483px;
+  background: #536641;
+  filter: blur(175px);
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: -354px;
+    width: 583px;
+    height: 526px;
+    border-radius: 583px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 200px;
+    left: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(300px);
+  }
+    @media screen and (min-width: 1440px) {
+      top: 250px;
+      left: -635px;
+    }
+}
+
+.gradient_criminal {
+  position: absolute;
+  top: 64px;
+  left: -181px;
+  width: 338px;
+  height: 483px;
+  border-radius: 483px;
+  background: #3F2E64;
+  filter: blur(175px);
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: -354px;
+    width: 583px;
+    height: 526px;
+    border-radius: 583px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 200px;
+    left: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(300px);
+  }
+    @media screen and (min-width: 1440px) {
+      top: 250px;
+      left: -635px;
+    }
+}
+
+.gradient_right_family {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 339px;
+    right: -64px;
+    width: 362px;
+    height: 788px;
+    border-radius: 788px;
+    background: #E32F7A;
+    filter: blur(400px);
+  }
+  @media screen and (min-width: 1280px) {
+    top: 625px;
+    right: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(400px);
+  }
+  @media screen and (min-width: 1440px) {
+    top: 645px;
+    left: -537px;
+  }
+}
+
+.gradient_right_criminal {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 339px;
+    right: -64px;
+    width: 362px;
+    height: 788px;
+    border-radius: 788px;
+    background: #3F2E64;
+    filter: blur(400px);
+  }
+    @media screen and (min-width: 1280px) {
+      top: 625px;
+      right: -666px;
+      width: 874px;
+      height: 788px;
+      border-radius: 874px;
+      filter: blur(400px);
+    }
+}
+
+.gradient_right_army {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 339px;
+    right: -64px;
+    width: 362px;
+    height: 788px;
+    border-radius: 788px;
+    background: #536641;
+    filter: blur(400px);
+  }
+    @media screen and (min-width: 1280px) {
+      top: 625px;
+      right: -666px;
+      width: 874px;
+      height: 788px;
+      border-radius: 874px;
+      filter: blur(400px);
+    }
+    @media screen and (min-width: 1440px) {
+      top: 645px;
+      left: -537px;
+    }
+}

@@ -6,6 +6,7 @@ import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import Descrition from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
+import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function PaidArmy() {
     <>
       <HeroLawyers type={"army"} />
       <AboutCards type={"army"} />
+      <SuccessfulBusiness type={"army"}/>
       <Specialists type={"army"}/>
       <Descrition type={"army"} />
       <Response />
