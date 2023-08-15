@@ -10,7 +10,6 @@ import Ukraine from "@/assets/svg/Ukraine.png";
 import Olga from "@/assets/svg/Olga.png";
 import Natalia from "@/assets/svg/Natalia.png";
 
-
 import Button from "../button/Button";
 
 export default function AboutCompany() {
@@ -91,13 +90,14 @@ export default function AboutCompany() {
             </div>
           </div>
         </div>
-
-        <Button
-          onClick={handleClick}
-          style={"button_prymary"}
-          text={"наша команда"}
-          type={"button"}
-        />
+        <div className={styles.btn_wrapper}>
+          <Button
+            onClick={handleClick}
+            style={"button_prymary"}
+            text={"наша команда"}
+            type={"button"}
+          />
+        </div>
       </div>
     </section>
   );

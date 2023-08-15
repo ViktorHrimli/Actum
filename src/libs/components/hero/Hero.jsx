@@ -37,13 +37,14 @@ export default function Hero() {
       <div className={styles.second_gradient}></div>
       <div className={styles.thirhd_gradient}></div>
       <div className={styles.fourth_gradient}></div>
-
-      <Button
-        onClick={() => {}}
-        type={"button"}
-        text="замовити консультацію"
-        style="button_prymary"
-      />
+      <div className={styles.btn_wrapper}>
+        <Button
+          onClick={() => {}}
+          type={"button"}
+          text="замовити консультацію"
+          style="button_prymary"
+        />
+      </div>
     </section>
   );
 }

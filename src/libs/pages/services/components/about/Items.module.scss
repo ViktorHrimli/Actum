@@ -236,26 +236,49 @@
 }
 
 
+
 .img_btn {
     position: absolute;
 
-    bottom: -18px;
-    left: 20%;
+    border-radius: 4px;
 
     z-index: 1;
 
+    @media screen and (min-width: 320px) {
+        width: 209px;
+        height: 39px;
+
+        bottom: -18px;
+        left: 14%;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 253px;
+        height: 54px;
+
+        bottom: -28px;
+        left: 14%;
+    }
+
     @media screen and (min-width: 1280px) {
-        left: 55%;
+        width: 253px;
+        height: 54px;
+
+        left: 61%;
     }
 
     @media screen and (min-width: 1440px) {
+        width: 281px;
+        height: 64px;
+
         left: 61%;
     }
+
 }
 
 .item_wrapper:nth-child(2) .img_btn {
     @media screen and (min-width: 1280px) {
-        left: 5%;
+        left: -3%;
     }
 
     @media screen and (min-width: 1440px) {

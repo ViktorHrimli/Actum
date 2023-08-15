@@ -64,17 +64,39 @@
     margin-right: auto;
 
     z-index: 15;
+    border-radius: 4px;
 
-    padding: 14px 23px;
+
+    @media screen and (min-width: 320px) {
+        width: 209px;
+        height: 39px;
+        margin-bottom: 23px;
+        margin-left: 14px;
+    }
 
     @media screen and (min-width: 768px) {
-        padding: 34px 53px;
+        width: 319px;
+        height: 54px;
+        margin-bottom: 34px;
+        margin-left: 53px;
     }
 
     @media screen and (min-width: 1280px) {
-        padding: 53px 110px;
+        width: 345px;
+        height: 54px;
+        margin-bottom: 106px;
+        margin-left: 53px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 345px;
+        height: 64px;
+        margin-bottom: 112px;
+        margin-left: 53px;
     }
 }
+
+
 
 
 .title_wotemark {

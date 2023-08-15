@@ -1,9 +1,11 @@
 .section {
   width: 100%;
   background: #E2E0E0;
+
   @media screen and (min-width: 1280px) {
     width: 1280px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 1440px;
   }
@@ -18,69 +20,79 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-    @media screen and (min-width: 768px) {
-      width: 768px;
-      padding: 70px 64px 120px 64px;
-    }
-    @media screen and (min-width: 1280px) {
-      width: 1280px;
-      padding: 147px 64px 58px 64px;
-    }
-    @media screen and (min-width: 1440px) {
-      width: 1440px;
-      padding: 160px 70px 73px 70px;
-    }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 70px 64px 120px 64px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding: 147px 64px 58px 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 160px 70px 73px 70px;
+  }
 }
 
 .container_title {
   display: flex;
   align-items: center;
   margin-bottom: 76px;
-    @media screen and (min-width: 768px) {
-      margin-bottom: 65px;
-    }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 65px;
+  }
 }
 
 .line {
   width: 2px;
   height: 50px;
   background: #E32F7A;
-    @media screen and (min-width: 768px) {
-      width: 50px;
-      height: 2px;
-    }
-    @media screen and (min-width: 1280px) {
+
+  @media screen and (min-width: 768px) {
+    width: 50px;
+    height: 2px;
+  }
+
+  @media screen and (min-width: 1280px) {
     width: 169px;
     height: 4px;
-    }
+  }
 }
 
 .line_army {
   width: 2px;
   height: 50px;
   background: #536641;
+
   @media screen and (min-width: 768px) {
     width: 50px;
     height: 2px;
   }
-    @media screen and (min-width: 1280px) {
+
+  @media screen and (min-width: 1280px) {
     width: 169px;
     height: 4px;
-    }
+  }
 }
 
 .line_criminal {
   width: 2px;
   height: 50px;
   background: #3F2E64;
+
   @media screen and (min-width: 768px) {
     width: 50px;
     height: 2px;
   }
-    @media screen and (min-width: 1280px) {
+
+  @media screen and (min-width: 1280px) {
     width: 169px;
     height: 4px;
-    }
+  }
 }
 
 .title {
@@ -93,16 +105,19 @@
   line-height: normal;
   text-transform: uppercase;
   margin-right: 36px;
+
   @media screen and (min-width: 768px) {
     margin-right: 20px;
     font-size: 28px;
     margin-left: 20px;
   }
+
   @media screen and (min-width: 1280px) {
     font-size: 36px;
     margin-right: 60px;
     margin-left: 60px;
   }
+
   @media screen and (min-width: 1440px) {
     font-size: 40px;
     margin-left: 81px;
@@ -111,17 +126,39 @@
 }
 
 .container_btn {
+  position: absolute;
+
+  @media screen and (min-width: 320px) {
+    width: 180px;
+    height: 39px;
+
+    right: 70px;
+    bottom: 28px;
+  }
+
   @media screen and (min-width: 768px) {
-    position: absolute;
+    width: 216px;
+    height: 54px;
+
     right: 155px;
     bottom: 120px;
   }
-    @media screen and (min-width: 1280px) {
-      right: 409px;
-      bottom: 177px;
-    }
-    @media screen and (min-width: 1440px) {
-      right: 502px;
-      bottom: 205px;
-    }
+
+  @media screen and (min-width: 1280px) {
+    width: 254px;
+    height: 66px;
+
+    right: 409px;
+    bottom: 177px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 254px;
+    height: 66px;
+
+    right: 502px;
+    bottom: 205px;
+  }
+
+
 }
