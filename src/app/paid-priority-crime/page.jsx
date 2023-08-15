@@ -5,6 +5,7 @@ import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import Description from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
+import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 
 
 
@@ -17,6 +18,7 @@ export default function Crimes() {
   return (
     <>
       <HeroLawyers type={"crime"} />
+      <AboutCards type={"crime"}  />
       <Specialists type={"crime"}/>
       <Description type={"crime"} />
       <Response />

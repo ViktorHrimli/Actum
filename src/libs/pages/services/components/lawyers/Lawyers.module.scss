@@ -9,10 +9,14 @@
   }
 
   @media screen and (min-width: 1280px) {
+    width: 1280px;
     height: 100%;
   }
 
-  @media screen and (min-width: 1440px) {}
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+
 }
 
 .container {

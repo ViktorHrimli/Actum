@@ -1,6 +1,12 @@
 .section {
   width: 100%;
   background: #E2E0E0;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
 }
 
 
