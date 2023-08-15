@@ -6,6 +6,7 @@ import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import Description from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
+import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 
 
 
@@ -18,6 +19,7 @@ export default function Crimes() {
   return (
     <>
       <HeroLawyers type={"crime"} />
+      <SuccessfulBusiness type={"crime"}/>
       <AboutCards type={"crime"}  />
       <Specialists type={"crime"}/>
       <Description type={"crime"} />
