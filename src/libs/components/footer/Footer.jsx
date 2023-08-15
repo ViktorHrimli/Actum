@@ -102,7 +102,7 @@ export default function Footer() {
               Мапа сайту
             </a>
           </div>
-          <div>
+          <div className={styles.btn_wrapper}>
             <Button
               style={"button_prymary"}
               text={"замовити консультацію"}
