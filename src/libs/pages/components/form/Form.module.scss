@@ -73,11 +73,30 @@
     line-height: normal;
 }
 
+.container_button_service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    border: 2px solid;
+    background: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+    border-radius: 4px;
+    z-index: 15;
+}
+
+
+
 .input {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--color-text);
 
-    border: 1px solid;
 
+    border: 1px solid;
     border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
 
     -moz-border-image: -moz-linear-gradient(to right,
@@ -91,12 +110,16 @@
     border-image-slice: 1;
     border-radius: 4px;
 
-    outline: none;
+
+    outline: transparent;
+
+
+
 
     @media screen and (min-width: 320px) {
         width: 280px;
         height: 49px;
-        padding: 18px 13px;
+        padding: 10px 8px;
     }
 
     @media screen and (min-width: 768px) {}
@@ -106,11 +129,13 @@
     @media screen and (min-width: 1440px) {}
 
     &::placeholder {
+
         color: #C3BCBC;
         font-size: 13px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        white-space: break-spaces;
     }
 
     &:focus::placeholder {
@@ -167,6 +192,7 @@
     }
 }
 
+
 .conteiner_name {
 
     display: flex;
@@ -183,4 +209,25 @@
     @media screen and (min-width: 1280px) {}
 
     @media screen and (min-width: 1440px) {}
+}
+
+.lable_radio {
+    color: var(--4, #1F1F1F);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.conteiner_radio {
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: start;
+    justify-content: center;
+
+    gap: 17px;
+
 }
