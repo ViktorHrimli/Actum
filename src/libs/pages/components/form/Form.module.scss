@@ -1,0 +1,186 @@
+@import '/src/assets/css/styles.scss';
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+
+    background: var(--primary-back);
+
+    overflow: hidden;
+
+    padding: 36px 20px 63px 20px;
+
+    @media screen and (min-width:1440px) {
+        max-width: 1440px;
+    }
+}
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    @media screen and (min-width: 320px) {
+
+        width: 280px;
+    }
+
+    @media screen and (min-width: 768px) {}
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+
+    gap: 20px;
+}
+
+.wrapper_name {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    @media screen and (min-width: 320px) {
+        gap: 16px;
+    }
+
+    @media screen and (min-width: 768px) {}
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
+.lable {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.input {
+    background: var(--color-text);
+
+    border: 1px solid;
+
+    border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+
+    -moz-border-image: -moz-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    -webkit-border-image: -webkit-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    border-image-slice: 1;
+    border-radius: 4px;
+
+    outline: none;
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        height: 49px;
+        padding: 18px 13px;
+    }
+
+    @media screen and (min-width: 768px) {}
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+
+    &::placeholder {
+        color: #C3BCBC;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+
+.textarea {
+    background: var(--color-text);
+
+    border: 1px solid;
+    resize: none;
+
+    border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+
+    -moz-border-image: -moz-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    -webkit-border-image: -webkit-linear-gradient(to right,
+            #E32F7A,
+            #912E6F,
+            #3F2E64);
+    border-image-slice: 1;
+    border-radius: 4px;
+
+    outline: none;
+
+    word-wrap: break-word;
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        height: 110px;
+        padding: 23px 13px;
+    }
+
+    @media screen and (min-width: 768px) {}
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+
+    &::placeholder {
+        color: #C3BCBC;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+.conteiner_name {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    @media screen and (min-width: 320px) {
+        gap: 12px;
+    }
+
+    @media screen and (min-width: 768px) {}
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}

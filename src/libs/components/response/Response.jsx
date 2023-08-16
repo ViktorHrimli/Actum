@@ -22,11 +22,11 @@ const arrPerson = [
   },
 ];
 
-export default function Response() {
+export default function Response({ type }) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner_section}>
-        <LeftBar text={"наші відгуки"} />
+        <LeftBar text={"наші відгуки"} type={type} />
 
         <div className={styles.rigth_conteiner}>
           <div className={styles.conteiner_text}>
