@@ -13,11 +13,33 @@
 
     overflow: hidden;
 
-    padding: 36px 20px 63px 20px;
+
+    @media screen and (min-width: 320px) {
+        padding: 36px 20px 63px 20px;
+
+    }
+
+    @media screen and (min-width: 768px) {
+        padding: 70px 100px 88px 58px;
+    }
 
     @media screen and (min-width:1440px) {
         max-width: 1440px;
     }
+}
+
+.wrapper_title {
+    @media screen and (min-width: 320px) {
+        width: 300px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 465px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
 }
 
 .conteiner {
@@ -31,7 +53,9 @@
         width: 280px;
     }
 
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+        width: 610px;
+    }
 
     @media screen and (min-width: 1280px) {}
 
@@ -41,11 +65,24 @@
 .form {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     width: 100%;
 
-    gap: 20px;
+    font-family: "Montserrat";
+
+
+    @media screen and (min-width: 320px) {
+        gap: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        gap: 36px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
 }
 
 .wrapper_name {
@@ -58,7 +95,9 @@
         gap: 16px;
     }
 
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+        gap: 20px;
+    }
 
     @media screen and (min-width: 1280px) {}
 
@@ -71,6 +110,18 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+    @media screen and (min-width: 320px) {
+        gap: 16px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
 }
 
 .container_button_service {
@@ -113,9 +164,6 @@
 
     outline: transparent;
 
-
-
-
     @media screen and (min-width: 320px) {
         width: 280px;
         height: 49px;
@@ -131,11 +179,22 @@
     &::placeholder {
 
         color: #C3BCBC;
-        font-size: 13px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         white-space: break-spaces;
+
+        @media screen and (min-width: 320px) {
+            font-size: 13px;
+        }
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1280px) {}
+
+        @media screen and (min-width: 1440px) {}
     }
 
     &:focus::placeholder {
@@ -173,7 +232,11 @@
         padding: 23px 13px;
     }
 
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+        width: 610px;
+        height: 110px;
+        padding: 35px 15px;
+    }
 
     @media screen and (min-width: 1280px) {}
 
@@ -181,24 +244,40 @@
 
     &::placeholder {
         color: #C3BCBC;
-        font-size: 13px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        font-family: "Montserrat";
+
+        @media screen and (min-width: 320px) {
+            font-size: 13px;
+        }
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1280px) {}
+
+        @media screen and (min-width: 1440px) {}
+
+
     }
 
     &:focus::placeholder {
         color: transparent;
     }
+
+    &:focus {
+        padding: 10px 15px;
+    }
 }
 
-
-.conteiner_name {
-
+.conteiner_radio_groupe {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    align-items: start;
+    justify-content: center;
 
     @media screen and (min-width: 320px) {
         gap: 12px;
@@ -211,13 +290,89 @@
     @media screen and (min-width: 1440px) {}
 }
 
+.second_input {
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        height: 49px;
+        padding: 10px 8px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 610px;
+        height: 57px;
+        padding: 18px 15px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
+.btn_wrapper {
+    border-radius: 4px;
+    z-index: 5;
+
+
+    @media screen and (min-width: 320px) {
+        width: 209px;
+        height: 39px;
+        margin-top: 12px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 290px;
+        height: 52px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 311px;
+        height: 54px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 345px;
+        height: 66px;
+    }
+}
+
+.conteiner_name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 320px) {
+        gap: 12px;
+    }
+
+    @media screen and (min-width: 768px) {
+        gap: 50px;
+        flex-direction: row;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
 .lable_radio {
     color: var(--4, #1F1F1F);
     font-family: Montserrat;
-    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
 
 }
 
@@ -229,5 +384,121 @@
     justify-content: center;
 
     gap: 17px;
+
+}
+
+.info_block {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    width: 280px;
+
+    margin-top: 60px;
+    gap: 32px;
+    padding: 0 3px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 610px;
+        gap: 46px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
+.text {
+    color: var(--secondary-color);
+    text-transform: none;
+
+    @media screen and (min-width: 320px) {
+
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 281px;
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
+
+.block_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    gap: 3px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        gap: 10px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+
+}
+
+.title_info {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.text_wrapper_info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    @media screen and (min-width: 768px) {
+        gap: 10px;
+    }
+}
+
+.phone_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+
+    @media screen and (min-width: 768px) {
+        gap: 40px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
+}
+
+.email_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+
+    @media screen and (min-width: 768px) {
+        gap: 40px;
+    }
+
+    @media screen and (min-width: 1280px) {}
+
+    @media screen and (min-width: 1440px) {}
 
 }

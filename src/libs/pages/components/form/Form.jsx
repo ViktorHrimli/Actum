@@ -7,6 +7,7 @@ import LeftBar from "@/libs/components/left_bar_text/LeftBar";
 import styles from "./Form.module.scss";
 import Countries from "./select/Select";
 import { socialMediaEnums } from "./select/libs/enums/enums";
+import Button from "@/libs/components/button/Button";
 
 export default function Form({ type }) {
   const {
@@ -22,20 +23,12 @@ export default function Form({ type }) {
     console.log(data);
   };
 
-  const colourStyles = {
-    // control: () => styles.input,
-    // option: (styled, { data, isDisabled, isFocused, isSelected }) => {
-    //   return styles.input;
-    // },
-    input: (styled) => styles.input,
-    //  placeholder: (styles) => ({ ...styles, ...dot("#ccc") }),
-    //  singleValue: ,
-  };
-
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
-        <LeftBar text={"контактна форма"} type={type} />
+        <div className={styles.wrapper_title}>
+          <LeftBar text={"контактна форма"} type={type} />
+        </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           autoComplete="off"
@@ -86,7 +79,7 @@ export default function Form({ type }) {
             </label>
             <div className={styles.conteiner_name}>
               <input
-                className={styles.input}
+                className={`${styles.input} ${styles.second_input}`}
                 type="tel"
                 id="phone"
                 {...register("phone", { required: true })}
@@ -100,25 +93,9 @@ export default function Form({ type }) {
               Месенджер
             </label>
             <div className={styles.conteiner_name}>
-              {/* <Controller
-                name="message"
-                control={control}
-                rules={{ required: true }}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    options={socialMediaEnums}
-                    defaultInputValue={"Messangers"}
-                    defaultMenuIsOpen="adawd"
-                    placeholder="Message"
-                    styles={colourStyles}
-                  />
-                )}
-              /> */}
-
               <select
                 {...register("message")}
-                className={styles.input}
+                className={`${styles.input} ${styles.second_input}`}
                 inputMode="text"
                 placeholder="Оберіть спосіб отримання відповіді"
                 title="Оберіть спосіб отримання відповіді"
@@ -134,7 +111,7 @@ export default function Form({ type }) {
             <label htmlFor="services" className={styles.lable}>
               Оберіть послугу
             </label>
-            <div className={styles.conteiner_name}>
+            <div className={styles.conteiner_radio_groupe}>
               <div className={styles.conteiner_radio}>
                 <label htmlFor="services_first" className={styles.lable_radio}>
                   Консультація Адвоката. Дзвінок або зустріч в офісі (550-950
@@ -179,8 +156,34 @@ export default function Form({ type }) {
               </div>
             </div>
           </div>
-          <input type="submit" />
+          <div className={styles.btn_wrapper}>
+            <Button
+              type={"submit"}
+              text={"надіслати запит"}
+              style={"button_service"}
+            />
+          </div>
         </form>
+
+        <div className={styles.info_block}>
+          <p className={styles.text}>
+            Заповніть форму для отримання консультації або зв’язку з адвокатом
+            або скористайтесь для зв’язку поштою та нашими номерами телефону.
+          </p>
+          <div className={styles.block_info}>
+            <div className={styles.phone_wrapper}>
+              <p className={styles.title_info}>Phone:</p>
+              <div className={styles.text_wrapper_info}>
+                <p className={styles.text}>+38-067-179-72-13</p>
+                <p className={styles.text}>+38-050-333-48-97</p>
+              </div>
+            </div>
+            <div className={styles.email_wrapper}>
+              <p className={styles.title_info}>Email:</p>
+              <p className={styles.text}>info@actum.com.ua</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
