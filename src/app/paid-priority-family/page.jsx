@@ -7,6 +7,7 @@ import Description from "@/libs/pages/services/components/description/Descriptio
 import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
+import Form from "@/libs/pages/components/form/Form";
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,
@@ -18,11 +19,12 @@ export default function Family() {
     <>
       <HeroLawyers type={"family"} />
       <QuestionsList type={"family"} />
-      <SuccessfulBusiness type={"family"}/>
+      <SuccessfulBusiness type={"family"} />
       <Specialists type={"family"} />
       <Description type={"family"} />
-      <Response />
+      <Response type={"family"} />
       <StepsLawyers />
+      <Form type={"family"} />
     </>
   );
 }

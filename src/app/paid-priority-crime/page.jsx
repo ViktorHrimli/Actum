@@ -7,8 +7,7 @@ import Description from "@/libs/pages/services/components/description/Descriptio
 import Response from "@/libs/components/response/Response";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-
-
+import Form from "@/libs/pages/components/form/Form";
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,
@@ -19,12 +18,13 @@ export default function Crimes() {
   return (
     <>
       <HeroLawyers type={"crime"} />
-      <SuccessfulBusiness type={"crime"}/>
-      <AboutCards type={"crime"}  />
-      <Specialists type={"crime"}/>
+      <SuccessfulBusiness type={"crime"} />
+      <AboutCards type={"crime"} />
+      <Specialists type={"crime"} />
       <Description type={"crime"} />
-      <Response />
+      <Response type={"crime"} />
       <StepsLawyers />
+      <Form type={"crime"} />
     </>
   );
 }
