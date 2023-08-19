@@ -1,15 +1,35 @@
 "use client";
-import { useForm, Controller } from "react-hook-form";
-import Select, { StylesConfig } from "react-select";
+import { useForm } from "react-hook-form";
+import { useState } from "@/libs/hooks/hooks";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronDown,
+  faPhone,
+  faCircleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
+import { faViber, faTelegram } from "@fortawesome/free-brands-svg-icons";
 
 import LeftBar from "@/libs/components/left_bar_text/LeftBar";
-
-import styles from "./Form.module.scss";
-import Countries from "./select/Select";
-import { socialMediaEnums } from "./select/libs/enums/enums";
 import Button from "@/libs/components/button/Button";
 
+import styles from "./Form.module.scss";
+
+import { socialMediaEnums } from "./select/libs/enums/enums";
+
 export default function Form({ type }) {
+  const [selectValue, setSelectValue] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleCLickOnSelect = (event) => {
+    setSelectValue(event.currentTarget.innerText);
+    setIsOpen(false);
+  };
+
+  const handleToggleSelect = () => {
+    setIsOpen(!isOpen);
+  };
+
   const {
     register,
     handleSubmit,
@@ -48,6 +68,12 @@ export default function Form({ type }) {
                 {...register("name", { required: true })}
                 placeholder="Ім'я"
               />
+              {errors.name && (
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              )}
 
               <input
                 className={styles.input}
@@ -56,6 +82,13 @@ export default function Form({ type }) {
                 placeholder="Прізвище"
                 {...register("surname", { required: true })}
               />
+
+              {errors.surname && (
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              )}
             </div>
           </div>
 
@@ -70,6 +103,13 @@ export default function Form({ type }) {
                 {...register("textarea", { required: true })}
                 placeholder="Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
               />
+
+              {errors.textarea && (
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              )}
             </div>
           </div>
 
@@ -85,6 +125,12 @@ export default function Form({ type }) {
                 {...register("phone", { required: true })}
                 placeholder="Вкажіть номер, на якому встановлений Вайбер або Телеграм."
               />
+              {errors.phone && (
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              )}
             </div>
           </div>
 
@@ -93,17 +139,55 @@ export default function Form({ type }) {
               Месенджер
             </label>
             <div className={styles.conteiner_name}>
-              <select
-                {...register("message")}
-                className={`${styles.input} ${styles.second_input}`}
+              <input
+                onClick={handleToggleSelect}
+                value={selectValue}
+                readOnly
+                {...register("message", { required: true })}
+                className={`${styles.input} ${styles.second_input} ${styles.select} `}
                 inputMode="text"
                 placeholder="Оберіть спосіб отримання відповіді"
-                title="Оберіть спосіб отримання відповіді"
+              />
+
+              {errors.message && (
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              )}
+              <motion.div
+                animate={{ rotate: isOpen ? "180deg" : "0deg" }}
+                transition={{ duration: 0.5 }}
+                className={styles.conteiner_icon}
+                onClick={handleToggleSelect}
               >
-                <option hidden={true}></option>
-                <option value="viber">viber</option>
-                <option value="telegram">telegram</option>
-              </select>
+                <FontAwesomeIcon icon={faChevronDown} className={styles.icon} />
+              </motion.div>
+              {isOpen && (
+                <motion.div className={styles.options_conteiner}>
+                  <div onClick={handleCLickOnSelect} className={styles.options}>
+                    Viber
+                    <FontAwesomeIcon
+                      icon={faViber}
+                      className={styles.options_icon}
+                    />
+                  </div>
+                  <div onClick={handleCLickOnSelect} className={styles.options}>
+                    Telegram
+                    <FontAwesomeIcon
+                      icon={faTelegram}
+                      className={styles.options_icon}
+                    />
+                  </div>
+                  <div onClick={handleCLickOnSelect} className={styles.options}>
+                    Телефон
+                    <FontAwesomeIcon
+                      icon={faPhone}
+                      className={styles.options_icon}
+                    />
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
 
@@ -111,6 +195,13 @@ export default function Form({ type }) {
             <label htmlFor="services" className={styles.lable}>
               Оберіть послугу
             </label>
+            {errors.services && (
+              <FontAwesomeIcon
+                icon={faCircleExclamation}
+                className={styles.error_icon}
+              />
+            )}
+
             <div className={styles.conteiner_radio_groupe}>
               <div className={styles.conteiner_radio}>
                 <label htmlFor="services_first" className={styles.lable_radio}>
