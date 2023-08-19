@@ -34,7 +34,8 @@ export default function Form({ type }) {
     register,
     handleSubmit,
     control,
-    formState: { isValid, errors },
+    clearErrors,
+    formState: { errors },
   } = useForm({
     defaultValues: {},
   });
@@ -62,21 +63,34 @@ export default function Form({ type }) {
 
             <div className={styles.conteiner_name}>
               <input
-                className={styles.input}
+                className={
+                  errors.name
+                    ? `${styles.input} ${styles.error_input}`
+                    : styles.input
+                }
                 id="name"
                 type="text"
-                {...register("name", { required: true })}
+                {...register("name", {
+                  required: true,
+                })}
                 placeholder="Ім'я"
               />
               {errors.name && (
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
+                <div className={styles.error_name}>
+                  <p style={{ color: "#000" }}>Заповніть Ім'я</p>
+                  <FontAwesomeIcon
+                    icon={faCircleExclamation}
+                    className={styles.error_icon}
+                  />
+                </div>
               )}
 
               <input
-                className={styles.input}
+                className={
+                  errors.surname
+                    ? `${styles.input} ${styles.error_input}`
+                    : styles.input
+                }
                 id="surname"
                 type="text"
                 placeholder="Прізвище"
@@ -84,10 +98,13 @@ export default function Form({ type }) {
               />
 
               {errors.surname && (
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
+                <div className={styles.error_surname}>
+                  <p style={{ color: "#000" }}>Заповніть прізвище</p>
+                  <FontAwesomeIcon
+                    icon={faCircleExclamation}
+                    className={styles.error_icon}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -98,17 +115,24 @@ export default function Form({ type }) {
             </label>
             <div className={styles.conteiner_name}>
               <textarea
-                className={styles.textarea}
+                className={
+                  errors.textarea
+                    ? `${styles.textarea} ${styles.error_input}`
+                    : styles.textarea
+                }
                 id="textarea"
                 {...register("textarea", { required: true })}
                 placeholder="Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
               />
 
               {errors.textarea && (
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
+                <div className={styles.error_textarea}>
+                  <p style={{ color: "#000" }}>Опишіть своє питання</p>
+                  <FontAwesomeIcon
+                    icon={faCircleExclamation}
+                    className={styles.error_icon}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -119,17 +143,24 @@ export default function Form({ type }) {
             </label>
             <div className={styles.conteiner_name}>
               <input
-                className={`${styles.input} ${styles.second_input}`}
+                className={
+                  errors.phone
+                    ? `${styles.input} ${styles.second_input} ${styles.error_input}`
+                    : `${styles.input} ${styles.second_input}`
+                }
                 type="tel"
                 id="phone"
                 {...register("phone", { required: true })}
                 placeholder="Вкажіть номер, на якому встановлений Вайбер або Телеграм."
               />
               {errors.phone && (
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
+                <div className={styles.error_phone}>
+                  <p style={{ color: "#000" }}>Заповніть номер телефону</p>
+                  <FontAwesomeIcon
+                    icon={faCircleExclamation}
+                    className={styles.error_icon}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -144,16 +175,22 @@ export default function Form({ type }) {
                 value={selectValue}
                 readOnly
                 {...register("message", { required: true })}
-                className={`${styles.input} ${styles.second_input} ${styles.select} `}
-                inputMode="text"
+                className={
+                  errors.message
+                    ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
+                    : `${styles.input} ${styles.second_input} ${styles.select}`
+                }
                 placeholder="Оберіть спосіб отримання відповіді"
               />
 
               {errors.message && (
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
+                <div className={styles.error_message}>
+                  <p style={{ color: "#000" }}>Виберіть мессенджер</p>
+                  <FontAwesomeIcon
+                    icon={faCircleExclamation}
+                    className={styles.error_icon}
+                  />
+                </div>
               )}
               <motion.div
                 animate={{ rotate: isOpen ? "180deg" : "0deg" }}
@@ -196,10 +233,12 @@ export default function Form({ type }) {
               Оберіть послугу
             </label>
             {errors.services && (
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className={styles.error_icon}
-              />
+              <div className={styles.error_services}>
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              </div>
             )}
 
             <div className={styles.conteiner_radio_groupe}>

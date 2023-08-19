@@ -104,6 +104,7 @@
 }
 
 .wrapper_name {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -367,7 +368,7 @@
     align-items: center;
 
     @media screen and (min-width: 320px) {
-        gap: 12px;
+        gap: 30px;
     }
 
     @media screen and (min-width: 768px) {
@@ -381,8 +382,7 @@
 }
 
 .lable_radio {
-    color: var(--4, #1F1F1F);
-    font-family: Montserrat;
+    color: var(--secondary-color);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -568,6 +568,8 @@
     bottom: -50px;
     left: 0;
 
+    z-index: 10;
+
     @media screen and (min-width: 768px) {
         bottom: -58px;
     }
@@ -639,4 +641,81 @@
 
 .error_icon {
     color: #661135;
+}
+
+.error_name {
+    position: absolute;
+    top: 50px;
+    left: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.error_surname {
+    position: absolute;
+    top: 130px;
+    left: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.error_textarea {
+    position: absolute;
+    top: 112px;
+    left: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.error_phone {
+    position: absolute;
+    top: 50px;
+    left: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.error_message {
+    position: absolute;
+    top: 50px;
+    left: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.error_services {
+    position: absolute;
+    top: 0px;
+    left: 112px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.error_input {
+    background-color: #661135;
 }
