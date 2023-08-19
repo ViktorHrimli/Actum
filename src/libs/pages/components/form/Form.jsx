@@ -15,8 +15,6 @@ import Button from "@/libs/components/button/Button";
 
 import styles from "./Form.module.scss";
 
-import { socialMediaEnums } from "./select/libs/enums/enums";
-
 export default function Form({ type }) {
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +31,7 @@ export default function Form({ type }) {
   const {
     register,
     handleSubmit,
-    control,
-    clearErrors,
+
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -65,7 +62,7 @@ export default function Form({ type }) {
               <input
                 className={
                   errors.name
-                    ? `${styles.input} ${styles.error_input}`
+                    ? { ...styles.input, ...styles.error_input }
                     : styles.input
                 }
                 id="name"
@@ -288,9 +285,9 @@ export default function Form({ type }) {
           </div>
           <div className={styles.btn_wrapper}>
             <Button
-              type={"submit"}
-              text={"надіслати запит"}
-              style={"button_service"}
+              type="submit"
+              text="надіслати запит"
+              style="button_service"
             />
           </div>
         </form>
