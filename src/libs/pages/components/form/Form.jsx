@@ -55,7 +55,7 @@ export default function Form({ type }) {
         >
           <div className={styles.wrapper_name}>
             <label htmlFor="name" className={styles.lable}>
-              Вкажіть ім'я і прізвище
+              {"Вкажіть ім'я і прізвище"}
             </label>
 
             <div className={styles.conteiner_name}>
@@ -74,7 +74,7 @@ export default function Form({ type }) {
               />
               {errors.name && (
                 <div className={styles.error_name}>
-                  <p style={{ color: "#000" }}>Заповніть Ім'я</p>
+                  <p style={{ color: "#000" }}>{"Заповніть Ім'я"}</p>
                   <FontAwesomeIcon
                     icon={faCircleExclamation}
                     className={styles.error_icon}
