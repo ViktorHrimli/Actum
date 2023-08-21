@@ -15,6 +15,8 @@ import Button from "@/libs/components/button/Button";
 
 import styles from "./Form.module.scss";
 
+const ERROR_MESSAGE = "Заповніть поле!";
+
 export default function Form({ type }) {
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +64,7 @@ export default function Form({ type }) {
               <input
                 className={
                   errors.name
-                    ? { ...styles.input, ...styles.error_input }
+                    ? `${styles.input} ${styles.error_input}`
                     : styles.input
                 }
                 id="name"
@@ -70,7 +72,7 @@ export default function Form({ type }) {
                 {...register("name", {
                   required: true,
                 })}
-                placeholder="Ім'я"
+                placeholder={errors.name ? ERROR_MESSAGE : "Ім'я"}
               />
               {errors.name && (
                 <div className={styles.error_name}>
@@ -90,7 +92,7 @@ export default function Form({ type }) {
                 }
                 id="surname"
                 type="text"
-                placeholder="Прізвище"
+                placeholder={errors.surname ? ERROR_MESSAGE : "Прізвище"}
                 {...register("surname", { required: true })}
               />
 
@@ -119,7 +121,11 @@ export default function Form({ type }) {
                 }
                 id="textarea"
                 {...register("textarea", { required: true })}
-                placeholder="Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
+                placeholder={
+                  errors.textarea
+                    ? ERROR_MESSAGE
+                    : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
+                }
               />
 
               {errors.textarea && (
@@ -143,12 +149,16 @@ export default function Form({ type }) {
                 className={
                   errors.phone
                     ? `${styles.input} ${styles.second_input} ${styles.error_input}`
-                    : `${styles.input} ${styles.second_input}`
+                    : `${styles.input} ${styles.second_input} ${styles.number_input}`
                 }
                 type="tel"
                 id="phone"
                 {...register("phone", { required: true })}
-                placeholder="Вкажіть номер, на якому встановлений Вайбер або Телеграм."
+                placeholder={
+                  errors.phone
+                    ? ERROR_MESSAGE
+                    : "Вкажіть номер, на якому встановлений Вайбер або Телеграм."
+                }
               />
               {errors.phone && (
                 <div className={styles.error_phone}>
@@ -173,14 +183,18 @@ export default function Form({ type }) {
                 readOnly
                 {...register("message", { required: true })}
                 className={
-                  errors.message
+                  errors.message && !selectValue
                     ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
                     : `${styles.input} ${styles.second_input} ${styles.select}`
                 }
-                placeholder="Оберіть спосіб отримання відповіді"
+                placeholder={
+                  errors.message
+                    ? "Виберіть мессенджер!"
+                    : "Оберіть спосіб отримання відповіді"
+                }
               />
 
-              {errors.message && (
+              {errors.message && !selectValue && (
                 <div className={styles.error_message}>
                   <p style={{ color: "#000" }}>Виберіть мессенджер</p>
                   <FontAwesomeIcon
