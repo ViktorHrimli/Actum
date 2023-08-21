@@ -132,6 +132,9 @@
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    background: -webkit-gradient(linear, (327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%));
+    background: -o-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    background: -ms-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
 
     filter: blur(200px);
     z-index: 2;

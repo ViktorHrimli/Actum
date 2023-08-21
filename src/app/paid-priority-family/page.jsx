@@ -7,11 +7,14 @@ import Description from "@/libs/pages/services/components/description/Descriptio
 import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import Form from "@/libs/pages/components/form/Form";
+import FormSection from "@/libs/pages/components/formSection/FormSection";
 
 export const metadata = {
-  title: META_DATA_TITLE.BOOK,
-  description: META_DATA_DESCRIPTION.BOOK,
+  title: META_DATA_TITLE,
+  description: META_DATA_DESCRIPTION,
+  name: "viewport",
+  content: "width=device-width, initial-scale=1",
+  keywords: "actum",
 };
 
 export default function Family() {
@@ -24,7 +27,7 @@ export default function Family() {
       <Description type={"family"} />
       <Response type={"family"} />
       <StepsLawyers />
-      <Form type={"family"} />
+      <FormSection type={"family"} />
     </>
   );
 }
