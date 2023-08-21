@@ -22,10 +22,10 @@ const itemsList = [{
 ]
 
 export default function Items({type}) {
-  const {color} = cardsEnums[type];
+  const {color, background} = cardsEnums[type];
 
   return <ul className={styles.container}>
-    {itemsList?.map(( el, id ) => <li key={id} className={styles.position}>{
+    {itemsList?.map((el, id) => <li key={id} className={`${styles.position} ${styles[background]}`}>{
       <>{el.items.map((item, id ) => <div className={styles[color]} key={id}>
           <div className={styles.container_title}>
             <p className={styles.title}>{el.title}</p>

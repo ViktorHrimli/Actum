@@ -26,7 +26,7 @@ const itemsList = [{
 ]
 
 export default function Items({type}) {
-  // const {color} = cardsEnums[type];
+  const {border} = cardsEnums[type];
 
   return <ul className={styles.container}>
     {itemsList?.map(( el, id ) => <li key={id} className={styles.position}>
@@ -39,20 +39,22 @@ export default function Items({type}) {
             // style={{ objectFit: "cover" }}
           />
       </div>
-      <div className={styles.container_text}>
-        <div className={styles.border_top}>
-          <div className={styles.border_right}></div>
-      </div>
-          <div className={styles.container_title}>
-            <p className={styles.title}>{el.title}</p>
+      <div className={styles[border]}>
+        <div className={styles.container_text}>
+          <div className={styles.border_top}>
+            <div className={styles.border_right}></div>
+        </div>
+            <div className={styles.container_title}>
+              <p className={styles.title}>{el.title}</p>
+            </div>
+            <div className={styles.container_description}>
+              <p className={styles.description}>{el.description}</p>
           </div>
-          <div className={styles.container_description}>
-            <p className={styles.description}>{el.description}</p>
+          <div className={styles.border_bottom}>
+            <div className={styles.border_left}></div>
+          </div>
         </div>
-        <div className={styles.border_bottom}>
-          <div className={styles.border_left}></div>
-        </div>
-        </div>
+      </div>
     </li>)}
     <div className={styles.container_btn}>
           <Button

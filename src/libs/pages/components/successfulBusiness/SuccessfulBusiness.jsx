@@ -15,7 +15,7 @@ export default function SuccessfulBusiness({type}) {
         <h2 className={styles.title}>Успішні справи</h2>
         </div>
         <div>
-          <Items />
+          <Items type={type}/>
         </div>
       </div>
     <div className={styles[gradientRight]}></div>
