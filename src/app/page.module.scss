@@ -1,6 +1,7 @@
 @import '/src/assets/css/styles.scss';
 
 .section {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

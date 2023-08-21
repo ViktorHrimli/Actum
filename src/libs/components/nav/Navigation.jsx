@@ -2,12 +2,12 @@ import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
 
-export default function Navigation({ links, route }) {
+export default function Navigation({ links, route, onClick }) {
   return (
     <div>
       <ul className={styles.nav_list}>
         {links.map(({ path, title }, id) => (
-          <li key={id}>
+          <li key={id} onClick={onClick}>
             <Link
               className={
                 route === path

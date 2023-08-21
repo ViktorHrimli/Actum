@@ -7,7 +7,7 @@ import Description from "@/libs/pages/services/components/description/Descriptio
 import Response from "@/libs/components/response/Response";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import Form from "@/libs/pages/components/form/Form";
+import FormSection from "@/libs/pages/components/formSection/FormSection";
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,
@@ -24,7 +24,7 @@ export default function Crimes() {
       <Description type={"crime"} />
       <Response type={"crime"} />
       <StepsLawyers />
-      <Form type={"crime"} />
+      <FormSection type={"crime"} />
     </>
   );
 }
