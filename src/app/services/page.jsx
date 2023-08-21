@@ -1,9 +1,7 @@
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+
 import AboutServices from "@/libs/pages/services/components/about/AboutServices";
 import Descrition from "@/libs/pages/services/components/description/Description";
-
-import ServiceHero from "@/libs/pages/services/components/hero/ServiceHero";
-
 import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
 import Lawyers from "@/libs/pages/services/components/lawyers/Lawyers";
 
