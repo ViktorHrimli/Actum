@@ -11,26 +11,26 @@
   padding-right: 20px;
   padding-bottom: 66px;
   margin: 0 auto;
-    @media screen and (min-width: 768px) {
-      width: 768px;
-      padding-left: 95px;
-      padding-right: 95px;
-      padding-bottom: 117px;
-    }
-    @media screen and (min-width: 1280px) {
-      width: 1280px;
-      height: 1591px;
-      padding-top: 108px;
-      padding-left: 64px;
-      padding-right: 92px;
-      padding-bottom: 78px;
-    }
-    @media screen and (min-width: 1440px) {
-      width: 1440px;
-      height: 2045px;
-      padding-top: 217px;
-      padding-left: 70px;
-      padding-right: 116px;
-      padding-bottom: 234px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 95px;
+    padding-right: 95px;
+    padding-bottom: 117px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 1591px;
+    padding-top: 108px;
+    padding-left: 64px;
+    padding-right: 92px;
+    padding-bottom: 78px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    height: 2045px;
+    padding-top: 217px;
+    padding-left: 70px;
+    padding-right: 116px;
+    padding-bottom: 234px;
+  }
 }

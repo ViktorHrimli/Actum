@@ -25,6 +25,24 @@
   }
 }
 
+.position_family {
+  padding: 2px;
+  background: linear-gradient(to right, #E32F7A, #3F2E64);
+  border-radius: 4px;
+}
+
+.position_army {
+  padding: 2px;
+  background: linear-gradient(to right, #41664B, #3F2E64);
+  border-radius: 4px;
+}
+
+.position_criminal {
+  padding: 2px;
+  background: linear-gradient(to right, #E32F7A, #3F2E64);
+  border-radius: 4px;
+}
+
 .position:nth-child(2) {
   @media screen and (min-width: 1280px) {
     margin-left: auto;
