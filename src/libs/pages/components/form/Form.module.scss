@@ -200,7 +200,6 @@
     }
 
     &::placeholder {
-
         color: #C3BCBC;
         font-style: normal;
         font-weight: 400;
@@ -295,6 +294,11 @@
     &:focus {
         padding: 10px 15px;
     }
+}
+
+
+.conteiner_name .number_input {
+    padding-bottom: 20px;
 }
 
 .conteiner_radio_groupe {
@@ -616,14 +620,14 @@
 
 
     @media screen and (min-width: 768px) {
-        top: 10px;
+        top: 18px;
         right: 18px;
     }
 
     @media screen and (min-width: 1280px) {
         width: 24px;
         height: 24px;
-        top: 17px;
+        top: 16px;
         right: 36px;
     }
 }
@@ -690,6 +694,10 @@
     justify-content: center;
 
     gap: 10px;
+
+    @media screen and (min-width: 768px) {
+        top: 60px;
+    }
 }
 
 .error_message {
@@ -702,6 +710,10 @@
     justify-content: center;
 
     gap: 10px;
+
+    @media screen and (min-width: 768px) {
+        top: 60px;
+    }
 }
 
 .error_services {
@@ -714,8 +726,17 @@
     justify-content: center;
 
     gap: 10px;
+
+    @media screen and (min-width: 768px) {
+        top: 3px;
+        left: 143px;
+    }
 }
 
 .error_input {
     background-color: #661135;
+
+    &::placeholder {
+        color: white;
+    }
 }
