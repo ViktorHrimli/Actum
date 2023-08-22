@@ -48,6 +48,7 @@ export default function Response({ type }) {
               text={"залишити відгук"}
               style={"button_service"}
               type={"button"}
+              typeStyle={type}
             />
           </div>
         </div>

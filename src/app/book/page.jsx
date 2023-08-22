@@ -5,6 +5,21 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
+import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
+import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
+import FormSection from "@/libs/pages/components/formSection/FormSection";
+
+import hero from "@/assets/svg/book_hero.png";
+
 export default function Book() {
-  return <div>BOOK</div>;
+  return (
+    <>
+      <NestedHero
+        img={hero}
+        text="КОНСУЛЬТАЦІЯ АДВОКАТА ОНЛАЙН, В ОФІСІ АБО ДЗВІНКОМ"
+      />
+      <StepsLawyers />
+      <FormSection type="family" />
+    </>
+  );
 }

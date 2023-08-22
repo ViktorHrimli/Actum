@@ -22,6 +22,7 @@ export default function Specialists({ type }) {
               style={"button_service"}
               text={"контакти"}
               type={"button"}
+              typeStyle={type}
             />
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Navigation from "@/libs/components/nav/Navigation";
@@ -46,13 +47,18 @@ export default function Header() {
 
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
 
-  const handleClickOnBar = useCallback(() => setIsSideBar(!isSideBar), [isSideBar]);
+  const handleClickOnBar = useCallback(
+    () => setIsSideBar(!isSideBar),
+    [isSideBar]
+  );
 
   return (
     <section className={styles.header_section}>
       <div className={styles.header_conteiner}>
         <div className={styles.logo_conteiner}>
-          <Image src={Logo} alt="Logo" fill priority={true} />
+          <Link href={"/"}>
+            <Image src={Logo} alt="Logo" fill priority={true} />
+          </Link>
         </div>
 
         {isDesktopOrLaptop && isClient ? (
@@ -82,7 +88,11 @@ export default function Header() {
             }}
           >
             <SideBar>
-              <Navigation links={PathsPageHeader} route={path} />
+              <Navigation
+                links={PathsPageHeader}
+                route={path}
+                onClick={handleClickOnBar}
+              />
             </SideBar>
           </motion.div>
         )}
