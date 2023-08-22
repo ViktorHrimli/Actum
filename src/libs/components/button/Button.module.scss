@@ -1,4 +1,5 @@
 .button_prymary {
+    border: none;
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -9,39 +10,8 @@
     text-transform: uppercase;
     word-wrap: break-word;
     cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    transition: all 0.4s;
-    z-index: 15;
     background-color: transparent;
-    background-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64),
-                linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-    background-size: 100% 2px;
-    background-position: 0 100%, 0 0;
-    background-repeat: no-repeat;
-    background-clip: border-box;
-    &:before,
-        &:after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 21px;
-            border: 2px solid #E32F7A;
-            border-right: none;
-            border-radius: 4px 0 0 4px;
-        }
     
-        &:after {
-            border: 2px solid #3F2E64;
-            border-left: none;
-            left: auto;
-            right: 0;
-            border-radius: 0 4px 4px 0;
-        }
-
     &:hover {
         color: var(--secondary-color);
         background-color: var(--secondary-bacground);
@@ -65,6 +35,7 @@
 // --------- service
 
 .button_service {
+    border: none;
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -80,10 +51,38 @@
     text-transform: uppercase;
     word-wrap: break-word;
     cursor: pointer;
+    transition: all 0.4s;
+    z-index: 15;
+
+    @media screen and (min-width: 320px) {
+        font-size: 12px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 20px;
+    }
+
+    &:hover {
+        color: var(--color-text);
+        background-color: var(--primary-color);
+    }
+}
+
+.button_border {
     border: none;
     border-radius: 4px;
+    transition: all 0.4s;
+    z-index: 15;
     background-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64),
-            linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+        linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
     background-size: 100% 2px;
     background-position: 0 100%, 0 0;
     background-repeat: no-repeat;
@@ -110,29 +109,37 @@
         right: 0;
         border-radius: 0 4px 4px 0;
     }
+}
 
-    transition: all 0.4s;
+.button_border_army {
+    border: none;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #41664B, #3F2E64),
+        linear-gradient(to right, #41664B, #3F2E64);
+    background-size: 100% 2px;
+    background-position: 0 100%, 0 0;
+    background-repeat: no-repeat;
+    background-clip: border-box;
 
-    z-index: 15;
-
-    @media screen and (min-width: 320px) {
-        font-size: 12px;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 21px;
+        border: 2px solid #41664B;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
     }
 
-    @media screen and (min-width: 768px) {
-        font-size: 16px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        font-size: 18px;
-    }
-
-    @media screen and (min-width: 1440px) {
-        font-size: 20px;
-    }
-
-    &:hover {
-        color: var(--color-text);
-        background-color: var(--primary-color);
+    &:after {
+        border: 2px solid #3F2E64;
+        border-left: none;
+        left: auto;
+        right: 0;
+        border-radius: 0 4px 4px 0;
     }
 }

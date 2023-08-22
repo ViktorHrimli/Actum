@@ -56,6 +56,7 @@ export default function Form({ type }) {
         </label>
 
         <div className={styles.conteiner_name}>
+          <div className={styles.border}>
           <input
             className={
               errors.name
@@ -68,7 +69,8 @@ export default function Form({ type }) {
               required: true,
             })}
             placeholder={errors.name ? ERROR_MESSAGE : "Ім'я"}
-          />
+            />
+          </div>
           {errors.name && (
             <div className={styles.error_name}>
               <p style={{ color: "#000" }}>{"Заповніть Ім'я"}</p>
@@ -78,18 +80,19 @@ export default function Form({ type }) {
               />
             </div>
           )}
-
-          <input
-            className={
-              errors.surname
-                ? `${styles.input} ${styles.error_input}`
-                : styles.input
-            }
-            id="surname"
-            type="text"
-            placeholder={errors.surname ? ERROR_MESSAGE : "Прізвище"}
-            {...register("surname", { required: true })}
-          />
+          <div className={styles.border}>
+            <input
+              className={
+                errors.surname
+                  ? `${styles.input} ${styles.error_input}`
+                  : styles.input
+              }
+              id="surname"
+              type="text"
+              placeholder={errors.surname ? ERROR_MESSAGE : "Прізвище"}
+              {...register("surname", { required: true })}
+              />
+          </div>
 
           {errors.surname && (
             <div className={styles.error_surname}>
@@ -108,6 +111,7 @@ export default function Form({ type }) {
           Ваше питання
         </label>
         <div className={styles.conteiner_name}>
+          <div className={styles.border}>
           <textarea
             className={
               errors.textarea
@@ -121,7 +125,8 @@ export default function Form({ type }) {
                 ? ERROR_MESSAGE
                 : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
             }
-          />
+            />
+            </div>
 
           {errors.textarea && (
             <div className={styles.error_textarea}>
@@ -140,6 +145,7 @@ export default function Form({ type }) {
           Номер телефону
         </label>
         <div className={styles.conteiner_name}>
+          <div className={styles.border}>
           <input
             className={
               errors.phone
@@ -154,7 +160,8 @@ export default function Form({ type }) {
                 ? ERROR_MESSAGE
                 : "Вкажіть номер, на якому встановлений Вайбер або Телеграм."
             }
-          />
+            />
+            </div>
           {errors.phone && (
             <div className={styles.error_phone}>
               <p style={{ color: "#000" }}>Заповніть номер телефону</p>
@@ -172,6 +179,7 @@ export default function Form({ type }) {
           Месенджер
         </label>
         <div className={styles.conteiner_name}>
+          <div className={styles.border}>
           <input
             onClick={handleToggleSelect}
             value={selectValue}
@@ -188,6 +196,7 @@ export default function Form({ type }) {
                 : "Оберіть спосіб отримання відповіді"
             }
           />
+          </div>
 
           {errors.message && !selectValue && (
             <div className={styles.error_message}>
@@ -258,7 +267,7 @@ export default function Form({ type }) {
               id="services_first"
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
-            />
+              />
           </div>
 
           <div className={styles.conteiner_radio}>
@@ -292,7 +301,7 @@ export default function Form({ type }) {
         </div>
       </div>
       <div className={styles.btn_wrapper}>
-        <Button type="submit" text="надіслати запит" style="button_service" />
+        <Button type="submit" text="надіслати запит" style="button_service" typeStyle={type}/>
       </div>
     </form>
   );

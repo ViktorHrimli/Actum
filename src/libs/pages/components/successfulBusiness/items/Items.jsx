@@ -57,11 +57,12 @@ export default function Items({type}) {
       </div>
     </li>)}
     <div className={styles.container_btn}>
-          <Button
-                style={"button_prymary"}
-                text={"наші публікації"}
-                type={"button"}
-              />
+      <Button
+          typeStyle={type}
+          style={"button_prymary"}
+          text={"наші публікації"}
+          type={"button"}
+        />
         </div>
   </ul>
 }  
