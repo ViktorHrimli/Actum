@@ -26,7 +26,7 @@ const itemsList = [{
 ]
 
 export default function Items({type}) {
-  const {border} = cardsEnums[type];
+  const {background, borderTop, borderRight, borderBottom, bordeerLeft} = cardsEnums[type];
 
   return <ul className={styles.container}>
     {itemsList?.map(( el, id ) => <li key={id} className={styles.position}>
@@ -36,13 +36,12 @@ export default function Items({type}) {
             alt={"photo"}
             fill
             loading="eager"
-            // style={{ objectFit: "cover" }}
           />
       </div>
-      <div className={styles[border]}>
+      <div className={styles[background]}>
         <div className={styles.container_text}>
-          <div className={styles.border_top}>
-            <div className={styles.border_right}></div>
+          <div className={`${styles[borderTop]}`}>
+            <div className={styles[borderRight]}></div>
         </div>
             <div className={styles.container_title}>
               <p className={styles.title}>{el.title}</p>
@@ -50,8 +49,8 @@ export default function Items({type}) {
             <div className={styles.container_description}>
               <p className={styles.description}>{el.description}</p>
           </div>
-          <div className={styles.border_bottom}>
-            <div className={styles.border_left}></div>
+          <div className={styles[borderBottom]}>
+            <div className={styles[bordeerLeft]}></div>
           </div>
         </div>
       </div>
