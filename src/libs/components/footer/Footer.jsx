@@ -15,8 +15,6 @@ export default function Footer() {
 
   const path = usePathname().replace("/", "");
 
-  console.log(isStyleFooter);
-
   useEffect(() => {
     if (footerEnums[path]) {
       setIsStyleFooter(footerEnums[path]);
