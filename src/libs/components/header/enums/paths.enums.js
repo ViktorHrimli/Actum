@@ -1,5 +1,5 @@
 const PathsPageHeader = [
-  { title: "Компанія", path: "/" },
+  { title: "Компанія", path: "/teamactum" },
   {
     title: "наші послуги",
     path: "/services",
@@ -10,7 +10,7 @@ const PathsPageHeader = [
     ],
   },
   { title: "консультація", path: "/book" },
-  { title: "контакти", path: "/teamactum" },
+  { title: "контакти", path: "/contacts" },
 ];
 
 export { PathsPageHeader };
