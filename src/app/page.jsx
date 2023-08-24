@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <Direction />
       <AboutCompany />
-      <Response />
+      <Response type={"family"} />
     </>
   );
 }

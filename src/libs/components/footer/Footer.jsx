@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
+import Link from "next/link";
 
 export default function Footer() {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
@@ -103,12 +104,16 @@ export default function Footer() {
             </a>
           </div>
           <div className={styles.btn_wrapper}>
-            <Button
-              style={"button_prymary"}
-              text={"замовити консультацію"}
-              type={"button"}
-              typeStyle={isStyleFooter === 'footer_army_gradient' ? 'army': 'family'}
-            />
+            <Link href={"/book"}>
+              <Button
+                style={"button_prymary"}
+                text={"замовити консультацію"}
+                type={"button"}
+                typeStyle={
+                  isStyleFooter === "footer_army_gradient" ? "army" : "family"
+                }
+              />
+            </Link>
           </div>
         </div>
       </div>

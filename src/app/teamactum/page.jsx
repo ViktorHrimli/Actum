@@ -5,6 +5,21 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
+import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
+import Descrition from "@/libs/pages/services/components/description/Description";
+import About from "@/libs/pages/components/about/About";
+
+import ourTeam from "@/assets/svg/our_team.png";
+import our_team_about from "@/assets/svg/our_team_about.png";
+import TeamList from "@/libs/pages/teamactum/teamList/TeamList";
+
 export default function Team() {
-  return <div>Team</div>;
+  return (
+    <>
+      <NestedHero text="НАША КОМАНДА" img={ourTeam} />
+      <About img={our_team_about} />
+      <TeamList />
+      <Descrition type="classic" />
+    </>
+  );
 }

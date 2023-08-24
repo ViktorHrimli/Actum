@@ -30,6 +30,7 @@ import HelmetAnimations from "@/assets/svg/Halmet_animation.jpeg";
 import Criminal from "@/assets/svg/Criminal.png";
 
 import Button from "@/libs/components/button/Button";
+import Link from "next/link";
 
 const ONE = 0;
 const SECOND = 1;
@@ -38,7 +39,7 @@ const THERD = 2;
 export default function Direction() {
   const [activeElementIndex, setActiveElementIndex] = useState(0);
   const [activeAnimations, setActiveAnimations] = useState(true);
-  // --------- hover 
+  // --------- hover
   const [hoverHands, setHoverHands] = useState(false);
   const [hoverHalmet, setHoverHalmet] = useState(false);
   const [hoverCriminal, setHoverCriminal] = useState(false);
@@ -49,14 +50,14 @@ export default function Direction() {
   const [modalCriminal, setmodalCriminal] = useState(false);
 
   const openModalHands = () => {
-    setmodalHands(!modalHands)
-  }
+    setmodalHands(!modalHands);
+  };
   const openModalhalmet = () => {
-    setmodalHalmet(!modalHalmet)
-  }
+    setmodalHalmet(!modalHalmet);
+  };
   const openModalCriminal = () => {
-    setmodalCriminal(!modalCriminal)
-  }
+    setmodalCriminal(!modalCriminal);
+  };
 
   // ----------- Animations Tablet
 
@@ -115,7 +116,7 @@ export default function Direction() {
       setShowSecondCard(false);
       setShowThirdCard(false);
     }
-  }, [showCards]); 
+  }, [showCards]);
 
   // ----------- Animations Laptop
 
@@ -249,18 +250,28 @@ export default function Direction() {
 
         <div className={styles.flex_position}>
           <div className={styles.box_img}>
-            <div className={styles.hover_hands}
-            onClick={openModalHands}
-            onMouseOver={() => setActiveAnimations(false) & setHoverHands(true)}
-              onMouseLeave={() => setActiveAnimations(true) & setHoverHands(false)}>
-              {hoverHands ? (<Image
-                src={Touch_icon}
-                alt="Touch"
-                loading="lazy"
-                width={40}
-                height={40}
-                className={styles.touch_icon_hands}
-              />): ("")}
+            <div
+              className={styles.hover_hands}
+              onClick={openModalHands}
+              onMouseOver={() =>
+                setActiveAnimations(false) & setHoverHands(true)
+              }
+              onMouseLeave={() =>
+                setActiveAnimations(true) & setHoverHands(false)
+              }
+            >
+              {hoverHands ? (
+                <Image
+                  src={Touch_icon}
+                  alt="Touch"
+                  loading="lazy"
+                  width={40}
+                  height={40}
+                  className={styles.touch_icon_hands}
+                />
+              ) : (
+                ""
+              )}
               {activeElementIndex === 0 && activeAnimations ? (
                 <Image
                   src={Touch_icon}
@@ -276,15 +287,26 @@ export default function Direction() {
               )}
               <div className={styles.block_hover_hands}></div>
               <div className={styles.modal_family}>
-                {modalHands ? <FamilyMattrs openModalHands={openModalHands} /> : ""}
+                {modalHands ? (
+                  <FamilyMattrs openModalHands={openModalHands} />
+                ) : (
+                  ""
+                )}
               </div>
             </div>
 
-            <div className={styles.hover_halmet}
+            <div
+              className={styles.hover_halmet}
               onClick={openModalhalmet}
-              onMouseOver={() => setActiveAnimations(false) & setHoverHalmet(true)}
-              onMouseLeave={() => setActiveAnimations(true) & setHoverHalmet(false)}>
-              {hoverHalmet ? (<Image
+              onMouseOver={() =>
+                setActiveAnimations(false) & setHoverHalmet(true)
+              }
+              onMouseLeave={() =>
+                setActiveAnimations(true) & setHoverHalmet(false)
+              }
+            >
+              {hoverHalmet ? (
+                <Image
                   src={Touch_icon}
                   alt="Touch"
                   loading="lazy"
@@ -292,7 +314,10 @@ export default function Direction() {
                   height={40}
                   className={styles.touch_icon_halmet}
                   onClick={openModalhalmet}
-                />):("")}
+                />
+              ) : (
+                ""
+              )}
               {activeElementIndex === 1 && activeAnimations ? (
                 <Image
                   src={Touch_icon}
@@ -305,18 +330,24 @@ export default function Direction() {
               ) : (
                 ""
               )}
-              <div className={styles.block_hover_halmet}>
-              </div>
+              <div className={styles.block_hover_halmet}></div>
               <div className={styles.modal_military}>
                 {modalHalmet ? <MilitaryMattrs /> : ""}
               </div>
             </div>
 
-            <div className={styles.hover_criminal}
+            <div
+              className={styles.hover_criminal}
               onClick={openModalCriminal}
-            onMouseOver={() => setActiveAnimations(false) & setHoverCriminal(true)}
-              onMouseLeave={() => setActiveAnimations(true) & setHoverCriminal(false)}>
-              {hoverCriminal ? (<Image
+              onMouseOver={() =>
+                setActiveAnimations(false) & setHoverCriminal(true)
+              }
+              onMouseLeave={() =>
+                setActiveAnimations(true) & setHoverCriminal(false)
+              }
+            >
+              {hoverCriminal ? (
+                <Image
                   src={Touch_icon}
                   alt="Touch"
                   loading="lazy"
@@ -324,7 +355,10 @@ export default function Direction() {
                   height={40}
                   className={styles.touch_icon_criminal}
                   onClick={openModalCriminal}
-                />):("")}
+                />
+              ) : (
+                ""
+              )}
               {activeElementIndex === 2 && activeAnimations ? (
                 <Image
                   src={Touch_icon}
@@ -337,9 +371,7 @@ export default function Direction() {
               ) : (
                 ""
               )}
-              <div className={styles.block_hover_criminal}
-                >
-            </div>
+              <div className={styles.block_hover_criminal}></div>
               <div className={styles.modal_criminal}>
                 {modalCriminal ? <CriminalMattrs /> : ""}
               </div>
@@ -349,7 +381,6 @@ export default function Direction() {
               <Image src={Hands} alt="Hands" fill className={styles.img} />
             </div>
             <div className={styles.img_halmet}>
-              
               {activeElementIndex === 1 && activeAnimations ? (
                 <Image
                   src={HelmetAnimations}
@@ -357,9 +388,16 @@ export default function Direction() {
                   fill
                   className={styles.img}
                 />
-              ) : hoverHalmet ? (<Image src={HelmetAnimations} alt="HelmetAnimations" fill className={styles.img} />)
-                : (<Image src={Helmet} alt="Helmet" fill className={styles.img} />)}
-              
+              ) : hoverHalmet ? (
+                <Image
+                  src={HelmetAnimations}
+                  alt="HelmetAnimations"
+                  fill
+                  className={styles.img}
+                />
+              ) : (
+                <Image src={Helmet} alt="Helmet" fill className={styles.img} />
+              )}
             </div>
             <div className={styles.img_criminal}>
               <Image
@@ -388,36 +426,48 @@ export default function Direction() {
               }
             ></div>
           </div>
-{/* -------------- marker ------------- */}
+          {/* -------------- marker ------------- */}
           <div className={styles.marker_box}>
             <div
               className={styles.marker}
               style={{
-                background:hoverHands ? "#E32F7A" : activeElementIndex === ONE & activeAnimations ? "#E32F7A" : "#1F1F1F",
+                background: hoverHands
+                  ? "#E32F7A"
+                  : (activeElementIndex === ONE) & activeAnimations
+                  ? "#E32F7A"
+                  : "#1F1F1F",
               }}
             ></div>
             <div
               className={styles.marker}
               style={{
-                background:hoverHalmet ? "#E32F7A" :
-                  activeElementIndex === SECOND & activeAnimations ? "#E32F7A" : "#1F1F1F",
+                background: hoverHalmet
+                  ? "#E32F7A"
+                  : (activeElementIndex === SECOND) & activeAnimations
+                  ? "#E32F7A"
+                  : "#1F1F1F",
               }}
             ></div>
             <div
               className={styles.marker}
               style={{
-                background:hoverCriminal ? "#E32F7A" :
-                  activeElementIndex === THERD & activeAnimations ? "#E32F7A" : "#1F1F1F",
+                background: hoverCriminal
+                  ? "#E32F7A"
+                  : (activeElementIndex === THERD) & activeAnimations
+                  ? "#E32F7A"
+                  : "#1F1F1F",
               }}
             ></div>
           </div>
 
           <div className={styles.box_btn}>
-            <Button
-              style={"button_service"}
-              text={"усі послуги"}
-              type={"button"}
-            />
+            <Link href={"/services"}>
+              <Button
+                style={"button_service"}
+                text={"усі послуги"}
+                type={"button"}
+              />
+            </Link>
           </div>
         </div>
       </div>
