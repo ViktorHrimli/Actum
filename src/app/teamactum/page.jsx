@@ -11,12 +11,14 @@ import About from "@/libs/pages/components/about/About";
 
 import ourTeam from "@/assets/svg/our_team.png";
 import our_team_about from "@/assets/svg/our_team_about.png";
+import TeamList from "@/libs/pages/teamactum/teamList/TeamList";
 
 export default function Team() {
   return (
     <>
       <NestedHero text="НАША КОМАНДА" img={ourTeam} />
       <About img={our_team_about} />
+      <TeamList />
       <Descrition type="classic" />
     </>
   );

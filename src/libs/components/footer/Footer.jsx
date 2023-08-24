@@ -15,8 +15,6 @@ export default function Footer() {
 
   const path = usePathname().replace("/", "");
 
-  console.log(isStyleFooter);
-
   useEffect(() => {
     if (footerEnums[path]) {
       setIsStyleFooter(footerEnums[path]);
@@ -109,7 +107,9 @@ export default function Footer() {
               style={"button_prymary"}
               text={"замовити консультацію"}
               type={"button"}
-              typeStyle={isStyleFooter === 'footer_army_gradient' ? 'army': 'family'}
+              typeStyle={
+                isStyleFooter === "footer_army_gradient" ? "army" : "family"
+              }
             />
           </div>
         </div>

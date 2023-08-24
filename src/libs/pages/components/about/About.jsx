@@ -41,7 +41,10 @@ export default function About({ img, type = "famyli" }) {
             placeholder="blur"
             alt="natalia"
             fill
-            style={{ objectFit: "cover", borderRadius: "4px" }}
+            style={{
+              objectFit: "cover",
+              borderRadius: "4px",
+            }}
           />
           <div className={styles.btn_wrapper}>
             <Button
