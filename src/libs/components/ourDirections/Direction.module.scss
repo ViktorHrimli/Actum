@@ -242,21 +242,24 @@
   position: absolute;
   top: 44px;
   left: 44px;
-  z-index: 11;
+  z-index: 15;
+  cursor: pointer;
 }
 
 .touch_icon_halmet {
   position: absolute;
   top: 45%;
   left: 47%;
-  z-index: 11;
+  z-index: 15;
+  cursor: pointer;
 }
 
 .touch_icon_criminal {
   position: absolute;
   bottom: 44px;
   right: 44px;
-  z-index: 11;
+  z-index: 15;
+  cursor: pointer;
 }
 
 // ----------- block hover --------
@@ -267,6 +270,7 @@
   position: absolute;
   left: -108px;
   top: -241px;
+  cursor: pointer;
 
   @media screen and (min-width: 320px) {}
 
@@ -284,6 +288,9 @@
   @media screen and (min-width: 1440px) {
     width: 400px;
     transform: rotate(43.4deg);
+  }
+  &:hover {
+    background: rgba(227, 47, 122, 0.40);
   }
 }
 
@@ -317,6 +324,7 @@
   height: 1200px;
   z-index: 13;
   position: absolute;
+  cursor: pointer;
 
   @media screen and (min-width: 320px) {}
 
@@ -337,7 +345,7 @@
   }
 
   @media screen and (min-width: 1440px) {
-    width: 393px;
+    width: 397px;
     left: 267px;
     top: -283px;
     transform: rotate(43.5deg);
@@ -353,7 +361,7 @@
   height: 750px;
   z-index: 13;
   position: absolute;
-
+  cursor: pointer;
 
   @media screen and (min-width: 320px) {}
 
@@ -364,7 +372,7 @@
   @media screen and (min-width: 1280px) {
     width: 330px;
     transform: rotate(44.7deg);
-    left: 554px;
+    left: 552px;
     top: 95px;
 
     @media screen and (min-height: 700px) and (max-height: 799px) {
@@ -375,14 +383,17 @@
 
   @media screen and (min-width: 1440px) {
     width: 400px;
-    left: 623px;
+    left: 627px;
     top: 138px;
     transform: rotate(43.5deg);
 
     @media screen and (min-height: 700px) and (max-height: 799px) {
-      left: 606px;
+      left: 615px;
       top: 32px;
     }
+  }
+  &:hover {
+    background: rgba(63, 46, 100, 0.80);
   }
 }
 
@@ -401,7 +412,7 @@
   @media screen and (min-width: 1280px) {
     width: 330px;
     transform: rotate(44.7deg);
-    left: 554px;
+    left: 552px;
     top: 95px;
 
     @media screen and (min-height: 700px) and (max-height: 799px) {
@@ -412,12 +423,12 @@
 
   @media screen and (min-width: 1440px) {
     width: 400px;
-    left: 629px;
+    left: 627px;
     top: 138px;
     transform: rotate(43.5deg);
 
     @media screen and (min-height: 700px) and (max-height: 799px) {
-      left: 606px;
+      left: 615px;
       top: 32px;
     }
   }
@@ -524,44 +535,28 @@
 
 .modal_family {
   position: absolute;
-  z-index: 12;
-  opacity: 0;
-  visibility: hidden;
+  z-index: 16;
+  opacity: 1;
+  // visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
 
 }
 
 .modal_military {
   position: absolute;
-  z-index: 12;
-  opacity: 0;
-  visibility: hidden;
+  z-index: 16;
+  // opacity: 0;
+  // visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
 }
 
 .modal_criminal {
   position: absolute;
-  z-index: 12;
-  opacity: 0;
-  visibility: hidden;
+  z-index: 16;
+  opacity: 1;
+  // visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
 }
-
-.hover_hands:hover .modal_family {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hover_halmet:hover .modal_military {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hover_criminal:hover .modal_criminal {
-  opacity: 1;
-  visibility: visible;
-}
-
 
 // ------------- btn
 
