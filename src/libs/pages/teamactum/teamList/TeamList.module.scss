@@ -25,18 +25,37 @@
 
     @media screen and (min-width: 768px) {
         width: 768px;
-        flex-direction: row-reverse;
-        padding: 57px 52px 0px 57px;
+        padding: 100px 68px 100px 68px;
     }
 
     @media screen and (min-width: 1280px) {
+        padding: 120px 90px 170px 60px;
         width: 1280px;
-        padding: 54px 109px 0 64px;
+        flex-direction: row;
+        align-items: flex-start;
     }
 
     @media screen and (min-width: 1440px) {
+        padding: 150px 150px 160px 70px;
         width: 1440px;
-        padding: 78px 138px 0 92px;
+    }
+}
+
+.left_bar_conteiner {
+    width: 280px;
+
+    @media screen and (min-width: 768px) {
+        width: 400px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 60px;
+        height: 800px;
+        margin-right: 30px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        margin-right: 110px;
     }
 }
 
