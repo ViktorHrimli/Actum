@@ -1,5 +1,5 @@
 const PathsPageHeader = [
-  { title: "Компанія", path: "/" },
+  { title: "Компанія", path: "/teamactum" },
   {
     title: "наші послуги",
     path: "/services",

@@ -11,6 +11,7 @@ import Olga from "@/assets/svg/Olga.png";
 import Natalia from "@/assets/svg/Natalia.png";
 
 import Button from "../button/Button";
+import Link from "next/link";
 
 export default function AboutCompany() {
   const handleClick = () => {};
@@ -91,12 +92,14 @@ export default function AboutCompany() {
           </div>
         </div>
         <div className={styles.btn_wrapper}>
-          <Button
-            onClick={handleClick}
-            style={"button_prymary"}
-            text={"наша команда"}
-            type={"button"}
-          />
+          <Link href={"/teamactum"}>
+            <Button
+              onClick={handleClick}
+              style={"button_prymary"}
+              text={"наша команда"}
+              type={"button"}
+            />
+          </Link>
         </div>
       </div>
     </section>

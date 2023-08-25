@@ -6,6 +6,7 @@ import watemark from "@/assets/svg/Actum_HERO.png";
 import femida from "@/assets/svg/HERO_FEMIDA.png";
 
 import styles from "./Hero.module.scss";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -38,12 +39,14 @@ export default function Hero() {
       <div className={styles.thirhd_gradient}></div>
       <div className={styles.fourth_gradient}></div>
       <div className={styles.btn_wrapper}>
-        <Button
-          onClick={() => {}}
-          type={"button"}
-          text="замовити консультацію"
-          style="button_prymary"
-        />
+        <Link href={"/book"}>
+          <Button
+            onClick={() => {}}
+            type={"button"}
+            text="замовити консультацію"
+            style="button_prymary"
+          />
+        </Link>
       </div>
     </section>
   );
