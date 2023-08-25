@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import LeftBar from "@/libs/components/left_bar_text/LeftBar"
 import Button from "@/libs/components/button/Button";
@@ -26,8 +27,9 @@ export default function Contacts({type}) {
           </div>
         </div>
         <div className={styles.container_contacts}>
-          <div>
-          <div className={styles.container_map}>
+        <div>
+            <div className={styles.container_map}>
+        <Link href={"https://goo.gl/maps/1uuaiqd7wCbg5E6d6"}>
             <div className={styles.img}>
               <div className={styles.gradient}>
                 <div className={styles.map_ukraine}>
@@ -57,16 +59,18 @@ export default function Contacts({type}) {
                   // objectFit="cover"
                   />
                 </div>
-              </div>
-              <Image
+                </div>
+                
+              <Image 
                   src={MapGoogle}
                   alt="Map"
                   fill
                   loading="lazy"
                   objectFit="cover"
-                />
-            </div>
-          </div>
+                  />
+                </div>
+            </Link>
+              </div>
           <div className={styles.container_btn}>
             <Button
                 style={"button_service"}

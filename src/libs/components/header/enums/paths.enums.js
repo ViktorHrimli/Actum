@@ -10,7 +10,7 @@ const PathsPageHeader = [
     ],
   },
   { title: "консультація", path: "/book" },
-  { title: "контакти", path: "/#contacts" },
+  { title: "контакти", path: "/contacts" },
 ];
 
 export { PathsPageHeader };
