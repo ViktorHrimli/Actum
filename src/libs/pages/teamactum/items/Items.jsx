@@ -8,7 +8,8 @@ import styles from "./Items.module.scss";
 
 import sp from "@/assets/svg/Specialists_Natalia.png";
 
-export default function Items() {
+export default function Items({ attributes }) {
+  // const { title, description,  } = attributes;
   return (
     <li>
       <div className={styles.conteiner_card}>

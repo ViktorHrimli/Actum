@@ -3,7 +3,11 @@ import Items from "../items/Items";
 
 import styles from "./TeamList.module.scss";
 
-export default function TeamList() {
+import { getDataTeam } from "../libs/helpers/helpers";
+
+export default async function TeamList() {
+  // const teams = await getDataTeam();
+
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
