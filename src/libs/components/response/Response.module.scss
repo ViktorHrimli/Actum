@@ -79,6 +79,17 @@
     }
 }
 
+.background {
+    @media screen and (min-width: 1280px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 88px;
+        height: 100%;
+        background: #0F021C;
+    }
+}
+
 .rigth_conteiner {
     display: flex;
     flex-direction: column;
