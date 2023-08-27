@@ -6,11 +6,12 @@ import Button from "@/libs/components/button/Button";
 
 import styles from "./Items.module.scss";
 
-import sp from "@/assets/svg/Specialists_Natalia.png";
+import kovalev from "@/assets/svg/kovalev.png";
 
-export default function Items() {
+export default function Items({ attributes }) {
+  // const { title, description,  } = attributes;
   return (
-    <li>
+    <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
         <div className={styles.text_wrapper}>
           <h2 className={styles.title_text}>Коровіна Наталя Георгіївна</h2>
@@ -54,17 +55,27 @@ export default function Items() {
 
         <div className={styles.image_conteiner}>
           <Image
-            src={sp}
+            src={kovalev}
             alt="Коровіна Наталя Георгіївна"
             fill
             objectFit="cover"
           />
         </div>
-        <div className={styles.btn_wrapper}>
-          <Link href={"/book"}>
-            <Button type="button" text="зв’язатися" style="button_service" />
-          </Link>
-        </div>
+      </div>
+      <div className={styles.btn_wrapper}>
+        <Link href={"/book"}>
+          <Button type="button" text="зв’язатися" style="button_service" />
+        </Link>
+      </div>
+
+      <div className={styles.btn_wrapper_lawyer}>
+        <Link href={"/book"}>
+          <Button
+            type="button"
+            text="сімейний адвокат"
+            style="button_service"
+          />
+        </Link>
       </div>
     </li>
   );

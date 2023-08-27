@@ -1,20 +1,19 @@
 .footer_section {
   position: relative;
   background-color: #0F021C;
+  width: 100vw;
 
   overflow: hidden;
 
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 100%;
-  }
+  @media screen and (min-width: 320px) and (max-width: 767px) {}
 
-  @media screen and (min-width: 768px) {
-    width: 100%;
-  }
+  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
+
     width: 1280px;
+
     padding-top: 45px;
     padding-left: 45px;
     padding-right: 60px;
@@ -24,7 +23,6 @@
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-
     padding-top: 67px;
     padding-left: 57px;
     padding-right: 150px;
@@ -71,11 +69,11 @@
   // --------------------------
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E32F7A), color-stop(41.67%, #D70F74), color-stop(80.88%, #912E6F));
   //   /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    /* Chrome10+,Safari5.1+ */
+  background: -webkit-linear-gradient(top, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+  /* Chrome10+,Safari5.1+ */
   filter: blur(150px);
   // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E32F7A', endColorstr='#912E6F', GradientType=0);
-    /* IE6-9 */
+  /* IE6-9 */
 
 
   z-index: 1;

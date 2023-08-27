@@ -1,5 +1,5 @@
 .section {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background: #E2E0E0;
   overflow: hidden;
@@ -10,12 +10,11 @@
 
   @media screen and (min-width: 1280px) {
     height: 100%;
-    width: 1280px;
   }
 
   @media screen and (min-width: 1440px) {
     height: 483px;
-    width: 1440px;
+    max-width: 1440px;
   }
 }
 
