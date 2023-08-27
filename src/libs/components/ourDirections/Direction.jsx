@@ -129,9 +129,11 @@ export default function Direction() {
       clearInterval(intervalIdHands);
     };
   }, []);
-  return (
+  return (<>
     <section className={styles.direction_section}>
       <div className={styles.direction_container}>
+      <div className={styles.background}></div>
+
         <div className={styles.box_title}>
           <div className={styles.direction_line}></div>
           <h2 className={styles.direction_title}>наші напрями</h2>
@@ -472,5 +474,5 @@ export default function Direction() {
         </div>
       </div>
     </section>
-  );
+  </>);
 }

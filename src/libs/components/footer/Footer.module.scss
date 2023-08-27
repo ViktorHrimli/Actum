@@ -15,19 +15,20 @@
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    height: 367px;
     padding-top: 45px;
     padding-left: 45px;
     padding-right: 60px;
+    padding-bottom: 26px;
+    z-index: 17;
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    height: 428px;
 
     padding-top: 67px;
     padding-left: 57px;
     padding-right: 150px;
+    padding-bottom: 31px;
     overflow: hidden;
   }
 }

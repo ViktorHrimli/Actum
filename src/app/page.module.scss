@@ -1,19 +1,17 @@
 @import '/src/assets/css/styles.scss';
 
-.section {
+.page {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    width: 100vw;
     @media screen and (min-width: 1280px) {
         width: 1280px;
         align-items: flex-end
     }
 
-    @media screen and (min-width: 1439px) {
+    @media screen and (min-width: 1440px) {
         width: 1440px;
     }
 }

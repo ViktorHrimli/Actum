@@ -20,7 +20,7 @@ export default function IconMap() {
           y2="160.451"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E32F7A" />
+          <stop stopColor="#E32F7A" />
           <stop offset="1" stop-color="#432E37" />
         </linearGradient>
       </defs>
