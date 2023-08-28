@@ -1,3 +1,4 @@
+"use client"
 import Button from "@/libs/components/button/Button";
 import Card from "@/libs/components/card/Card";
 import LeftBar from "@/libs/components/left_bar_text/LeftBar";
@@ -6,6 +7,9 @@ import styles from "./Response.module.scss";
 
 import Card1 from "@/assets/svg/Card_1.png";
 import Card2 from "@/assets/svg/Card_2.png";
+
+import { usePathname } from "next/navigation"
+
 
 const arrPerson = [
   {
@@ -23,10 +27,12 @@ const arrPerson = [
 ];
 
 export default function Response({ type }) {
+  const path = usePathname();
+  
   return (
     <section className={styles.section}>
       <div className={styles.conteiner_section}>
-        <div className={type === "family" ? styles.background : ""}></div>
+        <div className={path === '/' ? styles.background : ""}></div>
 
         <LeftBar text={"наші відгуки"} type={type} />
 
