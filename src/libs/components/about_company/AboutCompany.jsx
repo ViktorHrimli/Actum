@@ -4,8 +4,8 @@ import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
 
 import Animation from "./halpers/Animation";
-import animationData from '@/assets/json/data.json'
-import animationDataSign from '@/assets/json/dataSign.json'
+import animationSignOlena from '@/assets/json/sign_olena.json'
+import animationSignNatalia from '@/assets/json/sign_natalia.json'
 
 
 // import XO from "@/assets/svg/XO.png";
@@ -88,16 +88,14 @@ export default function AboutCompany() {
             <p className={styles.partner}>партнер Хоменко Олена</p>
             <div className={styles.wrapper_signatur_olena}>
               {/* <Image src={XO} loading="eager" alt="Підпис" fill /> */}
-          <Animation animationData={animationData} playOnScroll={true} />
-
+          <Animation animationData={animationSignOlena} playOnScroll={true} />
             </div>
           </div>
           <div className={styles.conteiner_partner_natalia}>
             <p className={styles.partner}>партнер Коровіна Наталя</p>
             <div className={styles.wrapper_signatur_natalia}>
               {/* <Image src={XN} loading="eager" alt="Підпис" fill /> */}
-          <Animation animationData={animationDataSign} playOnScroll={true} />
-
+          <Animation animationData={animationSignNatalia} playOnScroll={true} />
             </div>
           </div>
         </div>

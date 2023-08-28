@@ -26,7 +26,7 @@ export default function Response({ type }) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner_section}>
-      <div className={styles.background}></div>
+      <div className={type === "none" ? styles.background : ""}></div>
 
         <LeftBar text={"наші відгуки"} type={type} />
 

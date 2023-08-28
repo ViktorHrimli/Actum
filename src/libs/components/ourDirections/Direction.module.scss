@@ -547,25 +547,18 @@
 .modal_family {
   position: absolute;
   z-index: 16;
-  opacity: 1;
-  // visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
-
 }
 
 .modal_military {
   position: absolute;
   z-index: 16;
-  // opacity: 0;
-  // visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
 }
 
 .modal_criminal {
   position: absolute;
   z-index: 16;
-  opacity: 1;
-  // visibility: hidden;
   transition: 0.55s opacity, 0.55s visibility;
 }
 
