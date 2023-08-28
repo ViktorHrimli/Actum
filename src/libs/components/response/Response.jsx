@@ -26,7 +26,7 @@ export default function Response({ type }) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner_section}>
-      <div className={type === "none" ? styles.background : ""}></div>
+        <div className={type === "family" ? styles.background : ""}></div>
 
         <LeftBar text={"наші відгуки"} type={type} />
 
@@ -50,7 +50,7 @@ export default function Response({ type }) {
               text={"залишити відгук"}
               style={"button_service"}
               type={"button"}
-              typeStyle={type}
+              typeStyle={type} 
             />
           </div>
         </div>

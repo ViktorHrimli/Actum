@@ -13,7 +13,7 @@ export default function Home() {
       <ContactPanel />
       <Hero />
       <Direction />
-      <AboutCompany type={"none"} />
+      <AboutCompany type={ "family"} />
       <Response type={"family"} />
     </>
   );
