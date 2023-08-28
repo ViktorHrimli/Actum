@@ -11,7 +11,7 @@ const ScrollAwareSection = ({ children, hideOnScrollEnd }) => {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollPosition = window.scrollY;
 
-      if (documentHeight - windowHeight - scrollPosition <= 300) {
+      if (documentHeight - windowHeight - scrollPosition <= 280) {
         setShouldHide(true);
         hideOnScrollEnd(true);
       } else {
