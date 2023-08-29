@@ -6,7 +6,7 @@ import styles from "./TeamList.module.scss";
 import { getDataTeam } from "../libs/helpers/helpers";
 
 export default async function TeamList() {
-  const { data } = await getDataTeam();
+  // const { data } = await getDataTeam();
 
   return (
     <section className={styles.section}>
