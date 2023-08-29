@@ -9,12 +9,15 @@ import styles from "./Items.module.scss";
 import kovalev from "@/assets/svg/kovalev.png";
 
 export default function Items({ attributes }) {
-  // const { title, description,  } = attributes;
+  // const { title, description, city, second_description, person_photo } =
+  //   attributes;
+
+  // const imgest = person_photo.data.attributes.formats.thumbnail.url || kovalev;
   return (
     <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
         <div className={styles.text_wrapper}>
-          <h2 className={styles.title_text}>Коровіна Наталя Георгіївна</h2>
+          <h2 className={styles.title_text}></h2>
 
           <p className={styles.lawyer_text}>сімейний адвокат</p>
 
