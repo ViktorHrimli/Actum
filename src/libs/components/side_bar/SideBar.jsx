@@ -31,13 +31,13 @@ export default function SideBar({ children }) {
           </div>
           <ul className={styles.icon_list}>
             <li>
-              <a href="">
+              <a href="https://t.me/actum_help">
                 <Image src={Telegram} alt="Telegram" width={34} height={34} />
               </a>
             </li>
 
             <li>
-              <a href="">
+              <a href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">
                 <Image src={Viber} alt="Viber" width={34} height={34} />
               </a>
             </li>

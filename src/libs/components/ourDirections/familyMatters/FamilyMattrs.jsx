@@ -1,13 +1,20 @@
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
-
 import styles from "./FamilyMattrs.module.scss";
 
-export default function FamilyMattrs() {
+export default function FamilyMattrs({openModalHands}) {
   return (
     <div className={styles.family}>
+      <div onClick={openModalHands} style={{ cursor: "pointer", position: "absolute", right: "40px", top: "40px"}}>
+        <FontAwesomeIcon
+          icon={faXmark}
+          size="2xl"
+        />
+      </div>
       <h2 className={styles.family_title}>сімейні питання</h2>
 
       <p className={styles.family_text}>

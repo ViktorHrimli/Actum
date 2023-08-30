@@ -448,33 +448,29 @@
     @media screen and (min-width:320px) {
         width: 50px;
         height: 56.884px;
-
-        top: -23px;
-        right: -33px;
+        top: -7px;
+        right: -49px;
     }
 
     @media screen and (min-width: 768px) {
         width: 60px;
-        height: 68px;
-
-        top: -29px;
-        right: 4px;
+        height: 60px;
+        top: -9px;
+        right: -11px;
     }
 
     @media screen and (min-width: 1280px) {
-        top: -33px;
-        right: 57px;
-
-        width: 70px;
-        height: 79px;
+        top: -13px;
+        right: 42px;
+        width: 80px;
+        height: 80px;
     }
 
     @media screen and (min-width: 1440px) {
         width: 88px;
         height: 100px;
-
-        top: -45px;
-        right: 21px;
+        top: -12px;
+        right: 5px;
     }
 }
 
@@ -482,35 +478,31 @@
     position: absolute;
 
     @media screen and (min-width:320px) {
-        top: 0px;
-        right: 36px;
-
+        top: 14px;
+        right: 24px;
         width: 40px;
         height: 40px;
     }
 
     @media screen and (min-width: 768px) {
-        top: 0px;
-        right: 11px;
-
-        width: 40px;
-        height: 40px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        top: -26px;
-        right: 108px;
-
+        top: 12px;
+        right: -16px;
         width: 50px;
         height: 50px;
     }
 
     @media screen and (min-width: 1280px) {
-        top: -26px;
-        right: 90px;
-
+        top: 10px;
+        right: 80px;
         width: 60px;
         height: 60px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: 9px;
+        right: 60px;
+        width: 70px;
+        height: 70px;
     }
 
     z-index: 5;

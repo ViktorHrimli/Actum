@@ -1,13 +1,21 @@
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 
 import styles from "./CriminalMattrs.module.scss";
 
-export default function CriminalMattrs() {
+export default function CriminalMattrs({openModalCriminal}) {
   return (
     <div className={styles.criminal}>
+      <div onClick={openModalCriminal} style={{ cursor: "pointer", position: "absolute", right: "40px", top: "40px"}}>
+        <FontAwesomeIcon
+          icon={faXmark}
+          size="2xl"
+        />
+      </div>
       <h2 className={styles.criminal_title}>кримінальні питання</h2>
 
       <p className={styles.criminal_text}>

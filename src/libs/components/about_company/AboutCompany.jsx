@@ -3,8 +3,13 @@ import Image from "next/image";
 import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
 
-import XO from "@/assets/svg/XO.png";
-import XN from "@/assets/svg/XN.png";
+import Animation from "./halpers/Animation";
+import animationSignOlena from '@/assets/json/sign_olena.json'
+import animationSignNatalia from '@/assets/json/sign_natalia.json'
+
+
+// import XO from "@/assets/svg/XO.png";
+// import XN from "@/assets/svg/XN.png";
 import Ukraine from "@/assets/svg/Ukraine.png";
 
 import Olga from "@/assets/svg/Olga.png";
@@ -14,6 +19,7 @@ import Button from "../button/Button";
 import Link from "next/link";
 
 export default function AboutCompany() {
+  
   const handleClick = () => {};
   return (
     <section className={styles.section}>
@@ -81,13 +87,15 @@ export default function AboutCompany() {
           <div className={styles.conteiner_partner_olena}>
             <p className={styles.partner}>партнер Хоменко Олена</p>
             <div className={styles.wrapper_signatur_olena}>
-              <Image src={XO} loading="eager" alt="Підпис" fill />
+              {/* <Image src={XO} loading="eager" alt="Підпис" fill /> */}
+          <Animation animationData={animationSignOlena} playOnScroll={true} />
             </div>
           </div>
           <div className={styles.conteiner_partner_natalia}>
             <p className={styles.partner}>партнер Коровіна Наталя</p>
             <div className={styles.wrapper_signatur_natalia}>
-              <Image src={XN} loading="eager" alt="Підпис" fill />
+              {/* <Image src={XN} loading="eager" alt="Підпис" fill /> */}
+          <Animation animationData={animationSignNatalia} playOnScroll={true} />
             </div>
           </div>
         </div>

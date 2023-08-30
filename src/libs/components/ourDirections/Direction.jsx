@@ -51,12 +51,15 @@ export default function Direction() {
 
   const openModalHands = () => {
     setmodalHands(!modalHands);
+    setHoverHands(false)
   };
   const openModalhalmet = () => {
     setmodalHalmet(!modalHalmet);
+    setHoverHalmet(false)
   };
   const openModalCriminal = () => {
     setmodalCriminal(!modalCriminal);
+    setHoverCriminal(false)
   };
 
   // ----------- Animations Tablet
@@ -129,9 +132,11 @@ export default function Direction() {
       clearInterval(intervalIdHands);
     };
   }, []);
-  return (
+  return (<>
     <section className={styles.direction_section}>
       <div className={styles.direction_container}>
+      <div className={styles.background}></div>
+
         <div className={styles.box_title}>
           <div className={styles.direction_line}></div>
           <h2 className={styles.direction_title}>наші напрями</h2>
@@ -332,7 +337,7 @@ export default function Direction() {
               )}
               <div className={styles.block_hover_halmet}></div>
               <div className={styles.modal_military}>
-                {modalHalmet ? <MilitaryMattrs /> : ""}
+                {modalHalmet ? <MilitaryMattrs openModalhalmet={openModalhalmet} /> : ""}
               </div>
             </div>
 
@@ -373,7 +378,7 @@ export default function Direction() {
               )}
               <div className={styles.block_hover_criminal}></div>
               <div className={styles.modal_criminal}>
-                {modalCriminal ? <CriminalMattrs /> : ""}
+                {modalCriminal ? <CriminalMattrs openModalCriminal={openModalCriminal} /> : ""}
               </div>
             </div>
 
@@ -472,5 +477,5 @@ export default function Direction() {
         </div>
       </div>
     </section>
-  );
+  </>);
 }

@@ -29,7 +29,7 @@ export default function Contacts({type}) {
         <div className={styles.container_contacts}>
         <div>
             <div className={styles.container_map}>
-        <Link href={"https://goo.gl/maps/1uuaiqd7wCbg5E6d6"}>
+        {/* <Link href={"https://goo.gl/maps/1uuaiqd7wCbg5E6d6"}> */}
             <div className={styles.img}>
               <div className={styles.gradient}>
                 <div className={styles.map_ukraine}>
@@ -60,16 +60,11 @@ export default function Contacts({type}) {
                   />
                 </div>
                 </div>
-                
-              <Image 
-                  src={MapGoogle}
-                  alt="Map"
-                  fill
-                  loading="lazy"
-                  objectFit="cover"
-                  />
+                  <div className={styles.google_map}>
+                    <iframe style={{ border: "none" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.985689330561!2d30.521125500000007!3d50.497224100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d1f9ab851327%3A0xdef11545537f44d4!2z0YPQuy4g0J7QsdC-0LvQvtC90YHQutCw0Y8g0L3QsNCxLiwgMTUsINCa0LjQtdCyLCAwNDA3NA!5e0!3m2!1sru!2sua!4v1693237557985!5m2!1sru!2sua" width="100%" height="100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
                 </div>
-            </Link>
+            {/* </Link> */}
               </div>
           <div className={styles.container_btn}>
             <Button
@@ -125,7 +120,7 @@ export default function Contacts({type}) {
                   loading="lazy"
                   objectFit="cover"
                 />
-                <a className={styles.social} href="">telegram канал</a></li>
+                <a className={styles.social} href="https://t.me/actum_help">telegram канал</a></li>
               <li className={styles.link}>
                 <Image
                   src={Viber}
@@ -134,7 +129,7 @@ export default function Contacts({type}) {
                   loading="lazy"
                   objectFit="cover"
                 />
-                <a className={styles.social} href="">viber група</a></li>
+                <a className={styles.social} href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">viber група</a></li>
               <li className={styles.link}>
                 <Image
                   src={Instagram}
@@ -143,7 +138,7 @@ export default function Contacts({type}) {
                   loading="lazy"
                   objectFit="cover"
                 />
-                <a className={styles.social} href="">instagram сторінка</a></li>
+                <a className={styles.social} href="https://www.instagram.com/actum.com.ua/">instagram сторінка</a></li>
               <li className={styles.link}>
                 <Image
                   src={Facebook}
@@ -152,7 +147,7 @@ export default function Contacts({type}) {
                   loading="lazy"
                   objectFit="cover"
                 />
-                <a className={styles.social} href="">facebook сторінка</a></li>
+                <a className={styles.social} href="https://www.facebook.com/ActumHelp">facebook сторінка</a></li>
               </ul>
             </div>
           </div>
