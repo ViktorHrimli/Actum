@@ -126,7 +126,8 @@ export default function Hero() {
         transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
         className={styles.fourth_gradient}
       ></motion.div>
-
+      
+      
       <motion.h2
         animate={isHome ? (isStep ? "step" : "open") : false}
         variants={titleWatemarkAnimated["variants"]}
@@ -151,8 +152,9 @@ export default function Hero() {
         className={styles.text}
       >
         Дія задля результату
-      </motion.div>
+        </motion.div>
 
+      
       <motion.div
         animate={"open"}
         variants={{ open: { y: "0", opacity: 1 } }}
