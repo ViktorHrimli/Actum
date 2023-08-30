@@ -13,12 +13,16 @@ const desktopLogoAnimate = {
 };
 
 const mobileLogoAnimate = {
-  variants: {
-    start: { x: 0, y: 0, scale: 1, rotate: "0deg" },
-    step: { x: 0, y: 0, scale: 1, rotate: "0deg" },
+  variants(isBig = false) {
+    return {
+      start: { x: 0, y: 0, scale: 1, rotate: "0deg" },
+      step: { x: 0, y: 0, scale: 1, rotate: "0deg" },
+    };
   },
 
-  initial: { x: 120, y: 100, scale: 3, rotate: "90deg" },
+  initial(isBig = false) {
+    return { x: 120, y: 100, scale: 3, rotate: "90deg" };
+  },
   exit: { x: 0, y: 0, scale: 1, rotate: "0deg" },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };
