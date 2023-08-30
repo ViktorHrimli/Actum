@@ -18,20 +18,21 @@ export default function ContactPanel() {
     <section className={isTrue ? styles.contact_panel_section_height : styles.contact_panel_section}>
       <div className={styles.contact_panel_conteiner}>
         <ul className={styles.list_panel}>
+
           <li className={styles.link}>
-            <a href="">
+            <a href="https://t.me/actum_help">
               <Image src={Telegram} alt="Telegram" width={34} height={34} />
             </a>
           </li>
 
           <li className={styles.link}>
-            <a href="">
+            <a href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">
               <Image src={Viber} alt="Viber" width={34} height={34} />
             </a>
           </li>
 
           <li className={styles.link}>
-            <a href="">
+            <a href="https://www.instagram.com/actum.com.ua/">
               <Image src={Whatsapp} alt="Whatsapp" width={34} height={34} />
             </a>
           </li>
@@ -41,6 +42,7 @@ export default function ContactPanel() {
               <Image src={Form} alt="Form" width={34} height={34} />
             </a>
           </li>
+          
         </ul>
         <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
         <ul className={styles.list_panel_phone} >
