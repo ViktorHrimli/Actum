@@ -10,9 +10,11 @@ import { usePathname } from "next/navigation";
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
 import Link from "next/link";
+import { set } from "react-hook-form";
 
 export default function Footer() {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
+  const [first, setfirst] = useState(false);
 
   const path = usePathname().replace("/", "");
 
@@ -24,13 +26,17 @@ export default function Footer() {
     }
   }, [path]);
 
+  useEffect(() => {
+    setfirst(true)
+  }, []);
+
   return (
     <div className={styles.footer_section}>
-      <div
+      {first && <div
         className={
           isStyleFooter ? styles[isStyleFooter] : styles.footer_gradient
         }
-      ></div>
+      ></div>}
 
       <div className={styles.footer_container}>
         <div className={styles.box_logo}>
