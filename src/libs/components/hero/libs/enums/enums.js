@@ -2,10 +2,16 @@
 
 const desktopAnimateWatemark = {
   variants: {
-    open: { x: "300px", opacity: 1 },
-    step: { x: "0", y: "0", scale: 1, opacity: 1 },
+    open: { x: 300, opacity: 1 },
+    step: { x: 0, y: 0, scale: 1, opacity: 1 },
   },
-  initial: { x: "210%", y: "90px", scale: 1.2, rotate: "0deg", opacity: 0 },
+  initial: {
+    x: 1000,
+    y: 90,
+    scale: 1.2,
+    rotate: "0deg",
+    opacity: 0,
+  },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };
 
