@@ -1,5 +1,6 @@
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
 
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
@@ -18,6 +19,7 @@ export const metadata = {
 export default function Crimes() {
   return (
     <>
+      <ContactPanel type={"crime"}/>
       <HeroLawyers type={"crime"} />
       <QuestionsList type={"crime"}/>
       <AboutCards type={"crime"} />

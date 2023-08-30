@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
+
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
