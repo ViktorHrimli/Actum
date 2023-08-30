@@ -42,14 +42,16 @@ export default function CriminalMattrs({openModalCriminal}) {
         loading="lazy"
         className={styles.criminal_icon}
       />
-      <Image
-        src={Click}
-        alt="Click"
-        width={40}
-        loading="lazy"
-        height={40}
-        className={styles.criminal_icon_click}
-      />
+      <a href="/paid-priority-crime">
+        <Image
+          src={Click}
+          alt="Click"
+          width={40}
+          loading="lazy"
+          height={40}
+          className={styles.criminal_icon_click}
+        />
+        </a>
     </div>
   );
 }

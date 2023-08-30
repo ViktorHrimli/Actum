@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <>
-      <ContactPanel />
+      <ContactPanel type={"home"}/>
       <Hero />
       <Direction />
       <AboutCompany type={ "family"} />

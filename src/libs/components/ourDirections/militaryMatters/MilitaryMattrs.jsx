@@ -40,14 +40,15 @@ export default function MilitaryMattrs({openModalhalmet}) {
         height={180}
         className={styles.military_icon}
       />
-
-      <Image
-        src={Click}
-        alt="Click"
-        width={40}
-        height={40}
-        className={styles.criminal_icon_click}
-      />
+      <a href="/paid-priority-army">
+        <Image
+          src={Click}
+          alt="Click"
+          width={40}
+          height={40}
+          className={styles.criminal_icon_click}
+        />
+        </a>
     </div>
   );
 }

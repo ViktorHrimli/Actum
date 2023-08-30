@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import ScrollAwareSection from '@/libs/components/contactPanel/halpers/logic';
+import {colorGradient} from "@/libs/components/contactPanel/libs/enums"
 
 import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
@@ -11,11 +12,14 @@ import {useState} from '@/libs/hooks/hooks'
 import styles from "./ContactPanel.module.scss";
 import ScrollButtonUp from "./halpers/showScrollButtonUp";
 
-export default function ContactPanel() {
+export default function ContactPanel({ type }) {
+  const { gradient } = colorGradient[type];
+  
   const [isTrue, setIsTrue] = useState(false);
 
   return (
     <section className={isTrue ? styles.contact_panel_section_height : styles.contact_panel_section}>
+      <div className={styles[gradient]}></div>
       <div className={styles.contact_panel_conteiner}>
         <ul className={styles.list_panel}>
 

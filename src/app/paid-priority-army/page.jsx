@@ -1,6 +1,8 @@
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
 
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
+import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import Descrition from "@/libs/pages/services/components/description/Description";
@@ -17,7 +19,9 @@ export const metadata = {
 export default function PaidArmy() {
   return (
     <>
+      <ContactPanel type={ "army"}/>
       <HeroLawyers type={"army"} />
+      <QuestionsList type={"army"} />
       <AboutCards type={"army"} />
       <SuccessfulBusiness type={"army"} />
       <Specialists type={"army"} />
