@@ -6,7 +6,7 @@ import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 import styles from "./FamilyMattrs.module.scss";
 
-export default function FamilyMattrs({openModalHands}) {
+export default function FamilyMattrs({ openModalHands }) {
   return (
     <div className={styles.family}>
       <div onClick={openModalHands} style={{ cursor: "pointer", position: "absolute", right: "40px", top: "40px"}}>
@@ -41,15 +41,16 @@ export default function FamilyMattrs({openModalHands}) {
         loading="lazy"
         className={styles.family_icon}
       />
-
-      <Image
-        src={Click}
-        alt="Click"
-        width={40}
-        height={40}
-        loading="lazy"
-        className={styles.family_icon_click}
-      />
+      <a href="/paid-priority-family">
+        <Image
+          src={Click}
+          alt="Click"
+          width={40}
+          height={40}
+          loading="lazy"
+          className={styles.family_icon_click}
+          />
+        </a>
     </div>
   );
 }

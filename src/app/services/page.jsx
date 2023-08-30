@@ -1,5 +1,6 @@
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
 
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import AboutServices from "@/libs/pages/services/components/about/AboutServices";
 import Descrition from "@/libs/pages/services/components/description/Description";
 import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
@@ -15,6 +16,7 @@ import service_back_photo from "@/assets/svg/service_back_photo.png";
 export default function Services() {
   return (
     <>
+      <ContactPanel type={"home"}/>
       <NestedHero text="наші послуги" img={service_back_photo} />
       <AboutServices />
       <Lawyers />

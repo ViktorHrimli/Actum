@@ -10,7 +10,6 @@ import { usePathname } from "next/navigation";
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
 import Link from "next/link";
-import { set } from "react-hook-form";
 
 export default function Footer() {
   const [isStyleFooter, setIsStyleFooter] = useState(null);

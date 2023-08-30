@@ -44,7 +44,6 @@
   border: 1px solid transparent;
 
   border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-  ;
 
   -moz-border-image: -moz-linear-gradient(to right,
       #E32F7A,
@@ -214,6 +213,7 @@
 }
 
 // ---------------
+
 .description {
   color: #F8F5F5;
   font-size: 20px;
@@ -279,11 +279,11 @@
 .container_cards:hover:not(:last-child) {
   background: #F8F5F5;
   z-index: 5;
-  transition: all 0.5s;
+  transition: all 0.7s;
 
 
 
-  border: 1px solid transparent;
+  // border: 1px solid transparent;
   border-image: linear-gradient(45deg, #E32F7A, #912E6F, #3F2E64);
   ;
 
@@ -304,33 +304,37 @@
 .container_cards:hover .marker {
   background-color: #1F1F1F;
   z-index: 5;
-  transition: all 0.5s;
+  // transition: all 0.5s;
 }
 
 .container_cards:hover .title {
   color: #1F1F1F;
   z-index: 5;
-  transition: all 0.5s;
+  // transition: all 0.5s;
 }
 
 .container_cards:hover .link {
   color: #1F1F1F;
   z-index: 5;
-  transition: all 0.5s;
+  // transition: all 0.5s;
 }
 
 .container_cards:hover .border {
-  border: transparent;
+  border: 1px solid transparent;
+  transition: all 0.5s;
 }
 
 .container_cards:hover .border_left {
-  border: transparent;
+  border: 1px solid transparent;
+  transition: all 0.5s;
 }
 
 .container_cards:hover .border_bottom {
-  border: transparent;
+  border: 1px solid transparent;
+  transition: all 0.5s;
 }
 
 .container_cards:hover .border_right {
-  border: transparent;
+  border: 1px solid transparent;
+  transition: all 0.5s;
 }

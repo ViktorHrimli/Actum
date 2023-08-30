@@ -8,6 +8,7 @@ import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/libs/pages/components/formSection/FormSection";
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 export const metadata = {
   title: META_DATA_TITLE,
@@ -20,6 +21,7 @@ export const metadata = {
 export default function Family() {
   return (
     <>
+      <ContactPanel type={"family"} />
       <HeroLawyers type={"family"} />
       <QuestionsList type={"family"} />
       <SuccessfulBusiness type={"family"} />
