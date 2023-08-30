@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 import Button from "@/libs/components/button/Button";
 
@@ -19,10 +22,24 @@ export default function NestedHero({ img, text }) {
       />
 
       <div className={styles.conteiner_hero_watemark}>
-        <div className={styles.title_wotemark}>
+        <motion.div
+          animate={"start"}
+          variants={{ start: { scale: 1, opacity: 1 } }}
+          initial={{ scale: 0.5, opacity: 0 }}
+          transition={{ delay: 0.5, duration: 0.7 }}
+          className={styles.title_wotemark}
+        >
           <Image src={watemark} alt="ACTUM" fill loading="eager" />
-        </div>
-        <h2 className={styles.title_text}>{text}</h2>
+        </motion.div>
+        <motion.h2
+          animate={"open"}
+          variants={{ open: { x: 0, y: 0, opacity: 1 } }}
+          initial={{ x: "100%", opacity: 0 }}
+          transition={{ delay: 1, duration: 0.7 }}
+          className={styles.title_text}
+        >
+          {text}
+        </motion.h2>
       </div>
 
       <div className={styles.wrapper_btn}>

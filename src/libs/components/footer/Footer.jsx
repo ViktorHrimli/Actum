@@ -1,19 +1,21 @@
 "use client";
 import Image from "next/image";
-import styles from "./Footer.module.scss";
+import Link from "next/link";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
+
+import { motion } from "framer-motion";
 
 import { footerEnums } from "./libs/enums";
 import { usePathname } from "next/navigation";
 
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
 import Button from "../button/Button";
-import Link from "next/link";
+
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
-  const [first, setfirst] = useState(false);
 
   const path = usePathname().replace("/", "");
 
@@ -25,17 +27,16 @@ export default function Footer() {
     }
   }, [path]);
 
-  useEffect(() => {
-    setfirst(true)
-  }, []);
-
   return (
     <div className={styles.footer_section}>
-      {first && <div
+      <motion.div
+        animate={"start"}
+        variants={{ start: { opacity: 1 } }}
+        initial={{ opacity: 0 }}
         className={
           isStyleFooter ? styles[isStyleFooter] : styles.footer_gradient
         }
-      ></div>}
+      ></motion.div>
 
       <div className={styles.footer_container}>
         <div className={styles.box_logo}>

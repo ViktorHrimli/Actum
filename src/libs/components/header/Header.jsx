@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { motion, AnimatePresence, transform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
@@ -33,7 +33,13 @@ export default function Header() {
 
   const path = usePathname();
 
+  const isHome = path === "/";
+
   const isDesktopOrLaptop = useIsBig();
+
+  const logoAnimated = isDesktopOrLaptop
+    ? desktopLogoAnimate
+    : mobileLogoAnimate;
 
   useEffect(() => {
     if (isSideBar) {
@@ -53,10 +59,6 @@ export default function Header() {
     setTimeout(() => setIsStep(true), 2000);
   }, []);
 
-  const logoAnimated = isDesktopOrLaptop
-    ? desktopLogoAnimate
-    : mobileLogoAnimate;
-
   const handleClickOnBar = useCallback(
     () => setIsSideBar(!isSideBar),
     [isSideBar]
@@ -68,9 +70,12 @@ export default function Header() {
         {isClient && (
           <motion.div
             className={styles.logo_conteiner}
-            animate={isStep ? "start" : "step"}
-            variants={logoAnimated["variants"]}
-            initial={logoAnimated["initial"]}
+            animate={isHome ? (isStep ? "start" : "step") : false}
+            variants={logoAnimated["variants"](window.innerHeight > 798)}
+            initial={
+              isHome ? logoAnimated["initial"](window.innerHeight > 798) : false
+            }
+            exit={{ transitionX: 0, y: 0 }}
             transition={logoAnimated["transition"]}
           >
             <Link href={"/"}>
@@ -78,13 +83,14 @@ export default function Header() {
             </Link>
           </motion.div>
         )}
+
         {isDesktopOrLaptop && isClient ? (
           <motion.div
-            animate={"open"}
+            animate={isHome ? "open" : false}
             variants={{
               open: { x: 0, y: 0, opacity: 1 },
             }}
-            initial={{ x: 0, y: 50, opacity: 0 }}
+            initial={isHome ? { x: 0, y: 50, opacity: 0 } : false}
             transition={{ ease: "easeIn", duration: 0.8, delay: 3 }}
           >
             <Navigation links={PathsPageHeader} route={path} />

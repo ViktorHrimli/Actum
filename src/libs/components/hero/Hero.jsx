@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { useEffect, useState, useIsBig, useIsSmall } from "@/libs/hooks/hooks";
+import { useEffect, useState, useIsBig, usePathname } from "@/libs/hooks/hooks";
 
 import Button from "../button/Button";
 
@@ -29,12 +29,9 @@ export default function Hero() {
   const [isClient, setIsClient] = useState(false);
 
   const isDesktop = useIsBig();
+  const path = usePathname();
 
-  useEffect(() => {
-    setIsClient(true);
-
-    setTimeout(() => setIsStep(true), 2000);
-  }, []);
+  const isHome = path === "/";
 
   const watemarkAnimated = isDesktop
     ? desktopAnimateWatemark
@@ -49,13 +46,29 @@ export default function Hero() {
     ? desktopWatemarkLine
     : mobileWatemarkLine;
 
+  useEffect(() => {
+    setIsClient(true);
+
+    document.body.style.overflow = "hidden";
+    document.body.style.maxHeight = "100vh";
+
+    setTimeout(
+      () => {
+        document.body.style.overflowX = "hidden";
+        document.body.style.maxHeight = "";
+      },
+      isDesktop ? 4000 : 2000
+    );
+
+    setTimeout(() => setIsStep(true), 2000);
+  }, []);
   return (
     <section className={styles.hero_section}>
       {isClient && (
         <motion.div
-          animate={isStep ? "step" : "open"}
-          variants={watemarkAnimated["variants"]}
-          initial={watemarkAnimated["initial"]}
+          animate={isHome ? (isStep ? "step" : "open") : false}
+          variants={isHome ? watemarkAnimated["variants"] : false}
+          initial={isHome ? watemarkAnimated["initial"] : false}
           transition={watemarkAnimated["transition"]}
           className={styles.conteiner_wordmark}
         >
@@ -115,25 +128,25 @@ export default function Hero() {
       ></motion.div>
 
       <motion.h2
-        animate={isStep ? "step" : "open"}
+        animate={isHome ? (isStep ? "step" : "open") : false}
         variants={titleWatemarkAnimated["variants"]}
-        initial={titleWatemarkAnimated["initial"]}
+        initial={isHome ? titleWatemarkAnimated["initial"] : false}
         transition={titleWatemarkAnimated["transition"]}
         className={styles.title_text}
       >
         Адвокатське об’Єднання
       </motion.h2>
       <motion.div
-        animate={watemarkLineAnimated["animate"]}
+        animate={isHome ? watemarkLineAnimated["animate"] : false}
         variants={watemarkLineAnimated["variants"]}
-        initial={watemarkLineAnimated["initial"]}
+        initial={isHome ? watemarkLineAnimated["initial"] : false}
         transition={watemarkLineAnimated["transition"]}
         className={styles.under_line}
       ></motion.div>
       <motion.div
-        animate={watemarTextkAnimated["animate"]}
+        animate={isHome ? watemarTextkAnimated["animate"] : false}
         variants={watemarTextkAnimated["variants"]}
-        initial={watemarTextkAnimated["initial"]}
+        initial={isHome ? watemarTextkAnimated["initial"] : false}
         transition={watemarTextkAnimated["transition"]}
         className={styles.text}
       >
