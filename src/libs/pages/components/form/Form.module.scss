@@ -82,7 +82,7 @@
     // border: none;
     border-radius: 4px;
     transition: all 0.4s;
-    z-index: 15;
+    z-index: 14;
     background-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64),
         linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
     background-size: 100% 2px;
@@ -421,7 +421,7 @@
 }
 
 .conteiner_icon {
-    z-index: 15;
+    z-index: 14;
     position: absolute;
     display: flex;
     align-items: center;
