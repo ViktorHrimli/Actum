@@ -20,7 +20,7 @@ const mobileAnimateWatemark = {
     open: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
     step: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
   },
-  initial: { x: "0px", y: "300px", scale: 2, rotate: "90deg", opacity: 1 },
+  initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };
 
@@ -29,7 +29,9 @@ const desktopTitleTextWatemark = {
     open: { x: "250px" },
     step: { x: "0", y: "0" },
   },
-  initial: { x: "110%", y: "90px" },
+  initial(screen = 1280) {
+    return { x: "110%", y: "90px" };
+  },
 
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };
@@ -39,7 +41,9 @@ const mobileTitleTextWatemark = {
     open: { x: "0" },
     step: { x: "0", y: "0" },
   },
-  initial: { x: "110%" },
+  initial(screen = 320) {
+    return { x: screen, y: 0 };
+  },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };
 
@@ -48,7 +52,9 @@ const desktopWatemarkText = {
   variants: {
     open: { x: "0" },
   },
-  initial: { x: "-100%" },
+  initial(screen = 320) {
+    return { x: "-100%", y: 0 };
+  },
   exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 3 },
 };
@@ -58,7 +64,9 @@ const mobileWatemarkText = {
   variants: {
     open: { x: "0" },
   },
-  initial: { x: "150%" },
+  initial(screen = 320) {
+    return { x: -screen, y: 0 };
+  },
   exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };
@@ -68,7 +76,9 @@ const desktopWatemarkLine = {
   variants: {
     open: { x: "0", opacity: 1 },
   },
-  initial: { x: "-150%", opacity: 0 },
+  initial(screen = 320) {
+    return { x: "-150%", opacity: 0 };
+  },
   exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 3 },
 };
@@ -78,7 +88,9 @@ const mobileWatemarkLine = {
   variants: {
     open: { x: "0", opacity: 1 },
   },
-  initial: { x: "200%", opacity: 0 },
+  initial(screen = 320) {
+    return { x: -screen, opacity: 0 };
+  },
   exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
 };

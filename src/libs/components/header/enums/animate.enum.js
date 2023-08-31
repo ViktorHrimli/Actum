@@ -20,8 +20,8 @@ const mobileLogoAnimate = {
     };
   },
 
-  initial(isBig = false) {
-    return { x: 120, y: 100, scale: 3, rotate: "90deg" };
+  initial(screen = 320) {
+    return { x: screen / 2.6, y: 100, scale: 3, rotate: "90deg" };
   },
   exit: { x: 0, y: 0, scale: 1, rotate: "0deg" },
   transition: { ease: "easeIn", duration: 0.8, delay: 1 },
