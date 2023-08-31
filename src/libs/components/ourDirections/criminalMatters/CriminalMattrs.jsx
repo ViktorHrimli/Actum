@@ -10,7 +10,7 @@ import styles from "./CriminalMattrs.module.scss";
 export default function CriminalMattrs({openModalCriminal}) {
   return (
     <div className={styles.criminal}>
-      <div onClick={openModalCriminal} style={{ cursor: "pointer", position: "absolute", right: "40px", top: "40px"}}>
+      <div onClick={openModalCriminal} className={styles.closed} >
         <FontAwesomeIcon
           icon={faXmark}
           size="2xl"

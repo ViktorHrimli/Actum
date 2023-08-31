@@ -10,7 +10,7 @@ import styles from "./MilitaryMattrs.module.scss";
 export default function MilitaryMattrs({openModalhalmet}) {
   return (
     <div className={styles.military}>
-      <div onClick={openModalhalmet} style={{ cursor: "pointer", position: "absolute", right: "40px", top: "40px"}}>
+      <div onClick={openModalhalmet} className={styles.closed}>
         <FontAwesomeIcon
           icon={faXmark}
           size="2xl"
