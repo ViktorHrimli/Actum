@@ -26,7 +26,7 @@
     @media screen and (min-width: 320px) {
       padding: 28px 28px 67px 28px;
       border-radius: 4px;
-      width: 289px;
+      width: 290px;
       height: 528px;
       gap: 18px;
     }
@@ -35,7 +35,7 @@
   
     @media screen and (min-width: 768px) {
       width: 321px;
-      height: 528px;
+      height: 530px;
       gap: 18px;
       padding: 32px 32px 97px 32px;
       opacity: 0;
@@ -63,6 +63,17 @@
           padding-top: 50px;
         }
     }
+}
+
+.closed {
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    display: none;
+  }
 }
 
 .military_title {

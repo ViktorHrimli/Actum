@@ -12,12 +12,6 @@ import CriminalMattrs from "./criminalMatters/CriminalMattrs";
 
 import Touch_icon from "@/assets/svg/Touch_icon.png";
 
-// ------------- Mob img
-
-import MobHands from "@/assets/svg/Mob_hands.png";
-import MobHalmet from "@/assets/svg/Mob_halmet.png";
-import MobCriminal from "@/assets/svg/Mob_criminal.png";
-
 // ------------- Tablet img
 import TabletHands from "@/assets/svg/Tablet_hands.jpeg";
 import TabletHalmet from "@/assets/svg/Tablet_halmet.jpeg";
@@ -31,6 +25,7 @@ import Criminal from "@/assets/svg/Criminal.png";
 
 import Button from "@/libs/components/button/Button";
 import Link from "next/link";
+import Mob from "./directionMob/Mob";
 
 const ONE = 0;
 const SECOND = 1;
@@ -65,8 +60,8 @@ export default function Direction() {
   };
 
   // ----------- Animations Tablet
-
   const [showCards, setShowCards] = useState(false);
+
   const cardsRef = useRef();
 
   const [showFirstCard, setShowFirstCard] = useState(false);
@@ -91,8 +86,8 @@ export default function Direction() {
     }
 
     return () => {
-      if (cardsRef.current) {
-        observer.unobserve(cardsRef.current);
+      if (cardsRef) {
+        observer.unobserve(cardsRef);
       }
     };
   }, []);
@@ -145,63 +140,10 @@ export default function Direction() {
           <div className={styles.direction_line}></div>
         </div>
 
-        {/* ------- mob -------- */}
-
-        <div ref={cardsRef} className={styles.mob_img}>
-          <div className={styles.mob_img_hands}>
-            <div className={styles.mob_img_hands_gradient}></div>
-            <Image
-              src={MobHands}
-              alt="Hands"
-              width={290}
-              height={528}
-              loading="lazy"
-              className={styles.mob_img_hands}
-            />
-
-            {showCards && (
-              <div className={`${!showFirstCard ? styles.show_hands : ""}`}>
-                <FamilyMattrs />
-              </div>
-            )}
-          </div>
-
-          <div className={styles.mob_img_halmet}>
-            <Image
-              src={MobHalmet}
-              alt="Halmet"
-              width={290}
-              loading="lazy"
-              height={528}
-              className={styles.mob_img_halmet}
-            />
-
-            {showCards && (
-              <div className={`${!showSecondCard ? styles.show_halmet : ""}`}>
-                <MilitaryMattrs />
-              </div>
-            )}
-          </div>
-
-          <div className={styles.mob_img_criminal}>
-            <Image
-              src={MobCriminal}
-              alt="Halmet"
-              width={290}
-              height={528}
-              loading="lazy"
-              className={styles.mob_img_criminal}
-            />
-
-            {showCards && (
-              <div className={`${!showThirdCard ? styles.show_criminal : ""}`}>
-                <CriminalMattrs />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* ------- tablet ------- */}
+    {/* ------- mob -------- */}
+      <Mob />
+        
+    {/* ------- tablet ------- */}
 
         <div ref={cardsRef} className={styles.tablet_img}>
           <div className={styles.tablet_img_hands}>

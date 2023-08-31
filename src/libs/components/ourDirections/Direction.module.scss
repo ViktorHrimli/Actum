@@ -742,12 +742,21 @@
 }
 
 .show {
-  opacity: 0;
   animation: delayAppear 1s linear forwards;
 }
 
-.show_hands,
-.show_halmet,
+.show_hands {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+}
+.show_halmet {
+  position: absolute;
+  top: 570px;
+  opacity: 1;
+}
 .show_criminal {
-  opacity: 0;
+  position: absolute;
+  top: 1138px;
+  opacity: 1;
 }

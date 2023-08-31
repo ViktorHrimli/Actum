@@ -24,8 +24,8 @@
   @media screen and (min-width: 320px) {
     padding: 28px 28px 67px 28px;
     border-radius: 4px;
-    width: 289px;
-    height: 528px;
+    width: 290px;
+    height: 549px;
     gap: 18px;
   }
 
@@ -60,6 +60,16 @@
         height: 530px;
         padding-top: 50px;
       }
+  }
+}
+
+.closed {
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    display: none;
   }
 }
 
