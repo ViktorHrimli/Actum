@@ -25,7 +25,7 @@ export default function ContactPanel({ type }) {
 
           <li className={styles.link}>
             <a href="https://t.me/actum_help">
-              <Image src={Telegram} alt="Telegram" width={34} height={34} />
+              <Image src={Telegram} alt="Telegram" width={30} height={30} />
             </a>
           </li>
 
