@@ -30,6 +30,8 @@ export default function Header() {
   const [isSideBar, setIsSideBar] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
+  const [isScreenHeight, setIsScreenHeight] = useState(false);
+  const [isOnlyMobileScreen, setIsOnlyMobileScreen] = useState(0);
 
   const path = usePathname();
 
@@ -56,6 +58,11 @@ export default function Header() {
   useEffect(() => {
     setIsClient(true);
 
+    setIsScreenHeight(Boolean(window?.innerHeight > 798));
+    setIsOnlyMobileScreen(
+      isDesktopOrLaptop ? window.innerHeight > 798 : window.innerWidth
+    );
+
     setTimeout(() => setIsStep(true), 2000);
   }, []);
 
@@ -71,9 +78,9 @@ export default function Header() {
           <motion.div
             className={styles.logo_conteiner}
             animate={isHome ? (isStep ? "start" : "step") : false}
-            variants={logoAnimated["variants"](window.innerHeight > 798)}
+            variants={logoAnimated["variants"](isScreenHeight)}
             initial={
-              isHome ? logoAnimated["initial"](window.innerHeight > 798) : false
+              isHome ? logoAnimated["initial"](isOnlyMobileScreen) : false
             }
             exit={{ transitionX: 0, y: 0 }}
             transition={logoAnimated["transition"]}

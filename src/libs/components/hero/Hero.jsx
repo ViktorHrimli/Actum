@@ -27,6 +27,7 @@ import styles from "./Hero.module.scss";
 export default function Hero() {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [screenWidth, setscreenWidth] = useState(0);
 
   const isDesktop = useIsBig();
   const path = usePathname();
@@ -48,6 +49,7 @@ export default function Hero() {
 
   useEffect(() => {
     setIsClient(true);
+    setscreenWidth(window.innerWidth);
 
     document.body.style.overflow = "hidden";
     document.body.style.maxHeight = "100vh";
@@ -126,35 +128,52 @@ export default function Hero() {
         transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
         className={styles.fourth_gradient}
       ></motion.div>
-      
-      
-      <motion.h2
-        animate={isHome ? (isStep ? "step" : "open") : false}
-        variants={titleWatemarkAnimated["variants"]}
-        initial={isHome ? titleWatemarkAnimated["initial"] : false}
-        transition={titleWatemarkAnimated["transition"]}
-        className={styles.title_text}
-      >
-        Адвокатське об’Єднання
-      </motion.h2>
-      <motion.div
-        animate={isHome ? watemarkLineAnimated["animate"] : false}
-        variants={watemarkLineAnimated["variants"]}
-        initial={isHome ? watemarkLineAnimated["initial"] : false}
-        transition={watemarkLineAnimated["transition"]}
-        className={styles.under_line}
-      ></motion.div>
-      <motion.div
-        animate={isHome ? watemarTextkAnimated["animate"] : false}
-        variants={watemarTextkAnimated["variants"]}
-        initial={isHome ? watemarTextkAnimated["initial"] : false}
-        transition={watemarTextkAnimated["transition"]}
-        className={styles.text}
-      >
-        Дія задля результату
-        </motion.div>
+      {/* GRADIENT END */}
+      {isClient ? (
+        <motion.h2
+          animate={isHome ? (isStep ? "step" : "open") : false}
+          variants={titleWatemarkAnimated["variants"]}
+          initial={
+            isHome ? titleWatemarkAnimated["initial"](screenWidth) : false
+          }
+          transition={titleWatemarkAnimated["transition"]}
+          className={styles.title_text}
+        >
+          Адвокатське об’Єднання
+        </motion.h2>
+      ) : (
+        <div style={{ height: "90px" }}></div>
+      )}
 
-      
+      {isClient ? (
+        <motion.div
+          animate={isHome ? watemarkLineAnimated["animate"] : false}
+          variants={watemarkLineAnimated["variants"]}
+          initial={
+            isHome ? watemarkLineAnimated["initial"](screenWidth) : false
+          }
+          transition={watemarkLineAnimated["transition"]}
+          className={styles.under_line}
+        ></motion.div>
+      ) : (
+        <div style={{ height: "21px" }}></div>
+      )}
+      {isClient ? (
+        <motion.div
+          animate={isHome ? watemarTextkAnimated["animate"] : false}
+          variants={watemarTextkAnimated["variants"]}
+          initial={
+            isHome ? watemarTextkAnimated["initial"](screenWidth) : false
+          }
+          transition={watemarTextkAnimated["transition"]}
+          className={styles.text}
+        >
+          Дія задля результату
+        </motion.div>
+      ) : (
+        <div style={{ height: "400px" }}></div>
+      )}
+
       <motion.div
         animate={"open"}
         variants={{ open: { y: "0", opacity: 1 } }}
