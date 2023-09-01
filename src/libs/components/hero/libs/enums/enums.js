@@ -25,8 +25,8 @@ const mobileAnimateWatemark = {
     ease: "easeIn",
     duration: 0.8,
     delay: 1,
-    type: "keyframes",
-    stiffness: 100,
+    type: "tween",
+    stiffness: 400,
   },
 };
 
@@ -73,7 +73,6 @@ const desktopWatemarkText = {
   initial(screen = 320) {
     return { x: "-100%", y: 0 };
   },
-  exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 3 },
 };
 
@@ -85,14 +84,13 @@ const mobileWatemarkText = {
   initial(screen = 320) {
     return { x: -screen, y: 0 };
   },
-  exit: { x: "0", y: "0px" },
+
   transition: {
     ease: "easeIn",
     duration: 0.8,
     delay: 1,
-    delay: 1,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 400,
   },
 };
 
@@ -104,7 +102,6 @@ const desktopWatemarkLine = {
   initial(screen = 320) {
     return { x: "-150%", opacity: 0 };
   },
-  exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 3 },
 };
 
@@ -116,14 +113,12 @@ const mobileWatemarkLine = {
   initial(screen = 320) {
     return { x: -screen, opacity: 0 };
   },
-  exit: { x: "0", y: "0px" },
   transition: {
     ease: "easeIn",
     duration: 0.8,
     delay: 1,
-    delay: 1,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 40,
   },
 };
 
