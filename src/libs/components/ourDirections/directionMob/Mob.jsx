@@ -43,8 +43,8 @@ export default function Mob() {
     }
 
     return () => {
-      if (cardsRef) {
-        observer.unobserve(cardsRef);
+      if (cardsRef.current) {
+        observer.unobserve(cardsRef.current);
       }
     };
   }, []);
@@ -69,8 +69,8 @@ export default function Mob() {
     }
 
     return () => {
-      if (cardsRefHalmet) {
-        observer.unobserve(cardsRefHalmet);
+      if (cardsRefHalmet.current) {
+        observer.unobserve(cardsRefHalmet.current);
       }
     };
     }, []);
@@ -95,8 +95,8 @@ export default function Mob() {
     }
 
     return () => {
-      if (cardsRefCriminal) {
-        observer.unobserve(cardsRefCriminal);
+      if (cardsRefCriminal.current) {
+        observer.unobserve(cardsRefCriminal.current);
       }
     };
     }, []);
