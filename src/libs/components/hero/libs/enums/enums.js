@@ -24,9 +24,9 @@ const mobileAnimateWatemark = {
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 1,
-    type: "tween",
-    stiffness: 400,
+    delay: 0.2,
+    type: "keyframes",
+    stiffness: 10,
   },
 };
 
@@ -44,7 +44,7 @@ const desktopTitleTextWatemark = {
     duration: 0.8,
     delay: 1,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 10,
   },
 };
 
@@ -59,9 +59,9 @@ const mobileTitleTextWatemark = {
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 1,
+    delay: 0.3,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 10,
   },
 };
 
@@ -88,9 +88,9 @@ const mobileWatemarkText = {
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 1,
+    delay: 0.3,
     type: "keyframes",
-    stiffness: 400,
+    stiffness: 10,
   },
 };
 
@@ -116,9 +116,9 @@ const mobileWatemarkLine = {
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 1,
+    delay: 0.3,
     type: "keyframes",
-    stiffness: 40,
+    stiffness: 10,
   },
 };
 
