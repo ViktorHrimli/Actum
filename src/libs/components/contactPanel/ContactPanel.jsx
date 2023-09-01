@@ -3,10 +3,11 @@ import Image from "next/image";
 import ScrollAwareSection from '@/libs/components/contactPanel/halpers/logic';
 import {colorGradient} from "@/libs/components/contactPanel/libs/enums"
 
-import Telegram from "@/assets/svg/telegram.svg";
+import Telegram from "@/assets/svg/Telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
+
 import {useState} from '@/libs/hooks/hooks'
 
 import styles from "./ContactPanel.module.scss";
