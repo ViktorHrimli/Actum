@@ -86,8 +86,8 @@ export default function Direction() {
     }
 
     return () => {
-      if (cardsRef) {
-        observer.unobserve(cardsRef);
+      if (cardsRef.current) {
+        observer.unobserve(cardsRef.current);
       }
     };
   }, []);
