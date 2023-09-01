@@ -82,7 +82,6 @@ export default function Header() {
             initial={
               isHome ? logoAnimated["initial"](isOnlyMobileScreen) : false
             }
-            exit={{ transitionX: 0, y: 0 }}
             transition={logoAnimated["transition"]}
           >
             <Link href={"/"}>
