@@ -68,6 +68,7 @@ export default function Hero() {
     <section className={styles.hero_section}>
       {isClient && (
         <motion.div
+          key={"watemark"}
           animate={isHome ? (isStep ? "step" : "open") : false}
           variants={isHome ? watemarkAnimated["variants"] : false}
           initial={isHome ? watemarkAnimated["initial"] : false}
@@ -84,11 +85,18 @@ export default function Hero() {
         </motion.div>
       )}
       <motion.div
+        key={"femida"}
         className={styles.image_conteiner}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px" } }}
         initial={{ x: "100%", y: "0px" }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          type: "keyframes",
+          ease: "easeInOut",
+          duration: 0.8,
+          stiffness: 100,
+          delay: isDesktop ? 3 : 1,
+        }}
       >
         <Image
           src={femida}

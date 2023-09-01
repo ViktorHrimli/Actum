@@ -21,7 +21,13 @@ const mobileAnimateWatemark = {
     step: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
   },
   initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 const desktopTitleTextWatemark = {
@@ -33,7 +39,13 @@ const desktopTitleTextWatemark = {
     return { x: "110%", y: "90px" };
   },
 
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 const mobileTitleTextWatemark = {
@@ -44,7 +56,13 @@ const mobileTitleTextWatemark = {
   initial(screen = 320) {
     return { x: screen, y: 0 };
   },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 const desktopWatemarkText = {
@@ -68,7 +86,14 @@ const mobileWatemarkText = {
     return { x: -screen, y: 0 };
   },
   exit: { x: "0", y: "0px" },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 const desktopWatemarkLine = {
@@ -92,7 +117,14 @@ const mobileWatemarkLine = {
     return { x: -screen, opacity: 0 };
   },
   exit: { x: "0", y: "0px" },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 export {
