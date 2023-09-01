@@ -94,7 +94,7 @@ export default function Hero() {
           type: "keyframes",
           ease: "easeInOut",
           duration: 0.8,
-          stiffness: 100,
+          stiffness: 20,
           delay: isDesktop ? 3 : 1,
         }}
       >
@@ -109,13 +109,21 @@ export default function Hero() {
 
       {/* GRADIENTS */}
       <motion.div
+        key={"main_gradient"}
         className={styles.main_gradient}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 1,
+          type: "keyframes",
+          stiffness: 400,
+        }}
       ></motion.div>
       <motion.div
+        key={"second_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
@@ -123,6 +131,7 @@ export default function Hero() {
         className={styles.second_gradient}
       ></motion.div>
       <motion.div
+        key={"thirhd_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
@@ -130,6 +139,7 @@ export default function Hero() {
         className={styles.thirhd_gradient}
       ></motion.div>
       <motion.div
+        key={"fourth_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
@@ -139,6 +149,7 @@ export default function Hero() {
       {/* GRADIENT END */}
       {isClient ? (
         <motion.h2
+          key={"title_text"}
           animate={isHome ? (isStep ? "step" : "open") : false}
           variants={titleWatemarkAnimated["variants"]}
           initial={
@@ -155,6 +166,7 @@ export default function Hero() {
 
       {isClient ? (
         <motion.div
+          key={"under_line"}
           animate={isHome ? watemarkLineAnimated["animate"] : false}
           variants={watemarkLineAnimated["variants"]}
           initial={
@@ -168,6 +180,7 @@ export default function Hero() {
       )}
       {isClient ? (
         <motion.div
+          key={"text"}
           animate={isHome ? watemarTextkAnimated["animate"] : false}
           variants={watemarTextkAnimated["variants"]}
           initial={
@@ -184,6 +197,7 @@ export default function Hero() {
 
       <motion.div
         animate={"open"}
+        key={"btn_wrapper"}
         variants={{ open: { y: "0", opacity: 1 } }}
         initial={{ y: "90px", opacity: 0 }}
         transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
