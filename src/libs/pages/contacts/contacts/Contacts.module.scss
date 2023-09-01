@@ -10,6 +10,8 @@
   padding-right: 17px;
   padding-left: 17px;
   padding-bottom: 65px;
+  margin: auto;
+
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-top: 60px;
@@ -23,6 +25,7 @@
     padding-left: 53px;
     padding-bottom: 102px;
     display: flex;
+    margin: 0;
   }
   @media screen and (min-width: 1440px) {
     padding-top: 93px;
