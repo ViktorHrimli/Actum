@@ -12,7 +12,7 @@ export default function BtnSideBar({ onClick, isBarSide }) {
         open: { x: "0", y: "0", opacity: 1 },
       }}
       initial={{ x: "0px", y: "-55px", opacity: 0 }}
-      transition={{ ease: "easeInOut", duration: 0.5, delay: 0.8 }}
+      transition={{ ease: "easeInOut", duration: 0.5, delay: 0.2 }}
     >
       <div
         className={
