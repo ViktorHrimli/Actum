@@ -95,7 +95,7 @@ export default function Hero() {
           ease: "easeInOut",
           duration: 0.8,
           stiffness: 20,
-          delay: isDesktop ? 3 : 1,
+          delay: isDesktop ? 3 : 0.2,
         }}
       >
         <Image
@@ -117,9 +117,9 @@ export default function Hero() {
         transition={{
           ease: "easeIn",
           duration: 0.8,
-          delay: isDesktop ? 3 : 1,
+          delay: isDesktop ? 3 : 0.2,
           type: "keyframes",
-          stiffness: 400,
+          stiffness: 20,
         }}
       ></motion.div>
       <motion.div
@@ -127,7 +127,11 @@ export default function Hero() {
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.2,
+        }}
         className={styles.second_gradient}
       ></motion.div>
       <motion.div
@@ -135,7 +139,11 @@ export default function Hero() {
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.2,
+        }}
         className={styles.thirhd_gradient}
       ></motion.div>
       <motion.div
@@ -143,7 +151,11 @@ export default function Hero() {
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
         initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.2,
+        }}
         className={styles.fourth_gradient}
       ></motion.div>
       {/* GRADIENT END */}
@@ -200,7 +212,11 @@ export default function Hero() {
         key={"btn_wrapper"}
         variants={{ open: { y: "0", opacity: 1 } }}
         initial={{ y: "90px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.2,
+        }}
         className={styles.btn_wrapper}
       >
         <Link href={"/book"}>
