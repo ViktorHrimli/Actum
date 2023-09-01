@@ -9,7 +9,7 @@ import styles from "./FamilyMattrs.module.scss";
 export default function FamilyMattrs({ openModalHands }) {
   return (
     <div className={styles.family}>
-      <div onClick={openModalHands} style={{ cursor: "pointer", position: "absolute", right: "40px", top: "40px"}}>
+      <div onClick={openModalHands} className={styles.closed}>
         <FontAwesomeIcon
           icon={faXmark}
           size="2xl"

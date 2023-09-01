@@ -11,10 +11,11 @@
   
   @media screen and (min-width: 320px) and (max-width: 1279px){
     position: fixed;
+    top: auto;
     bottom: 0;
     width: 100vw;
     height: 56px;
-    margin-top: auto;
+    // margin-top: auto;
     border-radius: 4px 4px 0px 0px;
     background: var(--background, #0F021C);
     box-shadow: 0px 0px 0px 0px rgba(26, 25, 25, 0.10), 9px 2px 19px 0px rgba(26, 25, 25, 0.10), 34px 7px 35px 0px rgba(26, 25, 25, 0.09), 77px 16px 47px 0px rgba(26, 25, 25, 0.05), 137px 28px 56px 0px rgba(26, 25, 25, 0.01), 213px 44px 61px 0px rgba(26, 25, 25, 0.00);
