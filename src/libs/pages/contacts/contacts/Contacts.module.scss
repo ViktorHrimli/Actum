@@ -10,14 +10,12 @@
   padding-right: 17px;
   padding-left: 17px;
   padding-bottom: 65px;
-  margin: auto;
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-top: 60px;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 69px;
-
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
@@ -31,7 +29,6 @@
     padding-left: 70px;
   }
 }
-
 .container_left_bar_position {
   width: 100%;
   display: flex;

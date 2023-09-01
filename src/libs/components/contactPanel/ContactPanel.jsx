@@ -7,7 +7,6 @@ import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
-
 import {useState} from '@/libs/hooks/hooks'
 
 import styles from "./ContactPanel.module.scss";
