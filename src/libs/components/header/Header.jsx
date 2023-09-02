@@ -77,7 +77,7 @@ export default function Header() {
         {isClient && (
           <motion.div
             className={styles.logo_conteiner}
-            animate={isHome ? (isStep ? "start" : "step") : false}
+            animate={isHome ? logoAnimated["animate"](isStep) : false}
             variants={logoAnimated["variants"](isScreenHeight)}
             initial={
               isHome ? logoAnimated["initial"](isOnlyMobileScreen) : false
