@@ -214,8 +214,8 @@ export default function Hero() {
         initial={{ y: "90px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: 0.8,
-          delay: isDesktop ? 3 : 0.2,
+          duration: 1,
+          delay: isDesktop ? 3 : 0,
         }}
         className={styles.btn_wrapper}
       >
