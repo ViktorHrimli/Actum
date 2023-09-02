@@ -69,7 +69,7 @@ export default function Hero() {
       {isClient && (
         <motion.div
           key={"watemark"}
-          animate={isHome ? (isStep ? "step" : "open") : false}
+          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
           variants={isHome ? watemarkAnimated["variants"] : false}
           initial={isHome ? watemarkAnimated["initial"] : false}
           transition={watemarkAnimated["transition"]}
@@ -162,7 +162,7 @@ export default function Hero() {
       {isClient ? (
         <motion.h2
           key={"title_text"}
-          animate={isHome ? (isStep ? "step" : "open") : false}
+          animate={isHome ? titleWatemarkAnimated["animate"](isStep) : false}
           variants={titleWatemarkAnimated["variants"]}
           initial={
             isHome ? titleWatemarkAnimated["initial"](screenWidth) : false
