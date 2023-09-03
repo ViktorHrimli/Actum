@@ -13,6 +13,7 @@
   @media screen and (min-width:1440px) {
     width: 1440px;
     height: 995px;
+    overflow: hidden;
   }
 }
 
@@ -49,12 +50,14 @@
   @media screen and (min-width: 768px) {
     margin-bottom: 54px;
   }
-    @media screen and (min-width: 1280px) {
-      margin-bottom: 48px;
-    }
-    @media screen and (min-width:1440px) {
-      margin-bottom: 78px;
-    }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 48px;
+  }
+
+  @media screen and (min-width:1440px) {
+    margin-bottom: 78px;
+  }
 }
 
 .title {
@@ -65,10 +68,12 @@
   line-height: normal;
   text-transform: uppercase;
   text-align: center;
+
   @media screen and (min-width: 768px) {
     font-size: 28px;
     text-align: start;
   }
+
   @media screen and (min-width: 1280px) {
     font-size: 36px;
   }
@@ -84,6 +89,7 @@
   border-radius: 483px;
   background: #E32F7A;
   filter: blur(175px);
+
   @media screen and (min-width: 768px) {
     top: 0;
     left: -354px;
@@ -91,6 +97,7 @@
     height: 526px;
     border-radius: 583px;
   }
+
   @media screen and (min-width: 1280px) {
     top: 200px;
     left: -666px;
@@ -99,6 +106,7 @@
     border-radius: 874px;
     filter: blur(300px);
   }
+
   @media screen and (min-width: 1440px) {
     top: 250px;
     left: -635px;
@@ -115,6 +123,7 @@
   border-radius: 483px;
   background: #536641;
   filter: blur(175px);
+
   @media screen and (min-width: 768px) {
     top: 0;
     left: -354px;
@@ -122,6 +131,7 @@
     height: 526px;
     border-radius: 583px;
   }
+
   @media screen and (min-width: 1280px) {
     top: 200px;
     left: -666px;
@@ -130,10 +140,11 @@
     border-radius: 874px;
     filter: blur(300px);
   }
-    @media screen and (min-width: 1440px) {
-      top: 250px;
-      left: -635px;
-    }
+
+  @media screen and (min-width: 1440px) {
+    top: 250px;
+    left: -635px;
+  }
 }
 
 .gradient_criminal {
@@ -146,6 +157,7 @@
   border-radius: 483px;
   background: #3F2E64;
   filter: blur(175px);
+
   @media screen and (min-width: 768px) {
     top: 0;
     left: -354px;
@@ -153,6 +165,7 @@
     height: 526px;
     border-radius: 583px;
   }
+
   @media screen and (min-width: 1280px) {
     top: 200px;
     left: -666px;
@@ -161,15 +174,17 @@
     border-radius: 874px;
     filter: blur(300px);
   }
-    @media screen and (min-width: 1440px) {
-      top: 250px;
-      left: -635px;
-    }
+
+  @media screen and (min-width: 1440px) {
+    top: 250px;
+    left: -635px;
+  }
 }
 
 .gradient_right_family {
   z-index: 1;
   display: none;
+
   @media screen and (min-width: 768px) {
     display: block;
     position: absolute;
@@ -181,6 +196,7 @@
     background: #E32F7A;
     filter: blur(400px);
   }
+
   @media screen and (min-width: 1280px) {
     top: 625px;
     right: -666px;
@@ -189,6 +205,7 @@
     border-radius: 874px;
     filter: blur(400px);
   }
+
   @media screen and (min-width: 1440px) {
     top: 645px;
     left: -537px;
@@ -210,14 +227,15 @@
     background: #3F2E64;
     filter: blur(400px);
   }
-    @media screen and (min-width: 1280px) {
-      top: 625px;
-      right: -666px;
-      width: 874px;
-      height: 788px;
-      border-radius: 874px;
-      filter: blur(400px);
-    }
+
+  @media screen and (min-width: 1280px) {
+    top: 625px;
+    right: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(400px);
+  }
 }
 
 .gradient_right_army {
@@ -235,16 +253,18 @@
     background: #536641;
     filter: blur(400px);
   }
-    @media screen and (min-width: 1280px) {
-      top: 625px;
-      right: -666px;
-      width: 874px;
-      height: 788px;
-      border-radius: 874px;
-      filter: blur(400px);
-    }
-    @media screen and (min-width: 1440px) {
-      top: 645px;
-      left: -537px;
-    }
+
+  @media screen and (min-width: 1280px) {
+    top: 625px;
+    right: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(400px);
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 645px;
+    left: -537px;
+  }
 }

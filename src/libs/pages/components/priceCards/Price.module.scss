@@ -5,16 +5,19 @@
 }
 
 .container {
+  position: relative;
   width: 320px;
   margin: auto;
 
   @media screen and (min-width: 320px) {
     padding: 40px 20px 44px 20px;
   }
+
   @media screen and (min-width: 768px) {
     width: 768px;
     padding: 70px 104px 28px 104px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 1280px;
     padding: 142px 170px 168px 64px;
@@ -31,13 +34,14 @@
     margin-bottom: 90px;
     justify-content: center;
   }
+
   @media screen and (min-width: 768px) {
     justify-content: space-between;
   }
 }
 
 .text {
-  @media screen and (min-width: 320px) and (max-width: 767px){
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 280px;
   }
 }
@@ -71,6 +75,7 @@
 
 .position_title {
   margin-right: 5px;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     display: block;
     text-align: left;

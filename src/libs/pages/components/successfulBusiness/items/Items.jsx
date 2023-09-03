@@ -1,12 +1,13 @@
-import Image from "next/image";
-
 import styles from "./Items.module.scss";
 
 import { cardsEnums } from "./libs/enums";
 
-import Successful_business from "../../../../../assets/svg/Successful_business_hover.jpg";
+import Successful_business from "@/assets/svg/Successful_business_hover.jpg";
 
-import Button from "../../../../components/button/Button";
+import Button from "@/libs/components/button/Button";
+import Card from "@/libs/pages/components/successfulBusiness/card/Card";
+import MobileSlider from "@/libs/components/mobile_animation/MobileSlider";
+import Arrow from "@/libs/components/arrowCard/Arrow";
 
 const itemsList = [
   {
@@ -29,40 +30,39 @@ const itemsList = [
   },
 ];
 
-export default function Items({ type }) {
-  const { background, borderTop, borderRight, borderBottom, bordeerLeft } =
-    cardsEnums[type];
-
+export default function Items({
+  type,
+  screen,
+  current,
+  setIsChange,
+  setIsLeft,
+  isLeft,
+}) {
   return (
     <ul className={styles.container}>
-      {itemsList?.map((el, id) => (
-        <li key={id} className={styles.position}>
-          <div className={styles.container_img}>
-            <Image
-              src={el.image}
-              alt={"sucsses bussines"}
-              fill
-              loading="lazy"
-            />
-          </div>
-          <div className={styles[background]}>
-            <div className={styles.container_text}>
-              <div className={`${styles[borderTop]}`}>
-                <div className={styles[borderRight]}></div>
-              </div>
-              <div className={styles.container_title}>
-                <p className={styles.title}>{el.title}</p>
-              </div>
-              <div className={styles.container_description}>
-                <p className={styles.description}>{el.description}</p>
-              </div>
-              <div className={styles[borderBottom]}>
-                <div className={styles[bordeerLeft]}></div>
-              </div>
-            </div>
-          </div>
-        </li>
-      ))}
+      {screen ? (
+        itemsList?.map((el, id) => (
+          <Card key={id} enums={cardsEnums} type={type} {...el} />
+        ))
+      ) : (
+        <div style={{ position: "relative" }}>
+          <Arrow
+            left={true}
+            setIsChange={setIsChange}
+            isChange={current}
+            setIsLeft={setIsLeft}
+          />
+          <MobileSlider isStart={isLeft} key={current}>
+            <Card enums={cardsEnums} type={type} {...itemsList[current]} />
+          </MobileSlider>
+          <Arrow
+            left={false}
+            setIsChange={setIsChange}
+            isChange={current}
+            setIsLeft={setIsLeft}
+          />
+        </div>
+      )}
       <div className={styles.container_btn}>
         <Button
           typeStyle={type}
