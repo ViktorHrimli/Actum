@@ -88,14 +88,14 @@ export default function Hero() {
         key={"femida"}
         className={styles.image_conteiner}
         animate={"open"}
-        variants={{ open: { x: 0, y: "0px" } }}
-        initial={{ x: "100%", y: "0px" }}
+        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+        initial={{ x: "50px", y: "0px", opacity: 0 }}
         transition={{
           type: "keyframes",
           ease: "easeInOut",
           duration: 0.8,
           stiffness: 20,
-          delay: isDesktop ? 3 : 0.2,
+          delay: isDesktop ? 3 : 1,
         }}
       >
         <Image
@@ -113,11 +113,11 @@ export default function Hero() {
         className={styles.main_gradient}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
           duration: 0.8,
-          delay: isDesktop ? 3 : 0.2,
+          delay: isDesktop ? 3 : 0.5,
           type: "keyframes",
           stiffness: 20,
         }}
@@ -126,11 +126,11 @@ export default function Hero() {
         key={"second_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
+        initial={{ x: "0", y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
           duration: 0.8,
-          delay: isDesktop ? 3 : 0.2,
+          delay: isDesktop ? 3 : 0.5,
         }}
         className={styles.second_gradient}
       ></motion.div>
@@ -138,11 +138,11 @@ export default function Hero() {
         key={"thirhd_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
           duration: 0.8,
-          delay: isDesktop ? 3 : 0.2,
+          delay: isDesktop ? 3 : 0.5,
         }}
         className={styles.thirhd_gradient}
       ></motion.div>
@@ -150,11 +150,11 @@ export default function Hero() {
         key={"fourth_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
           duration: 0.8,
-          delay: isDesktop ? 3 : 0.2,
+          delay: isDesktop ? 3 : 0.5,
         }}
         className={styles.fourth_gradient}
       ></motion.div>
@@ -215,7 +215,7 @@ export default function Hero() {
         transition={{
           ease: "easeIn",
           duration: 1,
-          delay: isDesktop ? 3 : 0,
+          delay: isDesktop ? 3 : 1,
         }}
         className={styles.btn_wrapper}
       >
