@@ -29,7 +29,7 @@ const mobileAnimateWatemark = {
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 0.2,
+    delay: 0.7,
     type: "keyframes",
     stiffness: 10,
   },
@@ -61,15 +61,16 @@ const mobileTitleTextWatemark = {
     return "step";
   },
   variants: {
-    step: { x: 0 },
+    step: { x: 0, opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: screen, y: 0 };
+    // return { x: screen, y: 0 };
+    return { opacity: 0 };
   },
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 0.3,
+    delay: 1,
     type: "keyframes",
     stiffness: 10,
   },
@@ -89,16 +90,17 @@ const desktopWatemarkText = {
 const mobileWatemarkText = {
   animate: "open",
   variants: {
-    open: { x: "0" },
+    open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: -screen, y: 0 };
+    // return { x: -screen, y: 0 };
+    return { opacity: 0 };
   },
 
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 0.3,
+    delay: 1,
     type: "keyframes",
     stiffness: 10,
   },
@@ -121,12 +123,13 @@ const mobileWatemarkLine = {
     open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: -screen, opacity: 0 };
+    // return { x: -screen, opacity: 0 };
+    return { opacity: 0 };
   },
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 0.3,
+    delay: 1,
     type: "keyframes",
     stiffness: 10,
   },

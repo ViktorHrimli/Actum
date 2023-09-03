@@ -1,16 +1,19 @@
 import styles from "./ItemsList.module.scss";
 
 import Card from "@/libs/components/card/Card";
+import MobileSlider from "@/libs/components/mobile_animation/MobileSlider";
 
 import { arrPerson } from "../libs/enums";
 
-export default function ItemsList({ isDesktop, slide, start }) {
+export default function ItemsList({ isMobie, slide, start }) {
   return (
     <ul className={styles.card_list_response}>
-      {isDesktop ? (
+      {!isMobie ? (
         arrPerson.map((item, id) => <Card key={id} {...item} />)
       ) : (
-        <Card key={slide} isStart={start} {...arrPerson[slide]} />
+        <MobileSlider isStart={start} key={slide}>
+          <Card key={slide} {...arrPerson[slide]} />
+        </MobileSlider>
       )}
     </ul>
   );
