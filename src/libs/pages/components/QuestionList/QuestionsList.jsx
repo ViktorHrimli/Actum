@@ -36,7 +36,7 @@ export default function QuestionsList({ type }) {
         <ul className={styles.list}>
           {questionEnums.map((items, id) => (
             <li key={id}>
-              <Accordion {...items} />
+              <Accordion {...items} type={type} />
             </li>
           ))}
         </ul>

@@ -93,9 +93,9 @@ export default function Hero() {
         transition={{
           type: "keyframes",
           ease: "easeInOut",
-          duration: 0.8,
           stiffness: 20,
-          delay: isDesktop ? 3 : 1,
+          duration: isDesktop ? 0.8 : 2.5,
+          delay: isDesktop ? 3 : 0.5,
         }}
       >
         <Image
@@ -116,8 +116,8 @@ export default function Hero() {
         initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: 0.8,
-          delay: isDesktop ? 3 : 0.5,
+          duration: isDesktop ? 0.8 : 2.5,
+          delay: isDesktop ? 3 : 0,
           type: "keyframes",
           stiffness: 20,
         }}
@@ -129,8 +129,8 @@ export default function Hero() {
         initial={{ x: "0", y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: 0.8,
-          delay: isDesktop ? 3 : 0.5,
+          duration: isDesktop ? 0.8 : 2.5,
+          delay: isDesktop ? 3 : 0,
         }}
         className={styles.second_gradient}
       ></motion.div>
@@ -141,8 +141,8 @@ export default function Hero() {
         initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: 0.8,
-          delay: isDesktop ? 3 : 0.5,
+          duration: isDesktop ? 0.8 : 2.5,
+          delay: isDesktop ? 3 : 0,
         }}
         className={styles.thirhd_gradient}
       ></motion.div>
@@ -153,8 +153,8 @@ export default function Hero() {
         initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: 0.8,
-          delay: isDesktop ? 3 : 0.5,
+          duration: isDesktop ? 0.8 : 2.5,
+          delay: isDesktop ? 3 : 0,
         }}
         className={styles.fourth_gradient}
       ></motion.div>
@@ -214,8 +214,8 @@ export default function Hero() {
         initial={{ y: "90px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: 1,
-          delay: isDesktop ? 3 : 1,
+          duration: isDesktop ? 1 : 2,
+          delay: isDesktop ? 3 : 0,
         }}
         className={styles.btn_wrapper}
       >
