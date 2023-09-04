@@ -1,0 +1,17 @@
+.conteiner {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 0;
+
+    width: 235px;
+    background-color: transparent;
+
+}
+
+.list {
+    display: flex;
+
+    flex-direction: column;
+    gap: 10px;
+}

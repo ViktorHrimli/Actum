@@ -1,0 +1,46 @@
+.link {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 235px;
+
+    z-index: 20;
+
+
+    ::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+
+        bottom: -2px;
+        left: 0;
+
+        background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    }
+}
+
+.img_wrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.text {
+    position: relative;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+}
+
+.icon {
+    rotate: 180deg;
+    cursor: pointer;
+
+    :hover {
+        color: #E32F7A;
+        fill: #E32F7A;
+    }
+}

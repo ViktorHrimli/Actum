@@ -32,6 +32,7 @@ export default function Header() {
   const [isStep, setIsStep] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
   const [isOnlyMobileScreen, setIsOnlyMobileScreen] = useState(0);
+  const [onHover, setOnHover] = useState(false);
 
   const path = usePathname();
 
@@ -99,7 +100,12 @@ export default function Header() {
             initial={isHome ? { x: 0, y: 50, opacity: 0 } : false}
             transition={{ ease: "easeIn", duration: 0.8, delay: 3 }}
           >
-            <Navigation links={PathsPageHeader} route={path} />
+            <Navigation
+              links={PathsPageHeader}
+              route={path}
+              onHover={onHover}
+              setOnHover={setOnHover}
+            />
           </motion.div>
         ) : (
           <BtnSideBar isBarSide={isSideBar} onClick={handleClickOnBar} />
