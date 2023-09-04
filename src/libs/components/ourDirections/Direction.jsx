@@ -241,7 +241,6 @@ export default function Direction() {
 
             <div
               className={styles.hover_halmet}
-              
               onMouseOver={() =>
                 setActiveAnimations(false) & setHoverHalmet(true)
               }
@@ -280,7 +279,6 @@ export default function Direction() {
 
             <div
               className={styles.hover_criminal}
-              
               onMouseOver={() =>
                 setActiveAnimations(false) & setHoverCriminal(true)
               }

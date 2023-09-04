@@ -1,3 +1,4 @@
+
 "use client";
 import { useIsSmall, useState, useEffect } from "@/libs/hooks/hooks";
 
@@ -7,6 +8,7 @@ import Arrow from "@/libs/components/arrowCard/Arrow";
 import { priceEnums } from "./libs/enums";
 
 import styles from "./Price.module.scss";
+
 
 export default function Price({ type }) {
   const { color } = priceEnums[type];
