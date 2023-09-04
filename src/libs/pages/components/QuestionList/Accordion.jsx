@@ -9,8 +9,18 @@ import styles from "./Accordion.module.scss";
 
 import ClickIcon from "@/libs/components/click/Click";
 
-export default function Accordion({ title, text }) {
+const colorType = {
+  family: "#E32F7A",
+  army: "#536641",
+  crime: "#3F2E64",
+};
+
+export default function Accordion({ title, text, type }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const color = colorType[type];
+
+  const handleClickOpen = () => setIsOpen(!isOpen);
 
   return (
     <>
@@ -18,9 +28,9 @@ export default function Accordion({ title, text }) {
         initial={false}
         className={styles.header_conteiner}
         animate={{
-          backgroundColor: isOpen ? "#E32F7A" : "rgba(15, 2, 28, 0.80)",
+          backgroundColor: isOpen ? color : "rgba(15, 2, 28, 0.80)",
         }}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleClickOpen}
       >
         <p className={styles.header_text}>{title}</p>
         <motion.div
@@ -41,7 +51,11 @@ export default function Accordion({ title, text }) {
         {isOpen && (
           <motion.section
             key="content"
-            initial={{ opacity: 0, height: 0, y: "0" }}
+            initial={{
+              opacity: 0,
+              height: 0,
+              y: 0,
+            }}
             animate={isOpen ? "open" : "close"}
             exit="collapsed"
             variants={{
@@ -52,7 +66,9 @@ export default function Accordion({ title, text }) {
           >
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{text}</p>
-              {/* <ClickIcon /> */}
+              <div style={{ marginTop: "50px", display: "block" }}>
+                <ClickIcon path={""} color={color} />
+              </div>
             </div>
           </motion.section>
         )}
