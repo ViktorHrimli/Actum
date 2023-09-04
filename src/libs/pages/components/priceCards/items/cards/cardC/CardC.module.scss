@@ -44,7 +44,7 @@
     padding-left: 24px;
     padding-bottom: 32px;
     padding-right: 38px;
-    width: 1046px;
+    width: 1130px;
     height: 239px;
     display: flex;
     flex-direction: row-reverse;
@@ -82,7 +82,7 @@
     padding-left: 24px;
     padding-bottom: 32px;
     padding-right: 38px;
-    width: 1046px;
+    width: 1130px;
     height: 239px;
     display: flex;
     flex-direction: row-reverse;
@@ -107,7 +107,7 @@
   }
 
   @media screen and (min-width: 1440px) {
-    width: 184px;
+    width: 286px;
     font-size: 50px;
     margin-bottom: 10px;
   }
@@ -156,13 +156,13 @@
 
   @media screen and (min-width: 1280px) {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     margin-right: auto;
     margin-top: 0;
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 36px;
+    font-weight: 600;
   }
 }
 
@@ -183,5 +183,6 @@
 
   @media screen and (min-width: 1440px) {
     font-size: 20px;
+    width: 635px;
   }
 }

@@ -21,7 +21,13 @@ const mobileAnimateWatemark = {
     step: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
   },
   initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "tween",
+    stiffness: 400,
+  },
 };
 
 const desktopTitleTextWatemark = {
@@ -33,7 +39,13 @@ const desktopTitleTextWatemark = {
     return { x: "110%", y: "90px" };
   },
 
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 const mobileTitleTextWatemark = {
@@ -44,7 +56,13 @@ const mobileTitleTextWatemark = {
   initial(screen = 320) {
     return { x: screen, y: 0 };
   },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 100,
+  },
 };
 
 const desktopWatemarkText = {
@@ -55,7 +73,6 @@ const desktopWatemarkText = {
   initial(screen = 320) {
     return { x: "-100%", y: 0 };
   },
-  exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 3 },
 };
 
@@ -67,8 +84,14 @@ const mobileWatemarkText = {
   initial(screen = 320) {
     return { x: -screen, y: 0 };
   },
-  exit: { x: "0", y: "0px" },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 400,
+  },
 };
 
 const desktopWatemarkLine = {
@@ -79,7 +102,6 @@ const desktopWatemarkLine = {
   initial(screen = 320) {
     return { x: "-150%", opacity: 0 };
   },
-  exit: { x: "0", y: "0px" },
   transition: { ease: "easeIn", duration: 0.8, delay: 3 },
 };
 
@@ -91,8 +113,13 @@ const mobileWatemarkLine = {
   initial(screen = 320) {
     return { x: -screen, opacity: 0 };
   },
-  exit: { x: "0", y: "0px" },
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: {
+    ease: "easeIn",
+    duration: 0.8,
+    delay: 1,
+    type: "keyframes",
+    stiffness: 40,
+  },
 };
 
 export {
