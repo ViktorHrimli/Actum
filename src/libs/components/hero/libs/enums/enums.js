@@ -1,6 +1,9 @@
 "use client";
 
 const desktopAnimateWatemark = {
+  animate(isStep) {
+    return isStep ? "step" : "open";
+  },
   variants: {
     open: { x: 300, opacity: 1 },
     step: { x: 0, y: 0, scale: 1, opacity: 1 },
@@ -16,21 +19,26 @@ const desktopAnimateWatemark = {
 };
 
 const mobileAnimateWatemark = {
+  animate(isStep) {
+    return "open";
+  },
   variants: {
     open: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
-    step: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
   },
   initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 1,
-    type: "tween",
-    stiffness: 400,
+    delay: 0.7,
+    type: "keyframes",
+    stiffness: 10,
   },
 };
 
 const desktopTitleTextWatemark = {
+  animate(isStep) {
+    return isStep ? "step" : "open";
+  },
   variants: {
     open: { x: "250px" },
     step: { x: "0", y: "0" },
@@ -44,24 +52,27 @@ const desktopTitleTextWatemark = {
     duration: 0.8,
     delay: 1,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 10,
   },
 };
 
 const mobileTitleTextWatemark = {
+  animate(isStep) {
+    return "step";
+  },
   variants: {
-    open: { x: "0" },
-    step: { x: "0", y: "0" },
+    step: { x: 0, opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: screen, y: 0 };
+    // return { x: screen, y: 0 };
+    return { opacity: 0 };
   },
   transition: {
     ease: "easeIn",
     duration: 0.8,
     delay: 1,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 10,
   },
 };
 
@@ -79,10 +90,11 @@ const desktopWatemarkText = {
 const mobileWatemarkText = {
   animate: "open",
   variants: {
-    open: { x: "0" },
+    open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: -screen, y: 0 };
+    // return { x: -screen, y: 0 };
+    return { opacity: 0 };
   },
 
   transition: {
@@ -90,7 +102,7 @@ const mobileWatemarkText = {
     duration: 0.8,
     delay: 1,
     type: "keyframes",
-    stiffness: 400,
+    stiffness: 10,
   },
 };
 
@@ -111,14 +123,15 @@ const mobileWatemarkLine = {
     open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: -screen, opacity: 0 };
+    // return { x: -screen, opacity: 0 };
+    return { opacity: 0 };
   },
   transition: {
     ease: "easeIn",
     duration: 0.8,
     delay: 1,
     type: "keyframes",
-    stiffness: 40,
+    stiffness: 10,
   },
 };
 

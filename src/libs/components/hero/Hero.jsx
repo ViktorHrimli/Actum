@@ -69,7 +69,7 @@ export default function Hero() {
       {isClient && (
         <motion.div
           key={"watemark"}
-          animate={isHome ? (isStep ? "step" : "open") : false}
+          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
           variants={isHome ? watemarkAnimated["variants"] : false}
           initial={isHome ? watemarkAnimated["initial"] : false}
           transition={watemarkAnimated["transition"]}
@@ -88,8 +88,8 @@ export default function Hero() {
         key={"femida"}
         className={styles.image_conteiner}
         animate={"open"}
-        variants={{ open: { x: 0, y: "0px" } }}
-        initial={{ x: "100%", y: "0px" }}
+        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+        initial={{ x: "50px", y: "0px", opacity: 0 }}
         transition={{
           type: "keyframes",
           ease: "easeInOut",
@@ -113,44 +113,56 @@ export default function Hero() {
         className={styles.main_gradient}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
         transition={{
           ease: "easeIn",
           duration: 0.8,
-          delay: isDesktop ? 3 : 1,
+          delay: isDesktop ? 3 : 0.5,
           type: "keyframes",
-          stiffness: 400,
+          stiffness: 20,
         }}
       ></motion.div>
       <motion.div
         key={"second_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        initial={{ x: "0", y: "0px", opacity: 0 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.5,
+        }}
         className={styles.second_gradient}
       ></motion.div>
       <motion.div
         key={"thirhd_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.5,
+        }}
         className={styles.thirhd_gradient}
       ></motion.div>
       <motion.div
         key={"fourth_gradient"}
         animate={"open"}
         variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "100%", y: "0px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.8,
+          delay: isDesktop ? 3 : 0.5,
+        }}
         className={styles.fourth_gradient}
       ></motion.div>
       {/* GRADIENT END */}
       {isClient ? (
         <motion.h2
           key={"title_text"}
-          animate={isHome ? (isStep ? "step" : "open") : false}
+          animate={isHome ? titleWatemarkAnimated["animate"](isStep) : false}
           variants={titleWatemarkAnimated["variants"]}
           initial={
             isHome ? titleWatemarkAnimated["initial"](screenWidth) : false
@@ -200,7 +212,11 @@ export default function Hero() {
         key={"btn_wrapper"}
         variants={{ open: { y: "0", opacity: 1 } }}
         initial={{ y: "90px", opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.8, delay: isDesktop ? 3 : 1 }}
+        transition={{
+          ease: "easeIn",
+          duration: 1,
+          delay: isDesktop ? 3 : 1,
+        }}
         className={styles.btn_wrapper}
       >
         <Link href={"/book"}>
