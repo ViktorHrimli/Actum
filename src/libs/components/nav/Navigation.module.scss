@@ -18,6 +18,18 @@
     }
 }
 
+.link {
+    position: relative;
+}
+
+.drop {
+    display: none;
+}
+
+.link:hover .drop {
+    display: block;
+}
+
 .active_link {
     text-decoration-line: underline;
 }
