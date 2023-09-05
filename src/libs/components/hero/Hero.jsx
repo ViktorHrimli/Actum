@@ -65,7 +65,10 @@ export default function Hero() {
     setTimeout(() => setIsStep(true), 2000);
   }, []);
   return (
-    <section className={styles.hero_section}>
+    <section
+      className={styles.hero_section}
+      onClick={(event) => "event.currentTarget.nodeName"}
+    >
       {isClient && (
         <motion.div
           key={"watemark"}

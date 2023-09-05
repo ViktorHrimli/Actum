@@ -38,10 +38,10 @@ export default function NavSelectItem({ service, thems }) {
       </div>
 
       {isOpenSelect && (
-        <ul>
+        <ul className={styles.nested_select_list}>
           {thems.map(({ thema }, id) => (
-            <li key={id}>
-              <p>{thema}/</p>
+            <li key={id} className={styles.item_list}>
+              <p className={styles.text_current}>{thema}</p>
             </li>
           ))}
         </ul>

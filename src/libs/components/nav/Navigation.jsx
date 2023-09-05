@@ -18,7 +18,9 @@ export default function Navigation({
             key={id}
             onClick={onClick}
             className={styles.link}
-            onMouseOver={() => setOnHover(true)}
+            onMouseOver={() =>
+              title === "наші послуги" ? setOnHover(true) : setOnHover(false)
+            }
           >
             <Link
               className={

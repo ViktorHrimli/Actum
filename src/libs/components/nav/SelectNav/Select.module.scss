@@ -1,12 +1,18 @@
 .conteiner {
+
     display: flex;
-    position: absolute;
-    top: 30px;
-    left: 0;
+
 
     width: 235px;
     background-color: transparent;
 
+
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        position: absolute;
+        top: 30px;
+        left: 0;
+    }
 }
 
 .list {

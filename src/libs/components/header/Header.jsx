@@ -136,6 +136,8 @@ export default function Header() {
                 links={PathsPageHeader}
                 route={path}
                 onClick={handleClickOnBar}
+                onHover={onHover}
+                setOnHover={setOnHover}
               />
             </SideBar>
           </motion.div>
