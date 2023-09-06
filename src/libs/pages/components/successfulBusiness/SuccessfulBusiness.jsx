@@ -15,7 +15,7 @@ export default function SuccessfulBusiness({ type }) {
 
   const isDesktop = useIsBig();
 
-  const { gradient, gradientRight } = gradientEnums[type];
+  const { gradient, gradientRight, color } = gradientEnums[type];
 
   useEffect(() => {
     setIsClient(true);
@@ -31,6 +31,7 @@ export default function SuccessfulBusiness({ type }) {
         <div>
           {isClient && (
             <Items
+              color={color}
               type={type}
               screen={isDesktop}
               current={isChang}

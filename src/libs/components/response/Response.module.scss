@@ -212,3 +212,15 @@
         height: 66px;
     }
 }
+
+.position_arr_left {
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+.position_arr_right {
+    position: absolute;
+    top: -4px;
+    right: 15px;
+}

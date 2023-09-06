@@ -40,3 +40,18 @@
     height: 64px;
   }
 }
+
+.position_arr_left {
+  position: absolute;
+  top: -200px;
+  left: 0;
+}
+
+.position_arr_right {
+  position: absolute;
+  top: -204px;
+  right: 0;
+  @media screen and (min-width: 768px) {
+    right: -205px;
+  }
+}

@@ -37,29 +37,32 @@ export default function Response({ type }) {
               є справжніми, створені реальними людьми.
             </p>
           </div>
-
+          <div className={styles.position_arr_left}>
           {screen && isClient && (
             <Arrow
+              type={type}
               left={true}
               setIsChange={setIsChange}
               setIsLeft={setIsLeft}
               isChange={isChange}
             />
           )}
+          </div>
 
           {isClient && (
             <ItemsList isMobie={screen} slide={isChange} start={isLeft} />
           )}
-
+          <div className={styles.position_arr_right}>
           {screen && isClient && (
             <Arrow
+              type={type}
               left={false}
               setIsChange={setIsChange}
               setIsLeft={setIsLeft}
               isChange={isChange}
             />
           )}
-
+          </div>
           <div className={styles.btn_wrapper}>
             <Button
               onClick={() => {}}

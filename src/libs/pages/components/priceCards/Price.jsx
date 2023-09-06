@@ -37,15 +37,17 @@ export default function Price({ type }) {
           <div className={styles[color]}></div>
         </div>
 
+        <div className={styles.position_arr_left}>
         {isMobile && isClient && (
-          <Arrow
+            <Arrow 
+            type={type}
             left={true}
             setIsChange={setisChange}
             setIsLeft={setIsLeft}
             isChange={isChange}
           />
         )}
-
+        </div>
         {isClient && (
           <Items
             type={type}
@@ -54,15 +56,17 @@ export default function Price({ type }) {
             isLeft={isLeft}
           />
         )}
-
+        <div className={styles.position_arr_right}>
         {isMobile && isClient && (
-          <Arrow
+            <Arrow
+            type={type}
             left={false}
             setIsChange={setisChange}
             setIsLeft={setIsLeft}
             isChange={isChange}
           />
         )}
+        </div>
       </div>
     </section>
   );

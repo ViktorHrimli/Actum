@@ -37,6 +37,7 @@ export default function Items({
   setIsChange,
   setIsLeft,
   isLeft,
+  color
 }) {
   return (
     <ul className={styles.container}>
@@ -45,22 +46,30 @@ export default function Items({
           <Card key={id} enums={cardsEnums} type={type} {...el} />
         ))
       ) : (
-        <div style={{ position: "relative" }}>
+          <div style={{ position: "relative" }}>
+          <div className={styles.position_arr_left}>
           <Arrow
-            left={true}
-            setIsChange={setIsChange}
-            isChange={current}
-            setIsLeft={setIsLeft}
-          />
+            type={"default"}
+              left={true}
+              color={color}
+              setIsChange={setIsChange}
+              isChange={current}
+              setIsLeft={setIsLeft}
+            />
+          </div>
           <MobileSlider isStart={isLeft} key={current}>
             <Card enums={cardsEnums} type={type} {...itemsList[current]} />
-          </MobileSlider>
+            </MobileSlider>
+          <div className={styles.position_arr_right}>
           <Arrow
+            type={"default"}
+            color={color}
             left={false}
             setIsChange={setIsChange}
             isChange={current}
             setIsLeft={setIsLeft}
           />
+          </div>
         </div>
       )}
       <div className={styles.container_btn}>
