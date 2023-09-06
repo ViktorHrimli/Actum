@@ -1,12 +1,16 @@
+"use client"
+import { useState } from "react";
+
 import Image from "next/image";
-import Link from "next/link";
+
+import { motion, AnimatePresence } from "framer-motion"
 
 import LeftBar from "@/libs/components/left_bar_text/LeftBar"
 import Button from "@/libs/components/button/Button";
 
 import styles from "./Contacts.module.scss";
 
-import MapGoogle from "@/assets/svg/Map_google.png";
+import touch from "../../../../assets/svg/Klick_icon.png";
 
 import MapUkraine from "../../../../assets/svg/Contacts_map_white.svg";
 
@@ -15,9 +19,28 @@ import Viber from "../../../../assets/svg/Contact_viber.svg";
 import Instagram from "../../../../assets/svg/Contact_instagram.svg";
 import Facebook from "../../../../assets/svg/Contact-facebook.svg";
 
+const animations = {
+  qwerty: {
+    scale: 1.1,
+    transition: { duration: 0.3, repeat: Infinity }
+  }
+}
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      duration: 0.3,
+      yoyo: 5
+    }
+  }
+}
 
-export default function Contacts({type}) {
+export default function Contacts({ type }) {
+  const [isVisible, setIsVisible] = useState(true);
+  
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -29,42 +52,63 @@ export default function Contacts({type}) {
         <div className={styles.container_contacts}>
         <div>
             <div className={styles.container_map}>
-        {/* <Link href={"https://goo.gl/maps/1uuaiqd7wCbg5E6d6"}> */}
-            <div className={styles.img}>
-              <div className={styles.gradient}>
-                <div className={styles.map_ukraine}>
-                  <div className={styles.ukraine_inner_text}>
-                    <p>
-                      Працюємо по <span className={styles.bold_text}>всій Україні</span>:
-                      надаємо онлайн-консультації або виїзджаємо до Вас.
-                    </p>
-                  </div>
-                  <div className={styles.ukraine_inner_city}>
-                    <p>Прямо сьогодні Ви можете завітати в офіс у 9 містах України: 
-                      <span className={styles.bold_text}>
-                        Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон,
-                        Покровськ.
+              <div className={styles.img}>
+                <div
+                onMouseOver={() => setIsVisible(false)}>
+                <AnimatePresence>
+                    {isVisible && (<motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={styles.gradient}>
+                      
+                      <motion.div
+                        animate={{ scale: 1.2, x: -40, y: -20}}
+                        transition={{ duration: 1.5, repeat: Infinity}}
+                      >
+                      <Image
+                        src={touch}
+                        alt="touch"
+                        loading="lazy"
+                        objectFit="cover"
+                        width={"40"}
+                        style={{position: "absolute", top: "40px", right: "40px"}}
+                      />
+                      </motion.div>
+                    <div className={styles.map_ukraine}>
+                    <div className={styles.ukraine_inner_text}>
+                      <p>
+                        Працюємо по <span className={styles.bold_text}>всій Україні</span>:
+                        надаємо онлайн-консультації або виїзджаємо до Вас.
+                      </p>
+                    </div>
+                    <div className={styles.ukraine_inner_city}>
+                      <p>Прямо сьогодні Ви можете завітати в офіс у 9 містах України:
+                        <span className={styles.bold_text}>
+                          Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон,
+                          Покровськ.
                         </span>
                       </p>
                       <p className={styles.bold_text_mob}>
                         Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон,
                         Покровськ.
-                        </p>
+                      </p>
+                    </div>
+                    <Image
+                      src={MapUkraine}
+                      alt="Map"
+                      fill
+                      loading="lazy"
+                    />
                   </div>
-                <Image
-                  src={MapUkraine}
-                  alt="Map"
-                  fill
-                  loading="lazy"
-                  // objectFit="cover"
-                  />
+                  </motion.div>)}
+                  </AnimatePresence>
                 </div>
-                </div>
-                  <div className={styles.google_map}>
+
+                  <div className={styles.google_map} onMouseLeave={() => setIsVisible(true)}>
                     <iframe style={{ border: "none" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.985689330561!2d30.521125500000007!3d50.497224100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d1f9ab851327%3A0xdef11545537f44d4!2z0YPQuy4g0J7QsdC-0LvQvtC90YHQutCw0Y8g0L3QsNCxLiwgMTUsINCa0LjQtdCyLCAwNDA3NA!5e0!3m2!1sru!2sua!4v1693237557985!5m2!1sru!2sua" width="100%" height="100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                 </div>
-            {/* </Link> */}
               </div>
           <div className={styles.container_btn}>
             <Button

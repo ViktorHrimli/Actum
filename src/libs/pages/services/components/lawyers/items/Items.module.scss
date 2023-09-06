@@ -13,13 +13,38 @@
 }
 
 .container_cards {
+  position: relative;
   width: 280px;
   height: 238px;
   margin-bottom: 36px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: all 1s;
 
 
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 400px;
+    height: 270px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 484px;
+    height: 275px;
+  }
+}
+
+.container_text {
+  position: relative;
+  width: 280px;
+  height: 238px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -42,6 +67,8 @@
   width: 257px;
   rotate: (180deg);
   border: 1px solid transparent;
+  transition: all 1s;
+
 
   border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
 
@@ -81,6 +108,8 @@
   position: absolute;
   top: -70px;
   right: 186px;
+  transition: all 1s;
+
 
   @media screen and (min-width: 1280px) {
     width: 176px;
@@ -102,6 +131,8 @@
   rotate: (360deg);
   border: 1px solid transparent;
   margin-top: auto;
+  transition: all 1s;
+
 
   border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
   ;
@@ -134,6 +165,8 @@
   position: absolute;
   top: -70px;
   right: 186px;
+  transition: all 1s;
+
 
   @media screen and (min-width: 1280px) {
     width: 176px;
@@ -277,15 +310,11 @@
 }
 
 .container_cards:hover:not(:last-child) {
-  background: #F8F5F5;
+  background: #E2E0E0;
   z-index: 5;
-  transition: all 0.7s;
+  transition: all 1s;
 
-
-
-  // border: 1px solid transparent;
   border-image: linear-gradient(45deg, #E32F7A, #912E6F, #3F2E64);
-  ;
 
   -moz-border-image: -moz-linear-gradient(45deg,
       #E32F7A,
@@ -296,45 +325,73 @@
       #912E6F,
       #3F2E64);
   border-image-slice: 1;
-
-
-  // transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .container_cards:hover .marker {
   background-color: #1F1F1F;
   z-index: 5;
-  // transition: all 0.5s;
+  transition: all 1s;
 }
 
 .container_cards:hover .title {
   color: #1F1F1F;
   z-index: 5;
-  // transition: all 0.5s;
+  transition: all 1s;
 }
 
 .container_cards:hover .link {
   color: #1F1F1F;
   z-index: 5;
-  // transition: all 0.5s;
+  transition: all 1s;
 }
 
 .container_cards:hover .border {
-  border: 1px solid transparent;
-  transition: all 0.5s;
+  transition: all 1s;
+  width: 100%;
 }
 
 .container_cards:hover .border_left {
-  border: 1px solid transparent;
-  transition: all 0.5s;
+  transition: all 1s;
+  position: absolute;
+  top: -119px;
+  right: 159px;
+  width: 238px;
+
+  @media screen and (min-width: 1280px) {
+    width: 268px;
+    right: 264px;
+    top: -134px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 275px;
+    right: 345px;
+    top: -137.5px;
+  }
 }
 
 .container_cards:hover .border_bottom {
-  border: 1px solid transparent;
-  transition: all 0.5s;
+  transition: all 1s;
+  width: 100%;
+  position: relative;
 }
 
 .container_cards:hover .border_right {
-  border: 1px solid transparent;
-  transition: all 0.5s;
+  transition: all 1s;
+  position: absolute;
+  top: -119px;
+  right: 159px;
+  width: 238px;
+
+  @media screen and (min-width: 1280px) {
+    width: 268px;
+    right: 264px;
+    top: -134px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 275px;
+    right: 345px;
+    top: -137.5px;
+  }
 }

@@ -170,8 +170,20 @@
 
 }
 
-.title_info {
+.text_family {
     color: var(--primary-color);
+}
+
+.text_army {
+    color: #536641;
+}
+
+.text_criminal {
+    color: #3F2E64;
+}
+
+.title_info {
+    // color: var(--primary-color);
     font-weight: 600;
 }
 

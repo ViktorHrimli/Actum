@@ -40,7 +40,7 @@ export default function Items() {
       </>
       
     }</li>)}
-    <li className={styles.container_cards}>
+    <li className={styles.container_text }>
         <p className={styles.description}>Ми працюємо по усій Україні також саме сьогодні Ви можете завітати в наші офіси у наступних містах: Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон, Покровськ.</p>
         <div className={styles.container_btn}>
           <Button
