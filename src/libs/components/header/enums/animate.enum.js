@@ -1,4 +1,7 @@
 const desktopLogoAnimate = {
+  animate(isStep) {
+    return isStep ? "start" : "step";
+  },
   variants(isBig = false) {
     return {
       start: { x: 0, y: 0, scale: 1, rotate: "0deg" },
@@ -13,10 +16,12 @@ const desktopLogoAnimate = {
 };
 
 const mobileLogoAnimate = {
+  animate(isStep) {
+    return "start";
+  },
   variants(isBig = false) {
     return {
       start: { x: 0, y: 0, scale: 1, rotate: "0deg" },
-      step: { x: 0, y: 0, scale: 1, rotate: "0deg" },
     };
   },
 
@@ -27,9 +32,9 @@ const mobileLogoAnimate = {
   transition: {
     ease: "easeIn",
     duration: 0.8,
-    delay: 1,
+    delay: 0.7,
     type: "keyframes",
-    stiffness: 100,
+    stiffness: 10,
   },
 };
 

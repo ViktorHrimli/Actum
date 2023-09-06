@@ -213,11 +213,14 @@
     }
 }
 
-
-.conteiner_icon_chevron {
+.position_arr_left {
     position: absolute;
-    top: 355px;
-    left: -30px;
+    top: 0;
+    left: 15px;
+}
 
-    cursor: pointer;
+.position_arr_right {
+    position: absolute;
+    top: -4px;
+    right: 15px;
 }

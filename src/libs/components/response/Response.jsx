@@ -4,21 +4,22 @@ import { usePathname } from "next/navigation";
 import Button from "@/libs/components/button/Button";
 import ItemsList from "@/libs/components/response/list/ItemsList";
 import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import Arrow from "@/libs/components/arrowCard/Arrow";
 
 import styles from "./Response.module.scss";
 
-import { useCallback, useEffect, useIsBig, useState } from "@/libs/hooks/hooks";
+import { useEffect, useIsSmall, useState } from "@/libs/hooks/hooks";
 
 export default function Response({ type }) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
+  const [isLeft, setIsLeft] = useState(true);
 
   const path = usePathname();
-  const screen = useIsBig();
+  const screen = useIsSmall();
 
   useEffect(() => {
     setIsClient(true);
-    return () => {};
   }, []);
 
   return (
@@ -36,29 +37,32 @@ export default function Response({ type }) {
               є справжніми, створені реальними людьми.
             </p>
           </div>
-
-          {!screen && isClient && (
-            <div
-              className={styles.conteiner_icon_chevron}
-              onClick={() => setIsChange(isChange >= 1 ? 0 : 1)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M17.95 19L12.95 12L17.95 5H15.5L10.5 12L15.5 19H17.95ZM12 19L6.99995 12L12 5H9.54995L4.54995 12L9.54995 19H12Z"
-                  fill="#E32F7A"
-                />
-              </svg>
-            </div>
+          <div className={styles.position_arr_left}>
+          {screen && isClient && (
+            <Arrow
+              type={type}
+              left={true}
+              setIsChange={setIsChange}
+              setIsLeft={setIsLeft}
+              isChange={isChange}
+            />
           )}
+          </div>
 
-          {isClient && <ItemsList isDesktop={screen} slide={isChange} />}
-
+          {isClient && (
+            <ItemsList isMobie={screen} slide={isChange} start={isLeft} />
+          )}
+          <div className={styles.position_arr_right}>
+          {screen && isClient && (
+            <Arrow
+              type={type}
+              left={false}
+              setIsChange={setIsChange}
+              setIsLeft={setIsLeft}
+              isChange={isChange}
+            />
+          )}
+          </div>
           <div className={styles.btn_wrapper}>
             <Button
               onClick={() => {}}

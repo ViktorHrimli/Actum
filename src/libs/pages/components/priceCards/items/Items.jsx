@@ -5,15 +5,22 @@ import CardB from "./cards/cardB/CardB";
 import CardC from "./cards/cardC/CardC";
 import CardD from "./cards/cardD/CardD";
 
+import MobileSlider from "@/libs/components/mobile_animation/MobileSlider";
 
-export default function Items({type}) {
+const arrListCard = [CardA, CardB, CardC, CardD];
+
+export default function Items({ type, isMobile, current, isLeft }) {
   return (
     <div className={styles.container}>
-      <CardA type={type} />
-      <CardB type={type} />
-      <CardC type={type} />
-      <CardD type={type} />
-  </div>
-  )
-}  
-
+      {isMobile ? (
+        <MobileSlider isStart={isLeft} key={current}>
+          {arrListCard.map(
+            (Item, id) => id === current && <Item key={id} type={type} />
+          )}
+        </MobileSlider>
+      ) : (
+        arrListCard.map((Item, id) => <Item key={id} type={type} />)
+      )}
+    </div>
+  );
+}
