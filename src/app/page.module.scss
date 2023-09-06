@@ -10,7 +10,8 @@
     width: 100vw;
 
     @media screen and (min-width: 1280px) {
-        align-items: flex-end
+        width: 1280px;
+        align-items: flex-end;
     }
 
     @media screen and (min-width: 1440px) {
