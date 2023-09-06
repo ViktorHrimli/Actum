@@ -28,10 +28,10 @@ const mobileAnimateWatemark = {
   initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
   transition: {
     ease: "easeIn",
-    duration: 0.8,
-    delay: 0.7,
+    duration: 1.2,
+    delay: 0.4,
     type: "keyframes",
-    stiffness: 10,
+    stiffness: 1000,
   },
 };
 
@@ -69,10 +69,10 @@ const mobileTitleTextWatemark = {
   },
   transition: {
     ease: "easeIn",
-    duration: 0.8,
-    delay: 1,
+    duration: 3,
+    delay: 0.3,
     type: "keyframes",
-    stiffness: 10,
+    stiffness: 1000,
   },
 };
 
@@ -99,10 +99,10 @@ const mobileWatemarkText = {
 
   transition: {
     ease: "easeIn",
-    duration: 0.8,
-    delay: 1,
+    duration: 2.5,
+    delay: 0.3,
     type: "keyframes",
-    stiffness: 10,
+    stiffness: 1099,
   },
 };
 
@@ -128,8 +128,8 @@ const mobileWatemarkLine = {
   },
   transition: {
     ease: "easeIn",
-    duration: 0.8,
-    delay: 1,
+    duration: 2.5,
+    delay: 0.2,
     type: "keyframes",
     stiffness: 10,
   },
