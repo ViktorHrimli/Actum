@@ -4,30 +4,11 @@
     justify-content: space-between;
     width: 235px;
 
-    @media screen and (min-width: 1280px) {
-        ::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-
-            bottom: -2px;
-            left: 0;
-
-            background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-
-
-        }
-    }
-
+    text-decoration-line: none;
 
 }
 
-.img_wrapper {
-    position: relative;
-    width: 20px;
-    height: 20px;
-}
+
 
 .text {
     position: relative;
@@ -35,6 +16,8 @@
     font-size: 14px;
     line-height: 16px;
     text-transform: uppercase;
+    text-decoration-line: none;
+    cursor: pointer;
 
 }
 
@@ -46,6 +29,8 @@
         color: #E32F7A;
         fill: #E32F7A;
     }
+
+    z-index: 30;
 }
 
 
@@ -76,10 +61,15 @@
 }
 
 .item_list {
+    text-decoration-line: none;
+    width: 100%;
+    z-index: 50;
+
     :hover {
         color: white;
         background-color: var(--primary-color);
         cursor: pointer;
+        border-radius: 4px;
     }
 }
 
@@ -89,10 +79,11 @@
     font-size: 14px;
     line-height: 16px;
     font-weight: 400;
+    text-decoration-line: none;
 
     text-transform: capitalize;
 
-
+    cursor: pointer;
 
     z-index: 10;
 }
