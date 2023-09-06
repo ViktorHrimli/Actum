@@ -33,9 +33,11 @@
         height: 100vh;
         max-height: 833px;
         width: 1280px;
+        overflow-x: hidden;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
             padding-top: 170px;
+            overflow: hidden;
         }
     }
 

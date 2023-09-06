@@ -14,10 +14,13 @@ import { faViber, faTelegram } from "@fortawesome/free-brands-svg-icons";
 import Button from "@/libs/components/button/Button";
 
 import styles from "./Form.module.scss";
+import { borderEnums } from "./enumsForm/enumsForm";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function Form({ type }) {
+  const { border, color_text } = borderEnums[type];
+  
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,12 +54,12 @@ export default function Form({ type }) {
       className={styles.form}
     >
       <div className={styles.wrapper_name}>
-        <label htmlFor="name" className={styles.lable}>
+        <label htmlFor="name" className={`${styles.lable} ${styles[color_text]}`}>
           {"Вкажіть ім'я і прізвище"}
         </label>
 
         <div className={styles.conteiner_name}>
-          <div className={styles.border}>
+          <div className={styles[border]}>
           <input
             className={
               errors.name
@@ -80,7 +83,7 @@ export default function Form({ type }) {
               />
             </div>
           )}
-          <div className={styles.border}>
+          <div className={styles[border]}>
             <input
               className={
                 errors.surname
@@ -107,11 +110,11 @@ export default function Form({ type }) {
       </div>
 
       <div className={styles.wrapper_name}>
-        <label htmlFor="textarea" className={styles.lable}>
+        <label htmlFor="textarea" className={`${styles.lable} ${styles[color_text]}`}>
           Ваше питання
         </label>
         <div className={styles.conteiner_name}>
-          <div className={styles.border}>
+          <div className={styles[border]}>
           <textarea
             className={
               errors.textarea
@@ -141,11 +144,11 @@ export default function Form({ type }) {
       </div>
 
       <div className={styles.wrapper_name}>
-        <label htmlFor="phone" className={styles.lable}>
+        <label htmlFor="phone" className={`${styles.lable} ${styles[color_text]}`}>
           Номер телефону
         </label>
         <div className={styles.conteiner_name}>
-          <div className={styles.border}>
+          <div className={styles[border]}>
           <input
             className={
               errors.phone
@@ -175,11 +178,11 @@ export default function Form({ type }) {
       </div>
 
       <div className={styles.wrapper_name}>
-        <label htmlFor="message" className={styles.lable}>
+        <label htmlFor="message" className={`${styles.lable} ${styles[color_text]}`}>
           Месенджер
         </label>
         <div className={styles.conteiner_name}>
-          <div className={styles.border}>
+          <div className={styles[border]}>
           <input
             onClick={handleToggleSelect}
             value={selectValue}
@@ -244,7 +247,7 @@ export default function Form({ type }) {
       </div>
 
       <div className={styles.wrapper_name}>
-        <label htmlFor="services" className={styles.lable}>
+        <label htmlFor="services" className={`${styles.lable} ${styles[color_text]}`}>
           Оберіть послугу
         </label>
         {errors.services && (
@@ -261,7 +264,8 @@ export default function Form({ type }) {
             <label htmlFor="services_first" className={styles.lable_radio}>
               Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)
             </label>
-            <input
+            <input 
+              className={styles.custom_checkbox}
               type="radio"
               value="Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)"
               id="services_first"
@@ -277,6 +281,7 @@ export default function Form({ type }) {
             </label>
 
             <input
+              className={styles.custom_checkbox}
               type="radio"
               value="Вирішення питань через суд: розлучення, аліменти, майно, батьківські права, тощо (від 5000 грн.)"
               id="services_second"
@@ -291,6 +296,7 @@ export default function Form({ type }) {
               (від 2000 грн.)
             </label>
             <input
+              className={styles.custom_checkbox}
               type="radio"
               value="Допомога з документами: написання заяв, позовів, договорів, тощо (від 2000 грн.)"
               id="services_third"
