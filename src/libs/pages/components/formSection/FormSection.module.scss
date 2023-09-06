@@ -25,11 +25,12 @@
 
     @media screen and (min-width: 1280px) {
         padding: 120px 96px 100px 33px;
+        width: 1280px;
     }
 
     @media screen and (min-width:1440px) {
         padding: 164px 118px 130px 70px;
-        max-width: 1440px;
+        width: 1440px;
     }
 }
 

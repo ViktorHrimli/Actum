@@ -6,7 +6,7 @@ import marks from "@/assets/svg/marks.svg";
 
 import styles from "./About.module.scss";
 
-export default function About({ img, type = "famyli" }) {
+export default function About({ img, type = "family" }) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
