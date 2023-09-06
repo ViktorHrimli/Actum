@@ -14,7 +14,7 @@ export default function ArrowMenu({ isOpenSelect, setIsOpen = () => {} }) {
       className={styles.img_wrapper}
       animate={{
         rotate: isOpenSelect ? "180deg" : "0deg",
-        scale: isOpenSelect ? 1.1 : 1,
+        scale: isOpenSelect ? 1.2 : 1,
       }}
       transition={{ duration: 0.8 }}
     >
