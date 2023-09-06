@@ -15,8 +15,13 @@
 }
 
 .list {
-    margin-top: 5px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+
+    padding: 5px;
+    border-radius: 4px;
+    background: rgba(31, 31, 31, 0.60);
+    z-index: 5;
 }

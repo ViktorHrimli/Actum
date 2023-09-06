@@ -30,9 +30,15 @@ export default function Footer() {
   return (
     <div className={styles.footer_section}>
       <motion.div
-        animate={"start"}
-        variants={{ start: { opacity: 1 } }}
-        initial={{ opacity: 0 }}
+        key={"main_gradient_Footer"}
+        animate={"open"}
+        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+        initial={{ x: 0, y: "0px", opacity: 0 }}
+        transition={{
+          ease: "easeIn",
+          type: "keyframes",
+          stiffness: 20,
+        }}
         className={
           isStyleFooter ? styles[isStyleFooter] : styles.footer_gradient
         }
