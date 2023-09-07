@@ -2,13 +2,31 @@ import styles from "./SideBar.module.scss";
 
 import Image from "next/image";
 
+import { useEffect, useState } from "@/libs/hooks/hooks";
+
+import ModalForm from "../modalForm/modalForm";
+
 import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 import MainGradient from "./MainGradient";
 
-export default function SideBar({ children }) {
+export default function SideBar({ children , type="family" }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  useEffect(() => {
+    if (isOpenModal) {
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    }
+
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
+  
   return (
     <div className={styles.menu}>
       <div
@@ -49,8 +67,8 @@ export default function SideBar({ children }) {
               </a>
             </li>
 
-            <li>
-              <a href="">
+            <li onClick={() => setIsOpenModal(true)}>
+              <a>
                 <Image src={Form} alt="Form" width={34} height={34} />
               </a>
             </li>
@@ -58,6 +76,7 @@ export default function SideBar({ children }) {
         </div>
         <MainGradient />
       </div>
+        {isOpenModal && <ModalForm type={type} setIsOpenModal={setIsOpenModal} />}
     </div>
   );
 }

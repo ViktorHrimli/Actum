@@ -1,4 +1,8 @@
 const borderEnums = {
+  home: {
+    border: "border_family",
+    color_text: "text_family",
+  },
   family: {
     border: "border_family",
     color_text: "text_family",

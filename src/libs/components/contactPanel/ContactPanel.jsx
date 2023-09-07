@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState, useIsBig } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 
+import ModalForm from "../modalForm/modalForm";
+
 import ScrollAwareSection from "@/libs/components/contactPanel/halpers/logic";
 
 import Telegram from "@/assets/svg/telegram.svg";
@@ -16,11 +18,29 @@ import styles from "./ContactPanel.module.scss";
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import ScrollButtonUp from "./halpers/showScrollButtonUp";
 
+import { useEffect } from "@/libs/hooks/hooks";
+
 export default function ContactPanel({ type }) {
   const { gradient } = colorGradient[type];
 
   const [isTrue, setIsTrue] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+
   const isDesktop = useIsBig();
+
+  useEffect(() => {
+    if (isOpenModal) {
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    }
+
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
+
 
   return (
     <motion.section
@@ -54,8 +74,8 @@ export default function ContactPanel({ type }) {
             </a>
           </li>
 
-          <li className={styles.link}>
-            <a href="">
+          <li className={styles.link} onClick={() => setIsOpenModal(true)}>
+            <a>
               <Image src={Form} alt="Form" width={34} height={34} />
             </a>
           </li>
@@ -71,6 +91,7 @@ export default function ContactPanel({ type }) {
           </ul>
         </ScrollAwareSection>
         <ScrollButtonUp />
+        {isOpenModal && <ModalForm type={type} setIsOpenModal={setIsOpenModal} />}
       </div>
     </motion.section>
   );

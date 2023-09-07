@@ -27,7 +27,7 @@ import Logo from "@/assets/svg/LOGO.png";
 import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
-export default function Header() {
+export default function Header({type}) {
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
@@ -36,6 +36,7 @@ export default function Header() {
   // DROP MENU
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
 
   const path = usePathname();
 
@@ -145,7 +146,7 @@ export default function Header() {
               background: "#0F021C",
             }}
           >
-            <SideBar>
+            <SideBar type={type}>
               <Navigation
                 links={PathsPageHeader}
                 route={path}
