@@ -16,14 +16,18 @@ export default function NavSelectItem({ service, path, thems, onClick }) {
       <div
         style={{
           display: "flex",
+          position: "relative",
           justifyContent: "space-between",
+          alignItems: "center",
           width: "100%",
         }}
       >
-        <Link href={path} onClick={onClick}>
+        <Link href={path} onClick={onClick} className={styles.link_service}>
           <p className={styles.text}>{service}</p>
         </Link>
         <ArrowMenu isOpenSelect={isOpenSelect} setIsOpen={setIsOpenSelect} />
+
+        <div className={styles.line}></div>
       </div>
 
       {isOpenSelect && (
