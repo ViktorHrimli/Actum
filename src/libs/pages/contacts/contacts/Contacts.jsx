@@ -62,19 +62,16 @@ export default function Contacts({ type }) {
                       exit={{ opacity: 0 }}
                       className={styles.gradient}>
                       
-                      <motion.div
-                        animate={{ scale: 1.2, x: -40, y: -20}}
-                        transition={{ duration: 1.5, repeat: Infinity}}
-                      >
-                      <Image
-                        src={touch}
-                        alt="touch"
-                        loading="lazy"
-                        objectFit="cover"
-                        width={"40"}
-                        style={{position: "absolute", top: "40px", right: "40px"}}
-                      />
-                      </motion.div>
+                      <div>
+                        <Image
+                          src={touch}
+                          alt="touch"
+                          loading="lazy"
+                          objectFit="cover"
+                          className={styles.pulse}
+                        />
+                      </div>
+
                     <div className={styles.map_ukraine}>
                     <div className={styles.ukraine_inner_text}>
                       <p>
