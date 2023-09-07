@@ -1,4 +1,7 @@
 const colorBorderEnums = {
+  home: {
+    gradientBorder: "button_border",
+  },
   family: {
     gradientBorder: "button_border",
   },
@@ -11,4 +14,3 @@ const colorBorderEnums = {
 };
 
 export { colorBorderEnums };
-
