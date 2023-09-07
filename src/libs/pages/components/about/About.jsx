@@ -1,26 +1,24 @@
 import Image from "next/image";
 
 import Button from "@/libs/components/button/Button";
-
-import marks from "@/assets/svg/marks.svg";
+import Quotes from "@/libs/components/quotes/Quotes";
 
 import styles from "./About.module.scss";
 
 export default function About({ img, type = "family" }) {
+  const colorObj = {
+    army: "#536641",
+    crime: "#3F2E64",
+    family: "#E32F7A",
+  };
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
         <div className={styles.conteiner_text}>
           <div className={styles.conteiner_title}>
-            <span className={styles.icons_conteiner}>
-              <Image
-                src={marks}
-                alt="marks"
-                loading="lazy"
-                width={40}
-                height={40}
-              />
-            </span>
+            <div className={styles.icons_conteiner}>
+              <Quotes color={colorObj[type]} />
+            </div>
             <h2 className={styles.title_text}>Jorem ipsum dolor sit amet</h2>
           </div>
           <p className={styles.text}>

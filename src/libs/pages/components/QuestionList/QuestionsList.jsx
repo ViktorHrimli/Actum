@@ -15,7 +15,7 @@ export default function QuestionsList({ type }) {
 
   return (
     <section className={styles.section}>
-      <About img={natalia} />
+      <About img={natalia} type={type} />
       <div className={styles.questions_conteiner}>
         <div className={styles.container_title}>
           <div className={styles[color]}></div>
