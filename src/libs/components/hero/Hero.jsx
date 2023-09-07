@@ -17,6 +17,7 @@ import {
   mobileTitleTextWatemark,
   mobileWatemarkLine,
   mobileWatemarkText,
+  gradientVariants,
 } from "./libs/enums/enums";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
@@ -28,6 +29,7 @@ export default function Hero() {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
+  const [isRender, setIsRender] = useState(false);
 
   const isDesktop = useIsBig();
   const path = usePathname();
@@ -63,12 +65,10 @@ export default function Hero() {
     );
 
     setTimeout(() => setIsStep(true), 2000);
+    setTimeout(() => setIsRender(true), isDesktop ? 3500 : 1200);
   }, []);
   return (
-    <section
-      className={styles.hero_section}
-      onClick={(event) => "event.currentTarget.nodeName"}
-    >
+    <section className={styles.hero_section}>
       {isClient && (
         <motion.div
           key={"watemark"}
@@ -87,80 +87,71 @@ export default function Hero() {
           />
         </motion.div>
       )}
-      <motion.div
-        key={"femida"}
-        className={styles.image_conteiner}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "50px", y: "0px", opacity: 0 }}
-        transition={{
-          type: "keyframes",
-          ease: "easeInOut",
-          stiffness: 20,
-          duration: isDesktop ? 0.8 : 2.5,
-          delay: isDesktop ? 3 : 0.5,
-        }}
-      >
-        <Image
-          src={femida}
-          alt="Femida"
-          priority={true}
-          placeholder="blur"
-          fill
-        />
-      </motion.div>
+      {isRender && (
+        <motion.div
+          key={"femida"}
+          className={styles.image_conteiner}
+          animate={"open"}
+          variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+          initial={{ x: "50px", y: "0px", opacity: 0 }}
+          transition={{
+            type: "keyframes",
+            ease: "easeInOut",
+            stiffness: 20,
+            duration: isDesktop ? 0.8 : 2.5,
+          }}
+        >
+          <Image
+            src={femida}
+            alt="Femida"
+            priority={true}
+            placeholder="blur"
+            fill
+          />
+        </motion.div>
+      )}
 
       {/* GRADIENTS */}
-      <motion.div
-        key={"main_gradient"}
-        className={styles.main_gradient}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: 0, y: "0px", opacity: 0 }}
-        transition={{
-          ease: "easeIn",
-          duration: isDesktop ? 0.8 : 2.5,
-          delay: isDesktop ? 3 : 0,
-          type: "keyframes",
-          stiffness: 20,
-        }}
-      ></motion.div>
-      <motion.div
-        key={"second_gradient"}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "0", y: "0px", opacity: 0 }}
-        transition={{
-          ease: "easeIn",
-          duration: isDesktop ? 0.8 : 2.5,
-          delay: isDesktop ? 3 : 0,
-        }}
-        className={styles.second_gradient}
-      ></motion.div>
-      <motion.div
-        key={"thirhd_gradient"}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: 0, y: "0px", opacity: 0 }}
-        transition={{
-          ease: "easeIn",
-          duration: isDesktop ? 0.8 : 2.5,
-          delay: isDesktop ? 3 : 0,
-        }}
-        className={styles.thirhd_gradient}
-      ></motion.div>
-      <motion.div
-        key={"fourth_gradient"}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: 0, y: "0px", opacity: 0 }}
-        transition={{
-          ease: "easeIn",
-          duration: isDesktop ? 0.8 : 2.5,
-          delay: isDesktop ? 3 : 0,
-        }}
-        className={styles.fourth_gradient}
-      ></motion.div>
+      {isRender && (
+        <motion.div
+          key={"main_gradient"}
+          className={styles.main_gradient}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+        ></motion.div>
+      )}
+      {isRender && (
+        <motion.div
+          key={"second_gradient"}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.second_gradient}
+        ></motion.div>
+      )}
+      {isRender && (
+        <motion.div
+          key={"thirhd_gradient"}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.thirhd_gradient}
+        ></motion.div>
+      )}
+      {isRender && (
+        <motion.div
+          key={"fourth_gradient"}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.fourth_gradient}
+        ></motion.div>
+      )}
       {/* GRADIENT END */}
       {isClient ? (
         <motion.h2

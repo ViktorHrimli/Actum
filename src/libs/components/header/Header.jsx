@@ -19,6 +19,7 @@ import {
   useState,
   useEffect,
   useIsBig,
+  useIsSmall,
 } from "@/libs/hooks/hooks";
 
 import Logo from "@/assets/svg/LOGO.png";
@@ -27,12 +28,14 @@ import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
 export default function Header({type}) {
-  const [isSideBar, setIsSideBar] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
+  const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
   const [isOnlyMobileScreen, setIsOnlyMobileScreen] = useState(0);
+  // DROP MENU
   const [onHover, setOnHover] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
 
   const path = usePathname();
@@ -40,6 +43,7 @@ export default function Header({type}) {
   const isHome = path === "/";
 
   const isDesktopOrLaptop = useIsBig();
+  const isMobile = useIsSmall();
 
   const logoAnimated = isDesktopOrLaptop
     ? desktopLogoAnimate
@@ -68,10 +72,16 @@ export default function Header({type}) {
     setTimeout(() => setIsStep(true), 2000);
   }, []);
 
-  const handleClickOnBar = useCallback(
-    () => setIsSideBar(!isSideBar),
-    [isSideBar]
-  );
+  const handleClickOnBar = useCallback(() => {
+    setIsSideBar(!isSideBar);
+    setIsOpenMenu(false);
+    setOnHover(false);
+  }, [isSideBar, isOpenMenu, onHover]);
+
+  const handleClickOnMenu = useCallback(() => {
+    setIsOpenMenu(false);
+    setOnHover(false);
+  }, [isOpenMenu, onHover]);
 
   return (
     <section className={styles.header_section}>
@@ -104,8 +114,12 @@ export default function Header({type}) {
             <Navigation
               links={PathsPageHeader}
               route={path}
+              onClick={handleClickOnMenu}
               onHover={onHover}
+              isMobile={isMobile}
               setOnHover={setOnHover}
+              setIsOpenMenu={setIsOpenMenu}
+              isOpenMenu={isOpenMenu}
             />
           </motion.div>
         ) : (
@@ -138,7 +152,10 @@ export default function Header({type}) {
                 route={path}
                 onClick={handleClickOnBar}
                 onHover={onHover}
+                isMobile={isMobile}
                 setOnHover={setOnHover}
+                setIsOpenMenu={setIsOpenMenu}
+                isOpenMenu={isOpenMenu}
               />
             </SideBar>
           </motion.div>

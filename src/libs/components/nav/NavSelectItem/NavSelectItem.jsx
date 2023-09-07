@@ -1,40 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { motion } from "framer-motion";
 import { useState } from "@/libs/hooks/hooks";
 
-import arrow from "@/assets/svg/arrow_up.svg";
+import ArrowMenu from "@/libs/components/arrow_menu/ArrowMenu";
 
 import styles from "./NavSelectItem.module.scss";
 
-export default function NavSelectItem({ service, thems }) {
+export default function NavSelectItem({ service, path, thems, onClick }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
 
   const onClickOnDropMenu = () => setIsOpenSelect(!isOpenSelect);
   return (
-    <li className={styles.link} onClick={onClickOnDropMenu}>
+    <li className={styles.link} onClick={() => {}}>
       <div
         style={{
           display: "flex",
+          position: "relative",
           justifyContent: "space-between",
+          alignItems: "center",
           width: "100%",
         }}
       >
-        <p className={styles.text}>{service}</p>
-        <motion.div
-          className={styles.img_wrapper}
-          animate={{ rotate: isOpenSelect ? "180deg" : "0deg" }}
-          transition={{ duration: 0.8 }}
-        >
-          <Image
-            src={arrow}
-            alt="arrow"
-            fill
-            loading="lazy"
-            className={styles.icon}
-          />
-        </motion.div>
+        <Link href={path} onClick={onClick} className={styles.link_service}>
+          <p className={styles.text}>{service}</p>
+        </Link>
+        <ArrowMenu isOpenSelect={isOpenSelect} setIsOpen={setIsOpenSelect} />
+
+        <div className={styles.line}></div>
       </div>
 
       {isOpenSelect && (

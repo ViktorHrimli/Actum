@@ -135,6 +135,19 @@ const mobileWatemarkLine = {
   },
 };
 
+const gradientVariants = {
+  animate: "open",
+  variants: { open: { x: 0, y: "0px", opacity: 1 } },
+  initial: { x: 0, y: "0px", opacity: 0 },
+  transition(isDesktop) {
+    return {
+      ease: "easeIn",
+      duration: isDesktop ? 0.8 : 2.5,
+      type: "keyframes",
+      stiffness: 20,
+    };
+  },
+};
 export {
   desktopWatemarkLine,
   mobileWatemarkLine,
@@ -144,4 +157,5 @@ export {
   desktopAnimateWatemark,
   mobileAnimateWatemark,
   desktopTitleTextWatemark,
+  gradientVariants,
 };

@@ -87,14 +87,12 @@ export default function AboutCompany() {
           <div className={styles.conteiner_partner_olena}>
             <p className={styles.partner}>партнер Хоменко Олена</p>
             <div className={styles.wrapper_signatur_olena}>
-              {/* <Image src={XO} loading="eager" alt="Підпис" fill /> */}
           <Animation animationData={animationSignOlena} playOnScroll={true} />
             </div>
           </div>
           <div className={styles.conteiner_partner_natalia}>
             <p className={styles.partner}>партнер Коровіна Наталя</p>
             <div className={styles.wrapper_signatur_natalia}>
-              {/* <Image src={XN} loading="eager" alt="Підпис" fill /> */}
           <Animation animationData={animationSignNatalia} playOnScroll={true} />
             </div>
           </div>

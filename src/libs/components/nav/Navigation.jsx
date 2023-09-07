@@ -1,7 +1,9 @@
 import Link from "next/link";
 
-import styles from "./Navigation.module.scss";
 import Select from "./SelectNav/Select";
+import ArrowMenu from "../arrow_menu/ArrowMenu";
+
+import styles from "./Navigation.module.scss";
 
 export default function Navigation({
   links,
@@ -9,33 +11,55 @@ export default function Navigation({
   onClick,
   onHover,
   setOnHover,
+  isMobile,
+  setIsOpenMenu,
+  isOpenMenu,
 }) {
+  const SERVICES = "наші послуги";
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
         {links.map(({ path, title, items }, id) => (
           <li
             key={id}
-            onClick={onClick}
             className={styles.link}
             onMouseOver={() =>
-              title === "наші послуги" ? setOnHover(true) : setOnHover(false)
+              title === SERVICES ? setOnHover(true) : setOnHover(false)
             }
           >
             <Link
-              className={
-                route === path
-                  ? `${styles.link} ${styles.active_link}`
-                  : styles.link
-              }
+              className={route === path ? styles.active_link : {}}
               href={path}
+              onClick={onClick}
             >
               {title.toUpperCase()}
             </Link>
-            {items && onHover && <Select routes={items} />}
+
+            {isMobile && title === SERVICES && (
+              <div
+                style={{
+                  position: "absolute",
+                  right: isOpenMenu ? 0 : -67,
+                  top: 3,
+                  zIndex: 30,
+                }}
+              >
+                <ArrowMenu
+                  isOpenSelect={isOpenMenu}
+                  setIsOpen={setIsOpenMenu}
+                />
+              </div>
+            )}
+
+            {isMobile && isOpenMenu && (
+              <Select routes={items} onClick={onClick} isOpen={isOpenMenu} />
+            )}
           </li>
         ))}
       </ul>
+      {!isMobile && onHover && (
+        <Select isOpen={onHover} onClick={onClick} routes={links[1].items} />
+      )}
     </div>
   );
 }

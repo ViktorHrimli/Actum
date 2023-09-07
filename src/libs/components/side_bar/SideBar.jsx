@@ -10,6 +10,7 @@ import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
+import MainGradient from "./MainGradient";
 
 export default function SideBar({ children , type="family" }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -73,8 +74,7 @@ export default function SideBar({ children , type="family" }) {
             </li>
           </ul>
         </div>
-
-        <div className={styles.main_gradient}></div>
+        <MainGradient />
       </div>
         {isOpenModal && <ModalForm type={type} setIsOpenModal={setIsOpenModal} />}
     </div>

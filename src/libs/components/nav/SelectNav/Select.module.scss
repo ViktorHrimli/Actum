@@ -1,23 +1,32 @@
 .conteiner {
-
     display: flex;
-
-
     width: 235px;
     background-color: transparent;
+    top: 30px;
+    left: 0px;
 
 
     @media screen and (min-width: 1280px) {
         display: flex;
         position: absolute;
         top: 30px;
-        left: 0;
+        left: 155px;
     }
 }
 
 .list {
+    margin-top: 15px;
     display: flex;
-
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+
+    padding: 5px;
+    z-index: 5;
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 5px;
+        gap: 5px;
+        border-radius: 4px;
+        background: rgba(31, 31, 31, 0.60);
+    }
 }
