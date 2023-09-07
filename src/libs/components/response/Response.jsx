@@ -27,7 +27,9 @@ export default function Response({ type }) {
       <div className={path === "/" ? styles.background : ""}></div>
 
       <div className={styles.conteiner_section}>
-        <LeftBar text={"наші відгуки"} type={type} />
+        <div className={styles.left_text_conteiner}>
+          <LeftBar text={"наші відгуки"} type={type} />
+        </div>
 
         <div className={styles.rigth_conteiner}>
           <div className={styles.conteiner_text}>
@@ -38,30 +40,30 @@ export default function Response({ type }) {
             </p>
           </div>
           <div className={styles.position_arr_left}>
-          {screen && isClient && (
-            <Arrow
-              type={type}
-              left={true}
-              setIsChange={setIsChange}
-              setIsLeft={setIsLeft}
-              isChange={isChange}
-            />
-          )}
+            {screen && isClient && (
+              <Arrow
+                type={type}
+                left={true}
+                setIsChange={setIsChange}
+                setIsLeft={setIsLeft}
+                isChange={isChange}
+              />
+            )}
           </div>
 
           {isClient && (
             <ItemsList isMobie={screen} slide={isChange} start={isLeft} />
           )}
           <div className={styles.position_arr_right}>
-          {screen && isClient && (
-            <Arrow
-              type={type}
-              left={false}
-              setIsChange={setIsChange}
-              setIsLeft={setIsLeft}
-              isChange={isChange}
-            />
-          )}
+            {screen && isClient && (
+              <Arrow
+                type={type}
+                left={false}
+                setIsChange={setIsChange}
+                setIsLeft={setIsLeft}
+                isChange={isChange}
+              />
+            )}
           </div>
           <div className={styles.btn_wrapper}>
             <Button

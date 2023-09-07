@@ -21,7 +21,12 @@
     gap: 15px;
 
     padding: 5px;
-    border-radius: 4px;
-    background: rgba(31, 31, 31, 0.60);
     z-index: 5;
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 5px;
+        gap: 5px;
+        border-radius: 4px;
+        background: rgba(31, 31, 31, 0.60);
+    }
 }

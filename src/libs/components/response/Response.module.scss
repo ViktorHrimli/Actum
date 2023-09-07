@@ -51,6 +51,26 @@
     z-index: 5;
 }
 
+.left_text_conteiner {
+
+    @media screen and (min-width: 320px) {
+        width: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 400px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 45px;
+        height: 100%;
+        margin-right: 60px;
+    }
+
+    @media screen and (min-width: 1440px) {}
+
+}
+
 
 .conteiner_section {
     position: relative;
