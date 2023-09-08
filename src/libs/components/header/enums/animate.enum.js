@@ -12,7 +12,7 @@ const desktopLogoAnimate = {
     return { x: 600, y: isBig ? 350 : 300, scale: 5, rotate: "90deg" };
   },
 
-  transition: { ease: "easeIn", duration: 0.8, delay: 1 },
+  transition: { ease: "easeIn", duration: 0.8, delay: 0.7 },
 };
 
 const mobileLogoAnimate = {

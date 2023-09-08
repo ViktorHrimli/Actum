@@ -26,7 +26,6 @@ export default function ContactPanel({ type }) {
   const [isTrue, setIsTrue] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-
   const isDesktop = useIsBig();
 
   useEffect(() => {
@@ -41,12 +40,11 @@ export default function ContactPanel({ type }) {
     };
   }, [isOpenModal]);
 
-
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.9, delay: isDesktop ? 3.5 : 1 }}
+      transition={{ duration: 0.9, delay: isDesktop ? 0.5 : 1 }}
       className={
         isTrue
           ? styles.contact_panel_section_height
@@ -91,7 +89,9 @@ export default function ContactPanel({ type }) {
           </ul>
         </ScrollAwareSection>
         <ScrollButtonUp />
-        {isOpenModal && <ModalForm type={type} setIsOpenModal={setIsOpenModal} />}
+        {isOpenModal && (
+          <ModalForm type={type} setIsOpenModal={setIsOpenModal} />
+        )}
       </div>
     </motion.section>
   );

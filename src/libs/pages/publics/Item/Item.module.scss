@@ -1,0 +1,54 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    border-radius: 4px;
+    background: var(--secondary-bacground);
+    box-shadow: 0px 0px 0px 0px rgba(88, 85, 85, 0.10), 0px 33px 72px 0px rgba(88, 85, 85, 0.10), 0px 131px 131px 0px rgba(88, 85, 85, 0.09), 0px 294px 176px 0px rgba(88, 85, 85, 0.05), 0px 523px 209px 0px rgba(88, 85, 85, 0.01), 0px 817px 229px 0px rgba(88, 85, 85, 0.00);
+
+    @media screen and (min-width: 320px) {
+        width: 266px;
+        padding: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 680px;
+        padding: 30px 40px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 1087px;
+        padding: 28px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        padding: 40px 50px;
+        width: 1188px;
+    }
+}
+
+.image_conteiner {
+    position: relative;
+
+    @media screen and (min-width: 320px) {
+        width: 226px;
+        height: 126px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 259px;
+        height: 180px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 259px;
+        height: 227px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 259px;
+        height: 212px;
+    }
+}
