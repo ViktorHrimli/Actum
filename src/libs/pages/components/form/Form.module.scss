@@ -358,7 +358,18 @@
     @media screen and (min-width: 1440px) {}
 }
 
+.conteiner_radio {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 17px;
+}
+
 .lable_radio {
+    display: flex;
+    align-items: center;
+    position: relative;
+
     color: var(--secondary-color);
     font-style: normal;
     font-weight: 400;
@@ -366,24 +377,69 @@
 
     @media screen and (min-width: 320px) {
         font-size: 14px;
+        width: 248px;
     }
 
     @media screen and (min-width: 768px) {
         font-size: 18px;
+        width: 600px;
     }
 
     @media screen and (min-width: 1280px) {}
 
     @media screen and (min-width: 1440px) {}
-
 }
 
-.conteiner_radio {
+
+.check_border {
+    position: relative;
     display: flex;
-    flex-direction: row-reverse;
-    align-items: start;
     justify-content: center;
-    gap: 17px;
+    align-items: center;
+    margin-top: 3px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
+}
+
+.check_border_befor {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background: #F8F5F5;
+}
+
+.lable_radio_check {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.lable_radio_check:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio_btn:checked+.lable_radio_check:before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
+}
+
+.radio_btn {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
 
 

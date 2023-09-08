@@ -258,51 +258,67 @@ export default function Form({ type }) {
             />
           </div>
         )}
-
+      {/* --------- radio ---------- */}
         <div className={styles.conteiner_radio_groupe}>
           <div className={styles.conteiner_radio}>
-            <label htmlFor="services_first" className={styles.lable_radio}>
+            <label className={styles.lable_radio}>
               Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)
             </label>
+            <div className={styles.check_border}>
+              <div className={styles.check_border_befor}></div>
             <input 
-              className={styles.custom_checkbox}
+              className={styles.radio_btn}
               type="radio"
               value="Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)"
               id="services_first"
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
               />
+              <label htmlFor="services_first" className={styles.lable_radio_check}>
+              </label>
+            </div>
           </div>
 
           <div className={styles.conteiner_radio}>
-            <label htmlFor="services_second" className={styles.lable_radio}>
+            <label className={styles.lable_radio}>
               Вирішення питань через суд: розлучення, аліменти, майно,
               батьківські права, тощо (від 5000 грн.)
             </label>
-
+            <div className={styles.check_border}>
+              <div className={styles.check_border_befor}></div>
             <input
-              className={styles.custom_checkbox}
+              className={styles.radio_btn}
               type="radio"
               value="Вирішення питань через суд: розлучення, аліменти, майно, батьківські права, тощо (від 5000 грн.)"
               id="services_second"
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
-            />
+              />
+              <label htmlFor="services_second" className={styles.lable_radio_check}>
+              </label>
+            </div>
+
           </div>
 
           <div className={styles.conteiner_radio}>
-            <label htmlFor="services_third" className={styles.lable_radio}>
+            <label className={styles.lable_radio}>
               Допомога з документами: написання заяв, позовів, договорів, тощо
               (від 2000 грн.)
             </label>
+            <div className={styles.check_border}>
+              <div className={styles.check_border_befor}></div>
             <input
-              className={styles.custom_checkbox}
+              className={styles.radio_btn}
               type="radio"
               value="Допомога з документами: написання заяв, позовів, договорів, тощо (від 2000 грн.)"
               id="services_third"
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
-            />
+              />
+              <label htmlFor="services_third" className={styles.lable_radio_check}>
+              </label>
+            </div>
+
           </div>
         </div>
       </div>
