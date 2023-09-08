@@ -20,9 +20,9 @@ import {
 } from "./libs/enums/enums";
 
 import Images from "./Images";
+import Watemark from "./Watemark";
 
 import styles from "./Hero.module.scss";
-import Watemark from "./Watemark";
 
 export default function Hero() {
   const [isStep, setIsStep] = useState(false);
@@ -82,22 +82,24 @@ export default function Hero() {
         </motion.div>
       )}
 
-      <motion.div
-        key={"femida"}
-        className={styles.image_conteiner}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: "50px", y: "0px", opacity: 0 }}
-        transition={{
-          type: "keyframes",
-          ease: "easeInOut",
-          stiffness: 400,
-          duration: isDesktop ? 0.8 : 3.5,
-          delay: isDesktop ? 3.5 : 0.5,
-        }}
-      >
-        <Images />
-      </motion.div>
+      {isClient && (
+        <motion.div
+          key={"femida"}
+          className={styles.image_conteiner}
+          animate={"open"}
+          variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+          initial={{ x: "50px", y: "0px", opacity: 0 }}
+          transition={{
+            type: "keyframes",
+            ease: "easeInOut",
+            stiffness: 400,
+            duration: isDesktop ? 0.8 : 3.5,
+            delay: isDesktop ? 3.5 : 0.5,
+          }}
+        >
+          <Images />
+        </motion.div>
+      )}
 
       {/* GRADIENTS */}
       <motion.div

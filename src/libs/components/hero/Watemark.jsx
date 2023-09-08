@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
