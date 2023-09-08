@@ -15,10 +15,11 @@ export default function NestedHero({ img, text }) {
     <section className={styles.section}>
       <Image
         src={img}
-        alt="bacground photo"
+        alt="background photo"
         fill
         priority={true}
         style={{ zIndex: -1, objectFit: "cover" }}
+        sizes="(min-width: 320px) 100vw"
       />
 
       <div className={styles.conteiner_hero_watemark}>
