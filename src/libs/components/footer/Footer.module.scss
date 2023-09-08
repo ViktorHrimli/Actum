@@ -61,8 +61,7 @@
 .footer_gradient {
   position: absolute;
   border-radius: 844px;
-  background-color: #E32F7A;
-  // background: linear-gradient(to right, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+  background: linear-gradient(to right, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
   // --------------------------
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E32F7A), color-stop(41.67%, #D70F74), color-stop(80.88%, #912E6F));
   //   /* Chrome,Safari4+ */
@@ -71,14 +70,17 @@
   // filter: blur(150px);
   // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E32F7A', endColorstr='#912E6F', GradientType=0);
   /* IE6-9 */
-.footer_gradient:before {
-  background: -webkit-linear-gradient(top, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-  filter: blur(150px);
-}
+
+    filter: blur(150px);
+
+  .footer_gradient::before{
+    position: absolute;
+    border-radius: 844px;
+    background: linear-gradient(to right, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    filter: blur(150px);
+  }
 
   z-index: 1;
-
-
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 844px;
     height: 233px;
@@ -108,7 +110,10 @@
     width: 844px;
     height: 233px;
   }
+    
 }
+
+
 
 //  ---------------- ARMY
 .footer_army_gradient {
