@@ -14,7 +14,6 @@ export default function Response({ type }) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
-
   const path = usePathname();
   const screen = useIsSmall();
 
@@ -52,7 +51,7 @@ export default function Response({ type }) {
           </div>
 
           {isClient && (
-            <ItemsList isMobie={screen} slide={isChange} start={isLeft} />
+            <ItemsList type={type} isMobie={screen} slide={isChange} start={isLeft} />
           )}
           <div className={styles.position_arr_right}>
             {screen && isClient && (

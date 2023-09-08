@@ -19,7 +19,7 @@ import { borderEnums } from "./enumsForm/enumsForm";
 const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function Form({ type }) {
-  const { border, color_text } = borderEnums[type];
+  const { border, color_text, border_check_color, check_color } = borderEnums[type];
   
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -216,7 +216,7 @@ export default function Form({ type }) {
             className={styles.conteiner_icon}
             onClick={handleToggleSelect}
           >
-            <FontAwesomeIcon icon={faChevronDown} className={styles.icon} />
+            <FontAwesomeIcon icon={faChevronDown} className={`${styles.icon} ${styles[color_text]}`} />
           </motion.div>
           {isOpen && (
             <motion.div className={styles.options_conteiner}>
@@ -261,10 +261,10 @@ export default function Form({ type }) {
       {/* --------- radio ---------- */}
         <div className={styles.conteiner_radio_groupe}>
           <div className={styles.conteiner_radio}>
-            <label className={styles.lable_radio}>
+            <label htmlFor="services_first" className={styles.lable_radio}>
               Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)
             </label>
-            <div className={styles.check_border}>
+            <div className={`${styles.check_border} ${styles[border_check_color]}`}>
               <div className={styles.check_border_befor}></div>
             <input 
               className={styles.radio_btn}
@@ -274,17 +274,17 @@ export default function Form({ type }) {
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
               />
-              <label htmlFor="services_first" className={styles.lable_radio_check}>
+              <label htmlFor="services_first" className={styles[check_color]}>
               </label>
             </div>
           </div>
 
           <div className={styles.conteiner_radio}>
-            <label className={styles.lable_radio}>
+            <label htmlFor="services_second" className={styles.lable_radio}>
               Вирішення питань через суд: розлучення, аліменти, майно,
               батьківські права, тощо (від 5000 грн.)
             </label>
-            <div className={styles.check_border}>
+            <div className={`${styles.check_border} ${styles[border_check_color]}`}>
               <div className={styles.check_border_befor}></div>
             <input
               className={styles.radio_btn}
@@ -294,18 +294,18 @@ export default function Form({ type }) {
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
               />
-              <label htmlFor="services_second" className={styles.lable_radio_check}>
+              <label htmlFor="services_second" className={styles[check_color]}>
               </label>
             </div>
 
           </div>
 
           <div className={styles.conteiner_radio}>
-            <label className={styles.lable_radio}>
+            <label htmlFor="services_third" className={styles.lable_radio}>
               Допомога з документами: написання заяв, позовів, договорів, тощо
               (від 2000 грн.)
             </label>
-            <div className={styles.check_border}>
+            <div className={`${styles.check_border} ${styles[border_check_color]}`}>
               <div className={styles.check_border_befor}></div>
             <input
               className={styles.radio_btn}
@@ -315,7 +315,7 @@ export default function Form({ type }) {
               {...register("services", { required: true })}
               placeholder="Оберіть спосіб отримання відповіді."
               />
-              <label htmlFor="services_third" className={styles.lable_radio_check}>
+              <label htmlFor="services_third" className={styles[check_color]}>
               </label>
             </div>
 
