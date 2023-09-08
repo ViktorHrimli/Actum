@@ -28,10 +28,9 @@ const mobileAnimateWatemark = {
   initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
   transition: {
     ease: "easeIn",
-    duration: 1.2,
-    delay: 0.4,
+    duration: 1.4,
+    delay: 0.1,
     type: "keyframes",
-    stiffness: 1000,
   },
 };
 
@@ -52,7 +51,6 @@ const desktopTitleTextWatemark = {
     duration: 0.8,
     delay: 0.7,
     type: "keyframes",
-    stiffness: 1000,
   },
 };
 
@@ -72,7 +70,6 @@ const mobileTitleTextWatemark = {
     duration: 3,
     delay: 0.3,
     type: "keyframes",
-    stiffness: 1000,
   },
 };
 
@@ -102,7 +99,6 @@ const mobileWatemarkText = {
     duration: 2.5,
     delay: 0.3,
     type: "keyframes",
-    stiffness: 1099,
   },
 };
 
@@ -131,7 +127,6 @@ const mobileWatemarkLine = {
     duration: 2.5,
     delay: 0.2,
     type: "keyframes",
-    stiffness: 10,
   },
 };
 
@@ -145,7 +140,6 @@ const gradientVariants = {
       duration: isDesktop ? 0.8 : 2.5,
       delay: isDesktop ? 3 : 1,
       type: "keyframes",
-      stiffness: 100,
     };
   },
 };

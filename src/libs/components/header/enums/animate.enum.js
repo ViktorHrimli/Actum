@@ -31,10 +31,9 @@ const mobileLogoAnimate = {
   exit: { x: 0, y: 0, scale: 1, rotate: "0deg" },
   transition: {
     ease: "easeIn",
-    duration: 1.2,
-    delay: 0.4,
+    duration: 1.4,
+    delay: 0.1,
     type: "keyframes",
-    stiffness: 1000,
   },
 };
 
