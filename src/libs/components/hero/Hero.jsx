@@ -67,6 +67,7 @@ export default function Hero() {
     setTimeout(() => setIsStep(true), 2000);
     setTimeout(() => setIsRender(true), isDesktop ? 3500 : 1200);
   }, []);
+
   return (
     <section className={styles.hero_section}>
       {isClient && (
@@ -83,75 +84,75 @@ export default function Hero() {
             alt="ACTUM"
             priority={true}
             placeholder="blur"
-            fill
-          />
-        </motion.div>
-      )}
-      {isRender && (
-        <motion.div
-          key={"femida"}
-          className={styles.image_conteiner}
-          animate={"open"}
-          variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-          initial={{ x: "50px", y: "0px", opacity: 0 }}
-          transition={{
-            type: "keyframes",
-            ease: "easeInOut",
-            stiffness: 20,
-            duration: isDesktop ? 0.8 : 2.5,
-          }}
-        >
-          <Image
-            src={femida}
-            alt="Femida"
-            priority={true}
-            placeholder="blur"
+            sizes="(min-width: 320px) 20vw, 100vw"
             fill
           />
         </motion.div>
       )}
 
+      <motion.div
+        key={"femida"}
+        className={styles.image_conteiner}
+        animate={"open"}
+        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+        initial={{ x: "50px", y: "0px", opacity: 0 }}
+        transition={{
+          type: "keyframes",
+          ease: "easeInOut",
+          stiffness: 20,
+          duration: isDesktop ? 0.8 : 2.5,
+          delay: isDesktop ? 3 : 2,
+          delayChildren: isDesktop ? 3 : 2,
+        }}
+      >
+        <Image
+          src={femida}
+          alt="Femida"
+          priority={true}
+          placeholder="blur"
+          fill
+          sizes="(min-width: 320px) 90vw, (min-width: 768px) 100vw, (min-width: 1280px) 60vw"
+        />
+      </motion.div>
+
       {/* GRADIENTS */}
-      {isRender && (
-        <motion.div
-          key={"main_gradient"}
-          className={styles.main_gradient}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-        ></motion.div>
-      )}
-      {isRender && (
-        <motion.div
-          key={"second_gradient"}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.second_gradient}
-        ></motion.div>
-      )}
-      {isRender && (
-        <motion.div
-          key={"thirhd_gradient"}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.thirhd_gradient}
-        ></motion.div>
-      )}
-      {isRender && (
-        <motion.div
-          key={"fourth_gradient"}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.fourth_gradient}
-        ></motion.div>
-      )}
+
+      <motion.div
+        key={"main_gradient"}
+        className={styles.main_gradient}
+        animate={gradientVariants["animate"]}
+        variants={gradientVariants["variants"]}
+        initial={gradientVariants["initial"]}
+        transition={gradientVariants["transition"](isDesktop)}
+      ></motion.div>
+
+      <motion.div
+        key={"second_gradient"}
+        animate={gradientVariants["animate"]}
+        variants={gradientVariants["variants"]}
+        initial={gradientVariants["initial"]}
+        transition={gradientVariants["transition"](isDesktop)}
+        className={styles.second_gradient}
+      ></motion.div>
+
+      <motion.div
+        key={"thirhd_gradient"}
+        animate={gradientVariants["animate"]}
+        variants={gradientVariants["variants"]}
+        initial={gradientVariants["initial"]}
+        transition={gradientVariants["transition"](isDesktop)}
+        className={styles.thirhd_gradient}
+      ></motion.div>
+
+      <motion.div
+        key={"fourth_gradient"}
+        animate={gradientVariants["animate"]}
+        variants={gradientVariants["variants"]}
+        initial={gradientVariants["initial"]}
+        transition={gradientVariants["transition"](isDesktop)}
+        className={styles.fourth_gradient}
+      ></motion.div>
+
       {/* GRADIENT END */}
       {isClient ? (
         <motion.h2

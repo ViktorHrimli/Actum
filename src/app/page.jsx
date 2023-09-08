@@ -10,7 +10,9 @@ import { useState, useEffect } from "@/libs/hooks/hooks";
 
 export default function Home() {
   const [isEndAnimation, setisEndAnimation] = useState(false);
-  useEffect(() => setTimeout(() => setisEndAnimation(true)), 3000);
+  useEffect(() => {
+    setTimeout(() => setisEndAnimation(true), 3000);
+  }, []);
   return (
     <>
       <Hero />

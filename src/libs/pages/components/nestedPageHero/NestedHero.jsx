@@ -19,6 +19,7 @@ export default function NestedHero({ img, text }) {
         fill
         priority={true}
         style={{ zIndex: -1, objectFit: "cover" }}
+        sizes="100vw"
       />
 
       <div className={styles.conteiner_hero_watemark}>
