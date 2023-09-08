@@ -70,6 +70,7 @@
   // filter: blur(150px);
   // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E32F7A', endColorstr='#912E6F', GradientType=0);
   /* IE6-9 */
+
     filter: blur(150px);
 
   .footer_gradient::before{
@@ -78,6 +79,7 @@
     background: linear-gradient(to right, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(150px);
   }
+
   z-index: 1;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 844px;
