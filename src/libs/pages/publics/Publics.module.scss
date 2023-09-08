@@ -1,0 +1,40 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+
+    max-width: 1440px;
+
+    background: var(--secondary-bacground);
+
+    height: auto;
+
+    @media screen and (min-width: 320px) {
+        padding: 80px 27px 50px 27px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 1280px;
+        padding: 90px 44px 100px 44px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding: 110px 128px 128px 66px;
+        width: 1280px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        padding: 124px 180px 124px 70px;
+        width: 1440px;
+    }
+}
+
+.conteiner {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}

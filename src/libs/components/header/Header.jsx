@@ -27,7 +27,7 @@ import Logo from "@/assets/svg/LOGO.png";
 import styles from "./Header.module.scss";
 import SideBar from "../side_bar/SideBar";
 
-export default function Header({type}) {
+export default function Header({ type }) {
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
@@ -36,7 +36,6 @@ export default function Header({type}) {
   // DROP MENU
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-
 
   const path = usePathname();
 
@@ -97,7 +96,7 @@ export default function Header({type}) {
             transition={logoAnimated["transition"]}
           >
             <Link href={"/"}>
-              <Image src={Logo} alt="Logo" fill priority={true} />
+              <Image src={Logo} alt="Logo" fill fetchPriority="low" />
             </Link>
           </motion.div>
         )}

@@ -21,7 +21,8 @@ import {
 } from "./libs/enums/enums";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
-import femida from "@/assets/svg/HERO_FEMIDA.png";
+
+import Images from "./Images";
 
 import styles from "./Hero.module.scss";
 
@@ -84,7 +85,7 @@ export default function Hero() {
             alt="ACTUM"
             priority={true}
             placeholder="blur"
-            sizes="(min-width: 320px) 20vw, 100vw"
+            // sizes="(min-width: 320px) 20vw, (min-width: 768px) 50vw, (min-width: 1280px) 50vw"
             fill
           />
         </motion.div>
@@ -99,20 +100,20 @@ export default function Hero() {
         transition={{
           type: "keyframes",
           ease: "easeInOut",
-          stiffness: 20,
-          duration: isDesktop ? 0.8 : 2.5,
-          delay: isDesktop ? 3 : 2,
-          delayChildren: isDesktop ? 3 : 2,
+          stiffness: 400,
+          duration: isDesktop ? 0.8 : 3.5,
+          delay: isDesktop ? 3.5 : 0.5,
         }}
       >
-        <Image
+        <Images />
+        {/* <Image
           src={femida}
           alt="Femida"
-          priority={true}
+          fetchPriority="low"
           placeholder="blur"
           fill
           sizes="(min-width: 320px) 90vw, (min-width: 768px) 100vw, (min-width: 1280px) 60vw"
-        />
+        /> */}
       </motion.div>
 
       {/* GRADIENTS */}
