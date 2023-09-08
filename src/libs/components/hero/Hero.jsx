@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
@@ -20,11 +19,10 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
-import watemark from "@/assets/svg/Actum_HERO.png";
-
 import Images from "./Images";
 
 import styles from "./Hero.module.scss";
+import Watemark from "./Watemark";
 
 export default function Hero() {
   const [isStep, setIsStep] = useState(false);
@@ -80,14 +78,7 @@ export default function Hero() {
           transition={watemarkAnimated["transition"]}
           className={styles.conteiner_wordmark}
         >
-          <Image
-            src={watemark}
-            alt="ACTUM"
-            priority={true}
-            placeholder="blur"
-            // sizes="(min-width: 320px) 20vw, (min-width: 768px) 50vw, (min-width: 1280px) 50vw"
-            fill
-          />
+          <Watemark />
         </motion.div>
       )}
 
@@ -106,18 +97,9 @@ export default function Hero() {
         }}
       >
         <Images />
-        {/* <Image
-          src={femida}
-          alt="Femida"
-          fetchPriority="low"
-          placeholder="blur"
-          fill
-          sizes="(min-width: 320px) 90vw, (min-width: 768px) 100vw, (min-width: 1280px) 60vw"
-        /> */}
       </motion.div>
 
       {/* GRADIENTS */}
-
       <motion.div
         key={"main_gradient"}
         className={styles.main_gradient}
