@@ -96,7 +96,7 @@ export default function Header({ type }) {
             transition={logoAnimated["transition"]}
           >
             <Link href={"/"}>
-              <Image src={Logo} alt="Logo" fill fetchPriority="low" />
+              <Image src={Logo} alt="Logo" fill fetchPriority="high" />
             </Link>
           </motion.div>
         )}
