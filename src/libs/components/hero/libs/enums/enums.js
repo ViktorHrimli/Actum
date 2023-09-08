@@ -52,7 +52,7 @@ const desktopTitleTextWatemark = {
     duration: 0.8,
     delay: 1,
     type: "keyframes",
-    stiffness: 10,
+    stiffness: 1000,
   },
 };
 
@@ -143,8 +143,9 @@ const gradientVariants = {
     return {
       ease: "easeIn",
       duration: isDesktop ? 0.8 : 2.5,
+      delay: isDesktop ? 3 : 1,
       type: "keyframes",
-      stiffness: 20,
+      stiffness: 100,
     };
   },
 };
