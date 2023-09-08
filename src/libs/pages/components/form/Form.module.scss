@@ -30,10 +30,12 @@
     }
 
     @media screen and (min-width: 768px) {
-        gap: 20px;
+        gap: 18px;
     }
 
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: 1280px) {
+        width: 665px;
+    }
 
     @media screen and (min-width: 1440px) {}
 }
@@ -369,7 +371,7 @@
     display: flex;
     align-items: center;
     position: relative;
-
+    cursor: pointer;
     color: var(--secondary-color);
     font-style: normal;
     font-weight: 400;
@@ -390,6 +392,13 @@
     @media screen and (min-width: 1440px) {}
 }
 
+.check_color_border_family {
+    background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
+}
+.check_color_border_army {
+    background: linear-gradient(to right, #536641 0%,  #3F2E64 100%);
+}
+
 
 .check_border {
     position: relative;
@@ -400,7 +409,6 @@
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
 }
 
 .check_border_befor {
@@ -409,7 +417,7 @@
     height: 14px;
     background: #F8F5F5;
 }
-
+// -------- femily check color type
 .lable_radio_check {
     width: 16px;
     height: 16px;
@@ -426,6 +434,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
 }
 
 .radio_btn:checked+.lable_radio_check:before {
@@ -433,7 +442,34 @@
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
+}
+
+// -------- army check color type
+
+.lable_radio_check_army {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.lable_radio_check_army:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #536641 0%, #3F2E64 100%);
+}
+
+.radio_btn:checked+.lable_radio_check_army:before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
 }
 
 .radio_btn {
@@ -525,7 +561,6 @@
 
 .icon {
     position: absolute;
-    color: var(--primary-color);
     width: 100%;
     height: 100%;
 }
