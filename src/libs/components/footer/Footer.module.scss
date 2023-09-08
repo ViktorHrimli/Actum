@@ -66,12 +66,15 @@
   // --------------------------
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E32F7A), color-stop(41.67%, #D70F74), color-stop(80.88%, #912E6F));
   //   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+  // background: -webkit-linear-gradient(top, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
   /* Chrome10+,Safari5.1+ */
-  filter: blur(150px);
+  // filter: blur(150px);
   // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E32F7A', endColorstr='#912E6F', GradientType=0);
   /* IE6-9 */
-
+.footer_gradient:before {
+  background: -webkit-linear-gradient(top, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+  filter: blur(150px);
+}
 
   z-index: 1;
 

@@ -10,7 +10,7 @@ import {
 
 import Card from "@/libs/components/card/Card";
 
-export default function DesktopAnimation({ data }) {
+export default function DesktopAnimation({ data, type }) {
   const [current, setCurrent] = useState(0);
   const [isStart, setIsStart] = useState(false);
 
@@ -51,7 +51,7 @@ export default function DesktopAnimation({ data }) {
               transition={{ delay: 0.5, duration: 1 }}
               key={current}
             >
-              <Card {...item} />
+              <Card type={type} {...item} />
             </motion.div>
           )
       )}
@@ -64,7 +64,7 @@ export default function DesktopAnimation({ data }) {
               animate={{ opacity: 1, x: laptop ? -350 : -445 }}
               transition={{ duration: 1 }}
             >
-              <Card {...item} />
+              <Card type={type} {...item} />
             </motion.div>
           )
       )}
@@ -79,7 +79,7 @@ export default function DesktopAnimation({ data }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
-              <Card {...item} />
+              <Card type={type} {...item} />
             </motion.div>
           )
       )}
