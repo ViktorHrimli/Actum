@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { useState } from "@/libs/hooks/hooks";
@@ -10,7 +9,6 @@ import styles from "./NavSelectItem.module.scss";
 export default function NavSelectItem({ service, path, thems, onClick }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
 
-  const onClickOnDropMenu = () => setIsOpenSelect(!isOpenSelect);
   return (
     <li className={styles.link} onClick={() => {}}>
       <div

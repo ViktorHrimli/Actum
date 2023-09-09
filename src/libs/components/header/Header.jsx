@@ -96,13 +96,13 @@ export default function Header({ type }) {
               }
               transition={logoAnimated["transition"]}
             >
-              {/* <Image
+              <Image
                 src={Logo}
                 alt="Logo"
                 fill
                 priority={true}
                 sizes="(max-width: 768px) 100vw"
-              /> */}
+              />
             </motion.div>
           </Link>
         )}
