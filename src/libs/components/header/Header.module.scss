@@ -22,7 +22,6 @@
     z-index: 16;
 }
 
-
 .header_conteiner {
     position: absolute;
     display: flex;
@@ -42,7 +41,6 @@
 
     @media screen and (min-width: 1280px) {
         justify-content: start;
-
         top: 0;
         left: 0;
         padding-top: 38px;
@@ -60,7 +58,6 @@
         width: 40px;
         height: 37.014px;
     }
-
 
     z-index: 50;
 }

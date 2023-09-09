@@ -13,10 +13,8 @@
 
     overflow: hidden;
 
-
     @media screen and (min-width: 320px) {
         padding: 36px 20px 63px 20px;
-
     }
 
     @media screen and (min-width: 768px) {
@@ -62,7 +60,6 @@
     justify-content: start;
 
     @media screen and (min-width: 320px) {
-
         width: 280px;
     }
 
@@ -116,7 +113,6 @@
     text-transform: none;
 
     @media screen and (min-width: 320px) {
-
         font-size: 14px;
         font-weight: 600;
         line-height: 1.16;
@@ -127,13 +123,11 @@
     @media screen and (min-width: 768px) {
         max-width: 281px;
         font-size: 16px;
-
     }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
         max-width: 324px;
-
     }
 
     @media screen and (min-width: 1440px) {
@@ -183,7 +177,6 @@
 }
 
 .title_info {
-    // color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -210,7 +203,6 @@
         gap: 20px;
     }
 
-    @media screen and (min-width: 1440px) {}
 }
 
 .email_wrapper {
@@ -225,6 +217,4 @@
     @media screen and (min-width: 1280px) {
         gap: 31px;
     }
-
-    @media screen and (min-width: 1440px) {}
 }

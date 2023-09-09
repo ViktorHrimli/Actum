@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 import femida from "@/assets/svg/HERO_FEMIDA.png";

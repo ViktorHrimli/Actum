@@ -1,9 +1,7 @@
 .main_gradient {
     position: absolute;
-
     width: 698px;
     height: 598px;
-
 
     bottom: 112px;
     left: 112px;
@@ -18,12 +16,10 @@
         left: -831px;
     }
 
-
     @media screen and (min-width: 768px) {
         bottom: -211px;
         left: 211px;
     }
-
 
     @media screen and (min-width: 1280px) {
         bottom: -91px;
@@ -84,7 +80,6 @@
 
 
 .third_gradient {
-
     width: 96px;
     height: 110px;
     fill: var(--1, #E32F7A);

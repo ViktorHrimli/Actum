@@ -28,7 +28,6 @@ export default function Hero() {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
-  const [isRender, setIsRender] = useState(false);
 
   const isDesktop = useIsBig();
   const path = usePathname();
@@ -64,7 +63,6 @@ export default function Hero() {
     );
 
     setTimeout(() => setIsStep(true), 2000);
-    setTimeout(() => setIsRender(true), isDesktop ? 3500 : 1200);
   }, []);
 
   return (
@@ -77,7 +75,7 @@ export default function Hero() {
         transition={watemarkAnimated["transition"]}
         className={styles.conteiner_wordmark}
       >
-        {/* {isClient && <Watemark />} */}
+        {isClient && <Watemark />}
       </motion.div>
 
       <motion.div

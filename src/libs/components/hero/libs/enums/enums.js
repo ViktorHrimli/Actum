@@ -1,5 +1,3 @@
-"use client";
-
 const desktopAnimateWatemark = {
   animate(isStep) {
     return isStep ? "step" : "open";

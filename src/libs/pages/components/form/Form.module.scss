@@ -12,10 +12,6 @@
     @media screen and (min-width: 768px) {
         gap: 36px;
     }
-
-    @media screen and (min-width: 1280px) {}
-
-    @media screen and (min-width: 1440px) {}
 }
 
 .wrapper_name {
@@ -37,7 +33,6 @@
         width: 665px;
     }
 
-    @media screen and (min-width: 1440px) {}
 }
 
 .text_family {
@@ -47,12 +42,13 @@
 .text_army {
     color: #536641;
 }
+
 .text_criminal {
     color: #3F2E64;
 }
 
 .lable {
-    // color: var(--primary-color);
+
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -65,8 +61,6 @@
     @media screen and (min-width: 768px) {
         font-size: 18px;
     }
-
-    @media screen and (min-width: 1280px) {}
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
@@ -122,6 +116,7 @@
         border-radius: 0 4px 4px 0;
     }
 }
+
 // border army
 
 .border_army {
@@ -178,10 +173,6 @@
         height: 49px;
         padding: 10px 8px;
     }
-
-    @media screen and (min-width: 768px) {}
-
-    @media screen and (min-width: 1280px) {}
 
     @media screen and (min-width: 1440px) {
         width: 303px;
@@ -286,12 +277,6 @@
     @media screen and (min-width: 320px) {
         gap: 12px;
     }
-
-    @media screen and (min-width: 768px) {}
-
-    @media screen and (min-width: 1280px) {}
-
-    @media screen and (min-width: 1440px) {}
 }
 
 .second_input {
@@ -354,10 +339,6 @@
         gap: 50px;
         flex-direction: row;
     }
-
-    @media screen and (min-width: 1280px) {}
-
-    @media screen and (min-width: 1440px) {}
 }
 
 .conteiner_radio {
@@ -386,17 +367,14 @@
         font-size: 18px;
         width: 600px;
     }
-
-    @media screen and (min-width: 1280px) {}
-
-    @media screen and (min-width: 1440px) {}
 }
 
 .check_color_border_family {
     background: linear-gradient(to right, #E32F7A 0%, #912E6F 50%, #3F2E64 100%);
 }
+
 .check_color_border_army {
-    background: linear-gradient(to right, #536641 0%,  #3F2E64 100%);
+    background: linear-gradient(to right, #536641 0%, #3F2E64 100%);
 }
 
 
@@ -417,6 +395,7 @@
     height: 14px;
     background: #F8F5F5;
 }
+
 // -------- femily check color type
 .lable_radio_check {
     width: 16px;
@@ -445,7 +424,6 @@
 }
 
 // -------- army check color type
-
 .lable_radio_check_army {
     width: 16px;
     height: 16px;
