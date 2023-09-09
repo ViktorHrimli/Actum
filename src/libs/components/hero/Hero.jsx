@@ -77,7 +77,7 @@ export default function Hero() {
         transition={watemarkAnimated["transition"]}
         className={styles.conteiner_wordmark}
       >
-        {isClient && <Watemark />}
+        {/* {isClient && <Watemark />} */}
       </motion.div>
 
       <motion.div
