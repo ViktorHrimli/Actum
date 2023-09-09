@@ -12,7 +12,7 @@ const desktopLogoAnimate = {
     return { x: 600, y: isBig ? 350 : 300, scale: 5, rotate: "90deg" };
   },
 
-  transition: { ease: "easeIn", duration: 0.8, delay: 0.7 },
+  transition: { type: "keyframes", ease: "easeIn", duration: 0.8, delay: 0.5 },
 };
 
 const mobileLogoAnimate = {
@@ -32,7 +32,7 @@ const mobileLogoAnimate = {
   transition: {
     ease: "easeIn",
     duration: 1.4,
-    delay: 0.1,
+    delay: 0.2,
     type: "keyframes",
   },
 };

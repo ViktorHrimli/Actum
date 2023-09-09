@@ -20,6 +20,7 @@ export default function NavSelectItem({ service, path, thems, onClick }) {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
+          textDecoration: "none",
         }}
       >
         <Link href={path} onClick={onClick} className={styles.link_service}>

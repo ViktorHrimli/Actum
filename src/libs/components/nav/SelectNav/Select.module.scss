@@ -29,4 +29,11 @@
         border-radius: 4px;
         background: rgba(31, 31, 31, 0.60);
     }
+
+    text-decoration: none;
+
+    :hover {
+        text-decoration: none;
+        text-decoration-line: none;
+    }
 }

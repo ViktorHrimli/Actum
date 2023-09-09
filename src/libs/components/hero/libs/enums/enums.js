@@ -29,7 +29,7 @@ const mobileAnimateWatemark = {
   transition: {
     ease: "easeIn",
     duration: 1.4,
-    delay: 0.1,
+    delay: 0.3,
     type: "keyframes",
   },
 };
