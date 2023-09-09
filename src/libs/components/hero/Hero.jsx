@@ -86,7 +86,7 @@ export default function Hero() {
         initial={{ x: 200, opacity: 0 }}
         transition={{
           type: "keyframes",
-          ease: "easeInOut",
+          ease: "easeIn",
           stiffness: 400,
           duration: isDesktop ? 0.8 : 1.5,
           delay: isDesktop ? 3.5 : 1.5,
