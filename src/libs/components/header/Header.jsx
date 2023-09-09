@@ -85,21 +85,19 @@ export default function Header({ type }) {
   return (
     <section className={styles.header_section}>
       <div className={styles.header_conteiner}>
-        {isClient && (
-          <motion.div
-            className={styles.logo_conteiner}
-            animate={isHome ? logoAnimated["animate"](isStep) : false}
-            variants={logoAnimated["variants"](isScreenHeight)}
-            initial={
-              isHome ? logoAnimated["initial"](isOnlyMobileScreen) : false
-            }
-            transition={logoAnimated["transition"]}
-          >
+        <motion.div
+          className={styles.logo_conteiner}
+          animate={isHome ? logoAnimated["animate"](isStep) : false}
+          variants={logoAnimated["variants"](isScreenHeight)}
+          initial={isHome ? logoAnimated["initial"](isOnlyMobileScreen) : false}
+          transition={logoAnimated["transition"]}
+        >
+          {isClient && (
             <Link href={"/"}>
               <Image src={Logo} alt="Logo" fill priority={true} />
             </Link>
-          </motion.div>
-        )}
+          )}
+        </motion.div>
 
         {isDesktopOrLaptop && isClient ? (
           <motion.div

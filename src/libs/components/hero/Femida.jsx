@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import femida from "@/assets/svg/HERO_FEMIDA.png";
 
-export default function Images() {
+export default function Femida() {
   return (
     <Image
       src={femida}

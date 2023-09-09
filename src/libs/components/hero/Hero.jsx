@@ -19,7 +19,7 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
-import Images from "./Images";
+import Femida from "./Femida";
 import Watemark from "./Watemark";
 
 import styles from "./Hero.module.scss";
@@ -69,37 +69,33 @@ export default function Hero() {
 
   return (
     <section className={styles.hero_section}>
-      {isClient && (
-        <motion.div
-          key={"watemark"}
-          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
-          variants={isHome ? watemarkAnimated["variants"] : false}
-          initial={isHome ? watemarkAnimated["initial"] : false}
-          transition={watemarkAnimated["transition"]}
-          className={styles.conteiner_wordmark}
-        >
-          <Watemark />
-        </motion.div>
-      )}
+      <motion.div
+        key={"watemark"}
+        animate={isHome ? watemarkAnimated["animate"](isStep) : false}
+        variants={isHome ? watemarkAnimated["variants"] : false}
+        initial={isHome ? watemarkAnimated["initial"] : false}
+        transition={watemarkAnimated["transition"]}
+        className={styles.conteiner_wordmark}
+      >
+        {isClient && <Watemark />}
+      </motion.div>
 
-      {isClient && (
-        <motion.div
-          key={"femida"}
-          className={styles.image_conteiner}
-          animate={"open"}
-          variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-          initial={{ x: "50px", y: "0px", opacity: 0 }}
-          transition={{
-            type: "keyframes",
-            ease: "easeInOut",
-            stiffness: 400,
-            duration: isDesktop ? 0.8 : 3.5,
-            delay: isDesktop ? 3.5 : 0.5,
-          }}
-        >
-          <Images />
-        </motion.div>
-      )}
+      <motion.div
+        key={"femida"}
+        className={styles.image_conteiner}
+        animate={"open"}
+        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+        initial={{ x: "50px", y: "0px", opacity: 0 }}
+        transition={{
+          type: "keyframes",
+          ease: "easeInOut",
+          stiffness: 400,
+          duration: isDesktop ? 0.8 : 3.5,
+          delay: isDesktop ? 3.5 : 0.5,
+        }}
+      >
+        {isClient && <Femida />}
+      </motion.div>
 
       {/* GRADIENTS */}
       <motion.div
