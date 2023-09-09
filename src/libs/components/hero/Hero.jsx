@@ -94,7 +94,7 @@ export default function Hero() {
           delay: isDesktop ? 3.5 : 0.5,
         }}
       >
-        {isClient && <Femida />}
+        {/* {isClient && <Femida />} */}
       </motion.div>
 
       {/* GRADIENTS */}
