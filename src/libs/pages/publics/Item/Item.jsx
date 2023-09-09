@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./Item.module.scss";
 
-export default function Item({ description, title, img, date }) {
+export default function Item({ description, title, img, date, path = "test" }) {
   return (
     <div className={styles.card}>
       <h2 className={styles.title_text}>{title}</h2>
@@ -16,7 +17,14 @@ export default function Item({ description, title, img, date }) {
             style={{ objectFit: "cover" }}
           />
         </div>
-        <p className={styles.text}>{description}</p>
+        <div className={styles.description_wrapper}>
+          <p className={styles.text}>
+            {description}
+            <Link href={`/blog-3-1/${path}`} className={styles.link_item}>
+              читати повністю
+            </Link>
+          </p>
+        </div>
       </div>
       <span className={styles.date}>{date}</span>
     </div>

@@ -1,6 +1,8 @@
 @import '/src/assets/css/styles.scss';
 
 .card {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,11 +26,11 @@
 
     @media screen and (min-width: 1280px) {
         width: 1087px;
-        padding: 28px;
+        padding: 28px 28px 16px 28px;
     }
 
     @media screen and (min-width: 1440px) {
-        padding: 40px 50px;
+        padding: 36px 24px 16px 54px;
         width: 1188px;
     }
 }
@@ -92,54 +94,116 @@
 .title_text {
     color: var(--secondary-color);
 
-    font-size: 20px;
     font-weight: 500;
 
     @media screen and (min-width: 320px) {
         width: 234px;
+        font-size: 20px;
     }
 
     @media screen and (min-width: 768px) {
         width: 550px;
+        font-size: 24px;
+
     }
 
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: 1280px) {
+        position: absolute;
+        top: 25px;
+        left: 325px;
+        width: 695px;
+        font-size: 32px;
+    }
 
-    @media screen and (min-width: 1440px) {}
+    @media screen and (min-width: 1440px) {
+        top: 33px;
+        left: 350px;
+        width: 810px;
+        font-size: 36px;
+    }
 }
 
 .text {
     color: var(--secondary-color);
-    font-size: 14px;
     line-height: normal;
     text-transform: none;
 
     @media screen and (min-width: 320px) {
-        width: 234px;
+        width: 236px;
+        font-size: 14px;
     }
 
     @media screen and (min-width: 768px) {
         width: 288px;
+        font-size: 16px;
     }
 
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: 1280px) {
+        width: 700px;
+        font-size: 18px;
+    }
 
-    @media screen and (min-width: 1440px) {}
+    @media screen and (min-width: 1440px) {
+        width: 800px;
+        font-size: 20px;
+    }
 }
+
+.description_wrapper {
+    @media screen and (min-width: 1280px) {
+        margin-top: auto;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        margin-bottom: 0px;
+    }
+}
+
+
 
 
 .date {
     color: var(--secondary-color);
-    font-size: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 
     margin-left: auto;
 
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+        font-size: 12px;
+    }
 
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: 1280px) {
+        font-size: 16px;
+    }
 
     @media screen and (min-width: 1440px) {}
+}
+
+.link_item {
+    color: var(--primary-color);
+    width: 100%;
+
+    font-size: 14px;
+
+    font-weight: 600;
+    line-height: normal;
+
+
+    text-decoration: none;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        font-size: 20px;
+    }
 }
