@@ -3,7 +3,13 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { useEffect, useState, useIsBig, usePathname } from "@/libs/hooks/hooks";
+import {
+  useEffect,
+  useState,
+  useIsBig,
+  usePathname,
+  useIsSmall,
+} from "@/libs/hooks/hooks";
 
 import Button from "../button/Button";
 
@@ -30,6 +36,7 @@ export default function Hero() {
   const [screenWidth, setscreenWidth] = useState(0);
 
   const isDesktop = useIsBig();
+  const isMobile = useIsSmall();
   const path = usePathname();
 
   const isHome = path === "/";
@@ -75,7 +82,7 @@ export default function Hero() {
         transition={watemarkAnimated["transition"]}
         className={styles.conteiner_wordmark}
       >
-        {isClient && <Watemark />}
+        {isClient && <Watemark screen={isMobile} />}
       </motion.div>
 
       <motion.div
@@ -92,7 +99,7 @@ export default function Hero() {
           delay: isDesktop ? 3.5 : 1.5,
         }}
       >
-        {isClient && <Femida />}
+        {isClient && <Femida screen={isMobile} />}
       </motion.div>
 
       {/* GRADIENTS */}
