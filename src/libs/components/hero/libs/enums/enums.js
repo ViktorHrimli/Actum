@@ -60,12 +60,12 @@ const mobileTitleTextWatemark = {
     step: { x: 0, opacity: 1 },
   },
   initial(screen = 320) {
-    // return { x: screen, y: 0 };
-    return { opacity: 0 };
+    return { x: screen, y: 0 };
+    // return { opacity: 0 };
   },
   transition: {
     ease: "easeIn",
-    duration: 3,
+    duration: 2,
     delay: 0.3,
     type: "keyframes",
   },
@@ -88,13 +88,13 @@ const mobileWatemarkText = {
     open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    // return { x: -screen, y: 0 };
-    return { opacity: 0 };
+    return { x: -screen, y: 0 };
+    // return { opacity: 0 };
   },
 
   transition: {
     ease: "easeIn",
-    duration: 2.5,
+    duration: 2,
     delay: 0.3,
     type: "keyframes",
   },
@@ -117,8 +117,8 @@ const mobileWatemarkLine = {
     open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    // return { x: -screen, opacity: 0 };
-    return { opacity: 0 };
+    return { x: -screen, opacity: 0 };
+    // return { opacity: 0 };
   },
   transition: {
     ease: "easeIn",
