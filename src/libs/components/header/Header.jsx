@@ -84,10 +84,10 @@ export default function Header({ type }) {
 
   return (
     <section className={styles.header_section}>
-      <div className={styles.header_conteiner}>
+      <div className={styles.header_conteiner} id="header" >
         {isClient && (
           <Link href={"/"}>
-            <motion.div
+            <motion.div 
               className={styles.logo_conteiner}
               animate={isHome ? logoAnimated["animate"](isStep) : false}
               variants={logoAnimated["variants"](isScreenHeight)}
@@ -134,7 +134,7 @@ export default function Header({ type }) {
 
       <AnimatePresence>
         {isSideBar && (
-          <motion.div
+          <motion.div 
             animate={isSideBar ? "open" : "closed"}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
             initial={{ x: "100%", y: "0" }}

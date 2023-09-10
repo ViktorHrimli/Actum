@@ -211,7 +211,7 @@
     background: var(--color-text);
     resize: none;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
 
     outline: none;
 
@@ -239,7 +239,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        font-family: "Montserrat" sans-serif !important;
+        font-family: "Montserrat";
 
         @media screen and (min-width: 320px) {
             font-size: 13px;
@@ -505,10 +505,19 @@
 
     transition: all 0.3s;
 
-    &:hover {
-        color: var(--primary-back);
-        background-color: var(--primary-color);
-    }
+}
+
+.options_family:hover {
+    color: var(--primary-back);
+    background-color: var(--primary-color);
+}
+.options_army:hover {
+    color: var(--primary-back);
+    background-color: #536641;
+}
+.options_family:hover {
+    color: var(--primary-back);
+    background-color: #3F2E64;
 }
 
 .conteiner_icon {
@@ -544,54 +553,83 @@
 }
 
 .options_icon {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .error_icon {
-    color: #661135;
+    color: #fff;
 }
 
 .error_name {
     position: absolute;
-    top: 50px;
-    left: 3px;
+    top: 18px;
+    left: 110px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     gap: 10px;
+    z-index: 14;
+    @media screen and (min-width: 768px) {
+        left: 132px;
+    }
+    @media screen and (min-width: 1440px) {
+        top: 21px;
+        left: 147px;
+    }
 }
 
 .error_surname {
     position: absolute;
-    top: 130px;
-    left: 3px;
+    top: 102px;
+    left: 110px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     gap: 10px;
+    z-index: 14;
+
+    @media screen and (min-width: 768px) {
+        top: 18px;
+        left: 466px;
+    }
+    @media screen and (min-width: 1440px) {
+        top: 21px;
+        left: 504px;
+    }
 }
 
 
 .error_textarea {
     position: absolute;
-    top: 112px;
-    left: 3px;
+    top: 26px;
+    left: 115px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     gap: 10px;
+    z-index: 14;
+
+    @media screen and (min-width: 768px) {
+        top: 38px;
+        left: 138px;
+    }
+    @media screen and (min-width: 1440px) {
+        top: 35px;
+        left: 151px;
+    }
 }
 
 .error_phone {
     position: absolute;
-    top: 50px;
-    left: 3px;
+    top: 19px;
+    left: 110px;
+    z-index: 14;
 
     display: flex;
     align-items: center;
@@ -600,30 +638,41 @@
     gap: 10px;
 
     @media screen and (min-width: 768px) {
-        top: 60px;
+        top: 22px;
+        left: 139px;
+    }
+    @media screen and (min-width: 1440px) {
+        top: 21px;
+        left: 155px;
     }
 }
 
 .error_message {
     position: absolute;
-    top: 50px;
-    left: 3px;
+    top: 19px;
+    left: 150px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     gap: 10px;
+    z-index: 14;
 
     @media screen and (min-width: 768px) {
-        top: 60px;
+        top: 23px;
+        left: 189px;
+    }
+    @media screen and (min-width: 1440px) {
+        top: 21px;
+        left: 210px;
     }
 }
 
 .error_services {
     position: absolute;
-    top: 0px;
-    left: 112px;
+    top: 2px;
+    left: 127px;
 
     display: flex;
     align-items: center;
@@ -632,8 +681,12 @@
     gap: 10px;
 
     @media screen and (min-width: 768px) {
-        top: 3px;
-        left: 143px;
+        top: 5px;
+        left: 162px;
+    }
+    @media screen and (min-width: 1440px) {
+        top: 6px;
+        left: 180px;
     }
 }
 

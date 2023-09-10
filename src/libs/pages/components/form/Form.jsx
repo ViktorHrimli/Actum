@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "@/libs/hooks/hooks";
+import { useEffect } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,20 +10,25 @@ import {
   faPhone,
   faCircleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+
 import { faViber, faTelegram } from "@fortawesome/free-brands-svg-icons";
 
 import Button from "@/libs/components/button/Button";
 
 import styles from "./Form.module.scss";
 import { borderEnums } from "./enumsForm/enumsForm";
+import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
-export default function Form({ type }) {
-  const { border, color_text, border_check_color, check_color } = borderEnums[type];
+export default function Form({ type, isOpenModal, setIsOpenModal }) {
+  const { border, color_text, options_hover, border_check_color, check_color } = borderEnums[type];
   
   const [selectValue, setSelectValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  const [isStep, setIsStep] = useState(false);
+
 
   const handleCLickOnSelect = (event) => {
     setSelectValue(event.currentTarget.innerText);
@@ -36,7 +42,6 @@ export default function Form({ type }) {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -44,9 +49,23 @@ export default function Form({ type }) {
 
   const onSubmit = (data) => {
     console.log(data);
+    setIsStep(true);
   };
 
+    useEffect(() => {
+    const header = document.getElementById("header");
+    
+    if (isOpenModal) {
+      header.style.display = 'none';
+    }
+
+    return () => {
+      header.style.display = 'flex';
+    };
+  }, [isOpenModal]);
+
   return (
+    <>
     <form
       onSubmit={handleSubmit(onSubmit)}
       autoComplete="off"
@@ -76,7 +95,7 @@ export default function Form({ type }) {
           </div>
           {errors.name && (
             <div className={styles.error_name}>
-              <p style={{ color: "#000" }}>{"Заповніть Ім'я"}</p>
+              {/* <p style={{ color: "#000" }}>{"Заповніть Ім'я"}</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -99,7 +118,7 @@ export default function Form({ type }) {
 
           {errors.surname && (
             <div className={styles.error_surname}>
-              <p style={{ color: "#000" }}>Заповніть прізвище</p>
+              {/* <p style={{ color: "#000" }}>Заповніть прізвище</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -133,7 +152,7 @@ export default function Form({ type }) {
 
           {errors.textarea && (
             <div className={styles.error_textarea}>
-              <p style={{ color: "#000" }}>Опишіть своє питання</p>
+              {/* <p style={{ color: "#000" }}>Опишіть своє питання</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -167,7 +186,7 @@ export default function Form({ type }) {
             </div>
           {errors.phone && (
             <div className={styles.error_phone}>
-              <p style={{ color: "#000" }}>Заповніть номер телефону</p>
+              {/* <p style={{ color: "#000" }}>Заповніть номер телефону</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -203,7 +222,7 @@ export default function Form({ type }) {
 
           {errors.message && !selectValue && (
             <div className={styles.error_message}>
-              <p style={{ color: "#000" }}>Виберіть мессенджер</p>
+              {/* <p style={{ color: "#000" }}>Виберіть мессенджер</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -220,26 +239,26 @@ export default function Form({ type }) {
           </motion.div>
           {isOpen && (
             <motion.div className={styles.options_conteiner}>
-              <div onClick={handleCLickOnSelect} className={styles.options}>
-                Viber
+                <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
                 <FontAwesomeIcon
                   icon={faViber}
                   className={styles.options_icon}
-                />
+                  />
+                Viber
               </div>
-              <div onClick={handleCLickOnSelect} className={styles.options}>
-                Telegram
+              <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
                 <FontAwesomeIcon
                   icon={faTelegram}
                   className={styles.options_icon}
-                />
+                  />
+                Telegram
               </div>
-              <div onClick={handleCLickOnSelect} className={styles.options}>
-                Телефон
+              <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
                 <FontAwesomeIcon
                   icon={faPhone}
                   className={styles.options_icon}
-                />
+                  />
+                Телефон
               </div>
             </motion.div>
           )}
@@ -325,6 +344,8 @@ export default function Form({ type }) {
       <div className={styles.btn_wrapper}>
         <Button type="submit" text="надіслати запит" style="button_service" typeStyle={type}/>
       </div>
-    </form>
+      </form>
+      {isStep && <ModalThanks type={type} setIsStep={setIsStep} setIsOpenModal={setIsOpenModal} />}
+  </>
   );
 }
