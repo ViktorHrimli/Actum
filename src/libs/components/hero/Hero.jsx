@@ -90,13 +90,12 @@ export default function Hero() {
         className={styles.image_conteiner}
         animate={"open"}
         variants={{ open: { x: 0, opacity: 1 } }}
-        initial={{ x: 200, opacity: 0 }}
+        initial={{ x: 50, opacity: 0 }}
         transition={{
           type: "keyframes",
           ease: "easeIn",
-          stiffness: 400,
           duration: isDesktop ? 0.8 : 1.5,
-          delay: isDesktop ? 3.5 : 1.5,
+          delay: isDesktop ? 3.5 : 2,
         }}
       >
         {isClient && <Femida screen={isMobile} />}
@@ -196,7 +195,7 @@ export default function Hero() {
         transition={{
           ease: "easeIn",
           duration: isDesktop ? 1 : 2,
-          delay: isDesktop ? 3 : 0.3,
+          delay: isDesktop ? 3 : 2,
         }}
         className={styles.btn_wrapper}
       >

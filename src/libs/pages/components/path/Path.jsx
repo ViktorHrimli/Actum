@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
-export default function Path({ path, type }) {
+export default function Path({ path, type, back = "/" }) {
   const router = useRouter();
 
   const handleClickOnPath = () => {
-    return router.push("/services", { scroll: true });
+    return router.push(back, { scroll: true });
   };
   return (
     <div className={styles.conteiner}>
