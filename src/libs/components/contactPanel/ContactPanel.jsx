@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useIsBig } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 
-import ModalForm from "../modalForm/modalForm";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import ScrollAwareSection from "@/libs/components/contactPanel/halpers/logic";
 
@@ -90,7 +90,7 @@ export default function ContactPanel({ type }) {
         </ScrollAwareSection>
         <ScrollButtonUp />
         {isOpenModal && (
-          <ModalForm type={type} setIsOpenModal={setIsOpenModal} />
+          <ModalForm type={type} setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal} />
         )}
       </div>
     </motion.section>
