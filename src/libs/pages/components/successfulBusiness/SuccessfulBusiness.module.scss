@@ -88,7 +88,8 @@
   height: 483px;
   border-radius: 483px;
   background: #E32F7A;
-  filter: blur(175px);
+  filter: blur(75px);
+  opacity: 0.5;
 
   @media screen and (min-width: 768px) {
     top: 0;
@@ -104,7 +105,8 @@
     width: 874px;
     height: 788px;
     border-radius: 874px;
-    filter: blur(300px);
+    filter: blur(75px);
+    opacity: 0.5;
   }
 
   @media screen and (min-width: 1440px) {
@@ -122,7 +124,8 @@
   height: 483px;
   border-radius: 483px;
   background: #536641;
-  filter: blur(175px);
+  filter: blur(75px);
+  opacity: 0.5;
 
   @media screen and (min-width: 768px) {
     top: 0;
@@ -138,7 +141,8 @@
     width: 874px;
     height: 788px;
     border-radius: 874px;
-    filter: blur(300px);
+    filter: blur(75px);
+    opacity: 0.5;
   }
 
   @media screen and (min-width: 1440px) {
@@ -156,7 +160,8 @@
   height: 483px;
   border-radius: 483px;
   background: #3F2E64;
-  filter: blur(175px);
+  filter: blur(75px);
+  opacity: 0.5;
 
   @media screen and (min-width: 768px) {
     top: 0;
@@ -172,7 +177,8 @@
     width: 874px;
     height: 788px;
     border-radius: 874px;
-    filter: blur(300px);
+    filter: blur(75px);
+    opacity: 0.5;
   }
 
   @media screen and (min-width: 1440px) {
@@ -188,27 +194,29 @@
   @media screen and (min-width: 768px) {
     display: block;
     position: absolute;
-    top: 339px;
-    right: -64px;
-    width: 362px;
-    height: 788px;
+    top: 239px;
+    right: -84px;
+    width: 462px;
+    height: 888px;
     border-radius: 788px;
+    filter: blur(75px);
     background: #E32F7A;
-    filter: blur(400px);
+    opacity: 0.3;
   }
 
   @media screen and (min-width: 1280px) {
     top: 625px;
-    right: -666px;
-    width: 874px;
-    height: 788px;
+    right: -266px;
+    width: 1074px;
+    height: 888px;
     border-radius: 874px;
-    filter: blur(400px);
+    filter: blur(75px);
+    opacity: 0.2;
   }
 
   @media screen and (min-width: 1440px) {
     top: 645px;
-    left: -537px;
+    right: -337px;
   }
 }
 
@@ -230,11 +238,17 @@
 
   @media screen and (min-width: 1280px) {
     top: 625px;
-    right: -666px;
-    width: 874px;
-    height: 788px;
+    right: -266px;
+    width: 1074px;
+    height: 888px;
     border-radius: 874px;
-    filter: blur(400px);
+    filter: blur(75px);
+    opacity: 0.2;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 645px;
+    right: -337px;
   }
 }
 
@@ -256,15 +270,16 @@
 
   @media screen and (min-width: 1280px) {
     top: 625px;
-    right: -666px;
-    width: 874px;
-    height: 788px;
+    right: -266px;
+    width: 1074px;
+    height: 888px;
     border-radius: 874px;
-    filter: blur(400px);
+    filter: blur(75px);
+    opacity: 0.2;
   }
 
   @media screen and (min-width: 1440px) {
     top: 645px;
-    left: -537px;
+    right: -337px;
   }
 }

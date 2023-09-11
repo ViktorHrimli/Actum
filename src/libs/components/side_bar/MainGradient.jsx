@@ -9,7 +9,7 @@ export default function MainGradient() {
       className={styles.main_gradient}
       key={"main_gradient_side_Bar"}
       animate={"open"}
-      variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
+      variants={{ open: { x: 0, y: "0px", opacity: 0.4 } }}
       initial={{ x: 0, y: "0px", opacity: 0 }}
       transition={{
         ease: "easeIn",

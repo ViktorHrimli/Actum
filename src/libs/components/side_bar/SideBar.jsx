@@ -28,6 +28,7 @@ export default function SideBar({ children , type="family" }) {
   }, [isOpenModal]);
   
   return (
+    <>
     <div className={styles.menu} >
       <div
         style={{
@@ -76,7 +77,8 @@ export default function SideBar({ children , type="family" }) {
         </div>
         <MainGradient />
       </div>
+      </div>
         {isOpenModal && <ModalForm type={type} setIsOpenModal={setIsOpenModal} />}
-    </div>
+    </>
   );
 }

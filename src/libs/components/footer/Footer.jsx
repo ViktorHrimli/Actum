@@ -5,11 +5,10 @@ import { usePathname } from "next/navigation";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
 
-import { motion } from "framer-motion";
-
 import Button from "@/libs/components/button/Button";
 
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
+
 import { footerEnums } from "./libs/enums";
 
 import styles from "./Footer.module.scss";
@@ -29,20 +28,7 @@ export default function Footer() {
 
   return (
     <div className={styles.footer_section}>
-      <motion.div
-        key={"main_gradient_Footer"}
-        animate={"open"}
-        variants={{ open: { x: 0, y: "0px", opacity: 1 } }}
-        initial={{ x: 0, y: "0px", opacity: 0 }}
-        transition={{
-          ease: "easeIn",
-          type: "keyframes",
-          stiffness: 20,
-        }}
-        className={
-          isStyleFooter ? styles[isStyleFooter] : styles.footer_gradient
-        }
-      ></motion.div>
+      <div className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}></div>
 
       <div className={styles.footer_container}>
         <div className={styles.box_logo}>
