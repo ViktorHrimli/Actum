@@ -27,7 +27,7 @@ export default function HeroLawyers({ type }) {
         </div>
         <div className={styles[style]}></div>
       </div>
-      <Path path={text} type={color} back="/service" />
+      <Path path={text} type={color} back="/services" />
     </section>
   );
 }
