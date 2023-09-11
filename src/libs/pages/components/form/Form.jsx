@@ -58,7 +58,6 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     if (isOpenModal) {
       header.style.display = 'none';
     }
-
     return () => {
       header.style.display = 'flex';
     };

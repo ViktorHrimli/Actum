@@ -28,7 +28,7 @@ export default function SideBar({ children , type="family" }) {
   }, [isOpenModal]);
   
   return (
-    <div className={styles.menu}>
+    <div className={styles.menu} >
       <div
         style={{
           display: "flex",
