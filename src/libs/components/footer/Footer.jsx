@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
 
 import { motion } from "framer-motion";
 
-import { footerEnums } from "./libs/enums";
-import { usePathname } from "next/navigation";
+import Button from "@/libs/components/button/Button";
 
 import Logo from "@/assets/svg/ActumLogotypeVertical.png";
-import Button from "../button/Button";
+import { footerEnums } from "./libs/enums";
 
 import styles from "./Footer.module.scss";
 
@@ -60,7 +60,7 @@ export default function Footer() {
             <a className={styles.policy_text} href="">
               Правила надання онлайн-консультації
             </a>
-            <a className={styles.policy_text} href="">
+            <a className={styles.policy_text} href="/html-sitemap">
               Мапа сайту
             </a>
           </div>

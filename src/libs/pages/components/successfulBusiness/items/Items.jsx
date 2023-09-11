@@ -1,5 +1,7 @@
 import styles from "./Items.module.scss";
 
+import Link from "next/link";
+
 import { cardsEnums } from "./libs/enums";
 
 import Successful_business from "@/assets/svg/Successful_business_hover.jpg";
@@ -37,7 +39,7 @@ export default function Items({
   setIsChange,
   setIsLeft,
   isLeft,
-  color
+  color,
 }) {
   return (
     <ul className={styles.container}>
@@ -46,10 +48,10 @@ export default function Items({
           <Card key={id} enums={cardsEnums} type={type} {...el} />
         ))
       ) : (
-          <div style={{ position: "relative" }}>
+        <div style={{ position: "relative" }}>
           <div className={styles.position_arr_left}>
-          <Arrow
-            type={"default"}
+            <Arrow
+              type={"default"}
               left={true}
               color={color}
               setIsChange={setIsChange}
@@ -59,26 +61,28 @@ export default function Items({
           </div>
           <MobileSlider isStart={isLeft} key={current}>
             <Card enums={cardsEnums} type={type} {...itemsList[current]} />
-            </MobileSlider>
+          </MobileSlider>
           <div className={styles.position_arr_right}>
-          <Arrow
-            type={"default"}
-            color={color}
-            left={false}
-            setIsChange={setIsChange}
-            isChange={current}
-            setIsLeft={setIsLeft}
-          />
+            <Arrow
+              type={"default"}
+              color={color}
+              left={false}
+              setIsChange={setIsChange}
+              isChange={current}
+              setIsLeft={setIsLeft}
+            />
           </div>
         </div>
       )}
       <div className={styles.container_btn}>
-        <Button
-          typeStyle={type}
-          style={"button_prymary"}
-          text={"наші публікації"}
-          type={"button"}
-        />
+        <Link href="/blog-3-1">
+          <Button
+            typeStyle={type}
+            style={"button_prymary"}
+            text={"наші публікації"}
+            type={"button"}
+          />
+        </Link>
       </div>
     </ul>
   );
