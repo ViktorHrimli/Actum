@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
 
-import ModalForm from "../modalForm/modalForm";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
@@ -28,7 +28,7 @@ export default function SideBar({ children , type="family" }) {
   }, [isOpenModal]);
   
   return (
-    <div className={styles.menu}>
+    <div className={styles.menu} >
       <div
         style={{
           display: "flex",

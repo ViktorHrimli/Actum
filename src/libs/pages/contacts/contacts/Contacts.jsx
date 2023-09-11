@@ -48,7 +48,7 @@ export default function Contacts({ type }) {
                             src={touch}
                             alt="touch"
                             loading="lazy"
-                            fill
+                            width={"30"}
                             objectFit="cover"
                             className={styles.pulse}
                           />
