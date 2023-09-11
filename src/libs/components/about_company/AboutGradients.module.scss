@@ -7,7 +7,8 @@
     left: 112px;
 
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    filter: blur(200px);
+    filter: blur(75px);
+    opacity: 0.5;
 
     z-index: 1;
 
@@ -36,7 +37,8 @@
     position: absolute;
 
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    filter: blur(200px);
+    filter: blur(75px);
+    opacity: 0.5;
 
     z-index: 1;
 
@@ -58,7 +60,8 @@
         height: 341px;
 
         background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-        filter: blur(200px);
+        filter: blur(75px);
+        opacity: 0.5;
     }
 
     @media screen and (min-width: 1280px) {
@@ -66,7 +69,8 @@
         left: -100px;
 
         background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-        filter: blur(200px);
+        filter: blur(75px);
+        opacity: 0.5;
     }
 
     @media screen and (min-width: 1440px) {
@@ -74,7 +78,8 @@
         left: -127px;
 
         background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-        filter: blur(200px);
+        filter: blur(75px);
+        opacity: 0.5;
     }
 }
 

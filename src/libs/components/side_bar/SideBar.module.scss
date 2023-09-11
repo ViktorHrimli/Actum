@@ -1,7 +1,5 @@
 @import '/src/assets/css/styles.scss';
 
-
-
 .menu {
     position: absolute;
     display: flex;
@@ -37,18 +35,15 @@
 .main_gradient {
     position: absolute;
     height: 523px;
-    width: 206px;
-
+    width: 306px;
     top: 0;
     right: 100px;
-
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    filter: blur(200px);
-
+    filter: blur(75px);
+    opacity: 0.5;
     @media screen and (min-width: 320px) {
         right: -100px;
     }
-
 }
 
 
@@ -56,24 +51,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-top: auto;
-
 }
 
 .icon_list {
     display: flex;
     flex-direction: column;
     margin-left: auto;
-
     gap: 16px;
-
     z-index: 20;
 }
 
 .phone_conteiner {
     display: block;
-
     margin-top: auto;
 }
 

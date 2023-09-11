@@ -48,6 +48,7 @@ export default function FamilyMattrs({ openModalHands }) {
           width={40}
           height={40}
           loading="lazy"
+          style={{zIndex: 5}}
           className={styles.family_icon_click}
           />
         </a>
