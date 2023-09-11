@@ -122,8 +122,8 @@ const mobileWatemarkLine = {
   },
   transition: {
     ease: "easeIn",
-    duration: 2.5,
-    delay: 0.2,
+    duration: 2,
+    delay: 0.3,
     type: "keyframes",
   },
 };

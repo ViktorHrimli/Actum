@@ -195,7 +195,7 @@ export default function Hero() {
         transition={{
           ease: "easeIn",
           duration: isDesktop ? 1 : 2,
-          delay: isDesktop ? 3 : 2,
+          delay: isDesktop ? 3 : 1,
         }}
         className={styles.btn_wrapper}
       >
