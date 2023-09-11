@@ -41,6 +41,7 @@ export default function ContactPanel({ type }) {
   }, [isOpenModal]);
 
   return (
+    <>
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -89,10 +90,12 @@ export default function ContactPanel({ type }) {
           </ul>
         </ScrollAwareSection>
         <ScrollButtonUp />
-        {isOpenModal && (
+        
+      </div>
+      </motion.section>
+      {isOpenModal && (
           <ModalForm type={type} setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal} />
         )}
-      </div>
-    </motion.section>
+  </>    
   );
 }
