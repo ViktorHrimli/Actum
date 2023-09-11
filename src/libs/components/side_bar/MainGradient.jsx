@@ -3,10 +3,11 @@
 import styles from "./SideBar.module.scss";
 import { motion } from "framer-motion";
 
-export default function MainGradient() {
+export default function MainGradient({ isStyleHeader }) {
+console.log(isStyleHeader);
   return (
     <motion.div
-      className={styles.main_gradient}
+      className={styles[isStyleHeader] || styles.main_gradient}
       key={"main_gradient_side_Bar"}
       animate={"open"}
       variants={{ open: { x: 0, y: "0px", opacity: 0.4 } }}

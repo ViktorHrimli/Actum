@@ -25,9 +25,10 @@ import {
 import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
+import { gradientEnums } from "./enums/gradientEnums";
 import SideBar from "../side_bar/SideBar";
 
-export default function Header({ type }) {
+export default function Header() {
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
@@ -36,17 +37,22 @@ export default function Header({ type }) {
   // DROP MENU
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isStyleHeader, setIsStyleHeader] = useState(null);
 
   const path = usePathname();
-
-  const isHome = path === "/";
-
-  const isDesktopOrLaptop = useIsBig();
+   const isDesktopOrLaptop = useIsBig();
   const isMobile = useIsSmall();
 
-  const logoAnimated = isDesktopOrLaptop
-    ? desktopLogoAnimate
-    : mobileLogoAnimate;
+  const isHome = path === "/";
+  const patnName = path.replace('/', '');
+
+   useEffect(() => {
+    if (gradientEnums[patnName]) {
+      setIsStyleHeader(gradientEnums[patnName]);
+    } else {
+      setIsStyleHeader(null);
+    }
+  }, [patnName]);
 
   useEffect(() => {
     if (isSideBar) {
@@ -82,6 +88,10 @@ export default function Header({ type }) {
     setOnHover(false);
   }, [isOpenMenu, onHover]);
 
+   const logoAnimated = isDesktopOrLaptop
+    ? desktopLogoAnimate
+    : mobileLogoAnimate;
+  
   return (
     <section className={styles.header_section}>
       <div className={styles.header_conteiner} id="header" >
@@ -151,7 +161,7 @@ export default function Header({ type }) {
               background: "#0F021C",
             }}
           >
-            <SideBar type={type}>
+            <SideBar isStyleHeader={isStyleHeader}>
               <Navigation
                 links={PathsPageHeader}
                 route={path}

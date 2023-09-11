@@ -12,7 +12,8 @@ import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 import MainGradient from "./MainGradient";
 
-export default function SideBar({ children , type="family" }) {
+export default function SideBar({ children, isStyleHeader}) {
+
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
@@ -75,10 +76,10 @@ export default function SideBar({ children , type="family" }) {
             </li>
           </ul>
         </div>
-        <MainGradient />
+          <MainGradient isStyleHeader={isStyleHeader} />
       </div>
       </div>
-        {isOpenModal && <ModalForm type={type} setIsOpenModal={setIsOpenModal} />}
+        {isOpenModal && <ModalForm type={type} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />}
     </>
   );
 }
