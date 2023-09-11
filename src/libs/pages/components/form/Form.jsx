@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "@/libs/hooks/hooks";
-// import { useEffect } from "@/libs/hooks/hooks";
+import { useEffect } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -52,16 +52,16 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     setIsStep(true);
   };
 
-  //   useEffect(() => {
-  //   const header = document.getElementById("header");
+    useEffect(() => {
+    const header = document.getElementById("header");
     
-  //   if (isOpenModal) {
-  //     header.style.display = 'none';
-  //   }
-  //   return () => {
-  //     header.style.display = 'flex';
-  //   };
-  // }, [isOpenModal]);
+    if (isOpenModal) {
+      header.style.display = 'none';
+    }
+    return () => {
+      header.style.display = 'flex';
+    };
+  }, [isOpenModal]);
 
   return (
     <>
