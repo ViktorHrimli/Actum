@@ -3,7 +3,7 @@ import styles from "./modalThanks.module.scss";
 
 import { colorEnums } from "../modalForm/enumsForm/enumsForm";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 export default function ModalThanks({ type, setIsStep, isOpenModal, setIsOpenModal = () => {}}) {
   const { color, border } = colorEnums[type];
@@ -13,17 +13,17 @@ export default function ModalThanks({ type, setIsStep, isOpenModal, setIsOpenMod
     setIsOpenModal(false);
   };
 
-  useEffect(() => {
-    const header = document.getElementById("header");
+  // useEffect(() => {
+  //   const header = document.getElementById("header");
     
-    if (isOpenModal) {
-      header.style.display = 'none';
-    }
+  //   if (isOpenModal) {
+  //     header.style.display = 'none';
+  //   }
 
-    return () => {
-      header.style.display = 'flex';
-    };
-  }, [isOpenModal]);
+  //   return () => {
+  //     header.style.display = 'flex';
+  //   };
+  // }, [isOpenModal]);
 
   return (
     <section className={styles.section}>
