@@ -14,14 +14,10 @@ export default function ModalForm({ type, isOpenModal, setIsOpenModal }) {
     const header = document.getElementById("header");
 
     if (isOpenModal) {
-      document.body.style.overflow = "hidden";
-      document.body.style.maxHeight = "100vh";
       header.style.display = 'none';
     }
 
     return () => {
-      document.body.style.overflowX = "hidden";
-      document.body.style.maxHeight = "";
       header.style.display = 'flex';
     };
   }, [isOpenModal]);
