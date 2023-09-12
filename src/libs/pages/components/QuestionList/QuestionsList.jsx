@@ -1,14 +1,12 @@
-import Image from "next/image";
 import styles from "./QuestionsList.module.scss";
 
-import marks from "@/assets/svg/marks.svg";
+import Accordion from "./Accordion";
+import About from "../about/About";
+
 import natalia from "@/assets/svg/natalia_lawyers.png";
-import Button from "@/libs/components/button/Button";
 
 import { specialistsEnums } from "@/libs/pages/components/specialists/libs/enums";
 import { questionEnums } from "@/libs/pages/components/QuestionList/libs/enums/enums";
-import Accordion from "./Accordion";
-import About from "../about/About";
 
 export default function QuestionsList({ type }) {
   const { color } = specialistsEnums[type];

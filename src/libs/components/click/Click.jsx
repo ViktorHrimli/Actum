@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import LinkedPath from "@/assets/svg/black_detail_icon.png";
 
@@ -15,7 +16,7 @@ export default function ClickIcon({ path, color }) {
         loading="lazy"
         className={styles.criminal_icon}
       />
-      <a href={path}>
+      <Link href={path}>
         <svg
           className={styles.criminal_icon_click}
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +43,7 @@ export default function ClickIcon({ path, color }) {
             </linearGradient>
           </defs>
         </svg>
-      </a>
+      </Link>
     </>
   );
 }
