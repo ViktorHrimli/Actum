@@ -12,8 +12,10 @@ import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 import MainGradient from "./MainGradient";
 
+
 export default function SideBar({ children, isStyleHeader }) {
   const [type, setIsType] = useState("");
+
   const [isOpenModal, setIsOpenModal] = useState(false);
 
 

@@ -40,7 +40,9 @@ export default function Header() {
   const [isStyleHeader, setIsStyleHeader] = useState(null);
 
   const path = usePathname();
+
   const isDesktopOrLaptop = useIsBig();
+
   const isMobile = useIsSmall();
 
   const isHome = path === "/";
