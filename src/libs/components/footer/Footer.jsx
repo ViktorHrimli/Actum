@@ -97,7 +97,7 @@ export default function Footer() {
             <a className={styles.policy_text} href="">
               Правила надання онлайн-консультації
             </a>
-            <a className={styles.policy_text} href="">
+            <a className={styles.policy_text} href="/html-sitemap">
               Мапа сайту
             </a>
           </div>
