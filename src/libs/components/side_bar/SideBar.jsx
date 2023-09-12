@@ -18,17 +18,6 @@ export default function SideBar({ children, isStyleHeader }) {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  useEffect(() => {
-    if (isOpenModal) {
-      document.body.style.overflow = "hidden";
-      document.body.style.maxHeight = "100vh";
-    }
-
-    return () => {
-      document.body.style.overflowX = "hidden";
-      document.body.style.maxHeight = "";
-    };
-  }, [isOpenModal]);
 
   useEffect(() => {
     if (isStyleHeader === null) {

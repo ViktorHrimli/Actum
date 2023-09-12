@@ -216,6 +216,7 @@ export default function Direction() {
                   width={40}
                   height={40}
                   className={styles.touch_icon_hands}
+                  onClick={openModalHands}
                 />
               ) : (
                 ""
@@ -228,7 +229,6 @@ export default function Direction() {
                   width={40}
                   height={40}
                   className={styles.touch_icon_hands}
-                  onClick={openModalHands}
                 />
               ) : (
                 ""
