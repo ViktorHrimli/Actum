@@ -46,7 +46,7 @@ export default function Header() {
   const isMobile = useIsSmall();
 
   const isHome = path === "/";
-  const patnName = path.replace('/', '');
+  const patnName = path.replace("/", "");
 
   useEffect(() => {
     if (gradientEnums[patnName]) {
@@ -90,10 +90,10 @@ export default function Header() {
     setOnHover(false);
   }, [isOpenMenu, onHover]);
 
-   const logoAnimated = isDesktopOrLaptop
+  const logoAnimated = isDesktopOrLaptop
     ? desktopLogoAnimate
     : mobileLogoAnimate;
-  
+
   return (
     <section className={styles.header_section}>
       <div className={styles.header_conteiner} id="header">
@@ -148,10 +148,10 @@ export default function Header() {
         {isSideBar && (
           <motion.div
             animate={isSideBar ? "open" : "closed"}
-            variants={{ open: { x: 0, y: 0, opacity: 1 } }}
-            initial={{ x: "100%", y: "0" }}
-            exit={{ x: "100%", duration: 0.5 }}
-            transition={{ ease: "easeInOut", duration: 0.5 }}
+            variants={{ open: { x: 0, opacity: 1 } }}
+            initial={{ x: "100%" }}
+            exit={{ x: "100%" }}
+            transition={{ ease: "easeInOut", duration: 1 }}
             style={{
               top: 0,
               left: 0,

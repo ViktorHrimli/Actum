@@ -26,8 +26,8 @@ const mobileAnimateWatemark = {
   initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
   transition: {
     ease: "easeIn",
-    duration: 1.4,
-    delay: 0.6,
+    duration: 1.2,
+    delay: 0.4,
     type: "keyframes",
   },
 };

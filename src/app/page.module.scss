@@ -18,3 +18,11 @@
         width: 1440px;
     }
 }
+
+.error_text {
+    cursor: pointer;
+
+    :hover {
+        text-decoration-line: underline;
+    }
+}
