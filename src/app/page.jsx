@@ -1,25 +1,35 @@
 "use client";
 
 import Hero from "@/libs/components/hero/Hero";
-import Direction from "@/libs/components/ourDirections/Direction";
-import AboutCompany from "@/libs/components/about_company/AboutCompany";
-import Response from "@/libs/components/response/Response";
+// import Direction from "@/libs/components/ourDirections/Direction";
+// import AboutCompany from "@/libs/components/about_company/AboutCompany";
+// import Response from "@/libs/components/response/Response";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import { useState, useEffect } from "@/libs/hooks/hooks";
+import dynamic from "next/dynamic";
+
+// const Hero = dynamic(() => import("@/libs/components/hero/Hero"));
+const Direction = dynamic(() =>
+  import("@/libs/components/ourDirections/Direction")
+);
+const Response = dynamic(() => import("@/libs/components/response/Response"));
+const AboutCompany = dynamic(() =>
+  import("@/libs/components/about_company/AboutCompany")
+);
 
 export default function Home() {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsLoad(true), 3500);
+    setTimeout(() => setIsLoad(true), 3800);
 
     document.body.style.overflow = "hidden";
 
     return () => {
       setTimeout(() => {
         document.body.style.overflow = "auto";
-      }, 4000);
+      }, 3500);
     };
   }, []);
   return (
