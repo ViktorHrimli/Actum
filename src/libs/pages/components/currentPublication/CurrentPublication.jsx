@@ -113,11 +113,13 @@ export default function CurrentPublication() {
           </div>
         </div>
         <div className={styles.serch_conteiner}>
-          <input
-            className={styles.search_input}
-            type="search"
-            placeholder="Шукати публікацію"
-          />
+          <div className={styles.border_gradient}>
+            <input
+              className={styles.search_input}
+              type="search"
+              placeholder="Шукати публікацію"
+            />
+          </div>
           <div className={styles.serch_icon_wrapper}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -4,6 +4,7 @@ import Publics from "@/libs/pages/publics/Publics";
 import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
 
 import publics_img from "@/assets/svg/publics_hero.png";
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,
@@ -13,6 +14,7 @@ export const metadata = {
 export default function PaidArmy() {
   return (
     <>
+      <ContactPanel type={"home"}/>
       <NestedHero img={publics_img} text={"публікації"} />
       <Publics />
     </>

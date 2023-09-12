@@ -10,10 +10,12 @@ import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import FormSection from "@/libs/pages/components/formSection/FormSection";
 
 import hero from "@/assets/svg/book_hero.png";
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 export default function Book() {
   return (
     <>
+      <ContactPanel type={"home"} />
       <NestedHero
         img={hero}
         text="КОНСУЛЬТАЦІЯ АДВОКАТА ОНЛАЙН, В ОФІСІ АБО ДЗВІНКОМ"
