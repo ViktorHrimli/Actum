@@ -94,8 +94,8 @@ export default function Hero() {
         transition={{
           type: "keyframes",
           ease: "easeIn",
-          duration: isDesktop ? 0.8 : 1.5,
-          delay: isDesktop ? 3.5 : 2,
+          duration: isDesktop ? 0.8 : 1,
+          delay: isDesktop ? 3.5 : 2.5,
         }}
       >
         {isClient && <Femida screen={isMobile} />}

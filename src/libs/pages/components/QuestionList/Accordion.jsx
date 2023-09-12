@@ -67,7 +67,7 @@ export default function Accordion({ title, text, type }) {
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{text}</p>
               <div style={{ marginTop: "50px", display: "block" }}>
-                <ClickIcon path={""} color={color} />
+                <ClickIcon path={"/test"} color={color} />
               </div>
             </div>
           </motion.section>
