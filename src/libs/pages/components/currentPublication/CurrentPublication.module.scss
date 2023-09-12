@@ -268,10 +268,10 @@
         border-radius: 0 4px 4px 0;
     }
     @media screen and (min-width: 768px) {
-        max-width: 285px;
+        width: 285px;
     }
-    @media screen and (min-width: 1440px) {
-        max-width: 494px;
+    @media screen and (min-width: 1280px) {
+        width: 494px;
     }
 }
 
