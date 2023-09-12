@@ -40,13 +40,15 @@ export default function Header() {
   const [isStyleHeader, setIsStyleHeader] = useState(null);
 
   const path = usePathname();
-   const isDesktopOrLaptop = useIsBig();
+
+  const isDesktopOrLaptop = useIsBig();
+
   const isMobile = useIsSmall();
 
   const isHome = path === "/";
   const patnName = path.replace('/', '');
 
-   useEffect(() => {
+  useEffect(() => {
     if (gradientEnums[patnName]) {
       setIsStyleHeader(gradientEnums[patnName]);
     } else {

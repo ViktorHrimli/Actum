@@ -12,7 +12,9 @@ import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 import MainGradient from "./MainGradient";
 
-export default function SideBar({ children, isStyleHeader}) {
+
+export default function SideBar({ children, isStyleHeader }) {
+  const [type, setIsType] = useState("");
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -27,6 +29,16 @@ export default function SideBar({ children, isStyleHeader}) {
       document.body.style.maxHeight = "";
     };
   }, [isOpenModal]);
+
+  useEffect(() => {
+    if (isStyleHeader === null) {
+      setIsType("family")
+    } else if(isStyleHeader === "main_gradient_army") {
+      setIsType("army")
+    } else if(isStyleHeader === "main_gradient_criminal") {
+      setIsType("crime")
+    }
+  }, [type]);
   
   return (
     <>
