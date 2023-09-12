@@ -40,13 +40,13 @@ export default function Header() {
   const [isStyleHeader, setIsStyleHeader] = useState(null);
 
   const path = usePathname();
-   const isDesktopOrLaptop = useIsBig();
+  const isDesktopOrLaptop = useIsBig();
   const isMobile = useIsSmall();
 
   const isHome = path === "/";
   const patnName = path.replace('/', '');
 
-   useEffect(() => {
+  useEffect(() => {
     if (gradientEnums[patnName]) {
       setIsStyleHeader(gradientEnums[patnName]);
     } else {
@@ -94,10 +94,10 @@ export default function Header() {
   
   return (
     <section className={styles.header_section}>
-      <div className={styles.header_conteiner} id="header" >
+      <div className={styles.header_conteiner} id="header">
         {isClient && (
           <Link href={"/"}>
-            <motion.div 
+            <motion.div
               className={styles.logo_conteiner}
               animate={isHome ? logoAnimated["animate"](isStep) : false}
               variants={logoAnimated["variants"](isScreenHeight)}
@@ -144,7 +144,7 @@ export default function Header() {
 
       <AnimatePresence>
         {isSideBar && (
-          <motion.div 
+          <motion.div
             animate={isSideBar ? "open" : "closed"}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
             initial={{ x: "100%", y: "0" }}

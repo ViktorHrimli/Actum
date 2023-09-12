@@ -12,7 +12,15 @@ export default function Home() {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsLoad(true), 3500);
+    setTimeout(() => setIsLoad(true), 3200);
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      setTimeout(() => {
+        document.body.style.overflow = "auto";
+      }, 4000);
+    };
   }, []);
   return (
     <>
