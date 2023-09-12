@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
-export default function Path({ path, type, back = "/" }) {
+export default function Path({ path, type, back = "/", text }) {
   const router = useRouter();
 
   const handleClickOnPath = () => {
@@ -16,7 +16,7 @@ export default function Path({ path, type, back = "/" }) {
     <div className={styles.conteiner}>
       <div className={styles.wrapper_path}>
         <p className={styles.service_text} onClick={handleClickOnPath}>
-          наші послуги
+          {text}
         </p>
 
         <FontAwesomeIcon

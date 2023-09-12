@@ -17,8 +17,9 @@ export default function page() {
       <NestedHero img={hero_public} text={"публікації"} />
       <Path
         path="ЧОМУ ВІЙСЬКОВИМ НЕ ВИПЛАЧУЮТЬ КОМПЕНСАЦІЮ ЗА ПОРАНЕННЯ?"
-        type={"family_color"}
+        type="family_color"
         back="/blog-3-1"
+        text="Публікації"
       />
       <CurrentPublication />
     </>

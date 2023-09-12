@@ -1,0 +1,113 @@
+.serch_conteiner {
+    position: relative;
+    margin-top: 50px;
+
+    @media screen and (min-width: 768px) {
+        width: 640px;
+        margin-right: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-right: auto;
+        margin-left: 0px;
+    }
+}
+
+.border_gradient {
+    position: relative;
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.4s;
+    z-index: 14;
+    background-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64),
+        linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
+    background-size: 100% 2px;
+    background-position: 0 100%, 0 0;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 21px;
+        border: 2px solid #E32F7A;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+    }
+
+    &:after {
+        border: 2px solid #3F2E64;
+        border-left: none;
+        left: auto;
+        right: 0;
+        border-radius: 0 4px 4px 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 285px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 494px;
+    }
+}
+
+.search_input {
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    padding-left: 40px;
+
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+        width: 281px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 20px;
+        width: 490px;
+        height: 57px;
+    }
+
+    @media screen and (min-width: 1440px) {}
+
+
+    &::placeholder {
+        color: var(--secondary-color);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+
+        @media screen and (min-width: 320px) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}
+
+.serch_icon_wrapper {
+    position: absolute;
+    top: 8px;
+    left: 7px;
+
+    z-index: 15;
+
+    @media screen and (min-width: 1280px) {
+        top: 18px;
+    }
+}

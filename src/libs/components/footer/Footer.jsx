@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "@/libs/hooks/hooks";
 
 import Button from "@/libs/components/button/Button";
@@ -28,7 +28,9 @@ export default function Footer() {
 
   return (
     <div className={styles.footer_section}>
-      <div className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}></div>
+      <div
+        className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
+      ></div>
 
       <div className={styles.footer_container}>
         <div className={styles.box_logo}>
