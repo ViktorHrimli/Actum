@@ -5,9 +5,14 @@ const nextConfig = {
     locales: ["uk-UA", "ru-RU"],
     localeDetection: false,
   },
-
   images: {
     formats: ["image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
 };
 
