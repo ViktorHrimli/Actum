@@ -22,7 +22,7 @@ export default function Home() {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsLoad(true), 3200);
+    setTimeout(() => setIsLoad(true), 3500);
 
     document.body.style.overflow = "hidden";
 
