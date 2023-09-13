@@ -19,9 +19,12 @@ import TabletCriminal from "@/assets/svg/Tablet_criminal.jpeg";
 
 //-------------- Desctop img
 import Hands from "@/assets/svg/Hands.png";
+import Hands_animations from "@/assets/svg/Hands_pink.png";
 import Helmet from "@/assets/svg/Helmet.png";
-import HelmetAnimations from "@/assets/svg/Halmet_animation.jpeg";
+import HelmetAnimations from "@/assets/svg/Halmet_animation.png";
 import Criminal from "@/assets/svg/Criminal.png";
+import Criminal_animations from "@/assets/svg/Ctiminal_blue.png";
+
 
 import Button from "@/libs/components/button/Button";
 import Link from "next/link";
@@ -42,27 +45,36 @@ export default function Direction() {
   // ---------- modal Open
   const [modalHands, setModalHands] = useState(false);
   const [modalHalmet, setmodalHalmet] = useState(false);
-  const [modalCriminal, setmodalCriminal] = useState(false);
+  const [modalCriminal, setModalCriminal] = useState(false);
 
 
   const openModalHands = () => {
     setModalHands(!modalHands)
-    setHoverHands(false)
+    setHoverHands(false);
+    setmodalHalmet(false);
+    setModalCriminal(false);
   };
 
   const openModalhalmet = () => {
     setmodalHalmet(!modalHalmet);
-    setHoverHalmet(false)
+    setHoverHalmet(false);
+    setModalHands(false);
+    setModalCriminal(false);
   };
+
   const openModalCriminal = () => {
-    setmodalCriminal(!modalCriminal);
+    setModalCriminal(!modalCriminal);
     setHoverCriminal(false)
+    setmodalHalmet(false);
+    setModalHands(false);
   };
 
   // ----------- Animations Tablet
   const [showCards, setShowCards] = useState(false);
 
-  const cardsRef = useRef();
+  const [revers, setRevers] = useState(false);
+
+  const cardsRefTab = useRef();
 
   const [showFirstCard, setShowFirstCard] = useState(false);
   const [showSecondCard, setShowSecondCard] = useState(false);
@@ -77,47 +89,74 @@ export default function Direction() {
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.5,
+        threshold: 0.1,
       }
     );
 
-    if (cardsRef.current) {
-      observer.observe(cardsRef.current);
+    if (cardsRefTab.current) {
+      observer.observe(cardsRefTab.current);
     }
 
     return () => {
-      if (cardsRef.current) {
-        observer.unobserve(cardsRef.current);
+      if (cardsRefTab.current) {
+        observer.unobserve(cardsRefTab.current);
       }
     };
   }, []);
-
+  
   useEffect(() => {
-    if (showCards) {
-      const firstCardTimeout = setTimeout(() => {
-        setShowFirstCard(true);
-      }, 500);
+    if (revers) {
+      if (showCards) {
+        const firstCardTimeout = setTimeout(() => {
+          setShowFirstCard(true);
+        }, 500);
 
-      const secondCardTimeout = setTimeout(() => {
-        setShowSecondCard(true);
-      }, 1000);
+        const secondCardTimeout = setTimeout(() => {
+          setShowSecondCard(true);
+        }, 1000);
 
-      const thirdCardTimeout = setTimeout(() => {
-        setShowThirdCard(true);
-      }, 1500);
+        const thirdCardTimeout = setTimeout(() => {
+          setShowThirdCard(true);
+        }, 1500);
 
-      return () => {
-        clearTimeout(firstCardTimeout);
-        clearTimeout(secondCardTimeout);
-        clearTimeout(thirdCardTimeout);
-      };
-    } else {
-      setShowFirstCard(false);
-      setShowSecondCard(false);
-      setShowThirdCard(false);
-    }
+        return () => {
+          clearTimeout(firstCardTimeout);
+          clearTimeout(secondCardTimeout);
+          clearTimeout(thirdCardTimeout);
+        };
+      } else {
+        setShowFirstCard(false);
+        setShowSecondCard(false);
+        setShowThirdCard(false);
+        setRevers(!revers);
+      }
+    } else if (showCards) {
+        const firstCardTimeout = setTimeout(() => {
+          setShowFirstCard(true);
+        }, 1500);
+
+        const secondCardTimeout = setTimeout(() => {
+          setShowSecondCard(true);
+        }, 1000);
+
+        const thirdCardTimeout = setTimeout(() => {
+          setShowThirdCard(true);
+        }, 500);
+
+        return () => {
+          clearTimeout(firstCardTimeout);
+          clearTimeout(secondCardTimeout);
+          clearTimeout(thirdCardTimeout);
+        };
+      } else {
+        setShowFirstCard(false);
+        setShowSecondCard(false);
+        setShowThirdCard(false);
+        setRevers(!revers);
+      }
   }, [showCards]);
 
+  
   // ----------- Animations Laptop
 
   useEffect(() => {
@@ -129,6 +168,7 @@ export default function Direction() {
       clearInterval(intervalIdHands);
     };
   }, []);
+
   return (<>
     <section className={styles.direction_section}>
       <div className={styles.direction_container}>
@@ -142,10 +182,8 @@ export default function Direction() {
 
     {/* ------- mob -------- */}
       <Mob />
-        
     {/* ------- tablet ------- */}
-
-        <div ref={cardsRef} className={styles.tablet_img}>
+        <div ref={cardsRefTab} className={styles.tablet_img}>
           <div className={styles.tablet_img_hands}>
             <Image
               src={TabletHands}
@@ -156,8 +194,8 @@ export default function Direction() {
             />
 
             {showCards && (
-              <div className={`${!showFirstCard ? styles.show_hands : ""}`}>
-                <FamilyMattrs />
+              <div className={styles.show_hands_tab}>
+            {showFirstCard && <FamilyMattrs />}
               </div>
             )}
           </div>
@@ -172,8 +210,8 @@ export default function Direction() {
             />
 
             {showCards && (
-              <div className={`${!showSecondCard ? styles.show_halmet : ""}`}>
-                <MilitaryMattrs />
+              <div className={styles.show_halmet_tab}>
+                {showSecondCard && <MilitaryMattrs />}
               </div>
             )}
           </div>
@@ -188,8 +226,8 @@ export default function Direction() {
             />
 
             {showCards && (
-              <div className={`${!showThirdCard ? styles.show_criminal : ""}`}>
-                <CriminalMattrs />
+              <div className={styles.show_criminal_tab}>
+                {showThirdCard && <CriminalMattrs />}
               </div>
             )}
           </div>
@@ -205,7 +243,7 @@ export default function Direction() {
                 setActiveAnimations(false) & setHoverHands(true)
               }
               onMouseLeave={() =>
-                setActiveAnimations(true) & setHoverHands(false)
+                modalHands ? {} : setActiveAnimations(true) & setHoverHands(false)
               }
             >
               {hoverHands ? (
@@ -245,7 +283,7 @@ export default function Direction() {
                 setActiveAnimations(false) & setHoverHalmet(true)
               }
               onMouseLeave={() =>
-                setActiveAnimations(true) & setHoverHalmet(false)
+                modalHalmet ? {} : setActiveAnimations(true) & setHoverHalmet(false)
               }
             >
               {hoverHalmet &&
@@ -283,7 +321,7 @@ export default function Direction() {
                 setActiveAnimations(false) & setHoverCriminal(true)
               }
               onMouseLeave={() =>
-                setActiveAnimations(true) & setHoverCriminal(false)
+                modalCriminal ? {} : setActiveAnimations(true) & setHoverCriminal(false)
               }
             >
               {hoverCriminal &&
@@ -316,7 +354,25 @@ export default function Direction() {
             </div>
 
             <div className={styles.img_hands}>
-              <Image src={Hands} alt="Hands" fill className={styles.img} />
+              {activeElementIndex === 0 && activeAnimations ? (
+                <Image src={Hands_animations}
+                  alt="Hands"
+                  fill
+                  className={styles.img}
+                />
+                ) : hoverHands ? (
+                  <Image src={Hands_animations}
+                  alt="Hands"
+                  fill
+                  className={styles.img}
+                />
+                ) : (
+                  <Image src={Hands}
+                  alt="Hands"
+                  fill
+                  className={styles.img}
+                />
+              )}
             </div>
             <div className={styles.img_halmet}>
               {activeElementIndex === 1 && activeAnimations ? (
@@ -338,66 +394,98 @@ export default function Direction() {
               )}
             </div>
             <div className={styles.img_criminal}>
-              <Image
-                src={Criminal}
-                alt="Criminal"
-                loading="lazy"
-                fill
-                className={styles.img}
-              />
+              {activeElementIndex === 2 && activeAnimations ? (
+                <Image
+                  src={Criminal_animations}
+                  alt="Criminal"
+                  loading="lazy"
+                  fill
+                  className={styles.img}
+                />
+              ) : hoverCriminal ? (
+                <Image
+                  src={Criminal_animations}
+                  alt="Criminal"
+                  loading="lazy"
+                  fill
+                  className={styles.img}
+                />
+                ) : (
+                <Image
+                  src={Criminal}
+                  alt="Criminal"
+                  loading="lazy"
+                  fill
+                  className={styles.img}
+                />
+              )}
             </div>
 
             <div
-              className={styles.block_hover_hands_background}
-              style={
-                activeElementIndex === ONE && activeAnimations
-                  ? { background: "rgba(227, 47, 122, 0.40)" }
-                  : {}
-              }
-            ></div>
+              className={styles.block_hover_hands_background}></div>
             <div
-              className={styles.block_hover_criminal_background}
-              style={
-                activeElementIndex === THERD && activeAnimations
-                  ? { background: "rgba(63, 46, 100, 0.80)" }
-                  : {}
-              }
-            ></div>
+              className={styles.block_hover_criminal_background}></div>
           </div>
           {/* -------------- marker ------------- */}
           <div className={styles.marker_box}>
             <div
-              onClick={()=> setModalHands(true)}
+              onClick={() => openModalHands()}
+              onMouseOver={() =>
+                setActiveAnimations(false) & setHoverHands(true)
+              }
+              onMouseLeave={() =>
+                modalHands ? setActiveAnimations(false) : setActiveAnimations(true)
+                & setHoverHands(false)
+              }
               className={styles.marker}
-              style={{
+
+              style={!modalHands ? {
                 background: hoverHands
-                  ? "#E32F7A"
-                  : (activeElementIndex === ONE) & activeAnimations
-                  ? "#E32F7A"
-                  : "#1F1F1F",
-              }}
+                  ? "#E32F7A" :
+                  (activeElementIndex === ONE) & activeAnimations
+                    ? "#E32F7A"
+                    : "#1F1F1F"
+                } : { background: "#E32F7A" }
+                }
             ></div>
             <div
-              onClick={()=> setmodalHalmet(true)}
+              onClick={() => openModalhalmet()}
+              onMouseOver={() =>
+                setActiveAnimations(false) & setHoverHalmet(true)
+              }
+              onMouseLeave={() =>
+                modalHalmet ? setActiveAnimations(false) : setActiveAnimations(true)
+                & setHoverHalmet(false)
+              }
               className={styles.marker}
-              style={{
+              style={!modalHalmet ? {
                 background: hoverHalmet
-                  ? "#E32F7A"
-                  : (activeElementIndex === SECOND) & activeAnimations
-                  ? "#E32F7A"
-                  : "#1F1F1F",
-              }}
+                  ? "#E32F7A" :
+                  (activeElementIndex === SECOND) & activeAnimations
+                    ? "#E32F7A"
+                    : "#1F1F1F"
+                } : { background: "#E32F7A" }
+                }
             ></div>
             <div
-              onClick={()=> setmodalCriminal(true)}
+              onClick={() => openModalCriminal()}
+              onMouseOver={() =>
+                setActiveAnimations(false) & setHoverCriminal(true)
+              }
+              onMouseLeave={() =>
+                modalCriminal ? setActiveAnimations(false) : setActiveAnimations(true)
+                & setHoverCriminal(false)
+              }
               className={styles.marker}
-              style={{
+
+              style={!modalCriminal ? {
                 background: hoverCriminal
-                  ? "#E32F7A"
-                  : (activeElementIndex === THERD) & activeAnimations
-                  ? "#E32F7A"
-                  : "#1F1F1F",
-              }}
+                  ? "#E32F7A" :
+                  (activeElementIndex === THERD) & activeAnimations
+                    ? "#E32F7A"
+                    : "#1F1F1F"
+                } : { background: "#E32F7A" }
+                }
             ></div>
           </div>
 

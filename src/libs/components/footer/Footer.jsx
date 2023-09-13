@@ -7,7 +7,7 @@ import { useEffect, useState } from "@/libs/hooks/hooks";
 
 import Button from "@/libs/components/button/Button";
 
-import Logo from "@/assets/svg/ActumLogotypeVertical.png";
+import Logo from "@/assets/svg/Actum_HERO.png";
 
 import { footerEnums } from "./libs/enums";
 
@@ -41,6 +41,7 @@ export default function Footer() {
             height={117}
             className={styles.footer_logo}
           />
+          <p className={styles.footer_logo_text}>Адвокатське об’Єднання</p>
           <div className={styles.policy_mob_none}>
             <a className={styles.policy_text} href="">
               Політика конфідеційності

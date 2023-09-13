@@ -248,6 +248,7 @@
 
 // -------- animations -------------
 
+
 .touch_icon_hands {
   position: absolute;
   top: 44px;
@@ -299,9 +300,6 @@
     width: 400px;
     transform: rotate(43.4deg);
   }
-  &:hover {
-    background: rgba(227, 47, 122, 0.40);
-  }
 }
 
 .block_hover_hands_background {
@@ -310,12 +308,6 @@
   position: absolute;
   top: -241px;
   background-color: rgba(227, 47, 122, 0.2);
-
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
     width: 330px;
@@ -335,12 +327,6 @@
   z-index: 13;
   position: absolute;
   cursor: pointer;
-
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
     width: 398px;
@@ -373,12 +359,6 @@
   position: absolute;
   cursor: pointer;
 
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
-
   @media screen and (min-width: 1280px) {
     width: 330px;
     transform: rotate(44.7deg);
@@ -402,9 +382,6 @@
       top: 32px;
     }
   }
-  &:hover {
-    background: rgba(63, 46, 100, 0.80);
-  }
 }
 
 .block_hover_criminal_background {
@@ -412,12 +389,6 @@
   z-index: 10;
   position: absolute;
   background-color: rgba(63, 46, 100, 0.5);
-
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
     width: 330px;
@@ -452,12 +423,6 @@
   top: 0;
   left: 0;
 
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
-
   @media screen and (min-width: 1280px) {
     width: 419px;
     height: 422px;
@@ -471,12 +436,6 @@
 
 .img_halmet {
   z-index: 4;
-
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
     width: 849px;
@@ -495,12 +454,6 @@
   position: absolute;
   bottom: 0;
   right: 0;
-
-  @media screen and (min-width: 320px) {}
-
-  @media screen and (min-width: 480px) {}
-
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1280px) {
     width: 419px;
@@ -525,10 +478,6 @@
   }
 
   @media screen and (min-width: 1280px) {
-    height: 24px;
-  }
-
-  @media screen and (min-width: 1280px) {
     height: 33px;
 
   }
@@ -538,8 +487,8 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  cursor: pointer;
 }
-
 
 // ------------- FAMILY matters
 
@@ -735,14 +684,31 @@
 
 // ------------------
 
-@keyframes delayAppear {
-  to {
-    opacity: 1;
-  }
+// @keyframes delayAppear {
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// .show {
+//   animation: delayAppear 1s linear forwards;
+// }
+
+.show_hands_tab {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+}
+.show_halmet_tab {
+  position: absolute;
+  top: 0;
+  opacity: 1;
 }
 
-.show {
-  animation: delayAppear 1s linear forwards;
+.show_criminal_tab {
+  position: absolute;
+  top: 0;
+  opacity: 1;
 }
 
 .show_hands {
@@ -750,6 +716,7 @@
   top: 0;
   opacity: 1;
 }
+
 .show_halmet {
   position: absolute;
   top: 570px;
