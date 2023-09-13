@@ -95,7 +95,7 @@ export default function Hero() {
           type: "keyframes",
           ease: "easeInOut",
           duration: isDesktop ? 0.8 : 1,
-          delay: isDesktop ? 3.5 : 1.5,
+          delay: isDesktop ? 3.5 : 2.5,
         }}
       >
         {isClient && <Femida screen={isMobile} />}
@@ -194,8 +194,8 @@ export default function Hero() {
         initial={{ y: "90px", opacity: 0 }}
         transition={{
           ease: "easeIn",
-          duration: isDesktop ? 1 : 2,
-          delay: isDesktop ? 3 : 1,
+          duration: isDesktop ? 1 : 0.6,
+          delay: isDesktop ? 3 : 2.5,
         }}
         className={styles.btn_wrapper}
       >
