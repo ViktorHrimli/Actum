@@ -22,15 +22,10 @@ export default function Home() {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsLoad(true), 3500);
+    setTimeout(() => setIsLoad(true), 3700);
 
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      setTimeout(() => {
-        document.body.style.overflow = "auto";
-      }, 4000);
-    };
+    const scrollY = document.body.style.top;
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
   }, []);
   return (
     <>
