@@ -45,6 +45,9 @@ export default function AboutCompany() {
         {/* GRADIENTS */}
         <div className={gradient.main_gradient}></div>
         <div className={gradient.second_gradient}></div>
+        <div className={gradient.text_gradient}></div>
+        <div className={gradient.partner_gradient}></div>
+
         {/* PHOTO */}
         <div className={styles.olga_conteiner}>
           <Image
