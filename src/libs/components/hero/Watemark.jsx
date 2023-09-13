@@ -9,7 +9,7 @@ export default function Watemark({ screen }) {
       src={screen ? watemark_mobile : watemark}
       alt="ACTUM"
       priority={true}
-      placeholder="empty"
+      placeholder="blur"
       sizes="(max-width: 768px) 100vw"
       fill
       style={{ objectFit: "cover" }}
