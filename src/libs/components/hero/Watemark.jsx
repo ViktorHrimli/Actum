@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
@@ -10,7 +12,7 @@ export default function Watemark({ screen }) {
       alt="ACTUM"
       priority={true}
       placeholder="blur"
-      sizes="(max-width: 768px) 100vw"
+      sizes="(min-width: 320px) 50vw, (min-width: 768px) 70vw, (min-width: 1280px) 60vw"
       fill
       style={{ objectFit: "cover" }}
     />

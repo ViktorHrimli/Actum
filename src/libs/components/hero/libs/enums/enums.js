@@ -46,7 +46,7 @@ const desktopTitleTextWatemark = {
     step: { x: "0", y: "0" },
   },
   initial(screen = 1280) {
-    return { x: "101%", y: "90px" };
+    return { x: screen, y: "90px" };
   },
 
   transition: {
