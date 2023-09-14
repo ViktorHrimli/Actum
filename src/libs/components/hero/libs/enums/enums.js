@@ -16,8 +16,6 @@ const desktopAnimateWatemark = {
     };
   },
   transition: {
-    ease: "easeInOut",
-    type: "keyframes",
     duration: 0.8,
     delay: 0.7,
   },
@@ -32,7 +30,7 @@ const mobileAnimateWatemark = {
   },
   initial(isMobile, screen) {
     return {
-      x: screen / isMobile ? 2.6 : 2,
+      x: screen / isMobile ? 2.6 : 1,
       y: 300,
       scale: isMobile ? 0.9 : 1.8,
       rotate: "90deg",
@@ -42,7 +40,7 @@ const mobileAnimateWatemark = {
   transition: {
     ease: "easeInOut",
     duration: 1.6,
-    delay: 0.4,
+    delay: 0.1,
     type: "keyframes",
   },
 };
@@ -80,8 +78,8 @@ const mobileTitleTextWatemark = {
   },
   transition: {
     ease: "easeIn",
-    duration: 2,
-    delay: 0.3,
+    duration: 1,
+    delay: 0.8,
     type: "keyframes",
   },
 };
@@ -116,7 +114,7 @@ const mobileWatemarkText = {
     ease: "easeInOut",
     type: "keyframes",
     duration: 0.5,
-    delay: 0.3,
+    delay: 1,
   },
 };
 
@@ -148,7 +146,7 @@ const mobileWatemarkLine = {
   transition: {
     ease: "easeInOut",
     duration: 0.5,
-    delay: 0.3,
+    delay: 1,
     type: "keyframes",
   },
 };
