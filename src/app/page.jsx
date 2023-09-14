@@ -29,7 +29,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       {isLoad && (
         <>
           <ContactPanel type={"home"} />
