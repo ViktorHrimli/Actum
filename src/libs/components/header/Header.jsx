@@ -20,6 +20,8 @@ import {
   useEffect,
   useIsBig,
   useIsSmall,
+  useIsTabOrSmallLaptop,
+  useIsTab,
 } from "@/libs/hooks/hooks";
 
 import Logo from "@/assets/svg/LOGO.png";
@@ -41,9 +43,11 @@ export default function Header() {
 
   const path = usePathname();
 
+  // SCREEN
   const isDesktopOrLaptop = useIsBig();
-
   const isMobile = useIsSmall();
+  const isTabOrLaptop = useIsTabOrSmallLaptop();
+  const isTab = useIsTab();
 
   const isHome = path === "/";
   const patnName = path.replace("/", "");
@@ -104,7 +108,9 @@ export default function Header() {
               animate={isHome ? logoAnimated["animate"](isStep) : false}
               variants={logoAnimated["variants"](isScreenHeight)}
               initial={
-                isHome ? logoAnimated["initial"](isOnlyMobileScreen) : false
+                isHome
+                  ? logoAnimated["initial"](isOnlyMobileScreen, isTabOrLaptop)
+                  : false
               }
               transition={logoAnimated["transition"]}
             >
@@ -133,7 +139,7 @@ export default function Header() {
               route={path}
               onClick={handleClickOnMenu}
               onHover={onHover}
-              isMobile={isMobile}
+              isMobile={isTab}
               setOnHover={setOnHover}
               setIsOpenMenu={setIsOpenMenu}
               isOpenMenu={isOpenMenu}
@@ -169,7 +175,7 @@ export default function Header() {
                 route={path}
                 onClick={handleClickOnBar}
                 onHover={onHover}
-                isMobile={isMobile}
+                isMobile={isTab}
                 setOnHover={setOnHover}
                 setIsOpenMenu={setIsOpenMenu}
                 isOpenMenu={isOpenMenu}
