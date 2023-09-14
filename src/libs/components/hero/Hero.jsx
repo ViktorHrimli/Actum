@@ -57,16 +57,28 @@ export default function Hero() {
   useEffect(() => {
     setIsClient(true);
     setscreenWidth(window.innerWidth);
+    const scrollY = document.body.style.top;
+
+    document.body.style.position = "fixed";
+
+    document.body.style.left = "50%";
+    document.body.style.transform = "translateX(-50%)";
 
     document.body.style.overflow = "hidden";
-    document.body.style.maxHeight = "100vh";
+
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
     setTimeout(
       () => {
-        document.body.style.overflowX = "hidden";
-        document.body.style.maxHeight = "";
+        document.body.style.overflow = "";
+        document.body.style.height = "auto";
+        document.body.style.left = "0%";
+        document.body.style.transform = "";
+
+        document.body.style.position = "initial";
+        document.body.style.top = "";
       },
-      isDesktop ? 4000 : 2000
+      isDesktop ? 4000 : 3500
     );
 
     setTimeout(() => setIsStep(true), 2000);
@@ -90,12 +102,12 @@ export default function Hero() {
         className={styles.image_conteiner}
         animate={"open"}
         variants={{ open: { x: 0, opacity: 1 } }}
-        initial={{ x: 50, opacity: 0 }}
+        initial={{ x: isDesktop ? 500 : 100, opacity: 0 }}
         transition={{
           type: "keyframes",
           ease: "easeInOut",
-          duration: isDesktop ? 0.8 : 1,
-          delay: isDesktop ? 3.5 : 1.5,
+          duration: isDesktop ? 1.2 : 1,
+          delay: isDesktop ? 3.5 : 2.5,
         }}
       >
         {isClient && <Femida screen={isMobile} />}
@@ -193,9 +205,10 @@ export default function Hero() {
         variants={{ open: { y: "0", opacity: 1 } }}
         initial={{ y: "90px", opacity: 0 }}
         transition={{
-          ease: "easeIn",
-          duration: isDesktop ? 1 : 2,
-          delay: isDesktop ? 3 : 1,
+          ease: "easeInOut",
+          type: "keyframes",
+          duration: isDesktop ? 1.2 : 1,
+          delay: isDesktop ? 3 : 3,
         }}
         className={styles.btn_wrapper}
       >

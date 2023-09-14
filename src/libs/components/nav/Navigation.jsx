@@ -52,13 +52,23 @@ export default function Navigation({
             )}
 
             {isMobile && isOpenMenu && (
-              <Select routes={items} onClick={onClick} isOpen={isOpenMenu} />
+              <Select
+                routes={items}
+                onClick={onClick}
+                isOpen={isOpenMenu}
+                isMobile={isMobile}
+              />
             )}
           </li>
         ))}
       </ul>
       {!isMobile && onHover && (
-        <Select isOpen={onHover} onClick={onClick} routes={links[1].items} />
+        <Select
+          isOpen={onHover}
+          onClick={onClick}
+          routes={links[1].items}
+          isMobile={isMobile}
+        />
       )}
     </div>
   );

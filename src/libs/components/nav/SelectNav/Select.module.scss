@@ -1,4 +1,5 @@
 .conteiner {
+    position: relative;
     display: flex;
     width: 235px;
     background-color: transparent;
@@ -14,8 +15,19 @@
     }
 }
 
+.hidden_wrapper {
+    position: absolute;
+    width: 1000px;
+    height: 400px;
+    top: 0;
+    left: -345px;
+
+    background-color: transparent;
+}
+
 .list {
-    margin-top: 15px;
+    margin-top: -15px;
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -25,6 +37,7 @@
 
     @media screen and (min-width: 1280px) {
         margin-top: 5px;
+        margin-bottom: 0px;
         gap: 5px;
         border-radius: 4px;
         background: rgba(31, 31, 31, 0.60);
