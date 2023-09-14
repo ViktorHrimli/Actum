@@ -96,28 +96,29 @@ export default function Hero() {
   return (
     <section className={styles.hero_section}>
       <div id="hero_section" className={styles.hero_conteiner}>
-        {isClient && (
-          <motion.div
-            key={"watemark"}
-            animate={isHome ? watemarkAnimated["animate"](isStep) : false}
-            variants={isHome ? watemarkAnimated["variants"] : false}
-            initial={
-              isHome
-                ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
-                : false
-            }
-            transition={watemarkAnimated["transition"]}
-            className={styles.conteiner_wordmark}
-          >
+        <motion.div
+          key={"watemark"}
+          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
+          variants={isHome ? watemarkAnimated["variants"] : false}
+          initial={
+            isHome
+              ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
+              : false
+          }
+          transition={watemarkAnimated["transition"]}
+          className={styles.conteiner_wordmark}
+        >
+          {isClient && (
             <Image
               src={watemark}
               alt="ACTUM"
-              priority={true}
+              priority={false}
               placeholder="blur"
+              objectFit="cover"
               fill
             />
-          </motion.div>
-        )}
+          )}
+        </motion.div>
 
         {isLoad && (
           <motion.div
@@ -130,10 +131,15 @@ export default function Hero() {
               type: "keyframes",
               ease: "easeInOut",
               duration: isDesktop ? 1.2 : 1,
-              delay: 0.1,
             }}
           >
-            <Image src={femida} alt="Femida" priority={true} fill />
+            <Image
+              src={femida}
+              alt="Femida"
+              priority={false}
+              fetchPriority="low"
+              fill
+            />
           </motion.div>
         )}
 
@@ -231,17 +237,14 @@ export default function Hero() {
           <div style={{ height: "400px" }}></div>
         )}
 
-        {isLoad && (
+        {/* {isLoad && (
           <motion.div
             animate={"open"}
             key={"btn_wrapper"}
             variants={{ open: { y: "0", opacity: 1 } }}
             initial={{ y: "90px", opacity: 0 }}
             transition={{
-              ease: "easeInOut",
-              type: "keyframes",
-              duration: isDesktop ? 1.2 : 1,
-              delay: isDesktop ? 0.3 : 0.3,
+              duration: 1.2,
             }}
             className={styles.btn_wrapper}
           >
@@ -254,7 +257,7 @@ export default function Hero() {
               />
             </Link>
           </motion.div>
-        )}
+        )} */}
       </div>
     </section>
   );

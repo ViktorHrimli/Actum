@@ -37,7 +37,7 @@ const mobileLogoAnimate = {
   transition: {
     ease: "easeInOut",
     duration: 1.6,
-    delay: 0.4,
+    delay: 0.1,
     type: "keyframes",
   },
 };
