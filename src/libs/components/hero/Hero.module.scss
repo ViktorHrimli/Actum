@@ -44,12 +44,23 @@
     @media screen and (min-width: 1440px) {
         width: 1440px;
         overflow-x: hidden;
+
     }
 
     z-index: 10;
 
 }
 
+
+.hero_conteiner {
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
 
 .conteiner_wordmark {
     position: relative;

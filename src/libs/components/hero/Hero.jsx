@@ -60,7 +60,9 @@ export default function Hero() {
     setIsClient(true);
     setscreenWidth(window.innerWidth);
     const scrollY = document.body.style.top;
+    const hero = document.getElementById("hero_section");
 
+    hero.style.overflowY = "hidden";
     document.body.style.position = "fixed";
 
     document.body.style.left = "50%";
@@ -72,6 +74,8 @@ export default function Hero() {
 
     setTimeout(
       () => {
+        hero.style.overflowY = "";
+
         document.body.style.overflow = "";
         document.body.style.height = "auto";
         document.body.style.left = "0%";
@@ -88,145 +92,149 @@ export default function Hero() {
 
   return (
     <section className={styles.hero_section}>
-      <motion.div
-        key={"watemark"}
-        animate={isHome ? watemarkAnimated["animate"](isStep) : false}
-        variants={isHome ? watemarkAnimated["variants"] : false}
-        initial={
-          isHome
-            ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
-            : false
-        }
-        transition={watemarkAnimated["transition"]}
-        className={styles.conteiner_wordmark}
-      >
-        {isClient && <Watemark screen={isMobile} />}
-      </motion.div>
-
-      <motion.div
-        key={"femida"}
-        className={styles.image_conteiner}
-        animate={"open"}
-        variants={{ open: { x: 0, opacity: 1 } }}
-        initial={{ x: isDesktop ? 600 : 50, opacity: 1 }}
-        transition={{
-          type: "keyframes",
-          ease: "easeInOut",
-          duration: isDesktop ? 1.2 : 1,
-          delay: isDesktop ? 3.5 : 2.5,
-        }}
-      >
-        {isClient && <Femida screen={isMobile} />}
-      </motion.div>
-
-      {/* GRADIENTS */}
-      <motion.div
-        key={"main_gradient"}
-        className={styles.main_gradient}
-        animate={gradientVariants["animate"]}
-        variants={gradientVariants["variants"]}
-        initial={gradientVariants["initial"]}
-        transition={gradientVariants["transition"](isDesktop)}
-      ></motion.div>
-
-      <motion.div
-        key={"second_gradient"}
-        animate={gradientVariants["animate"]}
-        variants={gradientVariants["variants"]}
-        initial={gradientVariants["initial"]}
-        transition={gradientVariants["transition"](isDesktop)}
-        className={styles.second_gradient}
-      ></motion.div>
-
-      <motion.div
-        key={"thirhd_gradient"}
-        animate={gradientVariants["animate"]}
-        variants={gradientVariants["variants"]}
-        initial={gradientVariants["initial"]}
-        transition={gradientVariants["transition"](isDesktop)}
-        className={styles.thirhd_gradient}
-      ></motion.div>
-
-      <motion.div
-        key={"fourth_gradient"}
-        animate={gradientVariants["animate"]}
-        variants={gradientVariants["variants"]}
-        initial={gradientVariants["initial"]}
-        transition={gradientVariants["transition"](isDesktop)}
-        className={styles.fourth_gradient}
-      ></motion.div>
-
-      {/* GRADIENT END */}
-      {isClient ? (
-        <motion.h2
-          key={"title_text"}
-          animate={isHome ? titleWatemarkAnimated["animate"](isStep) : false}
-          variants={titleWatemarkAnimated["variants"]}
-          initial={
-            isHome ? titleWatemarkAnimated["initial"](screenWidth) : false
-          }
-          transition={titleWatemarkAnimated["transition"]}
-          className={styles.title_text}
-        >
-          Адвокатське об’Єднання
-        </motion.h2>
-      ) : (
-        <div style={{ height: "90px" }}></div>
-      )}
-
-      {isClient ? (
+      <div id="hero_section" className={styles.hero_conteiner}>
         <motion.div
-          key={"under_line"}
-          animate={isHome ? watemarkLineAnimated["animate"] : false}
-          variants={watemarkLineAnimated["variants"]}
+          key={"watemark"}
+          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
+          variants={isHome ? watemarkAnimated["variants"] : false}
           initial={
-            isHome ? watemarkLineAnimated["initial"](screenWidth) : false
+            isHome
+              ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
+              : false
           }
-          transition={watemarkLineAnimated["transition"]}
-          className={styles.under_line}
-        ></motion.div>
-      ) : (
-        <div style={{ height: "21px" }}></div>
-      )}
-      {isClient ? (
-        <motion.div
-          key={"text"}
-          animate={isHome ? watemarTextkAnimated["animate"] : false}
-          variants={watemarTextkAnimated["variants"]}
-          initial={
-            isHome ? watemarTextkAnimated["initial"](screenWidth) : false
-          }
-          transition={watemarTextkAnimated["transition"]}
-          className={styles.text}
+          transition={watemarkAnimated["transition"]}
+          className={styles.conteiner_wordmark}
         >
-          Дія задля результату
+          {isClient && <Watemark screen={isMobile} />}
         </motion.div>
-      ) : (
-        <div style={{ height: "400px" }}></div>
-      )}
 
-      <motion.div
-        animate={"open"}
-        key={"btn_wrapper"}
-        variants={{ open: { y: "0", opacity: 1 } }}
-        initial={{ y: "90px", opacity: 0 }}
-        transition={{
-          ease: "easeInOut",
-          type: "keyframes",
-          duration: isDesktop ? 1.2 : 1,
-          delay: isDesktop ? 3 : 3,
-        }}
-        className={styles.btn_wrapper}
-      >
-        <Link href={"/book"}>
-          <Button
-            onClick={() => {}}
-            type={"button"}
-            text="замовити консультацію"
-            style="button_prymary"
-          />
-        </Link>
-      </motion.div>
+        {isClient && (
+          <motion.div
+            key={"femida"}
+            className={styles.image_conteiner}
+            animate={"open"}
+            variants={{ open: { x: 0, display: "block" } }}
+            initial={{ x: screenWidth / 2, display: "none" }}
+            transition={{
+              type: "keyframes",
+              ease: "easeInOut",
+              duration: isDesktop ? 1.2 : 1,
+              delay: isDesktop ? 3.5 : 2.5,
+            }}
+          >
+            <Femida screen={isMobile} />
+          </motion.div>
+        )}
+
+        {/* GRADIENTS */}
+        <motion.div
+          key={"main_gradient"}
+          className={styles.main_gradient}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+        ></motion.div>
+
+        <motion.div
+          key={"second_gradient"}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.second_gradient}
+        ></motion.div>
+
+        <motion.div
+          key={"thirhd_gradient"}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.thirhd_gradient}
+        ></motion.div>
+
+        <motion.div
+          key={"fourth_gradient"}
+          animate={gradientVariants["animate"]}
+          variants={gradientVariants["variants"]}
+          initial={gradientVariants["initial"]}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.fourth_gradient}
+        ></motion.div>
+
+        {/* GRADIENT END */}
+        {isClient ? (
+          <motion.h2
+            key={"title_text"}
+            animate={isHome ? titleWatemarkAnimated["animate"](isStep) : false}
+            variants={titleWatemarkAnimated["variants"]}
+            initial={
+              isHome ? titleWatemarkAnimated["initial"](screenWidth) : false
+            }
+            transition={titleWatemarkAnimated["transition"]}
+            className={styles.title_text}
+          >
+            Адвокатське об’Єднання
+          </motion.h2>
+        ) : (
+          <div style={{ height: "90px" }}></div>
+        )}
+
+        {isClient ? (
+          <motion.div
+            key={"under_line"}
+            animate={isHome ? watemarkLineAnimated["animate"] : false}
+            variants={watemarkLineAnimated["variants"]}
+            initial={
+              isHome ? watemarkLineAnimated["initial"](screenWidth) : false
+            }
+            transition={watemarkLineAnimated["transition"]}
+            className={styles.under_line}
+          ></motion.div>
+        ) : (
+          <div style={{ height: "21px" }}></div>
+        )}
+        {isClient ? (
+          <motion.div
+            key={"text"}
+            animate={isHome ? watemarTextkAnimated["animate"] : false}
+            variants={watemarTextkAnimated["variants"]}
+            initial={
+              isHome ? watemarTextkAnimated["initial"](screenWidth) : false
+            }
+            transition={watemarTextkAnimated["transition"]}
+            className={styles.text}
+          >
+            Дія задля результату
+          </motion.div>
+        ) : (
+          <div style={{ height: "400px" }}></div>
+        )}
+
+        <motion.div
+          animate={"open"}
+          key={"btn_wrapper"}
+          variants={{ open: { y: "0", opacity: 1 } }}
+          initial={{ y: "90px", opacity: 0 }}
+          transition={{
+            ease: "easeInOut",
+            type: "keyframes",
+            duration: isDesktop ? 1.2 : 1,
+            delay: isDesktop ? 3 : 3,
+          }}
+          className={styles.btn_wrapper}
+        >
+          <Link href={"/book"}>
+            <Button
+              onClick={() => {}}
+              type={"button"}
+              text="замовити консультацію"
+              style="button_prymary"
+            />
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 }
