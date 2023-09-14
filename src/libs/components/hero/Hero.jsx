@@ -108,7 +108,7 @@ export default function Hero() {
         className={styles.image_conteiner}
         animate={"open"}
         variants={{ open: { x: 0, opacity: 1 } }}
-        initial={{ x: isDesktop ? 500 : 100, opacity: 0 }}
+        initial={{ x: isDesktop ? 600 : 50, opacity: 1 }}
         transition={{
           type: "keyframes",
           ease: "easeInOut",
@@ -116,7 +116,7 @@ export default function Hero() {
           delay: isDesktop ? 3.5 : 2.5,
         }}
       >
-        <Femida screen={isMobile} />
+        {isClient && <Femida screen={isMobile} />}
       </motion.div>
 
       {/* GRADIENTS */}
