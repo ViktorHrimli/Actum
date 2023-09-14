@@ -112,7 +112,8 @@ export default function Hero() {
             <Image
               src={watemark}
               alt="ACTUM"
-              priority={false}
+              fetchPriority="high"
+              priority={true}
               placeholder="blur"
               objectFit="cover"
               fill
@@ -136,15 +137,15 @@ export default function Hero() {
             <Image
               src={femida}
               alt="Femida"
-              priority={false}
-              fetchPriority="low"
+              priority={true}
+              fetchPriority="high"
               fill
             />
           </motion.div>
         )}
 
         {/* GRADIENTS */}
-        {isLoad && (
+        {/* {isLoad && (
           <motion.div
             key={"main_gradient"}
             className={styles.main_gradient}
@@ -186,7 +187,7 @@ export default function Hero() {
             transition={gradientVariants["transition"](isDesktop)}
             className={styles.fourth_gradient}
           ></motion.div>
-        )}
+        )} */}
 
         {/* GRADIENT END */}
         {isClient ? (
@@ -220,6 +221,7 @@ export default function Hero() {
         ) : (
           <div style={{ height: "21px" }}></div>
         )}
+
         {isLoad ? (
           <motion.div
             key={"text"}
@@ -237,7 +239,7 @@ export default function Hero() {
           <div style={{ height: "400px" }}></div>
         )}
 
-        {/* {isLoad && (
+        {isLoad && (
           <motion.div
             animate={"open"}
             key={"btn_wrapper"}
@@ -257,7 +259,7 @@ export default function Hero() {
               />
             </Link>
           </motion.div>
-        )} */}
+        )}
       </div>
     </section>
   );
