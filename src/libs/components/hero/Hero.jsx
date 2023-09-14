@@ -121,28 +121,27 @@ export default function Hero() {
           )}
         </motion.div>
 
-        {isLoad && (
-          <motion.div
-            key={"femida"}
-            className={styles.image_conteiner}
-            animate={"open"}
-            variants={{ open: { x: 0, opacity: 1 } }}
-            initial={{ x: screenWidth / 2, opacity: 0 }}
-            transition={{
-              type: "keyframes",
-              ease: "easeInOut",
-              duration: isDesktop ? 1.2 : 1,
-            }}
-          >
-            <Image
-              src={femida}
-              alt="Femida"
-              priority={true}
-              fetchPriority="high"
-              fill
-            />
-          </motion.div>
-        )}
+        <motion.div
+          key={"femida"}
+          className={styles.image_conteiner}
+          animate={"open"}
+          variants={{ open: { x: 0, opacity: 1 } }}
+          initial={{ x: isDesktop ? 600 : 250, opacity: 0 }}
+          transition={{
+            type: "keyframes",
+            ease: "easeInOut",
+            duration: isDesktop ? 1.2 : 1,
+            delay: 2,
+          }}
+        >
+          <Image
+            src={femida}
+            alt="Femida"
+            priority={true}
+            fetchPriority="high"
+            fill
+          />
+        </motion.div>
 
         {/* GRADIENTS */}
         {/* {isLoad && (

@@ -1,3 +1,5 @@
+"use client";
+
 const desktopAnimateWatemark = {
   animate(isStep) {
     return isStep ? "step" : "open";
@@ -61,7 +63,7 @@ const desktopTitleTextWatemark = {
     ease: "easeInOut",
     type: "keyframes",
     duration: 0.8,
-    delay: 0.7,
+    delay: 0.6,
   },
 };
 

@@ -1,3 +1,5 @@
+"use client";
+
 const desktopLogoAnimate = {
   animate(isStep) {
     return isStep ? "start" : "step";
@@ -16,7 +18,7 @@ const desktopLogoAnimate = {
     ease: "easeInOut",
     type: "keyframes",
     duration: 0.6,
-    delay: 0.7,
+    delay: 0.5,
   },
 };
 
