@@ -6,12 +6,14 @@ const desktopAnimateWatemark = {
     open: { x: 300, opacity: 1 },
     step: { x: 0, y: 0, scale: 1, opacity: 1 },
   },
-  initial: {
-    x: 1000,
-    y: 90,
-    scale: 1.2,
-    rotate: "0deg",
-    opacity: 0,
+  initial(isClient) {
+    return {
+      x: 1000,
+      y: 90,
+      scale: 1.2,
+      rotate: "0deg",
+      opacity: 0,
+    };
   },
   transition: {
     ease: "easeInOut",
@@ -22,13 +24,21 @@ const desktopAnimateWatemark = {
 };
 
 const mobileAnimateWatemark = {
-  animate(isStep) {
+  animate(isDesktop) {
     return "open";
   },
   variants: {
     open: { x: "0", y: "0", scale: 1, rotate: "0deg", opacity: 1 },
   },
-  initial: { x: 0, y: 300, scale: 1.8, rotate: "90deg", opacity: 1 },
+  initial(isMobile, screen) {
+    return {
+      x: screen / 2.6,
+      y: 300,
+      scale: isMobile ? 0.9 : 1.8,
+      rotate: "90deg",
+      opacity: 1,
+    };
+  },
   transition: {
     ease: "easeInOut",
     duration: 1.6,

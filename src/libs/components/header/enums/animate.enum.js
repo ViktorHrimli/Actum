@@ -30,7 +30,7 @@ const mobileLogoAnimate = {
     };
   },
 
-  initial(screen = 320) {
+  initial(screen = 320, isTab) {
     return { x: screen / 2.6, y: 100, scale: 3, rotate: "90deg" };
   },
 

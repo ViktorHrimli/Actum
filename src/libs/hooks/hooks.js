@@ -13,4 +13,10 @@ export { usePathname, useParams, useRouter } from "next/navigation";
 
 export { useMediaQuery } from "react-responsive";
 
-export { useIsBig, useIsSmall, useSmallLaptop } from "./mediaQueryHooks";
+export {
+  useIsBig,
+  useIsSmall,
+  useSmallLaptop,
+  useIsTabOrSmallLaptop,
+  useIsTab,
+} from "./mediaQueryHooks";

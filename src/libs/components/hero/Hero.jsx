@@ -9,6 +9,7 @@ import {
   useIsBig,
   usePathname,
   useIsSmall,
+  useIsTabOrSmallLaptop,
 } from "@/libs/hooks/hooks";
 
 import Button from "../button/Button";
@@ -37,6 +38,7 @@ export default function Hero() {
 
   const isDesktop = useIsBig();
   const isMobile = useIsSmall();
+  const isSmallLaptopOrTab = useIsTabOrSmallLaptop();
   const path = usePathname();
 
   const isHome = path === "/";
@@ -90,7 +92,11 @@ export default function Hero() {
         key={"watemark"}
         animate={isHome ? watemarkAnimated["animate"](isStep) : false}
         variants={isHome ? watemarkAnimated["variants"] : false}
-        initial={isHome ? watemarkAnimated["initial"] : false}
+        initial={
+          isHome
+            ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
+            : false
+        }
         transition={watemarkAnimated["transition"]}
         className={styles.conteiner_wordmark}
       >
@@ -110,7 +116,7 @@ export default function Hero() {
           delay: isDesktop ? 3.5 : 2.5,
         }}
       >
-        {isClient && <Femida screen={isMobile} />}
+        <Femida screen={isMobile} />
       </motion.div>
 
       {/* GRADIENTS */}

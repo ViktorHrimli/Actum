@@ -5,9 +5,7 @@
         width: 100vw;
     }
 
-    @media screen and (min-width: 768px) {
-        width: 768px;
-    }
+    @media screen and (min-width: 768px) {}
 
     @media screen and (min-width: 1280px) {
         width: 1280px;
@@ -39,7 +37,9 @@
         left: 0;
     }
 
+
     @media screen and (min-width: 1280px) {
+        width: 100%;
         justify-content: start;
         top: 0;
         left: 0;
