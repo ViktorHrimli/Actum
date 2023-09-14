@@ -144,7 +144,7 @@ export default function Hero() {
         </motion.div>
 
         {/* GRADIENTS */}
-        {/* {isLoad && (
+        {isLoad && (
           <motion.div
             key={"main_gradient"}
             className={styles.main_gradient}
@@ -186,7 +186,7 @@ export default function Hero() {
             transition={gradientVariants["transition"](isDesktop)}
             className={styles.fourth_gradient}
           ></motion.div>
-        )} */}
+        )}
 
         {/* GRADIENT END */}
         {isClient ? (
