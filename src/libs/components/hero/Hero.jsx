@@ -72,22 +72,22 @@ export default function Hero() {
 
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
-    setTimeout(
-      () => {
-        hero.style.overflowY = "";
+    // setTimeout(
+    //   () => {
+    //     hero.style.overflowY = "";
 
-        document.body.style.overflow = "";
-        document.body.style.height = "auto";
-        document.body.style.left = "0%";
-        document.body.style.transform = "";
+    //     document.body.style.overflow = "";
+    //     document.body.style.height = "auto";
+    //     document.body.style.left = "0%";
+    //     document.body.style.transform = "";
 
-        document.body.style.position = "initial";
-        document.body.style.top = "";
-      },
-      isDesktop ? 4000 : 3500
-    );
+    //     document.body.style.position = "initial";
+    //     document.body.style.top = "";
+    //   },
+    //   isDesktop ? 4000 : 3500
+    // );
 
-    setTimeout(() => setIsStep(true), 2000);
+    // setTimeout(() => setIsStep(true), 2000);
   }, []);
 
   return (
@@ -121,7 +121,7 @@ export default function Hero() {
             delay: isDesktop ? 3.5 : 2.5,
           }}
         >
-          {/* <Femida screen={isMobile} /> */}
+          <Femida screen={isMobile} />
         </motion.div>
 
         {/* GRADIENTS */}

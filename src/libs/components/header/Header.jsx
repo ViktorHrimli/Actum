@@ -80,7 +80,7 @@ export default function Header() {
       isDesktopOrLaptop ? window.innerHeight > 798 : window.innerWidth
     );
 
-    setTimeout(() => setIsStep(true), 2000);
+    // setTimeout(() => setIsStep(true), 2000);
   }, []);
 
   const handleClickOnBar = useCallback(() => {
