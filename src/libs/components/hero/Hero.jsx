@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 import { motion } from "framer-motion";
 
@@ -26,8 +27,8 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
-import Femida from "./Femida";
-import Watemark from "./Watemark";
+import femida from "@/assets/svg/HERO_FEMIDA.png";
+import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./Hero.module.scss";
 
@@ -35,6 +36,7 @@ export default function Hero() {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
+  const [isLoad, setIsLoad] = useState(false);
 
   const isDesktop = useIsBig();
   const isMobile = useIsSmall();
@@ -72,57 +74,69 @@ export default function Hero() {
 
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
-    // setTimeout(
-    //   () => {
-    //     hero.style.overflowY = "";
+    setTimeout(() => setIsStep(true), 2000);
+    setTimeout(() => setIsLoad(true), isDesktop ? 3500 : 2500);
 
-    //     document.body.style.overflow = "";
-    //     document.body.style.height = "auto";
-    //     document.body.style.left = "0%";
-    //     document.body.style.transform = "";
+    setTimeout(
+      () => {
+        hero.style.overflowY = "";
 
-    //     document.body.style.position = "initial";
-    //     document.body.style.top = "";
-    //   },
-    //   isDesktop ? 4000 : 3500
-    // );
+        document.body.style.overflow = "";
+        document.body.style.height = "auto";
+        document.body.style.left = "0%";
+        document.body.style.transform = "";
 
-    // setTimeout(() => setIsStep(true), 2000);
+        document.body.style.position = "initial";
+        document.body.style.top = "";
+      },
+      isDesktop ? 4000 : 3500
+    );
   }, []);
 
   return (
     <section className={styles.hero_section}>
       <div id="hero_section" className={styles.hero_conteiner}>
-        <motion.div
-          key={"watemark"}
-          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
-          variants={isHome ? watemarkAnimated["variants"] : false}
-          initial={
-            isHome
-              ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
-              : false
-          }
-          transition={watemarkAnimated["transition"]}
-          className={styles.conteiner_wordmark}
-        >
-          {isClient && <Watemark screen={isMobile} />}
-        </motion.div>
+        {isClient && (
+          <motion.div
+            key={"watemark"}
+            animate={isHome ? watemarkAnimated["animate"](isStep) : false}
+            variants={isHome ? watemarkAnimated["variants"] : false}
+            initial={
+              isHome
+                ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
+                : false
+            }
+            transition={watemarkAnimated["transition"]}
+            className={styles.conteiner_wordmark}
+          >
+            <Image
+              src={watemark}
+              alt="ACTUM"
+              priority={true}
+              placeholder="blur"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </motion.div>
+        )}
 
-        <motion.div
-          key={"femida"}
-          className={styles.image_conteiner}
-          animate={"open"}
-          variants={{ open: { x: 0, display: "block" } }}
-          initial={{ x: screenWidth / 2, display: "none" }}
-          transition={{
-            type: "keyframes",
-            ease: "easeInOut",
-            duration: isDesktop ? 1.2 : 1,
-            delay: isDesktop ? 3.5 : 2.5,
-          }}
-        >
-          <Femida screen={isMobile} />
-        </motion.div>
+        {isStep && (
+          <motion.div
+            key={"femida"}
+            className={styles.image_conteiner}
+            animate={"open"}
+            variants={{ open: { x: 0, opacity: 1 } }}
+            initial={{ x: screenWidth / 2, opacity: 0 }}
+            transition={{
+              type: "keyframes",
+              ease: "easeInOut",
+              duration: isDesktop ? 1.2 : 1,
+              delay: isDesktop ? 1 : 1,
+            }}
+          >
+            <Image src={femida} alt="Femida" priority={true} fill />
+          </motion.div>
+        )}
 
         {/* GRADIENTS */}
         <motion.div
@@ -210,28 +224,30 @@ export default function Hero() {
           <div style={{ height: "400px" }}></div>
         )}
 
-        <motion.div
-          animate={"open"}
-          key={"btn_wrapper"}
-          variants={{ open: { y: "0", opacity: 1 } }}
-          initial={{ y: "90px", opacity: 0 }}
-          transition={{
-            ease: "easeInOut",
-            type: "keyframes",
-            duration: isDesktop ? 1.2 : 1,
-            delay: isDesktop ? 3 : 3,
-          }}
-          className={styles.btn_wrapper}
-        >
-          <Link href={"/book"}>
-            <Button
-              onClick={() => {}}
-              type={"button"}
-              text="замовити консультацію"
-              style="button_prymary"
-            />
-          </Link>
-        </motion.div>
+        {isLoad && (
+          <motion.div
+            animate={"open"}
+            key={"btn_wrapper"}
+            variants={{ open: { y: "0", opacity: 1 } }}
+            initial={{ y: "90px", opacity: 0 }}
+            transition={{
+              ease: "easeInOut",
+              type: "keyframes",
+              duration: isDesktop ? 1.2 : 1,
+              delay: isDesktop ? 0.5 : 0.5,
+            }}
+            className={styles.btn_wrapper}
+          >
+            <Link href={"/book"}>
+              <Button
+                onClick={() => {}}
+                type={"button"}
+                text="замовити консультацію"
+                style="button_prymary"
+              />
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   );
