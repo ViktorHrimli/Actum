@@ -108,23 +108,21 @@ export default function Hero() {
           {isClient && <Watemark screen={isMobile} />}
         </motion.div>
 
-        {isClient && (
-          <motion.div
-            key={"femida"}
-            className={styles.image_conteiner}
-            animate={"open"}
-            variants={{ open: { x: 0, display: "block" } }}
-            initial={{ x: screenWidth / 2, display: "none" }}
-            transition={{
-              type: "keyframes",
-              ease: "easeInOut",
-              duration: isDesktop ? 1.2 : 1,
-              delay: isDesktop ? 3.5 : 2.5,
-            }}
-          >
-            <Femida screen={isMobile} />
-          </motion.div>
-        )}
+        <motion.div
+          key={"femida"}
+          className={styles.image_conteiner}
+          animate={"open"}
+          variants={{ open: { x: 0, display: "block" } }}
+          initial={{ x: screenWidth / 2, display: "none" }}
+          transition={{
+            type: "keyframes",
+            ease: "easeInOut",
+            duration: isDesktop ? 1.2 : 1,
+            delay: isDesktop ? 3.5 : 2.5,
+          }}
+        >
+          {/* <Femida screen={isMobile} /> */}
+        </motion.div>
 
         {/* GRADIENTS */}
         <motion.div
