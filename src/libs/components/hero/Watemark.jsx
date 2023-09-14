@@ -10,7 +10,6 @@ export default function Watemark({ screen }) {
       alt="ACTUM"
       priority={true}
       placeholder="blur"
-      sizes="(min-width: 320px) 50vw, (min-width: 768px) 70vw, (min-width: 1280px) 60vw"
       fill
       style={{ objectFit: "cover" }}
     />

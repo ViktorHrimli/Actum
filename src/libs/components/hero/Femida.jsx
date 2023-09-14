@@ -11,7 +11,6 @@ export default function Femida({ screen }) {
       priority={true}
       placeholder="empty"
       fill
-      sizes="(min-width: 320px) 50vw, (min-width: 768px) 70vw, (min-width: 1280px) 60vw"
     />
   );
 }
