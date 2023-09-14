@@ -74,8 +74,8 @@ export default function Hero() {
 
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
-    setTimeout(() => setIsStep(true), 2000);
-    setTimeout(() => setIsLoad(true), isDesktop ? 3500 : 2500);
+    setTimeout(() => setIsStep(true), 1500);
+    setTimeout(() => setIsLoad(true), isDesktop ? 3200 : 2000);
 
     setTimeout(
       () => {
@@ -115,12 +115,11 @@ export default function Hero() {
               priority={true}
               placeholder="blur"
               fill
-              style={{ objectFit: "cover" }}
             />
           </motion.div>
         )}
 
-        {isStep && (
+        {isLoad && (
           <motion.div
             key={"femida"}
             className={styles.image_conteiner}
@@ -131,7 +130,7 @@ export default function Hero() {
               type: "keyframes",
               ease: "easeInOut",
               duration: isDesktop ? 1.2 : 1,
-              delay: isDesktop ? 1 : 1,
+              delay: 0.1,
             }}
           >
             <Image src={femida} alt="Femida" priority={true} fill />
@@ -139,41 +138,49 @@ export default function Hero() {
         )}
 
         {/* GRADIENTS */}
-        <motion.div
-          key={"main_gradient"}
-          className={styles.main_gradient}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-        ></motion.div>
+        {isLoad && (
+          <motion.div
+            key={"main_gradient"}
+            className={styles.main_gradient}
+            animate={gradientVariants["animate"]}
+            variants={gradientVariants["variants"]}
+            initial={gradientVariants["initial"]}
+            transition={gradientVariants["transition"](isDesktop)}
+          ></motion.div>
+        )}
 
-        <motion.div
-          key={"second_gradient"}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.second_gradient}
-        ></motion.div>
+        {isLoad && (
+          <motion.div
+            key={"second_gradient"}
+            animate={gradientVariants["animate"]}
+            variants={gradientVariants["variants"]}
+            initial={gradientVariants["initial"]}
+            transition={gradientVariants["transition"](isDesktop)}
+            className={styles.second_gradient}
+          ></motion.div>
+        )}
 
-        <motion.div
-          key={"thirhd_gradient"}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.thirhd_gradient}
-        ></motion.div>
+        {isLoad && (
+          <motion.div
+            key={"thirhd_gradient"}
+            animate={gradientVariants["animate"]}
+            variants={gradientVariants["variants"]}
+            initial={gradientVariants["initial"]}
+            transition={gradientVariants["transition"](isDesktop)}
+            className={styles.thirhd_gradient}
+          ></motion.div>
+        )}
 
-        <motion.div
-          key={"fourth_gradient"}
-          animate={gradientVariants["animate"]}
-          variants={gradientVariants["variants"]}
-          initial={gradientVariants["initial"]}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.fourth_gradient}
-        ></motion.div>
+        {isLoad && (
+          <motion.div
+            key={"fourth_gradient"}
+            animate={gradientVariants["animate"]}
+            variants={gradientVariants["variants"]}
+            initial={gradientVariants["initial"]}
+            transition={gradientVariants["transition"](isDesktop)}
+            className={styles.fourth_gradient}
+          ></motion.div>
+        )}
 
         {/* GRADIENT END */}
         {isClient ? (
@@ -193,7 +200,7 @@ export default function Hero() {
           <div style={{ height: "90px" }}></div>
         )}
 
-        {isClient ? (
+        {isLoad ? (
           <motion.div
             key={"under_line"}
             animate={isHome ? watemarkLineAnimated["animate"] : false}
@@ -207,7 +214,7 @@ export default function Hero() {
         ) : (
           <div style={{ height: "21px" }}></div>
         )}
-        {isClient ? (
+        {isLoad ? (
           <motion.div
             key={"text"}
             animate={isHome ? watemarTextkAnimated["animate"] : false}
@@ -234,7 +241,7 @@ export default function Hero() {
               ease: "easeInOut",
               type: "keyframes",
               duration: isDesktop ? 1.2 : 1,
-              delay: isDesktop ? 0.5 : 0.5,
+              delay: isDesktop ? 0.3 : 0.3,
             }}
             className={styles.btn_wrapper}
           >
