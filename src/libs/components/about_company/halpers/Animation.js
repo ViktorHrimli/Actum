@@ -19,7 +19,7 @@ const Animation = ({ animationData, playOnScroll }) => {
   }, [animationData]);
 
   useEffect(() => {
-    if (animation && playOnScroll) {
+    if (animation && playOnScroll && animationContainer.current) {
       const scrollHandler = () => {
         const rect = animationContainer.current.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {

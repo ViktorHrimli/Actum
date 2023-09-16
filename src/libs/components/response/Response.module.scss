@@ -237,10 +237,22 @@
     position: absolute;
     top: 0;
     left: 15px;
+
+    @media screen and (min-width: 1280px) {
+        top: 282px;
+        left: 295px;
+    }
+
+
 }
 
 .position_arr_right {
     position: absolute;
     top: -4px;
     right: 15px;
+
+    @media screen and (min-width: 1280px) {
+        top: 280px;
+        right: 165px;
+    }
 }

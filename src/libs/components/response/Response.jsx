@@ -51,7 +51,12 @@ export default function Response({ type }) {
           </div>
 
           {isClient && (
-            <ItemsList type={type} isMobie={screen} slide={isChange} start={isLeft} />
+            <ItemsList
+              type={type}
+              isMobie={screen}
+              slide={isChange}
+              start={isLeft}
+            />
           )}
           <div className={styles.position_arr_right}>
             {screen && isClient && (

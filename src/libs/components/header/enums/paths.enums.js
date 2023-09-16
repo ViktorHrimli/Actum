@@ -1,7 +1,8 @@
 const PathsPageHeader = [
-  { title: "Компанія", path: "/teamactum" },
+  { title: "Про Нас", path: "/" },
+
   {
-    title: "наші послуги",
+    title: "послуги",
     path: "/services",
     items: [
       {
@@ -42,8 +43,11 @@ const PathsPageHeader = [
       },
     ],
   },
+  { title: "Компанія", path: "/teamactum" },
+
   { title: "консультація", path: "/book" },
   { title: "контакти", path: "/contacts" },
+  { title: "публікації", path: "/blog-3-1" },
 ];
 
 export { PathsPageHeader };

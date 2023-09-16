@@ -1,7 +1,5 @@
 @import '/src/assets/css/styles';
 
-
-
 .nav_list {
     display: flex;
     align-items: center;
@@ -20,12 +18,16 @@
 
 .link {
     position: relative;
+    text-decoration-line: none !important;
+    text-decoration: none !important;
 }
-
-
-
-
 
 .active_link {
     text-decoration-line: underline;
+
+}
+
+.not_active_link {
+    text-decoration-line: none;
+    text-decoration: none;
 }

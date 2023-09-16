@@ -4,12 +4,9 @@ import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
 
 import Animation from "./halpers/Animation";
-import animationSignOlena from '@/assets/json/sign_olena.json'
-import animationSignNatalia from '@/assets/json/sign_natalia.json'
+import animationSignOlena from "@/assets/json/sign_olena.json";
+import animationSignNatalia from "@/assets/json/sign_natalia.json";
 
-
-// import XO from "@/assets/svg/XO.png";
-// import XN from "@/assets/svg/XN.png";
 import Ukraine from "@/assets/svg/Ukraine.png";
 
 import Olga from "@/assets/svg/Olga.png";
@@ -19,8 +16,6 @@ import Button from "../button/Button";
 import Link from "next/link";
 
 export default function AboutCompany() {
-  
-  const handleClick = () => {};
   return (
     <section className={styles.section}>
       <div className={styles.conteiner_map}>
@@ -90,20 +85,25 @@ export default function AboutCompany() {
           <div className={styles.conteiner_partner_olena}>
             <p className={styles.partner}>партнер Хоменко Олена</p>
             <div className={styles.wrapper_signatur_olena}>
-          <Animation animationData={animationSignOlena} playOnScroll={true} />
+              <Animation
+                animationData={animationSignOlena}
+                playOnScroll={true}
+              />
             </div>
           </div>
           <div className={styles.conteiner_partner_natalia}>
             <p className={styles.partner}>партнер Коровіна Наталя</p>
             <div className={styles.wrapper_signatur_natalia}>
-          <Animation animationData={animationSignNatalia} playOnScroll={true} />
+              <Animation
+                animationData={animationSignNatalia}
+                playOnScroll={true}
+              />
             </div>
           </div>
         </div>
         <div className={styles.btn_wrapper}>
           <Link href={"/teamactum"}>
             <Button
-              onClick={handleClick}
               style={"button_prymary"}
               text={"наша команда"}
               type={"button"}

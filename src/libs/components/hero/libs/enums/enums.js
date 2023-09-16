@@ -81,7 +81,9 @@ const mobileTitleTextWatemark = {
 };
 
 const desktopWatemarkText = {
-  animate: "open",
+  animate(isStep) {
+    return isStep && "open";
+  },
   variants: {
     open: { x: "0" },
   },
@@ -89,13 +91,14 @@ const desktopWatemarkText = {
     return { x: -screen, y: 0 };
   },
   transition: {
-    duration: 1.2,
-    delay: 0.1,
+    duration: 0.6,
   },
 };
 
 const mobileWatemarkText = {
-  animate: "open",
+  animate(isStep) {
+    return isStep && "open";
+  },
   variants: {
     open: { x: "0", opacity: 1 },
   },
@@ -111,7 +114,9 @@ const mobileWatemarkText = {
 };
 
 const desktopWatemarkLine = {
-  animate: "open",
+  animate(isStep) {
+    return isStep && "open";
+  },
   variants: {
     open: { x: "0", opacity: 1 },
   },
@@ -119,13 +124,14 @@ const desktopWatemarkLine = {
     return { x: -screen, opacity: 0 };
   },
   transition: {
-    duration: 1.2,
-    delay: 0.1,
+    duration: 0.6,
   },
 };
 
 const mobileWatemarkLine = {
-  animate: "open",
+  animate(isStep) {
+    return isStep && "open";
+  },
   variants: {
     open: { x: "0", opacity: 1 },
   },
@@ -140,12 +146,14 @@ const mobileWatemarkLine = {
 };
 
 const gradientVariants = {
-  animate: "open",
+  animate(isStep) {
+    return isStep && "open";
+  },
   variants: { open: { opacity: 1 } },
   initial: { opacity: 0 },
   transition(isDesktop) {
     return {
-      duration: 0.5,
+      duration: 0.4,
     };
   },
 };
