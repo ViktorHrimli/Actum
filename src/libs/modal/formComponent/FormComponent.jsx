@@ -99,14 +99,13 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
           </div>
           {errors.name && (
             <div className={styles.error_name}>
-              {/* <p style={{ color: "#000" }}>{"Заповніть Ім'я"}</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
               />
             </div>
           )}
-          <div className={styles[border]}>
+          {/* <div className={styles[border]}>
             <input
               className={
                 errors.surname
@@ -122,13 +121,12 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
           {errors.surname && (
             <div className={styles.error_surname}>
-              {/* <p style={{ color: "#000" }}>Заповніть прізвище</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
               />
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
@@ -156,7 +154,6 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
           {errors.textarea && (
             <div className={styles.error_textarea}>
-              {/* <p style={{ color: "#000" }}>Опишіть своє питання</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -190,7 +187,6 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             </div>
           {errors.phone && (
             <div className={styles.error_phone}>
-              {/* <p style={{ color: "#000" }}>Заповніть номер телефону</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -226,7 +222,6 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
           {errors.message && !selectValue && (
             <div className={styles.error_message}>
-              {/* <p style={{ color: "#000" }}>Виберіть мессенджер</p> */}
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className={styles.error_icon}
@@ -292,7 +287,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             <FontAwesomeIcon icon={faChevronDown} className={`${styles.icon_radio} ${styles[color_text]}`} />
           </motion.div>
         <div className={isOpenRadio ? styles.conteiner_radio_groupe : styles.conteiner_radio_groupe_hidden}>
-          <div className={styles.conteiner_radio}>
+            <div className={`${styles.conteiner_radio} ${styles[border]}`}>
             <label htmlFor="services_first" className={styles.lable_radio}>
               Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)
             </label>
@@ -312,7 +307,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             </div>
           </div>
 
-          <div className={styles.conteiner_radio}>
+          <div className={`${styles.conteiner_radio} ${styles[border]}`}>
             <label htmlFor="services_second" className={styles.lable_radio}>
               Вирішення питань через суд: розлучення, аліменти, майно,
               батьківські права, тощо (від 5000 грн.)
@@ -334,7 +329,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
           </div>
 
-          <div className={styles.conteiner_radio}>
+          <div className={`${styles.conteiner_radio} ${styles[border]}`}>
             <label htmlFor="services_third" className={styles.lable_radio}>
               Допомога з документами: написання заяв, позовів, договорів, тощо
               (від 2000 грн.)
