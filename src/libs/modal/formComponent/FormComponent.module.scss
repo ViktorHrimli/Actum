@@ -174,10 +174,11 @@
     }
     @media screen and (min-width: 768px) {
         height: 40;
+        width: 610px;
     }
 
     @media screen and (min-width: 1440px) {
-        width: 303px;
+        width: 660px;
         height: 40px;
     }
 
@@ -231,7 +232,7 @@
     }
 
     @media screen and (min-width: 1440px) {
-        width: 656px;
+        width: 660px;
         padding: 14px 15px;
     }
 
@@ -276,12 +277,19 @@
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    background-color: #E2E0E0;
+    background: rgb(15 2 28 / 17%);
     border-radius: 4px;
     z-index: 15;
+    padding: 2px;
 
     @media screen and (min-width: 320px) {
-        gap: 12px;
+        gap: 6px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 610px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 656px;
     }
 }
 
@@ -359,6 +367,17 @@
     flex-direction: row-reverse;
     align-items: flex-start;
     gap: 17px;
+    background-color: #F8F5F5;
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    @media screen and (min-width: 768px) {
+        width: 611px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 100%;
+    }
 }
 
 .lable_radio {
@@ -373,12 +392,19 @@
 
     @media screen and (min-width: 320px) {
         font-size: 14px;
-        width: 248px;
+        width: 240px;
     }
 
     @media screen and (min-width: 768px) {
         font-size: 18px;
-        width: 600px;
+        width: 563px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 608px;
+    }
+
+    &:hover {
+        color: var(--primary-color)
     }
 }
 
