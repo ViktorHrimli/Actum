@@ -32,6 +32,8 @@ import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./Hero.module.scss";
 
+let IS_FIRST_RENDER = true;
+
 export default function Hero() {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -63,24 +65,24 @@ export default function Hero() {
     setscreenWidth(window.innerWidth);
     const scrollY = document.body.style.top;
     const hero = document.getElementById("hero_section");
+    if (IS_FIRST_RENDER) {
+      hero.style.overflowY = "hidden";
+      document.body.style.position = "fixed";
 
-    hero.style.overflowY = "hidden";
-    document.body.style.position = "fixed";
+      document.body.style.left = "50%";
+      document.body.style.transform = "translateX(-50%)";
 
-    document.body.style.left = "50%";
-    document.body.style.transform = "translateX(-50%)";
+      document.body.style.overflow = "hidden";
 
-    document.body.style.overflow = "hidden";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-
-    setTimeout(() => setIsStep(true), 1500);
-    setTimeout(() => setIsLoad(true), isDesktop ? 3200 : 2000);
+      setTimeout(() => setIsStep(true), 1500);
+      setTimeout(() => setIsLoad(true), isDesktop ? 3000 : 2000);
+    }
 
     setTimeout(
       () => {
         hero.style.overflowY = "";
-
         document.body.style.overflow = "";
         document.body.style.height = "auto";
         document.body.style.left = "0%";
@@ -88,6 +90,8 @@ export default function Hero() {
 
         document.body.style.position = "initial";
         document.body.style.top = "";
+
+        IS_FIRST_RENDER = false;
       },
       isDesktop ? 4000 : 3500
     );
@@ -98,10 +102,12 @@ export default function Hero() {
       <div id="hero_section" className={styles.hero_conteiner}>
         <motion.div
           key={"watemark"}
-          animate={isHome ? watemarkAnimated["animate"](isStep) : false}
-          variants={isHome ? watemarkAnimated["variants"] : false}
+          animate={
+            IS_FIRST_RENDER ? watemarkAnimated["animate"](isStep) : false
+          }
+          variants={watemarkAnimated["variants"]}
           initial={
-            isHome
+            IS_FIRST_RENDER
               ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
               : false
           }
@@ -124,9 +130,11 @@ export default function Hero() {
         <motion.div
           key={"femida"}
           className={styles.image_conteiner}
-          animate={"open"}
+          animate={IS_FIRST_RENDER ? "open" : false}
           variants={{ open: { x: 0, opacity: 1 } }}
-          initial={{ x: isDesktop ? 600 : 250, opacity: 0 }}
+          initial={
+            IS_FIRST_RENDER ? { x: isDesktop ? 600 : 250, opacity: 0 } : false
+          }
           transition={{
             type: "keyframes",
             ease: "easeInOut",
@@ -144,58 +152,63 @@ export default function Hero() {
         </motion.div>
 
         {/* GRADIENTS */}
-        {isLoad && (
-          <motion.div
-            key={"main_gradient"}
-            className={styles.main_gradient}
-            animate={gradientVariants["animate"]}
-            variants={gradientVariants["variants"]}
-            initial={gradientVariants["initial"]}
-            transition={gradientVariants["transition"](isDesktop)}
-          ></motion.div>
-        )}
 
-        {isLoad && (
-          <motion.div
-            key={"second_gradient"}
-            animate={gradientVariants["animate"]}
-            variants={gradientVariants["variants"]}
-            initial={gradientVariants["initial"]}
-            transition={gradientVariants["transition"](isDesktop)}
-            className={styles.second_gradient}
-          ></motion.div>
-        )}
+        <motion.div
+          key={"main_gradient"}
+          className={styles.main_gradient}
+          animate={
+            IS_FIRST_RENDER ? gradientVariants["animate"](isLoad) : false
+          }
+          variants={gradientVariants["variants"]}
+          initial={IS_FIRST_RENDER ? gradientVariants["initial"] : false}
+          transition={gradientVariants["transition"](isDesktop)}
+        ></motion.div>
 
-        {isLoad && (
-          <motion.div
-            key={"thirhd_gradient"}
-            animate={gradientVariants["animate"]}
-            variants={gradientVariants["variants"]}
-            initial={gradientVariants["initial"]}
-            transition={gradientVariants["transition"](isDesktop)}
-            className={styles.thirhd_gradient}
-          ></motion.div>
-        )}
+        <motion.div
+          key={"second_gradient"}
+          animate={
+            IS_FIRST_RENDER ? gradientVariants["animate"](isLoad) : false
+          }
+          variants={gradientVariants["variants"]}
+          initial={IS_FIRST_RENDER ? gradientVariants["initial"] : false}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.second_gradient}
+        ></motion.div>
 
-        {isLoad && (
-          <motion.div
-            key={"fourth_gradient"}
-            animate={gradientVariants["animate"]}
-            variants={gradientVariants["variants"]}
-            initial={gradientVariants["initial"]}
-            transition={gradientVariants["transition"](isDesktop)}
-            className={styles.fourth_gradient}
-          ></motion.div>
-        )}
+        <motion.div
+          key={"thirhd_gradient"}
+          animate={
+            IS_FIRST_RENDER ? gradientVariants["animate"](isLoad) : false
+          }
+          variants={gradientVariants["variants"]}
+          initial={IS_FIRST_RENDER ? gradientVariants["initial"] : false}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.thirhd_gradient}
+        ></motion.div>
+
+        <motion.div
+          key={"fourth_gradient"}
+          animate={
+            IS_FIRST_RENDER ? gradientVariants["animate"](isLoad) : false
+          }
+          variants={gradientVariants["variants"]}
+          initial={IS_FIRST_RENDER ? gradientVariants["initial"] : false}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.fourth_gradient}
+        ></motion.div>
 
         {/* GRADIENT END */}
         {isClient ? (
           <motion.h2
             key={"title_text"}
-            animate={isHome ? titleWatemarkAnimated["animate"](isStep) : false}
+            animate={
+              IS_FIRST_RENDER ? titleWatemarkAnimated["animate"](isStep) : false
+            }
             variants={titleWatemarkAnimated["variants"]}
             initial={
-              isHome ? titleWatemarkAnimated["initial"](screenWidth) : false
+              IS_FIRST_RENDER
+                ? titleWatemarkAnimated["initial"](screenWidth)
+                : false
             }
             transition={titleWatemarkAnimated["transition"]}
             className={styles.title_text}
@@ -206,13 +219,17 @@ export default function Hero() {
           <div style={{ height: "90px" }}></div>
         )}
 
-        {isLoad ? (
+        {isClient ? (
           <motion.div
             key={"under_line"}
-            animate={isHome ? watemarkLineAnimated["animate"] : false}
+            animate={
+              IS_FIRST_RENDER ? watemarkLineAnimated["animate"](isLoad) : false
+            }
             variants={watemarkLineAnimated["variants"]}
             initial={
-              isHome ? watemarkLineAnimated["initial"](screenWidth) : false
+              IS_FIRST_RENDER
+                ? watemarkLineAnimated["initial"](screenWidth)
+                : false
             }
             transition={watemarkLineAnimated["transition"]}
             className={styles.under_line}
@@ -221,13 +238,17 @@ export default function Hero() {
           <div style={{ height: "21px" }}></div>
         )}
 
-        {isLoad ? (
+        {isClient ? (
           <motion.div
             key={"text"}
-            animate={isHome ? watemarTextkAnimated["animate"] : false}
+            animate={
+              IS_FIRST_RENDER ? watemarTextkAnimated["animate"](isLoad) : false
+            }
             variants={watemarTextkAnimated["variants"]}
             initial={
-              isHome ? watemarTextkAnimated["initial"](screenWidth) : false
+              IS_FIRST_RENDER
+                ? watemarTextkAnimated["initial"](screenWidth)
+                : false
             }
             transition={watemarTextkAnimated["transition"]}
             className={styles.text}
@@ -238,27 +259,25 @@ export default function Hero() {
           <div style={{ height: "400px" }}></div>
         )}
 
-        {isLoad && (
-          <motion.div
-            animate={"open"}
-            key={"btn_wrapper"}
-            variants={{ open: { y: "0", opacity: 1 } }}
-            initial={{ y: "90px", opacity: 0 }}
-            transition={{
-              duration: 1.2,
-            }}
-            className={styles.btn_wrapper}
-          >
-            <Link href={"/book"}>
-              <Button
-                onClick={() => {}}
-                type={"button"}
-                text="замовити консультацію"
-                style="button_prymary"
-              />
-            </Link>
-          </motion.div>
-        )}
+        <motion.div
+          animate={IS_FIRST_RENDER ? isLoad && "open" : false}
+          key={"btn_wrapper"}
+          variants={{ open: { y: "0", opacity: 1 } }}
+          initial={IS_FIRST_RENDER ? { y: "90px", opacity: 0 } : false}
+          transition={{
+            duration: 0.6,
+          }}
+          className={styles.btn_wrapper}
+        >
+          <Link href={"/book"}>
+            <Button
+              onClick={() => {}}
+              type={"button"}
+              text="замовити консультацію"
+              style="button_prymary"
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

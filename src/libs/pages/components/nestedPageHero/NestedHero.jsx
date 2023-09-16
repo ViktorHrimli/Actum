@@ -7,10 +7,24 @@ import Button from "@/libs/components/button/Button";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
 
+import { getFormById } from "@/shared/helpers/helpers";
+import { useEffect } from "@/libs/hooks/hooks";
+
 import styles from "./NestedHero.module.scss";
-import Link from "next/link";
+
+let IS_FIRST_RENDER = true;
 
 export default function NestedHero({ img, text }) {
+  const handleClickOnBtn = () => {
+    getFormById("form_section");
+  };
+
+  useEffect(() => {
+    return () => {
+      IS_FIRST_RENDER = false;
+    };
+  }, []);
+
   return (
     <section className={styles.section}>
       <Image
@@ -18,24 +32,31 @@ export default function NestedHero({ img, text }) {
         alt="background photo"
         fill
         priority={true}
-        style={{ zIndex: -1, objectFit: "cover" }}
+        style={{ zIndex: -1 }}
+        objectFit="cover"
         sizes="(min-width: 320px) 100vw"
       />
 
       <div className={styles.conteiner_hero_watemark}>
         <motion.div
-          animate={"start"}
+          animate={IS_FIRST_RENDER ? "start" : false}
           variants={{ start: { scale: 1, opacity: 1 } }}
-          initial={{ scale: 0.5, opacity: 0 }}
+          initial={IS_FIRST_RENDER ? { scale: 0.5, opacity: 0 } : false}
           transition={{ delay: 0.5, duration: 0.7 }}
           className={styles.title_wotemark}
         >
-          <Image src={watemark} alt="ACTUM" fill loading="eager" />
+          <Image
+            src={watemark}
+            alt="ACTUM"
+            fill
+            loading="eager"
+            objectFit="cover"
+          />
         </motion.div>
         <motion.h2
-          animate={"open"}
+          animate={IS_FIRST_RENDER ? "open" : false}
           variants={{ open: { x: 0, y: 0, opacity: 1 } }}
-          initial={{ x: "100%", opacity: 0 }}
+          initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
           transition={{ delay: 1, duration: 0.7 }}
           className={styles.title_text}
         >
@@ -43,14 +64,12 @@ export default function NestedHero({ img, text }) {
         </motion.h2>
       </div>
 
-      <div className={styles.wrapper_btn}>
-        <Link href={"/book"}>
-          <Button
-            type="button"
-            text="замовити консультацію"
-            style="button_prymary"
-          />
-        </Link>
+      <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
+        <Button
+          type="button"
+          text="замовити консультацію"
+          style="button_prymary"
+        />
       </div>
 
       <div className={styles.section_background}></div>

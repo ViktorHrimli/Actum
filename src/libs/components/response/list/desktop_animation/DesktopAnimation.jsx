@@ -1,20 +1,15 @@
 "use client";
 import { motion, useElementScroll } from "framer-motion";
 
-import {
-  useState,
-  useEffect,
-  useSmallLaptop,
-  useRef,
-} from "@/libs/hooks/hooks";
+import { useState, useEffect, useIsBig, useRef } from "@/libs/hooks/hooks";
 
 import Card from "@/libs/components/card/Card";
 
-export default function DesktopAnimation({ data, type }) {
+export default function DesktopAnimation({ data, type, index }) {
   const [current, setCurrent] = useState(0);
   const [isStart, setIsStart] = useState(false);
 
-  const laptop = useSmallLaptop();
+  const laptop = useIsBig();
   const ref = useRef();
 
   const nextSlider = () => setCurrent((prev) => (prev += 1));
@@ -29,7 +24,7 @@ export default function DesktopAnimation({ data, type }) {
   }, [current]);
 
   useEffect(() => {
-    interval = setInterval(() => nextSlider(), 4000);
+    // interval = setInterval(() => nextSlider(), 4000);
   }, []);
 
   return (
@@ -44,12 +39,12 @@ export default function DesktopAnimation({ data, type }) {
     >
       {data.map(
         (item, id) =>
-          current === id && (
+          index === id && (
             <motion.div
               animate={{ opacity: 0 }}
-              initial={{ opacity: 1 }}
+              initial={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
-              key={current}
+              key={index}
             >
               <Card type={type} {...item} />
             </motion.div>
@@ -57,11 +52,11 @@ export default function DesktopAnimation({ data, type }) {
       )}
       {data.map(
         (item, id) =>
-          current + 1 === id && (
+          index + 1 === id && (
             <motion.div
-              key={current + 1}
+              key={index + 1}
               initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1, x: laptop ? -350 : -445 }}
+              animate={{ opacity: 1, x: !laptop ? -350 : -445 }}
               transition={{ duration: 1 }}
             >
               <Card type={type} {...item} />
@@ -71,10 +66,10 @@ export default function DesktopAnimation({ data, type }) {
 
       {data.map(
         (item, id) =>
-          current + 2 === id && (
+          index + 2 === id && (
             <motion.div
               style={{ position: "absolute", top: 0, right: 0 }}
-              key={current + 2}
+              key={index + 2}
               initial={{ opacity: 0, x: 0 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}

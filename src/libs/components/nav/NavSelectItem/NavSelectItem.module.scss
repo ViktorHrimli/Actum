@@ -5,15 +5,11 @@
     align-items: center;
     width: 235px;
 
-
-
     :hover {
         text-decoration: none;
         text-decoration-line: none;
     }
 }
-
-
 
 .text {
     position: relative;
@@ -29,9 +25,9 @@
     }
 }
 
-
 .link_service {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 
     :hover {
         color: #E32F7A;
@@ -49,7 +45,6 @@
 
     z-index: 30;
 }
-
 
 .nested_select_list {
     position: absolute;

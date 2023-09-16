@@ -5,6 +5,11 @@
 
     cursor: pointer;
     z-index: 20;
+
+    @media screen and (min-width: 1280px) {
+        top: 313px;
+        left: 50px;
+    }
 }
 
 .conteiner_icon_chevron_right {
@@ -16,4 +21,9 @@
 
     cursor: pointer;
     z-index: 20;
+
+    @media screen and (min-width: 1280px) {
+        top: 313px;
+        right: 50px;
+    }
 }

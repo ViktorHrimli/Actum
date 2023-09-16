@@ -8,11 +8,10 @@ import { arrPerson } from "../libs/enums";
 import DesktopAnimation from "./desktop_animation/DesktopAnimation";
 
 export default function ItemsList({ isMobie, slide, start, type }) {
-
   return (
     <ul className={styles.card_list_response}>
       {!isMobie ? (
-        <DesktopAnimation type={type} data={arrPerson} />
+        <DesktopAnimation type={type} data={arrPerson} index={slide} />
       ) : (
         <MobileSlider isStart={start} key={slide}>
           <Card type={type} key={slide} {...arrPerson[slide]} />
