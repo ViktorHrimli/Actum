@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "@/libs/hooks/hooks";
 
@@ -15,8 +16,10 @@ const colorType = {
   crime: "#3F2E64",
 };
 
-export default function Accordion({ title, text, type }) {
+export default function Accordion({ title, text, type, path }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathName = usePathname().replace("/", "");
 
   const color = colorType[type];
 
@@ -67,7 +70,7 @@ export default function Accordion({ title, text, type }) {
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{text}</p>
               <div style={{ marginTop: "50px", display: "block" }}>
-                <ClickIcon path={"/test"} color={color} />
+                <ClickIcon path={`${pathName}/${path}`} color={color} />
               </div>
             </div>
           </motion.section>
