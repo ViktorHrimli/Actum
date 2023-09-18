@@ -35,10 +35,7 @@ export default function ModalForm({ type, isOpenModal, setIsOpenModal }) {
                   <path d="M23.3327 23.3327L4.66602 4.66602M23.3327 4.66602L4.66602 23.3327" stroke={color} strokeWidth="3" strokeLinecap="round" />
                 </svg>
               </div>
-                {/* <div className={styles.container_input}> */}
-                {/* <Form type={type} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} /> */}
                 <FormComponent type={type} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
-                {/* </div> */}
             </div>
           </div>
         </div>

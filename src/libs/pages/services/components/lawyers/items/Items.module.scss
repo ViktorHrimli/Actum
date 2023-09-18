@@ -269,8 +269,6 @@
 }
 
 
-
-
 .container_btn {
   display: flex;
   justify-content: center;
@@ -311,6 +309,7 @@
 
 .container_cards:hover:not(:last-child) {
   background: #E2E0E0;
+  -webkit-tap-highlight-color: transparent;
   z-index: 5;
   transition: all 1s;
 
