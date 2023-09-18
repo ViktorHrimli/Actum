@@ -36,7 +36,6 @@
         overflow-x: hidden;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            padding-top: 170px;
             overflow: hidden;
         }
     }
@@ -142,11 +141,12 @@
     height: 598px;
 
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -webkit-gradient(linear, (327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%));
-    background: -o-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -ms-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
+    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    // background: -webkit-gradient(linear, (327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%));
+    // background: -o-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    // background: -ms-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
 
     filter: blur(200px);
     z-index: 2;
@@ -184,8 +184,9 @@
 .second_gradient {
     position: absolute;
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
+    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
     z-index: 10;
@@ -215,8 +216,9 @@
     height: 233px;
 
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
+    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
     z-index: 5;
@@ -250,8 +252,8 @@
     height: 233px;
 
     background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
+    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
 
 
@@ -337,18 +339,18 @@
         bottom: 0px;
         right: 0px;
 
-        @media screen and (min-height: 700px) and (max-height: 799px) {
+        @media screen and (min-height: 600px) and (max-height: 799px) {
             width: 1000px;
             height: 670px;
         }
     }
 
     @media screen and (min-width: 1440px) {
-        width: 1303px;
-        height: 848px;
+        width: 1300px;
+        height: 780px;
 
-        @media screen and (min-height: 700px) and (max-height: 799px) {
-            width: 1040px;
+        @media screen and (min-height: 600px) and (max-height: 799px) {
+            width: 1100px;
             height: 670px;
         }
     }

@@ -32,7 +32,7 @@ export default function Items() {
           </div>
         <ul >{el.items?.map((item, id) => <li className={styles.list} key={id}>
           <span className={styles.marker}></span>
-          <a className={styles.link}>{item}</a>
+          <p className={styles.link}>{item}</p>
         </li>)}</ul>
         <div className={styles.border_bottom}>
           <div className={styles.border_left}></div>
