@@ -8,8 +8,8 @@
   height: 100vh;
   z-index: 16;
   overflow: hidden;
-  
-  @media screen and (min-width: 320px) and (max-width: 1279px){
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
     position: fixed;
     top: auto;
     bottom: -1px;
@@ -38,23 +38,25 @@
 }
 
 .gradient {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 
-    @media screen and (min-width: 320px) and (max-width: 1279px) {
-      width: 305px;
-      height: 44px;
-      border-radius: 305px;
-      background: #E32F7A;
-      filter: blur(35px);
-    }
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    width: 305px;
+    height: 44px;
+    border-radius: 305px;
+    background: #E32F7A;
+    filter: blur(35px);
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 668px;
     height: 44px;
     border-radius: 668px;
   }
+
   @media screen and (min-width: 1280px) {
     top: 0;
     background: linear-gradient(180deg, #1F1F1F 0%, #E32F7A 100%);
@@ -66,7 +68,7 @@
 
 .gradient_family {
   position: absolute;
-  
+
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     width: 305px;
     height: 44px;
@@ -74,36 +76,41 @@
     background: #E32F7A;
     filter: blur(35px);
   }
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 668px;
     height: 44px;
     border-radius: 668px;
   }
+
   @media screen and (min-width: 1279px) {
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #1F1F1F 0%, #E32F7A 100%);
-  box-shadow: 0px 8px 12px 0px rgba(79, 75, 75, 0.25);
-  // opacity: 0.7;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #1F1F1F 0%, #E32F7A 100%);
+    box-shadow: 0px 8px 12px 0px rgba(79, 75, 75, 0.25);
+    // opacity: 0.7;
   }
-  
+
 }
 
 .gradient_army {
-    position: absolute;
+  position: absolute;
+
   @media screen and (min-width: 320px) and (max-width: 1279px) {
-      width: 305px;
-      height: 44px;
-      border-radius: 305px;
-      background: #536641;
-      filter: blur(35px);
-    }
-    @media screen and (min-width: 768px) and (max-width: 1279px) {
-      width: 668px;
-      height: 44px;
-      border-radius: 668px;
-    }
+    width: 305px;
+    height: 44px;
+    border-radius: 305px;
+    background: #536641;
+    filter: blur(35px);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 668px;
+    height: 44px;
+    border-radius: 668px;
+  }
+
   @media screen and (min-width: 1279px) {
     top: 0;
     width: 100%;
@@ -116,6 +123,7 @@
 
 .gradient_criminal {
   position: absolute;
+
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     width: 305px;
     height: 44px;
@@ -123,11 +131,13 @@
     background: #3F2E64;
     filter: blur(35px);
   }
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 668px;
     height: 44px;
     border-radius: 668px;
   }
+
   @media screen and (min-width: 1279px) {
     top: 0;
     width: 100%;
@@ -141,13 +151,14 @@
 
 .contact_panel_conteiner {
   z-index: 20;
-  width: 100%;
   height: 100%;
   padding-top: 45px;
   padding-bottom: 45px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     padding-top: 0;
     padding-bottom: 0;
@@ -156,6 +167,7 @@
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     flex-direction: row;
   }
+
   @media screen and (min-height: 700px) and (max-height: 799px) {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -172,23 +184,25 @@
     gap: 24px;
     margin-right: 24px;
   }
+
   @media screen and (min-width: 1280px) {
     gap: 34px;
     margin-bottom: 34px;
 
-      @media screen and (min-height: 700px) and (max-height: 799px) {
-          gap: 24px;
-          margin-bottom: 24px;
-        }
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+      gap: 24px;
+      margin-bottom: 24px;
+    }
   }
+
   @media screen and (min-width: 1440px) {
     gap: 36px;
     margin-bottom: 36px;
 
-      @media screen and (min-height: 700px) and (max-height: 799px) {
-          gap: 24px;
-          margin-bottom: 24px;
-        }
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+      gap: 24px;
+      margin-bottom: 24px;
+    }
   }
 }
 
