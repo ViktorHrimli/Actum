@@ -6,12 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
+import SideBar from "../side_bar/SideBar";
 
 import {
   PathsPageHeader,
   desktopLogoAnimate,
   mobileLogoAnimate,
 } from "./enums/enum";
+import { gradientEnums } from "./enums/gradientEnums";
 
 import {
   usePathname,
@@ -19,7 +21,6 @@ import {
   useState,
   useEffect,
   useIsBig,
-  useIsSmall,
   useIsTabOrSmallLaptop,
   useIsTab,
 } from "@/libs/hooks/hooks";
@@ -27,8 +28,8 @@ import {
 import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
-import { gradientEnums } from "./enums/gradientEnums";
-import SideBar from "../side_bar/SideBar";
+
+let isSessionStorageSave = {};
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
@@ -45,11 +46,9 @@ export default function Header() {
 
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
-  const isMobile = useIsSmall();
   const isTabOrLaptop = useIsTabOrSmallLaptop();
   const isTab = useIsTab();
 
-  const isHome = path === "/";
   const patnName = path.replace("/", "");
 
   useEffect(() => {
@@ -81,6 +80,10 @@ export default function Header() {
     );
 
     setTimeout(() => setIsStep(true), 1500);
+
+    setTimeout(() => {
+      isSessionStorageSave = false;
+    }, 3000);
   }, []);
 
   const handleClickOnBar = useCallback(() => {
@@ -105,10 +108,12 @@ export default function Header() {
           <Link href={"/"}>
             <motion.div
               className={styles.logo_conteiner}
-              animate={isHome ? logoAnimated["animate"](isStep) : false}
+              animate={
+                isSessionStorageSave ? logoAnimated["animate"](isStep) : false
+              }
               variants={logoAnimated["variants"](isScreenHeight)}
               initial={
-                isHome
+                isSessionStorageSave
                   ? logoAnimated["initial"](isOnlyMobileScreen, isTabOrLaptop)
                   : false
               }
@@ -116,10 +121,11 @@ export default function Header() {
             >
               <Image
                 src={Logo}
-                alt="Logo"
+                alt="Logo ACTUM"
                 fill
                 priority={true}
-                sizes="(max-width: 768px) 100vw"
+                loading="eager"
+                sizes="(max-width: 768px) 40px, 100px"
               />
             </motion.div>
           </Link>
@@ -127,11 +133,11 @@ export default function Header() {
 
         {isDesktopOrLaptop && isClient ? (
           <motion.div
-            animate={isHome ? "open" : false}
+            animate={isSessionStorageSave ? "open" : false}
             variants={{
               open: { x: 0, y: 0, opacity: 1 },
             }}
-            initial={isHome ? { x: 0, y: 50, opacity: 0 } : false}
+            initial={isSessionStorageSave ? { x: 0, y: 50, opacity: 0 } : false}
             transition={{ ease: "easeIn", duration: 0.8, delay: 3 }}
           >
             <Navigation

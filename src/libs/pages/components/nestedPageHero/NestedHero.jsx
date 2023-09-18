@@ -11,18 +11,20 @@ import { getFormById } from "@/shared/helpers/helpers";
 import { useEffect } from "@/libs/hooks/hooks";
 
 import styles from "./NestedHero.module.scss";
-
-let IS_FIRST_RENDER = true;
+let IS_FIRST_RENDER = {};
 
 export default function NestedHero({ img, text }) {
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
+  // let IS_FIRST_RENDER;
+  // if (typeof window !== "undefined") {
+  //   IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(text) || true);
+  // }
 
   useEffect(() => {
-    return () => {
-      IS_FIRST_RENDER = false;
-    };
+    // sessionStorage.setItem(text, "false");
+    IS_FIRST_RENDER = false;
   }, []);
 
   return (
@@ -32,14 +34,15 @@ export default function NestedHero({ img, text }) {
         alt="background photo"
         fill
         priority={true}
-        style={{ zIndex: -1 }}
-        objectFit="cover"
-        sizes="(min-width: 320px) 100vw"
+        style={{ zIndex: -1, objectFit: "cover" }}
+        loading="eager"
+        sizes="100vw"
       />
 
       <div className={styles.conteiner_hero_watemark}>
         <motion.div
           animate={IS_FIRST_RENDER ? "start" : false}
+          viewport={{ once: true }}
           variants={{ start: { scale: 1, opacity: 1 } }}
           initial={IS_FIRST_RENDER ? { scale: 0.5, opacity: 0 } : false}
           transition={{ delay: 0.5, duration: 0.7 }}
@@ -50,7 +53,9 @@ export default function NestedHero({ img, text }) {
             alt="ACTUM"
             fill
             loading="eager"
-            objectFit="cover"
+            priority={true}
+            style={{ objectFit: "cover" }}
+            sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
           />
         </motion.div>
         <motion.h2
