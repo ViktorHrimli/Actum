@@ -6,12 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
+import SideBar from "../side_bar/SideBar";
 
 import {
   PathsPageHeader,
   desktopLogoAnimate,
   mobileLogoAnimate,
 } from "./enums/enum";
+import { gradientEnums } from "./enums/gradientEnums";
 
 import {
   usePathname,
@@ -26,8 +28,8 @@ import {
 import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
-import { gradientEnums } from "./enums/gradientEnums";
-import SideBar from "../side_bar/SideBar";
+
+let isSessionStorageSave = {};
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
@@ -48,10 +50,6 @@ export default function Header() {
   const isTab = useIsTab();
 
   const patnName = path.replace("/", "");
-  // SESSION STORAGE
-  let IS_FIRST_RENDER = JSON.parse(
-    sessionStorage.getItem("firstLoadPageHeader") || true
-  );
 
   useEffect(() => {
     if (gradientEnums[patnName]) {
@@ -83,7 +81,9 @@ export default function Header() {
 
     setTimeout(() => setIsStep(true), 1500);
 
-    sessionStorage.setItem("firstLoadPageHeader", "false");
+    setTimeout(() => {
+      isSessionStorageSave = false;
+    }, 3000);
   }, []);
 
   const handleClickOnBar = useCallback(() => {
@@ -109,11 +109,11 @@ export default function Header() {
             <motion.div
               className={styles.logo_conteiner}
               animate={
-                IS_FIRST_RENDER ? logoAnimated["animate"](isStep) : false
+                isSessionStorageSave ? logoAnimated["animate"](isStep) : false
               }
               variants={logoAnimated["variants"](isScreenHeight)}
               initial={
-                IS_FIRST_RENDER
+                isSessionStorageSave
                   ? logoAnimated["initial"](isOnlyMobileScreen, isTabOrLaptop)
                   : false
               }
@@ -133,11 +133,11 @@ export default function Header() {
 
         {isDesktopOrLaptop && isClient ? (
           <motion.div
-            animate={IS_FIRST_RENDER ? "open" : false}
+            animate={isSessionStorageSave ? "open" : false}
             variants={{
               open: { x: 0, y: 0, opacity: 1 },
             }}
-            initial={IS_FIRST_RENDER ? { x: 0, y: 50, opacity: 0 } : false}
+            initial={isSessionStorageSave ? { x: 0, y: 50, opacity: 0 } : false}
             transition={{ ease: "easeIn", duration: 0.8, delay: 3 }}
           >
             <Navigation
