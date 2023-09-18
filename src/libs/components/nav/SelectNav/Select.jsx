@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 
 import NavSelectItem from "../NavSelectItem/NavSelectItem";

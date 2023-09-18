@@ -34,7 +34,7 @@ export default function Navigation({
               href={path}
               onClick={onClick}
             >
-              {title.toUpperCase()}
+              <p>{title.toUpperCase()}</p>
             </Link>
 
             {isMobile && title === SERVICES && (

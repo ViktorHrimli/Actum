@@ -140,15 +140,9 @@
     width: 695.78px;
     height: 598px;
 
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-gradient(linear, (327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%));
-    // background: -o-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -ms-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-
     filter: blur(200px);
+    background-color: var(--primary-color);
+    opacity: 0.8;
     z-index: 2;
 
     @media screen and (min-width: 320px) {
@@ -157,7 +151,6 @@
 
         bottom: -200px;
         right: -100px;
-
     }
 
     @media screen and (min-width: 768px) {
@@ -183,11 +176,10 @@
 
 .second_gradient {
     position: absolute;
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+
     filter: blur(200px);
+    background-color: var(--primary-color);
+    opacity: 0.8;
 
     z-index: 10;
 
@@ -215,11 +207,9 @@
     width: 242px;
     height: 233px;
 
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
+    background-color: var(--primary-color);
+    opacity: 0.8;
 
     z-index: 5;
 
@@ -251,17 +241,14 @@
     width: 242px;
     height: 233px;
 
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
-
+    background-color: var(--primary-color);
+    opacity: 0.8;
 
     z-index: 5;
 
     @media screen and (max-width: 767px) {
         display: none;
-
     }
 
     @media screen and (min-width: 768px) {

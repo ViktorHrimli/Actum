@@ -8,8 +8,6 @@ import {
   useEffect,
   useState,
   useIsBig,
-  usePathname,
-  useIsSmall,
   useIsTabOrSmallLaptop,
 } from "@/libs/hooks/hooks";
 
@@ -32,20 +30,18 @@ import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./Hero.module.scss";
 
-let IS_FIRST_RENDER = true;
-
 export default function Hero() {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
   const [isLoad, setIsLoad] = useState(false);
 
-  const isDesktop = useIsBig();
-  const isMobile = useIsSmall();
-  const isSmallLaptopOrTab = useIsTabOrSmallLaptop();
-  const path = usePathname();
+  let IS_FIRST_RENDER = JSON.parse(
+    sessionStorage.getItem("firstLoadPage") || true
+  );
 
-  const isHome = path === "/";
+  const isDesktop = useIsBig();
+  const isSmallLaptopOrTab = useIsTabOrSmallLaptop();
 
   const watemarkAnimated = isDesktop
     ? desktopAnimateWatemark
@@ -63,8 +59,10 @@ export default function Hero() {
   useEffect(() => {
     setIsClient(true);
     setscreenWidth(window.innerWidth);
+
     const scrollY = document.body.style.top;
     const hero = document.getElementById("hero_section");
+
     if (IS_FIRST_RENDER) {
       hero.style.overflowY = "hidden";
       document.body.style.position = "fixed";
@@ -91,7 +89,7 @@ export default function Hero() {
         document.body.style.position = "initial";
         document.body.style.top = "";
 
-        IS_FIRST_RENDER = false;
+        sessionStorage.setItem("firstLoadPage", "false");
       },
       isDesktop ? 4000 : 3500
     );
@@ -121,35 +119,40 @@ export default function Hero() {
               fetchPriority="high"
               priority={true}
               placeholder="blur"
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
               fill
             />
           )}
         </motion.div>
 
-        <motion.div
-          key={"femida"}
-          className={styles.image_conteiner}
-          animate={IS_FIRST_RENDER ? "open" : false}
-          variants={{ open: { x: 0, opacity: 1 } }}
-          initial={
-            IS_FIRST_RENDER ? { x: isDesktop ? 600 : 250, opacity: 0 } : false
-          }
-          transition={{
-            type: "keyframes",
-            ease: "easeInOut",
-            duration: isDesktop ? 1.2 : 1,
-            delay: 2,
-          }}
-        >
-          <Image
-            src={femida}
-            alt="Femida"
-            priority={true}
-            fetchPriority="high"
-            fill
-          />
-        </motion.div>
+        {isStep && (
+          <motion.div
+            key={"femida"}
+            className={styles.image_conteiner}
+            animate={IS_FIRST_RENDER ? "open" : false}
+            variants={{ open: { x: 0, opacity: 1 } }}
+            initial={
+              IS_FIRST_RENDER ? { x: isDesktop ? 600 : 250, opacity: 0 } : false
+            }
+            transition={{
+              type: "keyframes",
+              ease: "easeInOut",
+              duration: isDesktop ? 1.2 : 1,
+              delay: 0.4,
+            }}
+          >
+            <Image
+              src={femida}
+              alt="Femida"
+              priority={true}
+              placeholder="blur"
+              fetchPriority="high"
+              sizes="(max-width: 768px) 700px, (max-width: 1280px) 900px, 1300px"
+              fill
+            />
+          </motion.div>
+        )}
 
         {/* GRADIENTS */}
 

@@ -18,7 +18,7 @@ const desktopAnimateWatemark = {
     };
   },
   transition: {
-    duration: 0.8,
+    duration: 0.5,
     delay: 0.7,
   },
 };
@@ -58,8 +58,8 @@ const desktopTitleTextWatemark = {
   },
 
   transition: {
-    duration: 0.8,
-    delay: 0.6,
+    duration: 0.55,
+    delay: 0.7,
   },
 };
 
@@ -153,7 +153,8 @@ const gradientVariants = {
   initial: { opacity: 0 },
   transition(isDesktop) {
     return {
-      duration: 0.4,
+      duration: 0.5,
+      delay: 0.5,
     };
   },
 };
