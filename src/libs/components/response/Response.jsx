@@ -39,7 +39,7 @@ export default function Response({ type }) {
             </p>
           </div>
           <div className={styles.position_arr_left}>
-            {screen && isClient && (
+            {isClient && (
               <Arrow
                 type={type}
                 left={true}
@@ -59,7 +59,7 @@ export default function Response({ type }) {
             />
           )}
           <div className={styles.position_arr_right}>
-            {screen && isClient && (
+            { isClient && (
               <Arrow
                 type={type}
                 left={false}

@@ -25,15 +25,19 @@ export default function ContactPanel({ type }) {
 
   const [isTrue, setIsTrue] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
-
+  const [isScroll, setIsScroll] = useState(null);
   const isDesktop = useIsBig();
 
+  
   useEffect(() => {
     if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
       document.body.style.overflow = "hidden";
       document.body.style.maxHeight = "100vh";
-    }
-
+    } 
+      window.scrollTo(0, isScroll);
+    
     return () => {
       document.body.style.overflowX = "hidden";
       document.body.style.maxHeight = "";

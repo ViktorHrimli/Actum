@@ -238,12 +238,20 @@
     top: 0;
     left: 15px;
 
-    @media screen and (min-width: 1280px) {
-        top: 282px;
-        left: 295px;
+    @media screen and (min-width: 768px) {
+        top: 90px;
+        left: 0px;
     }
-
-
+    @media screen and (min-width: 1280px) {
+        top: 75px;
+        left: 38px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 24px;
+        height: 24px;
+        top: 145px;
+        left: 130px;
+    }
 }
 
 .position_arr_right {
@@ -251,8 +259,18 @@
     top: -4px;
     right: 15px;
 
+    @media screen and (min-width: 768px) {
+        top: 90px;
+        right: 0px;
+    }
     @media screen and (min-width: 1280px) {
-        top: 280px;
-        right: 165px;
+        top: 75px;
+        right: -78px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 24px;
+        height: 24px;
+        top: 145px;
+        right: -85px;
     }
 }
