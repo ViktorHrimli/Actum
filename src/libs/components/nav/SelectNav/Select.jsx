@@ -4,8 +4,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
 import styles from "./Select.module.scss";
+import { useReducer } from "react";
+
+const reducer = (state, action) => {
+  console.log(action.type);
+  switch (action.type) {
+    case "/paid-priority-family":
+      return {
+        "/paid-priority-family": action.payload,
+        "/paid-priority-crime": false,
+        "/paid-priority-army": false,
+      };
+    case "/paid-priority-crime":
+      return {
+        "/paid-priority-family": false,
+        "/paid-priority-crime": action.payload,
+        "/paid-priority-army": false,
+      };
+    case "/paid-priority-army":
+      return {
+        "/paid-priority-family": false,
+        "/paid-priority-crime": false,
+        "/paid-priority-army": action.payload,
+      };
+  }
+};
+
+const initital = {
+  "/paid-priority-family": false,
+  "/paid-priority-crime": false,
+  "/paid-priority-army": false,
+};
 
 export default function Select({ routes, isOpen, onClick, isMobile }) {
+  const [isOpenIndex, dispatch] = useReducer(reducer, initital);
+  console.log(isOpenIndex);
   return (
     <AnimatePresence>
       <motion.div
@@ -23,7 +56,13 @@ export default function Select({ routes, isOpen, onClick, isMobile }) {
             )}
             <ul className={styles.list}>
               {routes.map((item, id) => (
-                <NavSelectItem key={id} {...item} onClick={onClick} />
+                <NavSelectItem
+                  key={id}
+                  dispatch={dispatch}
+                  isOpenIndex={isOpenIndex}
+                  {...item}
+                  onClick={onClick}
+                />
               ))}
             </ul>
           </>
