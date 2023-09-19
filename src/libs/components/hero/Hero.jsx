@@ -198,6 +198,26 @@ export default function Hero() {
           transition={gradientVariants["transition"](isDesktop)}
           className={styles.fourth_gradient}
         ></motion.div>
+        <motion.div
+          key={"moz_gradient_second"}
+          animate={
+            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
+          }
+          variants={gradientVariants["variants"]}
+          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.moz_gradient_second}
+        ></motion.div>
+        <motion.div
+          key={"moz_gradient_thirhd"}
+          animate={
+            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
+          }
+          variants={gradientVariants["variants"]}
+          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
+          transition={gradientVariants["transition"](isDesktop)}
+          className={styles.moz_gradient_thirhd}
+        ></motion.div>
 
         {/* GRADIENT END */}
         {isClient ? (
