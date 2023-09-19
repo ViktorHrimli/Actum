@@ -6,8 +6,20 @@ import ArrowMenu from "@/libs/components/arrow_menu/ArrowMenu";
 
 import styles from "./NavSelectItem.module.scss";
 
-export default function NavSelectItem({ service, path, thems, onClick }) {
+export default function NavSelectItem({
+  service,
+  path,
+  thems,
+  onClick,
+  isOpenIndex,
+  dispatch,
+}) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
+
+  const handleClick = () => {
+    dispatch({ type: path, payload: !isOpenSelect });
+    setIsOpenSelect(!isOpenSelect);
+  };
 
   return (
     <li className={styles.link} onClick={() => {}}>
@@ -24,12 +36,12 @@ export default function NavSelectItem({ service, path, thems, onClick }) {
         <Link href={path} onClick={onClick} className={styles.link_service}>
           <p className={styles.text}>{service}</p>
         </Link>
-        <ArrowMenu isOpenSelect={isOpenSelect} setIsOpen={setIsOpenSelect} />
+        <ArrowMenu isOpenSelect={isOpenIndex[path]} setIsOpen={handleClick} />
 
         <div className={styles.line}></div>
       </div>
 
-      {isOpenSelect && (
+      {isOpenSelect && isOpenIndex[path] && (
         <ul className={styles.nested_select_list}>
           {thems.map(({ thema }, id) => (
             <li key={id} className={styles.item_list}>

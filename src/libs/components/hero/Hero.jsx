@@ -9,6 +9,7 @@ import {
   useState,
   useIsBig,
   useIsTabOrSmallLaptop,
+  useRef,
 } from "@/libs/hooks/hooks";
 
 import Button from "../button/Button";
@@ -25,12 +26,14 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
+import { firstRender } from "./libs/enums/helpres/heroFirstRender";
+
 import femida from "@/assets/svg/HERO_FEMIDA.png";
 import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./Hero.module.scss";
 
-let isSessionStorageSave = {};
+let isSessionStorageSave = firstRender();
 
 export default function Hero() {
   const [isStep, setIsStep] = useState(false);
@@ -85,7 +88,6 @@ export default function Hero() {
 
         document.body.style.position = "initial";
         document.body.style.top = "";
-
         isSessionStorageSave = false;
       },
       isDesktop ? 4000 : 3500
@@ -136,8 +138,8 @@ export default function Hero() {
           transition={{
             type: "keyframes",
             ease: "easeInOut",
-            duration: isDesktop ? 1.2 : 1,
-            delay: 2.4,
+            duration: isDesktop ? 1.2 : 0.5,
+            delay: 3.2,
           }}
         >
           <Image

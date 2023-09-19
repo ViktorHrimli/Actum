@@ -17,14 +17,13 @@ export default function NestedHero({ img, text }) {
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
-  // let IS_FIRST_RENDER;
-  // if (typeof window !== "undefined") {
-  //   IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(text) || true);
-  // }
+  let IS_FIRST_RENDER;
+  if (typeof window !== "undefined") {
+    IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(text) || true);
+  }
 
   useEffect(() => {
-    // sessionStorage.setItem(text, "false");
-    IS_FIRST_RENDER = false;
+    sessionStorage.setItem(text, "false");
   }, []);
 
   return (

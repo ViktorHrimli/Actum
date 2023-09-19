@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
-import SideBar from "../side_bar/SideBar";
+import SideBar from "@/libs/components/side_bar//SideBar";
 
 import {
   PathsPageHeader,
@@ -14,6 +14,7 @@ import {
   mobileLogoAnimate,
 } from "./enums/enum";
 import { gradientEnums } from "./enums/gradientEnums";
+import { firstRender } from "@/libs/components/hero/libs/enums/helpres/heroFirstRender";
 
 import {
   usePathname,
@@ -29,7 +30,7 @@ import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
 
-let isSessionStorageSave = {};
+let isSessionStorageSave = firstRender();
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);

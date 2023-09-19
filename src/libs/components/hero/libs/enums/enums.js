@@ -109,7 +109,7 @@ const mobileWatemarkText = {
 
   transition: {
     duration: 0.5,
-    delay: 1,
+    delay: 0.5,
   },
 };
 
@@ -141,7 +141,7 @@ const mobileWatemarkLine = {
   },
   transition: {
     duration: 0.5,
-    delay: 1,
+    delay: 0.5,
   },
 };
 
