@@ -298,6 +298,8 @@
     }
 }
 
+
+
 .btn_wrapper {
     border-radius: 4px;
     z-index: 5;
@@ -512,10 +514,12 @@
     color: var(--primary-back);
     background-color: var(--primary-color);
 }
+
 .options_army:hover {
     color: var(--primary-back);
     background-color: #536641;
 }
+
 .options_family:hover {
     color: var(--primary-back);
     background-color: #3F2E64;
@@ -572,9 +576,11 @@
 
     gap: 10px;
     z-index: 14;
+
     @media screen and (min-width: 768px) {
         left: 132px;
     }
+
     @media screen and (min-width: 1440px) {
         top: 21px;
         left: 147px;
@@ -597,6 +603,7 @@
         top: 18px;
         left: 466px;
     }
+
     @media screen and (min-width: 1440px) {
         top: 21px;
         left: 504px;
@@ -620,6 +627,7 @@
         top: 38px;
         left: 138px;
     }
+
     @media screen and (min-width: 1440px) {
         top: 35px;
         left: 151px;
@@ -642,6 +650,7 @@
         top: 22px;
         left: 139px;
     }
+
     @media screen and (min-width: 1440px) {
         top: 21px;
         left: 155px;
@@ -664,6 +673,7 @@
         top: 23px;
         left: 189px;
     }
+
     @media screen and (min-width: 1440px) {
         top: 21px;
         left: 210px;
@@ -685,6 +695,7 @@
         top: 5px;
         left: 162px;
     }
+
     @media screen and (min-width: 1440px) {
         top: 6px;
         left: 180px;
