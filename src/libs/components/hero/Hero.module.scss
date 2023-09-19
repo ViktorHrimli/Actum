@@ -137,18 +137,16 @@
 .main_gradient {
     position: absolute;
 
-    width: 695.78px;
+    width: 896px;
     height: 598px;
 
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-gradient(linear, (327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%));
-    // background: -o-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -ms-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-
+    background-color: var(--primary-color);
     filter: blur(200px);
+
+    background: -moz-linear-gradient(0deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%,);
+    -webkit-filter: blur(-200px);
+
+    opacity: 0.8;
     z-index: 2;
 
     @media screen and (min-width: 320px) {
@@ -157,7 +155,6 @@
 
         bottom: -200px;
         right: -100px;
-
     }
 
     @media screen and (min-width: 768px) {
@@ -183,11 +180,11 @@
 
 .second_gradient {
     position: absolute;
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+
     filter: blur(200px);
+    background-color: var(--primary-color);
+    background: -moz-linear-gradient(90deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%, );
+    opacity: 0.8;
 
     z-index: 10;
 
@@ -215,11 +212,10 @@
     width: 242px;
     height: 233px;
 
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -moz-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
     filter: blur(200px);
+    background-color: var(--primary-color);
+    background: -moz-linear-gradient(90deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%, );
+    opacity: 0.8;
 
     z-index: 5;
 
@@ -251,17 +247,15 @@
     width: 242px;
     height: 233px;
 
-    background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    background: -moz-linear-gradient(327deg, #e32f7a94 0%, #d70f7383 41.67%, #912e6e8d 80.88%);
-    // background: -webkit-linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
-    filter: blur(200px);
+    background-color: var(--primary-color);
+    opacity: 0.8;
 
-
+    background: -moz-linear-gradient(90deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%, );
     z-index: 5;
+    filter: blur(200px);
 
     @media screen and (max-width: 767px) {
         display: none;
-
     }
 
     @media screen and (min-width: 768px) {
@@ -279,6 +273,57 @@
     @media screen and (min-width: 1440px) {
         top: 170px;
         right: 550px;
+    }
+}
+
+.moz_gradient_second {
+    position: absolute;
+    border-radius: 200px 90px 0 200px;
+
+    background: -moz-linear-gradient(90deg, #e32f7a5e 0%, #e32f7a57 50%, #e32f7a5a 100%, );
+    z-index: 1;
+    filter: blur(200px);
+    rotate: -16deg;
+    opacity: 0.8;
+
+    @media screen and (max-width: 1279px) {
+        display: none;
+    }
+
+    @media screen and (min-width: 1280px) {
+        top: 120px;
+        right: 400px;
+        width: 400px;
+        height: 77vh;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: 120px;
+        right: 500px;
+    }
+}
+
+.moz_gradient_thirhd {
+    position: absolute;
+
+    background: -moz-linear-gradient(90deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%, );
+    z-index: 2;
+    filter: blur(200px);
+    opacity: 0.8;
+
+    @media screen and (max-width: 1279px) {
+            display: none;
+    }
+    @media screen and (min-width: 1280px) {
+        top: 130px;
+        right: 0px;
+        width: 550px;
+        height: 133px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: 130px;
+        right: 0px;
     }
 }
 
