@@ -134,98 +134,126 @@ export default function Hero() {
             />
           </motion.div>
         )}
-
-        <motion.div
-          key={"femida"}
-          className={styles.image_conteiner}
-          animate={isSessionStorageSave ? "open" : false}
-          variants={{ open: { x: 0, opacity: 1 } }}
-          initial={
-            isSessionStorageSave
-              ? { x: isDesktop ? 500 : 250, opacity: 0 }
-              : false
-          }
-          transition={{
-            duration: isDesktop ? 1.2 : 0.5,
-            delay: 1.8,
-          }}
-        >
-          <Image
-            src={femida}
-            alt="Femida"
-            priority={true}
-            placeholder="blur"
-            fetchPriority="high"
-            sizes="(max-width: 768px) 700px, (max-width: 1280px) 900px, 1300px"
-            fill
-          />
-        </motion.div>
+        {isClient && (
+          <motion.div
+            key={"femida"}
+            className={styles.image_conteiner}
+            animate={isSessionStorageSave ? "open" : false}
+            variants={{ open: { x: 0, opacity: 1 } }}
+            initial={
+              isSessionStorageSave
+                ? { x: isDesktop ? 500 : 250, opacity: 0 }
+                : false
+            }
+            transition={{
+              duration: isDesktop ? 1.2 : 0.5,
+              delay: 1.8,
+            }}
+          >
+            <Image
+              src={femida}
+              alt="Femida"
+              priority={true}
+              placeholder="blur"
+              fetchPriority="high"
+              sizes="(max-width: 768px) 700px, (max-width: 1280px) 900px, 1300px"
+              fill
+            />
+          </motion.div>
+        )}
 
         {/* GRADIENTS */}
+        {isClient && (
+          <>
+            <motion.div
+              key={"main_gradient"}
+              className={styles.main_gradient}
+              animate={
+                isSessionStorageSave
+                  ? gradientVariants["animate"](isLoad)
+                  : false
+              }
+              variants={gradientVariants["variants"]}
+              initial={
+                isSessionStorageSave ? gradientVariants["initial"] : false
+              }
+              transition={gradientVariants["transition"](isDesktop)}
+            ></motion.div>
 
-        <motion.div
-          key={"main_gradient"}
-          className={styles.main_gradient}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-        ></motion.div>
+            <motion.div
+              key={"second_gradient"}
+              animate={
+                isSessionStorageSave
+                  ? gradientVariants["animate"](isLoad)
+                  : false
+              }
+              variants={gradientVariants["variants"]}
+              initial={
+                isSessionStorageSave ? gradientVariants["initial"] : false
+              }
+              transition={gradientVariants["transition"](isDesktop)}
+              className={styles.second_gradient}
+            ></motion.div>
 
-        <motion.div
-          key={"second_gradient"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.second_gradient}
-        ></motion.div>
+            <motion.div
+              key={"thirhd_gradient"}
+              animate={
+                isSessionStorageSave
+                  ? gradientVariants["animate"](isLoad)
+                  : false
+              }
+              variants={gradientVariants["variants"]}
+              initial={
+                isSessionStorageSave ? gradientVariants["initial"] : false
+              }
+              transition={gradientVariants["transition"](isDesktop)}
+              className={styles.thirhd_gradient}
+            ></motion.div>
 
-        <motion.div
-          key={"thirhd_gradient"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.thirhd_gradient}
-        ></motion.div>
-
-        <motion.div
-          key={"fourth_gradient"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.fourth_gradient}
-        ></motion.div>
-        <motion.div
-          key={"moz_gradient_second"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.moz_gradient_second}
-        ></motion.div>
-        <motion.div
-          key={"moz_gradient_thirhd"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.moz_gradient_thirhd}
-        ></motion.div>
+            <motion.div
+              key={"fourth_gradient"}
+              animate={
+                isSessionStorageSave
+                  ? gradientVariants["animate"](isLoad)
+                  : false
+              }
+              variants={gradientVariants["variants"]}
+              initial={
+                isSessionStorageSave ? gradientVariants["initial"] : false
+              }
+              transition={gradientVariants["transition"](isDesktop)}
+              className={styles.fourth_gradient}
+            ></motion.div>
+            <motion.div
+              key={"moz_gradient_second"}
+              animate={
+                isSessionStorageSave
+                  ? gradientVariants["animate"](isLoad)
+                  : false
+              }
+              variants={gradientVariants["variants"]}
+              initial={
+                isSessionStorageSave ? gradientVariants["initial"] : false
+              }
+              transition={gradientVariants["transition"](isDesktop)}
+              className={styles.moz_gradient_second}
+            ></motion.div>
+            <motion.div
+              key={"moz_gradient_thirhd"}
+              animate={
+                isSessionStorageSave
+                  ? gradientVariants["animate"](isLoad)
+                  : false
+              }
+              variants={gradientVariants["variants"]}
+              initial={
+                isSessionStorageSave ? gradientVariants["initial"] : false
+              }
+              transition={gradientVariants["transition"](isDesktop)}
+              className={styles.moz_gradient_thirhd}
+            ></motion.div>
+          </>
+        )}
 
         {/* GRADIENT END */}
         {isClient ? (
@@ -295,25 +323,27 @@ export default function Hero() {
           <div style={{ height: "400px" }}></div>
         )}
 
-        <motion.div
-          animate={isSessionStorageSave ? isLoad && "open" : false}
-          key={"btn_wrapper"}
-          variants={{ open: { y: "0", opacity: 1 } }}
-          initial={isSessionStorageSave ? { y: "90px", opacity: 0 } : false}
-          transition={{
-            duration: 0.6,
-          }}
-          className={styles.btn_wrapper}
-        >
-          <Link href={"/book"}>
-            <Button
-              onClick={() => {}}
-              type={"button"}
-              text="замовити консультацію"
-              style="button_prymary"
-            />
-          </Link>
-        </motion.div>
+        {isClient && (
+          <motion.div
+            animate={isSessionStorageSave ? isLoad && "open" : false}
+            key={"btn_wrapper"}
+            variants={{ open: { y: "0", opacity: 1 } }}
+            initial={isSessionStorageSave ? { y: "90px", opacity: 0 } : false}
+            transition={{
+              duration: 0.6,
+            }}
+            className={styles.btn_wrapper}
+          >
+            <Link href={"/book"}>
+              <Button
+                onClick={() => {}}
+                type={"button"}
+                text="замовити консультацію"
+                style="button_prymary"
+              />
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   );
