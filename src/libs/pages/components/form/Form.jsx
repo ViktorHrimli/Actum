@@ -79,57 +79,32 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {"Вкажіть ім'я і прізвище"}
           </label>
 
-          <div className={styles.conteiner_name}>
-            <div className={styles[border]}>
-              <input
-                className={
-                  errors.name
-                    ? `${styles.input} ${styles.error_input}`
-                    : styles.input
-                }
-                id="name"
-                type="text"
-                {...register("name", {
-                  required: true,
-                })}
-                placeholder={errors.name ? ERROR_MESSAGE : "Ім'я"}
-              />
-            </div>
-            {errors.name && (
-              <div className={styles.error_name}>
-                {/* <p style={{ color: "#000" }}>{"Заповніть Ім'я"}</p> */}
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
-              </div>
-            )}
-            <div className={styles[border]}>
-              <input
-                className={
-                  errors.surname
-                    ? `${styles.input} ${styles.error_input}`
-                    : styles.input
-                }
-                id="surname"
-                type="text"
-                placeholder={errors.surname ? ERROR_MESSAGE : "Прізвище"}
-                {...register("surname", { required: true })}
-              />
-            </div>
-
-            {errors.surname && (
-              <div className={styles.error_surname}>
-                {/* <p style={{ color: "#000" }}>Заповніть прізвище</p> */}
-                <FontAwesomeIcon
-                  icon={faCircleExclamation}
-                  className={styles.error_icon}
-                />
-              </div>
-            )}
+        <div className={styles.conteiner_name}>
+          <div className={styles[border]}>
+          <input
+            className={
+              errors.name
+                ? `${styles.input} ${styles.error_input}`
+                : styles.input
+            }
+            id="name"
+            type="text"
+            {...register("name", {
+              required: true,
+            })}
+            placeholder={errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"}
+            />
           </div>
-        </div>
-
+          {errors.name && (
+            <div className={styles.error_name}>
+              <FontAwesomeIcon
+                icon={faCircleExclamation}
+                className={styles.error_icon}
+              />
+            </div>
+            )}
+            </div>
+          </div>
         <div className={styles.wrapper_name}>
           <label
             htmlFor="textarea"
@@ -157,7 +132,6 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
 
             {errors.textarea && (
               <div className={styles.error_textarea}>
-                {/* <p style={{ color: "#000" }}>Опишіть своє питання</p> */}
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}
@@ -196,7 +170,6 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             </div>
             {errors.phone && (
               <div className={styles.error_phone}>
-                {/* <p style={{ color: "#000" }}>Заповніть номер телефону</p> */}
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}
@@ -235,7 +208,6 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
 
             {errors.message && !selectValue && (
               <div className={styles.error_message}>
-                {/* <p style={{ color: "#000" }}>Виберіть мессенджер</p> */}
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}

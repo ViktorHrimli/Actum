@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import StepsImageMob from "src/assets/svg/StepsLawyersMob.jpg";
 import StepsImageTab from "src/assets/svg/StepsLawyersTab.jpg";
@@ -94,11 +95,13 @@ export default function StepsLawyers() {
           </li>
         </ul>
         <div className={styles.box_btn}>
-          <Button
-            style={"button_service"}
-            text={"замовити консультацію"}
-            type={"button"}
-          />
+          <Link href={"#form"} style={{width: "100%"}}>
+            <Button
+              style={"button_service"}
+              text={"замовити консультацію"}
+              type={"button"}
+            />
+          </Link>
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ import  Contacts  from "@/libs/pages/contacts/contacts/Contacts";
 export default function Conacts() {
   return (
     <>
-      <NestedHero text="контакти" img={ContactHero} />
+      <NestedHero type={"home"} text="контакти" img={ContactHero} />
       <Contacts />
     </>
   );

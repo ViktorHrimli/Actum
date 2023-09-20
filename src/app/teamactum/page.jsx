@@ -18,7 +18,7 @@ export default function Team() {
   return (
     <>
       <ContactPanel type={"home"}/>
-      <NestedHero text="НАША КОМАНДА" img={ourTeam} />
+      <NestedHero type={"home"} text="НАША КОМАНДА" img={ourTeam} />
       <About img={our_team_about} />
       <TeamList />
       <Descrition type="classic" />
