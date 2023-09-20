@@ -94,7 +94,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             {...register("name", {
               required: true,
             })}
-            placeholder={errors.name ? ERROR_MESSAGE : "Ім'я"}
+            placeholder={errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"}
             />
           </div>
           {errors.name && (

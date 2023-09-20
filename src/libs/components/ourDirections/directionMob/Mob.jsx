@@ -1,35 +1,32 @@
 import Image from "next/image";
-
 import { useState, useEffect, useRef } from "react";
-
-
 import FamilyMattrs from "../familyMatters/FamilyMattrs";
 import MilitaryMattrs from "../militaryMatters/MilitaryMattrs";
 import CriminalMattrs from "../criminalMatters/CriminalMattrs";
-
 import styles from "../Direction.module.scss";
-
 import MobHands from "@/assets/svg/Mob_hands.png";
 import MobHalmet from "@/assets/svg/Mob_halmet.png";
 import MobCriminal from "@/assets/svg/Mob_criminal.png";
 
-
-export default function Mob() { 
+export default function Mob() {
   const [showCardsHands, setShowCardsHands] = useState(false);
   const [showCardsHalmet, setShowCardsHalmet] = useState(false);
   const [showCardsCriminal, setShowCardsCriminal] = useState(false);
 
   const cardsRef = useRef();
   const cardsRefHalmet = useRef();
-  const cardsRefCriminal = useRef();  
+  const cardsRefCriminal = useRef();
 
-  // hands
-  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        setShowCardsHands(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setShowCardsHands(true);
+          }, 300);
+          observer.unobserve(cardsRef.current);
+        }
       },
       {
         root: null,
@@ -49,13 +46,17 @@ export default function Mob() {
     };
   }, []);
 
-// halmet 
-    
-    useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        setShowCardsHalmet(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setShowCardsHalmet(true);
+          }, 300);
+          observer.unobserve(cardsRefHalmet.current);
+          
+        }
       },
       {
         root: null,
@@ -73,15 +74,18 @@ export default function Mob() {
         observer.unobserve(cardsRefHalmet.current);
       }
     };
-    }, []);
-  
-  // Criminal
+  }, []);
 
-      useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        setShowCardsCriminal(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setShowCardsCriminal(true);
+          }, 300);
+          observer.unobserve(cardsRefCriminal.current);
+        }
       },
       {
         root: null,
@@ -99,11 +103,10 @@ export default function Mob() {
         observer.unobserve(cardsRefCriminal.current);
       }
     };
-    }, []);
-  
+  }, []);
+
   return (
     <div className={styles.mob_img}>
-
       <div ref={cardsRef} className={styles.mob_img_hands}>
         <div className={styles.mob_img_hands_gradient}></div>
         <Image
@@ -116,7 +119,7 @@ export default function Mob() {
         />
 
         {showCardsHands && (
-          <div  className={styles.show_hands}>
+          <div className={styles.show_hands}>
             <FamilyMattrs />
           </div>
         )}
@@ -136,7 +139,7 @@ export default function Mob() {
           <div className={styles.show_halmet}>
             <MilitaryMattrs />
           </div>
-        )} 
+        )}
       </div>
 
       <div ref={cardsRefCriminal} className={styles.mob_img_criminal}>
@@ -153,8 +156,8 @@ export default function Mob() {
           <div className={styles.show_criminal}>
             <CriminalMattrs />
           </div>
-        )}  
+        )}
       </div>
     </div>
-  )
+  );
 }

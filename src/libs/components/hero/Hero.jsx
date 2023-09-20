@@ -1,7 +1,5 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-
 import { motion } from "framer-motion";
 
 import {
@@ -9,7 +7,6 @@ import {
   useState,
   useIsBig,
   useIsTabOrSmallLaptop,
-  useRef,
 } from "@/libs/hooks/hooks";
 
 import Button from "../button/Button";
@@ -26,20 +23,23 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
-import { firstRender } from "./libs/enums/helpres/heroFirstRender";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import femida from "@/assets/svg/HERO_FEMIDA.png";
 import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./Hero.module.scss";
 
-let isSessionStorageSave = {};
+let isSessionStorageSave = true;
 
-export default function Hero() {
+export default function Hero({ type }) {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
   const [isLoad, setIsLoad] = useState(false);
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isScroll, setIsScroll] = useState(null);
 
   const isDesktop = useIsBig();
   const isSmallLaptopOrTab = useIsTabOrSmallLaptop();
@@ -104,247 +104,272 @@ export default function Hero() {
     );
   }, []);
 
+  useEffect(() => {
+    if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    }
+    window.scrollTo(0, isScroll);
+
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
+
   return (
-    <section className={styles.hero_section}>
-      <div id="hero_section" className={styles.hero_conteiner}>
-        {isClient && (
-          <motion.div
-            key={"watemark"}
-            animate={
-              isSessionStorageSave ? watemarkAnimated["animate"](isStep) : false
-            }
-            variants={watemarkAnimated["variants"]}
-            initial={
-              isSessionStorageSave
-                ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
-                : false
-            }
-            transition={watemarkAnimated["transition"]}
-            className={styles.conteiner_wordmark}
-          >
-            <Image
-              src={watemark}
-              alt="ACTUM"
-              fetchPriority="high"
-              priority={true}
-              placeholder="blur"
-              style={{ objectFit: "cover" }}
-              sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
-              fill
-            />
-          </motion.div>
-        )}
-        {isClient && (
-          <motion.div
-            key={"femida"}
-            className={styles.image_conteiner}
-            animate={isSessionStorageSave ? "open" : false}
-            variants={{ open: { x: 0, opacity: 1 } }}
-            initial={
-              isSessionStorageSave
-                ? { x: isDesktop ? 500 : 250, opacity: 0 }
-                : false
-            }
-            transition={{
-              duration: isDesktop ? 1.2 : 0.5,
-              delay: 1.8,
-            }}
-          >
-            <Image
-              src={femida}
-              alt="Femida"
-              priority={true}
-              placeholder="blur"
-              fetchPriority="high"
-              sizes="(max-width: 768px) 700px, (max-width: 1280px) 900px, 1300px"
-              fill
-            />
-          </motion.div>
-        )}
-
-        {/* GRADIENTS */}
-        {isClient && (
-          <>
+    <>
+      <section className={styles.hero_section}>
+        <div id="hero_section" className={styles.hero_conteiner}>
+          {isClient && (
             <motion.div
-              key={"main_gradient"}
-              className={styles.main_gradient}
+              key={"watemark"}
               animate={
                 isSessionStorageSave
-                  ? gradientVariants["animate"](isLoad)
+                  ? watemarkAnimated["animate"](isStep)
                   : false
               }
-              variants={gradientVariants["variants"]}
+              variants={watemarkAnimated["variants"]}
               initial={
-                isSessionStorageSave ? gradientVariants["initial"] : false
+                isSessionStorageSave
+                  ? watemarkAnimated["initial"](isSmallLaptopOrTab, screenWidth)
+                  : false
               }
-              transition={gradientVariants["transition"](isDesktop)}
-            ></motion.div>
-
+              transition={watemarkAnimated["transition"]}
+              className={styles.conteiner_wordmark}
+            >
+              <Image
+                src={watemark}
+                alt="ACTUM"
+                fetchPriority="high"
+                priority={true}
+                placeholder="blur"
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
+                fill
+              />
+            </motion.div>
+          )}
+          {isClient && (
             <motion.div
-              key={"second_gradient"}
+              key={"femida"}
+              className={styles.image_conteiner}
+              animate={isSessionStorageSave ? "open" : false}
+              variants={{ open: { x: 0, opacity: 1 } }}
+              initial={
+                isSessionStorageSave
+                  ? { x: isDesktop ? 500 : 250, opacity: 0 }
+                  : false
+              }
+              transition={{
+                duration: isDesktop ? 1 : 0.5,
+                delay: 2.4,
+              }}
+            >
+              <Image
+                src={femida}
+                alt="Femida"
+                priority={true}
+                placeholder="blur"
+                fetchPriority="high"
+                sizes="(max-width: 768px) 700px, (max-width: 1280px) 900px, 1300px"
+                fill
+              />
+            </motion.div>
+          )}
+
+          {/* GRADIENTS */}
+          {isClient && (
+            <>
+              <motion.div
+                key={"main_gradient"}
+                className={styles.main_gradient}
+                animate={
+                  isSessionStorageSave
+                    ? gradientVariants["animate"](isLoad)
+                    : false
+                }
+                variants={gradientVariants["variants"]}
+                initial={
+                  isSessionStorageSave ? gradientVariants["initial"] : false
+                }
+                transition={gradientVariants["transition"](isDesktop)}
+              ></motion.div>
+
+              <motion.div
+                key={"second_gradient"}
+                animate={
+                  isSessionStorageSave
+                    ? gradientVariants["animate"](isLoad)
+                    : false
+                }
+                variants={gradientVariants["variants"]}
+                initial={
+                  isSessionStorageSave ? gradientVariants["initial"] : false
+                }
+                transition={gradientVariants["transition"](isDesktop)}
+                className={styles.second_gradient}
+              ></motion.div>
+
+              <motion.div
+                key={"thirhd_gradient"}
+                animate={
+                  isSessionStorageSave
+                    ? gradientVariants["animate"](isLoad)
+                    : false
+                }
+                variants={gradientVariants["variants"]}
+                initial={
+                  isSessionStorageSave ? gradientVariants["initial"] : false
+                }
+                transition={gradientVariants["transition"](isDesktop)}
+                className={styles.thirhd_gradient}
+              ></motion.div>
+
+              <motion.div
+                key={"fourth_gradient"}
+                animate={
+                  isSessionStorageSave
+                    ? gradientVariants["animate"](isLoad)
+                    : false
+                }
+                variants={gradientVariants["variants"]}
+                initial={
+                  isSessionStorageSave ? gradientVariants["initial"] : false
+                }
+                transition={gradientVariants["transition"](isDesktop)}
+                className={styles.fourth_gradient}
+              ></motion.div>
+              <motion.div
+                key={"moz_gradient_second"}
+                animate={
+                  isSessionStorageSave
+                    ? gradientVariants["animate"](isLoad)
+                    : false
+                }
+                variants={gradientVariants["variants"]}
+                initial={
+                  isSessionStorageSave ? gradientVariants["initial"] : false
+                }
+                transition={gradientVariants["transition"](isDesktop)}
+                className={styles.moz_gradient_second}
+              ></motion.div>
+              <motion.div
+                key={"moz_gradient_thirhd"}
+                animate={
+                  isSessionStorageSave
+                    ? gradientVariants["animate"](isLoad)
+                    : false
+                }
+                variants={gradientVariants["variants"]}
+                initial={
+                  isSessionStorageSave ? gradientVariants["initial"] : false
+                }
+                transition={gradientVariants["transition"](isDesktop)}
+                className={styles.moz_gradient_thirhd}
+              ></motion.div>
+            </>
+          )}
+
+          {/* GRADIENT END */}
+          {isClient ? (
+            <motion.h2
+              key={"title_text"}
               animate={
                 isSessionStorageSave
-                  ? gradientVariants["animate"](isLoad)
+                  ? titleWatemarkAnimated["animate"](isStep)
                   : false
               }
-              variants={gradientVariants["variants"]}
+              variants={titleWatemarkAnimated["variants"]}
               initial={
-                isSessionStorageSave ? gradientVariants["initial"] : false
+                isSessionStorageSave
+                  ? titleWatemarkAnimated["initial"](screenWidth)
+                  : false
               }
-              transition={gradientVariants["transition"](isDesktop)}
-              className={styles.second_gradient}
-            ></motion.div>
+              transition={titleWatemarkAnimated["transition"]}
+              className={styles.title_text}
+            >
+              Адвокатське об’Єднання
+            </motion.h2>
+          ) : (
+            <div style={{ height: "90px" }}></div>
+          )}
 
+          {isClient ? (
             <motion.div
-              key={"thirhd_gradient"}
+              key={"under_line"}
               animate={
                 isSessionStorageSave
-                  ? gradientVariants["animate"](isLoad)
+                  ? watemarkLineAnimated["animate"](isLoad)
                   : false
               }
-              variants={gradientVariants["variants"]}
+              variants={watemarkLineAnimated["variants"]}
               initial={
-                isSessionStorageSave ? gradientVariants["initial"] : false
+                isSessionStorageSave
+                  ? watemarkLineAnimated["initial"](screenWidth)
+                  : false
               }
-              transition={gradientVariants["transition"](isDesktop)}
-              className={styles.thirhd_gradient}
+              transition={watemarkLineAnimated["transition"]}
+              className={styles.under_line}
             ></motion.div>
+          ) : (
+            <div style={{ height: "21px" }}></div>
+          )}
 
+          {isClient ? (
             <motion.div
-              key={"fourth_gradient"}
+              key={"text"}
               animate={
                 isSessionStorageSave
-                  ? gradientVariants["animate"](isLoad)
+                  ? watemarTextkAnimated["animate"](isLoad)
                   : false
               }
-              variants={gradientVariants["variants"]}
+              variants={watemarTextkAnimated["variants"]}
               initial={
-                isSessionStorageSave ? gradientVariants["initial"] : false
-              }
-              transition={gradientVariants["transition"](isDesktop)}
-              className={styles.fourth_gradient}
-            ></motion.div>
-            <motion.div
-              key={"moz_gradient_second"}
-              animate={
                 isSessionStorageSave
-                  ? gradientVariants["animate"](isLoad)
+                  ? watemarTextkAnimated["initial"](screenWidth)
                   : false
               }
-              variants={gradientVariants["variants"]}
-              initial={
-                isSessionStorageSave ? gradientVariants["initial"] : false
-              }
-              transition={gradientVariants["transition"](isDesktop)}
-              className={styles.moz_gradient_second}
-            ></motion.div>
+              transition={watemarTextkAnimated["transition"]}
+              className={styles.text}
+            >
+              Дія задля результату
+            </motion.div>
+          ) : (
+            <div style={{ height: "400px" }}></div>
+          )}
+
+          {isClient && (
             <motion.div
-              key={"moz_gradient_thirhd"}
-              animate={
-                isSessionStorageSave
-                  ? gradientVariants["animate"](isLoad)
-                  : false
-              }
-              variants={gradientVariants["variants"]}
-              initial={
-                isSessionStorageSave ? gradientVariants["initial"] : false
-              }
-              transition={gradientVariants["transition"](isDesktop)}
-              className={styles.moz_gradient_thirhd}
-            ></motion.div>
-          </>
-        )}
-
-        {/* GRADIENT END */}
-        {isClient ? (
-          <motion.h2
-            key={"title_text"}
-            animate={
-              isSessionStorageSave
-                ? titleWatemarkAnimated["animate"](isStep)
-                : false
-            }
-            variants={titleWatemarkAnimated["variants"]}
-            initial={
-              isSessionStorageSave
-                ? titleWatemarkAnimated["initial"](screenWidth)
-                : false
-            }
-            transition={titleWatemarkAnimated["transition"]}
-            className={styles.title_text}
-          >
-            Адвокатське об’Єднання
-          </motion.h2>
-        ) : (
-          <div style={{ height: "90px" }}></div>
-        )}
-
-        {isClient ? (
-          <motion.div
-            key={"under_line"}
-            animate={
-              isSessionStorageSave
-                ? watemarkLineAnimated["animate"](isLoad)
-                : false
-            }
-            variants={watemarkLineAnimated["variants"]}
-            initial={
-              isSessionStorageSave
-                ? watemarkLineAnimated["initial"](screenWidth)
-                : false
-            }
-            transition={watemarkLineAnimated["transition"]}
-            className={styles.under_line}
-          ></motion.div>
-        ) : (
-          <div style={{ height: "21px" }}></div>
-        )}
-
-        {isClient ? (
-          <motion.div
-            key={"text"}
-            animate={
-              isSessionStorageSave
-                ? watemarTextkAnimated["animate"](isLoad)
-                : false
-            }
-            variants={watemarTextkAnimated["variants"]}
-            initial={
-              isSessionStorageSave
-                ? watemarTextkAnimated["initial"](screenWidth)
-                : false
-            }
-            transition={watemarTextkAnimated["transition"]}
-            className={styles.text}
-          >
-            Дія задля результату
-          </motion.div>
-        ) : (
-          <div style={{ height: "400px" }}></div>
-        )}
-
-        {isClient && (
-          <motion.div
-            animate={isSessionStorageSave ? isLoad && "open" : false}
-            key={"btn_wrapper"}
-            variants={{ open: { y: "0", opacity: 1 } }}
-            initial={isSessionStorageSave ? { y: "90px", opacity: 0 } : false}
-            transition={{
-              duration: 0.6,
-            }}
-            className={styles.btn_wrapper}
-          >
-            <Link href={"/book"}>
+              animate={isSessionStorageSave ? isLoad && "open" : false}
+              onClick={() => setIsOpenModal(true)}
+              key={"btn_wrapper"}
+              variants={{ open: { y: "0", opacity: 1 } }}
+              initial={isSessionStorageSave ? { y: "90px", opacity: 0 } : false}
+              transition={{
+                duration: 0.6,
+              }}
+              className={styles.btn_wrapper}
+            >
               <Button
                 onClick={() => {}}
                 type={"button"}
                 text="замовити консультацію"
                 style="button_prymary"
               />
-            </Link>
-          </motion.div>
-        )}
-      </div>
-    </section>
+            </motion.div>
+          )}
+        </div>
+      </section>
+      {isOpenModal && (
+        <ModalForm
+          type={type}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />
+      )}
+    </>
   );
 }

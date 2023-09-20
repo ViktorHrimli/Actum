@@ -17,6 +17,7 @@ export default function Book() {
     <>
       <ContactPanel type={"home"} />
       <NestedHero
+        type={"home"}
         img={hero}
         text="КОНСУЛЬТАЦІЯ АДВОКАТА ОНЛАЙН, В ОФІСІ АБО ДЗВІНКОМ"
       />

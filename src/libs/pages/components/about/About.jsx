@@ -1,7 +1,11 @@
+'use client'
+
 import Image from "next/image";
 
 import Button from "@/libs/components/button/Button";
 import Quotes from "@/libs/components/quotes/Quotes";
+import { getFormById } from "@/shared/helpers/helpers";
+
 
 import styles from "./About.module.scss";
 
@@ -11,6 +15,11 @@ export default function About({ img, type = "family" }) {
     crime: "#3F2E64",
     family: "#E32F7A",
   };
+
+  const  handleClickOnBtn = () => {
+    getFormById("form_section");
+  };
+  
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
@@ -44,12 +53,12 @@ export default function About({ img, type = "family" }) {
               borderRadius: "4px",
             }}
           />
-          <div className={styles.btn_wrapper}>
-            <Button
-              style={"button_service"}
-              text={"замовити консультацію"}
-              type={"button"}
-            />
+          <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
+              <Button
+                style={"button_service"}
+                text={"замовити консультацію"}
+                type={"button"}
+              />
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function PaidArmy() {
   return (
     <>
       <ContactPanel type={"home"}/>
-      <NestedHero img={publics_img} text={"публікації"} />
+      <NestedHero type={"home"} img={publics_img} text={"публікації"} />
       <Publics />
     </>
   );

@@ -16,9 +16,7 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsClient(true);
-    }, 3000);
+    setIsClient(true);
 
     const scrollY = document.body.style.top;
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
@@ -26,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
+      <Hero type={"home"} />
       {isClient && (
         <>
           <ContactPanel type={"home"} />

@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+
+import { getFormById } from "@/shared/helpers/helpers";
 
 import StepsImageMob from "src/assets/svg/StepsLawyersMob.jpg";
 import StepsImageTab from "src/assets/svg/StepsLawyersTab.jpg";
@@ -8,6 +11,10 @@ import styles from "./StepsLawyers.module.scss";
 import Button from "@/libs/components/button/Button";
 
 export default function StepsLawyers() {
+  const handleClickOnBtn = () => {
+    getFormById("form_section");
+  }
+
   return (
     <section className={styles.section}>
       <div className={styles.img}>
@@ -93,12 +100,12 @@ export default function StepsLawyers() {
             </div>
           </li>
         </ul>
-        <div className={styles.box_btn}>
-          <Button
-            style={"button_service"}
-            text={"замовити консультацію"}
-            type={"button"}
-          />
+        <div className={styles.box_btn} onClick={handleClickOnBtn}>
+            <Button
+              style={"button_service"}
+              text={"замовити консультацію"}
+              type={"button"}
+            />
         </div>
       </div>
     </section>
