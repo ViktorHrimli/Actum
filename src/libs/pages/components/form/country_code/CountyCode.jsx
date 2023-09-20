@@ -10,7 +10,7 @@ import code from "@/assets/json/countries.json";
 export default function CountyCode() {
   const [isOpen, setIsOpen] = useState(false);
   const [codeCountry, setcodeCountry] = useState("UA");
-  const [phone, setPhone] = useState(+380);
+  const [phone, setPhone] = useState(380);
 
   const handleChangeNumberCountry = (code, phone) => {
     setcodeCountry(code);
@@ -19,8 +19,8 @@ export default function CountyCode() {
 
   return (
     <div className={styles.select_number}>
-      <div>
-        <span>{phone}</span>
+      <div className={styles.info_box}>
+        <span>+{phone}</span>
         <div className={styles.image_wrapper}>
           <img src={`https://flagsapi.com/${codeCountry}/shiny/64.png`}></img>
         </div>
@@ -32,23 +32,16 @@ export default function CountyCode() {
         <ul className={styles.code_box}>
           {code.map((item, id) => (
             <li
+              className={styles.item_list}
               onClick={() => handleChangeNumberCountry(item.code, item.phone)}
               key={id}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                width: "100%",
-                gap: "5px",
-                padding: "10px",
-                justifyContent: "space-between",
-              }}
             >
               <div className={styles.image_wrapper}>
                 <img
                   src={`https://flagsapi.com/${item.code}/shiny/64.png`}
                 ></img>
               </div>
-              <span style={{ color: "white" }}>{item.phone}</span>
+              <span className={styles.phone_color}>+{item.phone}</span>
             </li>
           ))}
         </ul>

@@ -42,6 +42,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -49,7 +50,10 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
 
   const onSubmit = (data) => {
     console.log(data);
+
     setIsStep(true);
+    reset();
+    setSelectValue("");
   };
 
   useEffect(() => {
