@@ -35,7 +35,7 @@ import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./Hero.module.scss";
 
-let isSessionStorageSave = firstRender();
+let isSessionStorageSave = {};
 
 export default function Hero({type}) {
   const [isStep, setIsStep] = useState(false);
@@ -62,6 +62,16 @@ export default function Hero({type}) {
     ? desktopWatemarkLine
     : mobileWatemarkLine;
 
+  let isSessionStorageSave;
+  if (typeof window !== "undefined") {
+    isSessionStorageSave =
+      JSON.parse(sessionStorage.getItem("hero_page")) || true;
+  }
+
+  useEffect(() => {
+    sessionStorage.setItem("hero_page", false);
+  }, []);
+
   useEffect(() => {
     setIsClient(true);
     setscreenWidth(window.innerWidth);
@@ -83,6 +93,7 @@ export default function Hero({type}) {
       setTimeout(() => setIsStep(true), 1500);
       setTimeout(() => setIsLoad(true), isDesktop ? 3000 : 2000);
     }
+
     setTimeout(
       () => {
         hero.style.overflowY = "";
@@ -93,7 +104,6 @@ export default function Hero({type}) {
 
         document.body.style.position = "initial";
         document.body.style.top = "";
-        isSessionStorageSave = false;
       },
       isDesktop ? 4000 : 3500
     );
@@ -153,14 +163,12 @@ export default function Hero({type}) {
           variants={{ open: { x: 0, opacity: 1 } }}
           initial={
             isSessionStorageSave
-              ? { x: isDesktop ? 600 : 250, opacity: 0 }
+              ? { x: isDesktop ? 500 : 250, opacity: 0 }
               : false
           }
           transition={{
-            type: "keyframes",
-            ease: "easeInOut",
             duration: isDesktop ? 1.2 : 0.5,
-            delay: 3.2,
+            delay: 1.8,
           }}
         >
           <Image

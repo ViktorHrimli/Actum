@@ -30,7 +30,7 @@ import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
 
-let isSessionStorageSave = firstRender();
+let isSessionStorageSave = {};
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
@@ -51,6 +51,16 @@ export default function Header() {
   const isTab = useIsTab();
 
   const patnName = path.replace("/", "");
+
+  let isSessionStorageSave;
+  if (typeof window !== "undefined") {
+    isSessionStorageSave =
+      JSON.parse(sessionStorage.getItem("hero_page")) || true;
+  }
+
+  useEffect(() => {
+    sessionStorage.setItem("hero_page", "false");
+  }, []);
 
   useEffect(() => {
     if (gradientEnums[patnName]) {
@@ -81,10 +91,6 @@ export default function Header() {
     );
 
     setTimeout(() => setIsStep(true), 1500);
-
-    setTimeout(() => {
-      isSessionStorageSave = false;
-    }, 3000);
   }, []);
 
   const handleClickOnBar = useCallback(() => {

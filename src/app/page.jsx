@@ -19,6 +19,7 @@ export default function Home() {
     setTimeout(() => {
       setIsClient(true);
     }, 3000);
+
     const scrollY = document.body.style.top;
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
   }, []);
