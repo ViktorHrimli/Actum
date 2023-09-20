@@ -1,13 +1,11 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 
 import {
   useState,
   useEffect,
   usePathname
 } from "@/libs/hooks/hooks";
-
 import { motion } from "framer-motion";
 
 import Button from "@/libs/components/button/Button";
@@ -16,6 +14,8 @@ import ModalForm from "@/libs/modal/modalForm/modalForm";
 import watemark from "@/assets/svg/Actum_HERO.png";
 
 import styles from "./NestedHero.module.scss";
+import { getFormById } from "@/shared/helpers/helpers";
+
 
 export default function NestedHero({ type, img, text }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -25,6 +25,8 @@ export default function NestedHero({ type, img, text }) {
   const patnName = path.replace("/", "");
 
   const handleClickOnBtn = () => {
+    getFormById("form_section");
+
     if (patnName === "book") {
       setIsOpenModal(false);
     } else {
@@ -100,15 +102,12 @@ export default function NestedHero({ type, img, text }) {
         </motion.h2>
       </div>
         <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
-          <Link href={"#form"}>
-            <Button
-              type="button"
-              text="замовити консультацію"
-              style="button_prymary"
-                />
-          </Link>
+          <Button
+            type="button"
+            text="замовити консультацію"
+            style="button_prymary"
+          />
         </div>
-
       <div className={styles.section_background}></div>
     </section>
     {isOpenModal && (

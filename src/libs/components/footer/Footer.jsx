@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "@/libs/hooks/hooks";
+import { getFormById } from "@/shared/helpers/helpers";
 
 import Button from "@/libs/components/button/Button";
 
@@ -23,6 +23,8 @@ export default function Footer() {
   const path = usePathname().replace("/", "");
 
   const handleClickOnBtn = () => {
+    getFormById("form_section");
+
     if (path === "home") {
       setIsOpenModal(false);
     } else if (path === "paid-priority-family"){
@@ -146,7 +148,6 @@ export default function Footer() {
                 </a>
               </div>
               <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
-                <Link href={"#form"}>
                   <Button
                     style={"button_prymary"}
                     text={"замовити консультацію"}
@@ -157,7 +158,6 @@ export default function Footer() {
                         : "family"
                     }
                   />
-                </Link>
               </div>
             </div>
           </div>
