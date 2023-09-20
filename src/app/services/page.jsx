@@ -17,7 +17,7 @@ export default function Services() {
   return (
     <>
       <ContactPanel type={"home"}/>
-      <NestedHero text="наші послуги" img={service_back_photo} />
+      <NestedHero type={"home"} text="наші послуги" img={service_back_photo} />
       <AboutServices />
       <Lawyers />
       <Descrition type="classic" />

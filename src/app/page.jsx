@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
+      <Hero type={"home"}/>
       {isClient && (
         <>
           <ContactPanel type={"home"} />

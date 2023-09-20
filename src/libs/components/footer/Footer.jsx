@@ -12,12 +12,31 @@ import Logo from "@/assets/svg/Actum_HERO.png";
 import { footerEnums } from "./libs/enums";
 
 import styles from "./Footer.module.scss";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 export default function Footer() {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
   const [isClient, setIsClient] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isScroll, setIsScroll] = useState(null);
 
   const path = usePathname().replace("/", "");
+
+  const handleClickOnBtn = () => {
+    if (path === "home") {
+      setIsOpenModal(false);
+    } else if (path === "paid-priority-family"){
+      setIsOpenModal(false);
+    } else if (path === "paid-priority-army"){
+      setIsOpenModal(false);
+    } else if (path === "paid-priority-crime"){
+      setIsOpenModal(false);
+    } else if (path === "book"){
+      setIsOpenModal(false);
+    } else {
+      setIsOpenModal(true);
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => setIsClient(true), 3800);
@@ -31,7 +50,23 @@ export default function Footer() {
     }
   }, [path]);
 
+  useEffect(() => {
+  if (isOpenModal) {
+    setIsScroll(window.scrollY);
+
+    document.body.style.overflow = "hidden";
+    document.body.style.maxHeight = "100vh";
+  } 
+    window.scrollTo(0, isScroll);
+  
+  return () => {
+    document.body.style.overflowX = "hidden";
+    document.body.style.maxHeight = "";
+  };
+}, [isOpenModal]);
+
   return (
+    <>
     <section className={styles.footer_section}>
       {isClient && (
         <>
@@ -110,8 +145,8 @@ export default function Footer() {
                   Мапа сайту
                 </a>
               </div>
-              <div className={styles.btn_wrapper}>
-                <Link href={"/book"}>
+              <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
+                <Link href={"#form"}>
                   <Button
                     style={"button_prymary"}
                     text={"замовити консультацію"}
@@ -129,5 +164,13 @@ export default function Footer() {
         </>
       )}
     </section>
+      {isOpenModal && (
+        <ModalForm
+          type={"home"}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />
+      )}
+    </>
   );
 }

@@ -1,23 +1,39 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+
+import {
+  useState,
+  useEffect,
+  usePathname
+} from "@/libs/hooks/hooks";
 
 import { motion } from "framer-motion";
 
 import Button from "@/libs/components/button/Button";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import watemark from "@/assets/svg/Actum_HERO.png";
 
-import { getFormById } from "@/shared/helpers/helpers";
-import { useEffect } from "@/libs/hooks/hooks";
-
 import styles from "./NestedHero.module.scss";
-let IS_FIRST_RENDER = {};
 
-export default function NestedHero({ img, text }) {
+export default function NestedHero({ type, img, text }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isScroll, setIsScroll] = useState(null);
+
+  const path = usePathname();
+  const patnName = path.replace("/", "");
+
   const handleClickOnBtn = () => {
-    getFormById("form_section");
+    if (patnName === "book") {
+      setIsOpenModal(false);
+    } else {
+      setIsOpenModal(true);
+    }
   };
+
   let IS_FIRST_RENDER;
+  
   if (typeof window !== "undefined") {
     IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(text) || true);
   }
@@ -25,8 +41,24 @@ export default function NestedHero({ img, text }) {
   useEffect(() => {
     sessionStorage.setItem(text, "false");
   }, []);
+  
+  useEffect(() => {
+    if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    } 
+      window.scrollTo(0, isScroll);
+    
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
 
   return (
+  <>
     <section className={styles.section}>
       <Image
         src={img}
@@ -67,16 +99,25 @@ export default function NestedHero({ img, text }) {
           {text}
         </motion.h2>
       </div>
-
-      <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
-        <Button
-          type="button"
-          text="замовити консультацію"
-          style="button_prymary"
-        />
-      </div>
+        <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
+          <Link href={"#form"}>
+            <Button
+              type="button"
+              text="замовити консультацію"
+              style="button_prymary"
+                />
+          </Link>
+        </div>
 
       <div className={styles.section_background}></div>
     </section>
+    {isOpenModal && (
+        <ModalForm
+          type={type}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />
+      )}
+    </>
   );
 }

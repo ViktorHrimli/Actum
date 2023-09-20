@@ -8,7 +8,7 @@ import { borderEnums } from "../form/enumsForm/enumsForm";
 export default function FormSection({ type }) {
   const { color_text } = borderEnums[type];
   return (
-    <section className={styles.section} id="form_section">
+    <section className={styles.section} id="form_section" name="form">
       <div className={styles.conteiner}>
         <div className={styles.wrapper_title}>
           <LeftBar text={"контактна форма"} type={type} />

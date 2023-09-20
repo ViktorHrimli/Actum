@@ -89,7 +89,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {...register("name", {
               required: true,
             })}
-            placeholder={errors.name ? ERROR_MESSAGE : "Ім'я"}
+            placeholder={errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"}
             />
           </div>
           {errors.name && (
@@ -101,7 +101,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
               />
             </div>
           )}
-          <div className={styles[border]}>
+          {/* <div className={styles[border]}>
             <input
               className={
                 errors.surname
@@ -113,7 +113,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
               placeholder={errors.surname ? ERROR_MESSAGE : "Прізвище"}
               {...register("surname", { required: true })}
               />
-          </div>
+          </div> */}
 
           {errors.surname && (
             <div className={styles.error_surname}>

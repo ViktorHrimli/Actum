@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
@@ -28,6 +28,8 @@ import {
 
 import { firstRender } from "./libs/enums/helpres/heroFirstRender";
 
+import ModalForm from "@/libs/modal/modalForm/modalForm";
+
 import femida from "@/assets/svg/HERO_FEMIDA.png";
 import watemark from "@/assets/svg/Actum_HERO.png";
 
@@ -35,11 +37,14 @@ import styles from "./Hero.module.scss";
 
 let isSessionStorageSave = firstRender();
 
-export default function Hero() {
+export default function Hero({type}) {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
   const [isLoad, setIsLoad] = useState(false);
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isScroll, setIsScroll] = useState(null);
 
   const isDesktop = useIsBig();
   const isSmallLaptopOrTab = useIsTabOrSmallLaptop();
@@ -94,7 +99,23 @@ export default function Hero() {
     );
   }, []);
 
+    useEffect(() => {
+    if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    } 
+      window.scrollTo(0, isScroll);
+    
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
+
   return (
+  <>
     <section className={styles.hero_section}>
       <div id="hero_section" className={styles.hero_conteiner}>
         {isClient && (
@@ -288,6 +309,7 @@ export default function Hero() {
         )}
 
         <motion.div
+          onClick={() => setIsOpenModal(true)}
           animate={isSessionStorageSave ? isLoad && "open" : false}
           key={"btn_wrapper"}
           variants={{ open: { y: "0", opacity: 1 } }}
@@ -297,16 +319,23 @@ export default function Hero() {
           }}
           className={styles.btn_wrapper}
         >
-          <Link href={"/book"}>
+          {/* <Link href={"/book"}> */}
             <Button
-              onClick={() => {}}
               type={"button"}
               text="замовити консультацію"
               style="button_prymary"
             />
-          </Link>
+          {/* </Link> */}
         </motion.div>
       </div>
-    </section>
+      </section>
+      {isOpenModal && (
+        <ModalForm
+          type={type}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />
+      )}
+  </>
   );
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import Button from "@/libs/components/button/Button";
 import Quotes from "@/libs/components/quotes/Quotes";
@@ -45,11 +46,13 @@ export default function About({ img, type = "family" }) {
             }}
           />
           <div className={styles.btn_wrapper}>
-            <Button
-              style={"button_service"}
-              text={"замовити консультацію"}
-              type={"button"}
-            />
+            <Link href={"#form"}>
+              <Button
+                style={"button_service"}
+                text={"замовити консультацію"}
+                type={"button"}
+                />
+            </Link>
           </div>
         </div>
       </div>
