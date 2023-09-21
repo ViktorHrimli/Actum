@@ -12,6 +12,8 @@ const Animations = dynamic(() => import("./Animations"), { ssr: false });
 import styles from "./Hero.module.scss";
 
 import back from "@/assets/svg/mobile_background_gradient.png";
+import backFilter from "@/assets/svg/hero-background_filter.png";
+
 
 export default function Hero({ type }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -88,6 +90,7 @@ export default function Hero({ type }) {
             className={styles.wrapper_image}
           >
             <Image src={back} alt="background" fill loading="eager" />
+            <Image src={backFilter} alt="background-filter" fill loading="eager" style={{zIndex: "5"}}/>
           </motion.div>
         )}
         <div id="hero_section" className={styles.hero_conteiner}>
