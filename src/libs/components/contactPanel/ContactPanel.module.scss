@@ -221,6 +221,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media screen and (min-height: 700px) and (max-height: 799px) {
+        margin-bottom: 240px;
+      }
   }
 }
 
