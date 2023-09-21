@@ -10,6 +10,7 @@ import {
   useIsBig,
   useIsTabOrSmallLaptop,
   useEffect,
+  useIsSmall,
 } from "@/libs/hooks/hooks";
 
 import Button from "../button/Button";
@@ -36,6 +37,7 @@ export default function Animations({ isSessionStorageSave = true }) {
   const [isLoad, setIsLoad] = useState(false);
 
   const isDesktop = useIsBig();
+  const isMobile = useIsSmall();
   const isSmallLaptopOrTab = useIsTabOrSmallLaptop();
 
   const watemarkAnimated = isDesktop
@@ -123,7 +125,7 @@ export default function Animations({ isSessionStorageSave = true }) {
         </motion.div>
       )}
 
-      {/* {isClient && (
+      {isClient && !isMobile && (
         <Gradients
           gradientVariants={gradientVariants}
           isClient={isClient}
@@ -131,7 +133,7 @@ export default function Animations({ isSessionStorageSave = true }) {
           isLoad={isLoad}
           isSessionStorageSave={isSessionStorageSave}
         />
-      )} */}
+      )}
 
       {isClient ? (
         <motion.h2

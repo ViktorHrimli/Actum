@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-
-import { useEffect, useState, useIsBig } from "@/libs/hooks/hooks";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect, useState, useIsBig, useIsSmall } from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
@@ -10,11 +11,15 @@ const Animations = dynamic(() => import("./Animations"), { ssr: false });
 
 import styles from "./Hero.module.scss";
 
+import back from "@/assets/svg/mobile_background_gradient.png";
+
 export default function Hero({ type }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
+  const [isClient, setIsClient] = useState(false);
 
   const isDesktop = useIsBig();
+  const isMobile = useIsSmall();
 
   let isSessionStorageSave = true;
 
@@ -27,6 +32,8 @@ export default function Hero({ type }) {
   useEffect(() => {
     const scrollY = document.body.style.top;
     const hero = document.getElementById("hero_section");
+
+    setIsClient(true);
 
     if (isSessionStorageSave) {
       hero.style.overflowY = "hidden";
@@ -73,6 +80,16 @@ export default function Hero({ type }) {
   return (
     <>
       <section className={styles.hero_section}>
+        {isMobile && isClient && (
+          <motion.div
+            animate={isSessionStorageSave ? { opacity: 1 } : false}
+            transition={{ duration: 0.5, delay: 1.5 }}
+            initial={isSessionStorageSave ? { opacity: 0 } : false}
+            className={styles.wrapper_image}
+          >
+            <Image src={back} alt="background" fill loading="eager" />
+          </motion.div>
+        )}
         <div id="hero_section" className={styles.hero_conteiner}>
           <Animations isSessionStorageSave={isSessionStorageSave} />
         </div>

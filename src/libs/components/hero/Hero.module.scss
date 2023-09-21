@@ -18,7 +18,6 @@
         width: 320px;
     }
 
-
     @media screen and (min-width: 768px) {
         padding-bottom: 34px;
         padding-left: 53px;
@@ -47,6 +46,17 @@
 
     z-index: 10;
 
+}
+
+.wrapper_image {
+    position: absolute;
+    width: 767px;
+    height: 100%;
+
+    top: 0;
+    left: -200px;
+
+    object-fit: cover;
 }
 
 
@@ -142,7 +152,7 @@
     background-color: var(--primary-color);
     filter: blur(200px);
 
-    background: -moz-linear-gradient(0deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%,);
+    background: -moz-linear-gradient(0deg, #e32f7a75 0%, #e32f7a75 50%, #e32f7a75 100%, );
     -webkit-filter: blur(-200px);
 
     opacity: 0.8;
@@ -311,8 +321,9 @@
     opacity: 0.8;
 
     @media screen and (max-width: 1279px) {
-            display: none;
+        display: none;
     }
+
     @media screen and (min-width: 1280px) {
         top: 130px;
         right: 0px;
