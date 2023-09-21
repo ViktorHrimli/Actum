@@ -18,8 +18,8 @@ const desktopAnimateWatemark = {
     };
   },
   transition: {
-    duration: 0.5,
-    delay: 0.7,
+    duration: 0.6,
+    delay: 0.4,
   },
 };
 
@@ -58,8 +58,8 @@ const desktopTitleTextWatemark = {
   },
 
   transition: {
-    duration: 0.55,
-    delay: 0.7,
+    duration: 0.6,
+    delay: 0.4,
   },
 };
 
@@ -88,10 +88,11 @@ const desktopWatemarkText = {
     open: { x: "0" },
   },
   initial(screen = 320) {
-    return { x: -screen, y: 0 };
+    return { x: -300, y: 0 };
   },
   transition: {
-    duration: 0.6,
+    duration: 0.8,
+    delay: 0.3,
   },
 };
 
@@ -109,7 +110,7 @@ const mobileWatemarkText = {
 
   transition: {
     duration: 0.5,
-    delay: 0.5,
+    delay: 0.1,
   },
 };
 
@@ -121,10 +122,11 @@ const desktopWatemarkLine = {
     open: { x: "0", opacity: 1 },
   },
   initial(screen = 320) {
-    return { x: -screen, opacity: 0 };
+    return { x: -300, opacity: 0 };
   },
   transition: {
-    duration: 0.6,
+    duration: 0.8,
+    delay: 0.3,
   },
 };
 
@@ -141,7 +143,7 @@ const mobileWatemarkLine = {
   },
   transition: {
     duration: 0.5,
-    delay: 0.5,
+    delay: 0.6,
   },
 };
 
@@ -154,7 +156,6 @@ const gradientVariants = {
   transition(isDesktop) {
     return {
       duration: 0.5,
-      delay: 0.3,
     };
   },
 };

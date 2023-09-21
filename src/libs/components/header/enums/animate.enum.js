@@ -15,10 +15,8 @@ const desktopLogoAnimate = {
   },
 
   transition: {
-    ease: "easeInOut",
-    type: "keyframes",
-    duration: 0.6,
-    delay: 0.5,
+    duration: 0.45,
+    delay: 0.4,
   },
 };
 

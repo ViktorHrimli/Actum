@@ -6,7 +6,7 @@ import { lawyersHeroEnums } from "./libs/enums/enums";
 
 import styles from "./HeroLawyers.module.scss";
 
-export default function HeroLawyers({ type }) {
+export default function HeroLawyers({ type, locale = "ua" }) {
   const { img, title, text, style, color } = lawyersHeroEnums[type];
 
   return (

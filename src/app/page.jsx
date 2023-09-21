@@ -5,6 +5,7 @@ import Direction from "@/libs/components/ourDirections/Direction";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
+
 import dynamic from "next/dynamic";
 
 const Response = dynamic(() => import("@/libs/components/response/Response"));
@@ -14,9 +15,11 @@ const AboutCompany = dynamic(() =>
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
+  const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setTimeout(() => setIsClient(true), 3000);
+    setIsLoad(true);
 
     const scrollY = document.body.style.top;
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
@@ -25,10 +28,12 @@ export default function Home() {
   return (
     <>
       <Hero type={"home"} />
+
       {isClient && (
         <>
           <ContactPanel type={"home"} />
           <Direction />
+
           <AboutCompany type={"family"} />
           <Response type={"family"} />
         </>

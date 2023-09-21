@@ -2,7 +2,7 @@ import styles from "./AboutCards.module.scss";
 
 import Items from "./items/Items";
 
-export default function AboutCards({ type }) {
+export default function AboutCards({ type, locale = "ua" }) {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
