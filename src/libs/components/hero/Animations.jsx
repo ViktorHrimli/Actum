@@ -123,7 +123,7 @@ export default function Animations({ isSessionStorageSave = true }) {
         </motion.div>
       )}
 
-      {isClient && (
+      {/* {isClient && (
         <Gradients
           gradientVariants={gradientVariants}
           isClient={isClient}
@@ -131,7 +131,7 @@ export default function Animations({ isSessionStorageSave = true }) {
           isLoad={isLoad}
           isSessionStorageSave={isSessionStorageSave}
         />
-      )}
+      )} */}
 
       {isClient ? (
         <motion.h2
