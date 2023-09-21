@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import Select from "./SelectNav/Select";
-import ArrowMenu from "../arrow_menu/ArrowMenu";
+import ArrowOpen from "./Animated/ArrowOpen";
 
 import styles from "./Navigation.module.scss";
 
@@ -38,19 +38,10 @@ export default function Navigation({
             </Link>
 
             {isMobile && title === SERVICES && (
-              <div
-                style={{
-                  position: "absolute",
-                  right: isOpenMenu ? 0 : -67,
-                  top: 3,
-                  zIndex: 30,
-                }}
-              >
-                <ArrowMenu
-                  isOpenSelect={isOpenMenu}
-                  setIsOpen={setIsOpenMenu}
-                />
-              </div>
+              <ArrowOpen
+                isOpenMenu={isOpenMenu}
+                setIsOpenMenu={setIsOpenMenu}
+              />
             )}
 
             {isMobile && isOpenMenu && (

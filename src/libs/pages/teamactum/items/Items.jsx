@@ -61,7 +61,8 @@ export default function Items({ attributes }) {
             src={kovalev}
             alt="Коровіна Наталя Георгіївна"
             fill
-            objectFit="cover"
+            sizes="(max-width: 767px) 160px, (max-width: 1280px) 500px, 400px"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

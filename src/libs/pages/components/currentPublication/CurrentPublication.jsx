@@ -101,8 +101,9 @@ export default function CurrentPublication() {
               src={img}
               alt={"photo thems"}
               fill
+              sizes="(max-width: 767px) 280px, (max-width: 1280px) 663px, 500px"
               fetchPriority="low"
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
             />
             <div className={styles.btn_wrapper}>
               <Button
