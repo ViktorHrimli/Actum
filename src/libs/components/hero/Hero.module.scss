@@ -25,12 +25,11 @@
         padding-top: 130px;
 
         width: 768px;
+        height: 100vh;
     }
 
     @media screen and (min-width: 1280px) {
         padding-top: 243px;
-
-        height: 100vh;
         max-height: 833px;
         width: 1280px;
         overflow-x: hidden;
@@ -103,7 +102,7 @@
 
 .under_line {
     height: 0;
-
+    z-index: 2;
     margin-top: 29px;
     margin-bottom: 4px;
 
@@ -330,6 +329,7 @@
 .btn_wrapper {
     border-radius: 4px;
     z-index: 5;
+    margin-top: auto;
 
     @media screen and (min-width: 320px) {
         width: 209px;
@@ -372,15 +372,13 @@
     @media screen and (min-width: 768px) {
         bottom: 0px;
         right: -40px;
-
-        width: 984px;
-        height: 689px;
+        width: 810px;
+        height: 525px;
     }
 
     @media screen and (min-width: 1280px) {
         width: 1046px;
         height: 720px;
-
         bottom: 0px;
         right: 0px;
 
@@ -405,7 +403,7 @@
 
 
 .title_text {
-    z-index: 1;
+    z-index: 2;
 }
 
 .text {
@@ -416,9 +414,9 @@
     }
 
     @media screen and (min-width: 768px) {
-        margin-bottom: 552px;
         font-size: 16px;
         margin-left: 0;
+        margin-bottom: 0;
     }
 
     @media screen and (min-width: 1280px) {
