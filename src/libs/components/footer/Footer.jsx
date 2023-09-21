@@ -22,29 +22,7 @@ export default function Footer() {
 
   const path = usePathname().replace("/", "");
 
-  const handleClickOnBtn = () => {
-    getFormById("form_section");
-    switch (path) {
-      case "home":
-        setIsOpenModal(false);
-        break;
-      case "paid-priority-family":
-        setIsOpenModal(false);
-        break;
-      case "paid-priority-army":
-        setIsOpenModal(false);
-        break;
-      case "paid-priority-crime":
-        setIsOpenModal(false);
-        break;
-      case "book":
-        setIsOpenModal(false);
-        break;
-      default:
-        setIsOpenModal(true);
-        break;
-    }
-  };
+  
 
   let isFristRender = true;
 
