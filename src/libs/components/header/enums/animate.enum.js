@@ -7,11 +7,11 @@ const desktopLogoAnimate = {
   variants(isBig = false) {
     return {
       start: { x: 0, y: 0, scale: 1, rotate: "0deg" },
-      step: { x: 100, y: isBig ? 325 : 255, scale: 4, rotate: "0deg" },
+      step: { x: 100, y: 325, scale: 4, rotate: "0deg" },
     };
   },
-  initial(isBig = false) {
-    return { x: 600, y: isBig ? 350 : 300, scale: 5, rotate: "90deg" };
+  initial(isBig = true) {
+    return { x: 600, y: 350, scale: 5, rotate: "90deg" };
   },
 
   transition: {
