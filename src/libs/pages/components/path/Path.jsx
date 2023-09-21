@@ -10,7 +10,6 @@ export default function Path({ path, type, back = "/", text }) {
   const router = useRouter();
 
   const psdad = usePathname().replaceAll("/", " ").split(" ");
-  console.log(psdad);
 
   const handleClickOnPath = () => {
     return router.push(back, { scroll: true });

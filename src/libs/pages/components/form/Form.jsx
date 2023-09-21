@@ -150,17 +150,18 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="phone"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Номер телефону
+            {/* Номер телефону */}
+            Вкажіть номер, на якому встановлений Месенджер.
           </label>
           <div className={styles.conteiner_name}>
-            <CountyCode />
+            <CountyCode type={type} />
 
             <div className={styles[border]}>
               <input
                 className={
                   errors.phone
-                    ? `${styles.input} ${styles.second_input} ${styles.error_input}`
-                    : `${styles.input} ${styles.second_input} ${styles.number_input}`
+                    ? `${styles.input} ${styles.two_input} ${styles.error_input}`
+                    : `${styles.input} ${styles.two_input} ${styles.number_input}`
                 }
                 type="tel"
                 id="phone"
@@ -168,7 +169,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 placeholder={
                   errors.phone
                     ? ERROR_MESSAGE
-                    : "Вкажіть номер, на якому встановлений Вайбер або Телеграм."
+                    : ""
                 }
               />
             </div>

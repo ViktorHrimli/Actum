@@ -7,7 +7,7 @@ import styles from "./CountryCode.module.scss";
 
 import code from "@/assets/json/countries.json";
 
-export default function CountyCode() {
+export default function CountyCode({ type }) {
   const [isOpen, setIsOpen] = useState(false);
   const [codeCountry, setcodeCountry] = useState("UA");
   const [phone, setPhone] = useState(380);
@@ -20,14 +20,14 @@ export default function CountyCode() {
   return (
     <div className={styles.select_number}>
       <div className={styles.info_box}>
-        <span>+{phone}</span>
         <div className={styles.image_wrapper}>
-          <img src={`https://flagsapi.com/${codeCountry}/shiny/64.png`}></img>
+          <img
+            className={styles.img_country}
+            src={`https://flagsapi.com/${codeCountry}/shiny/64.png`}
+          />
         </div>
       </div>
-
-      <ArrowMenu isOpenSelect={isOpen} setIsOpen={setIsOpen} />
-
+        <ArrowMenu isOpenSelect={isOpen} setIsOpen={setIsOpen} type={type} />
       {isOpen && (
         <ul className={styles.code_box}>
           {code.map((item, id) => (
@@ -39,13 +39,14 @@ export default function CountyCode() {
               <div className={styles.image_wrapper}>
                 <img
                   src={`https://flagsapi.com/${item.code}/shiny/64.png`}
-                ></img>
+                />
               </div>
               <span className={styles.phone_color}>+{item.phone}</span>
             </li>
           ))}
         </ul>
       )}
+    <span>+{phone}</span>
     </div>
   );
 }
