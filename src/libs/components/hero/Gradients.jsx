@@ -1,4 +1,13 @@
 "use client";
+import Image from "next/image";
+
+import tabBack from "@/assets/svg/background-tab.png";
+import tabBackFilter from "@/assets/svg/background-tab-filter.png";
+
+
+import desctopBack from "@/assets/svg/desctop_backround.png";
+import desctopBackFilter from "@/assets/svg/desctop-filter.png";
+
 
 import { motion } from "framer-motion";
 
@@ -16,14 +25,16 @@ export default function Gradients({
       <>
         <motion.div
           key={"main_gradient"}
-          className={styles.main_gradient}
           animate={
             isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
           }
           variants={gradientVariants["variants"]}
           initial={isSessionStorageSave ? gradientVariants["initial"] : false}
           transition={gradientVariants["transition"](isDesktop)}
-        ></motion.div>
+        >
+            <Image className={styles.back_tab} src={tabBack} alt="background" fill loading="eager" />
+            <Image className={styles.back_desctop} src={desctopBack} alt="background" fill loading="eager" />
+        </motion.div>
 
         <motion.div
           key={"second_gradient"}
@@ -33,50 +44,10 @@ export default function Gradients({
           variants={gradientVariants["variants"]}
           initial={isSessionStorageSave ? gradientVariants["initial"] : false}
           transition={gradientVariants["transition"](isDesktop)}
-          className={styles.second_gradient}
-        ></motion.div>
-
-        <motion.div
-          key={"thirhd_gradient"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.thirhd_gradient}
-        ></motion.div>
-
-        <motion.div
-          key={"fourth_gradient"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.fourth_gradient}
-        ></motion.div>
-        <motion.div
-          key={"moz_gradient_second"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.moz_gradient_second}
-        ></motion.div>
-        <motion.div
-          key={"moz_gradient_thirhd"}
-          animate={
-            isSessionStorageSave ? gradientVariants["animate"](isLoad) : false
-          }
-          variants={gradientVariants["variants"]}
-          initial={isSessionStorageSave ? gradientVariants["initial"] : false}
-          transition={gradientVariants["transition"](isDesktop)}
-          className={styles.moz_gradient_thirhd}
-        ></motion.div>
+        >
+          <Image className={styles.teb_back_filter} src={tabBackFilter} alt="background-filter" fill loading="eager"/>
+          <Image className={styles.back_desctop_filter} src={desctopBackFilter} alt="background-filter" fill loading="eager"/>
+        </motion.div>
       </>
     )
   );
