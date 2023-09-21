@@ -10,8 +10,8 @@
 
     padding: 8px;
 
-    width: 110px;
-    height: 59px;
+    width: 135px;
+    height: 53px;
 
     top: 0;
     left: 0px;
@@ -24,6 +24,9 @@
     color: var(--background);
 
     background: rgba(31, 31, 31, 0.2);
+    @media screen and (min-width: 768px) {
+        height: 59px;
+    }
 
 }
 
@@ -37,10 +40,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 3px;
 
-    width: 110px;
-    height: 150px;
-
+    width: 135px;
+    height: 155px;
+    border-radius: 4px;
     overflow: auto;
     background-color: var(--secondary-bacground);
 }
@@ -68,6 +72,12 @@
 .image_wrapper {
     width: 30px;
     height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.img_country {
+    margin-right: 10px;
 }
 
 .phone_color {
@@ -78,8 +88,8 @@
 .info_box {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
 
-    width: 50%;
+    // width: 50%;
 }

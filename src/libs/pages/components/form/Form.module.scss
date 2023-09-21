@@ -165,7 +165,9 @@
     background: var(--color-text);
     border: none;
     border-radius: 2px;
-
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
     outline: transparent;
     @media screen and (min-width: 320px) {
@@ -175,12 +177,13 @@
     }
     @media screen and (min-width: 768px) {
         width: 610px;
+        padding: 10px 8px;
+        font-size: 16px;
     }
 
     @media screen and (min-width: 1440px) {
         width: 652px;
         height: 57px;
-        padding: 10px 8px;
     }
 
     &::placeholder {
@@ -219,6 +222,9 @@
     outline: none;
 
     word-wrap: break-word;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
     @media screen and (min-width: 320px) {
         width: 280px;
@@ -230,6 +236,7 @@
         width: 610px;
         height: 110px;
         padding: 35px 15px;
+        font-size: 16px;
     }
 
     @media screen and (min-width: 1440px) {
@@ -268,7 +275,7 @@
 
 
 .conteiner_name .number_input {
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
 }
 
 .conteiner_radio_groupe {
@@ -297,6 +304,32 @@
 
     @media screen and (min-width: 1440px) {
         width: 656px;
+    }
+}
+
+.two_input {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 16px;
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        height: 49px;
+        padding: 14px 0px 13px 135px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 610px;
+        height: 57px;
+        padding: 14px 0px 14px 135px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding: 14px 0px 15px 135px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 656px;
+        padding: 18px 0px 18px 135px;
     }
 }
 

@@ -1,9 +1,10 @@
 .img_wrapper {
-    position: relative;
-    width: 30px;
-    height: 22px;
-
+    width: 28px;
+    height: 28px;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
     @media screen and (min-width: 1280px) {
@@ -13,8 +14,4 @@
     cursor: pointer;
 
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-    :hover {
-        scale: 1.3;
-    }
 }
