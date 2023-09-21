@@ -25,18 +25,25 @@ export default function Footer() {
   const handleClickOnBtn = () => {
     getFormById("form_section");
 
-    if (path === "home") {
-      setIsOpenModal(false);
-    } else if (path === "paid-priority-family"){
-      setIsOpenModal(false);
-    } else if (path === "paid-priority-army"){
-      setIsOpenModal(false);
-    } else if (path === "paid-priority-crime"){
-      setIsOpenModal(false);
-    } else if (path === "book"){
-      setIsOpenModal(false);
-    } else {
-      setIsOpenModal(true);
+    switch (path) {
+      case "home":
+        setIsOpenModal(false);
+        break;
+      case "paid-priority-family":
+        setIsOpenModal(false);
+        break;
+      case "paid-priority-army":
+        setIsOpenModal(false);
+        break;
+      case "paid-priority-crime":
+        setIsOpenModal(false);
+        break;
+      case "book":
+        setIsOpenModal(false);
+        break;
+      default:
+        setIsOpenModal(true);
+        break;
     }
   };
 
