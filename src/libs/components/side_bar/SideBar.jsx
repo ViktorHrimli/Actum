@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useState } from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
-import MainGradient from "./MainGradient";
 
 import back from "@/assets/svg/background_mobile_side_bar.png";
 import Telegram from "@/assets/svg/telegram.svg";
@@ -13,25 +12,8 @@ import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
-export default function SideBar({ children, isStyleHeader }) {
-  const [type, setIsType] = useState("");
-
+export default function SideBar({ children }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-
-  useEffect(() => {
-    switch (isStyleHeader) {
-      case "main_gradient_army":
-        setIsType("army");
-        break;
-      case "main_gradient_criminal":
-        setIsType("crime");
-        break;
-      default:
-        setIsType("family");
-        break;
-    }
-  }, [type]);
-
   return (
     <>
       <div className={styles.menu}>
@@ -90,7 +72,6 @@ export default function SideBar({ children, isStyleHeader }) {
               </li>
             </ul>
           </div>
-          {/* <MainGradient isStyleHeader={isStyleHeader} /> */}
         </div>
       </div>
       {isOpenModal && (

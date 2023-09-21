@@ -6,8 +6,7 @@ import NavSelectItem from "../NavSelectItem/NavSelectItem";
 import styles from "./Select.module.scss";
 import { useReducer } from "react";
 
-const reducer = (state, action) => {
-  console.log(action.type);
+const reducer = (_, action) => {
   switch (action.type) {
     case "/paid-priority-family":
       return {
@@ -38,7 +37,7 @@ const initital = {
 
 export default function Select({ routes, isOpen, onClick, isMobile }) {
   const [isOpenIndex, dispatch] = useReducer(reducer, initital);
-  console.log(isOpenIndex);
+
   return (
     <AnimatePresence>
       <motion.div

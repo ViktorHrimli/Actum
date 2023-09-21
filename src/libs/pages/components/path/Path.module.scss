@@ -87,7 +87,7 @@
     line-height: normal;
     text-transform: uppercase;
 
-    width: 210px;
+    max-width: 100%;
 
     @media screen and (min-width: 768px) {
         font-size: 14px;
