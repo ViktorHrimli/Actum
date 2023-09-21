@@ -6,7 +6,7 @@ import styles from "./Hero.module.scss";
 
 export default function Gradients({
   gradientVariants,
-  isLoad,
+  isLoad = true,
   isDesktop,
   isClient,
   isSessionStorageSave,
