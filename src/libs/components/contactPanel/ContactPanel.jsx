@@ -48,7 +48,7 @@ export default function ContactPanel({ type }) {
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: isDesktop ? 0.2 : 0 }}
+        transition={{ duration: 0.6, delay: isDesktop ? 2.8 : 3.5 }}
         className={
           isTrue
             ? styles.contact_panel_section_height

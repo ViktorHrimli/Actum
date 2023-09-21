@@ -38,9 +38,10 @@ export default function Home() {
   return (
     <>
       <Hero type={"home"} />
+      <ContactPanel type={"home"} />
+
       {isClient && (
         <>
-          <ContactPanel type={"home"} />
           <Direction />
           <AboutCompany type={"family"} />
           <Response type={"family"} />

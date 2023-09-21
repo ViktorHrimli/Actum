@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { useEffect, useState, useIsBig } from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
-// import Animations from "./Animations";
 
 const Animations = dynamic(() => import("./Animations"), { ssr: false });
 
