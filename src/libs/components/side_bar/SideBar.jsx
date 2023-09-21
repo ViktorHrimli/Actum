@@ -5,12 +5,13 @@ import Image from "next/image";
 import { useEffect, useState } from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
+import MainGradient from "./MainGradient";
 
+import back from "@/assets/svg/background_mobile_side_bar.png";
 import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
-import MainGradient from "./MainGradient";
 
 export default function SideBar({ children, isStyleHeader }) {
   const [type, setIsType] = useState("");
@@ -34,6 +35,16 @@ export default function SideBar({ children, isStyleHeader }) {
   return (
     <>
       <div className={styles.menu}>
+        <div className={styles.wrapper_background}>
+          <Image
+            style={{ objectFit: "cover" }}
+            alt="background"
+            fill
+            sizes="100vw"
+            loading="eager"
+            src={back}
+          />
+        </div>
         <div
           style={{
             display: "flex",
@@ -79,7 +90,7 @@ export default function SideBar({ children, isStyleHeader }) {
               </li>
             </ul>
           </div>
-          <MainGradient isStyleHeader={isStyleHeader} />
+          {/* <MainGradient isStyleHeader={isStyleHeader} /> */}
         </div>
       </div>
       {isOpenModal && (
