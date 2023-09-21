@@ -170,11 +170,13 @@
     line-height: normal;
 
     outline: transparent;
+
     @media screen and (min-width: 320px) {
         width: 280px;
         height: 49px;
         padding: 10px 8px;
     }
+
     @media screen and (min-width: 768px) {
         width: 610px;
         padding: 10px 8px;
@@ -274,9 +276,9 @@
 }
 
 
-.conteiner_name .number_input {
-    // padding-bottom: 20px;
-}
+// .conteiner_name .number_input {
+//     // padding-bottom: 20px;
+// }
 
 .conteiner_radio_groupe {
     display: flex;
@@ -312,6 +314,7 @@
     font-weight: 400;
     line-height: normal;
     font-size: 16px;
+
     @media screen and (min-width: 320px) {
         width: 280px;
         height: 49px;
@@ -323,6 +326,7 @@
         height: 57px;
         padding: 14px 0px 14px 135px;
     }
+
     @media screen and (min-width: 1280px) {
         padding: 14px 0px 15px 135px;
     }
