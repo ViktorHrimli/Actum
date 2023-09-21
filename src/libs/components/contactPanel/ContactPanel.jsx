@@ -28,16 +28,15 @@ export default function ContactPanel({ type }) {
   const [isScroll, setIsScroll] = useState(null);
   const isDesktop = useIsBig();
 
-  
   useEffect(() => {
     if (isOpenModal) {
       setIsScroll(window.scrollY);
 
       document.body.style.overflow = "hidden";
       document.body.style.maxHeight = "100vh";
-    } 
-      window.scrollTo(0, isScroll);
-    
+    }
+    window.scrollTo(0, isScroll);
+
     return () => {
       document.body.style.overflowX = "hidden";
       document.body.style.maxHeight = "";
@@ -49,7 +48,7 @@ export default function ContactPanel({ type }) {
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: isDesktop ? 0.5 : 0 }}
+        transition={{ duration: 0.6, delay: isDesktop ? 0.2 : 0 }}
         className={
           isTrue
             ? styles.contact_panel_section_height

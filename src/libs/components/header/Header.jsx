@@ -30,8 +30,6 @@ import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
 
-let isSessionStorageSave = {};
-
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
@@ -53,13 +51,17 @@ export default function Header() {
   const patnName = path.replace("/", "");
 
   let isSessionStorageSave;
+
   if (typeof window !== "undefined") {
-    isSessionStorageSave =
-      JSON.parse(sessionStorage.getItem("hero_page")) || true;
+    isSessionStorageSave = JSON.parse(
+      sessionStorage.getItem("hero_heder") || true
+    );
   }
 
   useEffect(() => {
-    sessionStorage.setItem("hero_page", "false");
+    setTimeout(() => {
+      sessionStorage.setItem("hero_heder", "false");
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -90,7 +92,7 @@ export default function Header() {
       isDesktopOrLaptop ? window.innerHeight > 798 : window.innerWidth
     );
 
-    setTimeout(() => setIsStep(true), 1500);
+    setTimeout(() => setIsStep(true), 1200);
   }, []);
 
   const handleClickOnBar = useCallback(() => {
@@ -145,7 +147,7 @@ export default function Header() {
               open: { x: 0, y: 0, opacity: 1 },
             }}
             initial={isSessionStorageSave ? { x: 0, y: 50, opacity: 0 } : false}
-            transition={{ ease: "easeIn", duration: 0.8, delay: 3 }}
+            transition={{ duration: 0.8, delay: 2.5 }}
           >
             <Navigation
               links={PathsPageHeader}
