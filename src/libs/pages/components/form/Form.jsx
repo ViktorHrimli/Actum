@@ -154,7 +154,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер.
           </label>
           <div className={styles.conteiner_name}>
-            <CountyCode type={type} />
+            <CountyCode color_text={color_text} />
 
             <div className={styles[border]}>
               <input
