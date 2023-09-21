@@ -6,7 +6,7 @@ import { colorSvg } from "./libs/enums";
 import styles from "./ArrowMenu.module.scss";
 
 export default function ArrowMenu({
-  type,
+  type = "family",
   isOpenSelect,
   setIsOpen = () => {},
   fill = "#E2E0E0",
