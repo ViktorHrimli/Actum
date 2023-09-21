@@ -30,7 +30,7 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
-export default function Animations({ isSessionStorageSave = true }) {
+export default function Animations({ isSessionStorageSave = true, setIsOpenModal }) {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
@@ -216,7 +216,7 @@ export default function Animations({ isSessionStorageSave = true }) {
           className={styles.btn_wrapper}
         >
           <Button
-            onClick={() => {}}
+            onClick={() => setIsOpenModal(true)}
             type={"button"}
             text="замовити консультацію"
             style="button_prymary"

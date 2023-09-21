@@ -94,7 +94,7 @@ export default function Hero({ type }) {
           </motion.div>
         )}
         <div id="hero_section" className={styles.hero_conteiner}>
-          <Animations isSessionStorageSave={isSessionStorageSave} />
+          <Animations isSessionStorageSave={isSessionStorageSave} setIsOpenModal={setIsOpenModal} />
         </div>
       </section>
       {isOpenModal && (
