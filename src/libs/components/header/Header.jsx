@@ -13,8 +13,8 @@ import {
   desktopLogoAnimate,
   mobileLogoAnimate,
 } from "./enums/enum";
+
 import { gradientEnums } from "./enums/gradientEnums";
-import { firstRender } from "@/libs/components/hero/libs/enums/helpres/heroFirstRender";
 
 import {
   usePathname,
@@ -22,7 +22,6 @@ import {
   useState,
   useEffect,
   useIsBig,
-  useIsTabOrSmallLaptop,
   useIsTab,
 } from "@/libs/hooks/hooks";
 
@@ -35,7 +34,7 @@ export default function Header() {
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
-  const [isOnlyMobileScreen, setIsOnlyMobileScreen] = useState(0);
+
   // DROP MENU
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -45,7 +44,6 @@ export default function Header() {
 
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
-  const isTabOrLaptop = useIsTabOrSmallLaptop();
   const isTab = useIsTab();
 
   const patnName = path.replace("/", "");
@@ -88,9 +86,6 @@ export default function Header() {
     setIsClient(true);
 
     setIsScreenHeight(Boolean(window?.innerHeight > 798));
-    setIsOnlyMobileScreen(
-      isDesktopOrLaptop ? window.innerHeight > 798 : window.innerWidth
-    );
 
     setTimeout(() => setIsStep(true), 1200);
   }, []);
@@ -123,7 +118,7 @@ export default function Header() {
               variants={logoAnimated["variants"](isScreenHeight)}
               initial={
                 isSessionStorageSave
-                  ? logoAnimated["initial"](isOnlyMobileScreen, isTabOrLaptop)
+                  ? logoAnimated["initial"](window?.innerHeight > 798)
                   : false
               }
               transition={logoAnimated["transition"]}
