@@ -7,7 +7,6 @@ import { colorImg } from "./libs/enums";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
-import back from "@/assets/svg/background_mobile_side_bar.png";
 import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
