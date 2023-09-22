@@ -3,6 +3,7 @@ import styles from "./SideBar.module.scss";
 import Image from "next/image";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
+import { colorImg } from "./libs/enums";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
@@ -12,8 +13,26 @@ import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
-export default function SideBar({ children }) {
+
+export default function SideBar({ children, isStyleHeader }) {
+  const [type, setIsType] = useState("family");
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const { background } = colorImg[type];
+
+  useEffect(() => {
+    switch (isStyleHeader) {
+      case "main_gradient_army":
+        setIsType("army");
+        break;
+      case "main_gradient_criminal":
+        setIsType("crime");
+        break;
+      default:
+        setIsType("family");
+        break;
+    }
+  }, [type]);
+
   return (
     <>
       <div className={styles.menu}>
@@ -24,7 +43,7 @@ export default function SideBar({ children }) {
             fill
             sizes="100vw"
             loading="eager"
-            src={back}
+            src={background}
           />
         </div>
         <div

@@ -18,6 +18,7 @@ import Button from "@/libs/components/button/Button";
 import styles from "./FormComponent.module.scss";
 import { borderEnums } from "./enumsForm/enumsForm";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
+import  CountryCode  from "@/libs/modal/formComponent/country_code/CountyCode"
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
@@ -81,7 +82,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
           {"Вкажіть ім'я і прізвище"}
         </label>
 
-        <div className={styles.conteiner_name}>
+          <div className={styles.conteiner_name}>
           <div className={styles[border]}>
           <input
             className={
@@ -163,17 +164,19 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
         </div>
       </div>
 
-      <div className={styles.wrapper_name}>
+        <div className={styles.wrapper_name}>
         <label htmlFor="phone" className={`${styles.lable} ${styles[color_text]}`}>
-          Номер телефону
+            {/* Номер телефону */}
+            Вкажіть номер, на якому встановлений Месенджер
         </label>
-        <div className={styles.conteiner_name}>
+          <div className={styles.conteiner_name}>
+            <CountryCode color_text={color_text} />
           <div className={styles[border]}>
           <input
             className={
               errors.phone
-                ? `${styles.input} ${styles.second_input} ${styles.error_input}`
-                : `${styles.input} ${styles.second_input} ${styles.number_input}`
+                ? `${styles.input} ${styles.two_input} ${styles.error_input}`
+                : `${styles.input} ${styles.two_input} ${styles.number_input}`
             }
             type="tel"
             id="phone"
@@ -181,7 +184,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             placeholder={
               errors.phone
                 ? ERROR_MESSAGE
-                : "Вкажіть номер, на якому встановлений Вайбер або Телеграм."
+                : "" // : "Вкажіть номер, на якому встановлений Вайбер або Телеграм."
             }
             />
             </div>

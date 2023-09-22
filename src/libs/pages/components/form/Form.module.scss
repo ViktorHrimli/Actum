@@ -4,11 +4,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-
     @media screen and (min-width: 320px) {
         gap: 20px;
     }
-
     @media screen and (min-width: 768px) {
         gap: 36px;
     }
@@ -220,9 +218,7 @@
     resize: none;
     border: none;
     border-radius: 2px;
-
     outline: none;
-
     word-wrap: break-word;
     font-style: normal;
     font-weight: 400;
@@ -600,6 +596,11 @@
     margin-right: 20px;
 }
 
+.error_icon_service {
+    color: #661135;
+    ;
+}
+
 .error_icon {
     color: #fff;
 }
@@ -676,7 +677,7 @@
 .error_phone {
     position: absolute;
     top: 19px;
-    left: 110px;
+    left: 237px;
     z-index: 14;
 
     display: flex;
@@ -687,12 +688,12 @@
 
     @media screen and (min-width: 768px) {
         top: 22px;
-        left: 139px;
+        left: 260px;
     }
 
     @media screen and (min-width: 1440px) {
         top: 21px;
-        left: 155px;
+        left: 275px;
     }
 }
 
