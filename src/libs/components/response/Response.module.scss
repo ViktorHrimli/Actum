@@ -245,12 +245,18 @@
     @media screen and (min-width: 1280px) {
         top: 75px;
         left: 38px;
-    }
-    @media screen and (min-width: 1440px) {
         width: 24px;
         height: 24px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+            top: 10px;
+        }
+    }
+    @media screen and (min-width: 1440px) {
         top: 145px;
         left: 130px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+            top: 30px;
+        }
     }
 }
 
@@ -266,11 +272,17 @@
     @media screen and (min-width: 1280px) {
         top: 75px;
         right: -78px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+            top: 10px;
+        }
     }
     @media screen and (min-width: 1440px) {
         width: 24px;
         height: 24px;
         top: 145px;
         right: -85px;
+        @media screen and (min-height: 700px) and (max-height: 799px) {
+            top: 30px;
+        }
     }
 }
