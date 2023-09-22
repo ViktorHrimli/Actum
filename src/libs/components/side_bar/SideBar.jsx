@@ -13,9 +13,9 @@ import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
+
 export default function SideBar({ children, isStyleHeader }) {
   const [type, setIsType] = useState("family");
-  console.log(type);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const { background } = colorImg[type];
 
@@ -32,7 +32,6 @@ export default function SideBar({ children, isStyleHeader }) {
         break;
     }
   }, [type]);
-
 
   return (
     <>
@@ -92,7 +91,6 @@ export default function SideBar({ children, isStyleHeader }) {
               </li>
             </ul>
           </div>
-          {/* <MainGradient isStyleHeader={isStyleHeader} /> */}
         </div>
       </div>
       {isOpenModal && (

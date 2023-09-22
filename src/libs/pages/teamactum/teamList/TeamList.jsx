@@ -3,11 +3,7 @@ import Items from "../items/Items";
 
 import styles from "./TeamList.module.scss";
 
-import { getDataTeam } from "../libs/helpers/helpers";
-
 export default async function TeamList() {
-  // const { data } = await getDataTeam();
-
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
@@ -15,7 +11,6 @@ export default async function TeamList() {
           <LeftBar text="наші фахівці" type="family" />
         </div>
         <ul className={styles.list}>
-          {/* {data && data.map((el, id) => <Items key={id} {...el} />)} */}
           {Array.from({ length: 6 }, (_, id) => (
             <Items key={id} />
           ))}

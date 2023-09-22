@@ -13,7 +13,7 @@ import Button from "@/libs/components/button/Button";
 export default function StepsLawyers() {
   const handleClickOnBtn = () => {
     getFormById("form_section");
-  }
+  };
 
   return (
     <section className={styles.section}>
@@ -23,6 +23,7 @@ export default function StepsLawyers() {
           src={StepsImageMob}
           alt={"our team"}
           fill
+          sizes="100vw"
           loading="lazy"
           style={{ objectFit: "cover" }}
         />
@@ -31,6 +32,7 @@ export default function StepsLawyers() {
           src={StepsImageTab}
           alt={"our team"}
           fill
+          sizes="100vw"
           loading="lazy"
           style={{ objectFit: "cover" }}
         />
@@ -39,6 +41,7 @@ export default function StepsLawyers() {
           src={StepsImagePc}
           alt={"our team"}
           fill
+          sizes="100vw"
           loading="lazy"
           style={{ objectFit: "cover" }}
         />
@@ -101,11 +104,11 @@ export default function StepsLawyers() {
           </li>
         </ul>
         <div className={styles.box_btn} onClick={handleClickOnBtn}>
-            <Button
-              style={"button_service"}
-              text={"замовити консультацію"}
-              type={"button"}
-            />
+          <Button
+            style={"button_service"}
+            text={"замовити консультацію"}
+            type={"button"}
+          />
         </div>
       </div>
     </section>
