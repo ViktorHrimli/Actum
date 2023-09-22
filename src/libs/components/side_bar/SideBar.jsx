@@ -3,9 +3,9 @@ import styles from "./SideBar.module.scss";
 import Image from "next/image";
 
 import { useEffect, useState } from "@/libs/hooks/hooks";
+import { colorImg } from "./libs/enums";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
-import MainGradient from "./MainGradient";
 
 import back from "@/assets/svg/background_mobile_side_bar.png";
 import Telegram from "@/assets/svg/telegram.svg";
@@ -14,9 +14,10 @@ import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
 export default function SideBar({ children, isStyleHeader }) {
-  const [type, setIsType] = useState("");
-
+  const [type, setIsType] = useState("family");
+  console.log(type);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const { background } = colorImg[type];
 
   useEffect(() => {
     switch (isStyleHeader) {
@@ -32,6 +33,7 @@ export default function SideBar({ children, isStyleHeader }) {
     }
   }, [type]);
 
+
   return (
     <>
       <div className={styles.menu}>
@@ -42,7 +44,7 @@ export default function SideBar({ children, isStyleHeader }) {
             fill
             sizes="100vw"
             loading="eager"
-            src={back}
+            src={background}
           />
         </div>
         <div

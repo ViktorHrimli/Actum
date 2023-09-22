@@ -163,7 +163,9 @@
     background: var(--color-text);
     border: none;
     border-radius: 2px;
-
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
     outline: transparent;
 
@@ -214,10 +216,11 @@
     resize: none;
     border: none;
     border-radius: 2px;
-
     outline: none;
-
     word-wrap: break-word;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
     @media screen and (min-width: 320px) {
         width: 280px;
@@ -266,9 +269,9 @@
 }
 
 
-.conteiner_name .number_input {
-    padding-bottom: 20px;
-}
+// .conteiner_name .number_input {
+//     padding-bottom: 20px;
+// }
 
 .conteiner_radio_groupe {
     position: absolute;
@@ -314,6 +317,34 @@
 
     @media screen and (min-width: 1440px) {
         width: 656px;
+    }
+}
+
+.two_input {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 16px;
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        height: 35px;
+        padding: 10px 0px 10px 130px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 610px;
+        height: 40px;
+        padding: 10px 0px 10px 135px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding: 10px 0px 10px 135px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 656px;
+        padding: 18px 0px 18px 135px;
     }
 }
 
@@ -705,7 +736,7 @@
 .error_phone {
     position: absolute;
     top: 12px;
-    left: 110px;
+    left: 237px;
     z-index: 14;
 
     display: flex;
@@ -716,11 +747,11 @@
 
     @media screen and (min-width: 768px) {
         top: 14px;
-        left: 139px;
+        left: 260px;
     }
     @media screen and (min-width: 1440px) {
-        top: 12px;
-        left: 155px;
+        top: 13px;
+        left: 275px;
     }
 }
 

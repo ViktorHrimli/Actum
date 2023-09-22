@@ -7,7 +7,7 @@ import styles from "./Select.module.scss";
 import { useReducer } from "react";
 
 const reducer = (state, action) => {
-  console.log(action.type);
+  // console.log(action.type);
   switch (action.type) {
     case "/paid-priority-family":
       return {

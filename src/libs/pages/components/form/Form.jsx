@@ -278,7 +278,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             <div className={styles.error_services}>
               <FontAwesomeIcon
                 icon={faCircleExclamation}
-                className={styles.error_icon}
+                className={styles.error_icon_service}
               />
             </div>
           )}
