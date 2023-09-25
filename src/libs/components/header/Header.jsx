@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+// import { usePathname } from "next/navigation";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -34,6 +35,8 @@ export default function Header() {
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
+  // LOCALE
+  const [isLocal, setIsLocal] = useState("");
 
   // DROP MENU
   const [onHover, setOnHover] = useState(false);
@@ -88,6 +91,8 @@ export default function Header() {
     setIsScreenHeight(Boolean(window?.innerHeight > 798));
 
     setTimeout(() => setIsStep(true), 1200);
+
+    setIsLocal(localStorage.getItem("locale") || "");
   }, []);
 
   const handleClickOnBar = useCallback(() => {
@@ -109,7 +114,7 @@ export default function Header() {
     <section className={styles.header_section}>
       <div className={styles.header_conteiner} id="header">
         {isClient && (
-          <Link href={"/"}>
+          <Link href={isLocal ? "/ru" : "/"} locale={isLocal ? "ru" : "ua"}>
             <motion.div
               className={styles.logo_conteiner}
               animate={
@@ -153,6 +158,7 @@ export default function Header() {
               setOnHover={setOnHover}
               setIsOpenMenu={setIsOpenMenu}
               isOpenMenu={isOpenMenu}
+              isLocal={isLocal}
             />
           </motion.div>
         ) : (
@@ -182,6 +188,7 @@ export default function Header() {
             <SideBar isStyleHeader={isStyleHeader}>
               <Navigation
                 links={PathsPageHeader}
+                isLocal={isLocal}
                 route={path}
                 onClick={handleClickOnBar}
                 onHover={onHover}

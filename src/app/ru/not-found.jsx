@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-import styles from "./page.module.scss";
+import styles from "@/app/page.module.scss";
 export default function NotFound() {
   const router = useRouter();
 
@@ -22,7 +22,7 @@ export default function NotFound() {
     >
       <h1>Щось сталось (:</h1>
       <p className={styles.error_text} onClick={() => router.push("/")}>
-        Повернутися на головну
+        На главную
       </p>
     </div>
   );

@@ -2,7 +2,7 @@
 const nextConfig = {
   i18n: {
     defaultLocale: "uk-UA",
-    locales: ["uk-UA", "ru-RU"],
+    locales: ["uk-UA", "ru"],
     localeDetection: false,
   },
   images: {

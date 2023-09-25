@@ -17,20 +17,20 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function PaidArmy() {
+export default function page() {
   return (
     <>
-      <ContactPanel type={"army"} locale="ru" />
-      <HeroLawyers type={"army"} locale="ru" />
-      <QuestionsList type={"army"} locale="ru" />
-      <AboutCards type={"army"} locale="ru" />
-      <SuccessfulBusiness type={"army"} locale="ru" />
-      <Specialists type={"army"} locale="ru" />
-      <Descrition type={"army"} locale="ru" />
-      <Response type={"army"} locale="ru" />
-      <StepsLawyers locale="ru" />
-      <Price type={"army"} locale="ru" />
-      <FormSection type={"army"} locale="ru" />
+      <ContactPanel type={"army"} />
+      <HeroLawyers type={"army"} />
+      <QuestionsList type={"army"} />
+      <AboutCards type={"army"} />
+      <SuccessfulBusiness type={"army"} />
+      <Specialists type={"army"} />
+      <Descrition type={"army"} />
+      <Response type={"army"} />
+      <StepsLawyers />
+      <Price type={"army"} />
+      <FormSection type={"army"} />
     </>
   );
 }

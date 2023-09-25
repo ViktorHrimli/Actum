@@ -11,7 +11,12 @@ export default function ItemsList({ isMobie, slide, start, type }) {
   return (
     <ul className={styles.card_list_response}>
       {!isMobie ? (
-        <DesktopAnimation type={type} data={arrPerson} index={slide} />
+        <DesktopAnimation
+          isSide={start}
+          type={type}
+          data={arrPerson}
+          index={slide}
+        />
       ) : (
         <MobileSlider isStart={start} key={slide}>
           <Card type={type} key={slide} {...arrPerson[slide]} />

@@ -5,9 +5,8 @@ import { useState, useEffect, useIsBig, useRef } from "@/libs/hooks/hooks";
 
 import Card from "@/libs/components/card/Card";
 
-export default function DesktopAnimation({ data, type, index }) {
+export default function DesktopAnimation({ data, type, index, isSide }) {
   const [current, setCurrent] = useState(0);
-  const [isStart, setIsStart] = useState(false);
 
   const laptop = useIsBig();
   const ref = useRef();
@@ -22,10 +21,6 @@ export default function DesktopAnimation({ data, type, index }) {
       startWithNull();
     }
   }, [current]);
-
-  useEffect(() => {
-    // interval = setInterval(() => nextSlider(), 4000);
-  }, []);
 
   return (
     <motion.div
@@ -56,7 +51,10 @@ export default function DesktopAnimation({ data, type, index }) {
             <motion.div
               key={index + 1}
               initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1, x: !laptop ? -350 : -445 }}
+              animate={{
+                opacity: 1,
+                x: !laptop ? -350 : -445,
+              }}
               transition={{ duration: 1 }}
             >
               <Card type={type} {...item} />

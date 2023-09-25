@@ -21,10 +21,8 @@ export default function RootLayout({ children }) {
     <html lang="uk-UA">
       <body className={montserrat.className}>
         <Header />
-          <main className={styles.page}>
-              {children}
-          </main>
-            <Footer />
+        <main className={styles.page}>{children}</main>
+        <Footer />
       </body>
     </html>
   );
