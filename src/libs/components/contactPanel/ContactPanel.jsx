@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
-import { useState, useIsBig } from "@/libs/hooks/hooks";
+import { useState, useIsBig, useEffect } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
@@ -18,8 +19,6 @@ import styles from "./ContactPanel.module.scss";
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import ScrollButtonUp from "./halpers/showScrollButtonUp";
 
-import { useEffect } from "@/libs/hooks/hooks";
-
 export default function ContactPanel({ type }) {
   const { gradient } = colorGradient[type];
 
@@ -27,6 +26,25 @@ export default function ContactPanel({ type }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
   const isDesktop = useIsBig();
+
+  const path = usePathname();
+  const router = useRouter();
+
+  const hanldeChangeLocale = () => {
+    localStorage.setItem("locale", "ru");
+    const newUrl = path.replace("/", "/ru/");
+
+    router.push(newUrl, { scroll: true });
+  };
+
+  const handleClearLocale = () => {
+    localStorage.removeItem("locale");
+
+    const lengthUrl = path.length > 3;
+    const newUrl = path.replace("/ru", lengthUrl ? "" : "/");
+
+    router.push(newUrl, { scroll: true });
+  };
 
   useEffect(() => {
     if (isOpenModal) {
@@ -82,6 +100,13 @@ export default function ContactPanel({ type }) {
               </a>
             </li>
           </ul>
+          <button type="button" onClick={hanldeChangeLocale}>
+            RU
+          </button>
+          <button type="button" onClick={handleClearLocale}>
+            UA
+          </button>
+
           <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
             <ul className={styles.list_panel_phone}>
               <li className={styles.link_panel_phone}>
