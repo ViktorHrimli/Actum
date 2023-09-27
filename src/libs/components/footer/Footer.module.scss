@@ -509,3 +509,27 @@
   }
 
 }
+
+.scroll_button_up {
+  width: 264px;
+  position: absolute;
+  bottom: 53px;
+  @media screen and (min-width: 768px) {
+    width: 34px;
+    height: 34px;
+    bottom: 230px;
+    right: 33px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.icon_up {
+  width: 34px;
+  height: 34px;
+  margin-left: auto;
+  @media screen and (min-width: 768px) {
+    
+  }
+}
