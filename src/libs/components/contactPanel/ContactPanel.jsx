@@ -76,36 +76,32 @@ export default function ContactPanel({ type }) {
         <div className={styles[gradient]}></div>
         <div className={styles.contact_panel_conteiner}>
           <ul className={styles.list_panel}>
+            <li className={styles.link} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "30px", height: "30px"}}>
+              <p className={styles.focus} onClick={handleClearLocale}>UA</p>
+              <p className={styles.focus} onClick={hanldeChangeLocale}>RU</p>
+            </li>
             <li className={styles.link}>
               <a href="https://t.me/actum_help">
                 <Image src={Telegram} alt="Telegram" width={30} height={30} />
               </a>
             </li>
-
             <li className={styles.link}>
               <a href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">
                 <Image src={Viber} alt="Viber" width={34} height={34} />
               </a>
             </li>
-
-            <li className={styles.link}>
+            {/* <li className={styles.link}>
               <a href="https://www.instagram.com/actum.com.ua/">
                 <Image src={Whatsapp} alt="Whatsapp" width={34} height={34} />
               </a>
-            </li>
-
+            </li> */}
             <li className={styles.link} onClick={() => setIsOpenModal(true)}>
               <a>
                 <Image src={Form} alt="Form" width={34} height={34} />
               </a>
             </li>
           </ul>
-          <button type="button" onClick={hanldeChangeLocale}>
-            RU
-          </button>
-          <button type="button" onClick={handleClearLocale}>
-            UA
-          </button>
+          
 
           <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
             <ul className={styles.list_panel_phone}>
