@@ -70,7 +70,7 @@ export default function ContactPanel({ type }) {
   return (
     <>
       {isPhoneMob && <div className={styles.on_click_closed} onClick={() => setIsPhoneMob(false)}></div>}
-      
+
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -100,7 +100,7 @@ export default function ContactPanel({ type }) {
             </li>
             <li className={`${styles.link} ${styles.mob_yes}`}
               onClick={() => hanldePhoneNumber()}>
-              
+
           {isPhoneMob &&
               (<motion.ul
                 className={styles.list_phone}
