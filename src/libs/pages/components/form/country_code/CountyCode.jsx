@@ -17,6 +17,7 @@ export default function CountyCode({ color_text }) {
 
   const handleClick = () => {
     setIsOpen(!isOpen)
+    isOpen(false)
   }
 
   const handleChangeNumberCountry = (code, phone) => {

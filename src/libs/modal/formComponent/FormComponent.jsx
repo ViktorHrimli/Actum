@@ -26,12 +26,11 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
   const { border, color_text, options_hover, border_check_color, check_color } = borderEnums[type];
   
   const [selectValue, setSelectValue] = useState("");
+  const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
 
-
   const [isStep, setIsStep] = useState(false);
-
 
   const handleCLickOnSelect = (event) => {
     setSelectValue(event.currentTarget.innerText);
@@ -40,9 +39,18 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
   const handleToggleSelect = () => {
     setIsOpen(!isOpen);
+    setIsOpenRadio(false);
+    setIsOpenCountry(false);
   };
+
   const handleToggleRadio = () => {
     setIsOpenRadio(!isOpenRadio);
+    setIsOpenCountry(false);
+  };
+
+  const handleToggleCountry = () => {
+    setIsOpenRadio(false);
+    setIsOpen(false);
   };
 
   const {
@@ -77,7 +85,9 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
       autoFocus={false}
       className={styles.form}
     >
-      <div className={styles.wrapper_name}>
+        <div className={styles.wrapper_name}
+        onClick={() => setIsOpenCountry(false)}
+        >
         <label htmlFor="name" className={`${styles.lable} ${styles[color_text]}`}>
           {"Вкажіть ім'я і прізвище"}
         </label>
@@ -131,7 +141,9 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
         </div>
       </div>
 
-      <div className={styles.wrapper_name}>
+        <div className={styles.wrapper_name}
+        onClick={() => setIsOpenCountry(false)}
+        >
         <label htmlFor="textarea" className={`${styles.lable} ${styles[color_text]}`}>
           Ваше питання
         </label>
@@ -148,7 +160,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             placeholder={
               errors.textarea
                 ? ERROR_MESSAGE
-                : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
+                : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді фахівця."
             }
             />
             </div>
@@ -170,7 +182,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер
         </label>
           <div className={styles.conteiner_name}>
-            <CountryCode color_text={color_text} />
+            <CountryCode color_text={color_text} isOpenCountry={isOpenCountry} setIsOpenCountry={setIsOpenCountry} handleToggleCountry={handleToggleCountry } />
           <div className={styles[border]}>
           <input
             className={
