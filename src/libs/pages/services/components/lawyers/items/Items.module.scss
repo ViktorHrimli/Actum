@@ -65,22 +65,11 @@
   z-index: 5;
   position: relative;
   width: 257px;
-  rotate: (180deg);
   border: 1px solid transparent;
   transition: all 1s;
 
 
-  border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-
-  -moz-border-image: -moz-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
-  -webkit-border-image: -webkit-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
-
+  border-image: linear-gradient(to right, #3F2E64, #912E6F,  #E32F7A);
   border-image-slice: 1;
   margin-left: auto;
   margin-bottom: 17px;
@@ -102,25 +91,26 @@
 
 .border_right {
   z-index: 5;
-  width: 139px;
+  width: 1px;
+  height: 139px;
   border: 1px solid var(--primary-color);
-  rotate: (90deg);
   position: absolute;
-  top: -70px;
-  right: 186px;
+
+  top: -1px;
+  right: -1px;
   transition: all 1s;
 
 
   @media screen and (min-width: 1280px) {
-    width: 176px;
-    right: 256px;
-    top: -90px;
+    height: 176px;
+    right: -1px;
+    top: 0px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 157px;
-    right: 296px;
-    top: -79px;
+    height: 157px;
+    top: 0;
+    right: -1px;
   }
 }
 
@@ -128,24 +118,12 @@
   z-index: 5;
   position: relative;
   width: 257px;
-  rotate: (360deg);
   border: 1px solid transparent;
   margin-top: auto;
   transition: all 1s;
 
 
   border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-  ;
-
-  -moz-border-image: -moz-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
-  -webkit-border-image: -webkit-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
-
   border-image-slice: 1;
 
   @media screen and (min-width: 1280px) {
@@ -159,25 +137,27 @@
 
 .border_left {
   z-index: 5;
-  width: 139px;
+  width: 1px;
+  height: 139px;
   border: 1px solid var(--primary-color);
-  rotate: (90deg);
   position: absolute;
-  top: -70px;
-  right: 186px;
+  top: -140px;
+  left: -1px;
   transition: all 1s;
 
 
   @media screen and (min-width: 1280px) {
-    width: 176px;
-    right: 256px;
-    top: -90px;
+    height: 176px;
+    width: 1px;
+    left: -1px;
+    top: -176px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 157px;
-    right: 296px;
-    top: -79px;
+    height: 157px;
+    width: 1px;
+    left: -1px;
+    top: -157px;
   }
 }
 
@@ -352,20 +332,18 @@
 .container_cards:hover .border_left {
   transition: all 1s;
   position: absolute;
-  top: -119px;
-  right: 159px;
-  width: 238px;
+  top: -237px;
+  height: 238px;
+  width: 1px;
 
   @media screen and (min-width: 1280px) {
-    width: 268px;
-    right: 264px;
-    top: -134px;
+    height: 268px;
+    top: -267px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 275px;
-    right: 345px;
-    top: -137.5px;
+    height: 275px;
+    top: -274px;
   }
 }
 
@@ -378,19 +356,20 @@
 .container_cards:hover .border_right {
   transition: all 1s;
   position: absolute;
-  top: -119px;
-  right: 159px;
-  width: 238px;
+  top: -1px;
+  right: -1px;
+  width: 1px;
+  height: 238px;
 
   @media screen and (min-width: 1280px) {
-    width: 268px;
-    right: 264px;
-    top: -134px;
+    width: 1px;
+    height: 268px;
+    top: -1px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 275px;
-    right: 345px;
-    top: -137.5px;
+    width: 1px;
+    height: 275px;
+    top: -1px;
   }
 }
