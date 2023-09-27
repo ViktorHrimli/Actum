@@ -65,21 +65,11 @@
   z-index: 5;
   position: relative;
   width: 257px;
-  // rotate: (180deg);
   border: 1px solid transparent;
   transition: all 1s;
 
 
   border-image: linear-gradient(to right, #3F2E64, #912E6F,  #E32F7A);
-
-  -moz-border-image: -moz-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
-  -webkit-border-image: -webkit-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
 
   border-image-slice: 1;
   margin-left: auto;
@@ -135,15 +125,6 @@
 
 
   border-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
-
-  -moz-border-image: -moz-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
-  -webkit-border-image: -webkit-linear-gradient(to right,
-      #E32F7A,
-      #912E6F,
-      #3F2E64);
 
   border-image-slice: 1;
 
