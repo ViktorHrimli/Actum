@@ -74,16 +74,6 @@ export default function Items({
           </div>
         </div>
       )}
-      <div className={styles.container_btn}>
-        <Link href="/blog-3-1">
-          <Button
-            typeStyle={type}
-            style={"button_prymary"}
-            text={"наші публікації"}
-            type={"button"}
-          />
-        </Link>
-      </div>
     </ul>
   );
 }

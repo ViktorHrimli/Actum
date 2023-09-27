@@ -3,7 +3,7 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 import { useState, useIsBig, useEffect } from "@/libs/hooks/hooks";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
@@ -11,7 +11,7 @@ import ScrollAwareSection from "@/libs/components/contactPanel/halpers/logic";
 
 import Telegram from "@/assets/svg/telegram.svg";
 import Viber from "@/assets/svg/Viber.png";
-import Whatsapp from "@/assets/svg/Whatsapp.png";
+// import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
 import styles from "./ContactPanel.module.scss";
@@ -31,6 +31,8 @@ export default function ContactPanel({ type }) {
 
   const path = usePathname();
   const router = useRouter();
+
+  let isSessionStorageSave;
 
   const hanldeChangeLocale = () => {
     localStorage.setItem("locale", "ru");
@@ -52,6 +54,18 @@ export default function ContactPanel({ type }) {
     setIsPhoneMob(!isPhoneMob);
   };
 
+  if (typeof window !== "undefined") {
+    isSessionStorageSave = JSON.parse(
+      sessionStorage.getItem("hero_heder") || true
+    );
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      sessionStorage.setItem("hero_heder", "false");
+    }, 3000);
+  }, []);
+
   useEffect(() => {
     if (isOpenModal) {
       setIsScroll(window.scrollY);
@@ -69,24 +83,45 @@ export default function ContactPanel({ type }) {
 
   return (
     <>
-      {isPhoneMob && <div className={styles.on_click_closed} onClick={() => setIsPhoneMob(false)}></div>}
+      {isPhoneMob && (
+        <div
+          className={styles.on_click_closed}
+          onClick={() => setIsPhoneMob(false)}
+        ></div>
+      )}
 
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={isSessionStorageSave ? { opacity: 0 } : false}
+        animate={isSessionStorageSave ? { opacity: 1 } : false}
         transition={{ duration: 0.6, delay: isDesktop ? 2.8 : 3.5 }}
         className={
           isTrue
             ? styles.contact_panel_section_height
-            : `${styles.contact_panel_section} ${isPhoneMob && styles.phone_mob}`
+            : `${styles.contact_panel_section} ${
+                isPhoneMob && styles.phone_mob
+              }`
         }
       >
         <div className={styles[gradient]}></div>
         <div className={styles.contact_panel_conteiner}>
           <ul className={styles.list_panel}>
-            <li className={styles.link} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "30px", height: "30px"}}>
-              <p className={styles.focus} onClick={handleClearLocale}>UA</p>
-              <p className={styles.focus} onClick={hanldeChangeLocale}>RU</p>
+            <li
+              className={styles.link}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "30px",
+                height: "30px",
+              }}
+            >
+              <p className={styles.focus} onClick={handleClearLocale}>
+                UA
+              </p>
+              <p className={styles.focus} onClick={hanldeChangeLocale}>
+                RU
+              </p>
             </li>
             <li className={styles.link} onClick={() => setIsPhoneMob(false)}>
               <a href="https://t.me/helpactum">
@@ -98,36 +133,47 @@ export default function ContactPanel({ type }) {
                 <Image src={Viber} alt="Viber" width={34} height={34} />
               </a>
             </li>
-            <li className={`${styles.link} ${styles.mob_yes}`}
-              onClick={() => hanldePhoneNumber()}>
+            <li
+              className={`${styles.link} ${styles.mob_yes}`}
+              onClick={() => hanldePhoneNumber()}
+            >
+              {isPhoneMob && (
+                <motion.ul className={styles.list_phone}>
+                  <li className={styles.link_panel_phone}>
+                    <a href="tel:+380671797213">+38-067-179-72-13</a>
+                  </li>
+                  <li className={styles.link_panel_phone}>
+                    <a href="tel:+380503334897">+38-050-333-48-97</a>
+                  </li>
+                </motion.ul>
+              )}
 
-          {isPhoneMob &&
-              (<motion.ul
-                className={styles.list_phone}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}>
-              <li className={styles.link_panel_phone}>
-                <a href="tel:+380671797213">+38-067-179-72-13</a>
-              </li>
-              <li className={styles.link_panel_phone}>
-                <a href="tel:+380503334897">+38-050-333-48-97</a>
-              </li>
-            </motion.ul>)}
-              <svg xmlns="http://www.w3.org/2000/svg" width={30} height={30} viewBox="0 0 512 512"><path fill="#F8F5F5" d="M347.1 24.6c7.7-18.6 28-28.5 47.4-23.2l88 24C499.9 30.2 512 46 512 64c0 247.4-200.6 448-448 448c-18 0-33.8-12.1-38.6-29.5l-24-88c-5.3-19.4 4.6-39.7 23.2-47.4l96-40c16.3-6.8 35.2-2.1 46.3 11.6L207.3 368c70.4-33.3 127.4-90.3 160.7-160.7L318.7 167c-13.7-11.2-18.4-30-11.6-46.3l40-96z"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={30}
+                height={30}
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="#F8F5F5"
+                  d="M347.1 24.6c7.7-18.6 28-28.5 47.4-23.2l88 24C499.9 30.2 512 46 512 64c0 247.4-200.6 448-448 448c-18 0-33.8-12.1-38.6-29.5l-24-88c-5.3-19.4 4.6-39.7 23.2-47.4l96-40c16.3-6.8 35.2-2.1 46.3 11.6L207.3 368c70.4-33.3 127.4-90.3 160.7-160.7L318.7 167c-13.7-11.2-18.4-30-11.6-46.3l40-96z"
+                />
+              </svg>
             </li>
             {/* <li className={styles.link}>
               <a href="">
                 <Image src={Whatsapp} alt="Whatsapp" width={34} height={34} />
               </a>
             </li> */}
-            <li className={styles.link} onClick={() => setIsOpenModal(true) & setIsPhoneMob(false)}>
+            <li
+              className={styles.link}
+              onClick={() => setIsOpenModal(true) & setIsPhoneMob(false)}
+            >
               <a>
                 <Image src={Form} alt="Form" width={34} height={34} />
               </a>
             </li>
           </ul>
-          
 
           <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
             <ul className={styles.list_panel_phone}>
