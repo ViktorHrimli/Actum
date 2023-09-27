@@ -13,6 +13,8 @@ import { footerEnums } from "./libs/enums";
 
 import styles from "./Footer.module.scss";
 import ModalForm from "@/libs/modal/modalForm/modalForm";
+import ScrollButtonUp from "@/libs/components/contactPanel/halpers/showScrollButtonUp";
+
 
 export default function Footer() {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
@@ -178,6 +180,11 @@ export default function Footer() {
                         : "family"
                     }
                   />
+                </div>
+                <div className={styles.scroll_button_up}>
+                  <div className={styles.icon_up} >
+                    <ScrollButtonUp />
+                  </div>
                 </div>
               </div>
             </div>
