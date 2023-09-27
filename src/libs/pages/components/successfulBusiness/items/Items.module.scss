@@ -19,28 +19,6 @@
   @media screen and (min-width: 1440px) {}
 }
 
-.container_btn {
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    margin-left: auto;
-    display: block;
-    z-index: 2;
-    width: 238px;
-    height: 54px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 321px;
-    height: 56px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 288px;
-    height: 64px;
-  }
-}
-
 .position_arr_left {
   position: absolute;
   top: -200px;
@@ -51,6 +29,7 @@
   position: absolute;
   top: -204px;
   right: 0;
+
   @media screen and (min-width: 768px) {
     right: -205px;
   }

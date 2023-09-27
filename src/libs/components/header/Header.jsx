@@ -30,6 +30,10 @@ import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
 
+const getStaticProps = () => {
+  return {};
+};
+
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);

@@ -22,13 +22,14 @@ import styles from "./Form.module.scss";
 const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
+  const [selectValue, setSelectValue] = useState("");
+  const [numberTel, setNumberTel] = useState("(XXX)-XXX-XX-XX");
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isStep, setIsStep] = useState(false);
+
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
-
-  const [selectValue, setSelectValue] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [isStep, setIsStep] = useState(false);
 
   const handleCLickOnSelect = (event) => {
     setSelectValue(event.currentTarget.innerText);
@@ -43,6 +44,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -72,7 +74,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
       <form
         onSubmit={handleSubmit(onSubmit)}
         autoComplete="off"
-        autoFocus={false}
+        autoFocus={true}
         className={styles.form}
       >
         <div className={styles.wrapper_name}>
@@ -83,32 +85,34 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {"Вкажіть ім'я і прізвище"}
           </label>
 
-        <div className={styles.conteiner_name}>
-          <div className={styles[border]}>
-          <input
-            className={
-              errors.name
-                ? `${styles.input} ${styles.error_input}`
-                : styles.input
-            }
-            id="name"
-            type="text"
-            {...register("name", {
-              required: true,
-            })}
-            placeholder={errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"}
-            />
-          </div>
-          {errors.name && (
-            <div className={styles.error_name}>
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className={styles.error_icon}
+          <div className={styles.conteiner_name}>
+            <div className={styles[border]}>
+              <input
+                className={
+                  errors.name
+                    ? `${styles.input} ${styles.error_input}`
+                    : styles.input
+                }
+                id="name"
+                type="text"
+                {...register("name", {
+                  required: true,
+                })}
+                placeholder={
+                  errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"
+                }
               />
             </div>
+            {errors.name && (
+              <div className={styles.error_name}>
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              </div>
             )}
-            </div>
           </div>
+        </div>
         <div className={styles.wrapper_name}>
           <label
             htmlFor="textarea"
@@ -165,12 +169,9 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 }
                 type="tel"
                 id="phone"
+                value={numberTel}
                 {...register("phone", { required: true })}
-                placeholder={
-                  errors.phone
-                    ? ERROR_MESSAGE
-                    : ""
-                }
+                placeholder={errors.phone ? ERROR_MESSAGE : ""}
               />
             </div>
             {errors.phone && (

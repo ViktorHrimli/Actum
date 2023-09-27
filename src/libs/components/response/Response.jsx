@@ -14,8 +14,11 @@ export default function Response({ type }) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
+
   const path = usePathname();
   const screen = useIsSmall();
+
+  const isHome = path === "/";
 
   useEffect(() => {
     setIsClient(true);
@@ -23,7 +26,7 @@ export default function Response({ type }) {
 
   return (
     <section className={styles.section}>
-      <div className={path === "/" ? styles.background : ""}></div>
+      <div className={isHome ? styles.background : ""}></div>
 
       <div className={styles.conteiner_section}>
         <div className={styles.left_text_conteiner}>
@@ -59,7 +62,7 @@ export default function Response({ type }) {
             />
           )}
           <div className={styles.position_arr_right}>
-            { isClient && (
+            {isClient && (
               <Arrow
                 type={type}
                 left={false}
@@ -69,15 +72,17 @@ export default function Response({ type }) {
               />
             )}
           </div>
-          <div className={styles.btn_wrapper}>
-            <Button
-              onClick={() => {}}
-              text={"залишити відгук"}
-              style={"button_service"}
-              type={"button"}
-              typeStyle={type}
-            />
-          </div>
+          {isHome && (
+            <div className={styles.btn_wrapper}>
+              <Button
+                onClick={() => {}}
+                text={"залишити відгук"}
+                style={"button_service"}
+                type={"button"}
+                typeStyle={type}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -4,9 +4,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+
     @media screen and (min-width: 320px) {
         gap: 20px;
     }
+
     @media screen and (min-width: 768px) {
         gap: 36px;
     }
@@ -270,11 +272,6 @@
         padding: 10px 15px;
     }
 }
-
-
-// .conteiner_name .number_input {
-//     // padding-bottom: 20px;
-// }
 
 .conteiner_radio_groupe {
     display: flex;
@@ -598,7 +595,6 @@
 
 .error_icon_service {
     color: #661135;
-    ;
 }
 
 .error_icon {
@@ -653,7 +649,7 @@
 
 .error_textarea {
     position: absolute;
-    top: 26px;
+    top: 24px;
     left: 115px;
 
     display: flex;
