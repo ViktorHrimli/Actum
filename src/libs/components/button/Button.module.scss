@@ -74,11 +74,6 @@
     @media screen and (min-width: 1440px) {
         font-size: 20px;
     }
-
-    &:hover {
-        color: var(--color-text);
-        background-color: var(--primary-color);
-    }
 }
 
 .button_border {
@@ -148,4 +143,19 @@
         right: 0;
         border-radius: 0 4px 4px 0;
     }
+}
+
+.background_family:hover {
+    color: var(--color-text);
+    background-color: var(--primary-color);
+}
+
+.background_army:hover {
+        color: var(--color-text);
+        background-color: var(--army-color);
+}
+
+.background_criminal:hover {
+    color: var(--color-text);
+    background-color: var(--crime-color);
 }

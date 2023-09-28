@@ -248,12 +248,21 @@
   cursor: pointer;
 }
 
+.link_translator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.focus {
+  transform: scale(1);
+  transition: all 0.2s;
+}
+
 .focus:hover {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-align: center;
+  transition: all 0.2s;
+  transform: scale(1.2);
 }
 
 .mob_none {
@@ -294,7 +303,6 @@
 }
 
 
-
 .open {
   display: block;
   animation-name: slideIn;
@@ -308,6 +316,5 @@
 
 .phone_mob {
   height: 120px;
-
   transition: height 0.4s ease-in-out;
 }

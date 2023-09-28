@@ -10,7 +10,7 @@ import StepsImagePc from "src/assets/svg/StepsLawyersPC.jpg";
 import styles from "./StepsLawyers.module.scss";
 import Button from "@/libs/components/button/Button";
 
-export default function StepsLawyers() {
+export default function StepsLawyers({type}) {
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
@@ -108,6 +108,7 @@ export default function StepsLawyers() {
             style={"button_service"}
             text={"замовити консультацію"}
             type={"button"}
+            typeStyle={type}
           />
         </div>
       </div>

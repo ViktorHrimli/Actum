@@ -21,7 +21,7 @@ export default function Book() {
         img={hero}
         text="КОНСУЛЬТАЦІЯ АДВОКАТА ОНЛАЙН, В ОФІСІ АБО ДЗВІНКОМ"
       />
-      <StepsLawyers />
+      <StepsLawyers type="family" />
       <FormSection type="family" />
     </>
   );
