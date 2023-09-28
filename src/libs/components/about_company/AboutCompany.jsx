@@ -9,8 +9,8 @@ import animationSignNatalia from "@/assets/json/sign_natalia.json";
 
 import Ukraine from "@/assets/svg/Ukraine.png";
 
-import Olga from "@/assets/svg/Olga.png";
-import Natalia from "@/assets/svg/Natalia.png";
+import Olga from "@/assets/svg/Olga.svg";
+import Natalia from "@/assets/svg/Natalia.svg";
 
 import Button from "../button/Button";
 import Link from "next/link";
@@ -50,7 +50,7 @@ export default function AboutCompany() {
             alt="Olga"
             fill
             loading="eager"
-            placeholder="blur"
+            // placeholder="blur"
           />
         </div>
         <div className={styles.natalia_conteiner}>
@@ -59,7 +59,7 @@ export default function AboutCompany() {
             alt="Natalia"
             fill
             loading="eager"
-            placeholder="blur"
+            // placeholder="blur"
           />
         </div>
       </div>
