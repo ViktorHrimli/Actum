@@ -1,5 +1,5 @@
 "use client";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect, useRef } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,13 +25,10 @@ const ERROR_MESSAGE = "Заповніть поле!";
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("+38");
-  const [setPhoneNimber, setSetPhoneNimber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(0);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
-
-  const inputRef = useRef();
-  const maskRef = useRef();
 
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
@@ -45,12 +42,11 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     setIsOpen(!isOpen);
   };
 
-  console.log(phone);
-
   const {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -82,7 +78,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     // Remove any non-numeric characters from the input
     const numericValue = inputValue.replace(/\D/g, "");
 
-    setSetPhoneNimber(numericValue);
+    setPhoneNumber(numericValue);
   };
 
   return (
@@ -180,7 +176,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             />
 
             <div className={styles[border]}>
-              <IMask
+              {/* <IMask
                 mask={`${phone}/(999) (999) (99) (99)`}
                 maskChar={" "}
                 value={setPhoneNimber}
@@ -202,6 +198,39 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                   onChange: handleInputChange,
                 })}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
+              /> */}
+
+              <Controller
+                name="phone"
+                control={control}
+                defaultValue={""}
+                rules={{
+                  value: phoneNumber,
+                  required: "Phone number is required",
+                  required: true,
+                  maxLength: 18,
+                  onChange: handleInputChange,
+                }}
+                placeholder={errors.phone ? ERROR_MESSAGE : ""}
+                render={({ field, fieldState }) => (
+                  <IMask
+                    mask={`${phone}/(999) (999) (99) (99)`}
+                    maskChar={" "}
+                    value={fieldState}
+                    {...field}
+                  >
+                    {(inputProps) => (
+                      <input
+                        className={
+                          errors.phone
+                            ? `${styles.input} ${styles.two_input} ${styles.error_input}`
+                            : `${styles.input} ${styles.two_input} ${styles.number_input}`
+                        }
+                        {...inputProps}
+                      />
+                    )}
+                  </IMask>
+                )}
               />
             </div>
             {errors.phone && (
