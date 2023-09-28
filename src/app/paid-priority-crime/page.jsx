@@ -28,7 +28,7 @@ export default function Crimes() {
       <Specialists type={"crime"} />
       <Description type={"crime"} />
       <Response type={"crime"} />
-      <StepsLawyers />
+      <StepsLawyers type={"crime"}/>
       <Price type={"crime"}/>
       <FormSection type={"crime"} />
     </>

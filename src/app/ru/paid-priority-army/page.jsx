@@ -28,7 +28,7 @@ export default function PaidArmy() {
       <Specialists type={"army"} />
       <Descrition type={"army"} />
       <Response type={"army"} />
-      <StepsLawyers />
+      <StepsLawyers type={"army"}/>
       <Price type={"army"}/>
       <FormSection type={"army"} />
     </>

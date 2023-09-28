@@ -57,7 +57,8 @@ export default function About({ img, type = "family" }) {
               <Button
                 style={"button_service"}
                 text={"замовити консультацію"}
-                type={"button"}
+                type={type}
+                typeStyle={type}
               />
           </div>
         </div>

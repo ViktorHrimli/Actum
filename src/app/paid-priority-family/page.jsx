@@ -28,7 +28,7 @@ export default function Family() {
       <Specialists type={"family"} />
       <Description type={"family"} />
       <Response type={"family"} />
-      <StepsLawyers />
+      <StepsLawyers type={"family"}/>
       <FormSection type={"family"} />
     </>
   );

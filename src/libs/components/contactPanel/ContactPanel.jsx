@@ -26,6 +26,8 @@ export default function ContactPanel({ type }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isPhoneMob, setIsPhoneMob] = useState(false);
 
+  const [isLanguage, setIsLanguage] = useState(false);
+
   const [isScroll, setIsScroll] = useState(null);
   const isDesktop = useIsBig();
 
@@ -81,6 +83,17 @@ export default function ContactPanel({ type }) {
     };
   }, [isOpenModal]);
 
+
+  useEffect(() => {
+    const languageData = localStorage.getItem("locale", "ru");
+
+    if (languageData) {
+      setIsLanguage(true);
+    } else {
+      setIsLanguage(false);
+    }
+  }, []);
+
   return (
     <>
       {isPhoneMob && (
@@ -105,23 +118,9 @@ export default function ContactPanel({ type }) {
         <div className={styles[gradient]}></div>
         <div className={styles.contact_panel_conteiner}>
           <ul className={styles.list_panel}>
-            <li
-              className={styles.link}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "30px",
-                height: "30px",
-              }}
-            >
-              <p className={styles.focus} onClick={handleClearLocale}>
-                UA
-              </p>
-              <p className={styles.focus} onClick={hanldeChangeLocale}>
-                RU
-              </p>
+            <li className={`${styles.link} ${styles.link_translator}`}>
+              <p className={styles.focus} onClick={handleClearLocale} style={isLanguage ? {} : {fontWeight: "700"}}>UA</p>
+              <p className={styles.focus} onClick={hanldeChangeLocale} style={isLanguage ? {fontWeight: "700"} : {}}>RU</p>
             </li>
             <li className={styles.link} onClick={() => setIsPhoneMob(false)}>
               <a href="https://t.me/helpactum">
