@@ -35,7 +35,7 @@ export default function Accordion({ title, text, type, path }) {
         }}
         onClick={handleClickOpen}
       >
-        <p className={styles.header_text}>{title}</p>
+        <h2 className={styles.header_text}>{title}</h2>
         <motion.div
           animate={{ rotate: isOpen ? "180deg" : "0deg" }}
           transition={{ duration: 0.5 }}

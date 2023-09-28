@@ -12,7 +12,6 @@ import Viber from "@/assets/svg/Viber.png";
 import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
-
 export default function SideBar({ children, isStyleHeader }) {
   const [type, setIsType] = useState("family");
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -71,11 +70,11 @@ export default function SideBar({ children, isStyleHeader }) {
                 </a>
               </li>
 
-              <li>
+              {/* <li>
                 <a href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">
                   <Image src={Viber} alt="Viber" width={34} height={34} />
                 </a>
-              </li>
+              </li> */}
 
               <li>
                 <a href="">

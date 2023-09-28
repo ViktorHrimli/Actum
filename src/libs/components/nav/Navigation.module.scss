@@ -21,9 +21,17 @@
     position: relative;
     text-decoration-line: none !important;
     text-decoration: none !important;
+    z-index: 20;
 
     @media screen and (max-width: 1280px) {
-        max-width: 100px
+        max-width: 100px;
+    }
+
+
+
+    :hover {
+        text-decoration-line: underline;
+        text-decoration-color: #E32F7A;
     }
 
     max-width: 100%;
