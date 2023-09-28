@@ -6,7 +6,9 @@ import styles from "./Item.module.scss";
 export default function Item({ description, title, img, date, path = "test" }) {
   return (
     <div className={styles.card}>
-      <h2 className={styles.title_text}>{title}</h2>
+      <h2 className={styles.title_text}>
+        <Link href={`/blog-3-1/${path}`}>{title}</Link>
+      </h2>
       <div className={styles.conteiner_text}>
         <div className={styles.image_conteiner}>
           <Image

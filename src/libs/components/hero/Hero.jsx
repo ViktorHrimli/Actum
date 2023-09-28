@@ -3,7 +3,13 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState, useIsBig, useIsSmall } from "@/libs/hooks/hooks";
+import {
+  useEffect,
+  useState,
+  useIsBig,
+  useIsSmall,
+  useClient,
+} from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
@@ -14,14 +20,13 @@ import styles from "./Hero.module.scss";
 import back from "@/assets/svg/mobile_background_gradient.png";
 import backFilter from "@/assets/svg/hero-background_filter.png";
 
-
 export default function Hero({ type }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
-  const [isClient, setIsClient] = useState(false);
 
   const isDesktop = useIsBig();
   const isMobile = useIsSmall();
+  const isClient = useClient();
 
   let isSessionStorageSave = true;
 
@@ -34,8 +39,6 @@ export default function Hero({ type }) {
   useEffect(() => {
     const scrollY = document.body.style.top;
     const hero = document.getElementById("hero_section");
-
-    setIsClient(true);
 
     if (isSessionStorageSave) {
       hero.style.overflowY = "hidden";
@@ -90,11 +93,20 @@ export default function Hero({ type }) {
             className={styles.wrapper_image}
           >
             <Image src={back} alt="background" fill loading="eager" />
-            <Image src={backFilter} alt="background-filter" fill loading="eager" style={{zIndex: "5"}}/>
+            <Image
+              src={backFilter}
+              alt="background-filter"
+              fill
+              loading="eager"
+              style={{ zIndex: "5" }}
+            />
           </motion.div>
         )}
         <div id="hero_section" className={styles.hero_conteiner}>
-          <Animations isSessionStorageSave={isSessionStorageSave} setIsOpenModal={setIsOpenModal} />
+          <Animations
+            isSessionStorageSave={isSessionStorageSave}
+            setIsOpenModal={setIsOpenModal}
+          />
         </div>
       </section>
       {isOpenModal && (

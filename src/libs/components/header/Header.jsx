@@ -24,6 +24,7 @@ import {
   useEffect,
   useIsBig,
   useIsTab,
+  useClient,
 } from "@/libs/hooks/hooks";
 
 import Logo from "@/assets/svg/LOGO.png";
@@ -35,7 +36,6 @@ const getStaticProps = () => {
 };
 
 export default function Header() {
-  const [isClient, setIsClient] = useState(false);
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
@@ -48,6 +48,7 @@ export default function Header() {
   const [isStyleHeader, setIsStyleHeader] = useState(null);
 
   const path = usePathname();
+  const isClient = useClient();
 
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
@@ -90,8 +91,6 @@ export default function Header() {
   }, [isSideBar]);
 
   useEffect(() => {
-    setIsClient(true);
-
     setIsScreenHeight(Boolean(window?.innerHeight > 798));
 
     setTimeout(() => setIsStep(true), 1200);

@@ -3,7 +3,7 @@
 import Hero from "@/libs/components/hero/Hero";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
-import { useEffect, useState } from "@/libs/hooks/hooks";
+import { useEffect, useState, useClient } from "@/libs/hooks/hooks";
 
 import dynamic from "next/dynamic";
 

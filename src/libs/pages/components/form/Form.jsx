@@ -1,8 +1,9 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "@/libs/hooks/hooks";
+import { useState, useEffect, useRef } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IMask from "react-input-mask";
 import {
   faChevronDown,
   faPhone,
@@ -23,10 +24,14 @@ const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
-  const [numberTel, setNumberTel] = useState("(XXX)-XXX-XX-XX");
+  const [phone, setPhone] = useState("+38");
+  const [setPhoneNimber, setSetPhoneNimber] = useState("");
 
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
+
+  const inputRef = useRef();
+  const maskRef = useRef();
 
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
@@ -40,11 +45,12 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     setIsOpen(!isOpen);
   };
 
+  console.log(phone);
+
   const {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -69,12 +75,21 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     };
   }, [isOpenModal]);
 
+  const handleInputChange = (e) => {
+    // Get the user's input value
+    const inputValue = e.target.value;
+
+    // Remove any non-numeric characters from the input
+    const numericValue = inputValue.replace(/\D/g, "");
+
+    setSetPhoneNimber(numericValue);
+  };
+
   return (
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        autoComplete="off"
-        autoFocus={true}
+        onChange={() => {}}
         className={styles.form}
       >
         <div className={styles.wrapper_name}>
@@ -158,19 +173,34 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер.
           </label>
           <div className={styles.conteiner_name}>
-            <CountyCode color_text={color_text} />
+            <CountyCode
+              color_text={color_text}
+              setPhone={setPhone}
+              phone={phone}
+            />
 
             <div className={styles[border]}>
+              <IMask
+                mask={`${phone}/(999) (999) (99) (99)`}
+                maskChar={" "}
+                value={setPhoneNimber}
+                alwaysShowMask={false}
+                ref={maskRef}
+              />
               <input
                 className={
                   errors.phone
                     ? `${styles.input} ${styles.two_input} ${styles.error_input}`
                     : `${styles.input} ${styles.two_input} ${styles.number_input}`
                 }
+                ref={inputRef}
                 type="tel"
                 id="phone"
-                value={numberTel}
-                {...register("phone", { required: true })}
+                {...register("phone", {
+                  required: true,
+                  maxLength: 16,
+                  onChange: handleInputChange,
+                })}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
               />
             </div>
