@@ -94,8 +94,9 @@
 
 .title_text {
     color: var(--secondary-color);
-
     font-weight: 500;
+
+    cursor: pointer;
 
     @media screen and (min-width: 320px) {
         width: 100%;

@@ -20,3 +20,5 @@ export {
   useIsTabOrSmallLaptop,
   useIsTab,
 } from "./mediaQueryHooks";
+
+export { useClient } from "./useClient";

@@ -1,8 +1,9 @@
 "use client";
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "@/libs/hooks/hooks";
+import { useForm, Controller } from "react-hook-form";
+import { useState, useEffect, useRef } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IMask from "react-input-mask";
 import {
   faChevronDown,
   faPhone,
@@ -23,7 +24,8 @@ const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
-  const [numberTel, setNumberTel] = useState("(XXX)-XXX-XX-XX");
+  const [phone, setPhone] = useState("+38");
+  const [phoneNumber, setPhoneNumber] = useState(0);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
@@ -44,7 +46,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     register,
     handleSubmit,
     reset,
-    watch,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -69,14 +71,19 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     };
   }, [isOpenModal]);
 
+  const handleInputChange = (e) => {
+    // Get the user's input value
+    const inputValue = e.target.value;
+
+    // Remove any non-numeric characters from the input
+    const numericValue = inputValue.replace(/\D/g, "");
+
+    setPhoneNumber(numericValue);
+  };
+
   return (
     <>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        autoComplete="off"
-        autoFocus={true}
-        className={styles.form}
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.wrapper_name}>
           <label
             htmlFor="name"
@@ -158,23 +165,65 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер.
           </label>
           <div className={styles.conteiner_name}>
-            <CountyCode color_text={color_text} />
+            <CountyCode
+              color_text={color_text}
+              setPhone={setPhone}
+              phone={phone}
+            />
 
             <div className={styles[border]}>
-              <input
+              {/* <input
                 className={
                   errors.phone
                     ? `${styles.input} ${styles.two_input} ${styles.error_input}`
                     : `${styles.input} ${styles.two_input} ${styles.number_input}`
                 }
+                ref={inputRef}
                 type="tel"
                 id="phone"
-                value={numberTel}
-                {...register("phone", { required: true })}
+                {...register("phone", {
+                  required: true,
+                  maxLength: 16,
+                  onChange: handleInputChange,
+                })}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
+              />  */}
+
+              <Controller
+                name="phone"
+                control={control}
+                defaultValue={""}
+                rules={{
+                  value: phoneNumber,
+                  required: true,
+                  maxLength: 18,
+                  onChange: handleInputChange,
+                }}
+                placeholder={errors.phone ? ERROR_MESSAGE : ""}
+                render={({ field, fieldState, formState }) => (
+                  <IMask
+                    mask={`${phone}-(999)-(999)-(99)-(99)`}
+                    maskChar={" "}
+                    alwaysShowMask={true}
+                    value={fieldState}
+                    {...field}
+                  >
+                    {(inputProps) => (
+                      <input
+                        name="phone"
+                        className={
+                          errors.phone && !phoneNumber
+                            ? `${styles.input} ${styles.two_input} ${styles.error_input}`
+                            : `${styles.input} ${styles.two_input} ${styles.number_input}`
+                        }
+                        {...inputProps}
+                      />
+                    )}
+                  </IMask>
+                )}
               />
             </div>
-            {errors.phone && (
+            {errors.phone && !phoneNumber && (
               <div className={styles.error_phone}>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
