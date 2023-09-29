@@ -83,11 +83,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
 
   return (
     <>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        onChange={() => {}}
-        className={styles.form}
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.wrapper_name}>
           <label
             htmlFor="name"
@@ -176,14 +172,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             />
 
             <div className={styles[border]}>
-              {/* <IMask
-                mask={`${phone}/(999) (999) (99) (99)`}
-                maskChar={" "}
-                value={setPhoneNimber}
-                alwaysShowMask={false}
-                ref={maskRef}
-              />
-              <input
+              {/* <input
                 className={
                   errors.phone
                     ? `${styles.input} ${styles.two_input} ${styles.error_input}`
@@ -198,7 +187,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                   onChange: handleInputChange,
                 })}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
-              /> */}
+              />  */}
 
               <Controller
                 name="phone"
@@ -206,23 +195,24 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 defaultValue={""}
                 rules={{
                   value: phoneNumber,
-                  required: "Phone number is required",
                   required: true,
                   maxLength: 18,
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
-                render={({ field, fieldState }) => (
+                render={({ field, fieldState, formState }) => (
                   <IMask
-                    mask={`${phone}/(999) (999) (99) (99)`}
+                    mask={`${phone}-(999)-(999)-(99)-(99)`}
                     maskChar={" "}
+                    alwaysShowMask={true}
                     value={fieldState}
                     {...field}
                   >
                     {(inputProps) => (
                       <input
+                        name="phone"
                         className={
-                          errors.phone
+                          errors.phone && !phoneNumber
                             ? `${styles.input} ${styles.two_input} ${styles.error_input}`
                             : `${styles.input} ${styles.two_input} ${styles.number_input}`
                         }
@@ -233,7 +223,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 )}
               />
             </div>
-            {errors.phone && (
+            {errors.phone && !phoneNumber && (
               <div className={styles.error_phone}>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
