@@ -9,13 +9,15 @@ export default function Button({
   style,
   typeStyle = "family",
 }) {
-  const { gradientBorder } = colorBorderEnums[typeStyle];
+  const { background, gradientBorder } = colorBorderEnums[typeStyle];
 
   return (
     <button
       type={type}
-      className={`${styles[style]} ${styles[gradientBorder]}`}
-    >
+      className={`${styles[style]} 
+      ${styles[gradientBorder]} 
+      ${style === "button_service" ? styles[background] : ""}`}
+      >
       {text}
     </button>
   );

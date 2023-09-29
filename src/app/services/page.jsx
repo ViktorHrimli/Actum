@@ -18,8 +18,8 @@ export default function Services() {
     <>
       <ContactPanel type={"home"}/>
       <NestedHero type={"home"} text="наші послуги" img={service_back_photo} />
-      <AboutServices />
-      <Lawyers />
+      <AboutServices type={"home"}/>
+      <Lawyers type={"home"}/>
       <Descrition type="classic" />
     </>
   );

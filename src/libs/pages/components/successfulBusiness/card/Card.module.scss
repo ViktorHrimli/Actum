@@ -32,7 +32,7 @@
         background: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
         border-radius: 4px;
         position: absolute;
-        right: -22px;
+        right: -12px;
         top: 320px;
         z-index: 3;
     }
@@ -59,7 +59,7 @@
         background: linear-gradient(to right, #41664B, #3F2E64);
         border-radius: 4px;
         position: absolute;
-        right: -22px;
+        right: -12px;
         top: 320px;
         z-index: 3;
     }
@@ -94,6 +94,7 @@
     padding-right: 14px;
     border: 1px solid transparent;
     border-radius: 3px;
+    transition: all 0.5s;
 
     @media screen and (min-width: 1280px) {
         width: 326px;
@@ -149,6 +150,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         top: -1px;
@@ -163,6 +165,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         top: -1px;
@@ -177,6 +180,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         top: 0;
@@ -191,6 +195,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         top: 0;
@@ -205,6 +210,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         bottom: -1px;
@@ -219,6 +225,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         bottom: -1px;
@@ -233,6 +240,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         bottom: 0;
@@ -247,6 +255,7 @@
     display: none;
 
     @media screen and (min-width: 1280px) {
+        transition: all 0.7s;
         display: block;
         position: absolute;
         bottom: 0;
@@ -259,18 +268,42 @@
 
 .border_family:hover .container_text {
     @media screen and (min-width: 1280px) {
+        transition: all 0.5s;
         opacity: 0;
     }
 }
 
 .border_army:hover .container_text {
     @media screen and (min-width: 1280px) {
+        transition: all 0.5s;
         opacity: 0;
     }
 }
 
 .border_criminal:hover .container_text {
     @media screen and (min-width: 1280px) {
+        transition: all 0.5s;
         opacity: 0;
+    }
+}
+
+.border_family:hover .border_right {
+    display: none;
+    @media screen and (min-width: 1280px) {
+        display: block;
+        transition: all 0.7s;
+        height: 494px;
+        width: 2px;
+        background: linear-gradient(to bottom, #E32F7A, #912E6F, #3F2E64);
+    }
+}
+.border_family:hover .border_left {
+    display: none;
+    @media screen and (min-width: 1280px) {
+        display: block;
+        transition: all 0.7s;
+        height: 494px;
+        width: 2px;
+        background: linear-gradient(to top, #E32F7A, #912E6F, #3F2E64);
     }
 }
