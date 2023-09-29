@@ -24,7 +24,7 @@ const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
-  const [phone, setPhone] = useState("+38");
+  const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState(0);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +33,21 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
 
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm({
+    shouldFocusError: true,
+    reValidateMode: "onChange",
+  });
+
   const handleCLickOnSelect = (event) => {
     setSelectValue(event.currentTarget.innerText);
+    setValue("message", event.currentTarget.innerText, { shouldTouch: true });
     setIsOpen(false);
   };
 
@@ -42,18 +55,10 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     setIsOpen(!isOpen);
   };
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {},
-  });
-
   const onSubmit = (data) => {
     console.log(data);
+    console.log(phoneNumber);
+    console.log(selectValue);
 
     setIsStep(true);
     reset();
@@ -104,6 +109,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 type="text"
                 {...register("name", {
                   required: true,
+                  minLength: 2,
                 })}
                 placeholder={
                   errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"
@@ -136,7 +142,10 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                     : styles.textarea
                 }
                 id="textarea"
-                {...register("textarea", { required: true })}
+                {...register("textarea", {
+                  required: true,
+                  minLength: 16,
+                })}
                 placeholder={
                   errors.textarea
                     ? ERROR_MESSAGE
@@ -172,45 +181,25 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             />
 
             <div className={styles[border]}>
-              {/* <input
-                className={
-                  errors.phone
-                    ? `${styles.input} ${styles.two_input} ${styles.error_input}`
-                    : `${styles.input} ${styles.two_input} ${styles.number_input}`
-                }
-                ref={inputRef}
-                type="tel"
-                id="phone"
-                {...register("phone", {
-                  required: true,
-                  maxLength: 16,
-                  onChange: handleInputChange,
-                })}
-                placeholder={errors.phone ? ERROR_MESSAGE : ""}
-              />  */}
-
               <Controller
                 name="phone"
                 control={control}
                 defaultValue={""}
                 rules={{
                   value: phoneNumber,
-                  required: true,
-                  maxLength: 18,
+                  required: { value: true, message: "Field required!" },
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
                 render={({ field, fieldState, formState }) => (
                   <IMask
-                    mask={`${phone}-(999)-(999)-(99)-(99)`}
+                    mask={`+${phone}-999 999 99 99`}
                     maskChar={" "}
                     alwaysShowMask={true}
-                    value={fieldState}
                     {...field}
                   >
                     {(inputProps) => (
                       <input
-                        name="phone"
                         className={
                           errors.phone && !phoneNumber
                             ? `${styles.input} ${styles.two_input} ${styles.error_input}`
@@ -225,6 +214,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             </div>
             {errors.phone && !phoneNumber && (
               <div className={styles.error_phone}>
+                <p>{errors.phone.message}</p>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}
@@ -246,8 +236,13 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
               <input
                 onClick={handleToggleSelect}
                 value={selectValue}
+                translate="yes"
+                type="search"
+                name="message"
                 readOnly
-                {...register("message", { required: true })}
+                {...register("message", {
+                  required: true,
+                })}
                 className={
                   errors.message && !selectValue
                     ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
