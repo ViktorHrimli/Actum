@@ -577,18 +577,18 @@
     position: absolute;
 
     @media screen and (min-width: 320px) {
-        width: 145px;
+        width: 165px;
         height: 259px;
         bottom: -907px;
-        left: -40px;
+        left: -60px;
         z-index: 1;
     }
 
     @media screen and (min-width: 768px) {
         width: 270px;
-        height: 461px;
+        height: 460px;
         bottom: -45px;
-        left: 165px;
+        left: 160px;
         z-index: 2;
     }
 
@@ -597,6 +597,7 @@
         height: 535px;
         bottom: -72px;
         left: 266px;
+        z-index: 2;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
             width: 270px;
@@ -607,10 +608,10 @@
     }
 
     @media screen and (min-width: 1440px) {
-        width: 495px;
+        width: 446px;
         height: 654px;
         bottom: 0;
-        left: 294px;
+        left: 320px;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
             width: 270px;
@@ -620,7 +621,7 @@
         }
     }
 
-    z-index: 2;
+    
 }
 
 .olga_conteiner {
@@ -628,29 +629,31 @@
 
     @media screen and (min-width: 320px) {
         width: 160px;
-        height: 250px;
+        height: 257px;
         bottom: -907px;
-        left: -170px;
-        z-index: 2;
+        left: -150px;
+        z-index: 3;
     }
 
     @media screen and (min-width:768px) {
-        width: 290px;
-        height: 461px;
+        width: 270px;
+        height: 470px;
         bottom: -55px;
-        left: -60px;
+        left: 0px;
+        z-index: 2;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 350px;
-        height: 505px;
+        width: 320px;
+        height: 520px;
         bottom: -58px;
         left: 0px;
+        z-index: 3;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            width: 300px;
-            height: 500px;
-            bottom: -26px;
+            width: 270px;
+            height: 460px;
+            bottom: 0px;
             left: 35px;
         }
     }
@@ -661,14 +664,13 @@
         left: -30px;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            width: 300px;
-            height: 500px;
-            bottom: -26px;
+            width: 270px;
+            height: 460px;
+            bottom: 0px;
             left: 35px;
         }
     }
 
-    z-index: 2;
 }
 
 .btn_wrapper {
