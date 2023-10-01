@@ -10,18 +10,18 @@ import stylesForm from "@/libs/pages/components/form/Form.module.scss";
 
 import code from "@/assets/json/countries.json";
 
-export default function CountyCode({ color_text, setPhone }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function CountyCode({ color_text, setPhone, isOpenCountry, setIsOpenCountry, handleToggleCountry }) {
   const [codeCountry, setcodeCountry] = useState("UA");
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    setIsOpenCountry(!isOpenCountry);
+    handleToggleCountry();
   };
 
   const handleChangeNumberCountry = (code, phone) => {
     setcodeCountry(code);
     setPhone(phone.toString());
-    setIsOpen(false);
+    setIsOpenCountry(false);
   };
 
   return (
@@ -35,7 +35,7 @@ export default function CountyCode({ color_text, setPhone }) {
         </div>
       </div>
       <motion.div
-        animate={{ rotate: isOpen ? "180deg" : "0deg" }}
+        animate={{ rotate: isOpenCountry ? "180deg" : "0deg" }}
         transition={{ duration: 0.5 }}
         className={styles.conteiner_icon}
         onClick={handleClick}
@@ -45,7 +45,7 @@ export default function CountyCode({ color_text, setPhone }) {
           className={`${styles.icon} ${stylesForm[color_text]}`}
         />
       </motion.div>
-      {isOpen && (
+      {isOpenCountry && (
         <ul className={styles.code_box}>
           {code.map((item, id) => (
             <li

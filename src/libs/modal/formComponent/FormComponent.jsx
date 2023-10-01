@@ -68,6 +68,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
   const handleToggleCountry = () => {
     setIsOpenRadio(false);
     setIsOpen(false);
+    setIsOpenCountry(!isOpenCountry);
   };
 
   const onSubmit = (data) => {
@@ -105,13 +106,9 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
     <>
     <form
       onSubmit={handleSubmit(onSubmit)}
-      // autoComplete="off"
-      // autoFocus={false}
       className={styles.form}
     >
-        <div className={styles.wrapper_name}
-        onClick={() => setIsOpenCountry(false)}
-        >
+        <div className={styles.wrapper_name}>
         <label htmlFor="name"
           className={`${styles.lable} ${styles[color_text]}`}>
           {"Вкажіть ім'я і прізвище"}
@@ -119,7 +116,8 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
           <div className={styles.conteiner_name}>
           <div className={styles[border]}>
-          <input
+        <input
+          onClick={() => setIsOpenCountry(false)}
             className={
               errors.name
                 ? `${styles.input} ${styles.error_input}`
@@ -145,7 +143,6 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
       </div>
 
         <div className={styles.wrapper_name}
-        onClick={() => setIsOpenCountry(false)}
         >
         <label htmlFor="textarea" className={`${styles.lable} ${styles[color_text]}`}>
           Ваше питання
@@ -153,6 +150,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
         <div className={styles.conteiner_name}>
           <div className={styles[border]}>
           <textarea
+            onClick={() => setIsOpenCountry(false)}
             className={
               errors.textarea
                 ? `${styles.textarea} ${styles.error_input}`

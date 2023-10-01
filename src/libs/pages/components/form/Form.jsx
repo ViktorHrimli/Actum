@@ -102,6 +102,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
               <input
+                onClick={() => setIsOpenCountry(false)}
                 className={
                   errors.name
                     ? `${styles.input} ${styles.error_input}`
@@ -138,6 +139,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
               <textarea
+                onClick={() => setIsOpenCountry(false)}
                 className={
                   errors.textarea
                     ? `${styles.textarea} ${styles.error_input}`
@@ -179,6 +181,9 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             <CountyCode
               color_text={color_text}
               setPhone={setPhone}
+              isOpenCountry={isOpenCountry}
+              setIsOpenCountry={setIsOpenCountry}
+              setIsOpen={setIsOpen}
               phone={phone}
             />
 
