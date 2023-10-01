@@ -26,6 +26,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState(0);
+  const [isOpenCountry, setIsOpenCountry] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
@@ -53,6 +54,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
 
   const handleToggleSelect = () => {
     setIsOpen(!isOpen);
+    setIsOpenCountry(false);
   };
 
   const onSubmit = (data) => {
@@ -193,7 +195,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
                 render={({ field, fieldState, formState }) => (
                   <IMask
-                    mask={`+${phone}-999 999 99 99`}
+                    mask={`+${phone} (999) 999 99 99`}
                     maskChar={" "}
                     alwaysShowMask={true}
                     {...field}

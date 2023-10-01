@@ -6,24 +6,22 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useMemo, useState } from "@/libs/hooks/hooks";
 
 import styles from "./CountryCode.module.scss";
-import stylesForm from "@/libs/pages/components/form/Form.module.scss"
+import stylesForm from "@/libs/pages/components/form/Form.module.scss";
 
 import code from "@/assets/json/countries.json";
 
-export default function CountyCode({ color_text, handleToggleCountry, setIsOpenCountry, isOpenCountry }) {
+export default function CountyCode({ color_text, setPhone }) {
+  const [isOpen, setIsOpen] = useState(false);
   const [codeCountry, setcodeCountry] = useState("UA");
-  const [phone, setPhone] = useState(380);
-
 
   const handleClick = () => {
-    setIsOpenCountry(!isOpenCountry);
-    handleToggleCountry();
+    setIsOpen(!isOpen);
   };
 
   const handleChangeNumberCountry = (code, phone) => {
     setcodeCountry(code);
-    setPhone(phone);
-    setIsOpenCountry(false);
+    setPhone(phone.toString());
+    setIsOpen(false);
   };
 
   return (
@@ -37,17 +35,17 @@ export default function CountyCode({ color_text, handleToggleCountry, setIsOpenC
         </div>
       </div>
       <motion.div
-          animate={{ rotate: isOpenCountry ? "180deg" : "0deg" }}
-          transition={{ duration: 0.5 }}
-          className={styles.conteiner_icon}
-          onClick={handleClick}
-        >
-          <FontAwesomeIcon
-            icon={faChevronDown}
-            className={`${styles.icon} ${stylesForm[color_text]}`}
-          />
+        animate={{ rotate: isOpen ? "180deg" : "0deg" }}
+        transition={{ duration: 0.5 }}
+        className={styles.conteiner_icon}
+        onClick={handleClick}
+      >
+        <FontAwesomeIcon
+          icon={faChevronDown}
+          className={`${styles.icon} ${stylesForm[color_text]}`}
+        />
       </motion.div>
-      {isOpenCountry && (
+      {isOpen && (
         <ul className={styles.code_box}>
           {code.map((item, id) => (
             <li
@@ -56,16 +54,14 @@ export default function CountyCode({ color_text, handleToggleCountry, setIsOpenC
               key={id}
             >
               <div className={styles.image_wrapper}>
-                <img
-                  src={`https://flagsapi.com/${item.code}/shiny/64.png`}
-                />
+                <img src={`https://flagsapi.com/${item.code}/shiny/64.png`} />
               </div>
               <span className={styles.phone_color}>+{item.phone}</span>
             </li>
           ))}
         </ul>
       )}
-    <span className={styles.text}>+{phone}</span>
+      {/* <span className={styles.text}>+{phone}</span> */}
     </div>
   );
 }
