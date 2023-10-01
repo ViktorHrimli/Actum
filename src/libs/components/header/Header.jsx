@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,11 +8,7 @@ import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
 import SideBar from "@/libs/components/side_bar//SideBar";
 
-import {
-  PathsPageHeader,
-  desktopLogoAnimate,
-  mobileLogoAnimate,
-} from "./enums/enum";
+import { desktopLogoAnimate, mobileLogoAnimate } from "./enums/enum";
 
 import { gradientEnums } from "./enums/gradientEnums";
 
@@ -31,30 +26,27 @@ import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
 
-const getStaticProps = () => {
-  return {};
-};
-
-export default function Header() {
+export default function Header({ links }) {
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
   // LOCALE
   const [isLocal, setIsLocal] = useState("");
-
   // DROP MENU
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isStyleHeader, setIsStyleHeader] = useState(null);
-
-  const path = usePathname();
-  const isClient = useClient();
-
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
   const isTab = useIsTab();
 
+  const path = usePathname();
   const patnName = path.replace("/", "");
+  const isClient = useClient();
+
+  const logoAnimated = isDesktopOrLaptop
+    ? desktopLogoAnimate
+    : mobileLogoAnimate;
 
   let isSessionStorageSave;
 
@@ -63,6 +55,17 @@ export default function Header() {
       sessionStorage.getItem("hero_heder") || true
     );
   }
+
+  const handleClickOnBar = useCallback(() => {
+    setIsSideBar(!isSideBar);
+    setIsOpenMenu(false);
+    setOnHover(false);
+  }, [isSideBar, isOpenMenu, onHover]);
+
+  const handleClickOnMenu = useCallback(() => {
+    setIsOpenMenu(false);
+    setOnHover(false);
+  }, [isOpenMenu, onHover]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -97,21 +100,6 @@ export default function Header() {
 
     setIsLocal(localStorage.getItem("locale") || "");
   }, []);
-
-  const handleClickOnBar = useCallback(() => {
-    setIsSideBar(!isSideBar);
-    setIsOpenMenu(false);
-    setOnHover(false);
-  }, [isSideBar, isOpenMenu, onHover]);
-
-  const handleClickOnMenu = useCallback(() => {
-    setIsOpenMenu(false);
-    setOnHover(false);
-  }, [isOpenMenu, onHover]);
-
-  const logoAnimated = isDesktopOrLaptop
-    ? desktopLogoAnimate
-    : mobileLogoAnimate;
 
   return (
     <section className={styles.header_section}>
@@ -153,7 +141,7 @@ export default function Header() {
             transition={{ duration: 0.8, delay: 2.5 }}
           >
             <Navigation
-              links={PathsPageHeader}
+              links={links}
               route={path}
               onClick={handleClickOnMenu}
               onHover={onHover}
@@ -190,7 +178,7 @@ export default function Header() {
           >
             <SideBar isStyleHeader={isStyleHeader}>
               <Navigation
-                links={PathsPageHeader}
+                links={links}
                 isLocal={isLocal}
                 route={path}
                 onClick={handleClickOnBar}

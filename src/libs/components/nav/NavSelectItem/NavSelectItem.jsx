@@ -21,6 +21,16 @@ export default function NavSelectItem({
     setIsOpenSelect(!isOpenSelect);
   };
 
+  //  "path": "Батьки",
+  //                           "slug": "parents/",
+  //                           "title": "Батьки",
+  //                           "createdAt": "2023-10-01T21:15:15.365Z",
+  //                           "updatedAt": "2023-10-01T21:16:32.408Z",
+  //                           "publishedAt": "2023-10-01T21:15:23.155Z",
+  //                           "locale": "uk",
+  //                           "seoURL": "gratituide-1",
+  //                           "description": "adawdadawd"
+
   return (
     <li className={styles.link} onClick={() => {}}>
       <div
