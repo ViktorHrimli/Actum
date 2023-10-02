@@ -221,6 +221,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    overflow-y: auto;
 
     @media screen and (min-width: 320px) {
         width: 280px;

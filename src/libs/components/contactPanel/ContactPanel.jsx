@@ -101,6 +101,22 @@ export default function ContactPanel({ type }) {
     }
   }, []);
 
+  //  in scrol mob 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isPhoneMob) {
+        setIsPhoneMob(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isPhoneMob]);
+
+  
   return (
     isClient && (
       <>
