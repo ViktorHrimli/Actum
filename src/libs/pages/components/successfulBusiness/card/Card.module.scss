@@ -307,3 +307,27 @@
         background: linear-gradient(to top, #E32F7A, #912E6F, #3F2E64);
     }
 }
+
+.border_army:hover .border_right_army {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+        display: block;
+        transition: all 0.7s;
+        height: 494px;
+        width: 2px;
+        background: linear-gradient(to bottom, #41664B, #912E6F, #3F2E64);
+    }
+}
+
+.border_army:hover .border_left_army {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+        display: block;
+        transition: all 0.7s;
+        height: 494px;
+        width: 2px;
+        background: linear-gradient(to top, #41664B, #912E6F, #3F2E64);
+    }
+}

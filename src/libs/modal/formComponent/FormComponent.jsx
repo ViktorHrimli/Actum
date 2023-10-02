@@ -1,10 +1,11 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useState } from "@/libs/hooks/hooks";
 import { useEffect } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IMask from "react-input-mask";
 import {
   faChevronDown,
   faPhone,
@@ -23,17 +24,33 @@ import  CountryCode  from "@/libs/modal/formComponent/country_code/CountyCode"
 const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
-  const { border, color_text, options_hover, border_check_color, check_color } = borderEnums[type];
-  
   const [selectValue, setSelectValue] = useState("");
   const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
+  const [phone, setPhone] = useState("38");
+  const [phoneNumber, setPhoneNumber] = useState(0);
+
 
   const [isStep, setIsStep] = useState(false);
+  
+  const { border, color_text, options_hover, border_check_color, check_color } = borderEnums[type];
+
+    const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm({
+    shouldFocusError: true,
+    reValidateMode: "onChange",
+  });
 
   const handleCLickOnSelect = (event) => {
     setSelectValue(event.currentTarget.innerText);
+    setValue("message", event.currentTarget.innerText, { shouldTouch: true });
     setIsOpen(false);
   };
 
@@ -51,19 +68,17 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
   const handleToggleCountry = () => {
     setIsOpenRadio(false);
     setIsOpen(false);
+    setIsOpenCountry(!isOpenCountry);
   };
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {},
-  });
 
   const onSubmit = (data) => {
     console.log(data);
+    console.log(phoneNumber);
+    console.log(selectValue);
+
     setIsStep(true);
+    reset();
+    setSelectValue("");
   };
 
     useEffect(() => {
@@ -77,24 +92,32 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
     };
   }, [isOpenModal]);
 
+  const handleInputChange = (e) => {
+    // Get the user's input value
+    const inputValue = e.target.value;
+
+    // Remove any non-numeric characters from the input
+    const numericValue = inputValue.replace(/\D/g, "");
+
+    setPhoneNumber(numericValue);
+  };
+
   return (
     <>
     <form
       onSubmit={handleSubmit(onSubmit)}
-      autoComplete="off"
-      autoFocus={false}
       className={styles.form}
     >
-        <div className={styles.wrapper_name}
-        onClick={() => setIsOpenCountry(false)}
-        >
-        <label htmlFor="name" className={`${styles.lable} ${styles[color_text]}`}>
+        <div className={styles.wrapper_name}>
+        <label htmlFor="name"
+          className={`${styles.lable} ${styles[color_text]}`}>
           {"Вкажіть ім'я і прізвище"}
         </label>
 
           <div className={styles.conteiner_name}>
           <div className={styles[border]}>
-          <input
+        <input
+          onClick={() => setIsOpenCountry(false)}
             className={
               errors.name
                 ? `${styles.input} ${styles.error_input}`
@@ -116,33 +139,10 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
               />
             </div>
           )}
-          {/* <div className={styles[border]}>
-            <input
-              className={
-                errors.surname
-                  ? `${styles.input} ${styles.error_input}`
-                  : styles.input
-              }
-              id="surname"
-              type="text"
-              placeholder={errors.surname ? ERROR_MESSAGE : "Прізвище"}
-              {...register("surname", { required: true })}
-              />
-          </div>
-
-          {errors.surname && (
-            <div className={styles.error_surname}>
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className={styles.error_icon}
-              />
-            </div>
-          )} */}
         </div>
       </div>
 
         <div className={styles.wrapper_name}
-        onClick={() => setIsOpenCountry(false)}
         >
         <label htmlFor="textarea" className={`${styles.lable} ${styles[color_text]}`}>
           Ваше питання
@@ -150,6 +150,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
         <div className={styles.conteiner_name}>
           <div className={styles[border]}>
           <textarea
+            onClick={() => setIsOpenCountry(false)}
             className={
               errors.textarea
                 ? `${styles.textarea} ${styles.error_input}`
@@ -182,32 +183,48 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер
         </label>
           <div className={styles.conteiner_name}>
-            <CountryCode color_text={color_text} isOpenCountry={isOpenCountry} setIsOpenCountry={setIsOpenCountry} handleToggleCountry={handleToggleCountry } />
+            <CountryCode setPhone={setPhone} color_text={color_text} isOpenCountry={isOpenCountry} setIsOpenCountry={setIsOpenCountry} handleToggleCountry={handleToggleCountry } />
           <div className={styles[border]}>
-          <input
-            className={
-              errors.phone
-                ? `${styles.input} ${styles.two_input} ${styles.error_input}`
-                : `${styles.input} ${styles.two_input} ${styles.number_input}`
-            }
-            type="tel"
-            id="phone"
-            {...register("phone", { required: true })}
-            placeholder={
-              errors.phone
-                ? ERROR_MESSAGE
-                : "" // : "Вкажіть номер, на якому встановлений Вайбер або Телеграм."
-            }
-            />
-            </div>
-          {errors.phone && (
-            <div className={styles.error_phone}>
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className={styles.error_icon}
+              <Controller
+                name="phone"
+                control={control}
+                defaultValue={""}
+                rules={{
+                  value: phoneNumber,
+                  required: { value: true, message: "Field required!" },
+                  onChange: handleInputChange,
+                }}
+                placeholder={errors.phone ? ERROR_MESSAGE : ""}
+                render={({ field, fieldState, formState }) => (
+                  <IMask
+                    mask={`+${phone} (999) 999 99 99`}
+                    maskChar={" "}
+                    alwaysShowMask={true}
+                    {...field}
+                  >
+                    {(inputProps) => (
+                      <input
+                        className={
+                          errors.phone && !phoneNumber
+                            ? `${styles.input} ${styles.two_input} ${styles.error_input}`
+                            : `${styles.input} ${styles.two_input} ${styles.number_input}`
+                        }
+                        {...inputProps}
+                      />
+                    )}
+                  </IMask>
+                )}
               />
             </div>
-          )}
+            {errors.phone && !phoneNumber && (
+              <div className={styles.error_phone}>
+                <p>{errors.phone.message}</p>
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              </div>
+            )}
         </div>
       </div>
 
