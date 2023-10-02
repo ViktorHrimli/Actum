@@ -25,7 +25,7 @@ const ERROR_MESSAGE = "Заповніть поле!";
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
-  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [isOpenCountry, setIsOpenCountry] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +40,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     setValue,
     reset,
     control,
+    resetField,
     formState: { errors },
   } = useForm({
     shouldFocusError: true,
@@ -184,6 +185,8 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
               isOpenCountry={isOpenCountry}
               setIsOpenCountry={setIsOpenCountry}
               setIsOpen={setIsOpen}
+              setPhoneNumber={setPhoneNumber}
+              resetField={resetField}
               phone={phone}
             />
 
@@ -194,14 +197,15 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 defaultValue={""}
                 rules={{
                   value: phoneNumber,
-                  required: { value: true, message: "Field required!" },
+                  required: { value: true },
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
-                render={({ field, fieldState, formState }) => (
+                render={({ field }) => (
                   <IMask
                     mask={`+${phone} (999) 999 99 99`}
                     maskChar={" "}
+                    type="text"
                     alwaysShowMask={true}
                     {...field}
                   >

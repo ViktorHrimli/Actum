@@ -54,10 +54,11 @@ export default function Select({ routes, isOpen, onClick, isMobile }) {
               <div className={styles.hidden_wrapper} onClick={onClick}></div>
             )}
             <ul className={styles.list}>
-              {routes.map(({ attributes }, id) => (
+              {routes.map(({ attributes, id }) => (
                 <NavSelectItem
                   key={id}
                   dispatch={dispatch}
+                  id={id}
                   isOpenIndex={isOpenIndex}
                   {...attributes}
                   onClick={onClick}

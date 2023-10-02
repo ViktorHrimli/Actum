@@ -7,9 +7,10 @@ import ArrowMenu from "@/libs/components/arrow_menu/ArrowMenu";
 import styles from "./NavSelectItem.module.scss";
 
 export default function NavSelectItem({
-  service,
+  title,
   path,
-  thems,
+  thems = [],
+  id,
   onClick,
   isOpenIndex,
   dispatch,
@@ -21,15 +22,7 @@ export default function NavSelectItem({
     setIsOpenSelect(!isOpenSelect);
   };
 
-  //  "path": "Батьки",
-  //                           "slug": "parents/",
-  //                           "title": "Батьки",
-  //                           "createdAt": "2023-10-01T21:15:15.365Z",
-  //                           "updatedAt": "2023-10-01T21:16:32.408Z",
-  //                           "publishedAt": "2023-10-01T21:15:23.155Z",
-  //                           "locale": "uk",
-  //                           "seoURL": "gratituide-1",
-  //                           "description": "adawdadawd"
+  console.log(id);
 
   return (
     <li className={styles.link} onClick={() => {}}>
@@ -44,7 +37,7 @@ export default function NavSelectItem({
         }}
       >
         <Link href={path} onClick={onClick} className={styles.link_service}>
-          <p className={styles.text}>{service}</p>
+          <p className={styles.text}>{title}</p>
         </Link>
         <ArrowMenu isOpenSelect={isOpenIndex[path]} setIsOpen={handleClick} />
 

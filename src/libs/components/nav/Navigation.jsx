@@ -18,6 +18,8 @@ export default function Navigation({
 }) {
   const SERVICES = "послуги";
 
+  console.log(links);
+
   return (
     <div style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
@@ -27,7 +29,7 @@ export default function Navigation({
             attributes: {
               title,
               path,
-              laywers: { data },
+              services_lawyers: { data },
             },
           }) => (
             <li
@@ -73,7 +75,7 @@ export default function Navigation({
         <Select
           isOpen={onHover}
           onClick={onClick}
-          routes={links[1].attributes.laywers.data}
+          routes={links[1].attributes.services_lawyers.data}
           isMobile={isMobile}
         />
       )}
