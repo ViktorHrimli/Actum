@@ -1,10 +1,11 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useReducer, useEffect, useState } from "@/libs/hooks/hooks";
 
 import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
 import styles from "./Select.module.scss";
-import { useReducer } from "react";
+import axios from "axios";
 
 const reducer = (_, action) => {
   switch (action.type) {

@@ -9,8 +9,7 @@ import styles from "./NavSelectItem.module.scss";
 export default function NavSelectItem({
   title,
   path,
-  thems = [],
-  id,
+  list,
   onClick,
   isOpenIndex,
   dispatch,
@@ -21,8 +20,6 @@ export default function NavSelectItem({
     dispatch({ type: path, payload: !isOpenSelect });
     setIsOpenSelect(!isOpenSelect);
   };
-
-  console.log(id);
 
   return (
     <li className={styles.link} onClick={() => {}}>
@@ -46,9 +43,11 @@ export default function NavSelectItem({
 
       {isOpenSelect && isOpenIndex[path] && (
         <ul className={styles.nested_select_list}>
-          {thems.map(({ thema }, id) => (
+          {list[0].thems.map(({ thema, path, title }, id) => (
             <li key={id} className={styles.item_list}>
-              <p className={styles.text_current}>{thema}</p>
+              <Link href={path}>
+                <p className={styles.text_current}>{thema}</p>
+              </Link>
             </li>
           ))}
         </ul>
