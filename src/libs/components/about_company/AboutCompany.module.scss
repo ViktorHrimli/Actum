@@ -176,7 +176,6 @@
     z-index: 5;
 }
 
-// adaptive height 700px display none
 .text_adaptive_display {
 
     font-style: normal;
@@ -586,21 +585,21 @@
 
     @media screen and (min-width: 768px) {
         width: 270px;
-        height: 460px;
+        height: 450px;
         bottom: -45px;
         left: 160px;
         z-index: 2;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 350px;
+        width: 330px;
         height: 535px;
-        bottom: -72px;
+        bottom: -74px;
         left: 266px;
         z-index: 2;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            width: 270px;
+            width: 280px;
             height: 460px;
             bottom: 0;
             left: 300px;
@@ -608,7 +607,7 @@
     }
 
     @media screen and (min-width: 1440px) {
-        width: 446px;
+        width: 430px;
         height: 654px;
         bottom: 0;
         left: 320px;
@@ -637,10 +636,10 @@
 
     @media screen and (min-width:768px) {
         width: 270px;
-        height: 470px;
-        bottom: -55px;
+        height: 450px;
+        bottom: -45px;
         left: 0px;
-        z-index: 2;
+        z-index: 3;
     }
 
     @media screen and (min-width: 1280px) {
