@@ -128,16 +128,15 @@
     z-index: 5;
 
     @media screen and (min-width: 320px) {
-        width: 180px;
-        height: 39px;
-
-        bottom: 40px;
-        left: 347px;
+        display: none;
     }
 
     @media screen and (min-width: 768px) {
+        display: block;
         width: 229px;
         height: 54px;
+        bottom: 40px;
+        left: 347px;
     }
 
     @media screen and (min-width: 1280px) {
