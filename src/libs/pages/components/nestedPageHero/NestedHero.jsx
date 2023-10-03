@@ -74,7 +74,9 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
           sizes="100vw"
         />
 
-        <div className={styles.conteiner_hero_watemark}>
+        <div className={styles.conteiner_hero_watemark}
+            style={isPaymentHero ? {marginTop: "74px"} : {marginTop: "0px"}}
+        >
           <motion.div
             animate={IS_FIRST_RENDER ? "start" : false}
             viewport={{ once: true }}
