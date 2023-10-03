@@ -3,13 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  useEffect,
-  useState,
-  useIsBig,
-  useIsSmall,
-  useClient,
-} from "@/libs/hooks/hooks";
+import { useEffect, useState, useIsBig, useIsSmall } from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
@@ -23,10 +17,10 @@ import backFilter from "@/assets/svg/hero-background_filter.png";
 export default function Hero({ type }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
+  const [isClient, setIsClient] = useState(false);
 
   const isDesktop = useIsBig();
   const isMobile = useIsSmall();
-  const isClient = useClient();
 
   let isSessionStorageSave = true;
 
@@ -65,6 +59,11 @@ export default function Hero({ type }) {
       },
       isDesktop ? 4000 : 3500
     );
+
+    // FUCKING CRUTHC >>>>>>>>>>>>>>>>>>>>
+    setTimeout(() => {
+      setIsClgitient(true);
+    }, 300);
   }, []);
 
   useEffect(() => {
