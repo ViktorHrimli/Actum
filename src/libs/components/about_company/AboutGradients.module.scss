@@ -57,7 +57,7 @@
         left: -140px;
 
         width: 408px;
-        height: 341px;
+        height: 641px;
 
         background: linear-gradient(327deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
         filter: blur(75px);
@@ -151,9 +151,10 @@
         width: 800px;
         height: 100px;
         opacity: 0.8;
+        border-radius: 100px 20px;
         background: linear-gradient(0deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            top: 650px;
+            top: 560px;
             left: -140px;
         }
     }
@@ -164,11 +165,10 @@
         width: 884px;
         height: 200px;
         opacity: 0.4;
-        border-radius: 200px;
-        background: linear-gradient(0deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
+        border-radius: 200px 20px;
         background: linear-gradient(0deg, #E32F7A 0%, #D70F74 41.67%, #912E6F 80.88%);
         @media screen and (min-height: 700px) and (max-height: 799px) {
-            top: 650px;
+            top: 560px;
             left: -140px;
         }
     }

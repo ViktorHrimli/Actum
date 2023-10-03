@@ -9,8 +9,8 @@ import animationSignNatalia from "@/assets/json/sign_natalia.json";
 
 import Ukraine from "@/assets/svg/Ukraine.png";
 
-import Olga from "@/assets/svg/Olga.png";
-import Natalia from "@/assets/svg/Natalia.png";
+import Natalia from "@/assets/svg/Olga.png";
+import Olena from "@/assets/svg/Natalia.png";
 
 import Button from "../button/Button";
 import Link from "next/link";
@@ -18,6 +18,7 @@ import Link from "next/link";
 export default function AboutCompany() {
   return (
     <section className={styles.section}>
+      <div className={styles.container}>
       <div className={styles.conteiner_map}>
         <div className={styles.ukraine_inner_text}>
           <p>
@@ -46,7 +47,7 @@ export default function AboutCompany() {
         {/* PHOTO */}
         <div className={styles.olga_conteiner}>
           <Image
-            src={Olga}
+            src={Natalia}
             alt="Olga"
             fill
             loading="eager"
@@ -56,7 +57,7 @@ export default function AboutCompany() {
         </div>
         <div className={styles.natalia_conteiner}>
           <Image
-            src={Natalia}
+            src={Olena}
             alt="Natalia"
             fill
             loading="eager"
@@ -112,7 +113,8 @@ export default function AboutCompany() {
             />
           </Link>
         </div>
-      </div>
+        </div>
+        </div>
     </section>
   );
 }

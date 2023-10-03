@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import Button from "@/libs/components/button/Button";
 import ItemsList from "@/libs/components/response/list/ItemsList";
@@ -74,13 +75,14 @@ export default function Response({ type }) {
           </div>
           {isHome && (
             <div className={styles.btn_wrapper}>
-              <Button
-                onClick={() => {}}
-                text={"залишити відгук"}
-                style={"button_service"}
-                type={"button"}
-                typeStyle={type}
-              />
+              <Link href={"https://t.me/ActumReview"}>
+                <Button
+                  text={"залишити відгук"}
+                  style={"button_service"}
+                  type={"button"}
+                  typeStyle={type}
+                />
+              </Link>
             </div>
           )}
         </div>
