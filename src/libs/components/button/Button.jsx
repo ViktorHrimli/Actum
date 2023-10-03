@@ -17,7 +17,7 @@ export default function Button({
       className={`${styles[style]} 
       ${styles[gradientBorder]} 
       ${style === "button_service" ? styles[background] : ""}`}
-      >
+    >
       {text}
     </button>
   );

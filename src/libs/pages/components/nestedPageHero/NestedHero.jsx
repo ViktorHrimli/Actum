@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { useState, useEffect, usePathname } from "@/libs/hooks/hooks";
+import { useState, useEffect, usePathname, useClient } from "@/libs/hooks/hooks";
 import { motion } from "framer-motion";
 
 import Button from "@/libs/components/button/Button";
@@ -12,9 +12,12 @@ import watemark from "@/assets/svg/Actum_HERO.png";
 import styles from "./NestedHero.module.scss";
 import { getFormById } from "@/shared/helpers/helpers";
 
-export default function NestedHero({ type, img, text, locale = "ua" }) {
+export default function NestedHero({ type, img, text, paragraph, locale = "ua" }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
+  const [isPaymentHero, setIsPaymentHero] = useState(false);
+
+  const isClient = useClient();
 
   const path = usePathname();
   const patnName = path.replace("/", "");
@@ -34,9 +37,13 @@ export default function NestedHero({ type, img, text, locale = "ua" }) {
   if (typeof window !== "undefined") {
     IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(text) || true);
   }
-
+  
   useEffect(() => {
     sessionStorage.setItem(text, "false");
+
+    if (patnName === "payment-success") {
+      setIsPaymentHero(true)
+    };
   }, []);
 
   useEffect(() => {
@@ -95,14 +102,23 @@ export default function NestedHero({ type, img, text, locale = "ua" }) {
           >
             {text}
           </motion.h2>
+          <motion.p
+            animate={IS_FIRST_RENDER ? "open" : false}
+            variants={{ open: { x: 0, y: 0, opacity: 1 } }}
+            initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+            transition={{ delay: 1, duration: 0.7 }}
+            className={styles.paragraph}>
+              {paragraph}
+          </motion.p>
         </div>
-        <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
+        {!isPaymentHero && isClient &&
+          (<div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
           <Button
             type="button"
             text="замовити консультацію"
             style="button_prymary"
           />
-        </div>
+        </div>)}
         <div className={styles.section_background}></div>
       </section>
       {isOpenModal && (
