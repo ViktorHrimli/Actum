@@ -18,6 +18,7 @@ import Link from "next/link";
 export default function AboutCompany() {
   return (
     <section className={styles.section}>
+      <div className={styles.container}>
       <div className={styles.conteiner_map}>
         <div className={styles.ukraine_inner_text}>
           <p>
@@ -112,7 +113,8 @@ export default function AboutCompany() {
             />
           </Link>
         </div>
-      </div>
+        </div>
+        </div>
     </section>
   );
 }

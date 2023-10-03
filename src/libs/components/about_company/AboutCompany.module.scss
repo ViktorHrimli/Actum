@@ -18,16 +18,12 @@
     }
 
     @media screen and (min-width: 768px) {
-        width: 768px;
-        grid-template-columns: 1fr 1fr;
-        justify-items: normal;
-
+        // width: 768px;
+        height: 828px;
         padding-top: 48px;
         padding-right: 45px;
         padding-left: 20px;
         padding-bottom: 43px;
-
-        height: 828px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -69,7 +65,24 @@
             overflow: hidden;
         }
     }
+}
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
 
+    @media screen and (min-width: 768px) {
+        width: 700px;
+        grid-template-columns: 1fr 1fr;
+        justify-items: normal;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 1100px;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 1200px;
+    }
 }
 
 .about_conteiner {
@@ -588,7 +601,7 @@
         width: 270px;
         height: 450px;
         bottom: -45px;
-        left: 160px;
+        left: 155px;
         z-index: 2;
     }
 
@@ -639,7 +652,7 @@
         width: 270px;
         height: 450px;
         bottom: -45px;
-        left: 0px;
+        left: -10px;
         z-index: 3;
     }
 
