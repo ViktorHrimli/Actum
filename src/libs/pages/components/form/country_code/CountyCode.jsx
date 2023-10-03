@@ -10,17 +10,27 @@ import stylesForm from "@/libs/pages/components/form/Form.module.scss";
 
 import code from "@/assets/json/countries.json";
 
-export default function CountyCode({ color_text, setPhone, setIsOpenCountry, isOpenCountry, setIsOpen }) {
+export default function CountyCode({
+  color_text,
+  setPhone,
+  setIsOpenCountry,
+  isOpenCountry,
+  setIsOpen,
+  setPhoneNumber,
+  resetField,
+}) {
   const [codeCountry, setcodeCountry] = useState("UA");
 
   const handleClick = () => {
     setIsOpenCountry(!isOpenCountry);
-    setIsOpen(false)
+    setIsOpen(false);
   };
 
   const handleChangeNumberCountry = (code, phone) => {
     setcodeCountry(code);
     setPhone(phone.toString());
+    setPhoneNumber("");
+    resetField("phone");
     setIsOpen(false);
   };
 
@@ -50,7 +60,9 @@ export default function CountyCode({ color_text, setPhone, setIsOpenCountry, isO
           {code.map((item, id) => (
             <li
               className={styles.item_list}
-              onClick={() => handleChangeNumberCountry(item.code, item.phone)}
+              onClick={() =>
+                handleChangeNumberCountry(item.code, item.phone) & handleClick()
+              }
               key={id}
             >
               <div className={styles.image_wrapper}>
