@@ -26,7 +26,7 @@
   }
   @media screen and (min-width: 768px) {
     width: 718px;
-    height: 335px;
+    // height: 635px;
   }
 }
 
@@ -47,7 +47,7 @@
   }
   @media screen and (min-width: 768px) {
     width: 723px;
-    height: 335px;
+    // height: 335px;
     padding-top: 0px;
     padding-right: 75px;
     padding-left: 75px;
@@ -89,6 +89,7 @@
   font-weight: 400;
   line-height: normal;
   width: 300px;
+  margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
     width: 561px;
@@ -175,4 +176,27 @@
     right: 0;
     border-radius: 0 4px 4px 0;
   }
+}
+
+.btn_wrapper {
+  position: relative;
+  border-radius: 4px;
+  z-index: 5;
+
+  width: 209px;
+  height: 39px;
+}
+
+.icon {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  z-index: 15;
+  @media screen and (min-width: 1440px) {
+    left: 15px;
+  }
+}
+
+.btn_wrapper:hover .icon_telegram {
+  fill: #fff;
 }
