@@ -25,7 +25,7 @@ const ERROR_MESSAGE = "Заповніть поле!";
 export default function Form({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
-  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [isOpenCountry, setIsOpenCountry] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +40,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     setValue,
     reset,
     control,
+    resetField,
     formState: { errors },
   } = useForm({
     shouldFocusError: true,
@@ -79,12 +80,8 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
   }, [isOpenModal]);
 
   const handleInputChange = (e) => {
-    // Get the user's input value
     const inputValue = e.target.value;
-
-    // Remove any non-numeric characters from the input
     const numericValue = inputValue.replace(/\D/g, "");
-
     setPhoneNumber(numericValue);
   };
 
@@ -179,6 +176,8 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
+              setPhoneNumber={setPhoneNumber}
+              resetField={resetField}
               color_text={color_text}
               setPhone={setPhone}
               isOpenCountry={isOpenCountry}
@@ -194,11 +193,11 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 defaultValue={""}
                 rules={{
                   value: phoneNumber,
-                  required: { value: true, message: "Field required!" },
+                  required: { value: true },
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
-                render={({ field, fieldState, formState }) => (
+                render={({ field }) => (
                   <IMask
                     mask={`+${phone} (999) 999 99 99`}
                     maskChar={" "}
