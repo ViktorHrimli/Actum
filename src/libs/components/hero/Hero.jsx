@@ -3,13 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  useEffect,
-  useState,
-  useIsBig,
-  useIsSmall,
-  useClient,
-} from "@/libs/hooks/hooks";
+import { useEffect, useState, useIsBig, useIsSmall } from "@/libs/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
@@ -66,10 +60,7 @@ export default function Hero({ type }) {
       isDesktop ? 4000 : 3500
     );
 
-    // FUCKING CRUTHC >>>>>>>>>>>>>>>>>>>>
-    setTimeout(() => {
-      setIsClient(true);
-    }, 300);
+    setTimeout(() => setIsClient(true), 300);
   }, []);
 
   useEffect(() => {

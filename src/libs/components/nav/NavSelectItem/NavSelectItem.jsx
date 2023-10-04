@@ -43,7 +43,7 @@ export default function NavSelectItem({
 
       {isOpenSelect && isOpenIndex[path] && (
         <ul className={styles.nested_select_list}>
-          {list[0].thems.map(({ thema, path, title }, id) => (
+          {list[0].thems.map(({ thema, path }, id) => (
             <li key={id} className={styles.item_list}>
               <Link href={path}>
                 <p className={styles.text_current}>{thema}</p>

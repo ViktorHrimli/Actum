@@ -18,7 +18,7 @@ export default function Navigation({
 }) {
   const SERVICES = "послуги";
 
-  console.log(links);
+  const listLawyers = links[1].attributes.services_lawyers.data.reverse() || [];
 
   return (
     <div style={{ position: "relative" }}>
@@ -61,7 +61,7 @@ export default function Navigation({
 
               {isMobile && isOpenMenu && (
                 <Select
-                  routes={data}
+                  routes={listLawyers}
                   onClick={onClick}
                   isOpen={isOpenMenu}
                   isMobile={isMobile}
@@ -75,7 +75,7 @@ export default function Navigation({
         <Select
           isOpen={onHover}
           onClick={onClick}
-          routes={links[1].attributes.services_lawyers.data}
+          routes={listLawyers}
           isMobile={isMobile}
         />
       )}

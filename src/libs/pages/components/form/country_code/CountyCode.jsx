@@ -60,7 +60,9 @@ export default function CountyCode({
           {code.map((item, id) => (
             <li
               className={styles.item_list}
-              onClick={() => handleChangeNumberCountry(item.code, item.phone)}
+              onClick={() =>
+                handleChangeNumberCountry(item.code, item.phone) & handleClick()
+              }
               key={id}
             >
               <div className={styles.image_wrapper}>

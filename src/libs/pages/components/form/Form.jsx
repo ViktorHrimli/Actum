@@ -41,6 +41,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     reset,
     control,
     resetField,
+    setError,
     formState: { errors },
   } = useForm({
     shouldFocusError: true,
@@ -60,12 +61,20 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
 
   const onSubmit = (data) => {
     console.log(data);
-    console.log(phoneNumber);
+    console.log(phoneNumber.length);
     console.log(selectValue);
 
-    setIsStep(true);
-    reset();
-    setSelectValue("");
+    if (phoneNumber.length >= 12) {
+      setIsStep(true);
+      reset();
+      setSelectValue("");
+    } else {
+      setError(
+        "phone",
+        { message: "Перевірте номер телефону!", type: "minLength" },
+        { shouldFocus: false }
+      );
+    }
   };
 
   useEffect(() => {
@@ -80,18 +89,19 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
   }, [isOpenModal]);
 
   const handleInputChange = (e) => {
-    // Get the user's input value
     const inputValue = e.target.value;
-
-    // Remove any non-numeric characters from the input
     const numericValue = inputValue.replace(/\D/g, "");
-
     setPhoneNumber(numericValue);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.form}
+        autoCorrect="yes"
+        autoFocus={true}
+      >
         <div className={styles.wrapper_name}>
           <label
             htmlFor="name"
@@ -149,7 +159,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 id="textarea"
                 {...register("textarea", {
                   required: true,
-                  minLength: 16,
+                  minLength: 3,
                 })}
                 placeholder={
                   errors.textarea
@@ -176,17 +186,17 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {/* Номер телефону */}
-            Вкажіть номер, на якому встановлений Месенджер.
+            Вкажіть номер, на якому встановлений Месенджер
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
+              setPhoneNumber={setPhoneNumber}
+              resetField={resetField}
               color_text={color_text}
               setPhone={setPhone}
               isOpenCountry={isOpenCountry}
               setIsOpenCountry={setIsOpenCountry}
               setIsOpen={setIsOpen}
-              setPhoneNumber={setPhoneNumber}
-              resetField={resetField}
               phone={phone}
             />
 
@@ -197,7 +207,11 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 defaultValue={""}
                 rules={{
                   value: phoneNumber,
-                  required: { value: true },
+                  required: { value: true, message: "Заповніть поле!" },
+                  minLength: {
+                    value: 12,
+                    message: "Перевірте номер телефону!",
+                  },
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
@@ -212,7 +226,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                     {(inputProps) => (
                       <input
                         className={
-                          errors.phone && !phoneNumber
+                          errors.phone
                             ? `${styles.input} ${styles.two_input} ${styles.error_input}`
                             : `${styles.input} ${styles.two_input} ${styles.number_input}`
                         }
@@ -223,9 +237,13 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                 )}
               />
             </div>
-            {errors.phone && !phoneNumber && (
+            {errors.phone && (
               <div className={styles.error_phone}>
                 <p>{errors.phone.message}</p>
+              </div>
+            )}
+            {errors.phone && (
+              <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}

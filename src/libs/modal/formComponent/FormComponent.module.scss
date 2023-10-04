@@ -663,16 +663,16 @@
 }
 
 .error_icon {
-    color: #fff;
+    color: #661135;
 }
 .error_icon_service {
-    color: #661135;;
+    color: #661135;
 }
 
 .error_name {
     position: absolute;
-    top: 12px;
-    left: 110px;
+    top: -27px;
+    left: 180px;
 
     display: flex;
     align-items: center;
@@ -681,11 +681,11 @@
     gap: 10px;
     z-index: 14;
     @media screen and (min-width: 768px) {
-        left: 132px;
+        left: 230px;
     }
     @media screen and (min-width: 1440px) {
-        top: 12px;
-        left: 147px;
+        top: -28px;
+        left: 255px;
     }
 }
 
@@ -714,8 +714,8 @@
 
 .error_textarea {
     position: absolute;
-    top: 10px;
-    left: 110px;
+    top: -27px;
+    left: 115px;
 
     display: flex;
     align-items: center;
@@ -725,12 +725,12 @@
     z-index: 14;
 
     @media screen and (min-width: 768px) {
-        top: 18px;
-        left: 130px;
+        top: -28px;
+        left: 145px;
     }
     @media screen and (min-width: 1440px) {
-        top: 18px;
-        left: 151px;
+        top: -29px;
+        left: 160px;
     }
 }
 
@@ -745,8 +745,10 @@
     justify-content: center;
 
     gap: 10px;
+    display: none;
 
     @media screen and (min-width: 768px) {
+        display: block;
         top: 14px;
         left: 260px;
     }
@@ -756,10 +758,33 @@
     }
 }
 
+.error_phone_icon {
+    position: absolute;
+    top: -27px;
+    left: 208px;
+    z-index: 14;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    @media screen and (min-width: 768px) {
+        top: -27px;
+        left: 510px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: -28px;
+        left: 565px;
+    }
+}
+
 .error_message {
     position: absolute;
-    top: 12px;
-    left: 150px;
+    top: -26px;
+    left: 98px;
 
     display: flex;
     align-items: center;
@@ -769,12 +794,12 @@
     z-index: 14;
 
     @media screen and (min-width: 768px) {
-        top: 14px;
-        left: 189px;
+        top: -27px;
+        left: 120px;
     }
     @media screen and (min-width: 1440px) {
-        top: 12px;
-        left: 210px;
+        top: -28px;
+        left: 135px;
     }
 }
 

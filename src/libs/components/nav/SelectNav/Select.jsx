@@ -5,7 +5,6 @@ import { useReducer, useEffect, useState } from "@/libs/hooks/hooks";
 import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
 import styles from "./Select.module.scss";
-import axios from "axios";
 
 const reducer = (_, action) => {
   switch (action.type) {
