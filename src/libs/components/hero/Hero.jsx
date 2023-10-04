@@ -60,10 +60,7 @@ export default function Hero({ type }) {
       isDesktop ? 4000 : 3500
     );
 
-    // FUCKING CRUTHC >>>>>>>>>>>>>>>>>>>>
-    setTimeout(() => {
-      setIsClgitient(true);
-    }, 300);
+    setTimeout(() => setIsClient(true), 300);
   }, []);
 
   useEffect(() => {
@@ -81,26 +78,28 @@ export default function Hero({ type }) {
     };
   }, [isOpenModal]);
 
+  console.log(isClient);
+
   return (
     <>
       <section className={styles.hero_section}>
-        {isMobile && isClient && (
+        {isClient && isMobile && (
           <motion.div
             animate={isSessionStorageSave ? { opacity: 1 } : false}
             transition={{ duration: 0.5, delay: 1.5 }}
             initial={isSessionStorageSave ? { opacity: 0 } : false}
             className={styles.wrapper_image}
           >
-            <Image src={back} alt="background" fill loading="eager" />
+            <Image src={back} alt="background" fill loading="lazy" />
             <Image
               src={backFilter}
               alt="background-filter"
               fill
-              loading="eager"
-              style={{ zIndex: "5" }}
+              loading="lazy"
             />
           </motion.div>
         )}
+
         <div id="hero_section" className={styles.hero_conteiner}>
           <Animations
             isSessionStorageSave={isSessionStorageSave}

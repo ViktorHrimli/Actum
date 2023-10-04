@@ -42,7 +42,6 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
     control,
     resetField,
     setError,
-
     formState: { errors },
   } = useForm({
     shouldFocusError: true,
@@ -220,6 +219,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
                   <IMask
                     mask={`+${phone} (999) 999 99 99`}
                     maskChar={" "}
+                    type="text"
                     alwaysShowMask={true}
                     {...field}
                   >
