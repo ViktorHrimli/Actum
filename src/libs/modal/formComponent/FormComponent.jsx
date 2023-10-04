@@ -225,7 +225,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
                     {(inputProps) => (
                       <input
                         className={
-                          errors.phone && !phoneNumber
+                          errors.phone 
                             ? `${styles.input} ${styles.two_input} ${styles.error_input}`
                             : `${styles.input} ${styles.two_input} ${styles.number_input}`
                         }
@@ -236,12 +236,12 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
                 )}
               />
             </div>
-            {errors.phone && !phoneNumber && (
+            {errors.phone && (
               <div className={styles.error_phone}>
                 <p>{errors.phone.message}</p>
               </div>
             )}
-            {errors.phone && !phoneNumber && (
+            {errors.phone && (
               <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
