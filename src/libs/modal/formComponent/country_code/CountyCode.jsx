@@ -10,7 +10,16 @@ import stylesForm from "@/libs/pages/components/form/Form.module.scss";
 
 import code from "@/assets/json/countries.json";
 
-export default function CountyCode({ color_text, setPhone, isOpenCountry, setIsOpenCountry, handleToggleCountry }) {
+export default function CountyCode({
+  color_text,
+  setPhone,
+  isOpenCountry,
+  setIsOpenCountry,
+  handleToggleCountry,
+  // setIsOpen,
+  setPhoneNumber,
+  resetField,
+}) {
   const [codeCountry, setcodeCountry] = useState("UA");
 
   const handleClick = () => {
@@ -22,6 +31,9 @@ export default function CountyCode({ color_text, setPhone, isOpenCountry, setIsO
     setcodeCountry(code);
     setPhone(phone.toString());
     setIsOpenCountry(false);
+    setPhoneNumber("");
+    resetField("phone");
+    // setIsOpen(false);
   };
 
   return (
