@@ -187,7 +187,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {/* Номер телефону */}
-            Вкажіть номер, на якому встановлений Месенджер.
+            Вкажіть номер, на якому встановлений Месенджер
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
@@ -240,6 +240,10 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {errors.phone && (
               <div className={styles.error_phone}>
                 <p>{errors.phone.message}</p>
+              </div>
+            )}
+            {errors.phone && (
+              <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}

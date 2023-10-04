@@ -599,13 +599,13 @@
 }
 
 .error_icon {
-    color: #fff;
+    color: #661135;
 }
 
 .error_name {
     position: absolute;
-    top: 18px;
-    left: 110px;
+    top: -32px;
+    left: 180px;
 
     display: flex;
     align-items: center;
@@ -615,12 +615,13 @@
     z-index: 14;
 
     @media screen and (min-width: 768px) {
-        left: 132px;
+        top: -36px;
+        left: 230px;
     }
 
     @media screen and (min-width: 1440px) {
-        top: 21px;
-        left: 147px;
+        top: -37px;
+        left: 255px;
     }
 }
 
@@ -650,7 +651,7 @@
 
 .error_textarea {
     position: absolute;
-    top: 24px;
+    top: -32px;
     left: 115px;
 
     display: flex;
@@ -661,13 +662,13 @@
     z-index: 14;
 
     @media screen and (min-width: 768px) {
-        top: 38px;
-        left: 138px;
+        top: -36px;
+        left: 145px;
     }
 
     @media screen and (min-width: 1440px) {
-        top: 35px;
-        left: 151px;
+        top: -37px;
+        left: 160px;
     }
 }
 
@@ -682,8 +683,10 @@
     justify-content: center;
 
     gap: 10px;
+    display: none;
 
     @media screen and (min-width: 768px) {
+        display: block;
         top: 22px;
         left: 260px;
     }
@@ -694,10 +697,33 @@
     }
 }
 
+.error_phone_icon {
+    position: absolute;
+    top: -31px;
+    left: 210px;
+    z-index: 14;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    @media screen and (min-width: 768px) {
+        top: -36px;
+        left: 510px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: -37px;
+        left: 570px;
+    }
+}
+
 .error_message {
     position: absolute;
-    top: 19px;
-    left: 150px;
+    top: -31px;
+    left: 98px;
 
     display: flex;
     align-items: center;
@@ -707,13 +733,13 @@
     z-index: 14;
 
     @media screen and (min-width: 768px) {
-        top: 23px;
-        left: 189px;
+        top: -35px;
+        left: 120px;
     }
 
     @media screen and (min-width: 1440px) {
-        top: 21px;
-        left: 210px;
+        top: -36px;
+        left: 135px;
     }
 }
 
