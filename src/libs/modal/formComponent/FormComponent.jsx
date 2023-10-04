@@ -25,13 +25,12 @@ const ERROR_MESSAGE = "Заповніть поле!";
 
 export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
+  const [phone, setPhone] = useState("38");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [isOpenCountry, setIsOpenCountry] = useState(false);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
-  const [phone, setPhone] = useState("38");
-  const [phoneNumber, setPhoneNumber] = useState(0);
-
-
   const [isStep, setIsStep] = useState(false);
   
   const { border, color_text, options_hover, border_check_color, check_color } = borderEnums[type];
@@ -42,6 +41,9 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
     setValue,
     reset,
     control,
+    resetField,
+    setError,
+    
     formState: { errors },
   } = useForm({
     shouldFocusError: true,
@@ -76,9 +78,17 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
     console.log(phoneNumber);
     console.log(selectValue);
 
-    setIsStep(true);
-    reset();
-    setSelectValue("");
+    if (phoneNumber.length >= 12) {
+      setIsStep(true);
+      reset();
+      setSelectValue("");
+    } else {
+      setError(
+        "phone",
+        { message: "Перевірте номер телефону!", type: "minLength" },
+        { shouldFocus: false }
+      );
+    }
   };
 
     useEffect(() => {
@@ -93,12 +103,8 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
   }, [isOpenModal]);
 
   const handleInputChange = (e) => {
-    // Get the user's input value
     const inputValue = e.target.value;
-
-    // Remove any non-numeric characters from the input
     const numericValue = inputValue.replace(/\D/g, "");
-
     setPhoneNumber(numericValue);
   };
 
@@ -183,7 +189,17 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер
         </label>
           <div className={styles.conteiner_name}>
-            <CountryCode setPhone={setPhone} color_text={color_text} isOpenCountry={isOpenCountry} setIsOpenCountry={setIsOpenCountry} handleToggleCountry={handleToggleCountry } />
+            <CountryCode
+              setPhoneNumber={setPhoneNumber}
+              resetField={resetField}
+              setPhone={setPhone}
+              color_text={color_text}
+              isOpenCountry={isOpenCountry}
+              setIsOpenCountry={setIsOpenCountry}
+              handleToggleCountry={handleToggleCountry}
+              phone={phone}
+            />
+
           <div className={styles[border]}>
               <Controller
                 name="phone"
@@ -191,11 +207,15 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
                 defaultValue={""}
                 rules={{
                   value: phoneNumber,
-                  required: { value: true, message: "Field required!" },
+                  required: { value: true, message: "Заповніть поле!" },
+                  minLength: {
+                    value: 12,
+                    message: "Перевірте номер телефону!",
+                  },
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
-                render={({ field, fieldState, formState }) => (
+                render={({ field  }) => (
                   <IMask
                     mask={`+${phone} (999) 999 99 99`}
                     maskChar={" "}
@@ -219,6 +239,10 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             {errors.phone && !phoneNumber && (
               <div className={styles.error_phone}>
                 <p>{errors.phone.message}</p>
+              </div>
+            )}
+            {errors.phone && !phoneNumber && (
+              <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
                   icon={faCircleExclamation}
                   className={styles.error_icon}
@@ -266,14 +290,17 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
             className={styles.conteiner_icon}
             onClick={handleToggleSelect}
           >
-            <FontAwesomeIcon icon={faChevronDown} className={`${styles.icon} ${styles[color_text]}`} />
+              <FontAwesomeIcon icon={faChevronDown}
+                className={`${styles.icon} ${styles[color_text]}`}
+              style={errors.message && !selectValue ? {color: "#fff"}: {}}
+              />
           </motion.div>
           {isOpen && (
             <motion.div className={styles.options_conteiner}>
                 <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
                 <FontAwesomeIcon
                   icon={faViber}
-                  className={styles.options_icon}
+                    className={styles.options_icon}
                   />
                 Viber
               </div>
