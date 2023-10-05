@@ -25,6 +25,7 @@
     @media screen and (min-width: 320px) {
         height: 38px;
     }
+
     @media screen and (min-width: 768px) {
         height: 45px;
     }
@@ -74,6 +75,8 @@
     height: auto;
     display: flex;
     align-items: center;
+
+    cursor: pointer;
 }
 
 .img_country {
@@ -94,6 +97,10 @@
     // width: 50%;
 }
 
+.icon {
+    cursor: pointer;
+}
+
 .text {
     color: black;
     font-style: normal;
@@ -104,6 +111,7 @@
     @media screen and (min-width: 320px) {
         font-size: 16px;
     }
+
     @media screen and (min-width: 1440px) {
         font-size: 18px;
     }

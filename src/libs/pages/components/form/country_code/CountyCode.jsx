@@ -20,6 +20,11 @@ export default function CountyCode({
   resetField,
 }) {
   const [codeCountry, setcodeCountry] = useState("UA");
+  const [filterCountry, setFilterCountry] = useState("");
+
+  const handleInputValue = (event) => {
+    setFilterCountry(event.target.value);
+  };
 
   const handleClick = () => {
     setIsOpenCountry(!isOpenCountry);
@@ -34,9 +39,17 @@ export default function CountyCode({
     setIsOpen(false);
   };
 
+  const search = code.filter((item) =>
+    item.name.toLowerCase().includes(filterCountry.toLowerCase())
+  );
+
+  "".t;
+
+  console.log(search);
+
   return (
     <div className={styles.select_number}>
-      <div className={styles.info_box}>
+      <div className={styles.info_box} onClick={handleClick}>
         <div className={styles.image_wrapper}>
           <img
             className={styles.img_country}
@@ -56,22 +69,30 @@ export default function CountyCode({
         />
       </motion.div>
       {isOpenCountry && (
-        <ul className={styles.code_box}>
-          {code.map((item, id) => (
-            <li
-              className={styles.item_list}
-              onClick={() =>
-                handleChangeNumberCountry(item.code, item.phone) & handleClick()
-              }
-              key={id}
-            >
-              <div className={styles.image_wrapper}>
-                <img src={`https://flagsapi.com/${item.code}/shiny/64.png`} />
-              </div>
-              <span className={styles.phone_color}>+{item.phone}</span>
-            </li>
-          ))}
-        </ul>
+        <>
+          <input
+            type="text"
+            value={filterCountry}
+            onChange={handleInputValue}
+          />
+          <ul className={styles.code_box}>
+            {search.map((item, id) => (
+              <li
+                className={styles.item_list}
+                onClick={() =>
+                  handleChangeNumberCountry(item.code, item.phone) &
+                  handleClick()
+                }
+                key={id}
+              >
+                <div className={styles.image_wrapper}>
+                  <img src={`https://flagsapi.com/${item.code}/shiny/64.png`} />
+                </div>
+                <span className={styles.phone_color}>+{item.phone}</span>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
       {/* <span className={styles.text}>+{phone}</span> */}
     </div>
