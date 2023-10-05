@@ -5,7 +5,6 @@
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
-  background: rgba(15, 2, 28, 0.85);
   z-index: 150;
   overflow-y: none;
   scrollbar-width: none;
@@ -15,7 +14,11 @@
       height: 0;
     }
 }
-
+.background_modal {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 2, 28, 0.85);
+}
 
 .container {
   position: absolute;

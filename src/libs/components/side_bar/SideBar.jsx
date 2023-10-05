@@ -76,11 +76,11 @@ export default function SideBar({ children, isStyleHeader }) {
                 </a>
               </li> */}
 
-              <li>
+              {/* <li>
                 <a href="">
                   <Image src={Whatsapp} alt="Whatsapp" width={34} height={34} />
                 </a>
-              </li>
+              </li> */}
 
               <li onClick={() => setIsOpenModal(true)}>
                 <a>

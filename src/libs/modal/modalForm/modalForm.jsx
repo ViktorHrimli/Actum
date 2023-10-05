@@ -26,6 +26,7 @@ export default function ModalForm({ type, isOpenModal, setIsOpenModal }) {
   return ( 
   <>
       <section className={styles.section}>
+        <div onClick={() => setIsOpenModal(false)} className={styles.background_modal}></div>
         <div className={styles.container}>
           <div className={styles[border]}>
             <div className={styles.container_form}>
