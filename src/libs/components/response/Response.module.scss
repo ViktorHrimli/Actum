@@ -104,10 +104,10 @@
 .background {
     @media screen and (min-width: 1280px) {
         position: absolute;
-        top: 0;
+        bottom: 0;
         right: 0;
         width: 88px;
-        height: 100%;
+        height: 100vh;
         background: #0F021C;
     }
 }

@@ -67,7 +67,7 @@
     height: 100%;
 
     top: 0;
-    left: -200px;
+    left: -212px;
 
     object-fit: cover;
 }
@@ -267,19 +267,20 @@
     @media screen and (min-width: 768px) {
         bottom: 0px;
         right: -40px;
-        width: 130%;
-        height: 70%;
-        max-width: 1100px;
-        @media screen and (min-height: 768px) and (max-height: 1024px) {
-            min-height: 60%;
+        // width: 130%;
+        height: calc(100% - 30%);
+        width: calc(100% + 35%);
+
+        @media screen and (min-height: 768px) and (max-height: 833px){
+            max-width: 860px;
+            height: 530px;
         }
     }
+
     @media screen and (min-width: 1024px) and (max-width: 1279px) {
-        max-width: 1000px;
-        @media screen and (min-height: 768px) and (max-height: 1024px) {
-                min-height: 60%;
-                max-width: 1000px;
-            }
+        max-width: 1040px;
+        height: 650px;
+        right: 0;
     }
     @media screen and (min-width: 1280px) {
         width: 1046px;
