@@ -16,7 +16,6 @@ export default function CountyCode({
   isOpenCountry,
   setIsOpenCountry,
   handleToggleCountry,
-  // setIsOpen,
   setPhoneNumber,
   resetField,
 }) {
@@ -33,12 +32,11 @@ export default function CountyCode({
     setIsOpenCountry(false);
     setPhoneNumber("");
     resetField("phone");
-    // setIsOpen(false);
   };
 
   return (
     <div className={styles.select_number}>
-      <div className={styles.info_box}>
+      <div className={styles.info_box} onClick={handleClick}>
         <div className={styles.image_wrapper}>
           <img
             className={styles.img_country}

@@ -45,10 +45,12 @@ export default function ContactPanel({ type }) {
   let isSessionStorageSave;
 
   const hanldeChangeLocale = () => {
-    localStorage.setItem("locale", "ru");
-    const newUrl = path.replace("/", "/ru/");
+    if (!path.includes("/ru")) {
+      localStorage.setItem("locale", "ru");
+      const newUrl = path.replace("/", "/ru/");
 
-    router.push(newUrl, { scroll: true });
+      router.push(newUrl, { scroll: true });
+    }
   };
 
   const handleClearLocale = () => {
@@ -101,7 +103,7 @@ export default function ContactPanel({ type }) {
     }
   }, []);
 
-  //  in scrol mob 
+  //  in scrol mob
   useEffect(() => {
     const handleScroll = () => {
       if (isPhoneMob) {
@@ -109,14 +111,13 @@ export default function ContactPanel({ type }) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [isPhoneMob]);
 
-  
   return (
     isClient && (
       <>
