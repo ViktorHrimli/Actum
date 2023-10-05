@@ -222,6 +222,12 @@
     font-weight: 400;
     line-height: normal;
     overflow-y: auto;
+    scrollbar-width: none;
+    
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
 
     @media screen and (min-width: 320px) {
         width: 280px;
@@ -268,11 +274,6 @@
         padding: 10px 15px;
     }
 }
-
-
-// .conteiner_name .number_input {
-//     padding-bottom: 20px;
-// }
 
 .conteiner_radio_groupe {
     position: absolute;

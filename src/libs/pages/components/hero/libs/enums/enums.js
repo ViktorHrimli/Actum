@@ -13,6 +13,7 @@ const lawyersHeroEnums = {
     text: "сімейний адвокат",
     style: "family_gradient",
     color: "family_color",
+    backgroundPage: "background_page",
   },
   army: {
     img: army,
@@ -20,6 +21,7 @@ const lawyersHeroEnums = {
     text: "військовий адвокат",
     style: "army_gradient",
     color: "army_color",
+    backgroundPage: "background_page_army",
   },
   crime: {
     img: crime,
@@ -27,6 +29,7 @@ const lawyersHeroEnums = {
     text: "кримінальний адвокат",
     style: "crime_gradient",
     color: "crime_color",
+    backgroundPage: "background_page",
   },
 };
 

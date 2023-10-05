@@ -63,6 +63,8 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
 
   return (
     <>
+      <div className={styles.background_page}></div>
+      
       <section className={styles.section}>
         <Image
           src={img}
