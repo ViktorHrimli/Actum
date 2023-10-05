@@ -198,6 +198,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
               setIsOpenCountry={setIsOpenCountry}
               handleToggleCountry={handleToggleCountry}
               phone={phone}
+              border={border}
             />
 
           <div className={styles[border]}>

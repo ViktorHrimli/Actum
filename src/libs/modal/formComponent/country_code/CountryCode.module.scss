@@ -35,7 +35,7 @@
 .code_box {
     position: absolute;
 
-    top: 60px;
+    top: 42px;
     left: 0;
 
     display: flex;
@@ -43,11 +43,46 @@
     align-items: center;
     gap: 3px;
 
-    width: 135px;
-    height: 155px;
+    width: 283px;
+    max-height: 210px;
     border-radius: 4px;
     overflow: auto;
     background-color: var(--secondary-bacground);
+}
+
+.container_countris {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.serch_icon_wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.input_search {
+    width: 258px;
+    height: 30px;
+    border: none;
+    outline: transparent;
+    border-radius: 2px;
+    padding-right: 8px;
+    padding-left: 28px;
+
+    &::placeholder {
+        color: #C3BCBC;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
 }
 
 .item_list {

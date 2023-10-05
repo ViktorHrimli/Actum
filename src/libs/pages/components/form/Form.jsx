@@ -198,6 +198,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
               setIsOpenCountry={setIsOpenCountry}
               setIsOpen={setIsOpen}
               phone={phone}
+              border={border}
             />
 
             <div className={styles[border]}>
