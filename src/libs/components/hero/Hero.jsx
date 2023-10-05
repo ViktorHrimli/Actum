@@ -81,8 +81,6 @@ export default function Hero({ type }) {
     };
   }, [isOpenModal]);
 
-  console.log(isClient);
-
   return (
     <>
       <section className={styles.hero_section}>
@@ -105,6 +103,7 @@ export default function Hero({ type }) {
               alt="background-filter"
               fill
               loading="lazy"
+              style={{zIndex: "5"}}
             />
           </motion.div>
         )}
