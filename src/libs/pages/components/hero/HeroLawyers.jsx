@@ -7,9 +7,12 @@ import { lawyersHeroEnums } from "./libs/enums/enums";
 import styles from "./HeroLawyers.module.scss";
 
 export default function HeroLawyers({ type, locale = "ua" }) {
-  const { img, title, text, style, color } = lawyersHeroEnums[type];
+  const { img, title, text, style, color, backgroundPage } = lawyersHeroEnums[type];
 
   return (
+    <>
+    <div className={styles[backgroundPage]}></div>
+
     <section className={styles.section}>
       <div className={styles.conteiner}>
         <Image
@@ -28,6 +31,7 @@ export default function HeroLawyers({ type, locale = "ua" }) {
         <div className={styles[style]}></div>
       </div>
       <Path path={text} type={color} back="/services" text="Наші Послуги" />
-    </section>
+      </section>
+    </>
   );
 }

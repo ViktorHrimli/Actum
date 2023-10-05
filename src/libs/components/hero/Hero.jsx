@@ -60,7 +60,10 @@ export default function Hero({ type }) {
       isDesktop ? 4000 : 3500
     );
 
-    setTimeout(() => setIsClient(true), 300);
+
+    // FUCKING CRUTHC >>>>>>>>>>>>>>>>>>>>
+    setTimeout(() =>
+      setIsClient(true), 300);
   }, []);
 
   useEffect(() => {
@@ -90,7 +93,13 @@ export default function Hero({ type }) {
             initial={isSessionStorageSave ? { opacity: 0 } : false}
             className={styles.wrapper_image}
           >
-            <Image src={back} alt="background" fill loading="lazy" />
+            <div className={styles.background_page}></div>
+            <Image
+              src={back}
+              alt="background"
+              fill
+              loading="lazy"
+            />
             <Image
               src={backFilter}
               alt="background-filter"

@@ -17,6 +17,7 @@ export default function StepsLawyers({type}) {
 
   return (
     <section className={styles.section}>
+      <div className={styles.background}></div>
       <div className={styles.img}>
         <Image
           className={styles.img_tel}

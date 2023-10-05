@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: start;
     background: var(--primary-back);
+    z-index: 10;
 
 
     height: auto;
@@ -48,7 +49,7 @@
     }
 
 
-    z-index: 5;
+    // z-index: 5;
 }
 
 .left_text_conteiner {
