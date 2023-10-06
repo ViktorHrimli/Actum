@@ -15,7 +15,16 @@ import styles from "./Footer.module.scss";
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 import ScrollButtonUp from "@/libs/components/contactPanel/halpers/showScrollButtonUp";
 
-export default function Footer() {
+export default function Footer({
+  address,
+  City,
+  LOGO_TITLE,
+  LOGO_TEXT,
+  Links,
+  Phones,
+  Email,
+  Button: btnText,
+}) {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
   const [isClient, setIsClient] = useState(false);
 
@@ -95,22 +104,22 @@ export default function Footer() {
         <div className={styles.footer_container}>
           <div className={styles.box_logo}>
             <Image
-              src={Logo}
+              src={LOGO_TITLE["data"]["attributes"]["url"] || Logo}
               alt="Logo"
               width={400}
               height={117}
               className={styles.footer_logo}
             />
-            <p className={styles.footer_logo_text}>Адвокатське об’Єднання</p>
+            <p className={styles.footer_logo_text}>{LOGO_TEXT["Title"]}</p>
             <div className={styles.policy_mob_none}>
               <a className={styles.policy_text} href="">
-                Політика конфідеційності
+                {Links[0]["title"]}
               </a>
               <a className={styles.policy_text} href="">
-                Правила надання онлайн-консультації
+                {Links[1]["title"]}
               </a>
-              <a className={styles.policy_text} href="/html-sitemap">
-                Мапа сайту
+              <a className={styles.policy_text} href={Links[2]["path"]}>
+                {Links[2]["title"]}
               </a>
             </div>
           </div>
@@ -120,36 +129,32 @@ export default function Footer() {
               <span className={styles.footer_title_bold_phone_only}>
                 Головний офіс:
               </span>{" "}
-              Україна, м. Київ, вул. Оболонська набережна 15, корпус 5
+              {address}
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>Головний офіс:</p>
-              <p className={styles.footer_text}>
-                Україна, м. Київ, вул. Оболонська набережна 15, корпус 5
-              </p>
+              <p className={styles.footer_text}>{address}</p>
             </div>
             <p className={styles.footer_title}>Філії по містах:</p>
 
-            <p className={styles.footer_text}>
-              Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон, Покровськ
-            </p>
+            <p className={styles.footer_text}>{City}</p>
           </div>
           <div className={styles.footer_contact_box}>
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Phone:</p>
               <div>
                 <a className={styles.phone} href="tel:+380671797213">
-                  +38-067-179-72-13
+                  {Phones[0]["KiyvStar"]}
                 </a>
                 <a className={styles.phone} href="tel:+380503334897">
-                  +38-050-333-48-97
+                  {Phones[0]["Vodafone"]}
                 </a>
               </div>
             </div>
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Email:</p>
               <a className={styles.email} href="mailto:info@actum.com.ua">
-                info@actum.com.ua
+                {Email[0]["Email"]}
               </a>
             </div>
 
@@ -167,7 +172,7 @@ export default function Footer() {
             <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
               <Button
                 style={"button_prymary"}
-                text={"замовити консультацію"}
+                text={btnText[0]["text"]}
                 type={"button"}
                 typeStyle={
                   isStyleFooter === "footer_army_gradient" ? "army" : "family"

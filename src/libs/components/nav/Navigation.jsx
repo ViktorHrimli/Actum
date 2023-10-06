@@ -6,76 +6,65 @@ import ArrowOpen from "./Animated/ArrowOpen";
 import styles from "./Navigation.module.scss";
 
 export default function Navigation({
-  links,
   route,
   onClick,
   onHover,
   setOnHover,
   isMobile,
   setIsOpenMenu,
+  nav,
+  servicesRoute,
   isOpenMenu,
   isLocal = "",
 }) {
   const SERVICES = "послуги";
 
-  const listLawyers = links[1].attributes.services_lawyers.data || [];
-
   return (
     <div style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
-        {links.map(
-          ({
-            id,
-            attributes: {
-              title,
-              path,
-              services_lawyers: { data },
-            },
-          }) => (
-            <li
-              key={id}
-              className={styles.link}
-              onMouseOver={() =>
-                title.toLowerCase() === SERVICES
-                  ? setOnHover(true)
-                  : setOnHover(false)
+        {nav.map(({ title, name_page, path, locale, id }) => (
+          <li
+            key={id}
+            className={styles.link}
+            onMouseOver={() =>
+              title.toLowerCase() === SERVICES
+                ? setOnHover(true)
+                : setOnHover(false)
+            }
+          >
+            <Link
+              className={
+                route === path ? styles.active_link : styles.not_active_link
               }
+              href={isLocal ? `/${isLocal}/${path}` : path}
+              onClick={onClick}
             >
-              <Link
-                className={
-                  route === path ? styles.active_link : styles.not_active_link
-                }
-                href={isLocal ? `/${isLocal}/${path}` : path}
-                locale={isLocal ? isLocal : "uk-UA"}
+              <p>{title.toUpperCase()}</p>
+            </Link>
+
+            {isMobile && title.toLowerCase() === SERVICES && (
+              <ArrowOpen
+                isOpenMenu={isOpenMenu}
+                setIsOpenMenu={setIsOpenMenu}
+              />
+            )}
+
+            {isMobile && isOpenMenu && title.toLowerCase() === SERVICES && (
+              <Select
+                routes={servicesRoute}
                 onClick={onClick}
-              >
-                <p>{title.toUpperCase()}</p>
-              </Link>
-
-              {isMobile && title.toLowerCase() === SERVICES && (
-                <ArrowOpen
-                  isOpenMenu={isOpenMenu}
-                  setIsOpenMenu={setIsOpenMenu}
-                />
-              )}
-
-              {isMobile && isOpenMenu && (
-                <Select
-                  routes={data}
-                  onClick={onClick}
-                  isOpen={isOpenMenu}
-                  isMobile={isMobile}
-                />
-              )}
-            </li>
-          )
-        )}
+                isOpen={isOpenMenu}
+                isMobile={isMobile}
+              />
+            )}
+          </li>
+        ))}
       </ul>
       {!isMobile && onHover && (
         <Select
           isOpen={onHover}
           onClick={onClick}
-          routes={listLawyers}
+          routes={servicesRoute}
           isMobile={isMobile}
         />
       )}
