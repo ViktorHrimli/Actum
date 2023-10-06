@@ -6,7 +6,7 @@ import { Montserrat } from "next/font/google";
 import Header from "@/libs/components/header/Header";
 import Footer from "@/libs/components/footer/Footer";
 
-import { getNavigationPage } from "@/shared/services/api/getNavigationPage";
+import { getLayout } from "@/shared/services/api/api";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
@@ -19,13 +19,32 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const { data } = await getNavigationPage();
+  const {
+    data: {
+      attributes: { Header: headers, Footer: footer },
+    },
+  } = await getLayout();
+
+  console.log(footer);
   return (
     <html lang="uk-UA">
       <body className={montserrat.className}>
-        <Header links={data} />
+        <Header
+          logo={headers["LOGO"]}
+          nav={headers["Navigation"]}
+          routes={headers["Services"]}
+        />
         <main className={styles.page}>{children}</main>
-        <Footer />
+        <Footer
+          // address={footer["address"]}
+          // city={footer["City"]}
+          // title={footer["LOGO_TEXT"]}
+          // links={footer["Links"]}
+          // logo={footer["LOGO_TITLE"]}
+          // button={footer['Button']}
+          // email={footer}
+          {...footer}
+        />
       </body>
     </html>
   );

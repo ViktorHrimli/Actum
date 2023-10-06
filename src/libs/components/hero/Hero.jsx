@@ -60,10 +60,8 @@ export default function Hero({ type }) {
       isDesktop ? 4000 : 3500
     );
 
-
     // FUCKING CRUTHC >>>>>>>>>>>>>>>>>>>>
-    setTimeout(() =>
-      setIsClient(true), 300);
+    setTimeout(() => setIsClient(true), 300);
   }, []);
 
   useEffect(() => {
@@ -96,14 +94,16 @@ export default function Hero({ type }) {
               src={back}
               alt="background"
               fill
-              loading="lazy"
+              fetchPriority="high"
+              loading="eager"
             />
             <Image
               src={backFilter}
               alt="background-filter"
               fill
-              loading="lazy"
-              style={{zIndex: "5"}}
+              loading="eager"
+              fetchPriority="high"
+              style={{ zIndex: "5" }}
             />
           </motion.div>
         )}

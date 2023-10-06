@@ -26,7 +26,7 @@ import Logo from "@/assets/svg/LOGO.png";
 
 import styles from "./Header.module.scss";
 
-export default function Header({ links }) {
+export default function Header({ nav, routes, logo }) {
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
@@ -120,7 +120,7 @@ export default function Header({ links }) {
               transition={logoAnimated["transition"]}
             >
               <Image
-                src={Logo}
+                src={logo["data"]["attributes"]["url"] || Logo}
                 alt="Logo ACTUM"
                 fill
                 priority={true}
@@ -141,7 +141,8 @@ export default function Header({ links }) {
             transition={{ duration: 0.8, delay: 2.5 }}
           >
             <Navigation
-              links={links}
+              nav={nav}
+              servicesRoute={routes}
               route={path}
               onClick={handleClickOnMenu}
               onHover={onHover}
@@ -178,14 +179,15 @@ export default function Header({ links }) {
           >
             <SideBar isStyleHeader={isStyleHeader}>
               <Navigation
-                links={links}
-                isLocal={isLocal}
+                nav={nav}
+                servicesRoute={routes}
                 route={path}
                 onClick={handleClickOnBar}
-                onHover={onHover}
-                isMobile={isTab}
                 setOnHover={setOnHover}
                 setIsOpenMenu={setIsOpenMenu}
+                isLocal={isLocal}
+                onHover={onHover}
+                isMobile={isTab}
                 isOpenMenu={isOpenMenu}
               />
             </SideBar>
