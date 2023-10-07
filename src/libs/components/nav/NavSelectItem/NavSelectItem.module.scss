@@ -63,7 +63,8 @@
 
     border-radius: 4px;
 
-    z-index: 15;
+    z-index: 50;
+
 }
 
 .line {
@@ -89,6 +90,8 @@
         border-radius: 4px;
         text-decoration-line: none;
     }
+
+    z-index: 50;
 }
 
 .text_current {

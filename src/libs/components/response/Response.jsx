@@ -26,24 +26,24 @@ export default function Response({ type }) {
   }, []);
 
   return (
-    <section className={styles.section}>
-      <div className={isHome ? styles.background : ""}></div>
+    isClient && (
+      <section className={styles.section}>
+        <div className={isHome ? styles.background : ""}></div>
 
-      <div className={styles.conteiner_section}>
-        <div className={styles.left_text_conteiner}>
-          <LeftBar text={"наші відгуки"} type={type} />
-        </div>
-
-        <div className={styles.rigth_conteiner}>
-          <div className={styles.conteiner_text}>
-            <p className={styles.text}>
-              Наші клієнти залишають свої відгуки у Телеграм каналі, звідти вони
-              автоматично без редагування, генеруються на наш сайт. Всі відгуки
-              є справжніми, створені реальними людьми.
-            </p>
+        <div className={styles.conteiner_section}>
+          <div className={styles.left_text_conteiner}>
+            <LeftBar text={"наші відгуки"} type={type} />
           </div>
-          <div className={styles.position_arr_left}>
-            {isClient && (
+
+          <div className={styles.rigth_conteiner}>
+            <div className={styles.conteiner_text}>
+              <p className={styles.text}>
+                Наші клієнти залишають свої відгуки у Телеграм каналі, звідти
+                вони автоматично без редагування, генеруються на наш сайт. Всі
+                відгуки є справжніми, створені реальними людьми.
+              </p>
+            </div>
+            <div className={styles.position_arr_left}>
               <Arrow
                 type={type}
                 left={true}
@@ -51,19 +51,16 @@ export default function Response({ type }) {
                 setIsLeft={setIsLeft}
                 isChange={isChange}
               />
-            )}
-          </div>
+            </div>
 
-          {isClient && (
             <ItemsList
               type={type}
               isMobie={screen}
               slide={isChange}
               start={isLeft}
             />
-          )}
-          <div className={styles.position_arr_right}>
-            {isClient && (
+
+            <div className={styles.position_arr_right}>
               <Arrow
                 type={type}
                 left={false}
@@ -71,22 +68,22 @@ export default function Response({ type }) {
                 setIsLeft={setIsLeft}
                 isChange={isChange}
               />
+            </div>
+            {isHome && (
+              <div className={styles.btn_wrapper}>
+                <Link href={"https://t.me/ActumReview"}>
+                  <Button
+                    text={"залишити відгук"}
+                    style={"button_service"}
+                    type={"button"}
+                    typeStyle={type}
+                  />
+                </Link>
+              </div>
             )}
           </div>
-          {isHome && (
-            <div className={styles.btn_wrapper}>
-              <Link href={"https://t.me/ActumReview"}>
-                <Button
-                  text={"залишити відгук"}
-                  style={"button_service"}
-                  type={"button"}
-                  typeStyle={type}
-                />
-              </Link>
-            </div>
-          )}
         </div>
-      </div>
-    </section>
+      </section>
+    )
   );
 }

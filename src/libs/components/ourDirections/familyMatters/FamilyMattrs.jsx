@@ -6,32 +6,23 @@ import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 import styles from "./FamilyMattrs.module.scss";
 
-export default function FamilyMattrs({ openModalHands }) {
+export default function FamilyMattrs({
+  openModalHands,
+  title,
+  first_text,
+  second_text,
+  third_text,
+}) {
   return (
     <div className={styles.family}>
       <div onClick={openModalHands} className={styles.closed}>
-        <FontAwesomeIcon
-          icon={faXmark}
-          size="2xl"
-        />
+        <FontAwesomeIcon icon={faXmark} size="2xl" />
       </div>
-      <h2 className={styles.family_title}>сімейні питання</h2>
+      <h2 className={styles.family_title}>{title}</h2>
 
-      <p className={styles.family_text}>
-        Наші правознавці з 2004 року успішно ведуть справи, що стосуються
-        сімейних правовідносин, поділу майна, оформлення і вступу в спадщину.
-      </p>
-      <p className={styles.family_text}>
-        З огляду на особливу конфліктність цієї категорії справ, ми пропонуємо{" "}
-        <span className={styles.family_text_bold}>індивідуальні стратегії</span>{" "}
-        розв’язання спорів, коли клієнт отримує від нас комплексну допомогу –
-        адвокатську, психологічну тощо.
-      </p>
-      <p className={styles.family_text}>
-        Спеціалізуємось на сімейних спорах особливої складності: позбавлення
-        батьківських прав, розірвання шлюбів в іноземних юрисдикціях з поділом
-        майна, визнання недійсним заповітів та шлюбних контрактів.
-      </p>
+      <p className={styles.family_text}>{first_text}</p>
+      <p className={styles.family_text}>{second_text}</p>
+      <p className={styles.family_text}>{third_text}</p>
 
       <Image
         src={LinkedPath}
@@ -48,10 +39,10 @@ export default function FamilyMattrs({ openModalHands }) {
           width={40}
           height={40}
           loading="lazy"
-          style={{zIndex: 5}}
+          style={{ zIndex: 5 }}
           className={styles.family_icon_click}
-          />
-        </a>
+        />
+      </a>
     </div>
   );
 }

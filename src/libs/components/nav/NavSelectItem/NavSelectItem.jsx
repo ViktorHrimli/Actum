@@ -22,8 +22,6 @@ export default function NavSelectItem({
     setIsOpenSelect(!isOpenSelect);
   };
 
-  console.log(path);
-
   return (
     <li className={styles.link} onClick={() => {}}>
       <div
@@ -47,7 +45,7 @@ export default function NavSelectItem({
       {isOpenSelect && isOpenIndex[path] && (
         <ul className={styles.nested_select_list}>
           {list.map(({ title, path: pathsService }, id) => (
-            <li key={id} className={styles.item_list}>
+            <li key={id} className={styles.item_list} onClick={onClick}>
               <Link href={`${path}${pathsService}`}>
                 <p className={styles.text_current}>{title}</p>
               </Link>

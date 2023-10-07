@@ -7,31 +7,23 @@ import Click from "@/assets/svg/Klick_icon.png";
 
 import styles from "./MilitaryMattrs.module.scss";
 
-export default function MilitaryMattrs({openModalhalmet}) {
+export default function MilitaryMattrs({
+  openModalhalmet,
+  title,
+  first_text,
+  second_text,
+  third_text,
+}) {
   return (
     <div className={styles.military}>
       <div onClick={openModalhalmet} className={styles.closed}>
-        <FontAwesomeIcon
-          icon={faXmark}
-          size="2xl"
-        />
+        <FontAwesomeIcon icon={faXmark} size="2xl" />
       </div>
-      <h2 className={styles.military_title}>Військові питання</h2>
+      <h2 className={styles.military_title}>{title}</h2>
 
-      <p className={styles.military_text}>
-        Юристи Актуму – вузькоспеціалізовані військові адвокати для
-        військовозобов’язаних, резервістів, УБД та військовослужбовців ЗСУ, НГУ,
-        ДПСУ, СБУ та інших формувань. А також сімей військових.
-      </p>
-      <p className={styles.military_text}>
-        Працюємо в галузі військового права з 2014 року. Правники Актуму мають
-        досвід роботи у військовій прокуратурі та багату судову практику в
-        галузі військового права.
-      </p>
-      <p className={styles.military_text}>
-        Актуму можуть всебічно оцінити справу, надати змістовну консультацію і
-        запропонувати шлях вирішення найскладнішого питання.
-      </p>
+      <p className={styles.military_text}>{first_text}</p>
+      <p className={styles.military_text}>{second_text}</p>
+      <p className={styles.military_text}>{third_text}</p>
 
       <Image
         src={LinkedPath}
@@ -48,7 +40,7 @@ export default function MilitaryMattrs({openModalhalmet}) {
           height={40}
           className={styles.criminal_icon_click}
         />
-        </a>
+      </a>
     </div>
   );
 }
