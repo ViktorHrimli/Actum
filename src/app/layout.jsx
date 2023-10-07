@@ -25,7 +25,6 @@ export default async function RootLayout({ children }) {
     },
   } = await getLayout();
 
-  console.log(footer);
   return (
     <html lang="uk-UA">
       <body className={montserrat.className}>
@@ -35,16 +34,7 @@ export default async function RootLayout({ children }) {
           routes={headers["Services"]}
         />
         <main className={styles.page}>{children}</main>
-        <Footer
-          // address={footer["address"]}
-          // city={footer["City"]}
-          // title={footer["LOGO_TEXT"]}
-          // links={footer["Links"]}
-          // logo={footer["LOGO_TITLE"]}
-          // button={footer['Button']}
-          // email={footer}
-          {...footer}
-        />
+        <Footer {...footer} />
       </body>
     </html>
   );
