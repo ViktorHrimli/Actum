@@ -1,4 +1,3 @@
-// import { useEffect, useState, useClient } from "@/libs/hooks/hooks";
 import dynamic from "next/dynamic";
 
 import { getHomePage } from "@/shared/services/api/api";
@@ -23,39 +22,24 @@ export const metadata = {
 };
 
 export default async function Home() {
-  // const [isClient, setIsClient] = useState(false);
-
-  // let isFristRender = true;
-
-  // if (typeof window !== "undefined") {
-  //   isFristRender = JSON.parse(sessionStorage.getItem("hero_page") || true);
-  // }
-
-  // useEffect(() => {
-  //   if (isFristRender) {
-  //     setTimeout(() => setIsClient(true), 3000);
-
-  //     const scrollY = document.body.style.top;
-  //     window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  //   } else {
-  //     setIsClient(true);
-  //   }
-  // }, []);
-
   const {
     data: {
-      attributes: { Hero: hero, Directions: directions },
+      attributes: {
+        Hero: hero,
+        Directions: directions,
+        Responses: responses,
+        About: about,
+      },
     },
   } = await getHomePage();
-  console.log(directions);
 
   return (
     <>
       <Hero type={"home"} {...hero} />
       <ContactPanel type={"home"} />
       <Direction {...directions} />
-      <AboutCompany type={"family"} />
-      <Response type={"family"} />
+      <AboutCompany type={"family"} {...about} />
+      <Response type={"family"} {...responses[0]} />
     </>
   );
 }

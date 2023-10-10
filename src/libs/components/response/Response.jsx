@@ -11,7 +11,7 @@ import styles from "./Response.module.scss";
 
 import { useEffect, useIsSmall, useState } from "@/libs/hooks/hooks";
 
-export default function Response({ type }) {
+export default function Response({ type, button, description, title }) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
@@ -32,16 +32,12 @@ export default function Response({ type }) {
 
         <div className={styles.conteiner_section}>
           <div className={styles.left_text_conteiner}>
-            <LeftBar text={"наші відгуки"} type={type} />
+            <LeftBar text={title} type={type} />
           </div>
 
           <div className={styles.rigth_conteiner}>
             <div className={styles.conteiner_text}>
-              <p className={styles.text}>
-                Наші клієнти залишають свої відгуки у Телеграм каналі, звідти
-                вони автоматично без редагування, генеруються на наш сайт. Всі
-                відгуки є справжніми, створені реальними людьми.
-              </p>
+              <p className={styles.text}>{description}</p>
             </div>
             <div className={styles.position_arr_left}>
               <Arrow
@@ -71,9 +67,9 @@ export default function Response({ type }) {
             </div>
             {isHome && (
               <div className={styles.btn_wrapper}>
-                <Link href={"https://t.me/ActumReview"}>
+                <Link href={button[0]["link"]}>
                   <Button
-                    text={"залишити відгук"}
+                    text={button[0]["text"]}
                     style={"button_service"}
                     type={"button"}
                     typeStyle={type}

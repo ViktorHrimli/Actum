@@ -19,7 +19,20 @@ import Olena from "@/assets/svg/Natalia.png";
 import Button from "../button/Button";
 import Link from "next/link";
 
-export default function AboutCompany() {
+export default function AboutCompany({
+  title,
+  first_text,
+  second_text,
+  third_text,
+  parnter_first,
+  partner_second,
+  City,
+  services_text,
+  description_city,
+  button,
+  right_picture,
+  left_picture,
+}) {
   const isClient = useClient();
   return (
     isClient && (
@@ -35,11 +48,8 @@ export default function AboutCompany() {
             </div>
             <div className={styles.ukraine_inner_city}>
               <p>
-                Прямо сьогодні Ви можете завітати в офіс у 9 містах України:
-                <span className={styles.bold_text}>
-                  Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон,
-                  Покровськ.
-                </span>
+                {description_city}
+                <span className={styles.bold_text}>{City}</span>
               </p>
             </div>
             <div className={styles.ukraine_map}>
@@ -53,33 +63,31 @@ export default function AboutCompany() {
 
             {/* PHOTO */}
             <div className={styles.olga_conteiner}>
-              <Image src={Natalia} alt="Olga" fill loading="eager" />
+              <Image
+                src={left_picture["data"]["attributes"]["url"] || Natalia}
+                alt="Olga"
+                fill
+                loading="eager"
+              />
             </div>
             <div className={styles.natalia_conteiner}>
-              <Image src={Olena} alt="Natalia" fill loading="eager" />
+              <Image
+                src={right_picture["data"]["attributes"]["url"] || Olena}
+                alt="Natalia"
+                fill
+                loading="eager"
+              />
             </div>
           </div>
           <div className={styles.about_conteiner}>
-            <h2 className={styles.title_text}>Про компанію</h2>
-            <p className={styles.text}>
-              Адвокатське об’єднання Актум – спільнота правників з відмінним
-              знанням законодавства та багатим досвідом юридичної практики.
-            </p>
-            <p className={styles.text_adaptive_display}>
-              Намагаємось працювати краще всіх, щоб наш клієнт мав бажаний
-              результат – як наслідок адвокатської праці. Роз’яснюємо закони без
-              води простою мовою, ніколи не спізнюємось і не примушуємо себе
-              чекати, не ведемо справи «по 25 років».
-            </p>
-            <p className={styles.text}>
-              Боремось за своїх клієнтів до кінця незважаючи на протидію. У разі
-              недоліків у праці конкретного юриста – компенсуємо, замінимо
-              спеціаліста або повернемо гроші.
-            </p>
+            <h2 className={styles.title_text}>{title}</h2>
+            <p className={styles.text}>{first_text}</p>
+            <p className={styles.text_adaptive_display}>{second_text}</p>
+            <p className={styles.text}>{third_text}</p>
 
             <div className={styles.wrapper_signatur}>
               <div className={styles.conteiner_partner_olena}>
-                <p className={styles.partner}>партнер Хоменко Олена</p>
+                <p className={styles.partner}>{parnter_first}</p>
                 <div className={styles.wrapper_signatur_olena}>
                   <Animation
                     animationData={animationSignOlena}
@@ -88,7 +96,7 @@ export default function AboutCompany() {
                 </div>
               </div>
               <div className={styles.conteiner_partner_natalia}>
-                <p className={styles.partner}>партнер Коровіна Наталя</p>
+                <p className={styles.partner}>{partner_second}</p>
                 <div className={styles.wrapper_signatur_natalia}>
                   <Animation
                     animationData={animationSignNatalia}
@@ -98,10 +106,10 @@ export default function AboutCompany() {
               </div>
             </div>
             <div className={styles.btn_wrapper}>
-              <Link href={"/teamactum"}>
+              <Link href={button[0]["link"]}>
                 <Button
                   style={"button_prymary"}
-                  text={"наша команда"}
+                  text={button[0]["text"]}
                   type={"button"}
                 />
               </Link>
