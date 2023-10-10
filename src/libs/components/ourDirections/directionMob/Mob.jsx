@@ -8,7 +8,7 @@ import MobHands from "@/assets/svg/Mob_hands.png";
 import MobHalmet from "@/assets/svg/Mob_halmet.png";
 import MobCriminal from "@/assets/svg/Mob_criminal.png";
 
-export default function Mob() {
+export default function Mob({ family, army, crime }) {
   const [showCardsHands, setShowCardsHands] = useState(false);
   const [showCardsHalmet, setShowCardsHalmet] = useState(false);
   const [showCardsCriminal, setShowCardsCriminal] = useState(false);
@@ -55,7 +55,6 @@ export default function Mob() {
             setShowCardsHalmet(true);
           }, 300);
           observer.unobserve(cardsRefHalmet.current);
-          
         }
       },
       {
@@ -120,7 +119,7 @@ export default function Mob() {
 
         {showCardsHands && (
           <div className={styles.show_hands}>
-            <FamilyMattrs />
+            <FamilyMattrs {...family[0]} />
           </div>
         )}
       </div>
@@ -137,7 +136,7 @@ export default function Mob() {
 
         {showCardsHalmet && (
           <div className={styles.show_halmet}>
-            <MilitaryMattrs />
+            <MilitaryMattrs {...army[0]} />
           </div>
         )}
       </div>
@@ -154,7 +153,7 @@ export default function Mob() {
 
         {showCardsCriminal && (
           <div className={styles.show_criminal}>
-            <CriminalMattrs />
+            <CriminalMattrs {...crime[0]} />
           </div>
         )}
       </div>

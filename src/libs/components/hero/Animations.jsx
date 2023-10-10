@@ -30,7 +30,14 @@ import {
   gradientVariants,
 } from "./libs/enums/enums";
 
-export default function Animations({ isSessionStorageSave = true, setIsOpenModal }) {
+export default function Animations({
+  isSessionStorageSave = true,
+  setIsOpenModal,
+  title_text,
+  underline_text,
+  Actum_Logo,
+  button,
+}) {
   const [isStep, setIsStep] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [screenWidth, setscreenWidth] = useState(0);
@@ -85,11 +92,10 @@ export default function Animations({ isSessionStorageSave = true, setIsOpenModal
           className={styles.conteiner_wordmark}
         >
           <Image
-            src={watemark}
+            src={Actum_Logo["data"]["attributes"]["url"] || watemark}
             alt="ACTUM"
             fetchPriority="high"
             priority={true}
-            placeholder="blur"
             style={{ objectFit: "cover" }}
             sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             fill
@@ -152,7 +158,7 @@ export default function Animations({ isSessionStorageSave = true, setIsOpenModal
           transition={titleWatemarkAnimated["transition"]}
           className={styles.title_text}
         >
-          Адвокатське об’Єднання
+          {title_text}
         </motion.h2>
       ) : (
         <div style={{ height: "90px" }}></div>
@@ -196,7 +202,7 @@ export default function Animations({ isSessionStorageSave = true, setIsOpenModal
           transition={watemarTextkAnimated["transition"]}
           className={styles.text}
         >
-          Дія задля результату
+          {underline_text}
         </motion.div>
       ) : (
         <div style={{ height: "400px" }}></div>
@@ -218,7 +224,7 @@ export default function Animations({ isSessionStorageSave = true, setIsOpenModal
           <Button
             onClick={() => setIsOpenModal(true)}
             type={"button"}
-            text="замовити консультацію"
+            text={button[0]["text"]}
             style="button_prymary"
           />
         </motion.div>

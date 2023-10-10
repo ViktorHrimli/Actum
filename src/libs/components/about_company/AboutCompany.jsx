@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+
+import { useClient } from "@/libs/hooks/hooks";
 
 import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
@@ -15,106 +19,104 @@ import Olena from "@/assets/svg/Natalia.png";
 import Button from "../button/Button";
 import Link from "next/link";
 
-export default function AboutCompany() {
+export default function AboutCompany({
+  title,
+  first_text,
+  second_text,
+  third_text,
+  parnter_first,
+  partner_second,
+  City,
+  services_text,
+  description_city,
+  button,
+  right_picture,
+  left_picture,
+}) {
+  const isClient = useClient();
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-      <div className={styles.conteiner_map}>
-        <div className={styles.ukraine_inner_text}>
-          <p>
-            Працюємо по <span className={styles.bold_text}>всій Україні</span>:
-            надаємо онлайн-консультації або виїзджаємо до Вас.
-          </p>
-        </div>
-        <div className={styles.ukraine_inner_city}>
-          <p>
-            Прямо сьогодні Ви можете завітати в офіс у 9 містах України:
-            <span className={styles.bold_text}>
-              Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон,
-              Покровськ.
-            </span>
-          </p>
-        </div>
-        <div className={styles.ukraine_map}>
-          <Image src={Ukraine} alt="Ukraine" fill loading="lazy" />
-        </div>
-        {/* GRADIENTS */}
-        <div className={gradient.main_gradient}></div>
-        <div className={gradient.second_gradient}></div>
-        <div className={gradient.text_gradient}></div>
-        <div className={gradient.partner_gradient}></div>
+    isClient && (
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.conteiner_map}>
+            <div className={styles.ukraine_inner_text}>
+              <p>
+                Працюємо по{" "}
+                <span className={styles.bold_text}>всій Україні</span>: надаємо
+                онлайн-консультації або виїзджаємо до Вас.
+              </p>
+            </div>
+            <div className={styles.ukraine_inner_city}>
+              <p>
+                {description_city}
+                <span className={styles.bold_text}>{City}</span>
+              </p>
+            </div>
+            <div className={styles.ukraine_map}>
+              <Image src={Ukraine} alt="Ukraine" fill loading="lazy" />
+            </div>
+            {/* GRADIENTS */}
+            <div className={gradient.main_gradient}></div>
+            <div className={gradient.second_gradient}></div>
+            <div className={gradient.text_gradient}></div>
+            <div className={gradient.partner_gradient}></div>
 
-        {/* PHOTO */}
-        <div className={styles.olga_conteiner}>
-          <Image
-            src={Natalia}
-            alt="Olga"
-            fill
-            loading="eager"
-            // objectFit="cover"
-            // placeholder="blur"
-          />
-        </div>
-        <div className={styles.natalia_conteiner}>
-          <Image
-            src={Olena}
-            alt="Natalia"
-            fill
-            loading="eager"
-            // objectFit="cover"
-            // placeholder="blur"
-          />
-        </div>
-      </div>
-      <div className={styles.about_conteiner}>
-        <h2 className={styles.title_text}>Про компанію</h2>
-        <p className={styles.text}>
-          Адвокатське об’єднання Актум – спільнота правників з відмінним знанням
-          законодавства та багатим досвідом юридичної практики.
-        </p>
-        <p className={styles.text_adaptive_display}>
-          Намагаємось працювати краще всіх, щоб наш клієнт мав бажаний результат
-          – як наслідок адвокатської праці. Роз’яснюємо закони без води простою
-          мовою, ніколи не спізнюємось і не примушуємо себе чекати, не ведемо
-          справи «по 25 років».
-        </p>
-        <p className={styles.text}>
-          Боремось за своїх клієнтів до кінця незважаючи на протидію. У разі
-          недоліків у праці конкретного юриста – компенсуємо, замінимо
-          спеціаліста або повернемо гроші.
-        </p>
-
-        <div className={styles.wrapper_signatur}>
-          <div className={styles.conteiner_partner_olena}>
-            <p className={styles.partner}>партнер Хоменко Олена</p>
-            <div className={styles.wrapper_signatur_olena}>
-              <Animation
-                animationData={animationSignOlena}
-                playOnScroll={true}
+            {/* PHOTO */}
+            <div className={styles.olga_conteiner}>
+              <Image
+                src={left_picture["data"]["attributes"]["url"] || Natalia}
+                alt="Olga"
+                fill
+                loading="eager"
+              />
+            </div>
+            <div className={styles.natalia_conteiner}>
+              <Image
+                src={right_picture["data"]["attributes"]["url"] || Olena}
+                alt="Natalia"
+                fill
+                loading="eager"
               />
             </div>
           </div>
-          <div className={styles.conteiner_partner_natalia}>
-            <p className={styles.partner}>партнер Коровіна Наталя</p>
-            <div className={styles.wrapper_signatur_natalia}>
-              <Animation
-                animationData={animationSignNatalia}
-                playOnScroll={true}
-              />
+          <div className={styles.about_conteiner}>
+            <h2 className={styles.title_text}>{title}</h2>
+            <p className={styles.text}>{first_text}</p>
+            <p className={styles.text_adaptive_display}>{second_text}</p>
+            <p className={styles.text}>{third_text}</p>
+
+            <div className={styles.wrapper_signatur}>
+              <div className={styles.conteiner_partner_olena}>
+                <p className={styles.partner}>{parnter_first}</p>
+                <div className={styles.wrapper_signatur_olena}>
+                  <Animation
+                    animationData={animationSignOlena}
+                    playOnScroll={true}
+                  />
+                </div>
+              </div>
+              <div className={styles.conteiner_partner_natalia}>
+                <p className={styles.partner}>{partner_second}</p>
+                <div className={styles.wrapper_signatur_natalia}>
+                  <Animation
+                    animationData={animationSignNatalia}
+                    playOnScroll={true}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className={styles.btn_wrapper}>
+              <Link href={button[0]["link"]}>
+                <Button
+                  style={"button_prymary"}
+                  text={button[0]["text"]}
+                  type={"button"}
+                />
+              </Link>
             </div>
           </div>
         </div>
-        <div className={styles.btn_wrapper}>
-          <Link href={"/teamactum"}>
-            <Button
-              style={"button_prymary"}
-              text={"наша команда"}
-              type={"button"}
-            />
-          </Link>
-        </div>
-        </div>
-        </div>
-    </section>
+      </section>
+    )
   );
 }

@@ -14,7 +14,13 @@ import styles from "./Hero.module.scss";
 import back from "@/assets/svg/mobile_background_gradient.png";
 import backFilter from "@/assets/svg/hero-background_filter.png";
 
-export default function Hero({ type }) {
+export default function Hero({
+  type,
+  title_text,
+  underline_text,
+  Actum_Logo,
+  button,
+}) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
   const [isClient, setIsClient] = useState(false);
@@ -112,6 +118,10 @@ export default function Hero({ type }) {
           <Animations
             isSessionStorageSave={isSessionStorageSave}
             setIsOpenModal={setIsOpenModal}
+            title_text={title_text}
+            underline_text={underline_text}
+            Actum_Logo={Actum_Logo}
+            button={button}
           />
         </div>
       </section>
