@@ -2,7 +2,7 @@ export const getHomePage = async () => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_HOME_PAGE}?${process.env.QUERY_HOME_PAGE}`,
-    { cache: "no-cache" }
+    { cache: "reload" }
   );
 
   // DEV
