@@ -3,8 +3,6 @@ import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import dynamic from "next/dynamic";
 
-import { getHomePage } from "@/shared/services/api/api";
-
 const Direction = dynamic(() =>
   import("@/libs/components/ourDirections/Direction")
 );
@@ -14,16 +12,6 @@ const AboutCompany = dynamic(() =>
 );
 
 export default async function Home() {
-  const {
-    data: {
-      attributes: {
-        Hero: hero,
-        Directions: directions,
-        Responses: responses,
-        About: about,
-      },
-    },
-  } = await getHomePage();
   return (
     <>
       <Hero type={"home"} />
