@@ -14,11 +14,11 @@ const AboutCompany = dynamic(() =>
 export default async function Home() {
   return (
     <>
-      <Hero type={"home"} />
+      {/* <Hero type={"home"} />
       <ContactPanel type={"home"} />
       <Direction />
       <AboutCompany type={"family"} />
-      <Response type={"family"} />
+      <Response type={"family"} /> */}
     </>
   );
 }
