@@ -43,24 +43,24 @@ const itemsLis = [
   },
 ];
 
-export default function Items() {
+export default function Items({ items }) {
   return (
     <ul className={styles.items_list}>
-      {itemsLis.map((el, id) => (
+      {items.map((el, id) => (
         <li key={id} className={styles.item_wrapper}>
           <h2 className={styles.title_text}>{el.title}</h2>
           <div className={styles.content_wrapper}>
             <div className={styles.card__image_conteiner}>
               <Image
-                src={el.img}
+                src={el["photo"]["data"]["attributes"]["url"]}
                 fill
                 loading="lazy"
                 alt={el.title}
                 style={{ objectFit: "cover" }}
               />
-              <div className={styles[el.style]}></div>
+              <div className={styles[el.button["style"]]}></div>
               <div className={styles.img_btn}>
-                <Link href={el?.path}>
+                <Link href={el?.button["link"]}>
                   <Button
                     text="детальніше"
                     type="button"
@@ -70,9 +70,9 @@ export default function Items() {
               </div>
             </div>
             <ul className={styles.text_list}>
-              {el.text.map((p, id) => (
+              {el.texts.map(({ text, id }) => (
                 <li key={id}>
-                  <p className={styles.text}>{p}</p>
+                  <p className={styles.text}>{text}</p>
                 </li>
               ))}
             </ul>

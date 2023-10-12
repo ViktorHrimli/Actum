@@ -2,7 +2,7 @@ export const getLayout = async () => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_LAYOUT}?${process.env.QUERY_LAYOUT}`,
-    { cache: "default" }
+    { cache: "reload" }
   );
 
   // DEV
