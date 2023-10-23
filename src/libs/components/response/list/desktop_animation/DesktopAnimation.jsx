@@ -1,7 +1,7 @@
 "use client";
 import { motion, useElementScroll } from "framer-motion";
 
-import { useState, useEffect, useIsBig, useRef } from "@/libs/hooks/hooks";
+import { useState, useEffect, useIsBig, useRef } from "@/shared/hooks/hooks";
 
 import Card from "@/libs/components/card/Card";
 

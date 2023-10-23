@@ -3,7 +3,12 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState, useIsBig, useIsSmall } from "@/libs/hooks/hooks";
+import {
+  useEffect,
+  useState,
+  useIsBig,
+  useIsSmall,
+} from "@/shared/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { useMemo, useState } from "@/libs/hooks/hooks";
+import { useMemo, useState } from "@/shared/hooks/hooks";
 
 import styles from "./CountryCode.module.scss";
 import stylesForm from "@/libs/pages/components/form/Form.module.scss";
@@ -104,13 +104,14 @@ export default function CountyCode({
               >
                 <div className={styles.container_countris}>
                   <div className={styles.image_wrapper}>
-                    <img src={`https://flagsapi.com/${item.code}/shiny/64.png`} />
+                    <img
+                      src={`https://flagsapi.com/${item.code}/shiny/64.png`}
+                    />
                   </div>
                   <span className={styles.phone_color}>+{item.phone}</span>
                 </div>
-                  
-                  <p style={{width: "150px"}}>{item.name}</p>
-                  
+
+                <p style={{ width: "150px" }}>{item.name}</p>
               </li>
             ))}
           </ul>

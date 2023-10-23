@@ -1,4 +1,5 @@
 import "./globals.scss";
+
 import styles from "./page.module.scss";
 
 import { Montserrat } from "next/font/google";

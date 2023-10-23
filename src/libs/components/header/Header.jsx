@@ -20,7 +20,7 @@ import {
   useIsBig,
   useIsTab,
   useClient,
-} from "@/libs/hooks/hooks";
+} from "@/shared/hooks/hooks";
 
 import Logo from "@/assets/svg/LOGO.png";
 

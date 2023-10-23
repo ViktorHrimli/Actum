@@ -28,7 +28,7 @@ import Criminal_animations from "@/assets/svg/Ctiminal_blue.png";
 import Button from "@/libs/components/button/Button";
 import Link from "next/link";
 import Mob from "./directionMob/Mob";
-import { useClient } from "@/libs/hooks/useClient";
+import { useClient } from "@/shared/hooks/useClient";
 
 const ONE = 0;
 const SECOND = 1;

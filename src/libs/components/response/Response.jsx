@@ -9,7 +9,7 @@ import Arrow from "@/libs/components/arrowCard/Arrow";
 
 import styles from "./Response.module.scss";
 
-import { useEffect, useIsSmall, useState } from "@/libs/hooks/hooks";
+import { useEffect, useIsSmall, useState } from "@/shared/hooks/hooks";
 
 export default function Response({ type, button, description, title }) {
   const [isChange, setIsChange] = useState(0);

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { useClient } from "@/libs/hooks/hooks";
+import { useClient } from "@/shared/hooks/hooks";
 
 import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";

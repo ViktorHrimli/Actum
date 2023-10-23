@@ -1,6 +1,6 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
-import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
+import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 
 import hero_img from "@/assets/svg/sitemap_hero.png";
 import SiteMap from "@/libs/pages/components/siteMap/siteMap";

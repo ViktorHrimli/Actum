@@ -1,6 +1,6 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect, useRef } from "@/libs/hooks/hooks";
+import { useState, useEffect, useRef } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IMask from "react-input-mask";

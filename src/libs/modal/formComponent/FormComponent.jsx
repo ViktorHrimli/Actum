@@ -1,8 +1,8 @@
 "use client";
 
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "@/libs/hooks/hooks";
-import { useEffect } from "@/libs/hooks/hooks";
+import { useState } from "@/shared/hooks/hooks";
+import { useEffect } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IMask from "react-input-mask";
@@ -19,11 +19,11 @@ import Button from "@/libs/components/button/Button";
 import styles from "./FormComponent.module.scss";
 import { borderEnums } from "./enumsForm/enumsForm";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
-import  CountryCode  from "@/libs/modal/formComponent/country_code/CountyCode"
+import CountryCode from "@/libs/modal/formComponent/country_code/CountyCode";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
-export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
+export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -32,10 +32,11 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
   const [isStep, setIsStep] = useState(false);
-  
-  const { border, color_text, options_hover, border_check_color, check_color } = borderEnums[type];
 
-    const {
+  const { border, color_text, options_hover, border_check_color, check_color } =
+    borderEnums[type];
+
+  const {
     register,
     handleSubmit,
     setValue,
@@ -43,7 +44,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
     control,
     resetField,
     setError,
-    
+
     formState: { errors },
   } = useForm({
     shouldFocusError: true,
@@ -91,14 +92,14 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const header = document.getElementById("header");
-    
+
     if (isOpenModal) {
-      header.style.display = 'none';
+      header.style.display = "none";
     }
     return () => {
-      header.style.display = 'flex';
+      header.style.display = "flex";
     };
   }, [isOpenModal]);
 
@@ -110,84 +111,90 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
 
   return (
     <>
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className={styles.form}
-    >
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.wrapper_name}>
-        <label htmlFor="name"
-          className={`${styles.lable} ${styles[color_text]}`}>
-          {"Вкажіть ім'я і прізвище"}
-        </label>
+          <label
+            htmlFor="name"
+            className={`${styles.lable} ${styles[color_text]}`}
+          >
+            {"Вкажіть ім'я і прізвище"}
+          </label>
 
           <div className={styles.conteiner_name}>
-          <div className={styles[border]}>
-        <input
-          onClick={() => setIsOpenCountry(false)}
-            className={
-              errors.name
-                ? `${styles.input} ${styles.error_input}`
-                : styles.input
-            }
-            id="name"
-            type="text"
-            {...register("name", {
-              required: true,
-            })}
-            placeholder={errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"}
-            />
+            <div className={styles[border]}>
+              <input
+                onClick={() => setIsOpenCountry(false)}
+                className={
+                  errors.name
+                    ? `${styles.input} ${styles.error_input}`
+                    : styles.input
+                }
+                id="name"
+                type="text"
+                {...register("name", {
+                  required: true,
+                })}
+                placeholder={
+                  errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"
+                }
+              />
+            </div>
+            {errors.name && (
+              <div className={styles.error_name}>
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              </div>
+            )}
           </div>
-          {errors.name && (
-            <div className={styles.error_name}>
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className={styles.error_icon}
-              />
-            </div>
-          )}
         </div>
-      </div>
-
-        <div className={styles.wrapper_name}
-        >
-        <label htmlFor="textarea" className={`${styles.lable} ${styles[color_text]}`}>
-          Ваше питання
-        </label>
-        <div className={styles.conteiner_name}>
-          <div className={styles[border]}>
-          <textarea
-            onClick={() => setIsOpenCountry(false)}
-            className={
-              errors.textarea
-                ? `${styles.textarea} ${styles.error_input}`
-                : styles.textarea
-            }
-            id="textarea"
-            {...register("textarea", { required: true })}
-            placeholder={
-              errors.textarea
-                ? ERROR_MESSAGE
-                : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді фахівця."
-            }
-            />
-            </div>
-
-          {errors.textarea && (
-            <div className={styles.error_textarea}>
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className={styles.error_icon}
-              />
-            </div>
-          )}
-        </div>
-      </div>
 
         <div className={styles.wrapper_name}>
-        <label htmlFor="phone" className={`${styles.lable} ${styles[color_text]}`}>
+          <label
+            htmlFor="textarea"
+            className={`${styles.lable} ${styles[color_text]}`}
+          >
+            Ваше питання
+          </label>
+          <div className={styles.conteiner_name}>
+            <div className={styles[border]}>
+              <textarea
+                onClick={() => setIsOpenCountry(false)}
+                className={
+                  errors.textarea
+                    ? `${styles.textarea} ${styles.error_input}`
+                    : styles.textarea
+                }
+                id="textarea"
+                {...register("textarea", { required: true })}
+                placeholder={
+                  errors.textarea
+                    ? ERROR_MESSAGE
+                    : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді фахівця."
+                }
+              />
+            </div>
+
+            {errors.textarea && (
+              <div className={styles.error_textarea}>
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.wrapper_name}>
+          <label
+            htmlFor="phone"
+            className={`${styles.lable} ${styles[color_text]}`}
+          >
             {/* Номер телефону */}
             Вкажіть номер, на якому встановлений Месенджер
-        </label>
+          </label>
           <div className={styles.conteiner_name}>
             <CountryCode
               setPhoneNumber={setPhoneNumber}
@@ -201,7 +208,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
               border={border}
             />
 
-          <div className={styles[border]}>
+            <div className={styles[border]}>
               <Controller
                 name="phone"
                 control={control}
@@ -216,7 +223,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
                   onChange: handleInputChange,
                 }}
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
-                render={({ field  }) => (
+                render={({ field }) => (
                   <IMask
                     mask={`+${phone} (999) 999 99 99`}
                     maskChar={" "}
@@ -226,7 +233,7 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
                     {(inputProps) => (
                       <input
                         className={
-                          errors.phone 
+                          errors.phone
                             ? `${styles.input} ${styles.two_input} ${styles.error_input}`
                             : `${styles.input} ${styles.two_input} ${styles.number_input}`
                         }
@@ -250,173 +257,220 @@ export default function FormComponent ({ type, isOpenModal, setIsOpenModal }) {
                 />
               </div>
             )}
-        </div>
-      </div>
-
-      <div className={styles.wrapper_name}>
-        <label htmlFor="message" className={`${styles.lable} ${styles[color_text]}`}>
-          Месенджер
-        </label>
-        <div className={styles.conteiner_name}>
-          <div className={styles[border]}>
-          <input
-            onClick={handleToggleSelect}
-            value={selectValue}
-            readOnly
-            {...register("message", { required: true })}
-            className={
-              errors.message && !selectValue
-                ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
-                : `${styles.input} ${styles.second_input} ${styles.select}`
-            }
-            placeholder={
-              errors.message
-                ? "Виберіть мессенджер!"
-                : "Оберіть спосіб отримання відповіді"
-            }
-          />
           </div>
+        </div>
 
-          {errors.message && !selectValue && (
-            <div className={styles.error_message}>
+        <div className={styles.wrapper_name}>
+          <label
+            htmlFor="message"
+            className={`${styles.lable} ${styles[color_text]}`}
+          >
+            Месенджер
+          </label>
+          <div className={styles.conteiner_name}>
+            <div className={styles[border]}>
+              <input
+                onClick={handleToggleSelect}
+                value={selectValue}
+                readOnly
+                {...register("message", { required: true })}
+                className={
+                  errors.message && !selectValue
+                    ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
+                    : `${styles.input} ${styles.second_input} ${styles.select}`
+                }
+                placeholder={
+                  errors.message
+                    ? "Виберіть мессенджер!"
+                    : "Оберіть спосіб отримання відповіді"
+                }
+              />
+            </div>
+
+            {errors.message && !selectValue && (
+              <div className={styles.error_message}>
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className={styles.error_icon}
+                />
+              </div>
+            )}
+            <motion.div
+              animate={{ rotate: isOpen ? "180deg" : "0deg" }}
+              transition={{ duration: 0.5 }}
+              className={styles.conteiner_icon}
+              onClick={handleToggleSelect}
+            >
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={`${styles.icon} ${styles[color_text]}`}
+                style={errors.message && !selectValue ? { color: "#fff" } : {}}
+              />
+            </motion.div>
+            {isOpen && (
+              <motion.div className={styles.options_conteiner}>
+                <div
+                  onClick={handleCLickOnSelect}
+                  className={`${styles.options} ${styles[options_hover]}`}
+                >
+                  <FontAwesomeIcon
+                    icon={faViber}
+                    className={styles.options_icon}
+                  />
+                  Viber
+                </div>
+                <div
+                  onClick={handleCLickOnSelect}
+                  className={`${styles.options} ${styles[options_hover]}`}
+                >
+                  <FontAwesomeIcon
+                    icon={faTelegram}
+                    className={styles.options_icon}
+                  />
+                  Telegram
+                </div>
+                <div
+                  onClick={handleCLickOnSelect}
+                  className={`${styles.options} ${styles[options_hover]}`}
+                >
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    className={styles.options_icon}
+                  />
+                  Телефон
+                </div>
+              </motion.div>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.wrapper_name}>
+          <label
+            htmlFor="services"
+            className={`${styles.lable} ${styles[color_text]}`}
+          >
+            Оберіть послугу
+          </label>
+          {errors.services && (
+            <div className={styles.error_services}>
               <FontAwesomeIcon
                 icon={faCircleExclamation}
-                className={styles.error_icon}
+                className={styles.error_icon_service}
               />
             </div>
           )}
-          <motion.div
-            animate={{ rotate: isOpen ? "180deg" : "0deg" }}
-            transition={{ duration: 0.5 }}
-            className={styles.conteiner_icon}
-            onClick={handleToggleSelect}
-          >
-              <FontAwesomeIcon icon={faChevronDown}
-                className={`${styles.icon} ${styles[color_text]}`}
-              style={errors.message && !selectValue ? {color: "#fff"}: {}}
-              />
-          </motion.div>
-          {isOpen && (
-            <motion.div className={styles.options_conteiner}>
-                <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
-                <FontAwesomeIcon
-                  icon={faViber}
-                    className={styles.options_icon}
-                  />
-                Viber
-              </div>
-              <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
-                <FontAwesomeIcon
-                  icon={faTelegram}
-                  className={styles.options_icon}
-                  />
-                Telegram
-              </div>
-              <div onClick={handleCLickOnSelect} className={`${styles.options} ${styles[options_hover]}`}>
-                <FontAwesomeIcon
-                  icon={faPhone}
-                  className={styles.options_icon}
-                  />
-                Телефон
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </div>
-
-      <div className={styles.wrapper_name}>
-        <label htmlFor="services" className={`${styles.lable} ${styles[color_text]}`}>
-          Оберіть послугу
-        </label>
-        {errors.services && (
-          <div className={styles.error_services}>
-            <FontAwesomeIcon
-              icon={faCircleExclamation}
-              className={styles.error_icon_service}
-            />
-          </div>
-        )}
           {/* --------- radio ---------- */}
-        
+
           <motion.div
             animate={{ rotate: isOpenRadio ? "180deg" : "0deg" }}
             transition={{ duration: 0.5 }}
             className={styles.conteiner_icon_radio}
             onClick={handleToggleRadio}
           >
-            <FontAwesomeIcon icon={faChevronDown} className={`${styles.icon_radio} ${styles[color_text]}`} />
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              className={`${styles.icon_radio} ${styles[color_text]}`}
+            />
           </motion.div>
-        <div className={isOpenRadio ? styles.conteiner_radio_groupe : styles.conteiner_radio_groupe_hidden}>
+          <div
+            className={
+              isOpenRadio
+                ? styles.conteiner_radio_groupe
+                : styles.conteiner_radio_groupe_hidden
+            }
+          >
             <div className={`${styles.conteiner_radio} ${styles[border]}`}>
-            <label htmlFor="services_first" className={styles.lable_radio}>
-              Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)
-            </label>
-            <div className={`${styles.check_border} ${styles[border_check_color]}`}>
-              <div className={styles.check_border_befor}></div>
-            <input 
-              onClick={handleToggleRadio}
-              className={styles.radio_btn}
-              type="radio"
-              value="Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)"
-              id="services_first"
-              {...register("services", { required: true })}
-              placeholder="Оберіть спосіб отримання відповіді."
-              />
-              <label htmlFor="services_first" className={styles[check_color]}>
+              <label htmlFor="services_first" className={styles.lable_radio}>
+                Консультація Адвоката. Дзвінок або зустріч в офісі (550-950
+                грн.)
               </label>
-            </div>
-          </div>
-
-          <div className={`${styles.conteiner_radio} ${styles[border]}`}>
-            <label htmlFor="services_second" className={styles.lable_radio}>
-              Вирішення питань через суд: розлучення, аліменти, майно,
-              батьківські права, тощо (від 5000 грн.)
-            </label>
-            <div className={`${styles.check_border} ${styles[border_check_color]}`}>
-              <div className={styles.check_border_befor}></div>
-            <input
-              onClick={handleToggleRadio}
-              className={styles.radio_btn}
-              type="radio"
-              value="Вирішення питань через суд: розлучення, аліменти, майно, батьківські права, тощо (від 5000 грн.)"
-              id="services_second"
-              {...register("services", { required: true })}
-              placeholder="Оберіть спосіб отримання відповіді."
-              />
-              <label htmlFor="services_second" className={styles[check_color]}>
-              </label>
+              <div
+                className={`${styles.check_border} ${styles[border_check_color]}`}
+              >
+                <div className={styles.check_border_befor}></div>
+                <input
+                  onClick={handleToggleRadio}
+                  className={styles.radio_btn}
+                  type="radio"
+                  value="Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)"
+                  id="services_first"
+                  {...register("services", { required: true })}
+                  placeholder="Оберіть спосіб отримання відповіді."
+                />
+                <label
+                  htmlFor="services_first"
+                  className={styles[check_color]}
+                ></label>
+              </div>
             </div>
 
-          </div>
-
-          <div className={`${styles.conteiner_radio} ${styles[border]}`}>
-            <label htmlFor="services_third" className={styles.lable_radio}>
-              Допомога з документами: написання заяв, позовів, договорів, тощо
-              (від 2000 грн.)
-            </label>
-            <div className={`${styles.check_border} ${styles[border_check_color]}`}>
-              <div className={styles.check_border_befor}></div>
-            <input
-              onClick={handleToggleRadio}
-              className={styles.radio_btn}
-              type="radio"
-              value="Допомога з документами: написання заяв, позовів, договорів, тощо (від 2000 грн.)"
-              id="services_third"
-              {...register("services", { required: true })}
-              placeholder="Оберіть спосіб отримання відповіді."
-              />
-              <label htmlFor="services_third" className={styles[check_color]}>
+            <div className={`${styles.conteiner_radio} ${styles[border]}`}>
+              <label htmlFor="services_second" className={styles.lable_radio}>
+                Вирішення питань через суд: розлучення, аліменти, майно,
+                батьківські права, тощо (від 5000 грн.)
               </label>
+              <div
+                className={`${styles.check_border} ${styles[border_check_color]}`}
+              >
+                <div className={styles.check_border_befor}></div>
+                <input
+                  onClick={handleToggleRadio}
+                  className={styles.radio_btn}
+                  type="radio"
+                  value="Вирішення питань через суд: розлучення, аліменти, майно, батьківські права, тощо (від 5000 грн.)"
+                  id="services_second"
+                  {...register("services", { required: true })}
+                  placeholder="Оберіть спосіб отримання відповіді."
+                />
+                <label
+                  htmlFor="services_second"
+                  className={styles[check_color]}
+                ></label>
+              </div>
             </div>
 
+            <div className={`${styles.conteiner_radio} ${styles[border]}`}>
+              <label htmlFor="services_third" className={styles.lable_radio}>
+                Допомога з документами: написання заяв, позовів, договорів, тощо
+                (від 2000 грн.)
+              </label>
+              <div
+                className={`${styles.check_border} ${styles[border_check_color]}`}
+              >
+                <div className={styles.check_border_befor}></div>
+                <input
+                  onClick={handleToggleRadio}
+                  className={styles.radio_btn}
+                  type="radio"
+                  value="Допомога з документами: написання заяв, позовів, договорів, тощо (від 2000 грн.)"
+                  id="services_third"
+                  {...register("services", { required: true })}
+                  placeholder="Оберіть спосіб отримання відповіді."
+                />
+                <label
+                  htmlFor="services_third"
+                  className={styles[check_color]}
+                ></label>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.btn_wrapper}>
-        <Button type="submit" text="надіслати запит" style="button_service" typeStyle={type}/>
-      </div>
+        <div className={styles.btn_wrapper}>
+          <Button
+            type="submit"
+            text="надіслати запит"
+            style="button_service"
+            typeStyle={type}
+          />
+        </div>
       </form>
-      {isStep && <ModalThanks type={type} setIsStep={setIsStep} setIsOpenModal={setIsOpenModal} />}
-  </>
+      {isStep && (
+        <ModalThanks
+          type={type}
+          setIsStep={setIsStep}
+          setIsOpenModal={setIsOpenModal}
+        />
+      )}
+    </>
   );
 }

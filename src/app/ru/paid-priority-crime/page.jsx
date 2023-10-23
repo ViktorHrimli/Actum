@@ -1,4 +1,4 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
@@ -20,16 +20,16 @@ export const metadata = {
 export default function Crimes() {
   return (
     <>
-      <ContactPanel type={"crime"}/>
+      <ContactPanel type={"crime"} />
       <HeroLawyers type={"crime"} />
-      <QuestionsList type={"crime"}/>
+      <QuestionsList type={"crime"} />
       <AboutCards type={"crime"} />
       <SuccessfulBusiness type={"crime"} />
       <Specialists type={"crime"} />
       <Description type={"crime"} />
       <Response type={"crime"} />
-      <StepsLawyers type={"crime"}/>
-      <Price type={"crime"}/>
+      <StepsLawyers type={"crime"} />
+      <Price type={"crime"} />
       <FormSection type={"crime"} />
     </>
   );
