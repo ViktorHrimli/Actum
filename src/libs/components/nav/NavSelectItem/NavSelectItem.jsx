@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { useState } from "@/shared/hooks/hooks";
 
-import ArrowMenu from "@/libs/components/arrow_menu/ArrowMenu";
+import ArrowMenu from "@/shared/components/arrow_menu/ArrowMenu";
 
 import styles from "./NavSelectItem.module.scss";
 

@@ -1,6 +1,6 @@
 import styles from "./FormSection.module.scss";
 
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Form from "@/libs/pages/components/form/Form";
 
 import { borderEnums } from "../form/enumsForm/enumsForm";

@@ -8,7 +8,7 @@ import arrow from "@/assets/svg/arrow_up.svg";
 
 import styles from "./Accordion.module.scss";
 
-import ClickIcon from "@/libs/components/click/Click";
+import ClickIcon from "@/shared/components/click/Click";
 
 const colorType = {
   family: "#E32F7A",
