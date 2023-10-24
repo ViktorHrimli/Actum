@@ -4,12 +4,12 @@ import Link from "next/link";
 
 import Button from "@/libs/components/button/Button";
 import ItemsList from "@/libs/components/response/list/ItemsList";
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Arrow from "@/libs/components/arrowCard/Arrow";
 
 import styles from "./Response.module.scss";
 
-import { useEffect, useIsSmall, useState } from "@/libs/hooks/hooks";
+import { useEffect, useIsSmall, useState } from "@/shared/hooks/hooks";
 
 export default function Response({ type, button, description, title }) {
   const [isChange, setIsChange] = useState(0);

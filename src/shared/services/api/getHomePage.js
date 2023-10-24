@@ -9,7 +9,6 @@ export const getHomePage = async () => {
   // const res = await fetch(
   //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_HOME_PAGE}?${process.env.QUERY_HOME_PAGE}`,
   //   { cache: "no-cache" }
-  //   // { next: { revalidate: "1600" } }
   // );
 
   const data = await res.json();

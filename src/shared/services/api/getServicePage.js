@@ -8,8 +8,7 @@ export const getServicePage = async () => {
   // DEV
   // const res = await fetch(
   //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_SERVICE_PAGE}?${process.env.QUERY_SERVICE_PAGE}`,
-  //   { cache: "reload" }
-  //   // { next: { revalidate: "1600" } }
+  //   { cache: "no-cache" }
   // );
 
   const data = await res.json();

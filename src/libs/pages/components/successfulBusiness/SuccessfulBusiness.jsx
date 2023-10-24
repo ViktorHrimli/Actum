@@ -1,6 +1,6 @@
 "use client";
 
-import { useIsBig, useState, useEffect } from "@/libs/hooks/hooks";
+import { useIsBig, useState, useEffect } from "@/shared/hooks/hooks";
 
 import Items from "./items/Items";
 

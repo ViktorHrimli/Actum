@@ -1,3 +1,9 @@
 export { getLayout } from "./getLayout";
 export { getHomePage } from "./getHomePage";
 export { getServicePage } from "./getServicePage";
+export { getCompanyPage } from "./getCompanyPage";
+export { getContactsPage } from "./getContactsPage";
+export { getBlogPage } from "./getBlogPage";
+export { getBookPage } from "./getBookPage";
+export { getSiteMapPage } from "./getSiteMapPage";
+export { getPaymentPage } from "./getPaymentPage";

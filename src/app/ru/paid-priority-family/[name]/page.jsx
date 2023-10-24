@@ -1,4 +1,4 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import Specialists from "@/libs/pages/components/specialists/Specialists";

@@ -1,7 +1,12 @@
 "use client";
 import Image from "next/image";
 
-import { useState, useEffect, usePathname, useClient } from "@/libs/hooks/hooks";
+import {
+  useState,
+  useEffect,
+  usePathname,
+  useClient,
+} from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 
 import Button from "@/libs/components/button/Button";
@@ -12,7 +17,15 @@ import watemark from "@/assets/svg/Actum_HERO.png";
 import styles from "./NestedHero.module.scss";
 import { getFormById } from "@/shared/helpers/helpers";
 
-export default function NestedHero({ type, img, text, paragraph, locale = "ua" }) {
+export default function NestedHero({
+  type,
+  img,
+  description,
+  locale = "ua",
+  title,
+  actum,
+  button,
+}) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
   const [isPaymentHero, setIsPaymentHero] = useState(false);
@@ -35,15 +48,15 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
   let IS_FIRST_RENDER;
 
   if (typeof window !== "undefined") {
-    IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(text) || true);
+    IS_FIRST_RENDER = JSON.parse(sessionStorage.getItem(title) || true);
   }
-  
+
   useEffect(() => {
-    sessionStorage.setItem(text, "false");
+    sessionStorage.setItem(title, "false");
 
     if (patnName === "payment-success") {
-      setIsPaymentHero(true)
-    };
+      setIsPaymentHero(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -64,7 +77,7 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
   return (
     <>
       <div className={styles.background_page}></div>
-      
+
       <section className={styles.section}>
         <Image
           src={img}
@@ -76,8 +89,9 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
           sizes="100vw"
         />
 
-        <div className={styles.conteiner_hero_watemark}
-            style={isPaymentHero ? {marginTop: "74px"} : {marginTop: "0px"}}
+        <div
+          className={styles.conteiner_hero_watemark}
+          style={isPaymentHero ? { marginTop: "74px" } : { marginTop: "0px" }}
         >
           <motion.div
             animate={IS_FIRST_RENDER ? "start" : false}
@@ -88,7 +102,7 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
             className={styles.title_wotemark}
           >
             <Image
-              src={watemark}
+              src={actum["data"]["attributes"]["url"] ?? watemark}
               alt="ACTUM"
               fill
               loading="eager"
@@ -104,25 +118,27 @@ export default function NestedHero({ type, img, text, paragraph, locale = "ua" }
             transition={{ delay: 1, duration: 0.7 }}
             className={styles.title_text}
           >
-            {text}
+            {title}
           </motion.h2>
           <motion.p
             animate={IS_FIRST_RENDER ? "open" : false}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
             initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
             transition={{ delay: 1, duration: 0.7 }}
-            className={styles.paragraph}>
-              {paragraph}
+            className={styles.paragraph}
+          >
+            {description}
           </motion.p>
         </div>
-        {!isPaymentHero && isClient &&
-          (<div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
-          <Button
-            type="button"
-            text="замовити консультацію"
-            style="button_prymary"
-          />
-        </div>)}
+        {!isPaymentHero && isClient && (
+          <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
+            <Button
+              type="button"
+              text={button["text"]}
+              style="button_prymary"
+            />
+          </div>
+        )}
         <div className={styles.section_background}></div>
       </section>
       {isOpenModal && (

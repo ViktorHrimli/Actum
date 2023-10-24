@@ -1,7 +1,7 @@
 import styles from "./ItemsList.module.scss";
 
 import Card from "@/libs/components/card/Card";
-import MobileSlider from "@/libs/components/mobile_animation/MobileSlider";
+import MobileSlider from "@/shared/components/mobile_animation/MobileSlider";
 
 import { arrPerson } from "../libs/enums";
 

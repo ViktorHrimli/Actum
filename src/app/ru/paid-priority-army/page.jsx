@@ -1,4 +1,4 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
@@ -20,7 +20,7 @@ export const metadata = {
 export default function PaidArmy() {
   return (
     <>
-      <ContactPanel type={ "army"}/>
+      <ContactPanel type={"army"} />
       <HeroLawyers type={"army"} />
       <QuestionsList type={"army"} />
       <AboutCards type={"army"} />
@@ -28,8 +28,8 @@ export default function PaidArmy() {
       <Specialists type={"army"} />
       <Descrition type={"army"} />
       <Response type={"army"} />
-      <StepsLawyers type={"army"}/>
-      <Price type={"army"}/>
+      <StepsLawyers type={"army"} />
+      <Price type={"army"} />
       <FormSection type={"army"} />
     </>
   );

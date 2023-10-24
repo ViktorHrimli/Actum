@@ -1,4 +1,4 @@
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Items from "../items/Items";
 
 import styles from "./TeamList.module.scss";

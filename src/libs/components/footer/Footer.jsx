@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
-import { useClient, useEffect, useState } from "@/libs/hooks/hooks";
+import { useClient, useEffect, useState } from "@/shared/hooks/hooks";
 import { getFormById } from "@/shared/helpers/helpers";
 
 import Button from "@/libs/components/button/Button";

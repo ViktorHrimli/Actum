@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Button from "@/libs/components/button/Button";
 
 import styles from "./Contacts.module.scss";

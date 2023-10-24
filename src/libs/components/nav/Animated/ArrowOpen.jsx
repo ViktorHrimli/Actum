@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import ArrowMenu from "../../arrow_menu/ArrowMenu";
+import ArrowMenu from "../../../../shared/components/arrow_menu/ArrowMenu";
 
 export default function ArrowOpen({ isOpenMenu, setIsOpenMenu }) {
   return (

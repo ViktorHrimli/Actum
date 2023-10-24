@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useReducer, useEffect, useState } from "@/libs/hooks/hooks";
+import { useReducer, useEffect, useState } from "@/shared/hooks/hooks";
 
 import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
