@@ -66,9 +66,9 @@ export default async function Home() {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-          ></script>
+          />
         }
-      />
+      ></div>
       <Hero type={"home"} {...hero} />
       <ContactPanel type={"home"} />
       <Direction {...directions} />
