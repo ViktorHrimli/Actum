@@ -21,7 +21,6 @@ export default function NestedHero({
   type,
   img,
   description,
-  locale = "ua",
   title,
   actum,
   button,
@@ -127,7 +126,7 @@ export default function NestedHero({
             transition={{ delay: 1, duration: 0.7 }}
             className={styles.paragraph}
           >
-            {description}
+            {description && description}
           </motion.p>
         </div>
         {!isPaymentHero && isClient && (
