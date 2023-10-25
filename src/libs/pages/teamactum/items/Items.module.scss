@@ -7,6 +7,8 @@
     align-items: center;
     justify-content: center;
 
+    overflow: hidden;
+
     width: 280px;
 
     padding: 16px 14px 0 14px;
@@ -48,22 +50,26 @@
     z-index: 2;
 
     @media screen and (min-width: 320px) {
-        bottom: 0;
-        left: 15px;
+        // bottom: 0;
+        // left: 15px;
+        // width: 160px;
+        // height: 180px;
+        bottom: -40px;
+        left: -9px;
         width: 160px;
-        height: 180px;
+        height: 237px;
     }
 
     @media screen and (min-width: 768px) {
         bottom: -37px;
         width: 256px;
         height: 290px;
-
     }
 
     @media screen and (min-width: 1280px) {
-        width: 366px;
-        height: 480px;
+        width: 320px;
+        height: 430px;
+        bottom: 10px;
     }
 
     @media screen and (min-width: 1440px) {
@@ -223,14 +229,78 @@
     }
 
     p {
-        font-size: 12px;
+        font-size: 9px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
         text-transform: uppercase;
+
+        @media screen and (min-width: 1280px) {
+            font-size: 12px;
+        }
     }
 
     z-index: 5;
+}
+
+.kyiv {
+    top: 40px;
+    left: 93px;
+
+    @media screen and (min-width: 1280px) {
+        top: 67px;
+        left: 234px;
+    }
+}
+
+.krivyu_rig {
+    top: 55px;
+    left: 99px;
+
+    @media screen and (min-width: 1280px) {
+        top: 153px;
+        left: 298px;
+    }
+}
+
+.lviv {
+    top: 34px;
+    left: 17px;
+
+    @media screen and (min-width: 1280px) {
+        top: 102px;
+        left: 46px;
+    }
+}
+
+.mykolayv {
+    top: 87px;
+    left: 95px;
+
+    @media screen and (min-width: 1280px) {
+        top: 218px;
+        left: 225px;
+    }
+}
+
+.zhytomyr {
+    top: 24px;
+    left: 53px;
+
+    @media screen and (min-width: 1280px) {
+        top: 64px;
+        left: 153px;
+    }
+}
+
+.kherson {
+    top: 91px;
+    left: 102px;
+
+    @media screen and (min-width: 1280px) {
+        top: 217px;
+        left: 236px;
+    }
 }
 
 .btn_wrapper_lawyer {
