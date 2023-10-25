@@ -11,11 +11,18 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function PaidArmy() {
+import { getBlogPage } from "@/shared/services/api/api";
+
+export default async function PaidArmy() {
+  const {
+    data: {
+      attributes: { Hero: hero },
+    },
+  } = await getBlogPage("ru");
   return (
     <>
       <ContactPanel type={"home"} />
-      <NestedHero type={"home"} img={publics_img} text={"публікації"} />
+      <NestedHero type={"home"} img={publics_img} {...hero} />
       <Publics />
     </>
   );

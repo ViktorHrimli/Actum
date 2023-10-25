@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "git": "git pull origin"
+    "latest": "git pull origin && npm i && npm start"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",

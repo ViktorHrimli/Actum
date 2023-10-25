@@ -3,10 +3,18 @@ import ContactHero from "@/assets/svg/ContactHero.png";
 
 import Contacts from "@/libs/pages/contacts/contacts/Contacts";
 
-export default function Conacts() {
+import { getContactsPage } from "@/shared/services/api/api";
+
+export default async function Conacts() {
+  const {
+    data: {
+      attributes: { Hero: hero },
+    },
+  } = await getContactsPage("ru");
+
   return (
     <>
-      <NestedHero type={"home"} text="контакти" img={ContactHero} />
+      <NestedHero type={"home"} {...hero} img={ContactHero} />
       <Contacts />
     </>
   );

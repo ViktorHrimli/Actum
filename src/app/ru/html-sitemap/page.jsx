@@ -10,10 +10,17 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function page() {
+import { getSiteMapPage } from "@/shared/services/api/api";
+
+export default async function page() {
+  const {
+    data: {
+      attributes: { Hero: hero },
+    },
+  } = await getSiteMapPage("ru");
   return (
     <>
-      <NestedHero img={hero_img} text={"мапа сайта"} />
+      <NestedHero img={hero_img} {...hero} />
       <SiteMap />
     </>
   );
