@@ -6,37 +6,27 @@ import Button from "@/libs/components/button/Button";
 
 import styles from "./Items.module.scss";
 
-import kovalev from "@/assets/svg/kovalev.png";
+import { cityEnum } from "../libs/enums/enums";
 
-export default function Items({ attributes }) {
-  // const { title, description, city, second_description, person_photo } =
-  //   attributes;
-
-  // const imgest = person_photo.data.attributes.formats.thumbnail.url || kovalev;
+export default function Items({ title, photo, button, texts }) {
   return (
     <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
         <div className={styles.text_wrapper}>
-          <h2 className={styles.title_text}></h2>
+          <h2 className={styles.title_text}>{title}</h2>
 
-          <p className={styles.lawyer_text}>сімейний адвокат</p>
+          <p className={styles.lawyer_text}>{button["style"]}</p>
 
-          <p className={styles.text}>
-            Rorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            nec fringilla accumsan, risus sem sollicitudin lacus
-          </p>
-
-          <p className={styles.text}>
-            ut interdum tellus elit sed risus. Maecenas eget condimentum velit,
-            sit amet feugiat lectus. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos.
-          </p>
+          {texts.map((item, id) => (
+            <p className={styles.text} key={id}>
+              {item.text}
+            </p>
+          ))}
         </div>
         <div className={styles.map_wrapper}>
           <IconMap />
-          <div className={styles.conteiner_pin}>
-            <p>Kyiv</p>
+          <div className={`${styles.conteiner_pin} ${styles[button["style"]]}`}>
+            <p>{cityEnum[button["style"]]}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -58,7 +48,7 @@ export default function Items({ attributes }) {
 
         <div className={styles.image_conteiner}>
           <Image
-            src={kovalev}
+            src={photo["data"]["attributes"]["url"]}
             alt="Коровіна Наталя Георгіївна"
             fill
             sizes="(max-width: 767px) 160px, (max-width: 1280px) 500px, 400px"
@@ -67,18 +57,14 @@ export default function Items({ attributes }) {
         </div>
       </div>
       <div className={styles.btn_wrapper}>
-        <Link href={"/book"}>
+        <Link href={button["link"]}>
           <Button type="button" text="зв’язатися" style="button_service" />
         </Link>
       </div>
 
       <div className={styles.btn_wrapper_lawyer}>
-        <Link href={"/book"}>
-          <Button
-            type="button"
-            text="сімейний адвокат"
-            style="button_service"
-          />
+        <Link href={button["link"]}>
+          <Button type="button" text={button["text"]} style="button_service" />
         </Link>
       </div>
     </li>
