@@ -2,7 +2,7 @@ export const getBlogPage = async (locale = "ua") => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_BLOG_PAGE}?${process.env.QUERY_BLOG_PAGE}`,
-    { cache: "no-cache" }
+    { cache: "default" }
   );
 
   // DEV

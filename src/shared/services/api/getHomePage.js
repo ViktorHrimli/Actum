@@ -1,8 +1,8 @@
-export const getHomePage = async () => {
+export const getHomePage = async (locale = "ua") => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_HOME_PAGE}?${process.env.QUERY_HOME_PAGE}`,
-    { cache: "reload" }
+    { cache: "default" }
   );
 
   // DEV

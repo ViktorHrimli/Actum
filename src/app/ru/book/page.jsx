@@ -9,19 +9,24 @@ import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
 import FormSection from "@/libs/pages/components/formSection/FormSection";
 
-import hero from "@/assets/svg/book_hero.png";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
-export default function Book() {
+import heroBook from "@/assets/svg/book_hero.png";
+
+import { getBookPage } from "@/shared/services/api/api";
+
+export default async function Book() {
+  const {
+    data: {
+      attributes: { Hero: hero },
+    },
+  } = await getBookPage("ru");
+
   return (
     <>
       <ContactPanel type={"home"} />
-      <NestedHero
-        type={"home"}
-        img={hero}
-        text="КОНСУЛЬТАЦІЯ АДВОКАТА ОНЛАЙН, В ОФІСІ АБО ДЗВІНКОМ"
-      />
-      <StepsLawyers />
+      <NestedHero type={"home"} img={heroBook} {...hero} />
+      <StepsLawyers type="family" />
       <FormSection type="family" />
     </>
   );
