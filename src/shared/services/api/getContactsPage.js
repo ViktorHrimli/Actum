@@ -1,4 +1,4 @@
-export const getContactsPage = async () => {
+export const getContactsPage = async (locale = "ua") => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_CONTACT_PAGE}?${process.env.QUERY_CONTACT_PAGE}`,
