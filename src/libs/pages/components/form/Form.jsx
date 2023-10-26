@@ -1,28 +1,32 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect, useRef } from "@/shared/hooks/hooks";
+import { useState, useEffect } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IMask from "react-input-mask";
-import {
-  faChevronDown,
-  faPhone,
-  faCircleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { faViber, faTelegram } from "@fortawesome/free-brands-svg-icons";
 
 import Button from "@/libs/components/button/Button";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import CountyCode from "./country_code/CountyCode";
 
-import { borderEnums } from "./enumsForm/enumsForm";
+import { borderEnums, iconEnum } from "./enumsForm/enumsForm";
 
 import styles from "./Form.module.scss";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
-export default function Form({ type, isOpenModal, setIsOpenModal }) {
+export default function Form({
+  type,
+  isOpenModal,
+  setIsOpenModal,
+  questions,
+  name,
+  phone: phonesText,
+  messenger,
+  services,
+  messenger_list,
+  services_list,
+}) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -107,7 +111,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="name"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            {"Вкажіть ім'я і прізвище"}
+            {name}
           </label>
 
           <div className={styles.conteiner_name}>
@@ -133,7 +137,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {errors.name && (
               <div className={styles.error_name}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
@@ -145,7 +149,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="textarea"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Ваше питання
+            {questions}
           </label>
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
@@ -172,7 +176,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {errors.textarea && (
               <div className={styles.error_textarea}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
@@ -186,7 +190,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {/* Номер телефону */}
-            Вкажіть номер, на якому встановлений Месенджер
+            {phonesText}
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
@@ -246,7 +250,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {errors.phone && (
               <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
@@ -259,7 +263,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="message"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Месенджер
+            {messenger}
           </label>
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
@@ -289,7 +293,7 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             {errors.message && !selectValue && (
               <div className={styles.error_message}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
@@ -301,42 +305,27 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
               onClick={handleToggleSelect}
             >
               <FontAwesomeIcon
-                icon={faChevronDown}
+                icon={iconEnum.arrowOpen}
                 className={`${styles.icon} ${styles[color_text]}`}
               />
             </motion.div>
             {isOpen && (
               <motion.div className={styles.options_conteiner}>
-                <div
-                  onClick={handleCLickOnSelect}
-                  className={`${styles.options} ${styles[options_hover]}`}
-                >
-                  <FontAwesomeIcon
-                    icon={faViber}
-                    className={styles.options_icon}
-                  />
-                  Viber
-                </div>
-                <div
-                  onClick={handleCLickOnSelect}
-                  className={`${styles.options} ${styles[options_hover]}`}
-                >
-                  <FontAwesomeIcon
-                    icon={faTelegram}
-                    className={styles.options_icon}
-                  />
-                  Telegram
-                </div>
-                <div
-                  onClick={handleCLickOnSelect}
-                  className={`${styles.options} ${styles[options_hover]}`}
-                >
-                  <FontAwesomeIcon
-                    icon={faPhone}
-                    className={styles.options_icon}
-                  />
-                  Телефон
-                </div>
+                {messenger_list.map((item, id) => {
+                  return (
+                    <div
+                      onClick={handleCLickOnSelect}
+                      className={`${styles.options} ${styles[options_hover]}`}
+                      key={id}
+                    >
+                      <FontAwesomeIcon
+                        icon={iconEnum[item["text"]]}
+                        className={styles.options_icon}
+                      />
+                      {item["text"]}
+                    </div>
+                  );
+                })}
               </motion.div>
             )}
           </div>
@@ -347,89 +336,44 @@ export default function Form({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Оберіть послугу
+            {services}
           </label>
           {errors.services && (
             <div className={styles.error_services}>
               <FontAwesomeIcon
-                icon={faCircleExclamation}
+                icon={iconEnum.warningIcon}
                 className={styles.error_icon_service}
               />
             </div>
           )}
           {/* --------- radio ---------- */}
           <div className={styles.conteiner_radio_groupe}>
-            <div className={styles.conteiner_radio}>
-              <label htmlFor="services_first" className={styles.lable_radio}>
-                Консультація Адвоката. Дзвінок або зустріч в офісі (550-950
-                грн.)
-              </label>
-              <div
-                className={`${styles.check_border} ${styles[border_check_color]}`}
-              >
-                <div className={styles.check_border_befor}></div>
-                <input
-                  className={styles.radio_btn}
-                  type="radio"
-                  value="Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)"
-                  id="services_first"
-                  {...register("services", { required: true })}
-                  placeholder="Оберіть спосіб отримання відповіді."
-                />
-                <label
-                  htmlFor="services_first"
-                  className={styles[check_color]}
-                ></label>
-              </div>
-            </div>
-
-            <div className={styles.conteiner_radio}>
-              <label htmlFor="services_second" className={styles.lable_radio}>
-                Вирішення питань через суд: розлучення, аліменти, майно,
-                батьківські права, тощо (від 5000 грн.)
-              </label>
-              <div
-                className={`${styles.check_border} ${styles[border_check_color]}`}
-              >
-                <div className={styles.check_border_befor}></div>
-                <input
-                  className={styles.radio_btn}
-                  type="radio"
-                  value="Вирішення питань через суд: розлучення, аліменти, майно, батьківські права, тощо (від 5000 грн.)"
-                  id="services_second"
-                  {...register("services", { required: true })}
-                  placeholder="Оберіть спосіб отримання відповіді."
-                />
-                <label
-                  htmlFor="services_second"
-                  className={styles[check_color]}
-                ></label>
-              </div>
-            </div>
-
-            <div className={styles.conteiner_radio}>
-              <label htmlFor="services_third" className={styles.lable_radio}>
-                Допомога з документами: написання заяв, позовів, договорів, тощо
-                (від 2000 грн.)
-              </label>
-              <div
-                className={`${styles.check_border} ${styles[border_check_color]}`}
-              >
-                <div className={styles.check_border_befor}></div>
-                <input
-                  className={styles.radio_btn}
-                  type="radio"
-                  value="Допомога з документами: написання заяв, позовів, договорів, тощо (від 2000 грн.)"
-                  id="services_third"
-                  {...register("services", { required: true })}
-                  placeholder="Оберіть спосіб отримання відповіді."
-                />
-                <label
-                  htmlFor="services_third"
-                  className={styles[check_color]}
-                ></label>
-              </div>
-            </div>
+            {services_list.map((item, id) => {
+              return (
+                <div className={styles.conteiner_radio} key={id}>
+                  <label htmlFor={item["text"]} className={styles.lable_radio}>
+                    {item["text"]}
+                  </label>
+                  <div
+                    className={`${styles.check_border} ${styles[border_check_color]}`}
+                  >
+                    <div className={styles.check_border_befor}></div>
+                    <input
+                      className={styles.radio_btn}
+                      type="radio"
+                      value={item["text"]}
+                      id={item["text"]}
+                      {...register("services", { required: true })}
+                      placeholder="Оберіть спосіб отримання відповіді."
+                    />
+                    <label
+                      htmlFor={item["text"]}
+                      className={styles[check_color]}
+                    ></label>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className={styles.btn_wrapper}>

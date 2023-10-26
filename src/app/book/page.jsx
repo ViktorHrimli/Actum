@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 export const metadata = {
@@ -17,7 +18,7 @@ import heroBook from "@/assets/svg/book_hero.png";
 export default async function Book() {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { Hero: hero, button, Form: form, Info: info },
     },
   } = await getBookPage();
 
@@ -26,7 +27,7 @@ export default async function Book() {
       <ContactPanel type={"home"} />
       <NestedHero type={"home"} img={heroBook} {...hero} />
       <StepsLawyers type="family" />
-      <FormSection type="family" />
+      <FormSection type="family" formData={form} {...info} />
     </>
   );
 }

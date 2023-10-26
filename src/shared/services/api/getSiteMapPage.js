@@ -2,7 +2,7 @@ export const getSiteMapPage = async (locale = "ua") => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_SITE_MAP_PAGE}?${process.env.QUERY_SITE_MAP_PAGE}`,
-    { cache: "default" }
+    { cache: "no-cache" }
   );
 
   // DEV
