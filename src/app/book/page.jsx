@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 export const metadata = {

@@ -8,12 +8,6 @@ export const getHomePage = async (locale = "ua") => {
     cache: CACHE_OPTIONS,
   });
 
-  // DEV
-  // const res = await fetch(
-  //  builder.localQuery(API_HOME_PAGE, QUERY_HOME_PAGE) ,
-  //   { cache: CACHE_OPTIONS }
-  // );
-
   const data = await res.json();
 
   return data;
