@@ -18,7 +18,14 @@ export const metadata = {
   keywords: "actum",
 };
 
-export default function Family() {
+import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+
+export default async function Family() {
+  const {
+    data: {
+      attributes: { Form: form, Info: info },
+    },
+  } = await getFamilyLwyer();
   return (
     <>
       <ContactPanel type={"family"} />
@@ -29,7 +36,7 @@ export default function Family() {
       <Description type={"family"} />
       <Response type={"family"} />
       <StepsLawyers type={"family"} />
-      <FormSection type={"family"} />
+      <FormSection type={"family"} formData={form} {...info} />
     </>
   );
 }

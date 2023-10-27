@@ -17,7 +17,14 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function page() {
+import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+
+export default async function page() {
+  const {
+    data: {
+      attributes: { Form: form, Info: info },
+    },
+  } = await getFamilyLwyer();
   return (
     <>
       <ContactPanel type={"army"} />
@@ -30,7 +37,7 @@ export default function page() {
       <Response type={"army"} />
       <StepsLawyers />
       <Price type={"army"} />
-      <FormSection type={"army"} />
+      <FormSection type={"army"} formData={form} {...info} />
     </>
   );
 }
