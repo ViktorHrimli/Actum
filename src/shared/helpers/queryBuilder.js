@@ -5,8 +5,12 @@ class QueryBuilder {
   #local = API_LOCALE_BASE_URL;
   #cloud = URL_CLOUD_STRAPI;
 
-  localQuery(path, options) {}
-  cloudQuery(path, options) {}
+  localQuery(path, options) {
+    return `${API_LOCALE_BASE_URL}/${path}?${options}`;
+  }
+  cloudQuery(path, options) {
+    return `${URL_CLOUD_STRAPI}/${path}?${options}`;
+  }
 }
 
 const builder = new QueryBuilder();

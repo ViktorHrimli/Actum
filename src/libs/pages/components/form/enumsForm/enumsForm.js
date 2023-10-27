@@ -1,3 +1,11 @@
+import {
+  faChevronDown,
+  faPhone,
+  faCircleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { faViber, faTelegram } from "@fortawesome/free-brands-svg-icons";
+
 const borderEnums = {
   home: {
     border: "border_family",
@@ -29,4 +37,12 @@ const borderEnums = {
   },
 };
 
-export { borderEnums };
+const iconEnum = {
+  Viber: faViber,
+  Telegram: faTelegram,
+  Telephone: faPhone,
+  arrowOpen: faChevronDown,
+  warningIcon: faCircleExclamation,
+};
+
+export { borderEnums, iconEnum };

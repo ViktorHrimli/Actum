@@ -1,15 +1,13 @@
+import { builder } from "@/shared/helpers/helpers";
+
+const { API_COMPANY_PAGE, QUERY_COMPANY_PAGE, CACHE_OPTIONS } = process.env;
+
 export const getCompanyPage = async (locale = "ru") => {
   // PROD
   const res = await fetch(
     `${process.env.URL_CLOUD_STRAPI}/${process.env.API_COMPANY_PAGE}?${process.env.QUERY_COMPANY_PAGE}`,
-    { cache: "reload" }
+    { cache: CACHE_OPTIONS }
   );
-
-  // DEV
-  // const res = await fetch(
-  //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_COMPANY_PAGE}?${process.env.QUERY_COMPANY_PAGE}`,
-  //   { cache: "no-cache" }
-  // );
 
   const data = await res.json();
 

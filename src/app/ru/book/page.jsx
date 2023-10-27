@@ -18,16 +18,16 @@ import { getBookPage } from "@/shared/services/api/api";
 export default async function Book() {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { Hero: hero, button, Form: form, Info: info },
     },
-  } = await getBookPage("ru");
+  } = await getBookPage();
 
   return (
     <>
       <ContactPanel type={"home"} />
       <NestedHero type={"home"} img={heroBook} {...hero} />
       <StepsLawyers type="family" />
-      <FormSection type="family" />
+      <FormSection type="family" formData={form} {...info} />
     </>
   );
 }
