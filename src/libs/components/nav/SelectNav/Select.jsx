@@ -37,7 +37,7 @@ const initital = {
 
 export default function Select({ routes, isOpen, onClick, isMobile }) {
   const [isOpenIndex, dispatch] = useReducer(reducer, initital);
-
+  console.log(routes);
   return (
     <AnimatePresence>
       <motion.div

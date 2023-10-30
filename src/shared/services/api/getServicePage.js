@@ -1,8 +1,11 @@
+import { builder } from "@/shared/helpers/helpers";
+
+const { API_SERVICE_PAGE, QUERY_SERVICE_PAGE, CACHE_OPTIONS } = process.env;
+
 export const getServicePage = async (locale = "ua") => {
-  // PROD
   const res = await fetch(
-    `${process.env.URL_CLOUD_STRAPI}/${process.env.API_SERVICE_PAGE}?${process.env.QUERY_SERVICE_PAGE}`,
-    { cache: "no-cache" }
+    builder.cloudQuery(API_SERVICE_PAGE, QUERY_SERVICE_PAGE),
+    { cache: CACHE_OPTIONS }
   );
 
   const data = await res.json();

@@ -1,15 +1,12 @@
-export const getSiteMapPage = async (locale = "ua") => {
-  // PROD
-  const res = await fetch(
-    `${process.env.URL_CLOUD_STRAPI}/${process.env.API_SITE_MAP_PAGE}?${process.env.QUERY_SITE_MAP_PAGE}`,
-    { cache: "no-cache" }
-  );
+import { builder } from "@/shared/helpers/helpers";
 
-  // DEV
-  // const res = await fetch(
-  //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_SITE_MAP_PAGE}?${process.env.QUERY_SITE_MAP_PAGE}`,
-  //   { cache: "no-cache" }
-  // );
+const { API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE, CACHE_OPTIONS } = process.env;
+
+export const getSiteMapPage = async (locale = "ua") => {
+  const res = await fetch(
+    builder.cloudQuery(API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE),
+    { cache: CACHE_OPTIONS }
+  );
 
   const data = await res.json();
 
