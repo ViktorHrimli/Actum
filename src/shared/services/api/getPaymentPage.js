@@ -1,15 +1,12 @@
-export const getPaymentPage = async (locale = "ua") => {
-  // PROD
-  const res = await fetch(
-    `${process.env.URL_CLOUD_STRAPI}/${process.env.API_PAYMENT_PAGE}?${process.env.QUERY_PAYMENT_PAGE}`,
-    { cache: "no-cache" }
-  );
+import { builder } from "@/shared/helpers/helpers";
 
-  // DEV
-  // const res = await fetch(
-  //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_PAYMENT_PAGE}?${process.env.QUERY_PAYMENT_PAGE}`,
-  //   { cache: "no-cache" }
-  // );
+const { API_PAYMENT_PAGE, QUERY_PAYMENT_PAGE, CACHE_OPTIONS } = process.env;
+
+export const getPaymentPage = async (locale = "ua") => {
+  const res = await fetch(
+    builder.cloudQuery(API_PAYMENT_PAGE, QUERY_PAYMENT_PAGE),
+    { cache: CACHE_OPTIONS }
+  );
 
   const data = await res.json();
 

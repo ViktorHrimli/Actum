@@ -7,10 +7,9 @@ import ArrowMenu from "@/shared/components/arrow_menu/ArrowMenu";
 import styles from "./NavSelectItem.module.scss";
 
 export default function NavSelectItem({
-  title,
-  name_page,
+  Title: title,
   path,
-  list,
+  List: list,
   onClick,
   isOpenIndex,
   dispatch,
@@ -44,10 +43,10 @@ export default function NavSelectItem({
 
       {isOpenSelect && isOpenIndex[path] && (
         <ul className={styles.nested_select_list}>
-          {list.map(({ title, path: pathsService }, id) => (
+          {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link href={`${path}${pathsService}`}>
-                <p className={styles.text_current}>{title}</p>
+                <p className={styles.text_current}>{text}</p>
               </Link>
             </li>
           ))}

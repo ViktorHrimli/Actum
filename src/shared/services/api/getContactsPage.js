@@ -1,17 +1,12 @@
 import { builder } from "@/shared/helpers/helpers";
 
-export const getContactsPage = async (locale = "ua") => {
-  // PROD
-  const res = await fetch(
-    `${process.env.URL_CLOUD_STRAPI}/${process.env.API_CONTACT_PAGE}?${process.env.QUERY_CONTACT_PAGE}`,
-    { cache: "no-cache" }
-  );
+const { API_CONTACT_PAGE, QUERY_CONTACT_PAGE, CACHE_OPTIONS } = process.env;
 
-  // DEV
-  // const res = await fetch(
-  //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_CONTACT_PAGE}?${process.env.QUERY_CONTACT_PAGE}`,
-  //   { cache: "no-cache" }
-  // );
+export const getContactsPage = async (locale = "ua") => {
+  const res = await fetch(
+    builder.cloudQuery(API_CONTACT_PAGE, QUERY_CONTACT_PAGE),
+    { cache: CACHE_OPTIONS }
+  );
 
   const data = await res.json();
 

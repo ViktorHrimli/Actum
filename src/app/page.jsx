@@ -18,9 +18,9 @@ const structuredData = {
   "@type": "LocalBusiness",
   name: "Адвокатське об’єднання Актум",
   image:
-    "https://actum.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdesctop-filter.0f6eb970.png&w=1920&q=75",
+    "https://actum.fun/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdesctop-filter.0f6eb970.png&w=1920&q=75",
   telephone: "+38-067-179-72-13",
-  url: "https://actum.vercel.app/",
+  url: "https://actum.fun/",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Оболонська набережна 15, корпус 5",

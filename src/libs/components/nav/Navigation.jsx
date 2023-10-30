@@ -22,7 +22,7 @@ export default function Navigation({
   return (
     <div style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
-        {nav.map(({ title, name_page, path, locale, id }) => (
+        {nav.map(({ title, path, id }) => (
           <li
             key={id}
             className={styles.link}
