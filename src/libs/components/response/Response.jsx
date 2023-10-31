@@ -25,8 +25,6 @@ export default function Response({ type, button, description, title }) {
     setIsClient(true);
   }, []);
 
-  console.log(button);
-
   return (
     isClient && (
       <section className={styles.section}>

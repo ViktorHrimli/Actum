@@ -22,7 +22,7 @@ import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
 export default async function Crimes() {
   const {
     data: {
-      attributes: { Form: form, Info: info },
+      attributes: { Form: form, Info: info, button },
     },
   } = await getFamilyLwyer();
   return (
@@ -37,7 +37,7 @@ export default async function Crimes() {
       <Response type={"crime"} />
       <StepsLawyers type={"crime"} />
       <Price type={"crime"} />
-      <FormSection type={"crime"} formData={form} {...info} />
+      <FormSection type={"crime"} formData={form} {...info} button={button} />
     </>
   );
 }

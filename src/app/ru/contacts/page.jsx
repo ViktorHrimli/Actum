@@ -8,14 +8,14 @@ import { getContactsPage } from "@/shared/services/api/api";
 export default async function Conacts() {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { Hero: hero, Info: info, Social: social, button },
     },
   } = await getContactsPage("ru");
 
   return (
     <>
       <NestedHero type={"home"} {...hero} img={ContactHero} />
-      <Contacts />
+      <Contacts social_list={social} button={button} {...info} />
     </>
   );
 }

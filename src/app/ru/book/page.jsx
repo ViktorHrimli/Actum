@@ -27,7 +27,7 @@ export default async function Book() {
       <ContactPanel type={"home"} />
       <NestedHero type={"home"} img={heroBook} {...hero} />
       <StepsLawyers type="family" />
-      <FormSection type="family" formData={form} {...info} />
+      <FormSection type="family" formData={form} {...info} button={button} />
     </>
   );
 }

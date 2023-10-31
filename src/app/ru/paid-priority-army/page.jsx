@@ -22,7 +22,7 @@ import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
 export default async function PaidArmy() {
   const {
     data: {
-      attributes: { Form: form, Info: info },
+      attributes: { Form: form, Info: info, button },
     },
   } = await getFamilyLwyer();
   return (
@@ -37,7 +37,7 @@ export default async function PaidArmy() {
       <Response type={"army"} />
       <StepsLawyers type={"army"} />
       <Price type={"army"} />
-      <FormSection type={"army"} formData={form} {...info} />
+      <FormSection type={"army"} formData={form} {...info} button={button} />
     </>
   );
 }

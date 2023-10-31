@@ -21,8 +21,6 @@ export default async function Book() {
     },
   } = await getBookPage();
 
-  console.log(button);
-
   return (
     <>
       <ContactPanel type={"home"} />
