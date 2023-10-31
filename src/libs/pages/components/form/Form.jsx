@@ -21,6 +21,7 @@ export default function Form({
   setIsOpenModal,
   questions,
   name,
+  button,
   phone: phonesText,
   messenger,
   services,
@@ -379,7 +380,7 @@ export default function Form({
         <div className={styles.btn_wrapper}>
           <Button
             type="submit"
-            text="надіслати запит"
+            text={button["text"]}
             style="button_service"
             typeStyle={type}
           />

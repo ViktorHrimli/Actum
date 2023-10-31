@@ -13,7 +13,15 @@ import styles from "./Contacts.module.scss";
 import touch from "../../../../assets/svg/Klick_icon.png";
 import MapUkraine from "../../../../assets/svg/Contacts_map_white.svg";
 
-export default function Contacts({ type }) {
+export default function Contacts({
+  type,
+  title,
+  social_list,
+  discriptions,
+  email,
+  phones,
+  button,
+}) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -104,7 +112,7 @@ export default function Contacts({ type }) {
             <div className={styles.container_btn}>
               <Button
                 style={"button_service"}
-                text={"замовити консультацію"}
+                text={button["text"]}
                 type={"button"}
               />
             </div>
@@ -113,34 +121,36 @@ export default function Contacts({ type }) {
             <div className={styles.footer_text_box}>
               <div className={styles.display_none}>
                 <p className={styles.footer_title}>Головний офіс:</p>
-                <p className={styles.footer_text}>
-                  Україна, м. Київ, вул. Оболонська набережна 15, корпус 5
-                </p>
+                <p className={styles.footer_text}>{title}</p>
               </div>
               <p className={styles.footer_title}>Філії по містах:</p>
 
-              <p className={styles.footer_text}>
-                Львів, Дніпро, Миколаїв, Житомир, Кривий Ріг, Херсон, Покровськ
-              </p>
+              <p className={styles.footer_text}>{discriptions}</p>
             </div>
             <div className={styles.footer_contact_box}>
               <div className={styles.social_block}>
                 <div className={styles.footer_contact}>
                   <p className={styles.footer_contact_title}>Phone:</p>
                   <div className={styles.box_tel}>
-                    <a className={styles.phone} href="tel:+380671797213">
-                      +38-067-179-72-13
+                    <a
+                      className={styles.phone}
+                      href={`tel:${phones["KiyvStar"]}`}
+                    >
+                      {phones["KiyvStar"]}
                     </a>
-                    <a className={styles.phone} href="tel:+380503334897">
-                      +38-050-333-48-97
+                    <a
+                      className={styles.phone}
+                      href={`tel:${phones["Vodafone"]}`}
+                    >
+                      {phones["Vodafone"]}
                     </a>
                   </div>
                 </div>
                 <div className={styles.footer_contact}>
                   <p className={styles.footer_contact_title}>Email:</p>
                   <div className={styles.box_tel}>
-                    <a className={styles.email} href="mailto:info@actum.com.ua">
-                      info@actum.com.ua
+                    <a className={styles.email} href={`mailto:${email}`}>
+                      {email}
                     </a>
                   </div>
                 </div>

@@ -196,7 +196,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
 
               {showCards && (
                 <div className={styles.show_hands_tab}>
-                  {showFirstCard && <FamilyMattrs {...Family[0]} />}
+                  {showFirstCard && <FamilyMattrs {...Family} />}
                 </div>
               )}
             </div>
@@ -212,7 +212,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
 
               {showCards && (
                 <div className={styles.show_halmet_tab}>
-                  {showSecondCard && <MilitaryMattrs {...Army[0]} />}
+                  {showSecondCard && <MilitaryMattrs {...Army} />}
                 </div>
               )}
             </div>
@@ -228,7 +228,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
 
               {showCards && (
                 <div className={styles.show_criminal_tab}>
-                  {showThirdCard && <CriminalMattrs {...Crime[0]} />}
+                  {showThirdCard && <CriminalMattrs {...Crime} />}
                 </div>
               )}
             </div>
@@ -280,10 +280,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
                 ></div>
                 <div className={styles.modal_family}>
                   {modalHands && (
-                    <FamilyMattrs
-                      openModalHands={openModalHands}
-                      {...Family[0]}
-                    />
+                    <FamilyMattrs openModalHands={openModalHands} {...Family} />
                   )}
                 </div>
               </div>
@@ -330,7 +327,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
                   {modalHalmet && (
                     <MilitaryMattrs
                       openModalhalmet={openModalhalmet}
-                      {...Army[0]}
+                      {...Army}
                     />
                   )}
                 </div>
@@ -378,7 +375,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
                   {modalCriminal && (
                     <CriminalMattrs
                       openModalCriminal={openModalCriminal}
-                      {...Crime[0]}
+                      {...Crime}
                     />
                   )}
                 </div>

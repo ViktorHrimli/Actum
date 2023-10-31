@@ -71,7 +71,7 @@ export default async function Home() {
       <ContactPanel type={"home"} />
       <Direction {...directions} />
       <AboutCompany type={"family"} {...about} />
-      <Response type={"family"} {...responses[0]} />
+      <Response type={"family"} {...responses} />
     </>
   );
 }

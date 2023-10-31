@@ -25,6 +25,8 @@ export default function Response({ type, button, description, title }) {
     setIsClient(true);
   }, []);
 
+  console.log(button);
+
   return (
     isClient && (
       <section className={styles.section}>
@@ -67,9 +69,9 @@ export default function Response({ type, button, description, title }) {
             </div>
             {isHome && (
               <div className={styles.btn_wrapper}>
-                <Link href={button[0]["link"]}>
+                <Link href={button["link"]}>
                   <Button
-                    text={button[0]["text"]}
+                    text={button["text"]}
                     style={"button_service"}
                     type={"button"}
                     typeStyle={type}
