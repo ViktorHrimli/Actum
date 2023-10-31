@@ -119,7 +119,7 @@ export default function Mob({ family, army, crime }) {
 
         {showCardsHands && (
           <div className={styles.show_hands}>
-            <FamilyMattrs {...family[0]} />
+            <FamilyMattrs {...family} />
           </div>
         )}
       </div>
@@ -136,7 +136,7 @@ export default function Mob({ family, army, crime }) {
 
         {showCardsHalmet && (
           <div className={styles.show_halmet}>
-            <MilitaryMattrs {...army[0]} />
+            <MilitaryMattrs {...army} />
           </div>
         )}
       </div>
@@ -153,7 +153,7 @@ export default function Mob({ family, army, crime }) {
 
         {showCardsCriminal && (
           <div className={styles.show_criminal}>
-            <CriminalMattrs {...crime[0]} />
+            <CriminalMattrs {...crime} />
           </div>
         )}
       </div>

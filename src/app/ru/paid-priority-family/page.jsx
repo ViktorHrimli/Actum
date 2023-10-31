@@ -23,7 +23,7 @@ import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
 export default async function Family() {
   const {
     data: {
-      attributes: { Form: form, Info: info },
+      attributes: { Form: form, Info: info, button },
     },
   } = await getFamilyLwyer();
   return (
@@ -36,7 +36,7 @@ export default async function Family() {
       <Description type={"family"} />
       <Response type={"family"} />
       <StepsLawyers type={"family"} />
-      <FormSection type={"family"} formData={form} {...info} />
+      <FormSection type={"family"} formData={form} {...info} button={button} />
     </>
   );
 }

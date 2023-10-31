@@ -224,7 +224,7 @@ export default function Animations({
           <Button
             onClick={() => setIsOpenModal(true)}
             type={"button"}
-            text={button[0]["text"]}
+            text={button["text"]}
             style="button_prymary"
           />
         </motion.div>
