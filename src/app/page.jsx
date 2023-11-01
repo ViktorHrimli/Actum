@@ -5,6 +5,7 @@ import { getHomePage } from "@/shared/services/api/api";
 import Hero from "@/libs/components/hero/Hero";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
+
 const Direction = dynamic(() =>
   import("@/libs/components/ourDirections/Direction")
 );
@@ -19,7 +20,9 @@ export const metadata = {
   name: "viewport",
   content: "width=device-width, initial-scale=1",
   keywords: "actum",
+  
 };
+
 
 export default async function Home() {
   const {

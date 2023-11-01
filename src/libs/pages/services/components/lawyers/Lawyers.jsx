@@ -2,7 +2,7 @@ import styles from "./Lawyers.module.scss";
 
 import Items from "./items/Items";
 
-export default function Lawyers() {
+export default function Lawyers({ list, title, desk, button }) {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -13,16 +13,12 @@ export default function Lawyers() {
         <div className={styles.container_text}>
           <div className={styles.line}></div>
           <div className={styles.container_title}>
-            <p className={styles.title}>
-              Наші адвокати мають значний досвід представництва інтересів
-              фізичних та юридичних осіб в різноманітних справах. Ваші питання
-              можуть вирішити настіпні спеціалісти:
-            </p>
+            <p className={styles.title}>{title}</p>
           </div>
           <div className={styles.line}></div>
         </div>
         <div className={styles.conteiner_list}>
-          <Items />
+          <Items desk={desk} items={list} button={button} />
         </div>
       </div>
     </section>

@@ -16,11 +16,11 @@ import service_back_photo from "@/assets/svg/service_back_photo.png";
 export default function Services() {
   return (
     <>
-      <ContactPanel type={"home"}/>
+      {/* <ContactPanel type={"home"}/>
       <NestedHero type={"home"} text="наші послуги" img={service_back_photo} />
       <AboutServices type={"home"}/>
       <Lawyers type={"home"}/>
-      <Descrition type="classic" />
+      <Descrition type="classic" /> */}
     </>
   );
 }

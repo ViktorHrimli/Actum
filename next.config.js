@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
-const withSitemap = require("next-sitemap");
-
-module.exports = withSitemap({
+const nextConfig = {
   i18n: {
     defaultLocale: "uk-UA",
     locales: ["uk-UA", "ru"],
@@ -16,8 +14,6 @@ module.exports = withSitemap({
       },
     ],
   },
-  sitemap: {
-    // Укажи корректный URL своего сайта
-    hostname: "http://localhost:3000",
-  },
-});
+};
+
+module.exports = nextConfig;

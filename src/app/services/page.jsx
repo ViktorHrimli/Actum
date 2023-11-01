@@ -11,16 +11,38 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
+import { getServicePage } from "@/shared/services/api/api";
+
 import service_back_photo from "@/assets/svg/service_back_photo.png";
 
-export default function Services() {
+export default async function Services() {
+  const {
+    data: {
+      attributes: {
+        services_blocks,
+        List: list,
+        desk_service,
+        desk_list,
+        desk_somthing,
+        desk_title,
+        button,
+      },
+    },
+  } = await getServicePage();
+
   return (
     <>
-      <ContactPanel type={"home"}/>
+      <ContactPanel type={"home"} />
       <NestedHero type={"home"} text="наші послуги" img={service_back_photo} />
-      <AboutServices type={"home"}/>
-      <Lawyers type={"home"}/>
-      <Descrition type="classic" />
+      <AboutServices type={"home"} list={services_blocks} title={desk_title} />
+      <Lawyers
+        type={"home"}
+        list={list}
+        title={desk_service}
+        desk={desk_list}
+        button={button}
+      />
+      <Descrition type="classic" title={desk_somthing} />
     </>
   );
 }

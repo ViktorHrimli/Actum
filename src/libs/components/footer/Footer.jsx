@@ -146,7 +146,7 @@ export default function Footer({
                 <a className={styles.phone} href="tel:+380671797213">
                   {Phones[0]["KiyvStar"]}
                 </a>
-                <a className={styles.phone} href="tel:+380503334897">
+                <a className={styles.phone} href="tel:+380503334897" >
                   {Phones[0]["Vodafone"]}
                 </a>
               </div>

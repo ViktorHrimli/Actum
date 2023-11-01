@@ -25,9 +25,14 @@
   margin: 0;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+// ::-webkit-scrollbar {
+//   width: 0;
+//   height: 0;
+// }
+
+html {
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
 }
 
 html,
