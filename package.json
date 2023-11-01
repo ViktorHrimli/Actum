@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "latest": "git pull origin && npm i && npm run build && npm start"
@@ -28,11 +29,14 @@
     "negotiator": "^0.6.3",
     "next": "13.4.12",
     "next-intl": "^2.20.2",
+    "next-seo": "^6.1.0",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.44.3",
     "react-input-mask": "^2.0.4",
-    "react-responsive": "^9.0.2"
+    "react-responsive": "^9.0.2",
+    "sitemap": "^7.1.1"
   },
   "devDependencies": {
     "sass": "1.63.4",
