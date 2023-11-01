@@ -6,8 +6,8 @@ export const metadata = {
 };
 
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
-import FormSection from "@/libs/pages/components/formSection/FormSection";
+import StepsLawyers from "@/libs/components/stepLawyers/StepsLawyers";
+import FormSection from "@/libs/components/formSection/FormSection";
 
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 

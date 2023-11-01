@@ -4,12 +4,11 @@ import Item from "../Item/Item";
 
 import { publicationsEnums } from "../libs/enums/enum";
 
-export default function PublicList() {
+export default function PublicList({ blog_list }) {
+  console.log(blog_list);
   return (
     <ul className={styles.list}>
-      {publicationsEnums.map((el, id) => (
-        <Item key={id} {...el} />
-      ))}
+      {blog_list && blog_list.map((el, id) => <Item key={id} {...el} />)}
     </ul>
   );
 }

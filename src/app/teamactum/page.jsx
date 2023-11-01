@@ -9,7 +9,7 @@ export const metadata = {
 
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import Descrition from "@/libs/pages/services/components/description/Description";
-import About from "@/libs/pages/components/about/About";
+import About from "@/libs/components/about/About";
 
 import ourTeam from "@/assets/svg/our_team.png";
 import our_team_about from "@/assets/svg/our_team_about.png";

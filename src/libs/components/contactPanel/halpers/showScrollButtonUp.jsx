@@ -1,11 +1,11 @@
 "use client";
-
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
 
-import styles from "../ContactPanel.module.scss";
+import { useEffect, useState } from "@/shared/hooks/hooks";
 
 import ArrowUp from "@/assets/svg/Arrow-up.png";
+
+import styles from "../ContactPanel.module.scss";
 
 const ScrollButtonUp = () => {
   const [showButton, setShowButton] = useState(false);

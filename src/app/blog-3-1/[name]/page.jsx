@@ -1,6 +1,6 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import Path from "@/libs/pages/components/path/Path";
-import CurrentPublication from "@/libs/pages/components/currentPublication/CurrentPublication";
+import Path from "@/shared/components/path/Path";
+import CurrentPublication from "@/libs/components/currentPublication/CurrentPublication";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";

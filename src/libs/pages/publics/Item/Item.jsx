@@ -3,16 +3,16 @@ import Link from "next/link";
 
 import styles from "./Item.module.scss";
 
-export default function Item({ description, title, img, date, path = "test" }) {
+export default function Item({ description, title, photo, date, link }) {
   return (
     <div className={styles.card}>
       <h2 className={styles.title_text}>
-        <Link href={`/blog-3-1/${path}`}>{title}</Link>
+        <Link href={`/blog-3-1${link}`}>{title}</Link>
       </h2>
       <div className={styles.conteiner_text}>
         <div className={styles.image_conteiner}>
           <Image
-            src={img}
+            src={photo["data"]["attributes"]["url"] ?? img}
             alt={title}
             fill
             fetchPriority="low"
@@ -22,7 +22,7 @@ export default function Item({ description, title, img, date, path = "test" }) {
         <div className={styles.description_wrapper}>
           <p className={styles.text}>
             {description}
-            <Link href={`/blog-3-1/${path}`} className={styles.link_item}>
+            <Link href={`/blog-3-1${link}`} className={styles.link_item}>
               читати повністю
             </Link>
           </p>
