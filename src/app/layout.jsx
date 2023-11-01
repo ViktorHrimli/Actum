@@ -1,4 +1,5 @@
 import "./globals.scss";
+
 import styles from "./page.module.scss";
 
 import { Montserrat } from "next/font/google";
@@ -21,7 +22,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const {
     data: {
-      attributes: { Header: headers, Footer: footer },
+      attributes: { Header: headers, Footer: footer, Navigation: service_page },
     },
   } = await getLayout();
 
@@ -31,7 +32,7 @@ export default async function RootLayout({ children }) {
         <Header
           logo={headers["LOGO"]}
           nav={headers["Navigation"]}
-          routes={headers["Services"]}
+          routes={service_page}
         />
         <main className={styles.page}>{children}</main>
         <Footer {...footer} />

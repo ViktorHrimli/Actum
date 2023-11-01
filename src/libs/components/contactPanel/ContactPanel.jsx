@@ -8,7 +8,7 @@ import {
   useClient,
   usePathname,
   useRouter,
-} from "@/libs/hooks/hooks";
+} from "@/shared/hooks/hooks";
 
 import { motion } from "framer-motion";
 

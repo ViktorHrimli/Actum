@@ -1,4 +1,4 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
@@ -17,10 +17,17 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function PaidArmy() {
+import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+
+export default async function PaidArmy() {
+  const {
+    data: {
+      attributes: { Form: form, Info: info, button },
+    },
+  } = await getFamilyLwyer();
   return (
     <>
-      <ContactPanel type={ "army"}/>
+      <ContactPanel type={"army"} />
       <HeroLawyers type={"army"} />
       <QuestionsList type={"army"} />
       <AboutCards type={"army"} />
@@ -28,9 +35,9 @@ export default function PaidArmy() {
       <Specialists type={"army"} />
       <Descrition type={"army"} />
       <Response type={"army"} />
-      <StepsLawyers type={"army"}/>
-      <Price type={"army"}/>
-      <FormSection type={"army"} />
+      <StepsLawyers type={"army"} />
+      <Price type={"army"} />
+      <FormSection type={"army"} formData={form} {...info} button={button} />
     </>
   );
 }

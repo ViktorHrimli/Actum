@@ -1,4 +1,4 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
@@ -18,7 +18,14 @@ export const metadata = {
   keywords: "actum",
 };
 
-export default function Family() {
+import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+
+export default async function Family() {
+  const {
+    data: {
+      attributes: { Form: form, Info: info, button },
+    },
+  } = await getFamilyLwyer();
   return (
     <>
       <ContactPanel type={"family"} />
@@ -28,8 +35,8 @@ export default function Family() {
       <Specialists type={"family"} />
       <Description type={"family"} />
       <Response type={"family"} />
-      <StepsLawyers type={"family"}/>
-      <FormSection type={"family"} />
+      <StepsLawyers type={"family"} />
+      <FormSection type={"family"} formData={form} {...info} button={button} />
     </>
   );
 }

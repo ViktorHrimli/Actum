@@ -1,20 +1,27 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
-import NestedHero from "@/libs/pages/components/nestedPageHero/NestedHero";
+import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
+import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import hero_img from "@/assets/svg/payment-success.png";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function Page() {
+import { getPaymentPage } from "@/shared/services/api/api";
+
+export default async function Page() {
+  const {
+    data: {
+      attributes: { Hero: hero },
+    },
+  } = await getPaymentPage();
   return (
     <>
       <ContactPanel type={"home"} />
-      <NestedHero img={hero_img} text={"Ваша оплата успішна"} paragraph={"Дякуємо за довіру. Ви на вірному шляху для вирішення своєї справи. Очікуйте від нас повідомлень по визначеному каналу зв’язку."} />
+      <NestedHero img={hero_img} {...hero} />
     </>
   );
 }

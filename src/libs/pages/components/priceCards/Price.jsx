@@ -1,6 +1,5 @@
-
 "use client";
-import { useIsSmall, useState, useEffect } from "@/libs/hooks/hooks";
+import { useIsSmall, useState, useEffect } from "@/shared/hooks/hooks";
 
 import Items from "./items/Items";
 import Arrow from "@/libs/components/arrowCard/Arrow";
@@ -8,7 +7,6 @@ import Arrow from "@/libs/components/arrowCard/Arrow";
 import { priceEnums } from "./libs/enums";
 
 import styles from "./Price.module.scss";
-
 
 export default function Price({ type }) {
   const { color } = priceEnums[type];
@@ -38,15 +36,15 @@ export default function Price({ type }) {
         </div>
 
         <div className={styles.position_arr_left}>
-        {isMobile && isClient && (
-            <Arrow 
-            type={type}
-            left={true}
-            setIsChange={setisChange}
-            setIsLeft={setIsLeft}
-            isChange={isChange}
-          />
-        )}
+          {isMobile && isClient && (
+            <Arrow
+              type={type}
+              left={true}
+              setIsChange={setisChange}
+              setIsLeft={setIsLeft}
+              isChange={isChange}
+            />
+          )}
         </div>
         {isClient && (
           <Items
@@ -57,15 +55,15 @@ export default function Price({ type }) {
           />
         )}
         <div className={styles.position_arr_right}>
-        {isMobile && isClient && (
+          {isMobile && isClient && (
             <Arrow
-            type={type}
-            left={false}
-            setIsChange={setisChange}
-            setIsLeft={setIsLeft}
-            isChange={isChange}
-          />
-        )}
+              type={type}
+              left={false}
+              setIsChange={setisChange}
+              setIsLeft={setIsLeft}
+              isChange={isChange}
+            />
+          )}
         </div>
       </div>
     </section>

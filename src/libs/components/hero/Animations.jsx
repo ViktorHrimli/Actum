@@ -11,7 +11,7 @@ import {
   useIsTabOrSmallLaptop,
   useEffect,
   useIsSmall,
-} from "@/libs/hooks/hooks";
+} from "@/shared/hooks/hooks";
 
 import Button from "../button/Button";
 import Gradients from "./Gradients";
@@ -224,7 +224,7 @@ export default function Animations({
           <Button
             onClick={() => setIsOpenModal(true)}
             type={"button"}
-            text={button[0]["text"]}
+            text={button["text"]}
             style="button_prymary"
           />
         </motion.div>

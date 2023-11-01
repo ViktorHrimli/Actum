@@ -5,7 +5,7 @@ import CardB from "./cards/cardB/CardB";
 import CardC from "./cards/cardC/CardC";
 import CardD from "./cards/cardD/CardD";
 
-import MobileSlider from "@/libs/components/mobile_animation/MobileSlider";
+import MobileSlider from "@/shared/components/mobile_animation/MobileSlider";
 
 const arrListCard = [CardA, CardB, CardC, CardD];
 

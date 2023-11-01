@@ -1,15 +1,11 @@
-export const getLayout = async () => {
-  // PROD
-  const res = await fetch(
-    `${process.env.URL_CLOUD_STRAPI}/${process.env.API_LAYOUT}?${process.env.QUERY_LAYOUT}`,
-    { cache: "reload" }
-  );
+import { builder } from "@/shared/helpers/helpers";
 
-  // DEV
-  // const res = await fetch(
-  //   `${process.env.API_LOCALE_BASE_URL}/${process.env.API_LAYOUT}?${process.env.QUERY_LAYOUT}`,
-  //   { next: { revalidate: "1600" } }
-  // );
+const { API_LAYOUT, QUERY_LAYOUT, CACHE_OPTIONS } = process.env;
+
+export const getLayout = async (locale = "ua") => {
+  const res = await fetch(builder.cloudQuery(API_LAYOUT, QUERY_LAYOUT), {
+    cache: CACHE_OPTIONS,
+  });
 
   const data = await res.json();
 

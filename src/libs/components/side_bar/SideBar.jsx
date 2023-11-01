@@ -2,7 +2,7 @@ import styles from "./SideBar.module.scss";
 
 import Image from "next/image";
 
-import { useEffect, useState } from "@/libs/hooks/hooks";
+import { useEffect, useState } from "@/shared/hooks/hooks";
 import { colorImg } from "./libs/enums";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";

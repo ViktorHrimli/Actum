@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useReducer, useEffect, useState } from "@/libs/hooks/hooks";
+import { useReducer, useEffect, useState } from "@/shared/hooks/hooks";
 
 import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
@@ -37,7 +37,7 @@ const initital = {
 
 export default function Select({ routes, isOpen, onClick, isMobile }) {
   const [isOpenIndex, dispatch] = useReducer(reducer, initital);
-
+  console.log(routes);
   return (
     <AnimatePresence>
       <motion.div

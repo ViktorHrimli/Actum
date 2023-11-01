@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
-import { useClient, useEffect, useState } from "@/libs/hooks/hooks";
+import { useClient, useEffect, useState } from "@/shared/hooks/hooks";
 import { getFormById } from "@/shared/helpers/helpers";
 
 import Button from "@/libs/components/button/Button";
@@ -22,7 +22,7 @@ export default function Footer({
   LOGO_TEXT,
   Links,
   Phones,
-  Email,
+  email,
   Button: btnText,
 }) {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
@@ -144,17 +144,17 @@ export default function Footer({
               <p className={styles.footer_contact_title}>Phone:</p>
               <div>
                 <a className={styles.phone} href="tel:+380671797213">
-                  {Phones[0]["KiyvStar"]}
+                  {Phones["KiyvStar"]}
                 </a>
-                <a className={styles.phone} href="tel:+380503334897" >
-                  {Phones[0]["Vodafone"]}
+                <a className={styles.phone} href="tel:+380503334897">
+                  {Phones["Vodafone"]}
                 </a>
               </div>
             </div>
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Email:</p>
               <a className={styles.email} href="mailto:info@actum.com.ua">
-                {Email[0]["Email"]}
+                {email}
               </a>
             </div>
 
@@ -172,7 +172,7 @@ export default function Footer({
             <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
               <Button
                 style={"button_prymary"}
-                text={btnText[0]["text"]}
+                text={btnText["text"]}
                 type={"button"}
                 typeStyle={
                   isStyleFooter === "footer_army_gradient" ? "army" : "family"

@@ -1,4 +1,4 @@
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/libs/enums/enum";
+import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
@@ -17,7 +17,14 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-export default function page() {
+import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+
+export default async function page() {
+  const {
+    data: {
+      attributes: { Form: form, Info: info },
+    },
+  } = await getFamilyLwyer();
   return (
     <>
       <ContactPanel type={"crime"} />
@@ -30,7 +37,7 @@ export default function page() {
       <Response type={"crime"} />
       <StepsLawyers />
       <Price type={"crime"} />
-      <FormSection type={"crime"} />
+      <FormSection type={"crime"} formData={form} {...info} />
     </>
   );
 }

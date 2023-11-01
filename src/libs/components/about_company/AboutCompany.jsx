@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { useClient } from "@/libs/hooks/hooks";
+import { useClient } from "@/shared/hooks/hooks";
 
 import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
@@ -106,10 +106,10 @@ export default function AboutCompany({
               </div>
             </div>
             <div className={styles.btn_wrapper}>
-              <Link href={button[0]["link"]}>
+              <Link href={button["link"]}>
                 <Button
                   style={"button_prymary"}
-                  text={button[0]["text"]}
+                  text={button["text"]}
                   type={"button"}
                 />
               </Link>

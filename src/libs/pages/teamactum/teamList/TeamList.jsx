@@ -1,9 +1,9 @@
-import LeftBar from "@/libs/components/left_bar_text/LeftBar";
+import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Items from "../items/Items";
 
 import styles from "./TeamList.module.scss";
 
-export default async function TeamList() {
+export default async function TeamList({ items }) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
@@ -11,8 +11,8 @@ export default async function TeamList() {
           <LeftBar text="наші фахівці" type="family" />
         </div>
         <ul className={styles.list}>
-          {Array.from({ length: 6 }, (_, id) => (
-            <Items key={id} />
+          {items.map((item, id) => (
+            <Items key={id} {...item} />
           ))}
         </ul>
       </div>
