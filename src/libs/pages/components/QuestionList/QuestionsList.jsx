@@ -1,7 +1,7 @@
 import styles from "./QuestionsList.module.scss";
 
 import Accordion from "./Accordion";
-import About from "../about/About";
+import About from "../../../components/about/About";
 
 import natalia from "@/assets/svg/natalia_lawyers.png";
 

@@ -1,14 +1,11 @@
 "use client";
 import Image from "next/image";
 
-
 import tabBack from "@/assets/svg/background-tab.png";
 import tabBackFilter from "@/assets/svg/background-tab-filter.png";
 
-
 import desctopBack from "@/assets/svg/desctop_backround.png";
 import desctopBackFilter from "@/assets/svg/desctop-filter.png";
-
 
 import { motion } from "framer-motion";
 
@@ -33,10 +30,22 @@ export default function Gradients({
           initial={isSessionStorageSave ? gradientVariants["initial"] : false}
           transition={gradientVariants["transition"](isDesktop)}
         >
-            <div className={styles.background_page}></div>
+          <div className={styles.background_page}></div>
 
-            <Image className={styles.back_tab} src={tabBack} alt="background" fill loading="eager" />
-            <Image className={styles.back_desctop} src={desctopBack} alt="background" fill loading="eager" />
+          <Image
+            className={styles.back_tab}
+            src={tabBack}
+            alt="background"
+            fill
+            loading="eager"
+          />
+          <Image
+            className={styles.back_desctop}
+            src={desctopBack}
+            alt="background"
+            fill
+            loading="eager"
+          />
         </motion.div>
 
         <motion.div
@@ -48,10 +57,22 @@ export default function Gradients({
           initial={isSessionStorageSave ? gradientVariants["initial"] : false}
           transition={gradientVariants["transition"](isDesktop)}
         >
-            <div className={styles.background_page}></div>
+          <div className={styles.background_page}></div>
 
-          <Image className={styles.tel_back_filter} src={tabBackFilter} alt="background-filter" fill loading="eager"/>
-          <Image className={styles.back_desctop_filter} src={desctopBackFilter} alt="background-filter" fill loading="eager"/>
+          <Image
+            className={styles.tel_back_filter}
+            src={tabBackFilter}
+            alt="background-filter"
+            fill
+            loading="eager"
+          />
+          <Image
+            className={styles.back_desctop_filter}
+            src={desctopBackFilter}
+            alt="background-filter"
+            fill
+            loading="eager"
+          />
         </motion.div>
       </>
     )

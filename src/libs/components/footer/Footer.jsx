@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
 
-import { usePathname } from "next/navigation";
-import { useClient, useEffect, useState } from "@/shared/hooks/hooks";
+import { useEffect, useState, usePathname } from "@/shared/hooks/hooks";
 import { getFormById } from "@/shared/helpers/helpers";
 
 import Button from "@/libs/components/button/Button";
-
 import Logo from "@/assets/svg/Actum_HERO.png";
 
 import { footerEnums } from "./libs/enums";

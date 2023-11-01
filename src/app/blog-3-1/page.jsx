@@ -17,14 +17,15 @@ import publics_img from "@/assets/svg/publics_hero.png";
 export default async function PaidArmy() {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { Hero: hero, Blog_List: blog_list },
     },
   } = await getBlogPage();
+
   return (
     <>
       <ContactPanel type={"home"} />
       <NestedHero type={"home"} img={publics_img} {...hero} />
-      <Publics />
+      <Publics blog_list={blog_list} />
     </>
   );
 }

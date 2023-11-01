@@ -3,7 +3,7 @@ import styles from "./FormSection.module.scss";
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Form from "@/libs/pages/components/form/Form";
 
-import { borderEnums } from "../form/enumsForm/enumsForm";
+import { borderEnums } from "../../pages/components/form/enumsForm/enumsForm";
 
 export default function FormSection({
   type,

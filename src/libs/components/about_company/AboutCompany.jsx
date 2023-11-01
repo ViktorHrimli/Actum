@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { useClient } from "@/shared/hooks/hooks";
 
@@ -8,16 +9,14 @@ import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
 
 import Animation from "./halpers/Animation";
+import Button from "../button/Button";
+
 import animationSignOlena from "@/assets/json/sign_olena.json";
 import animationSignNatalia from "@/assets/json/sign_natalia.json";
 
 import Ukraine from "@/assets/svg/Ukraine.png";
-
 import Natalia from "@/assets/svg/Olga.png";
 import Olena from "@/assets/svg/Natalia.png";
-
-import Button from "../button/Button";
-import Link from "next/link";
 
 export default function AboutCompany({
   title,

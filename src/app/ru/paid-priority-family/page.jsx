@@ -2,12 +2,12 @@ import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
-import StepsLawyers from "@/libs/pages/components/stepLawyers/StepsLawyers";
+import StepsLawyers from "@/libs/components/stepLawyers/StepsLawyers";
 import Description from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import FormSection from "@/libs/pages/components/formSection/FormSection";
+import FormSection from "@/libs/components/formSection/FormSection";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 export const metadata = {
