@@ -17,27 +17,41 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+import { getCrimePage } from "@/shared/services/api/api";
 
 export default async function Crimes() {
   const {
     data: {
-      attributes: { Form: form, Info: info, button },
+      attributes: {
+        Hero: hero,
+        about_block,
+        Employeers_list: employeer_list,
+        Form: form,
+        Info: info,
+        Responses: responses,
+        questions_list,
+        bread_crumbs,
+        description_lawyer,
+      },
     },
-  } = await getFamilyLwyer();
+  } = await getCrimePage();
   return (
     <>
       <ContactPanel type={"crime"} />
-      <HeroLawyers type={"crime"} />
-      <QuestionsList type={"crime"} />
+      <HeroLawyers type={"crime"} {...hero} {...bread_crumbs} />
+      <QuestionsList
+        type={"crime"}
+        about_block={about_block}
+        questions={questions_list}
+      />
       <AboutCards type={"crime"} />
       <SuccessfulBusiness type={"crime"} />
-      <Specialists type={"crime"} />
-      <Description type={"crime"} />
-      <Response type={"crime"} />
+      <Specialists type={"crime"} {...employeer_list} />
+      <Description type={"crime"} description={description_lawyer} />
+      <Response type={"crime"} {...responses} />
       <StepsLawyers type={"crime"} />
       <Price type={"crime"} />
-      <FormSection type={"crime"} formData={form} {...info} button={button} />
+      <FormSection type={"crime"} formData={form} {...info} />
     </>
   );
 }

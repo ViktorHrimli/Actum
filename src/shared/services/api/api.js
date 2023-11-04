@@ -7,4 +7,7 @@ export { getBlogPage } from "./getBlogPage";
 export { getBookPage } from "./getBookPage";
 export { getSiteMapPage } from "./getSiteMapPage";
 export { getPaymentPage } from "./getPaymentPage";
-export { getFamilyLwyer } from "./getFamilyLawyer";
+export { getFamilyPage } from "./getFamilyPage";
+export { getBlogPublication } from "./getBlogPublication";
+export { getArmyPage } from "./getArmyPage";
+export { getCrimePage } from "./getCrimePage";

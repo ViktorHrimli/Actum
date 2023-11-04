@@ -8,7 +8,13 @@ import { getFormById } from "@/shared/helpers/helpers";
 
 import styles from "./About.module.scss";
 
-export default function About({ img, type = "family" }) {
+export default function About({
+  type = "family",
+  title,
+  description,
+  photo,
+  button,
+}) {
   const colorObj = {
     army: "#536641",
     crime: "#3F2E64",
@@ -27,24 +33,15 @@ export default function About({ img, type = "family" }) {
             <div className={styles.icons_conteiner}>
               <Quotes color={colorObj[type]} />
             </div>
-            <h2 className={styles.title_text}>Jorem ipsum dolor sit amet</h2>
+            <h2 className={styles.title_text}>{title}</h2>
           </div>
-          <p className={styles.text}>
-            Маємо значний досвід в сімейному праві - з 2008 року. Співпраця
-            онлайн або в офісі Надаємо термінові та повні консультації по
-            питаннях будь-якої складності. Даємо реальну оцінку строків та
-            перспектив Вашої справи в умовах воєнного стану. Забезпечуємо
-            представництво в судах, в інших державних органах та установах.
-            Займаємось справами батьківства, складними міжнародними спорами при
-            розірванні шлюбів та поділі майна.
-          </p>
+          <p className={styles.text}>{description}</p>
         </div>
 
         <div className={styles.image_wrapper}>
           <Image
-            src={img}
+            src={photo["data"]["attributes"]["url"]}
             loading="lazy"
-            placeholder="blur"
             alt="natalia"
             fill
             style={{
@@ -55,7 +52,7 @@ export default function About({ img, type = "family" }) {
           <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
             <Button
               style={"button_service"}
-              text={"замовити консультацію"}
+              text={button["text"]}
               type={type}
               typeStyle={type}
             />

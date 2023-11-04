@@ -16,7 +16,7 @@ const colorType = {
   crime: "#3F2E64",
 };
 
-export default function Accordion({ title, text, type, path }) {
+export default function Accordion({ title, description, type, link }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname().replace("/", "");
@@ -68,9 +68,9 @@ export default function Accordion({ title, text, type, path }) {
             transition={{ duration: 0.6, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
             <div className={styles.conteiner_text}>
-              <p className={styles.text}>{text}</p>
+              <p className={styles.text}>{description}</p>
               <div style={{ marginTop: "50px", display: "block" }}>
-                <ClickIcon path={`${pathName}/${path}`} color={color} />
+                <ClickIcon path={`${pathName}/${link}`} color={color} />
               </div>
             </div>
           </motion.section>

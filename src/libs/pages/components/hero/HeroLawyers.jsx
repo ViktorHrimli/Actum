@@ -6,32 +6,43 @@ import { lawyersHeroEnums } from "./libs/enums/enums";
 
 import styles from "./HeroLawyers.module.scss";
 
-export default function HeroLawyers({ type, locale = "ua" }) {
-  const { img, title, text, style, color, backgroundPage } =
-    lawyersHeroEnums[type];
+export default function HeroLawyers({
+  type,
+  title,
+  actum_png,
+  background,
+  path,
+  back,
+  name_page,
+}) {
+  const { style, color, backgroundPage } = lawyersHeroEnums[type];
 
   return (
     <>
       <div className={styles[backgroundPage]}></div>
-
       <section className={styles.section}>
         <div className={styles.conteiner}>
           <Image
-            src={img}
-            alt={text}
+            src={background["data"]["attributes"]["url"]}
+            alt={"background"}
             fill
             loading="eager"
             style={{ objectFit: "cover" }}
           />
           <div className={styles.conteiner_hero_watemark}>
             <div className={styles.title_wotemark}>
-              <Image src={title} alt="ACTUM" fill loading="eager" />
+              <Image
+                src={actum_png["data"]["attributes"]["url"]}
+                alt="ACTUM"
+                fill
+                loading="eager"
+              />
             </div>
-            <h2 className={styles.title_text}>{text}</h2>
+            <h2 className={styles.title_text}>{title}</h2>
           </div>
           <div className={styles[style]}></div>
         </div>
-        <Path path={text} type={color} back="/services" text="Наші Послуги" />
+        <Path path={name_page} type={color} back={path} text={back} />
       </section>
     </>
   );
