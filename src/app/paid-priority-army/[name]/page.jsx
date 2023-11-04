@@ -17,25 +17,40 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+import { getArmyPage } from "@/shared/services/api/api";
 
 export default async function page() {
   const {
     data: {
-      attributes: { Form: form, Info: info },
+      attributes: {
+        Hero: hero,
+        about_block,
+        Employeers_list: employeer_list,
+        Form: form,
+        Info: info,
+        Responses: responses,
+        questions_list,
+        bread_crumbs,
+        description_lawyer,
+      },
     },
-  } = await getFamilyLwyer();
+  } = await getArmyPage();
+
   return (
     <>
       <ContactPanel type={"army"} />
-      <HeroLawyers type={"army"} />
-      <QuestionsList type={"army"} />
+      <HeroLawyers type={"army"} {...hero} {...bread_crumbs} />
+      <QuestionsList
+        type={"army"}
+        about_block={about_block}
+        questions={questions_list}
+      />
       <AboutCards type={"army"} />
       <SuccessfulBusiness type={"army"} />
-      <Specialists type={"army"} />
-      <Descrition type={"army"} />
-      <Response type={"army"} />
-      <StepsLawyers />
+      <Specialists type={"army"} {...employeer_list} />
+      <Descrition type={"army"} description={description_lawyer} />
+      <Response type={"army"} {...responses} />
+      <StepsLawyers type={"army"} />
       <Price type={"army"} />
       <FormSection type={"army"} formData={form} {...info} />
     </>

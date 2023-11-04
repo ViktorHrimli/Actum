@@ -12,25 +12,32 @@ export const metadata = {
 
 import hero_public from "@/assets/svg/publications_hero.png";
 
-import { getBlogPage } from "@/shared/services/api/api";
+import { getBlogPage, getBlogPublication } from "@/shared/services/api/api";
 
-export default async function page() {
+export default async function page({ params }) {
   const {
     data: {
       attributes: { Hero: hero },
     },
   } = await getBlogPage();
+
+  const {
+    data: [dataObj],
+  } = await getBlogPublication(params["name"]);
+
+  const { bread_crumbs, button, Blog: blog } = dataObj["attributes"]["Topic"];
+
   return (
     <>
       <NestedHero img={hero_public} {...hero} />
       <ContactPanel type={"home"} />
       <Path
-        path="ЧОМУ ВІЙСЬКОВИМ НЕ ВИПЛАЧУЮТЬ КОМПЕНСАЦІЮ ЗА ПОРАНЕННЯ?"
+        path={bread_crumbs["name_page"]}
         type="family_color"
-        back="/blog-3-1"
-        text="Публікації"
+        back={bread_crumbs["path"]}
+        text={bread_crumbs["back"]}
       />
-      <CurrentPublication />
+      <CurrentPublication button={button} {...blog} />
     </>
   );
 }

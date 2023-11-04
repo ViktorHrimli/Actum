@@ -17,7 +17,7 @@ import heroBook from "@/assets/svg/book_hero.png";
 export default async function Book() {
   const {
     data: {
-      attributes: { Hero: hero, button, Form: form, Info: info },
+      attributes: { Hero: hero, Form: form, Info: info },
     },
   } = await getBookPage();
 
@@ -26,7 +26,7 @@ export default async function Book() {
       <ContactPanel type={"home"} />
       <NestedHero type={"home"} img={heroBook} {...hero} />
       <StepsLawyers type="family" />
-      <FormSection type="family" formData={form} {...info} button={button} />
+      <FormSection type="family" formData={form} {...info} />
     </>
   );
 }

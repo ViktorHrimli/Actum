@@ -11,7 +11,6 @@ export default function FormSection({
   discriptions,
   email,
   phones,
-  button,
 }) {
   const { color_text } = borderEnums[type];
   return (
@@ -21,7 +20,7 @@ export default function FormSection({
           <LeftBar text={"контактна форма"} type={type} />
         </div>
 
-        <Form type={type} {...formData} button={button} />
+        <Form type={type} {...formData} />
 
         <div className={styles.info_block}>
           <p className={styles.text}>{discriptions}</p>

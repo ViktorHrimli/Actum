@@ -18,25 +18,40 @@ export const metadata = {
   keywords: "actum",
 };
 
-import { getFamilyLwyer } from "@/shared/services/api/getFamilyLawyer";
+import { getFamilyPage } from "@/shared/services/api/api";
 
 export default async function Family() {
   const {
     data: {
-      attributes: { Form: form, Info: info, button },
+      attributes: {
+        Hero: hero,
+        about_block,
+        Employeers_list: employeer_list,
+        Form: form,
+        Info: info,
+        Responses: responses,
+        questions_list,
+        bread_crumbs,
+        description_lawyer,
+      },
     },
-  } = await getFamilyLwyer();
+  } = await getFamilyPage();
+
   return (
     <>
       <ContactPanel type={"family"} />
-      <HeroLawyers type={"family"} />
-      <QuestionsList type={"family"} />
+      <HeroLawyers type={"family"} {...hero} {...bread_crumbs} />
+      <QuestionsList
+        type={"family"}
+        about_block={about_block}
+        questions={questions_list}
+      />
       <SuccessfulBusiness type={"family"} />
-      <Specialists type={"family"} />
-      <Description type={"family"} />
-      <Response type={"family"} />
+      <Specialists type={"family"} {...employeer_list} />
+      <Description type={"family"} description={description_lawyer} />
+      <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} />
-      <FormSection type={"family"} formData={form} {...info} button={button} />
+      <FormSection type={"family"} formData={form} {...info} />
     </>
   );
 }

@@ -1,4 +1,5 @@
-const { URL_CLOUD_STRAPI, API_LOCALE_BASE_URL } = process.env;
+const { URL_CLOUD_STRAPI, API_LOCALE_BASE_URL, QUERY_FILTER_COLLECTIONS } =
+  process.env;
 
 class QueryBuilder {
   #baseUrl = "api/";
@@ -10,6 +11,10 @@ class QueryBuilder {
   }
   cloudQuery(path, options) {
     return `${URL_CLOUD_STRAPI}/${path}?${options}`;
+  }
+
+  getOneById(name, path, options) {
+    return `${URL_CLOUD_STRAPI}/${path}?filters[Topic][name_page][$eq]=${name}&${options}`;
   }
 }
 

@@ -6,14 +6,13 @@ import About from "../../../components/about/About";
 import natalia from "@/assets/svg/natalia_lawyers.png";
 
 import { specialistsEnums } from "@/libs/pages/components/specialists/libs/enums";
-import { questionEnums } from "@/libs/pages/components/QuestionList/libs/enums/enums";
 
-export default function QuestionsList({ type }) {
+export default function QuestionsList({ type, questions, about_block }) {
   const { color } = specialistsEnums[type];
 
   return (
     <section className={styles.section}>
-      <About img={natalia} type={type} />
+      <About type={type} {...about_block} />
       <div className={styles.questions_conteiner}>
         <div className={styles.container_title}>
           <div className={styles[color]}></div>
@@ -32,7 +31,7 @@ export default function QuestionsList({ type }) {
           <div className={styles[color]}></div>
         </div>
         <ul className={styles.list}>
-          {questionEnums.map((items, id) => (
+          {questions.map((items, id) => (
             <li key={id}>
               <Accordion {...items} type={type} />
             </li>

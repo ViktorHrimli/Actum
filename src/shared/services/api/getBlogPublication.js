@@ -1,11 +1,15 @@
 import { builder } from "@/shared/helpers/helpers";
 
-const { API_BLOG_PAGE, QUERY_BLOG_PAGE, CACHE_OPTIONS } = process.env;
+const { API_CURENT_BLOG_PAGE, QUERY_CURRENT_BLOG_PAGE, CACHE_OPTIONS } =
+  process.env;
 
-export const getBlogPage = async (locale = "ua") => {
-  const res = await fetch(builder.cloudQuery(API_BLOG_PAGE, QUERY_BLOG_PAGE), {
-    cache: CACHE_OPTIONS,
-  });
+export const getBlogPublication = async (name, locale = "ua") => {
+  const res = await fetch(
+    builder.getOneById(name, API_CURENT_BLOG_PAGE, QUERY_CURRENT_BLOG_PAGE),
+    {
+      cache: CACHE_OPTIONS,
+    }
+  );
 
   const data = await res.json();
 

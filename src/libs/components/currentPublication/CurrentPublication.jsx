@@ -7,24 +7,27 @@ import Button from "@/libs/components/button/Button";
 import img from "@/assets/svg/publics_item_1.png";
 import Search from "@/shared/components/search/Search";
 
-export default function CurrentPublication() {
+export default function CurrentPublication({
+  button,
+  title,
+  description,
+  topic_text,
+  picture,
+}) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
-        <h2 className={styles.title_text}>
-          ЧОМУ ВІЙСЬКОВИМ НЕ ВИПЛАЧУЮТЬ КОМПЕНСАЦІЮ ЗА ПОРАНЕННЯ?
-        </h2>
+        <h2 className={styles.title_text}>{title}</h2>
         <div className={styles.wrapper_content}>
           <div className={styles.text_conteiner}>
-            <p className={styles.text}>
-              Українські військові можуть розраховувати на виплату у розмірі 100
-              тисяч гривень від держави за отримане в ході виконання бойових
-              завдань поранення або за отриману інвалідність. Проте гроші
-              захисникам виплачують не у всіх випадках. Що це за випадки,
-              розберемо у цій публікації.
-            </p>
+            <p className={styles.text}>{description}</p>
 
-            <ol className={styles.number_list}>
+            <div>
+              {/* <strong className={styles.strong_text}>{ }</strong> */}
+              <p className={styles.text}>{topic_text}</p>
+            </div>
+
+            {/* <ol className={styles.number_list}>
               <strong className={styles.strong_text}>
                 Існує дев’ять причин, на підставі яких військовим буде
                 відмовлено від виплат:
@@ -93,12 +96,12 @@ export default function CurrentPublication() {
                   у ході службового розслідування.
                 </p>
               </li>
-            </ol>
+            </ol> */}
           </div>
 
           <div className={styles.image_wrapper}>
             <Image
-              src={img}
+              src={picture["data"]["attributes"]["url"] ?? img}
               alt={"photo thems"}
               fill
               sizes="(max-width: 767px) 280px, (max-width: 1280px) 663px, 500px"
@@ -108,7 +111,7 @@ export default function CurrentPublication() {
             <div className={styles.btn_wrapper}>
               <Button
                 style={"button_service"}
-                text={"замовити консультацію"}
+                text={button["text"]}
                 type={"button"}
               />
             </div>

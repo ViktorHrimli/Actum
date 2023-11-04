@@ -19,8 +19,6 @@ export default function Path({ path, type, back = "/", text }) {
     return router.push(`/${arrPath[0]}`, { scroll: true });
   };
 
-  console.log(arrPath);
-
   return (
     <div className={styles.conteiner}>
       <div className={styles.wrapper_path}>
@@ -38,7 +36,7 @@ export default function Path({ path, type, back = "/", text }) {
         >
           {path}
         </p>
-        {arrPath.length > 1 && (
+        {/* {arrPath.length > 1 && (
           <>
             <FontAwesomeIcon
               icon={faAnglesRight}
@@ -48,7 +46,7 @@ export default function Path({ path, type, back = "/", text }) {
               {arrPath[1]}
             </p>
           </>
-        )}
+        )} */}
       </div>
     </div>
   );
