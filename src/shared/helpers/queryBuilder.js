@@ -18,7 +18,6 @@ class QueryBuilder {
   }
 
   getSeo(path) {
-    console.log(path);
     return `${URL_CLOUD_STRAPI}/${path}?${QUERY_SEO_OPTIONS}`;
   }
 }

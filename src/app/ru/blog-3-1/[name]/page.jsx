@@ -49,6 +49,14 @@ export default async function page({ params }) {
 
   return (
     <>
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(seo["structuredData"]),
+          }}
+        ></script>
+      </section>
       <NestedHero img={hero_public} {...hero} />
       <ContactPanel type={"home"} />
       <Path
