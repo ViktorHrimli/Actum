@@ -3,21 +3,42 @@ import Path from "@/shared/components/path/Path";
 import CurrentPublication from "@/libs/components/currentPublication/CurrentPublication";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
-
-export const metadata = {
-  title: META_DATA_TITLE.BOOK,
-  description: META_DATA_DESCRIPTION.BOOK,
-};
-
 import hero_public from "@/assets/svg/publications_hero.png";
 
-import { getBlogPage, getBlogPublication } from "@/shared/services/api/api";
+import {
+  getBlogPage,
+  getBlogPublication,
+  getSeo,
+} from "@/shared/services/api/api";
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const {
+    data: {
+      attributes: { seo },
+    },
+  } = await getSeo(process.env["API_BLOG_PAGE"]);
+
+  return {
+    title: seo["metaTitle"],
+    description: seo["metaDescription"],
+    name: "viewport",
+    content: seo["metaViewport"],
+    keywords: seo["keywords"],
+    openGraph: {
+      title: seo["metaTitle"],
+      description: seo["metaDescription"],
+      url: seo["canonicalURL"],
+      type: "website",
+      locale: "uk-UA",
+      images: seo["metaImage"]["data"]["attributes"]["url"],
+    },
+  };
+}
 
 export default async function page({ params }) {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { Hero: hero, seo },
     },
   } = await getBlogPage();
 
@@ -29,6 +50,14 @@ export default async function page({ params }) {
 
   return (
     <>
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(seo["structuredData"]),
+          }}
+        ></script>
+      </section>
       <NestedHero img={hero_public} {...hero} />
       <ContactPanel type={"home"} />
       <Path

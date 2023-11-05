@@ -10,15 +10,31 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/libs/components/formSection/FormSection";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
-export const metadata = {
-  title: META_DATA_TITLE,
-  description: META_DATA_DESCRIPTION,
-  name: "viewport",
-  content: "width=device-width, initial-scale=1",
-  keywords: "actum",
-};
+import { getFamilyPage, getSeo } from "@/shared/services/api/api";
 
-import { getFamilyPage } from "@/shared/services/api/api";
+export async function generateMetadata({ params, searchParams }, parent) {
+  const {
+    data: {
+      attributes: { seo },
+    },
+  } = await getSeo(process.env["API_FAMILY_PAGE"]);
+
+  return {
+    title: seo["metaTitle"],
+    description: seo["metaDescription"],
+    name: "viewport",
+    content: seo["metaViewport"],
+    keywords: seo["keywords"],
+    openGraph: {
+      title: seo["metaTitle"],
+      description: seo["metaDescription"],
+      url: seo["canonicalURL"],
+      type: "website",
+      locale: "uk-UA",
+      images: seo["metaImage"]["data"]["attributes"]["url"],
+    },
+  };
+}
 
 export default async function page() {
   const {
@@ -38,6 +54,14 @@ export default async function page() {
   } = await getFamilyPage();
   return (
     <>
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(seo["structuredData"]),
+          }}
+        ></script>
+      </section>
       <ContactPanel type={"family"} />
       <HeroLawyers type={"family"} {...hero} {...bread_crumbs} />
       <QuestionsList

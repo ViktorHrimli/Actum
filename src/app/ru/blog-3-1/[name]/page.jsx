@@ -2,35 +2,62 @@ import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import Path from "@/shared/components/path/Path";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import CurrentPublication from "@/libs/components/currentPublication/CurrentPublication";
-
-import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
-
-export const metadata = {
-  title: META_DATA_TITLE.BOOK,
-  description: META_DATA_DESCRIPTION.BOOK,
-};
-
 import hero_public from "@/assets/svg/publications_hero.png";
 
-import { getBlogPage } from "@/shared/services/api/api";
+import {
+  getBlogPage,
+  getSeo,
+  getBlogPublication,
+} from "@/shared/services/api/api";
 
-export default async function page() {
+export async function generateMetadata({ params, searchParams }, parent) {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { seo },
+    },
+  } = await getSeo(process.env["API_BLOG_PAGE"]);
+
+  return {
+    title: seo["metaTitle"],
+    description: seo["metaDescription"],
+    name: "viewport",
+    content: seo["metaViewport"],
+    keywords: seo["keywords"],
+    openGraph: {
+      title: seo["metaTitle"],
+      description: seo["metaDescription"],
+      url: seo["canonicalURL"],
+      type: "website",
+      locale: "uk-UA",
+      images: seo["metaImage"]["data"]["attributes"]["url"],
+    },
+  };
+}
+
+export default async function page({ params }) {
+  const {
+    data: {
+      attributes: { Hero: hero, seo },
     },
   } = await getBlogPage("ru");
+
+  const {
+    data: [dataObj],
+  } = await getBlogPublication(params["name"]);
+
+  const { bread_crumbs, button, Blog: blog } = dataObj["attributes"]["Topic"];
+
   return (
     <>
       <NestedHero img={hero_public} {...hero} />
       <ContactPanel type={"home"} />
       <Path
-        path="ЧОМУ ВІЙСЬКОВИМ НЕ ВИПЛАЧУЮТЬ КОМПЕНСАЦІЮ ЗА ПОРАНЕННЯ?"
+        path={bread_crumbs["name_page"]}
         type="family_color"
-        back="/blog-3-1"
-        text="Публікації"
+        back={bread_crumbs["path"]}
+        text={bread_crumbs["back"]}
       />
-      <CurrentPublication />
+      <CurrentPublication {...blog} button={button} />
     </>
   );
 }
