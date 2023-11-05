@@ -37,7 +37,7 @@ export default async function Book() {
       attributes: { Hero: hero, Form: form, Info: info, seo },
     },
   } = await getBookPage();
-
+  console.log(seo);
   return (
     <>
       <section>
