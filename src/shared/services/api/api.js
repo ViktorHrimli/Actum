@@ -11,3 +11,4 @@ export { getFamilyPage } from "./getFamilyPage";
 export { getBlogPublication } from "./getBlogPublication";
 export { getArmyPage } from "./getArmyPage";
 export { getCrimePage } from "./getCrimePage";
+export { getSeo } from "./getSeo";
