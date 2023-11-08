@@ -64,7 +64,7 @@ export default async function page() {
         ></script>
       </section>
       <ContactPanel type={"army"} />
-      <HeroLawyers type={"army"} {...hero} {...bread_crumbs} />
+      <HeroLawyers type={"army"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"army"}
         about_block={about_block}

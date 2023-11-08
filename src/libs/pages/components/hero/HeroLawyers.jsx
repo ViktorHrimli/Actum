@@ -11,9 +11,7 @@ export default function HeroLawyers({
   title,
   actum_png,
   background,
-  path,
-  back,
-  name_page,
+  bread_crumbs,
 }) {
   const { style, color, backgroundPage } = lawyersHeroEnums[type];
 
@@ -42,7 +40,7 @@ export default function HeroLawyers({
           </div>
           <div className={styles[style]}></div>
         </div>
-        <Path path={name_page} type={color} back={path} text={back} />
+        <Path type={color} {...bread_crumbs} />
       </section>
     </>
   );

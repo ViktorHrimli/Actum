@@ -18,6 +18,8 @@ export default function ArrowMenu({ isOpenSelect, setIsOpen = () => {} }) {
       }}
       initial={{ x: 0 }}
       transition={{ duration: 0.8 }}
+      aria-pressed={isOpenSelect}
+      role="button"
     >
       <Image src={arrow} alt="arrow" fill loading="lazy" sizes="24px" />
     </motion.div>

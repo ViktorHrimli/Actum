@@ -42,7 +42,7 @@ export default function NavSelectItem({
       </div>
 
       {isOpenSelect && isOpenIndex[path] && (
-        <ul className={styles.nested_select_list}>
+        <ul className={styles.nested_select_list} aria-expanded={isOpenSelect}>
           {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link href={`${path}${pathsService}`}>
