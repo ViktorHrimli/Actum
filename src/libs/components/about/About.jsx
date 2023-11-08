@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useEffect } from "@/shared/hooks/hooks";
 
 import Button from "@/libs/components/button/Button";
 import Quotes from "@/shared/components/quotes/Quotes";
@@ -15,6 +16,8 @@ export default function About({
   photo,
   button,
 }) {
+  const [markDown, setMarkDown] = useState("");
+
   const colorObj = {
     army: "#536641",
     crime: "#3F2E64",
@@ -24,6 +27,10 @@ export default function About({
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
+
+  useEffect(() => {
+    document.getElementById("description_title_about").innerHTML = description;
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -35,7 +42,10 @@ export default function About({
             </div>
             <h2 className={styles.title_text}>{title}</h2>
           </div>
-          <p className={styles.text}>{description}</p>
+          <div
+            className={styles.conteiner_description}
+            id="description_title_about"
+          ></div>
         </div>
 
         <div className={styles.image_wrapper}>

@@ -17,6 +17,10 @@ class QueryBuilder {
     return `${URL_CLOUD_STRAPI}/${path}?filters[Topic][name_page][$eq]=${name}&${options}`;
   }
 
+  getLawyersServicesPage(name, path, options) {
+    return `${URL_CLOUD_STRAPI}/${path}?filters[name_page][$eq]=${name}&${options}`;
+  }
+
   getSeo(path) {
     return `${URL_CLOUD_STRAPI}/${path}?${QUERY_SEO_OPTIONS}`;
   }

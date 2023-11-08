@@ -10,7 +10,7 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/libs/components/formSection/FormSection";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
-import { getFamilyPage, getSeo } from "@/shared/services/api/api";
+import { getFamilyLawyers, getSeo } from "@/shared/services/api/api";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const {
@@ -36,22 +36,25 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export default async function page() {
+export default async function page({ params }) {
+  console.log(params);
+  const { data } = await getFamilyLawyers(params["name"]);
+
   const {
-    data: {
-      attributes: {
-        Hero: hero,
-        about_block,
-        Employeers_list: employeer_list,
-        Form: form,
-        Info: info,
-        Responses: responses,
-        questions_list,
-        bread_crumbs,
-        description_lawyer,
-      },
+    attributes: {
+      Hero: hero,
+      about_block,
+      Employeers_list: employeer_list,
+      Form: form,
+      Info: info,
+      Responses: responses,
+      questions_list,
+      bread_crumbs,
+      description_lawyer,
+      seo,
     },
-  } = await getFamilyPage();
+  } = data[0];
+
   return (
     <>
       <section>
@@ -62,8 +65,8 @@ export default async function page() {
           }}
         ></script>
       </section>
-      <ContactPanel type={"family"} />
-      <HeroLawyers type={"family"} {...hero} {...bread_crumbs} />
+      <ContactPanel type={"home"} />
+      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}
         about_block={about_block}
@@ -71,7 +74,7 @@ export default async function page() {
       />
       <SuccessfulBusiness type={"family"} />
       <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
+      <Description type={"family"} title={description_lawyer} />
       <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} />
       <FormSection type={"family"} formData={form} {...info} />
