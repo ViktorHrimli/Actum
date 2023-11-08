@@ -2,9 +2,8 @@ export default function robots() {
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
-      disallow: "/private/",
+      disallow: "/",
     },
-    sitemap: "http://localhost:3000/sitemap.xml",
+    // sitemap: "http://localhost:3000/sitemap.xml",
   };
 }
