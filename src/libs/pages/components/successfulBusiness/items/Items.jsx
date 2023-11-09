@@ -1,12 +1,9 @@
 import styles from "./Items.module.scss";
 
-import Link from "next/link";
-
 import { cardsEnums } from "./libs/enums";
 
 import Successful_business from "@/assets/svg/Successful_business_hover.jpg";
 
-import Button from "@/libs/components/button/Button";
 import Card from "@/libs/pages/components/successfulBusiness/card/Card";
 import MobileSlider from "@/shared/components/mobile_animation/MobileSlider";
 import Arrow from "@/libs/components/arrowCard/Arrow";

@@ -51,6 +51,7 @@ export default async function page() {
       },
     },
   } = await getFamilyPage();
+
   return (
     <>
       <section>
@@ -62,7 +63,7 @@ export default async function page() {
         ></script>
       </section>
       <ContactPanel type={"family"} />
-      <HeroLawyers type={"family"} {...hero} {...bread_crumbs} />
+      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}
         about_block={about_block}

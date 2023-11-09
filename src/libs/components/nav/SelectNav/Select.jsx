@@ -37,7 +37,7 @@ const initital = {
 
 export default function Select({ routes, isOpen, onClick, isMobile }) {
   const [isOpenIndex, dispatch] = useReducer(reducer, initital);
-  console.log(routes);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -53,7 +53,7 @@ export default function Select({ routes, isOpen, onClick, isMobile }) {
             {!isMobile && (
               <div className={styles.hidden_wrapper} onClick={onClick}></div>
             )}
-            <ul className={styles.list}>
+            <ul className={styles.list} aria-expanded={isOpen}>
               {routes.map((item, id) => (
                 <NavSelectItem
                   key={id}

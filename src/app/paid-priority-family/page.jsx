@@ -62,8 +62,8 @@ export default async function Family() {
           }}
         ></script>
       </section>
-      <ContactPanel type={"family"} />
-      <HeroLawyers type={"family"} {...hero} {...bread_crumbs} />
+      <ContactPanel type={"home"} />
+      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}
         about_block={about_block}

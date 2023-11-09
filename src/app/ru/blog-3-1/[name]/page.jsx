@@ -59,12 +59,7 @@ export default async function page({ params }) {
       </section>
       <NestedHero img={hero_public} {...hero} />
       <ContactPanel type={"home"} />
-      <Path
-        path={bread_crumbs["name_page"]}
-        type="family_color"
-        back={bread_crumbs["path"]}
-        text={bread_crumbs["back"]}
-      />
+      <Path type="family_color" {...bread_crumbs} />
       <CurrentPublication {...blog} button={button} />
     </>
   );

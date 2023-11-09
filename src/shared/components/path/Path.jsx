@@ -6,24 +6,30 @@ import { useRouter, usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
-export default function Path({ path, type, back = "/", text }) {
+export default function Path({
+  type,
+  parent_page,
+  children_link,
+  children_page,
+  parent_link,
+  isNestedPage,
+  nested_page_title,
+}) {
   const router = useRouter();
 
-  const arrPath = usePathname().replaceAll("/", " ").trim().split(" ");
-
   const handleClickOnPath = () => {
-    return router.push(back, { scroll: true });
+    return router.push(`/${parent_link}`, { scroll: true });
   };
 
   const handleClickOnPrevPage = () => {
-    return router.push(`/${arrPath[0]}`, { scroll: true });
+    return router.push(`/${children_link}`, { scroll: true });
   };
 
   return (
     <div className={styles.conteiner}>
       <div className={styles.wrapper_path}>
         <p className={styles.service_text} onClick={handleClickOnPath}>
-          {text}
+          {parent_page}
         </p>
 
         <FontAwesomeIcon
@@ -32,21 +38,21 @@ export default function Path({ path, type, back = "/", text }) {
         />
         <p
           className={`${styles.path_text} ${styles[type]}`}
-          onClick={arrPath.length > 1 ? handleClickOnPrevPage : () => {}}
+          onClick={isNestedPage ? handleClickOnPrevPage : () => {}}
         >
-          {path}
+          {children_page}
         </p>
-        {/* {arrPath.length > 1 && (
+        {isNestedPage && (
           <>
             <FontAwesomeIcon
               icon={faAnglesRight}
               className={`${styles.arrow_icon} ${styles[type]}`}
             />
             <p className={`${styles.path_text} ${styles[type]}`}>
-              {arrPath[1]}
+              {nested_page_title}
             </p>
           </>
-        )} */}
+        )}
       </div>
     </div>
   );
