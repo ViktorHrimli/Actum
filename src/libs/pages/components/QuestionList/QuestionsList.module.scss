@@ -15,9 +15,11 @@
 
     @media screen and (min-width: 1280px) {
         width: 1280px;
+        height: 2000px;
     }
     @media screen and (min-width: 1440px) {
         width: 1440px;
+        height: 2300px;
     }
 }
 
@@ -43,12 +45,13 @@
         flex-direction: row;
         justify-content: flex-end;
         width: 1280px;
-        padding: 255px 92px 220px 64px;
+        height: 100%;
+        padding: 0px 92px 0px 64px;
     }
 
     @media screen and (min-width: 1440px) {
         width: 1440px;
-        padding: 255px 115px 237px 70px;
+        padding: 0px 115px 237px 70px;
     }
 
 }
