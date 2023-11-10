@@ -30,13 +30,11 @@ export default function Items({ items }) {
                 </Link>
               </div>
             </div>
-            <ul className={styles.text_list}>
-              {el.texts.map(({ text, id }) => (
-                <li key={id}>
-                  <p className={styles.text}>{text}</p>
-                </li>
-              ))}
-            </ul>
+
+            <div
+              className={styles.text_list}
+              dangerouslySetInnerHTML={{ __html: el["description"] }}
+            ></div>
           </div>
         </li>
       ))}

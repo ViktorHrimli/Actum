@@ -6,13 +6,7 @@ import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 import styles from "./FamilyMattrs.module.scss";
 
-export default function FamilyMattrs({
-  openModalHands,
-  title,
-  first_text,
-  second_text,
-  third_text,
-}) {
+export default function FamilyMattrs({ openModalHands, title, description }) {
   return (
     <div className={styles.family}>
       <div onClick={openModalHands} className={styles.closed}>
@@ -20,9 +14,10 @@ export default function FamilyMattrs({
       </div>
       <h2 className={styles.family_title}>{title}</h2>
 
-      <p className={styles.family_text}>{first_text}</p>
-      <p className={styles.family_text}>{second_text}</p>
-      <p className={styles.family_text}>{third_text}</p>
+      <div
+        className={styles.family_text}
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></div>
 
       <Image
         src={LinkedPath}

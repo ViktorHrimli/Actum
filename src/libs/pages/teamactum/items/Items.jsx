@@ -8,8 +8,15 @@ import styles from "./Items.module.scss";
 
 import { cityEnum } from "../libs/enums/enums";
 
-export default function Items({ title, photo, button, texts, city, side_picture }) {
-  console.log(side_picture);
+export default function Items({
+  title,
+  photo,
+  button,
+  texts,
+  city,
+  side_picture,
+  description,
+}) {
   return (
     <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
@@ -18,11 +25,10 @@ export default function Items({ title, photo, button, texts, city, side_picture 
 
           <p className={styles.lawyer_text}>{button["style"]}</p>
 
-          {texts.map((item, id) => (
-            <p className={styles.text} key={id}>
-              {item.text}
-            </p>
-          ))}
+          <div
+            className={styles.text}
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></div>
         </div>
         <div className={styles.map_wrapper}>
           <IconMap />
