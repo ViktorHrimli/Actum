@@ -8,7 +8,8 @@ import styles from "./Items.module.scss";
 
 import { cityEnum } from "../libs/enums/enums";
 
-export default function Items({ title, photo, button, texts }) {
+export default function Items({ title, photo, button, texts, city, side_picture }) {
+  console.log(side_picture);
   return (
     <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
@@ -25,8 +26,8 @@ export default function Items({ title, photo, button, texts }) {
         </div>
         <div className={styles.map_wrapper}>
           <IconMap />
-          <div className={`${styles.conteiner_pin} ${styles[button["style"]]}`}>
-            <p>{cityEnum[button["style"]]}</p>
+          <div className={`${styles.conteiner_pin} ${styles[city]}`}>
+            <p>{cityEnum[city]}</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -46,7 +47,7 @@ export default function Items({ title, photo, button, texts }) {
           </div>
         </div>
 
-        <div className={styles.image_conteiner}>
+        <div className={`${styles.image_conteiner} ${styles[side_picture]}`}>
           <Image
             src={photo["data"]["attributes"]["url"]}
             alt="Коровіна Наталя Георгіївна"

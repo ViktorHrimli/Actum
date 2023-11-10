@@ -56,19 +56,19 @@
         // height: 180px;
         bottom: -40px;
         left: -9px;
-        width: 160px;
+        width: 169px;
         height: 237px;
     }
 
     @media screen and (min-width: 768px) {
         bottom: -37px;
-        width: 256px;
+        width: 207px;
         height: 290px;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 320px;
-        height: 430px;
+        width: 342px;
+        height: 480px;
         bottom: 10px;
     }
 
@@ -265,7 +265,7 @@
 
 .lviv {
     top: 34px;
-    left: 17px;
+    left: 25px;
 
     @media screen and (min-width: 1280px) {
         top: 102px;
@@ -275,7 +275,7 @@
 
 .mykolayv {
     top: 87px;
-    left: 95px;
+    left: 110px;
 
     @media screen and (min-width: 1280px) {
         top: 218px;
@@ -295,7 +295,7 @@
 
 .kherson {
     top: 91px;
-    left: 102px;
+    left: 110px;
 
     @media screen and (min-width: 1280px) {
         top: 217px;
@@ -332,5 +332,63 @@
     @media screen and (min-width: 1440px) {
         width: 406px;
         height: 64px;
+    }
+}
+
+// position photo
+
+.center {
+    position: absolute;
+    left: 20px;
+    @media screen and (min-width: 320px) {
+        bottom: -80px;
+    }
+    @media screen and (min-width: 768px) {
+        bottom: 0;
+    }
+    @media screen and (min-width: 1280px) {
+        bottom: -40px;
+    }
+    @media screen and (min-width: 1440px) {
+        bottom: 0;
+    }
+}
+.right_side {
+    position: absolute;
+
+    @media screen and (min-width: 320px) {
+        left: 100px;
+        bottom: -80px;
+    }
+    @media screen and (min-width: 768px) {
+        left: 100px;
+        bottom: 0;
+    }
+    @media screen and (min-width: 1280px) {
+        left: 200px;
+        bottom: -40px;
+    }
+    @media screen and (min-width: 1440px) {
+        left: 200px;
+    }
+}
+
+.left_side {
+    position: absolute;
+
+    @media screen and (min-width: 320px) {
+        left: -20px;
+        bottom: -80px;
+    }
+    @media screen and (min-width: 768px) {
+        left: 0;
+        bottom: 0;
+    }
+    @media screen and (min-width: 1280px) {
+        left: -50px;
+        bottom: -40px;
+    }
+    @media screen and (min-width: 1440px) {
+        left: -50px;
     }
 }
