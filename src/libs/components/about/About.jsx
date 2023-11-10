@@ -47,7 +47,7 @@ export default function About({
             id="description_title_about"
           ></div>
         </div>
-
+      <div className={styles.box}>
         <div className={styles.image_wrapper}>
           <Image
             src={photo["data"]["attributes"]["url"]}
@@ -55,7 +55,7 @@ export default function About({
             alt="natalia"
             fill
             style={{
-              objectFit: "cover",
+              objectFit: "contain",
               borderRadius: "4px",
             }}
           />
@@ -66,6 +66,7 @@ export default function About({
               type={type}
               typeStyle={type}
             />
+            </div>
           </div>
         </div>
       </div>

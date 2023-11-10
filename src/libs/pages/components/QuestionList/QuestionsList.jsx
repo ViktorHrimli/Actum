@@ -11,8 +11,9 @@ export default function QuestionsList({ type, questions, about_block }) {
   const { color } = specialistsEnums[type];
 
   return (
+    <>
+    <About type={type} {...about_block} />
     <section className={styles.section}>
-      <About type={type} {...about_block} />
       <div className={styles.questions_conteiner}>
         <div className={styles.container_title}>
           <div className={styles[color]}></div>
@@ -38,6 +39,7 @@ export default function QuestionsList({ type, questions, about_block }) {
           ))}
         </ul>
       </div>
-    </section>
+      </section>
+      </>
   );
 }
