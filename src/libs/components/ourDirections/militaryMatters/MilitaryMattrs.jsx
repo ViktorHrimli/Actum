@@ -10,9 +10,7 @@ import styles from "./MilitaryMattrs.module.scss";
 export default function MilitaryMattrs({
   openModalhalmet,
   title,
-  first_text,
-  second_text,
-  third_text,
+  description,
 }) {
   return (
     <div className={styles.military}>
@@ -21,9 +19,10 @@ export default function MilitaryMattrs({
       </div>
       <h2 className={styles.military_title}>{title}</h2>
 
-      <p className={styles.military_text}>{first_text}</p>
-      <p className={styles.military_text}>{second_text}</p>
-      <p className={styles.military_text}>{third_text}</p>
+      <div
+        className={styles.military_text}
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></div>
 
       <Image
         src={LinkedPath}

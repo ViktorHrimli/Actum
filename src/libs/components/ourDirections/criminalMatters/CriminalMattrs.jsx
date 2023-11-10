@@ -10,9 +10,7 @@ import styles from "./CriminalMattrs.module.scss";
 export default function CriminalMattrs({
   openModalCriminal,
   title,
-  first_text,
-  second_text,
-  third_text,
+  description,
 }) {
   return (
     <div className={styles.criminal}>
@@ -21,9 +19,10 @@ export default function CriminalMattrs({
       </div>
       <h2 className={styles.criminal_title}>{title}</h2>
 
-      <p className={styles.criminal_text}>{first_text}</p>
-      <p className={styles.criminal_text}>{second_text}</p>
-      <p className={styles.criminal_text}>{third_text}</p>
+      <div
+        className={styles.criminal_text}
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></div>
 
       <Image
         src={LinkedPath}

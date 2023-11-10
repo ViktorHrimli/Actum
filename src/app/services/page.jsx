@@ -69,7 +69,7 @@ export default async function Services() {
         desk={desk_list}
         button={button}
       />
-      <Descrition type="classic" title={desk_somthing} />
+      <Descrition type="classic" description={desk_somthing} />
     </>
   );
 }

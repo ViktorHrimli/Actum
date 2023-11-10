@@ -16,8 +16,6 @@ export default function About({
   photo,
   button,
 }) {
-  const [markDown, setMarkDown] = useState("");
-
   const colorObj = {
     army: "#536641",
     crime: "#3F2E64",
@@ -27,10 +25,6 @@ export default function About({
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
-
-  useEffect(() => {
-    document.getElementById("description_title_about").innerHTML = description;
-  }, []);
 
   return (
     <section className={styles.section}>
@@ -44,28 +38,28 @@ export default function About({
           </div>
           <div
             className={styles.conteiner_description}
-            id="description_title_about"
+            dangerouslySetInnerHTML={{ __html: description }}
           ></div>
         </div>
-      <div className={styles.box}>
-        <div className={styles.image_wrapper}>
-          <Image
-            src={photo["data"]["attributes"]["url"]}
-            loading="lazy"
-            alt="natalia"
-            fill
-            style={{
-              objectFit: "contain",
-              borderRadius: "4px",
-            }}
-          />
-          <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
-            <Button
-              style={"button_service"}
-              text={button["text"]}
-              type={type}
-              typeStyle={type}
+        <div className={styles.box}>
+          <div className={styles.image_wrapper}>
+            <Image
+              src={photo["data"]["attributes"]["url"]}
+              loading="lazy"
+              alt="natalia"
+              fill
+              style={{
+                objectFit: "contain",
+                borderRadius: "4px",
+              }}
             />
+            <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
+              <Button
+                style={"button_service"}
+                text={button["text"]}
+                type={type}
+                typeStyle={type}
+              />
             </div>
           </div>
         </div>
