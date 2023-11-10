@@ -16,12 +16,6 @@ import animationSignNatalia from "@/assets/json/sign_natalia.json";
 
 import Ukraine from "@/assets/svg/Ukraine.png";
 
-// import Natalia from "@/assets/svg/Olga.png";
-// import Olena from "@/assets/svg/Natalia.png";
-
-import Natalia from "@/assets/svg/PartnerAbout1-5:7.png";
-import Olena from "@/assets/svg/PartnerAbout2-5:7.png";
-
 export default function AboutCompany({
   title,
   first_text,
@@ -67,8 +61,7 @@ export default function AboutCompany({
             {/* PHOTO */}
             <div className={styles.olga_conteiner}>
               <Image
-                // src={left_picture["data"]["attributes"]["url"] || Natalia}
-                src={Natalia}
+                src={left_picture["data"]["attributes"]["url"] || Natalia}
                 alt="Olga"
                 fill
                 loading="eager"
@@ -76,8 +69,7 @@ export default function AboutCompany({
             </div>
             <div className={styles.natalia_conteiner}>
               <Image
-                // src={right_picture["data"]["attributes"]["url"] || Olena}
-                src={Olena}
+                src={right_picture["data"]["attributes"]["url"] || Olena}
                 alt="Natalia"
                 fill
                 loading="eager"
