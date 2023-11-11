@@ -1,6 +1,6 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import StepsLawyers from "@/libs/components/stepLawyers/StepsLawyers";
-import FormSection from "@/libs/components/formSection/FormSection";
+import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
+import FormSection from "@/shared/components/formSection/FormSection";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import { getBookPage, getSeo } from "@/shared/services/api/api";

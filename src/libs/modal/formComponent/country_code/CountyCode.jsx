@@ -6,7 +6,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useMemo, useState } from "@/shared/hooks/hooks";
 
 import styles from "./CountryCode.module.scss";
-import stylesForm from "@/libs/pages/components/form/Form.module.scss";
+import stylesForm from "@/shared/components/form/Form.module.scss";
 
 import code from "@/assets/json/countries.json";
 

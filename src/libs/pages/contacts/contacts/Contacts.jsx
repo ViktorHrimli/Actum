@@ -1,17 +1,20 @@
 "use client";
-import { useState } from "react";
-
 import Image from "next/image";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { useState } from "@/shared/hooks/hooks";
 
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Button from "@/libs/components/button/Button";
 
-import styles from "./Contacts.module.scss";
+import touch from "@/assets/svg/Klick_icon.png";
+import MapUkraine from "@/assets/svg/Contacts_map_white.svg";
 
-import touch from "../../../../assets/svg/Klick_icon.png";
-import MapUkraine from "../../../../assets/svg/Contacts_map_white.svg";
+import { iconEnum } from "@/shared/enums/enum";
+
+import styles from "./Contacts.module.scss";
 
 export default function Contacts({
   type,
@@ -21,6 +24,8 @@ export default function Contacts({
   email,
   phones,
   button,
+  city_description,
+  city_services,
 }) {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -57,30 +62,16 @@ export default function Contacts({
                         </div>
 
                         <div className={styles.map_ukraine}>
-                          <div className={styles.ukraine_inner_text}>
-                            <p>
-                              Працюємо по
-                              <span className={styles.bold_text}>
-                                всій Україні
-                              </span>
-                              : надаємо онлайн-консультації або виїзджаємо до
-                              Вас.
-                            </p>
-                          </div>
-                          <div className={styles.ukraine_inner_city}>
-                            <p>
-                              Прямо сьогодні Ви можете завітати в офіс у 9
-                              містах України:
-                              <span className={styles.bold_text}>
-                                Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий
-                                Ріг, Херсон, Покровськ.
-                              </span>
-                            </p>
-                            <p className={styles.bold_text_mob}>
-                              Київ, Львів, Дніпро, Миколаїв, Житомир, Кривий
-                              Ріг, Херсон, Покровськ.
-                            </p>
-                          </div>
+                          <div
+                            className={styles.ukraine_inner_text}
+                            dangerouslySetInnerHTML={{ __html: city_services }}
+                          ></div>
+                          <div
+                            className={styles.ukraine_inner_city}
+                            dangerouslySetInnerHTML={{
+                              __html: city_description,
+                            }}
+                          ></div>
                           <Image
                             src={MapUkraine}
                             alt="Map"
@@ -159,7 +150,20 @@ export default function Contacts({
                     Наші інформаційні канали
                   </p>
                   <ul className={styles.list}>
-                    <li className={styles.link}>
+                    {social_list.map(({ name, path, icons_name }, id) => (
+                      <li key={id} className={styles.link}>
+                        <a className={styles.social} href={path}>
+                          <div className={styles.svg_hover}>
+                            <FontAwesomeIcon
+                              icon={iconEnum[icons_name]}
+                              className={styles.path}
+                            />
+                          </div>
+                          <p className={styles.social_text}>{name}</p>
+                        </a>
+                      </li>
+                    ))}
+                    {/* <li className={styles.link}>
                       <a
                         className={styles.social}
                         href="https://t.me/actum_help"
@@ -262,7 +266,7 @@ export default function Contacts({
                         </svg>
                         <p className={styles.social_text}>facebook сторінка</p>
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>

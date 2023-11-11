@@ -9,7 +9,8 @@ import Button from "@/libs/components/button/Button";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import CountyCode from "./country_code/CountyCode";
 
-import { borderEnums, iconEnum } from "./enumsForm/enumsForm";
+import { borderEnums } from "./enumsForm/enumsForm";
+import { iconEnum } from "@/shared/enums/enum";
 
 import styles from "./Form.module.scss";
 

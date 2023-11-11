@@ -1,25 +1,20 @@
 "use client";
+import IMask from "react-input-mask";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "@/shared/hooks/hooks";
-import { useEffect } from "@/shared/hooks/hooks";
-import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import IMask from "react-input-mask";
-import {
-  faChevronDown,
-  faPhone,
-  faCircleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "@/shared/hooks/hooks";
 
-import { faViber, faTelegram } from "@fortawesome/free-brands-svg-icons";
-
+// import CountryCode from "@/libs/modal/formComponent/country_code/CountyCode";
+import CountyCode from "@/shared/components/form/country_code/CountyCode";
+import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import Button from "@/libs/components/button/Button";
 
-import styles from "./FormComponent.module.scss";
+import { iconEnum } from "@/shared/enums/enum";
 import { borderEnums } from "./enumsForm/enumsForm";
-import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
-import CountryCode from "@/libs/modal/formComponent/country_code/CountyCode";
+
+import styles from "./FormComponent.module.scss";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
@@ -142,7 +137,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             {errors.name && (
               <div className={styles.error_name}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
@@ -179,7 +174,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             {errors.textarea && (
               <div className={styles.error_textarea}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
@@ -196,7 +191,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             Вкажіть номер, на якому встановлений Месенджер
           </label>
           <div className={styles.conteiner_name}>
-            <CountryCode
+            <CountyCode
               setPhoneNumber={setPhoneNumber}
               resetField={resetField}
               setPhone={setPhone}
@@ -206,7 +201,19 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
               handleToggleCountry={handleToggleCountry}
               phone={phone}
               border={border}
+              setIsOpen={setIsOpen}
             />
+            {/* <CountryCode
+              setPhoneNumber={setPhoneNumber}
+              resetField={resetField}
+              setPhone={setPhone}
+              color_text={color_text}
+              isOpenCountry={isOpenCountry}
+              setIsOpenCountry={setIsOpenCountry}
+              handleToggleCountry={handleToggleCountry}
+              phone={phone}
+              border={border}
+            /> */}
 
             <div className={styles[border]}>
               <Controller
@@ -252,7 +259,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             {errors.phone && (
               <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
@@ -290,7 +297,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             {errors.message && !selectValue && (
               <div className={styles.error_message}>
                 <FontAwesomeIcon
-                  icon={faCircleExclamation}
+                  icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
@@ -302,7 +309,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
               onClick={handleToggleSelect}
             >
               <FontAwesomeIcon
-                icon={faChevronDown}
+                icon={iconEnum["arrowOpen"]}
                 className={`${styles.icon} ${styles[color_text]}`}
                 style={errors.message && !selectValue ? { color: "#fff" } : {}}
               />
@@ -314,7 +321,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
                   className={`${styles.options} ${styles[options_hover]}`}
                 >
                   <FontAwesomeIcon
-                    icon={faViber}
+                    icon={iconEnum["Viber"]}
                     className={styles.options_icon}
                   />
                   Viber
@@ -324,7 +331,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
                   className={`${styles.options} ${styles[options_hover]}`}
                 >
                   <FontAwesomeIcon
-                    icon={faTelegram}
+                    icon={iconEnum["Telegram"]}
                     className={styles.options_icon}
                   />
                   Telegram
@@ -334,7 +341,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
                   className={`${styles.options} ${styles[options_hover]}`}
                 >
                   <FontAwesomeIcon
-                    icon={faPhone}
+                    icon={iconEnum["Telephone"]}
                     className={styles.options_icon}
                   />
                   Телефон
@@ -354,7 +361,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
           {errors.services && (
             <div className={styles.error_services}>
               <FontAwesomeIcon
-                icon={faCircleExclamation}
+                icon={iconEnum["warningIcon"]}
                 className={styles.error_icon_service}
               />
             </div>
@@ -368,7 +375,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             onClick={handleToggleRadio}
           >
             <FontAwesomeIcon
-              icon={faChevronDown}
+              icon={iconEnum["arrowOpen"]}
               className={`${styles.icon_radio} ${styles[color_text]}`}
             />
           </motion.div>

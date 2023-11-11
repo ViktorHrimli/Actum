@@ -1,6 +1,6 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import Descrition from "@/libs/pages/services/components/description/Description";
-import About from "@/libs/components/about/About";
+import About from "@/shared/components/about/About";
 import TeamList from "@/libs/pages/teamactum/teamList/TeamList";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 

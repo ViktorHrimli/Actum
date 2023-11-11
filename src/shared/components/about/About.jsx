@@ -1,11 +1,11 @@
 "use client";
-
 import Image from "next/image";
-import { useState, useEffect } from "@/shared/hooks/hooks";
 
 import Button from "@/libs/components/button/Button";
 import Quotes from "@/shared/components/quotes/Quotes";
+
 import { getFormById } from "@/shared/helpers/helpers";
+import { themsColor } from "@/shared/enums/enum";
 
 import styles from "./About.module.scss";
 
@@ -16,12 +16,6 @@ export default function About({
   photo,
   button,
 }) {
-  const colorObj = {
-    army: "#536641",
-    crime: "#3F2E64",
-    family: "#E32F7A",
-  };
-
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
@@ -32,7 +26,7 @@ export default function About({
         <div className={styles.conteiner_text}>
           <div className={styles.conteiner_title}>
             <div className={styles.icons_conteiner}>
-              <Quotes color={colorObj[type]} />
+              <Quotes color={themsColor[type]["fill"]} />
             </div>
             <h2 className={styles.title_text}>{title}</h2>
           </div>

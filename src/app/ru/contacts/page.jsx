@@ -32,7 +32,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function Conacts() {
   const {
     data: {
-      attributes: { Hero: hero, Info: info, Social: social, button, seo },
+      attributes: {
+        Hero: hero,
+        Info: info,
+        Social: social,
+        button,
+        seo,
+        city_description,
+        city_services,
+      },
     },
   } = await getContactsPage("ru");
 
@@ -47,7 +55,13 @@ export default async function Conacts() {
         ></script>
       </section>
       <NestedHero type={"home"} {...hero} img={ContactHero} />
-      <Contacts social_list={social} button={button} {...info} />
+      <Contacts
+        social_list={social}
+        button={button}
+        {...info}
+        city_description={city_description}
+        city_services={city_services}
+      />
     </>
   );
 }
