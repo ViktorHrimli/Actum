@@ -12,10 +12,7 @@ import CriminalMattrs from "./criminalMatters/CriminalMattrs";
 
 import Touch_icon from "@/assets/svg/Touch_icon.png";
 
-// ------------- Tablet img
-import TabletHands from "@/assets/svg/Tablet_hands.jpeg";
-import TabletHalmet from "@/assets/svg/Tablet_halmet.jpeg";
-import TabletCriminal from "@/assets/svg/Tablet_criminal.jpeg";
+
 
 //-------------- Desctop img
 import Hands from "@/assets/svg/Hands.png";
@@ -28,6 +25,8 @@ import Criminal_animations from "@/assets/svg/Ctiminal_blue.png";
 import Button from "@/libs/components/button/Button";
 import Link from "next/link";
 import Mob from "./directionMob/Mob";
+import Tab from "./directionTab/Tab";
+
 import { useClient } from "@/shared/hooks/useClient";
 
 const ONE = 0;
@@ -70,92 +69,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
     setModalHands(false);
   };
 
-  // ----------- Animations Tablet
-  const [showCards, setShowCards] = useState(false);
 
-  const [revers, setRevers] = useState(false);
-
-  const cardsRefTab = useRef();
-
-  const [showFirstCard, setShowFirstCard] = useState(false);
-  const [showSecondCard, setShowSecondCard] = useState(false);
-  const [showThirdCard, setShowThirdCard] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setShowCards(entry.isIntersecting);
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-      }
-    );
-
-    if (cardsRefTab.current) {
-      observer.observe(cardsRefTab.current);
-    }
-
-    return () => {
-      if (cardsRefTab.current) {
-        observer.unobserve(cardsRefTab.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (revers) {
-      if (showCards) {
-        const firstCardTimeout = setTimeout(() => {
-          setShowFirstCard(true);
-        }, 500);
-
-        const secondCardTimeout = setTimeout(() => {
-          setShowSecondCard(true);
-        }, 1000);
-
-        const thirdCardTimeout = setTimeout(() => {
-          setShowThirdCard(true);
-        }, 1500);
-
-        return () => {
-          clearTimeout(firstCardTimeout);
-          clearTimeout(secondCardTimeout);
-          clearTimeout(thirdCardTimeout);
-        };
-      } else {
-        setShowFirstCard(false);
-        setShowSecondCard(false);
-        setShowThirdCard(false);
-        setRevers(!revers);
-      }
-    } else if (showCards) {
-      const firstCardTimeout = setTimeout(() => {
-        setShowFirstCard(true);
-      }, 1500);
-
-      const secondCardTimeout = setTimeout(() => {
-        setShowSecondCard(true);
-      }, 1000);
-
-      const thirdCardTimeout = setTimeout(() => {
-        setShowThirdCard(true);
-      }, 500);
-
-      return () => {
-        clearTimeout(firstCardTimeout);
-        clearTimeout(secondCardTimeout);
-        clearTimeout(thirdCardTimeout);
-      };
-    } else {
-      setShowFirstCard(false);
-      setShowSecondCard(false);
-      setShowThirdCard(false);
-      setRevers(!revers);
-    }
-  }, [showCards]);
 
   // ----------- Animations Laptop
 
@@ -183,56 +97,10 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
 
           {/* ------- mob -------- */}
           <Mob family={Family} army={Army} crime={Crime} />
-          {/* ------- tablet ------- */}
-          <div ref={cardsRefTab} className={styles.tablet_img}>
-            <div className={styles.tablet_img_hands}>
-              <Image
-                src={TabletHands}
-                alt="Hands"
-                loading="lazy"
-                fill
-                className={styles.tablet_img_hands}
-              />
+          
+          {/* ------- Tab -------- */}
 
-              {showCards && (
-                <div className={styles.show_hands_tab}>
-                  {showFirstCard && <FamilyMattrs {...Family} />}
-                </div>
-              )}
-            </div>
-
-            <div className={styles.tablet_img_halmet}>
-              <Image
-                src={TabletHalmet}
-                loading="lazy"
-                alt="Halmet"
-                fill
-                className={styles.tablet_img_halmet}
-              />
-
-              {showCards && (
-                <div className={styles.show_halmet_tab}>
-                  {showSecondCard && <MilitaryMattrs {...Army} />}
-                </div>
-              )}
-            </div>
-
-            <div className={styles.tablet_img_criminal}>
-              <Image
-                src={TabletCriminal}
-                alt="Halmet"
-                loading="lazy"
-                fill
-                className={styles.tablet_img_criminal}
-              />
-
-              {showCards && (
-                <div className={styles.show_criminal_tab}>
-                  {showThirdCard && <CriminalMattrs {...Crime} />}
-                </div>
-              )}
-            </div>
-          </div>
+          <Tab family={Family} army={Army} crime={Crime} />
 
           {/* ------- laptop ------- */}
 
