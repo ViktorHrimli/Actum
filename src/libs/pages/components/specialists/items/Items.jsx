@@ -3,7 +3,12 @@ import styles from "./Items.module.scss";
 
 import { specialistsEnumsMap } from "./libs/enums";
 
-export default function Items({ type, employee_list, mapst_text, city_text }) {
+export default function Items({
+  type,
+  employee_list,
+  description_city,
+  description_services,
+}) {
   const { colorMap } = specialistsEnumsMap[type];
 
   return (
@@ -41,19 +46,14 @@ export default function Items({ type, employee_list, mapst_text, city_text }) {
             style={{ objectFit: "cover" }}
           />
         </div>
-        <div className={styles.text_map_box}>
-          <p className={styles.text_map_left}>
-            Працюємо по{" "}
-            <span className={styles.text_bold}> всій Україні: </span>
-            {mapst_text}
-          </p>
-        </div>
-        <div className={styles.text_map_box_right}>
-          <p className={styles.text_map_right}>
-            Прямо сьогодні Ви можете завітати в офіс у 9 містах України:
-            <span className={styles.text_bold}>{city_text}</span>
-          </p>
-        </div>
+        <div
+          className={styles.text_map_box}
+          dangerouslySetInnerHTML={{ __html: description_services }}
+        ></div>
+        <div
+          className={styles.text_map_box_right}
+          dangerouslySetInnerHTML={{ __html: description_city }}
+        ></div>
       </li>
     </ul>
   );

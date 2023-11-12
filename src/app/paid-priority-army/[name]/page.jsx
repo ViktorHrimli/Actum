@@ -2,12 +2,12 @@ import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
-import StepsLawyers from "@/libs/components/stepLawyers/StepsLawyers";
+import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
 import Descrition from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import FormSection from "@/libs/components/formSection/FormSection";
+import FormSection from "@/shared/components/formSection/FormSection";
 import Price from "@/libs/pages/components/priceCards/Price";
 
 import { getArmyPage, getSeo } from "@/shared/services/api/api";

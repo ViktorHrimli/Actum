@@ -9,7 +9,7 @@ import styles from "./AboutCompany.module.scss";
 import gradient from "./AboutGradients.module.scss";
 
 import Animation from "./halpers/Animation";
-import Button from "../button/Button";
+import Button from "@/libs/components/button/Button";
 
 import animationSignOlena from "@/assets/json/sign_olena.json";
 import animationSignNatalia from "@/assets/json/sign_natalia.json";
@@ -23,12 +23,11 @@ export default function AboutCompany({
   third_text,
   parnter_first,
   partner_second,
-  City,
-  services_text,
-  description_city,
   button,
   right_picture,
   left_picture,
+  city_description,
+  service_description,
 }) {
   const isClient = useClient();
   return (
@@ -36,19 +35,14 @@ export default function AboutCompany({
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.conteiner_map}>
-            <div className={styles.ukraine_inner_text}>
-              <p>
-                Працюємо по{" "}
-                <span className={styles.bold_text}>всій Україні</span>: надаємо
-                онлайн-консультації або виїзджаємо до Вас.
-              </p>
-            </div>
-            <div className={styles.ukraine_inner_city}>
-              <p>
-                {description_city}
-                <span className={styles.bold_text}>{City}</span>
-              </p>
-            </div>
+            <div
+              className={styles.ukraine_inner_text}
+              dangerouslySetInnerHTML={{ __html: service_description }}
+            ></div>
+            <div
+              className={styles.ukraine_inner_city}
+              dangerouslySetInnerHTML={{ __html: city_description }}
+            ></div>
             <div className={styles.ukraine_map}>
               <Image src={Ukraine} alt="Ukraine" fill loading="lazy" />
             </div>
@@ -63,6 +57,7 @@ export default function AboutCompany({
               <Image
                 src={left_picture["data"]["attributes"]["url"] || Natalia}
                 alt="Olga"
+                quality={100}
                 fill
                 loading="eager"
               />
@@ -72,6 +67,7 @@ export default function AboutCompany({
                 src={right_picture["data"]["attributes"]["url"] || Olena}
                 alt="Natalia"
                 fill
+                quality={100}
                 loading="eager"
               />
             </div>

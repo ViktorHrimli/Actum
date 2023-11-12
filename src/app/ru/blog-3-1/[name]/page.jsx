@@ -1,7 +1,7 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import Path from "@/shared/components/path/Path";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
-import CurrentPublication from "@/libs/components/currentPublication/CurrentPublication";
+import CurrentPublication from "@/libs/pages/publics/currentPublication/CurrentPublication";
 import hero_public from "@/assets/svg/publications_hero.png";
 
 import {

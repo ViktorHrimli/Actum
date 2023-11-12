@@ -19,7 +19,7 @@ export default function Items({ items }) {
                 alt={el.title}
                 style={{ objectFit: "cover" }}
               />
-              <div className={styles[el.button["style"]]}></div>
+              <div className={styles[el.styles]}></div>
               <div className={styles.img_btn}>
                 <Link href={el?.button["link"]}>
                   <Button

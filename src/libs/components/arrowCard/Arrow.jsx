@@ -1,6 +1,6 @@
 import styles from "./Arrow.module.scss";
 
-import { arrPosition } from "./libs/enums";
+import { iconEnum, themsColor } from "@/shared/enums/enum";
 
 export default function Arrow({
   left,
@@ -9,7 +9,7 @@ export default function Arrow({
   isChange,
   type,
 }) {
-  const { fill } = arrPosition[type];
+  const { fill } = themsColor[type];
 
   return left ? (
     <div
@@ -19,15 +19,7 @@ export default function Arrow({
         setIsLeft(false);
       }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill={fill}
-      >
-        <path d="M17.95 19L12.95 12L17.95 5H15.5L10.5 12L15.5 19H17.95ZM12 19L6.99995 12L12 5H9.54995L4.54995 12L9.54995 19H12Z" />
-      </svg>
+      {iconEnum["horizontalArrow"](fill)}
     </div>
   ) : (
     <div
@@ -37,15 +29,7 @@ export default function Arrow({
         setIsLeft(true);
       }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill={fill}
-      >
-        <path d="M17.95 19L12.95 12L17.95 5H15.5L10.5 12L15.5 19H17.95ZM12 19L6.99995 12L12 5H9.54995L4.54995 12L9.54995 19H12Z" />
-      </svg>
+      {iconEnum["horizontalArrow"](fill)}
     </div>
   );
 }

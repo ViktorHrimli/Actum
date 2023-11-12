@@ -10,9 +10,9 @@ import Items from "./items/Items";
 export default function Specialists({
   type,
   employee_list,
-  description_maps,
-  city_maps,
   title_block,
+  description_services,
+  description_city,
   button,
 }) {
   const { color } = specialistsEnums[type];
@@ -28,8 +28,8 @@ export default function Specialists({
         <Items
           type={type}
           employee_list={employee_list}
-          city_text={city_maps}
-          mapst_text={description_maps}
+          description_city={description_city}
+          description_services={description_services}
         />
         <div className={styles.container_btn}>
           <Link href={button["link"]}>

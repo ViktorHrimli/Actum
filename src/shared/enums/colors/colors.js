@@ -1,4 +1,4 @@
-const arrPosition = {
+const themsColor = {
   default: {
     fill: "#F8F5F5",
   },
@@ -13,4 +13,4 @@ const arrPosition = {
   },
 };
 
-export { arrPosition };
+export { themsColor };

@@ -17,6 +17,7 @@
         width: 1280px;
         height: 1200px;
     }
+
     @media screen and (min-width: 1440px) {
         width: 1440px;
     }
@@ -198,8 +199,15 @@
 .list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: space-between;
+
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 1000px;
 
     gap: 12px;
 
