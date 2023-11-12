@@ -57,6 +57,7 @@ export default function AboutCompany({
               <Image
                 src={left_picture["data"]["attributes"]["url"] || Natalia}
                 alt="Olga"
+                quality={100}
                 fill
                 loading="eager"
               />
@@ -66,6 +67,7 @@ export default function AboutCompany({
                 src={right_picture["data"]["attributes"]["url"] || Olena}
                 alt="Natalia"
                 fill
+                quality={100}
                 loading="eager"
               />
             </div>

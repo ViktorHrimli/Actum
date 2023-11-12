@@ -20,6 +20,7 @@ export default function CountyCode({
   setPhoneNumber,
   resetField,
   border,
+  isModalOpen = false,
 }) {
   const [codeCountry, setcodeCountry] = useState("UA");
   const [filterCountry, setFilterCountry] = useState("");
@@ -46,7 +47,9 @@ export default function CountyCode({
   );
 
   return (
-    <div className={styles.select_number}>
+    <div
+      className={`${styles.select_number} ${isModalOpen && styles.width_modal}`}
+    >
       <div className={styles.info_box} onClick={handleClick}>
         <div className={styles.image_wrapper}>
           <img

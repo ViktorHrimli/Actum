@@ -37,7 +37,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default async function page({ params }) {
-  console.log(params);
   const { data } = await getFamilyLawyers(params["name"]);
 
   const {

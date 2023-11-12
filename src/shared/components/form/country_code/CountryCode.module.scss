@@ -3,18 +3,18 @@
 .select_number {
     position: absolute;
 
+    top: 0;
+    left: 0px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
-    padding: 8px;
-
     width: 80px;
     height: 53px;
 
-    top: 0;
-    left: 0px;
+    padding: 8px;
 
     border-radius: 4px;
     outline: none;
@@ -23,11 +23,20 @@
 
     color: var(--background);
 
-    // background: rgba(31, 31, 31, 0.2);
     @media screen and (min-width: 768px) {
         height: 59px;
     }
 
+}
+
+.width_modal {
+
+    height: 38px;
+
+
+    @media screen and (min-width: 768px) {
+        height: 45px;
+    }
 }
 
 

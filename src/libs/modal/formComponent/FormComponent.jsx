@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect } from "@/shared/hooks/hooks";
 
-// import CountryCode from "@/libs/modal/formComponent/country_code/CountyCode";
 import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import Button from "@/libs/components/button/Button";
@@ -61,6 +60,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
   const handleToggleRadio = () => {
     setIsOpenRadio(!isOpenRadio);
     setIsOpenCountry(false);
+    setIsOpen(false);
   };
 
   const handleToggleCountry = () => {
@@ -202,18 +202,8 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
               phone={phone}
               border={border}
               setIsOpen={setIsOpen}
+              isModalOpen={isOpenModal}
             />
-            {/* <CountryCode
-              setPhoneNumber={setPhoneNumber}
-              resetField={resetField}
-              setPhone={setPhone}
-              color_text={color_text}
-              isOpenCountry={isOpenCountry}
-              setIsOpenCountry={setIsOpenCountry}
-              handleToggleCountry={handleToggleCountry}
-              phone={phone}
-              border={border}
-            /> */}
 
             <div className={styles[border]}>
               <Controller
