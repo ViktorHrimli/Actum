@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function MobileSlider({ children, id, isStart }) {
+export default function MobileSlider({ children, isStart }) {
   return (
     <AnimatePresence>
       <motion.div

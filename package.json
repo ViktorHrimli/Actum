@@ -20,7 +20,8 @@
     "@hookform/error-message": "2.0.1",
     "@hookform/resolvers": "3.1.1",
     "@reduxjs/toolkit": "1.9.5",
-    "axios": "^1.5.1",
+    "axios": "^1.6.1",
+    "cheerio": "^1.0.0-rc.12",
     "clsx": "1.2.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
@@ -36,6 +37,7 @@
     "react-hook-form": "7.44.3",
     "react-input-mask": "^2.0.4",
     "react-responsive": "^9.0.2",
+    "sharp": "^0.32.6",
     "sitemap": "^7.1.1"
   },
   "devDependencies": {

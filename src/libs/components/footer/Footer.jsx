@@ -68,7 +68,7 @@ export default function Footer({
     } else {
       setTimeout(() => setIsClient(true), 1000);
     }
-  }, []);
+  }, [isFristRender]);
 
   useEffect(() => {
     if (footerEnums[path]) {
@@ -91,7 +91,7 @@ export default function Footer({
       document.body.style.overflowX = "hidden";
       document.body.style.maxHeight = "";
     };
-  }, [isOpenModal]);
+  }, [isOpenModal, isScroll]);
 
   return (
     isClient && (

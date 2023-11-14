@@ -66,7 +66,7 @@ export default function Animations({
 
     setTimeout(() => setIsStep(true), 1000);
     setTimeout(() => setIsLoad(true), isDesktop ? 3000 : 2000);
-  }, []);
+  }, [isDesktop]);
 
   useEffect(() => {
     setTimeout(() => {

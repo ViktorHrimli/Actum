@@ -11,6 +11,7 @@ const AboutCompany = dynamic(() =>
   import("@/libs/components/about_company/AboutCompany")
 );
 
+import { unPackageTelegramReview } from "@/shared/helpers/unPackageTelegramReview";
 import { getHomePage, getSeo } from "@/shared/services/api/api";
 
 export async function generateMetadata({ params, searchParams }, parent) {
@@ -50,6 +51,8 @@ export default async function Home() {
     },
   } = await getHomePage();
 
+  const resultReviews = await unPackageTelegramReview();
+
   return (
     <>
       <section>
@@ -64,7 +67,7 @@ export default async function Home() {
       <ContactPanel type={"home"} />
       <Direction {...directions} />
       <AboutCompany type={"family"} {...about} />
-      <Response type={"family"} {...responses} />
+      <Response type={"family"} {...responses} reviews={resultReviews} />
     </>
   );
 }

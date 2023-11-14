@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import styles from "./Card.module.scss";
+
 import { enumsColor } from "./libs/enumsColor";
 
 export default function Card({ name, photo, date, body, type }) {
@@ -9,7 +10,13 @@ export default function Card({ name, photo, date, body, type }) {
   return (
     <li key={name} className={styles.conteiner}>
       <div className={styles.wrapper_image}>
-        <Image src={photo} alt="Person" fill loading="lazy" />
+        <Image
+          src={photo}
+          alt="Person"
+          fill
+          loading="eager"
+          style={{ borderRadius: "50%" }}
+        />
       </div>
 
       <p className={`${styles.text_name} ${styles[color]}`}>{name}</p>

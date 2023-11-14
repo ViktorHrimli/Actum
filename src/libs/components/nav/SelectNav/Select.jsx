@@ -47,6 +47,7 @@ export default function Select({ routes, isOpen, onClick, isMobile }) {
         transition={{ duration: 0.7 }}
         exit={{ opacity: 0, y: -50 }}
         className={styles.conteiner}
+        aria-expanded={isOpen}
       >
         {routes && isOpen && (
           <>
