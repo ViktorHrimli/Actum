@@ -60,12 +60,12 @@ export default function Header({ nav, routes, logo }) {
     setIsSideBar(!isSideBar);
     setIsOpenMenu(false);
     setOnHover(false);
-  }, [isSideBar, isOpenMenu, onHover]);
+  }, [isSideBar]);
 
   const handleClickOnMenu = useCallback(() => {
     setIsOpenMenu(false);
     setOnHover(false);
-  }, [isOpenMenu, onHover]);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {

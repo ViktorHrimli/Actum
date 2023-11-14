@@ -91,7 +91,7 @@ export default function ContactPanel({ type }) {
       document.body.style.overflowX = "hidden";
       document.body.style.maxHeight = "";
     };
-  }, [isOpenModal]);
+  }, [isOpenModal, isScroll]);
 
   useEffect(() => {
     const languageData = localStorage.getItem("locale", "ru");

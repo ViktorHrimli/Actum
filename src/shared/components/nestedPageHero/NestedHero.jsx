@@ -56,7 +56,7 @@ export default function NestedHero({
     if (patnName === "payment-success") {
       setIsPaymentHero(true);
     }
-  }, []);
+  }, [patnName, title]);
 
   useEffect(() => {
     if (isOpenModal) {
@@ -71,7 +71,7 @@ export default function NestedHero({
       document.body.style.overflowX = "hidden";
       document.body.style.maxHeight = "";
     };
-  }, [isOpenModal]);
+  }, [isOpenModal, isScroll]);
 
   return (
     <>
