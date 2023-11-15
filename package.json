@@ -8,7 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "latest": "git pull origin && npm i && npm run build && npm start"
+    "latest": "git pull origin && npm i && npm run build && npm start",
+    "gen:sitemap": "node ./scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",
@@ -31,6 +32,7 @@
     "next-intl": "^2.20.2",
     "next-seo": "^6.1.0",
     "next-sitemap": "^4.2.3",
+    "nextjs-sitemap-generator": "^1.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.44.3",

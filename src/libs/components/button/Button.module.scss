@@ -145,6 +145,40 @@
     }
 }
 
+.button_border_other {
+    padding-bottom: 1px;
+    border: none;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, --other-border-gradient),
+        linear-gradient(to right, --other-border-gradient);
+    background-size: 100% 2px;
+    background-position: 0 100%, 0 0;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 21px;
+        border: 2px solid #41664B;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+    }
+
+    &:after {
+        border: 2px solid #3F2E64;
+        border-left: none;
+        left: auto;
+        right: 0;
+        border-radius: 0 4px 4px 0;
+    }
+}
+
 .background_family:hover {
     color: var(--color-text);
     background-color: var(--primary-color);
