@@ -1,33 +1,17 @@
 import Publics from "@/libs/pages/publics/Publics";
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import { getBlogPage, getSeo } from "@/shared/services/api/api";
+import { getStaticPage } from "@/shared/services/api/api";
+import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 import publics_img from "@/assets/svg/publics_hero.png";
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  const {
-    data: {
-      attributes: { seo },
-    },
-  } = await getSeo(process.env["API_BLOG_PAGE"]);
+const { API_BLOG_PAGE, QUERY_BLOG_PAGE } = process.env;
 
-  return {
-    title: seo["metaTitle"],
-    description: seo["metaDescription"],
-    name: "viewport",
-    content: seo["metaViewport"],
-    keywords: seo["keywords"],
-    openGraph: {
-      title: seo["metaTitle"],
-      description: seo["metaDescription"],
-      url: seo["canonicalURL"],
-      type: "website",
-      locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"],
-    },
-  };
+export async function generateMetadata({ params, searchParams }, parent) {
+  return makeSeoTemplate(API_BLOG_PAGE);
 }
 
 export default async function page() {
@@ -35,18 +19,11 @@ export default async function page() {
     data: {
       attributes: { Hero: hero, Blog_List: blog_list, seo },
     },
-  } = await getBlogPage();
+  } = await getStaticPage(API_BLOG_PAGE, QUERY_BLOG_PAGE);
 
   return (
     <>
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seo["structuredData"]),
-          }}
-        ></script>
-      </section>
+      <StructureData data={seo["structuredData"]} />
       <ContactPanel type={"home"} />
       <NestedHero type={"home"} img={publics_img} {...hero} />
       <Publics blog_list={blog_list} />

@@ -1,32 +1,15 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import ContactHero from "@/assets/svg/ContactHero.png";
-
 import Contacts from "@/libs/pages/contacts/contacts/Contacts";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import { getContactsPage, getSeo } from "@/shared/services/api/api";
+import { getStaticPage } from "@/shared/services/api/api";
+import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
+
+const { API_CONTACT_PAGE, QUERY_CONTACT_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {
-    data: {
-      attributes: { seo },
-    },
-  } = await getSeo(process.env["API_CONTACT_PAGE"]);
-
-  return {
-    title: seo["metaTitle"],
-    description: seo["metaDescription"],
-    name: "viewport",
-    content: seo["metaViewport"],
-    keywords: seo["keywords"],
-    openGraph: {
-      title: seo["metaTitle"],
-      description: seo["metaDescription"],
-      url: seo["canonicalURL"],
-      type: "website",
-      locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"],
-    },
-  };
+  return makeSeoTemplate(API_CONTACT_PAGE);
 }
 
 export default async function Conacts() {
@@ -38,27 +21,21 @@ export default async function Conacts() {
         Social: social,
         button,
         seo,
-        city_description,
         city_services,
+        city_description,
       },
     },
-  } = await getContactsPage("ru");
+  } = await getStaticPage(API_CONTACT_PAGE, QUERY_CONTACT_PAGE);
 
   return (
     <>
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seo["structuredData"]),
-          }}
-        ></script>
-      </section>
+      <StructureData data={seo["structuredData"]} />
+
       <NestedHero type={"home"} {...hero} img={ContactHero} />
       <Contacts
+        {...info}
         social_list={social}
         button={button}
-        {...info}
         city_description={city_description}
         city_services={city_services}
       />

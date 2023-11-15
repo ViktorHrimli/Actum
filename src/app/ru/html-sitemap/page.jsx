@@ -10,14 +10,16 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-import { getSiteMapPage } from "@/shared/services/api/api";
+import { getStaticPage } from "@/shared/services/api/api";
+
+const { API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE } = process.env;
 
 export default async function page() {
   const {
     data: {
       attributes: { Hero: hero },
     },
-  } = await getSiteMapPage("ru");
+  } = await getStaticPage(API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE);
   return (
     <>
       <NestedHero img={hero_img} {...hero} />
