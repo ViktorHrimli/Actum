@@ -13,18 +13,29 @@ const reducer = (_, action) => {
         "/paid-priority-family": action.payload,
         "/paid-priority-crime": false,
         "/paid-priority-army": false,
+        "/paid-priority-dtp": false,
       };
     case "/paid-priority-crime":
       return {
         "/paid-priority-family": false,
         "/paid-priority-crime": action.payload,
+        "/paid-priority-dtp": false,
+
         "/paid-priority-army": false,
       };
     case "/paid-priority-army":
       return {
         "/paid-priority-family": false,
         "/paid-priority-crime": false,
+        "/paid-priority-dtp": false,
         "/paid-priority-army": action.payload,
+      };
+    case "/paid-priority-dtp":
+      return {
+        "/paid-priority-family": false,
+        "/paid-priority-crime": false,
+        "/paid-priority-army": false,
+        "/paid-priority-dtp": action.payload,
       };
   }
 };
@@ -33,6 +44,7 @@ const initital = {
   "/paid-priority-family": false,
   "/paid-priority-crime": false,
   "/paid-priority-army": false,
+  "/paid-priority-dtp": false,
 };
 
 export default function Select({ routes, isOpen, onClick, isMobile }) {

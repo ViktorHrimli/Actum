@@ -9,31 +9,15 @@ import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import Price from "@/libs/pages/components/priceCards/Price";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import { getCrimePage, getSeo } from "@/shared/services/api/api";
+import { getStaticLawyersPage } from "@/shared/services/api/api";
+import { makeSeoTemplate } from "@/shared/helpers/helpers";
+
+const { API_CRIME_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {
-    data: {
-      attributes: { seo },
-    },
-  } = await getSeo(process.env["API_ARMY_PAGE"]);
-
-  return {
-    title: seo["metaTitle"],
-    description: seo["metaDescription"],
-    name: "viewport",
-    content: seo["metaViewport"],
-    keywords: seo["keywords"],
-    openGraph: {
-      title: seo["metaTitle"],
-      description: seo["metaDescription"],
-      url: seo["canonicalURL"],
-      type: "website",
-      locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"],
-    },
-  };
+  return makeSeoTemplate(API_CRIME_PAGE);
 }
 
 export default async function Crimes() {
@@ -52,17 +36,12 @@ export default async function Crimes() {
         seo,
       },
     },
-  } = await getCrimePage();
+  } = await getStaticLawyersPage(API_CRIME_PAGE);
+
   return (
     <>
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seo["structuredData"]),
-          }}
-        ></script>
-      </section>
+      <StructureData data={seo["structuredData"]} />
+
       <ContactPanel type={"crime"} />
       <HeroLawyers type={"crime"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList

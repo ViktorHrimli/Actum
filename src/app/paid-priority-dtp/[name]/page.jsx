@@ -12,16 +12,16 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_FAMILY_SERVICES, API_FAMILY_PAGE } = process.env;
+const { API_ACCIDENT_SERVICES, API_ACCIDENT_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_FAMILY_PAGE);
+  return makeSeoTemplate(API_ACCIDENT_PAGE);
 }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
     params["name"],
-    API_FAMILY_SERVICES
+    API_ACCIDENT_SERVICES
   );
 
   const {

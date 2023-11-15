@@ -7,32 +7,17 @@ import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import { getFamilyPage, getSeo } from "@/shared/services/api/api";
+import { getStaticLawyersPage } from "@/shared/services/api/api";
+import { makeSeoTemplate } from "@/shared/helpers/helpers";
+
+const { API_FAMILY_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {
-    data: {
-      attributes: { seo },
-    },
-  } = await getSeo(process.env["API_FAMILY_PAGE"]);
-
-  return {
-    title: seo["metaTitle"],
-    description: seo["metaDescription"],
-    name: "viewport",
-    content: seo["metaViewport"],
-    keywords: seo["keywords"],
-    openGraph: {
-      title: seo["metaTitle"],
-      description: seo["metaDescription"],
-      url: seo["canonicalURL"],
-      type: "website",
-      locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"],
-    },
-  };
+  return makeSeoTemplate(API_FAMILY_PAGE);
 }
+
 export default async function Family() {
   const {
     data: {
@@ -49,18 +34,13 @@ export default async function Family() {
         seo,
       },
     },
-  } = await getFamilyPage();
+  } = await getStaticLawyersPage(API_FAMILY_PAGE);
+
   return (
     <>
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seo["structuredData"]),
-          }}
-        ></script>
-      </section>
-      <ContactPanel type={"family"} />
+      <StructureData data={seo["structuredData"]} />
+
+      <ContactPanel type={"home"} />
       <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}

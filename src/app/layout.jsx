@@ -5,34 +5,17 @@ import { Montserrat } from "next/font/google";
 import Header from "@/libs/components/header/Header";
 import Footer from "@/libs/components/footer/Footer";
 
-import { getLayout, getSeo } from "@/shared/services/api/api";
+import { getStaticPage } from "@/shared/services/api/api";
+import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 import styles from "./page.module.scss";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  const {
-    data: {
-      attributes: { seo },
-    },
-  } = await getSeo(process.env["API_LAYOUT"]);
+const { API_LAYOUT, QUERY_LAYOUT } = process.env;
 
-  return {
-    title: seo["metaTitle"],
-    description: seo["metaDescription"],
-    name: "viewport",
-    content: seo["metaViewport"],
-    keywords: seo["keywords"],
-    openGraph: {
-      title: seo["metaTitle"],
-      description: seo["metaDescription"],
-      url: seo["canonicalURL"],
-      type: "website",
-      locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"],
-    },
-  };
+export async function generateMetadata({ params, searchParams }, parent) {
+  return makeSeoTemplate(API_LAYOUT);
 }
 
 export default async function RootLayout({ children }) {
@@ -40,7 +23,7 @@ export default async function RootLayout({ children }) {
     data: {
       attributes: { Header: headers, Footer: footer, Navigation: service_page },
     },
-  } = await getLayout();
+  } = await getStaticPage(API_LAYOUT, QUERY_LAYOUT);
 
   return (
     <html lang="uk-UA">

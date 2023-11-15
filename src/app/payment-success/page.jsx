@@ -10,14 +10,16 @@ export const metadata = {
   description: META_DATA_DESCRIPTION.BOOK,
 };
 
-import { getPaymentPage } from "@/shared/services/api/api";
+import { getStaticPage } from "@/shared/services/api/api";
+
+const { API_PAYMENT_PAGE, QUERY_PAYMENT_PAGE } = process.env;
 
 export default async function Page() {
   const {
     data: {
       attributes: { Hero: hero },
     },
-  } = await getPaymentPage();
+  } = await getStaticPage(API_PAYMENT_PAGE, QUERY_PAYMENT_PAGE);
   return (
     <>
       <ContactPanel type={"home"} />

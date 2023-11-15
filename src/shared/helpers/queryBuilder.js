@@ -1,5 +1,9 @@
-const { URL_CLOUD_STRAPI, API_LOCALE_BASE_URL, QUERY_SEO_OPTIONS } =
-  process.env;
+const {
+  URL_CLOUD_STRAPI,
+  API_LOCALE_BASE_URL,
+  QUERY_SEO_OPTIONS,
+  QUERY_LAWYERS_PAGE,
+} = process.env;
 
 class QueryBuilder {
   #baseUrl = "api/";
@@ -15,6 +19,10 @@ class QueryBuilder {
 
   getOneById(name, path, options) {
     return `${URL_CLOUD_STRAPI}/${path}?filters[Topic][name_page][$eq]=${name}&${options}`;
+  }
+
+  getLawyersStaticPage(api_page) {
+    return `${URL_CLOUD_STRAPI}/${api_page}?${QUERY_LAWYERS_PAGE}`;
   }
 
   getLawyersServicesPage(name, path, options) {
