@@ -16,10 +16,6 @@ export async function GET(req, res) {
     if (TIME > TIME_REFETCH) {
       const dataReviews = await unPackageTelegramReview();
 
-      await fs.writeFile(
-        resolvePathTime,
-        JSON.stringify({ ...timeReviews, home: TIME })
-      );
       await fs.writeFile(resolvePath, JSON.stringify(dataReviews));
 
       return NextResponse.json({ arr: dataReviews });
