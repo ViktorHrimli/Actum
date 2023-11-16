@@ -12,13 +12,10 @@ export default function Arrow({
 }) {
   const { fill } = themsColor[type];
 
-  console.log(isChange);
-
   return left ? (
     <div
       className={styles.conteiner_icon_chevron_left}
       onClick={() => {
-        console.log("LEFT");
         setIsChange(isChange >= dataLength - 3 ? 0 : isChange + 1);
         setIsLeft(false);
       }}
@@ -29,7 +26,6 @@ export default function Arrow({
     <div
       className={styles.conteiner_icon_chevron_right}
       onClick={() => {
-        console.log("RIGHT");
         setIsChange(isChange === 0 ? dataLength - 3 : --isChange);
         setIsLeft(true);
       }}
