@@ -1,6 +1,6 @@
 const themsColor = {
-  default: {
-    fill: "#F8F5F5",
+  other: {
+    fill: "#F16D74",
   },
   family: {
     fill: "#E32F7A",
@@ -10,6 +10,9 @@ const themsColor = {
   },
   crime: {
     fill: "#3F2E64",
+  },
+  default: {
+    fill: "#fff",
   },
 };
 

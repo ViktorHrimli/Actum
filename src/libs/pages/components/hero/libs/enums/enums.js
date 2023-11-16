@@ -15,6 +15,14 @@ const lawyersHeroEnums = {
     color: "family_color",
     backgroundPage: "background_page",
   },
+  other: {
+    img: family,
+    title: family_watemark,
+    text: "сімейний адвокат",
+    style: "family_gradient",
+    color: "other_color",
+    backgroundPage: "background_page",
+  },
   army: {
     img: army,
     title: army_watemark,

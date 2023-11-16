@@ -41,18 +41,18 @@ export default async function page() {
       <StructureData data={seo["structuredData"]} />
 
       <ContactPanel type={"home"} />
-      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
+      <HeroLawyers type={"other"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
-        type={"family"}
+        type={"other"}
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"family"} />
-      <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
-      <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} />
-      <FormSection type={"family"} formData={form} {...info} />
+      <SuccessfulBusiness type={"other"} />
+      <Specialists type={"other"} {...employeer_list} />
+      <Description type={"other"} description={description_lawyer} />
+      <Response type={"other"} {...responses} />
+      <StepsLawyers type={"other"} />
+      <FormSection type={"other"} formData={form} {...info} />
     </>
   );
 }

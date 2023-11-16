@@ -8,7 +8,10 @@
   --crime-color: #3F2E64;
   --army-color: #536641;
 
+  --other-lawyers-color: #F16D74;
+  
   --border-gradient: linear-gradient(275deg, #E32F7A 0%, #D70F74 42%, #912E6F 81%);
+  --other-border-gradient: linear-gradient(275deg, #E32F7A 0%, #F16E74 42%, #FBB663 81%);
 
 
   --fonts-text: Montserrat;
@@ -25,10 +28,6 @@
   margin: 0;
 }
 
-// ::-webkit-scrollbar {
-//   width: 0;
-//   height: 0;
-// }
 
 ::-webkit-scrollbar {
   width: 5px;

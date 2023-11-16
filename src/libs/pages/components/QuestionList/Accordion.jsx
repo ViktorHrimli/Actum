@@ -4,24 +4,19 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "@/shared/hooks/hooks";
 
-import arrow from "@/assets/svg/arrow_up.svg";
-
 import styles from "./Accordion.module.scss";
 
+import arrow from "@/assets/svg/arrow_up.svg";
 import ClickIcon from "@/shared/components/click/Click";
 
-const colorType = {
-  family: "#E32F7A",
-  army: "#536641",
-  crime: "#3F2E64",
-};
+import { themsColor } from "@/shared/enums/enum";
 
 export default function Accordion({ title, description, type, link }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname().replace("/", "");
 
-  const color = colorType[type];
+  const {fill} = themsColor[type];
 
   const handleClickOpen = () => setIsOpen(!isOpen);
 
@@ -31,7 +26,7 @@ export default function Accordion({ title, description, type, link }) {
         initial={false}
         className={styles.header_conteiner}
         animate={{
-          backgroundColor: isOpen ? color : "rgba(15, 2, 28, 0.80)",
+          backgroundColor: isOpen ? fill : "rgba(15, 2, 28, 0.80)",
         }}
         onClick={handleClickOpen}
       >
@@ -70,7 +65,7 @@ export default function Accordion({ title, description, type, link }) {
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{description}</p>
               <div style={{ marginTop: "50px", display: "block" }}>
-                <ClickIcon path={`${pathName}/${link}`} color={color} />
+                <ClickIcon path={`${pathName}/${link}`} color={fill} />
               </div>
             </div>
           </motion.section>

@@ -1,7 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://www.actum.fun/</loc>
-<lastmod>2022-06-04</lastmod>
-</url>
+      <urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      
+	<url>
+		<loc>localhost:3000/blog-3-1/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/blog-3-1</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/book</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/contacts</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/html-sitemap</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/paid-priority-army/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/paid-priority-army</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/paid-priority-crime/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/paid-priority-crime</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/paid-priority-family/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/paid-priority-family</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/blog-3-1/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/blog-3-1</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/book</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/contacts</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/html-sitemap</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/paid-priority-army/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/paid-priority-army</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/paid-priority-crime/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/paid-priority-crime</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/paid-priority-family/[name]</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/paid-priority-family</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/services</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/ru/teamactum</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/services</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
+	<url>
+		<loc>localhost:3000/teamactum</loc>
+		<lastmod>2023-11-14</lastmod>
+	</url>
+
 </urlset>

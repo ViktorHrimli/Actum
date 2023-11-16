@@ -20,6 +20,13 @@ const cardsEnums = {
     borderBottom: "border_bottom",
     bordeerLeft: "border_left",
   },
+  other: {
+    background: "border_other",
+    borderTop: "border_top_other",
+    borderRight: "border_right_other",
+    borderBottom: "border_bottom_other",
+    bordeerLeft: "border_left_other",
+  },
 };
 
 export { cardsEnums };

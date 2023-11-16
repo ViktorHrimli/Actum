@@ -5,6 +5,9 @@ const enumsColor = {
   family: {
     color: "color_text_family",
   },
+  other: {
+    color: "color_text_other",
+  },
   army: {
     color: "color_text_army",
   },

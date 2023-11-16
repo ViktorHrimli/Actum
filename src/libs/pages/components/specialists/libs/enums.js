@@ -1,4 +1,7 @@
 const specialistsEnums = {
+  other: {
+    color: "line",
+  },
   family: {
     color: "line",
   },
