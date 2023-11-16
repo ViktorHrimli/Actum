@@ -4,14 +4,9 @@ import path from "path";
 
 import { unPackageTelegramReview } from "@/shared/helpers/helpers";
 
-import timeReviews from "@/assets/json/timeReFetch.json";
 import dataReviewStatic from "@/assets/json/reviews.json";
 
 const resolvePath = path.join(process.cwd(), "/src/assets/json/reviews.json");
-const resolvePathTime = path.join(
-  process.cwd(),
-  "/src/assets/json/timeReFetch.json"
-);
 
 const TIME = new Date().getMinutes();
 const TIME_REFETCH = 30;
