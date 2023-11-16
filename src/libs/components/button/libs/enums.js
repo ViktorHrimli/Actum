@@ -15,6 +15,10 @@ const colorBorderEnums = {
     gradientBorder: "button_border",
     background: "background_criminal",
   },
+  other: {
+    gradientBorder: "button_border_other",
+    background: "background_other",
+  },
 };
 
 export { colorBorderEnums };

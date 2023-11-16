@@ -14,6 +14,11 @@ const gradientEnums = {
     gradientRight: "gradient_right_criminal",
     color: "white",
   },
+  other: {
+    gradient: "gradient_other",
+    gradientRight: "gradient_right_other",
+    color: "white",
+  },
 };
 
 export { gradientEnums };

@@ -101,6 +101,50 @@
 
 }
 
+// ----------------- other
+.footer_gradient_other {
+  position: absolute;
+  border-radius: 844px;
+  background: -webkit-linear-gradient(top, #E32F7A 0%,
+    #F16E74 42%,
+    #FBB663 81%);
+  z-index: 5;
+  opacity: 0.8;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 844px;
+    height: 333px;
+    top: 120px;
+    left: -343px;
+    -webkit-filter: blur(75px);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 844px;
+    height: 259px;
+    top: 146px;
+    left: -104px;
+    -webkit-filter: blur(130px);
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 127px;
+    left: 35px;
+
+    width: 844px;
+    height: 233px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 127px;
+    left: 35px;
+
+    width: 844px;
+    height: 233px;
+  }
+
+}
+
 
 
 //  ---------------- ARMY

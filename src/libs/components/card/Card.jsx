@@ -18,11 +18,13 @@ export default function Card({ name, photo, date, body, type }) {
           style={{ borderRadius: "50%" }}
         />
       </div>
-
       <p className={`${styles.text_name} ${styles[color]}`}>{name}</p>
-      <p className={styles.text}>{body}</p>
 
+    <div className={styles.box_text}>
+      <p className={styles.text}>{body}</p>
       <span className={`${styles.date} ${styles[color]}`}>{date}</span>
+    </div>
+        
     </li>
   );
 }

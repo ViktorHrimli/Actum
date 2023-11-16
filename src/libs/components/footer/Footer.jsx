@@ -172,9 +172,8 @@ export default function Footer({
                 style={"button_prymary"}
                 text={btnText["text"]}
                 type={"button"}
-                typeStyle={
-                  isStyleFooter === "footer_army_gradient" ? "army" : "family"
-                }
+                typeStyle={isStyleFooter === "footer_army_gradient" ? "army" : isStyleFooter === "footer_gradient_other" ? "other" : "family"}
+
               />
             </div>
             <div className={styles.scroll_button_up}>
