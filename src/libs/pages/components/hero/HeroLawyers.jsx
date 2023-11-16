@@ -4,6 +4,7 @@ import Path from "@/shared/components/path/Path";
 
 import { lawyersHeroEnums } from "./libs/enums/enums";
 
+
 import styles from "./HeroLawyers.module.scss";
 
 export default function HeroLawyers({
@@ -36,11 +37,11 @@ export default function HeroLawyers({
                 loading="eager"
               />
             </div>
-            <h2 className={styles.title_text}>{title}</h2>
+            <h1 className={styles.title_text}>{title}</h1>
           </div>
           <div className={styles[style]}></div>
         </div>
-        <Path type={color} {...bread_crumbs} />
+        <Path type={color} {...bread_crumbs}/>
       </section>
     </>
   );

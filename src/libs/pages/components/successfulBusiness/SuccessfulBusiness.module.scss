@@ -284,3 +284,73 @@
     right: -337px;
   }
 }
+
+
+.gradient_other {
+  z-index: 1;
+  position: absolute;
+  top: 64px;
+  left: -181px;
+  width: 338px;
+  height: 483px;
+  border-radius: 483px;
+  background: var(--other-lawyers-color);
+  filter: blur(75px);
+  opacity: 0.5;
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    left: -354px;
+    width: 583px;
+    height: 526px;
+    border-radius: 583px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 200px;
+    left: -666px;
+    width: 874px;
+    height: 788px;
+    border-radius: 874px;
+    filter: blur(75px);
+    opacity: 0.5;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 250px;
+    left: -635px;
+  }
+}
+
+.gradient_right_other {
+  z-index: 1;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 239px;
+    right: -84px;
+    width: 462px;
+    height: 888px;
+    border-radius: 788px;
+    filter: blur(75px);
+    background: var(--other-lawyers-color);
+    opacity: 0.3;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 625px;
+    right: -266px;
+    width: 1074px;
+    height: 888px;
+    border-radius: 874px;
+    filter: blur(75px);
+    opacity: 0.2;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 645px;
+    right: -337px;
+  }
+}

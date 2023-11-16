@@ -35,6 +35,13 @@ const borderEnums = {
     check_color: "lable_radio_check",
     options_hover: "options_family",
   },
+  other: {
+    border: "border_other",
+    color_text: "text_other",
+    border_check_color: "check_color_border_other",
+    check_color: "lable_radio_check_other",
+    options_hover: "options_other",
+  },
 };
 
 const iconEnum = {

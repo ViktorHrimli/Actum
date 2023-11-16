@@ -142,7 +142,7 @@ export default function Animations({
       )}
 
       {isClient ? (
-        <motion.h2
+        <motion.h1
           key={"title_text"}
           animate={
             isSessionStorageSave
@@ -159,7 +159,7 @@ export default function Animations({
           className={styles.title_text}
         >
           {title_text}
-        </motion.h2>
+        </motion.h1>
       ) : (
         <div style={{ height: "90px" }}></div>
       )}

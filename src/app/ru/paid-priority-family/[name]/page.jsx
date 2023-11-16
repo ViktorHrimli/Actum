@@ -8,61 +8,43 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/shared/components/formSection/FormSection";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
-import { getFamilyPage, getSeo } from "@/shared/services/api/api";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+import { getLawyerDynamicPage } from "@/shared/services/api/api";
+import { makeSeoTemplate } from "@/shared/helpers/helpers";
+
+const { API_FAMILY_SERVICES, API_FAMILY_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {
-    data: {
-      attributes: { seo },
-    },
-  } = await getSeo(process.env["API_FAMILY_PAGE"]);
-
-  return {
-    title: seo["metaTitle"],
-    description: seo["metaDescription"],
-    name: "viewport",
-    content: seo["metaViewport"],
-    keywords: seo["keywords"],
-    openGraph: {
-      title: seo["metaTitle"],
-      description: seo["metaDescription"],
-      url: seo["canonicalURL"],
-      type: "website",
-      locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"],
-    },
-  };
+  return makeSeoTemplate(API_FAMILY_PAGE);
 }
 
-export default async function page() {
+export default async function page({ params }) {
+  const { data } = await getLawyerDynamicPage(
+    params["name"],
+    API_FAMILY_SERVICES
+  );
+
   const {
-    data: {
-      attributes: {
-        Hero: hero,
-        about_block,
-        Employeers_list: employeer_list,
-        Form: form,
-        Info: info,
-        Responses: responses,
-        questions_list,
-        bread_crumbs,
-        description_lawyer,
-        seo,
-      },
+    attributes: {
+      Hero: hero,
+      about_block,
+      Employeers_list: employeer_list,
+      Form: form,
+      Info: info,
+      Responses: responses,
+      questions_list,
+      bread_crumbs,
+      description_lawyer,
+      seo,
     },
-  } = await getFamilyPage();
+  } = data[0];
 
   return (
     <>
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seo["structuredData"]),
-          }}
-        ></script>
-      </section>
-      <ContactPanel type={"family"} />
+      <StructureData data={seo["structuredData"]} />
+
+      <ContactPanel type={"home"} />
       <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}
@@ -71,7 +53,7 @@ export default async function page() {
       />
       <SuccessfulBusiness type={"family"} />
       <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
+      <Description type={"family"} title={description_lawyer} />
       <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} />
       <FormSection type={"family"} formData={form} {...info} />

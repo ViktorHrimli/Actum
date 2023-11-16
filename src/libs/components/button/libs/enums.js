@@ -17,7 +17,7 @@ const colorBorderEnums = {
   },
   other: {
     gradientBorder: "button_border_other",
-    background: "background_family",
+    background: "background_other",
   },
 };
 

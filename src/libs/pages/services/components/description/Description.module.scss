@@ -91,7 +91,41 @@
 
   @media screen and (min-width: 1440px) {
     top: 56px;
-    left: -144px;
+    left: 144px;
+  }
+}
+
+.gradient_other {
+  position: absolute;
+  background: var(--other-lawyers-color);
+  width: 239px;
+  height: 182px;
+  top: 116px;
+  left: -95px;
+  filter: blur(75px);
+  border-radius: 239px;
+
+  @media screen and (min-width: 768px) {
+    width: 783px;
+    height: 206px;
+    top: 56px;
+    left: -399px;
+    filter: blur(75px);
+    opacity: 0.3;
+    border-radius: 783px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 15px;
+    left: 201px;
+    width: 874px;
+    height: 413px;
+    border-radius: 783px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 56px;
+    left: 144px;
   }
 }
 
@@ -125,7 +159,7 @@
 
   @media screen and (min-width: 1440px) {
     top: 56px;
-    left: -144px;
+    left: 144px;
   }
 }
 
@@ -159,7 +193,7 @@
 
   @media screen and (min-width: 1440px) {
     top: 56px;
-    left: -144px;
+    left: 144px;
   }
 }
 

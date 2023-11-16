@@ -66,11 +66,6 @@
 	</url>
 
 	<url>
-		<loc>localhost:3000/payment-success</loc>
-		<lastmod>2023-11-14</lastmod>
-	</url>
-
-	<url>
 		<loc>localhost:3000/ru/blog-3-1/[name]</loc>
 		<lastmod>2023-11-14</lastmod>
 	</url>
@@ -150,9 +145,4 @@
 		<lastmod>2023-11-14</lastmod>
 	</url>
 
-	<url>
-		<loc>localhost:3000/</loc>
-		<priority>1.0</priority>
-		<lastmod>2023-11-14</lastmod>
-	</url>
 </urlset>

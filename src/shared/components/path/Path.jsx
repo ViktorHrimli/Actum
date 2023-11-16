@@ -6,6 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
+
 export default function Path({
   type,
   parent_page,

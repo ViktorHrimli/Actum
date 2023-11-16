@@ -11,6 +11,12 @@ const descriptionEnums = {
     gradient: "gradient_family",
     text: "title_white",
   },
+  other: {
+    line: "line",
+    background: "section_black",
+    gradient: "gradient_other",
+    text: "title_white",
+  },
   army: {
     line: "line_army",
     background: "section_black",

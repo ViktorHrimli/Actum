@@ -12,8 +12,6 @@ export default function Arrow({
 }) {
   const { fill } = themsColor[type];
 
-  console.log(isChange);
-
   return left ? (
     <div
       className={styles.conteiner_icon_chevron_left}

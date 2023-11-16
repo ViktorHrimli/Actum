@@ -2,11 +2,15 @@ import { builder } from "@/shared/helpers/helpers";
 
 const { API_FAMILY_SERVICES, QUERY_LAWYERS_PAGE, CACHE_OPTIONS } = process.env;
 
-export const getFamilyLawyers = async (name_page, locale = "ua") => {
+export const getLawyerDynamicPage = async (
+  name_page,
+  api_service_page,
+  locale = "ua"
+) => {
   const res = await fetch(
     builder.getLawyersServicesPage(
       name_page,
-      API_FAMILY_SERVICES,
+      api_service_page,
       QUERY_LAWYERS_PAGE
     ),
     {
