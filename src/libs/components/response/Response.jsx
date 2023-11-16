@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import axios from "axios";
 
 import Button from "@/libs/components/button/Button";
 import ItemsList from "@/libs/components/response/list/ItemsList";
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Arrow from "@/libs/components/arrowCard/Arrow";
+import dataReviewsStatic from "@/assets/json/reviews.json";
 
 import styles from "./Response.module.scss";
-
-import { arrPerson } from "./libs/enums";
 
 import {
   useEffect,
@@ -18,16 +18,11 @@ import {
   usePathname,
 } from "@/shared/hooks/hooks";
 
-export default function Response({
-  type,
-  button,
-  description,
-  title,
-  reviews = arrPerson,
-}) {
+export default function Response({ type, button, description, title }) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
+  const [reviewsList, setReviewsList] = useState([]);
 
   const path = usePathname();
   const screen = useIsSmall();
@@ -36,6 +31,13 @@ export default function Response({
 
   useEffect(() => {
     setIsClient(true);
+
+    axios
+      .get("http://localhost:3000/api/rewiews")
+      .then((res) => setReviewsList(res.data.arr))
+      .catch(() => {
+        setReviewsList(dataReviewsStatic);
+      });
   }, []);
 
   return (
@@ -59,18 +61,16 @@ export default function Response({
                 setIsChange={setIsChange}
                 setIsLeft={setIsLeft}
                 isChange={isChange}
-                dataLength={reviews.length}
+                dataLength={reviewsList.length ?? 0}
               />
             </div>
-
             <ItemsList
               type={type}
               isMobie={screen}
               slide={isChange}
               start={isLeft}
-              reviews={reviews}
+              reviews={reviewsList}
             />
-
             <div className={styles.position_arr_right}>
               <Arrow
                 type={type}
@@ -78,7 +78,7 @@ export default function Response({
                 setIsChange={setIsChange}
                 setIsLeft={setIsLeft}
                 isChange={isChange}
-                dataLength={reviews.length}
+                dataLength={reviewsList.length ?? 0}
               />
             </div>
             {isHome && (

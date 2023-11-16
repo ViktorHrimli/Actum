@@ -12,7 +12,6 @@ const AboutCompany = dynamic(() =>
   import("@/libs/components/about_company/AboutCompany")
 );
 
-// import { unPackageTelegramReview } from "@/shared/helpers/unPackageTelegramReview";
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
@@ -34,8 +33,6 @@ export default async function Home() {
       },
     },
   } = await getStaticPage(API_HOME_PAGE, QUERY_HOME_PAGE);
-
-  // const resultReviews = await unPackageTelegramReview();
 
   return (
     <>

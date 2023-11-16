@@ -13,6 +13,7 @@ import { borderEnums } from "./enumsForm/enumsForm";
 import { iconEnum } from "@/shared/enums/enum";
 
 import styles from "./Form.module.scss";
+import axios from "axios";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
@@ -65,12 +66,12 @@ export default function Form({
     setIsOpenCountry(false);
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(phoneNumber.length);
-    console.log(selectValue);
-
+  const onSubmit = async (data) => {
     if (phoneNumber.length >= 12) {
+      await axios
+        .post("http://localhost:3000/api/form", data)
+        .then(console.log);
+
       setIsStep(true);
       reset();
       setSelectValue("");
