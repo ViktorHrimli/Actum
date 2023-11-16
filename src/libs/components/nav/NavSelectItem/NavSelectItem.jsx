@@ -22,7 +22,7 @@ export default function NavSelectItem({
   };
 
   return (
-    <li className={styles.link} onClick={() => {}}>
+    <li className={styles.link} onClick={() => {}} aria-expanded={isOpenSelect}>
       <div
         style={{
           display: "flex",

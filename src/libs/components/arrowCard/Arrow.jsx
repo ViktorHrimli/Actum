@@ -7,15 +7,19 @@ export default function Arrow({
   setIsChange,
   setIsLeft,
   isChange,
+  dataLength,
   type,
 }) {
   const { fill } = themsColor[type];
+
+  console.log(isChange);
 
   return left ? (
     <div
       className={styles.conteiner_icon_chevron_left}
       onClick={() => {
-        setIsChange(isChange >= 1 ? 0 : 1);
+        console.log("LEFT");
+        setIsChange(isChange >= dataLength - 3 ? 0 : isChange + 1);
         setIsLeft(false);
       }}
     >
@@ -25,7 +29,8 @@ export default function Arrow({
     <div
       className={styles.conteiner_icon_chevron_right}
       onClick={() => {
-        setIsChange(isChange >= 1 ? 0 : 1);
+        console.log("RIGHT");
+        setIsChange(isChange === 0 ? dataLength - 3 : --isChange);
         setIsLeft(true);
       }}
     >

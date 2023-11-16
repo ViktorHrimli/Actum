@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation";
+
 import Link from "next/link";
 
 import Button from "@/libs/components/button/Button";
@@ -9,9 +9,22 @@ import Arrow from "@/libs/components/arrowCard/Arrow";
 
 import styles from "./Response.module.scss";
 
-import { useEffect, useIsSmall, useState } from "@/shared/hooks/hooks";
+import { arrPerson } from "./libs/enums";
 
-export default function Response({ type, button, description, title }) {
+import {
+  useEffect,
+  useIsSmall,
+  useState,
+  usePathname,
+} from "@/shared/hooks/hooks";
+
+export default function Response({
+  type,
+  button,
+  description,
+  title,
+  reviews = arrPerson,
+}) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
@@ -46,6 +59,7 @@ export default function Response({ type, button, description, title }) {
                 setIsChange={setIsChange}
                 setIsLeft={setIsLeft}
                 isChange={isChange}
+                dataLength={reviews.length}
               />
             </div>
 
@@ -54,6 +68,7 @@ export default function Response({ type, button, description, title }) {
               isMobie={screen}
               slide={isChange}
               start={isLeft}
+              reviews={reviews}
             />
 
             <div className={styles.position_arr_right}>
@@ -63,6 +78,7 @@ export default function Response({ type, button, description, title }) {
                 setIsChange={setIsChange}
                 setIsLeft={setIsLeft}
                 isChange={isChange}
+                dataLength={reviews.length}
               />
             </div>
             {isHome && (
