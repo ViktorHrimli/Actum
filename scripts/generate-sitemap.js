@@ -4,7 +4,7 @@ const sitemap = require("nextjs-sitemap-generator");
 const path = require("path");
 
 sitemap({
-  baseUrl: "localhost:3000",
+  baseUrl: "actum.fun",
 
   pagesDirectory: path.resolve(__dirname, URL),
   targetDirectory: path.resolve(__dirname, URL),
