@@ -8,6 +8,7 @@ import styles from "./Click.module.scss";
 export default function ClickIcon({ path, color }) {
   return (
     <>
+      <div className={styles.box_icon}>
       <Image
         src={LinkedPath}
         alt="Linked"
@@ -43,7 +44,8 @@ export default function ClickIcon({ path, color }) {
             </linearGradient>
           </defs>
         </svg>
-      </Link>
+        </Link>
+        </div>
     </>
   );
 }

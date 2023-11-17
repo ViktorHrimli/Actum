@@ -23,8 +23,8 @@
 
   @media screen and (min-width: 320px) {
     padding-top: 28px;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-bottom: 46px;
     border-radius: 4px;
     width: 290px;
@@ -107,6 +107,7 @@
 }
 
 .criminal_text {
+  overflow-x: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
