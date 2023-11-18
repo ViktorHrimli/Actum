@@ -36,6 +36,8 @@
     width: 484px;
     height: 275px;
   }
+
+
 }
 
 .container_text {
@@ -69,7 +71,7 @@
   transition: all 1s;
 
 
-  border-image: linear-gradient(to right, #3F2E64, #912E6F,  #E32F7A);
+  border-image: linear-gradient(to right, #3F2E64, #912E6F, #E32F7A);
   border-image-slice: 1;
   margin-left: auto;
   margin-bottom: 17px;
