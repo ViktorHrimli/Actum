@@ -105,9 +105,7 @@
 .footer_gradient_other {
   position: absolute;
   border-radius: 844px;
-  background: -webkit-linear-gradient(top, #E32F7A 0%,
-    #F16E74 42%,
-    #FBB663 81%);
+  background: var(--other-lawyers-color);
   z-index: 5;
   opacity: 0.8;
 
