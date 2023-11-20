@@ -7,7 +7,6 @@ export async function POST(req) {
     "https://script.google.com/macros/s/AKfycbxKAn8CRbPEUWYsqLm9wg7EwMHGUJHfbhsrEnXAkWPDyJUlKaVXTyHrWk8OMob0tkmHQw/exec",
     {
       method: "POST",
-      mode: "no-cors",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
