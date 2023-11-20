@@ -1,5 +1,6 @@
 "use client";
 import IMask from "react-input-mask";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
@@ -69,15 +70,15 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
     setIsOpenCountry(!isOpenCountry);
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(phoneNumber);
-    console.log(selectValue);
-
+  const onSubmit = async (data) => {
     if (phoneNumber.length >= 12) {
-      setIsStep(true);
-      reset();
-      setSelectValue("");
+      await axios.post("/api/form", data).then((res) => {
+        if (res.data["result"] === "success") {
+          setIsStep(true);
+          reset();
+          setSelectValue("");
+        }
+      });
     } else {
       setError(
         "phone",
