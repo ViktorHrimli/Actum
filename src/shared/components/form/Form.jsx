@@ -68,7 +68,7 @@ export default function Form({
 
   const onSubmit = async (data) => {
     if (phoneNumber.length >= 12) {
-      await axios.post("http://localhost:3000/api/form", data).then((res) => {
+      await axios.post("/api/form", data).then((res) => {
         if (res.data["result"] === "success") {
           setIsStep(true);
           reset();
