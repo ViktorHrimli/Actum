@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "start": "next start",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start",
     "lint": "next lint",
     "latest": "git pull origin && npm i && npm run build && npm start",
     "gen:sitemap": "node ./scripts/generate-sitemap.js"
