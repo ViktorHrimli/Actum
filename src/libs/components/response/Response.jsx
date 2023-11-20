@@ -33,7 +33,7 @@ export default function Response({ type, button, description, title }) {
     setIsClient(true);
 
     axios
-      .get("http://localhost:3000/api/rewiews")
+      .get("/api/rewiews")
       .then((res) => setReviewsList(res.data.arr))
       .catch(() => {
         setReviewsList(dataReviewsStatic);
