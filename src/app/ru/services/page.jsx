@@ -1,4 +1,3 @@
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import AboutServices from "@/libs/pages/services/components/about/AboutServices";
 import Descrition from "@/libs/pages/services/components/description/Description";
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
@@ -10,7 +9,12 @@ import service_back_photo from "@/assets/svg/service_back_photo.png";
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
-const { API_SERVICE_PAGE, QUERY_SERVICE_PAGE } = process.env;
+const {
+  API_SERVICE_PAGE,
+  QUERY_SERVICE_PAGE,
+  API_MODAL_FORM,
+  QUERY_MODAL_FORM,
+} = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_SERVICE_PAGE);
@@ -33,12 +37,22 @@ export default async function Services() {
     },
   } = await getStaticPage(API_SERVICE_PAGE, QUERY_SERVICE_PAGE);
 
+  const {
+    data: {
+      attributes: { Form: modal },
+    },
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <ContactPanel type={"home"} />
-      <NestedHero type={"home"} {...hero} img={service_back_photo} />
+      <NestedHero
+        type={"home"}
+        {...hero}
+        img={service_back_photo}
+        form={modal}
+      />
       <AboutServices type={"home"} list={services_blocks} title={desk_title} />
       <Lawyers
         type={"home"}

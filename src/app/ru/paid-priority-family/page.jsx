@@ -6,7 +6,6 @@ import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
@@ -40,7 +39,6 @@ export default async function Family() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <ContactPanel type={"home"} />
       <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}

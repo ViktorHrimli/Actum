@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   useState,
@@ -10,39 +12,40 @@ import {
   useRouter,
 } from "@/shared/hooks/hooks";
 
-import { motion } from "framer-motion";
-
 import ModalForm from "@/libs/modal/modalForm/modalForm";
-
 import ScrollAwareSection from "@/libs/components/contactPanel/halpers/logic";
+import ScrollButtonUp from "./halpers/showScrollButtonUp";
 
-import Telegram from "@/assets/svg/telegram.svg";
-import Viber from "@/assets/svg/Viber.png";
-// import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
 import styles from "./ContactPanel.module.scss";
 
-import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
-import ScrollButtonUp from "./halpers/showScrollButtonUp";
+import { iconEnum } from "@/shared/enums/enum";
 
-export default function ContactPanel({ type }) {
-  const { gradient } = colorGradient[type];
+import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
+
+export default function ContactPanel({ form, Telephones, Icons }) {
+  const [setIsStylePanel, setsetIsStylePanel] = useState(null);
+  const [isStyleModal, setIsStyleModal] = useState(null);
 
   const [isTrue, setIsTrue] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isPhoneMob, setIsPhoneMob] = useState(false);
 
   const [isLanguage, setIsLanguage] = useState(false);
-
   const [isScroll, setIsScroll] = useState(null);
+
   const isDesktop = useIsBig();
 
   const path = usePathname();
+  const clearPath = path.split("/")[1];
   const router = useRouter();
   const isClient = useClient();
 
   let isSessionStorageSave;
+
+  const FIRST_ICON = Icons[0];
+  const SECOND_ICON = Icons[1];
 
   const hanldeChangeLocale = () => {
     if (!path.includes("/ru")) {
@@ -77,6 +80,16 @@ export default function ContactPanel({ type }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
   }, []);
+
+  useEffect(() => {
+    if (colorGradient[clearPath]) {
+      setsetIsStylePanel(colorGradient[clearPath]);
+      setIsStyleModal(clearPath);
+    } else {
+      setsetIsStylePanel(colorGradient["home"]);
+      setIsStyleModal("home");
+    }
+  }, [clearPath]);
 
   useEffect(() => {
     if (isOpenModal) {
@@ -140,7 +153,7 @@ export default function ContactPanel({ type }) {
                 }`
           }
         >
-          <div className={styles[gradient]}></div>
+          <div className={styles[setIsStylePanel["gradient"]]}></div>
           <div className={styles.contact_panel_conteiner}>
             <ul className={styles.list_panel}>
               <li className={`${styles.link} ${styles.link_translator}`}>
@@ -160,13 +173,19 @@ export default function ContactPanel({ type }) {
                 </p>
               </li>
               <li className={styles.link} onClick={() => setIsPhoneMob(false)}>
-                <a href="https://t.me/helpactum">
-                  <Image src={Telegram} alt="Telegram" width={30} height={30} />
+                <a target="_blank" referrerPolicy="" href={FIRST_ICON["link"]}>
+                  <FontAwesomeIcon
+                    icon={iconEnum[FIRST_ICON["icon"]]}
+                    className={styles.options_icon}
+                  />
                 </a>
               </li>
               <li className={`${styles.link} ${styles.mob_none}`}>
-                <a href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">
-                  <Image src={Viber} alt="Viber" width={34} height={34} />
+                <a target="_blank" referrerPolicy="" href={SECOND_ICON["link"]}>
+                  <FontAwesomeIcon
+                    icon={iconEnum[SECOND_ICON["icon"]]}
+                    className={styles.options_icon}
+                  />
                 </a>
               </li>
               <li
@@ -176,10 +195,22 @@ export default function ContactPanel({ type }) {
                 {isPhoneMob && (
                   <motion.ul className={styles.list_phone}>
                     <li className={styles.link_panel_phone}>
-                      <a href="tel:+380671797213">+38-067-179-72-13</a>
+                      <a
+                        target="_blank"
+                        referrerPolicy=""
+                        href={`tel:${Telephones["KiyvStar"]}`}
+                      >
+                        {Telephones["KiyvStar"]}
+                      </a>
                     </li>
                     <li className={styles.link_panel_phone}>
-                      <a href="tel:+380503334897">+38-050-333-48-97</a>
+                      <a
+                        target="_blank"
+                        referrerPolicy=""
+                        href={`tel:${Telephones["Vodafone"]}`}
+                      >
+                        {Telephones["Vodafone"]}
+                      </a>
                     </li>
                   </motion.ul>
                 )}
@@ -196,11 +227,6 @@ export default function ContactPanel({ type }) {
                   />
                 </svg>
               </li>
-              {/* <li className={styles.link}>
-              <a href="">
-                <Image src={Whatsapp} alt="Whatsapp" width={34} height={34} />
-              </a>
-            </li> */}
               <li
                 className={styles.link}
                 onClick={() => setIsOpenModal(true) & setIsPhoneMob(false)}
@@ -214,10 +240,22 @@ export default function ContactPanel({ type }) {
             <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
               <ul className={styles.list_panel_phone}>
                 <li className={styles.link_panel_phone}>
-                  <a href="tel:+380671797213">+38-067-179-72-13</a>
+                  <a
+                    target="_blank"
+                    referrerPolicy=""
+                    href={`tel:${Telephones["KiyvStar"]}`}
+                  >
+                    {Telephones["KiyvStar"]}
+                  </a>
                 </li>
                 <li className={styles.link_panel_phone}>
-                  <a href="tel:+380503334897">+38-050-333-48-97</a>
+                  <a
+                    target="_blank"
+                    referrerPolicy=""
+                    href={`tel:${Telephones["Vodafone"]}`}
+                  >
+                    {Telephones["Vodafone"]}
+                  </a>
                 </li>
               </ul>
             </ScrollAwareSection>
@@ -228,7 +266,8 @@ export default function ContactPanel({ type }) {
         </motion.section>
         {isOpenModal && (
           <ModalForm
-            type={type}
+            type={isStyleModal}
+            form={form}
             setIsOpenModal={setIsOpenModal}
             isOpenModal={isOpenModal}
           />

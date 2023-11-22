@@ -6,8 +6,7 @@ import { getFormById } from "@/shared/helpers/helpers";
 
 import Button from "@/libs/components/button/Button";
 import Logo from "@/assets/svg/Actum_HERO.png";
-
-import { footerEnums } from "./libs/enums";
+import { footerEnums } from "@/shared/enums/enum";
 
 import styles from "./Footer.module.scss";
 import ModalForm from "@/libs/modal/modalForm/modalForm";
@@ -21,6 +20,7 @@ export default function Footer({
   Links,
   Phones,
   email,
+  form,
   Button: btnText,
 }) {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
@@ -172,8 +172,13 @@ export default function Footer({
                 style={"button_prymary"}
                 text={btnText["text"]}
                 type={"button"}
-                typeStyle={isStyleFooter === "footer_army_gradient" ? "army" : isStyleFooter === "footer_gradient_other" ? "other" : "family"}
-
+                typeStyle={
+                  isStyleFooter === "footer_army_gradient"
+                    ? "army"
+                    : isStyleFooter === "footer_gradient_other"
+                    ? "other"
+                    : "family"
+                }
               />
             </div>
             <div className={styles.scroll_button_up}>
@@ -186,6 +191,7 @@ export default function Footer({
         {isOpenModal && (
           <ModalForm
             type={"home"}
+            form={form}
             setIsOpenModal={setIsOpenModal}
             isOpenModal={isOpenModal}
           />

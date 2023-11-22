@@ -40,7 +40,6 @@ export default async function Family() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <ContactPanel type={"home"} />
       <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}

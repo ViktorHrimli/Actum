@@ -1,4 +1,3 @@
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
@@ -44,7 +43,7 @@ export default async function page({ params }) {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-      <ContactPanel type={"army"} />
+
       <HeroLawyers type={"army"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"army"}

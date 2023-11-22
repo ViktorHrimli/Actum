@@ -24,6 +24,7 @@ export default function NestedHero({
   title,
   actum,
   button,
+  form = {},
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
@@ -143,6 +144,7 @@ export default function NestedHero({
       {isOpenModal && (
         <ModalForm
           type={type}
+          form={form}
           setIsOpenModal={setIsOpenModal}
           isOpenModal={isOpenModal}
         />
