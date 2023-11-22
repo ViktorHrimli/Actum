@@ -1,7 +1,6 @@
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 
 import hero_img from "@/assets/svg/payment-success.png";
 
@@ -20,10 +19,10 @@ export default async function Page() {
       attributes: { Hero: hero },
     },
   } = await getStaticPage(API_PAYMENT_PAGE, QUERY_PAYMENT_PAGE);
+
   return (
     <>
-      <ContactPanel type={"home"} />
-      <NestedHero img={hero_img} {...hero} />
+      <NestedHero img={hero_img} {...hero} form={{}} />
     </>
   );
 }

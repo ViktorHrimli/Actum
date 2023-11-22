@@ -14,7 +14,9 @@ export default function Accordion({ title, description, type, link }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname().replace("/", "");
+  const pathDefault = usePathname();
   const isNestedPage = pathName.includes("services");
+
   const { fill } = themsColor[type];
 
   const handleClickOpen = () => setIsOpen(!isOpen);
@@ -65,7 +67,7 @@ export default function Accordion({ title, description, type, link }) {
               <p className={styles.text}>{description}</p>
               <div style={{ marginTop: "50px", display: "block" }}>
                 <ClickIcon
-                  path={`${isNestedPage ? usePathname() : pathName}/${link}`}
+                  path={`${isNestedPage ? pathDefault : pathName}/${link}`}
                   color={fill}
                 />
               </div>
