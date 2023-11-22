@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 
 import Hero from "@/libs/components/hero/Hero";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 const Direction = dynamic(() =>
@@ -15,9 +14,10 @@ const AboutCompany = dynamic(() =>
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_HOME_PAGE, QUERY_HOME_PAGE } = process.env;
+const { API_HOME_PAGE, QUERY_HOME_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
+  process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_HOME_PAGE);
 }
 
@@ -34,12 +34,17 @@ export default async function Home() {
     },
   } = await getStaticPage(API_HOME_PAGE, QUERY_HOME_PAGE);
 
+  const {
+    data: {
+      attributes: { Form: modal },
+    },
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <Hero type={"home"} {...hero} />
-      <ContactPanel type={"home"} />
+      <Hero type={"home"} {...hero} form={modal} />
       <Direction {...directions} />
       <AboutCompany type={"family"} {...about} />
       <Response type={"family"} {...responses} />

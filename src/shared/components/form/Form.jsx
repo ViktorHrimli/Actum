@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { RotatingLines } from "react-loader-spinner";
 import IMask from "react-input-mask";
 
 import Button from "@/libs/components/button/Button";
@@ -10,7 +11,7 @@ import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import CountyCode from "./country_code/CountyCode";
 
 import { borderEnums } from "./enumsForm/enumsForm";
-import { iconEnum } from "@/shared/enums/enum";
+import { iconEnum, themsColor } from "@/shared/enums/enum";
 
 import styles from "./Form.module.scss";
 import axios from "axios";
@@ -34,6 +35,7 @@ export default function Form({
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isOpenCountry, setIsOpenCountry] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
@@ -68,8 +70,10 @@ export default function Form({
 
   const onSubmit = async (data) => {
     if (phoneNumber.length >= 12) {
+      setIsLoading(true);
       await axios.post("/api/form", data).then((res) => {
         if (res.data["result"] === "success") {
+          setIsLoading(false);
           setIsStep(true);
           reset();
           setSelectValue("");
@@ -379,7 +383,25 @@ export default function Form({
             })}
           </div>
         </div>
+
         <div className={styles.btn_wrapper}>
+          {isLoading && (
+            <div
+              style={{
+                position: "absolute",
+                left: "37%",
+                bottom: "400px",
+              }}
+            >
+              <RotatingLines
+                strokeColor={themsColor[type]["fill"]}
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="96"
+                visible={true}
+              />
+            </div>
+          )}
           <Button
             type="submit"
             text={button["text"]}
@@ -388,6 +410,7 @@ export default function Form({
           />
         </div>
       </form>
+
       {isStep && (
         <ModalThanks
           type={type}

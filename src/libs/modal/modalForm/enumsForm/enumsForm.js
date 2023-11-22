@@ -1,19 +1,24 @@
 const colorEnums = {
   home: {
-    color: "#E32F7A",
-    border: "border",
+    gradient: {
+      color: "#E32F7A",
+      border: "border",
+    },
   },
-  family: {
-    color: "#E32F7A",
-    border: "border",
+  "paid-priority-family": {
+    gradient: { color: "#E32F7A", border: "border" },
   },
-  army: {
-    color: "#536641",
-    border: "border_army",
+  "paid-priority-army": {
+    gradient: {
+      color: "#536641",
+      border: "border_army",
+    },
   },
-  crime: {
-    color: "#3F2E64",
-    border: "border",
+  "paid-priority-crime": {
+    gradient: {
+      color: "#3F2E64",
+      border: "border",
+    },
   },
 };
 

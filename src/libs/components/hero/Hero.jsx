@@ -25,6 +25,7 @@ export default function Hero({
   underline_text,
   Actum_Logo,
   button,
+  form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
@@ -133,6 +134,7 @@ export default function Hero({
       {isOpenModal && (
         <ModalForm
           type={type}
+          form={form}
           setIsOpenModal={setIsOpenModal}
           isOpenModal={isOpenModal}
         />

@@ -6,13 +6,12 @@ import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ACCIDENT_SERVICES, API_ACCIDENT_PAGE } = process.env;
+const { API_LAND_SERVICES, API_ACCIDENT_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_ACCIDENT_PAGE);
@@ -21,7 +20,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
     params["name"],
-    API_ACCIDENT_SERVICES
+    API_LAND_SERVICES
   );
 
   const {
@@ -43,7 +42,6 @@ export default async function page({ params }) {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <ContactPanel type={"home"} />
       <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"family"}
