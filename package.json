@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "start": "next start",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start",
     "lint": "next lint",
     "latest": "git pull origin && npm i && npm run build && npm start",
     "gen:sitemap": "node ./scripts/generate-sitemap.js"
@@ -38,6 +38,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "7.44.3",
     "react-input-mask": "^2.0.4",
+    "react-loader-spinner": "^5.4.5",
     "react-responsive": "^9.0.2",
     "sharp": "^0.32.6",
     "sitemap": "^7.1.1"

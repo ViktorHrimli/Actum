@@ -6,7 +6,12 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
-const { API_CONTACT_PAGE, QUERY_CONTACT_PAGE } = process.env;
+const {
+  API_CONTACT_PAGE,
+  QUERY_CONTACT_PAGE,
+  API_MODAL_FORM,
+  QUERY_MODAL_FORM,
+} = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_CONTACT_PAGE);
@@ -27,11 +32,17 @@ export default async function Conacts() {
     },
   } = await getStaticPage(API_CONTACT_PAGE, QUERY_CONTACT_PAGE);
 
+  const {
+    data: {
+      attributes: { Form: modal },
+    },
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <NestedHero type={"home"} {...hero} img={ContactHero} />
+      <NestedHero type={"home"} {...hero} form={modal} img={ContactHero} />
       <Contacts
         {...info}
         social_list={social}

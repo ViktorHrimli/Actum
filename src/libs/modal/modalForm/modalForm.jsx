@@ -6,8 +6,10 @@ import { colorEnums } from "./enumsForm/enumsForm";
 
 import styles from "./modalForm.module.scss";
 
-export default function ModalForm({ type, isOpenModal, setIsOpenModal }) {
-  const { color, border } = colorEnums[type];
+export default function ModalForm({ type, isOpenModal, setIsOpenModal, form }) {
+  const {
+    gradient: { color, border },
+  } = colorEnums[type];
 
   useEffect(() => {
     const header = document.getElementById("header");
@@ -50,6 +52,7 @@ export default function ModalForm({ type, isOpenModal, setIsOpenModal }) {
                 </svg>
               </div>
               <FormComponent
+                {...form}
                 type={type}
                 isOpenModal={isOpenModal}
                 setIsOpenModal={setIsOpenModal}

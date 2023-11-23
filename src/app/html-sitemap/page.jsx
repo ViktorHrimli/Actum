@@ -12,7 +12,12 @@ export const metadata = {
 
 import { getStaticPage } from "@/shared/services/api/api";
 
-const { API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE } = process.env;
+const {
+  API_SITE_MAP_PAGE,
+  QUERY_SITE_MAP_PAGE,
+  API_MODAL_FORM,
+  QUERY_MODAL_FORM,
+} = process.env;
 
 export default async function page() {
   const {
@@ -20,9 +25,16 @@ export default async function page() {
       attributes: { Hero: hero },
     },
   } = await getStaticPage(API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE);
+
+  const {
+    data: {
+      attributes: { Form: modal },
+    },
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+
   return (
     <>
-      <NestedHero img={hero_img} {...hero} />
+      <NestedHero img={hero_img} {...hero} form={modal} />
       <SiteMap />
     </>
   );

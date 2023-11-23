@@ -22,7 +22,7 @@ export default function NavSelectItem({
   };
 
   return (
-    <li className={styles.link} onClick={() => {}} aria-expanded={isOpenSelect}>
+    <li className={styles.link} onClick={() => {}}>
       <div
         style={{
           display: "flex",
@@ -42,7 +42,7 @@ export default function NavSelectItem({
       </div>
 
       {isOpenSelect && isOpenIndex[path] && (
-        <ul className={styles.nested_select_list} aria-expanded={isOpenSelect}>
+        <ul className={styles.nested_select_list}>
           {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link href={`${path}${pathsService}`}>

@@ -1,7 +1,6 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import Path from "@/shared/components/path/Path";
 import CurrentPublication from "@/libs/pages/publics/currentPublication/CurrentPublication";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import hero_public from "@/assets/svg/publications_hero.png";
@@ -31,8 +30,8 @@ export default async function page({ params }) {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
+
       <NestedHero img={hero_public} {...hero} />
-      <ContactPanel type={"home"} />
       <Path type="family_color" {...bread_crumbs} />
       <CurrentPublication button={button} {...blog} />
     </>

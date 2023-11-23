@@ -1,5 +1,6 @@
 "use client";
 import IMask from "react-input-mask";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
@@ -17,7 +18,19 @@ import styles from "./FormComponent.module.scss";
 
 const ERROR_MESSAGE = "Заповніть поле!";
 
-export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
+export default function FormComponent({
+  type,
+  isOpenModal,
+  setIsOpenModal,
+  questions,
+  name,
+  button,
+  phone: phonesText,
+  messenger,
+  services,
+  messenger_list,
+  services_list,
+}) {
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -26,9 +39,12 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
   const [isStep, setIsStep] = useState(false);
+  const [isStyleModalForm, setIsStyleModalForm] = useState(
+    "paid-priority-family"
+  );
 
   const { border, color_text, options_hover, border_check_color, check_color } =
-    borderEnums[type];
+    borderEnums[isStyleModalForm];
 
   const {
     register,
@@ -69,15 +85,15 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
     setIsOpenCountry(!isOpenCountry);
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(phoneNumber);
-    console.log(selectValue);
-
+  const onSubmit = async (data) => {
     if (phoneNumber.length >= 12) {
-      setIsStep(true);
-      reset();
-      setSelectValue("");
+      await axios.post("/api/form", data).then((res) => {
+        if (res.data["result"] === "success") {
+          setIsStep(true);
+          reset();
+          setSelectValue("");
+        }
+      });
     } else {
       setError(
         "phone",
@@ -86,6 +102,14 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
       );
     }
   };
+
+  useEffect(() => {
+    if (borderEnums[type]) {
+      setIsStyleModalForm(type);
+    } else {
+      setIsStyleModalForm("other");
+    }
+  }, [type]);
 
   useEffect(() => {
     const header = document.getElementById("header");
@@ -112,7 +136,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="name"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            {"Вкажіть ім'я і прізвище"}
+            {name}
           </label>
 
           <div className={styles.conteiner_name}>
@@ -129,9 +153,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
                 {...register("name", {
                   required: true,
                 })}
-                placeholder={
-                  errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"
-                }
+                placeholder={errors.name ? ERROR_MESSAGE : name}
               />
             </div>
             {errors.name && (
@@ -150,7 +172,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="textarea"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Ваше питання
+            {questions}
           </label>
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
@@ -188,7 +210,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {/* Номер телефону */}
-            Вкажіть номер, на якому встановлений Месенджер
+            {phonesText}
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
@@ -262,7 +284,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="message"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Месенджер
+            {messenger}
           </label>
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
@@ -306,36 +328,21 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             </motion.div>
             {isOpen && (
               <motion.div className={styles.options_conteiner}>
-                <div
-                  onClick={handleCLickOnSelect}
-                  className={`${styles.options} ${styles[options_hover]}`}
-                >
-                  <FontAwesomeIcon
-                    icon={iconEnum["Viber"]}
-                    className={styles.options_icon}
-                  />
-                  Viber
-                </div>
-                <div
-                  onClick={handleCLickOnSelect}
-                  className={`${styles.options} ${styles[options_hover]}`}
-                >
-                  <FontAwesomeIcon
-                    icon={iconEnum["Telegram"]}
-                    className={styles.options_icon}
-                  />
-                  Telegram
-                </div>
-                <div
-                  onClick={handleCLickOnSelect}
-                  className={`${styles.options} ${styles[options_hover]}`}
-                >
-                  <FontAwesomeIcon
-                    icon={iconEnum["Telephone"]}
-                    className={styles.options_icon}
-                  />
-                  Телефон
-                </div>
+                {messenger_list.map((item, id) => {
+                  return (
+                    <div
+                      onClick={handleCLickOnSelect}
+                      className={`${styles.options} ${styles[options_hover]}`}
+                      key={id}
+                    >
+                      <FontAwesomeIcon
+                        icon={iconEnum[item["text"]]}
+                        className={styles.options_icon}
+                      />
+                      {item["text"]}
+                    </div>
+                  );
+                })}
               </motion.div>
             )}
           </div>
@@ -346,7 +353,7 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            Оберіть послугу
+            {services}
           </label>
           {errors.services && (
             <div className={styles.error_services}>
@@ -376,94 +383,44 @@ export default function FormComponent({ type, isOpenModal, setIsOpenModal }) {
                 : styles.conteiner_radio_groupe_hidden
             }
           >
-            <div className={`${styles.conteiner_radio} ${styles[border]}`}>
-              <label htmlFor="services_first" className={styles.lable_radio}>
-                Консультація Адвоката. Дзвінок або зустріч в офісі (550-950
-                грн.)
-              </label>
-              <div
-                className={`${styles.check_border} ${styles[border_check_color]}`}
-              >
-                <div className={styles.check_border_befor}></div>
-                <input
-                  onClick={handleToggleRadio}
-                  className={styles.radio_btn}
-                  type="radio"
-                  value="Консультація Адвоката. Дзвінок або зустріч в офісі (550-950 грн.)"
-                  id="services_first"
-                  {...register("services", { required: true })}
-                  placeholder="Оберіть спосіб отримання відповіді."
-                />
-                <label
-                  htmlFor="services_first"
-                  className={styles[check_color]}
-                ></label>
-              </div>
-            </div>
-
-            <div className={`${styles.conteiner_radio} ${styles[border]}`}>
-              <label htmlFor="services_second" className={styles.lable_radio}>
-                Вирішення питань через суд: розлучення, аліменти, майно,
-                батьківські права, тощо (від 5000 грн.)
-              </label>
-              <div
-                className={`${styles.check_border} ${styles[border_check_color]}`}
-              >
-                <div className={styles.check_border_befor}></div>
-                <input
-                  onClick={handleToggleRadio}
-                  className={styles.radio_btn}
-                  type="radio"
-                  value="Вирішення питань через суд: розлучення, аліменти, майно, батьківські права, тощо (від 5000 грн.)"
-                  id="services_second"
-                  {...register("services", { required: true })}
-                  placeholder="Оберіть спосіб отримання відповіді."
-                />
-                <label
-                  htmlFor="services_second"
-                  className={styles[check_color]}
-                ></label>
-              </div>
-            </div>
-
-            <div className={`${styles.conteiner_radio} ${styles[border]}`}>
-              <label htmlFor="services_third" className={styles.lable_radio}>
-                Допомога з документами: написання заяв, позовів, договорів, тощо
-                (від 2000 грн.)
-              </label>
-              <div
-                className={`${styles.check_border} ${styles[border_check_color]}`}
-              >
-                <div className={styles.check_border_befor}></div>
-                <input
-                  onClick={handleToggleRadio}
-                  className={styles.radio_btn}
-                  type="radio"
-                  value="Допомога з документами: написання заяв, позовів, договорів, тощо (від 2000 грн.)"
-                  id="services_third"
-                  {...register("services", { required: true })}
-                  placeholder="Оберіть спосіб отримання відповіді."
-                />
-                <label
-                  htmlFor="services_third"
-                  className={styles[check_color]}
-                ></label>
-              </div>
-            </div>
+            {services_list.map((item, id) => {
+              return (
+                <div
+                  className={`${styles.conteiner_radio} ${styles[border]}`}
+                  key={id}
+                >
+                  <label htmlFor={item["text"]} className={styles.lable_radio}>
+                    {item["text"]}
+                  </label>
+                  <div
+                    className={`${styles.check_border} ${styles[border_check_color]}`}
+                  >
+                    <div className={styles.check_border_befor}></div>
+                    <input
+                      className={styles.radio_btn}
+                      type="radio"
+                      value={item["text"]}
+                      id={item["text"]}
+                      {...register("services", { required: true })}
+                      placeholder="Оберіть спосіб отримання відповіді."
+                    />
+                    <label
+                      htmlFor={item["text"]}
+                      className={styles[check_color]}
+                    ></label>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className={styles.btn_wrapper}>
-          <Button
-            type="submit"
-            text="надіслати запит"
-            style="button_service"
-            typeStyle={type}
-          />
+          <Button type="submit" text={button["text"]} style="button_service" />
         </div>
       </form>
       {isStep && (
         <ModalThanks
-          type={type}
+          type={isStyleModalForm}
           setIsStep={setIsStep}
           setIsOpenModal={setIsOpenModal}
         />

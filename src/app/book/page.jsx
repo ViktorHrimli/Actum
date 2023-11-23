@@ -1,7 +1,7 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
 import FormSection from "@/shared/components/formSection/FormSection";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
+
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticPage } from "@/shared/services/api/api";
@@ -25,7 +25,7 @@ export default async function Book() {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-      <ContactPanel type={"home"} />
+
       <NestedHero type={"home"} img={heroBook} {...hero} />
       <StepsLawyers type="family" />
       <FormSection type="family" formData={form} {...info} />

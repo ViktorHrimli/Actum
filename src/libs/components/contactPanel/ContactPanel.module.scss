@@ -70,7 +70,6 @@
     background: linear-gradient(180deg, #1F1F1F 0%, #E32F7A 100%);
     box-shadow: 0px 8px 12px 0px rgba(79, 75, 75, 0.25);
     opacity: 0.7;
-
   }
 }
 
@@ -83,12 +82,14 @@
     border-radius: 305px;
     background: #E32F7A;
     filter: blur(35px);
+    opacity: 0.7;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 668px;
     height: 44px;
     border-radius: 668px;
+    opacity: 0.7;
   }
 
   @media screen and (min-width: 1279px) {
@@ -97,6 +98,7 @@
     height: 100%;
     background: linear-gradient(180deg, #1F1F1F 0%, #E32F7A 100%);
     box-shadow: 0px 8px 12px 0px rgba(79, 75, 75, 0.25);
+    opacity: 0.7;
   }
 }
 
@@ -321,4 +323,9 @@
 .phone_mob {
   height: 120px;
   transition: height 0.4s ease-in-out;
+}
+
+.options_icon {
+  width: 30px;
+  height: 30px;
 }

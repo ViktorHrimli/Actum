@@ -1,6 +1,5 @@
 import Publics from "@/libs/pages/publics/Publics";
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticPage } from "@/shared/services/api/api";
@@ -8,9 +7,10 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 import publics_img from "@/assets/svg/publics_hero.png";
 
-const { API_BLOG_PAGE, QUERY_BLOG_PAGE } = process.env;
+const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
+  process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_BLOG_PAGE);
 }
 
@@ -21,11 +21,17 @@ export default async function page() {
     },
   } = await getStaticPage(API_BLOG_PAGE, QUERY_BLOG_PAGE);
 
+  const {
+    data: {
+      attributes: { Form: modal },
+    },
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-      <ContactPanel type={"home"} />
-      <NestedHero type={"home"} img={publics_img} {...hero} />
+
+      <NestedHero type={"home"} img={publics_img} {...hero} form={modal} />
       <Publics blog_list={blog_list} />
     </>
   );
