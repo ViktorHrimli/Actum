@@ -1,24 +1,25 @@
-const colorEnums = {
+const staticEnums = {
   home: {
     gradient: {
       color: "#E32F7A",
       border: "border",
     },
   },
-  "paid-priority-family": {
+  family: {
     gradient: { color: "#E32F7A", border: "border" },
   },
-  "paid-priority-army": {
+  army: {
     gradient: {
       color: "#536641",
       border: "border_army",
     },
   },
-  "paid-priority-crime": {
+  crime: {
     gradient: {
       color: "#3F2E64",
       border: "border",
     },
   },
 };
-export { colorEnums };
+
+export { staticEnums };

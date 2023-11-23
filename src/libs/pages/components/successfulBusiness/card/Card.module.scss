@@ -27,6 +27,7 @@
 
 .border_family {
     @media screen and (min-width: 320px) and (max-width: 1279px) {
+        width: 237px;
         z-index: 15;
         padding: 1px;
         background: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
@@ -53,6 +54,7 @@
 
 .border_other {
     @media screen and (min-width: 320px) and (max-width: 1279px) {
+        width: 237px;
         z-index: 15;
         padding: 1px;
         background: linear-gradient(to right, #E32F7A 0%,
@@ -81,6 +83,7 @@
 
 .border_army {
     @media screen and (min-width: 320px) and (max-width: 1279px) {
+        width: 237px;
         z-index: 15;
         padding: 1px;
         // background: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);

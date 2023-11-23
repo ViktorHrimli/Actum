@@ -104,7 +104,7 @@ export default function ContactPanel({ form, Telephones, Icons }) {
       document.body.style.overflowX = "hidden";
       document.body.style.maxHeight = "";
     };
-  }, [isOpenModal, isScroll]);
+  }, [isOpenModal]);
 
   useEffect(() => {
     const languageData = localStorage.getItem("locale", "ru");
