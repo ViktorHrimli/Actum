@@ -42,7 +42,7 @@ export default function Form({
 
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
-
+  
   const {
     register,
     handleSubmit,
@@ -386,18 +386,12 @@ export default function Form({
 
         <div className={styles.btn_wrapper}>
           {isLoading && (
-            <div
-              style={{
-                position: "absolute",
-                left: "37%",
-                bottom: "400px",
-              }}
-            >
+            <div className={styles.loader_container}>
               <RotatingLines
                 strokeColor={themsColor[type]["fill"]}
                 strokeWidth="5"
                 animationDuration="0.75"
-                width="96"
+                className={styles.loader}
                 visible={true}
               />
             </div>

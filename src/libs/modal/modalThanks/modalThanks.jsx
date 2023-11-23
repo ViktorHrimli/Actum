@@ -1,7 +1,7 @@
 "use client";
 import styles from "./modalThanks.module.scss";
 
-import { colorEnums } from "../modalForm/enumsForm/enumsForm";
+import { colorEnums } from "./enumsThanks/enumsThanks";
 
 import { useEffect } from "react";
 import Button from "@/libs/components/button/Button";
