@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       disallow: "/",
     },
-    // sitemap: "http://localhost:3000/sitemap.xml",
+    sitemap: "http://actum.fun/sitemap.xml",
   };
 }
