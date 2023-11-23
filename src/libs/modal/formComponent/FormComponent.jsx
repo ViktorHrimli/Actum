@@ -11,8 +11,9 @@ import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import Button from "@/libs/components/button/Button";
 
-import { iconEnum } from "@/shared/enums/enum";
+import { iconEnum, colorEnums } from "@/shared/enums/enum";
 import { borderEnums } from "./enumsForm/enumsForm";
+
 
 import styles from "./FormComponent.module.scss";
 
@@ -423,6 +424,7 @@ export default function FormComponent({
           type={isStyleModalForm}
           setIsStep={setIsStep}
           setIsOpenModal={setIsOpenModal}
+          styleEnums={colorEnums}
         />
       )}
     </>

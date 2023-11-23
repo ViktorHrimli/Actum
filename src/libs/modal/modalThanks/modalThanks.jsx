@@ -11,9 +11,11 @@ export default function ModalThanks({
   type,
   setIsStep,
   isOpenModal,
-  setIsOpenModal = () => {},
+  styleEnums,
+  setIsOpenModal = () => { },
 }) {
-  const { color, border } = colorEnums[type];
+
+  const { gradient: { color, border } } = styleEnums[type];
 
   const handleToggle = () => {
     setIsStep(false);

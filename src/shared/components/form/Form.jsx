@@ -11,7 +11,8 @@ import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import CountyCode from "./country_code/CountyCode";
 
 import { borderEnums } from "./enumsForm/enumsForm";
-import { iconEnum, themsColor } from "@/shared/enums/enum";
+
+import { iconEnum, themsColor, staticEnums } from "@/shared/enums/enum";
 
 import styles from "./Form.module.scss";
 import axios from "axios";
@@ -410,6 +411,7 @@ export default function Form({
           type={type}
           setIsStep={setIsStep}
           setIsOpenModal={setIsOpenModal}
+          styleEnums={staticEnums}
         />
       )}
     </>

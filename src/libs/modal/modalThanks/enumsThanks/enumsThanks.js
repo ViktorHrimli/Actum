@@ -5,24 +5,20 @@ const colorEnums = {
       border: "border",
     },
   },
-  family: {
-    gradient: {
-      color: "#E32F7A",
-      border: "border",
-    },
+  "paid-priority-family": {
+    gradient: { color: "#E32F7A", border: "border" },
   },
-  army: {
+  "paid-priority-army": {
     gradient: {
       color: "#536641",
       border: "border_army",
     },
   },
-  crime: {
+  "paid-priority-crime": {
     gradient: {
       color: "#3F2E64",
       border: "border",
     },
   },
 };
-
 export { colorEnums };
