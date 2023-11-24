@@ -1,4 +1,4 @@
-export { META_DATA_DESCRIPTION, META_DATA_TITLE } from "./app/app";
+export { META_DATA_DESCRIPTION, META_DATA_TITLE, bodySend } from "./app/app";
 export { ButtonsText } from "./button/buttons";
 export { iconEnum } from "./icons/enums";
 export { themsColor } from "./colors/colors";
