@@ -9,7 +9,12 @@ export {
   useMemo,
 } from "react";
 
-export { usePathname, useParams, useRouter } from "next/navigation";
+export {
+  usePathname,
+  useParams,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 
 export { useMediaQuery } from "react-responsive";
 
