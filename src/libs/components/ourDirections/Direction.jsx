@@ -408,7 +408,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
           </div>
         </div>
         {/* SEO TEXT */}
-        <div style={{display: "none"}}>
+        <div style={{visibility: "hidden", position: "absolute"}}>
           <FamilyMattrs {...Family} />
           <CriminalMattrs {...Crime} />
           <MilitaryMattrs {...Army} />

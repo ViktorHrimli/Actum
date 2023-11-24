@@ -44,6 +44,14 @@ export default function QuestionsList({ type, questions, about_block }) {
             )}
           </ul>
         </div>
+        {/* SEO */}
+        <ul style={{visibility: "hidden"}}>
+          {questions.map((items, id) => {
+            return <li key={id}>
+              <p>{items.description}</p>
+            </li>
+          })}
+        </ul>
       </section>
     </>
   );

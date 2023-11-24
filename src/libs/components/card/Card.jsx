@@ -19,12 +19,13 @@ export default function Card({ name, photo, date, body, type }) {
         />
       </div>
       <p className={`${styles.text_name} ${styles[color]}`}>{name}</p>
-
-    <div className={styles.box_text}>
-      <p className={styles.text}>{body}</p>
-      <span className={`${styles.date} ${styles[color]}`}>{date}</span>
-    </div>
+    <div className={styles.flex}>
+      <div className={styles.box_text}>
+          <p className={styles.text}>{body}</p>
+      </div>
         
+      <span className={`${styles.date} ${styles[color]}`}>{date}</span>
+    </div>    
     </li>
   );
 }
