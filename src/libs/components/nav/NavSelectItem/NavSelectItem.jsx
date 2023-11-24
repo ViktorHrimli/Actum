@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { useState } from "@/shared/hooks/hooks";
+import { useState, useEffect } from "@/shared/hooks/hooks";
 
 import ArrowMenu from "@/shared/components/arrow_menu/ArrowMenu";
 
@@ -11,15 +11,15 @@ export default function NavSelectItem({
   path,
   List: list,
   onClick,
-  isOpenIndex,
-  dispatch,
+  setisCurrent,
+  isCurrent,
+  id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
 
-  const handleClick = () => {
-    dispatch({ type: path, payload: !isOpenSelect });
-    setIsOpenSelect(!isOpenSelect);
-  };
+  useEffect(() => {
+    setIsOpenSelect(isCurrent === id ? true : false);
+  }, [isCurrent]);
 
   return (
     <li className={styles.link} onClick={() => {}}>
@@ -36,12 +36,16 @@ export default function NavSelectItem({
         <Link href={path} onClick={onClick} className={styles.link_service}>
           <p className={styles.text}>{title}</p>
         </Link>
-        <ArrowMenu isOpenSelect={isOpenIndex[path]} setIsOpen={handleClick} />
+        <ArrowMenu
+          isOpenSelect={isOpenSelect}
+          setIsCurrent={setisCurrent}
+          id={id}
+        />
 
         <div className={styles.line}></div>
       </div>
 
-      {isOpenSelect && isOpenIndex[path] && (
+      {isOpenSelect && (
         <ul className={styles.nested_select_list}>
           {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>

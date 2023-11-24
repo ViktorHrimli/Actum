@@ -10,7 +10,15 @@ import ClickIcon from "@/shared/components/click/Click";
 
 import { themsColor } from "@/shared/enums/enum";
 
-export default function Accordion({ title, description, type, link, id, isCurent, setIsCurent }) {
+export default function Accordion({
+  title,
+  description,
+  type,
+  link,
+  id,
+  isCurent,
+  setIsCurent,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname().replace("/", "");
@@ -19,15 +27,15 @@ export default function Accordion({ title, description, type, link, id, isCurent
 
   const { fill } = themsColor[type];
 
-  const handleClickOpen = () =>  setIsCurent(isOpen ? false : id);
+  const handleClickOpen = () => setIsCurent(isOpen ? false : id);
 
   useEffect(() => {
     if (isCurent === id) {
-      setIsOpen(true)
+      setIsOpen(true);
     } else {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  },[isCurent, id])
+  }, [isCurent, id]);
 
   return (
     <>
@@ -75,7 +83,7 @@ export default function Accordion({ title, description, type, link, id, isCurent
               <p className={styles.text}>{description}</p>
               <div style={{ marginTop: "50px", display: "block" }}>
                 <ClickIcon
-                  path={`${isNestedPage ? pathDefault : pathName}/${link}`}
+                  path={link ? `${pathName}/${link}` : false}
                   color={fill}
                 />
               </div>

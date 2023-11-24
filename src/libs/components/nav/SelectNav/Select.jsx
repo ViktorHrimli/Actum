@@ -6,49 +6,8 @@ import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
 import styles from "./Select.module.scss";
 
-const reducer = (_, action) => {
-  switch (action.type) {
-    case "/paid-priority-family":
-      return {
-        "/paid-priority-family": action.payload,
-        "/paid-priority-crime": false,
-        "/paid-priority-army": false,
-        "/paid-priority-dtp": false,
-      };
-    case "/paid-priority-crime":
-      return {
-        "/paid-priority-family": false,
-        "/paid-priority-crime": action.payload,
-        "/paid-priority-dtp": false,
-
-        "/paid-priority-army": false,
-      };
-    case "/paid-priority-army":
-      return {
-        "/paid-priority-family": false,
-        "/paid-priority-crime": false,
-        "/paid-priority-dtp": false,
-        "/paid-priority-army": action.payload,
-      };
-    case "/paid-priority-dtp":
-      return {
-        "/paid-priority-family": false,
-        "/paid-priority-crime": false,
-        "/paid-priority-army": false,
-        "/paid-priority-dtp": action.payload,
-      };
-  }
-};
-
-const initital = {
-  "/paid-priority-family": false,
-  "/paid-priority-crime": false,
-  "/paid-priority-army": false,
-  "/paid-priority-dtp": false,
-};
-
 export default function Select({ routes, isOpen, onClick, isMobile }) {
-  const [isOpenIndex, dispatch] = useReducer(reducer, initital);
+  const [isCurrent, setisCurrent] = useState(null);
 
   return (
     <AnimatePresence>
@@ -70,11 +29,11 @@ export default function Select({ routes, isOpen, onClick, isMobile }) {
               {routes.map((item, id) => (
                 <NavSelectItem
                   key={id}
-                  dispatch={dispatch}
                   id={id}
-                  isOpenIndex={isOpenIndex}
-                  {...item}
+                  setisCurrent={setisCurrent}
+                  isCurrent={isCurrent}
                   onClick={onClick}
+                  {...item}
                 />
               ))}
             </ul>

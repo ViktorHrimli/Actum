@@ -61,22 +61,25 @@ export default function Navigation({
         ))}
       </ul>
       {/* SEO */}
-      <ul style={{visibility: "hidden", position: "absolute"}}>
+      <ul style={{ visibility: "hidden", position: "absolute" }}>
         {servicesRoute.map(({ List, Title, id, path }) => {
-          console.log(servicesRoute);
-          return <li key={id}>
-            <p>{Title}</p>
-            <Link href={path}></Link>
-            <ul>
-              {List.map(({text, path}, id) => {
-                return <li key={id}>
-                  <p>{text}</p>
-                  <Link href={path}></Link>
-                </li>
-              })}
-            </ul>
-        </li>
-      })}
+          return (
+            <li key={id}>
+              <p>{Title}</p>
+              <Link href={path}></Link>
+              <ul>
+                {List.map(({ text, path }, id) => {
+                  return (
+                    <li key={id}>
+                      <p>{text}</p>
+                      <Link href={path}></Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
       {!isMobile && onHover && (
         <Select

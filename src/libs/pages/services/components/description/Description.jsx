@@ -1,7 +1,7 @@
 import styles from "./Description.module.scss";
 import { descriptionEnums } from "./libs/enums";
 
-export default function Descrition({ type, title, description}) {
+export default function Descrition({ type,  description}) {
   const { line, background, gradient, text } = descriptionEnums[type];
   return (
     <section className={styles[background]}>

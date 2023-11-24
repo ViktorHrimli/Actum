@@ -18,7 +18,7 @@ export default function ArrowOpen({ isOpenMenu, setIsOpenMenu }) {
           zIndex: 10,
         }}
       >
-        <ArrowMenu isOpenSelect={isOpenMenu} setIsOpen={setIsOpenMenu} />
+        <ArrowMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
       </motion.div>
     </AnimatePresence>
   );

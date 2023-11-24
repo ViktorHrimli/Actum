@@ -36,6 +36,7 @@ export default async function page({ params }) {
       questions_list,
       bread_crumbs,
       description_lawyer,
+      statistics,
       seo,
     },
   } = data[0];
@@ -50,7 +51,7 @@ export default async function page({ params }) {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"crime"} />
+      <AboutCards type={"crime"} listCard={statistics} />
       <SuccessfulBusiness type={"crime"} />
       <Specialists type={"crime"} {...employeer_list} />
       <Description type={"crime"} description={description_lawyer} />
