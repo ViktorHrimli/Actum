@@ -1,4 +1,7 @@
 const themsColor = {
+  home: {
+    fill: "#E32F7A",
+  },
   other: {
     fill: "#F16D74",
   },

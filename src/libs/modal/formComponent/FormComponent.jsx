@@ -3,6 +3,7 @@ import IMask from "react-input-mask";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import { RotatingLines } from "react-loader-spinner";
 
 import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect } from "@/shared/hooks/hooks";
@@ -11,9 +12,8 @@ import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import Button from "@/libs/components/button/Button";
 
-import { iconEnum, colorEnums } from "@/shared/enums/enum";
+import { iconEnum, colorEnums} from "@/shared/enums/enum";
 import { borderEnums } from "./enumsForm/enumsForm";
-
 
 import styles from "./FormComponent.module.scss";
 
@@ -43,8 +43,9 @@ export default function FormComponent({
   const [isStyleModalForm, setIsStyleModalForm] = useState(
     "paid-priority-family"
   );
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { border, color_text, options_hover, border_check_color, check_color } =
+  const { border, color_text, options_hover, border_check_color, check_color, fill } =
     borderEnums[isStyleModalForm];
 
   const {
@@ -88,8 +89,11 @@ export default function FormComponent({
 
   const onSubmit = async (data) => {
     if (phoneNumber.length >= 12) {
+      setIsLoading(true);
+
       await axios.post("/api/form", data).then((res) => {
         if (res.data["result"] === "success") {
+          setIsLoading(false);
           setIsStep(true);
           reset();
           setSelectValue("");
@@ -416,6 +420,17 @@ export default function FormComponent({
           </div>
         </div>
         <div className={styles.btn_wrapper}>
+          {isLoading && (
+            <div className={styles.loader_container}>
+              <RotatingLines
+                strokeColor={fill}
+                strokeWidth="5"
+                animationDuration="0.75"
+                className={styles.loader}
+                visible={true}
+              />
+            </div>
+          )}
           <Button type="submit" text={button["text"]} style="button_service" />
         </div>
       </form>

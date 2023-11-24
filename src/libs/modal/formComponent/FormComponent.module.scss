@@ -353,6 +353,7 @@
 }
 
 .btn_wrapper {
+    position: relative;
     border-radius: 4px;
     z-index: 5;
 
@@ -853,5 +854,46 @@
 
     &::placeholder {
         color: white;
+    }
+}
+
+.loader_container {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background: #F8F5F5;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    z-index: 16;
+
+    @media screen and (min-width: 320px) {
+        width: 205px;
+        height: 35px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 286px;
+        height: 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 307px;
+        height: 52px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 341px;
+        height: 52px;
+    }
+}
+
+.loader {
+    @media screen and (min-width: 320px) {
+        width: 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 54px;
     }
 }
