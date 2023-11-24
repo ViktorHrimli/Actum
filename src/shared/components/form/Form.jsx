@@ -1,6 +1,6 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect, usePathname } from "@/shared/hooks/hooks";
+import { useState, useEffect, useSearchParams } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RotatingLines } from "react-loader-spinner";
@@ -12,34 +12,18 @@ import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import CountyCode from "./country_code/CountyCode";
 
 import { borderEnums } from "./enumsForm/enumsForm";
+import {
+  iconEnum,
+  themsColor,
+  staticEnums,
+  bodySend,
+} from "@/shared/enums/enum";
 
-import { iconEnum, themsColor, staticEnums } from "@/shared/enums/enum";
-
-import styles from "./Form.module.scss";
 import { storage } from "@/shared/helpers/sessionStorageManager";
 
+import styles from "./Form.module.scss";
+
 const ERROR_MESSAGE = "Заповніть поле!";
-
-const bodySend = {
-  type: "",
-  medium: "",
-  content: "",
-  pagename: "",
-  term: "",
-  userId: "",
-  campaign: "",
-  source: "",
-  telephone: "",
-  client: "",
-  eventtime: "",
-  errorcond: false,
-  question: "",
-  messenger: "",
-  service: "",
-  referer: "https://www.google.com",
-};
-
-const BASE_PATH = "https://actum.fun/";
 
 export default function Form({
   type,
@@ -59,13 +43,15 @@ export default function Form({
   const [phoneNumber, setPhoneNumber] = useState("");
   const [client, setClient] = useState("");
   const [question, setQuestion] = useState("");
+  const [selectServices, setSelectServices] = useState("");
 
   const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
 
-  const pagename = BASE_PATH + usePathname();
+  const pagename = window.location.href;
+  const searcParams = useSearchParams();
 
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
@@ -85,8 +71,26 @@ export default function Form({
   });
 
   const sendFormOnMessenger = (data) => {
-    console.log(data);
-    // axios.post("/api/form", data);
+    axios.post("/api/form", data);
+  };
+
+  const sendFormByError = () => {
+    const makeObjParams = storage.getInfo(searcParams);
+
+    const errorObj = {
+      ...bodySend,
+      ...makeObjParams,
+      telephone: phoneNumber,
+      type: selectValue,
+      client,
+      pagename,
+      question,
+      service: selectServices,
+      messenger: selectValue,
+      errorcond: true,
+    };
+
+    axios.post("/api/form", errorObj);
   };
 
   const handleCLickOnSelect = (event) => {
@@ -106,17 +110,37 @@ export default function Form({
     setPhoneNumber(numericValue);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     if (phoneNumber.length >= 12) {
+      const makeObjParams = storage.getInfo(searcParams);
+
+      const bodySubmitSuccsses = {
+        ...bodySend,
+        ...makeObjParams,
+        telephone: phoneNumber,
+        type: selectValue,
+        client,
+        pagename,
+        question,
+        service: selectServices,
+        messenger: selectValue,
+      };
+
       setIsLoading(true);
-      await axios.post("/api/form", data).then((res) => {
-        if (res.data["result"] === "success") {
-          setIsLoading(false);
-          setIsStep(true);
-          reset();
-          setSelectValue("");
-        }
-      });
+
+      axios
+        .post("/api/form", bodySubmitSuccsses)
+        .catch(
+          () => setTimeout(() => axios.post("/api/form"), bodySubmitSuccsses),
+          10000
+        );
+
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsStep(true);
+        reset();
+        setSelectValue("");
+      }, 1000);
     } else {
       setError(
         "phone",
@@ -139,20 +163,51 @@ export default function Form({
 
   useEffect(() => {
     const isSendMessage = selectValue === "Telegram" || selectValue === "Viber";
-    const testObj = storage.getInfo();
 
     if (isSendMessage) {
+      const makeObjParams = storage.getInfo(searcParams);
+
       sendFormOnMessenger({
         ...bodySend,
+        ...makeObjParams,
         telephone: phoneNumber,
-        form: selectValue,
+        type: selectValue,
         client,
         pagename,
         question,
-        ...testObj,
+        service: selectServices,
+        messenger: selectValue,
       });
     }
   }, [selectValue]);
+
+  useEffect(() => {
+    switch (true) {
+      case Boolean(errors.name):
+        return sendFormByError();
+
+      case Boolean(errors.textarea):
+        return sendFormByError();
+
+      case Boolean(errors.phone):
+        return sendFormByError();
+
+      case Boolean(errors.message):
+        return sendFormByError();
+
+      case Boolean(errors.services):
+        return sendFormByError();
+
+      default:
+        return;
+    }
+  }, [
+    errors.name,
+    errors.textarea,
+    errors.phone,
+    errors.message,
+    errors.services,
+  ]);
 
   return (
     <>
@@ -421,7 +476,11 @@ export default function Form({
                       type="radio"
                       value={item["text"]}
                       id={item["text"]}
-                      {...register("services", { required: true })}
+                      {...register("services", {
+                        required: true,
+                        onBlur: (event) =>
+                          setSelectServices(event.target.value),
+                      })}
                       placeholder="Оберіть спосіб отримання відповіді."
                     />
                     <label

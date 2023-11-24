@@ -5,15 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect } from "@/shared/hooks/hooks";
+import { useState, useEffect, useSearchParams } from "@/shared/hooks/hooks";
 
 import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import Button from "@/libs/components/button/Button";
 
-import { iconEnum, colorEnums } from "@/shared/enums/enum";
+import { iconEnum, colorEnums, bodySend } from "@/shared/enums/enum";
 import { borderEnums } from "./enumsForm/enumsForm";
 
+import { storage } from "@/shared/helpers/sessionStorageManager";
 
 import styles from "./FormComponent.module.scss";
 
@@ -35,14 +36,22 @@ export default function FormComponent({
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [isOpenCountry, setIsOpenCountry] = useState(false);
+  const [client, setClient] = useState("");
+  const [question, setQuestion] = useState("");
+  const [selectServices, setSelectServices] = useState("");
 
+  const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
   const [isStep, setIsStep] = useState(false);
   const [isStyleModalForm, setIsStyleModalForm] = useState(
     "paid-priority-family"
   );
+
+  const pagename = window.location.href;
+
+  const searcParams = useSearchParams();
 
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[isStyleModalForm];
@@ -86,15 +95,69 @@ export default function FormComponent({
     setIsOpenCountry(!isOpenCountry);
   };
 
-  const onSubmit = async (data) => {
+  const sendFormOnMessenger = (data) => {
+    axios.post("/api/form", data);
+    console.log(data);
+  };
+
+  const sendFormByError = () => {
+    const makeObjParams = storage.getInfo(searcParams);
+
+    const errorObj = {
+      ...bodySend,
+      ...makeObjParams,
+      telephone: phoneNumber,
+      type: selectValue,
+      client,
+      pagename,
+      question,
+      service: selectServices,
+      messenger: selectValue,
+      errorcond: true,
+    };
+
+    axios.post("/api/form", errorObj);
+    console.log(errorObj);
+  };
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    const numericValue = inputValue.replace(/\D/g, "");
+    setPhoneNumber(numericValue);
+  };
+
+  const onSubmit = (data) => {
     if (phoneNumber.length >= 12) {
-      await axios.post("/api/form", data).then((res) => {
-        if (res.data["result"] === "success") {
-          setIsStep(true);
-          reset();
-          setSelectValue("");
-        }
-      });
+      const makeObjParams = storage.getInfo(searcParams);
+
+      const bodySubmitSuccsses = {
+        ...bodySend,
+        ...makeObjParams,
+        telephone: phoneNumber,
+        type: selectValue,
+        client,
+        pagename,
+        question,
+        service: selectServices,
+        messenger: selectValue,
+      };
+
+      setIsLoading(true);
+      // SEND
+      axios
+        .post("/api/form", bodySubmitSuccsses)
+        .catch(
+          () => setTimeout(() => axios.post("/api/form"), bodySubmitSuccsses),
+          10000
+        );
+      console.log(bodySubmitSuccsses);
+      // TIMEOUT THANKS
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsStep(true);
+        reset();
+        setSelectValue("");
+      }, 1000);
     } else {
       setError(
         "phone",
@@ -123,11 +186,53 @@ export default function FormComponent({
     };
   }, [isOpenModal]);
 
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    const numericValue = inputValue.replace(/\D/g, "");
-    setPhoneNumber(numericValue);
-  };
+  useEffect(() => {
+    const isSendMessage = selectValue === "Telegram" || selectValue === "Viber";
+
+    if (isSendMessage) {
+      const makeObjParams = storage.getInfo(searcParams);
+
+      sendFormOnMessenger({
+        ...bodySend,
+        ...makeObjParams,
+        telephone: phoneNumber,
+        type: selectValue,
+        client,
+        pagename,
+        question,
+        service: selectServices,
+        messenger: selectValue,
+      });
+    }
+  }, [selectValue]);
+
+  useEffect(() => {
+    switch (true) {
+      case Boolean(errors.name):
+        return sendFormByError();
+
+      case Boolean(errors.textarea):
+        return sendFormByError();
+
+      case Boolean(errors.phone):
+        return sendFormByError();
+
+      case Boolean(errors.message):
+        return sendFormByError();
+
+      case Boolean(errors.services):
+        return sendFormByError();
+
+      default:
+        return;
+    }
+  }, [
+    errors.name,
+    errors.textarea,
+    errors.phone,
+    errors.message,
+    errors.services,
+  ]);
 
   return (
     <>
@@ -153,6 +258,7 @@ export default function FormComponent({
                 type="text"
                 {...register("name", {
                   required: true,
+                  onChange: (event) => setClient(event.target.value),
                 })}
                 placeholder={errors.name ? ERROR_MESSAGE : name}
               />
@@ -185,7 +291,10 @@ export default function FormComponent({
                     : styles.textarea
                 }
                 id="textarea"
-                {...register("textarea", { required: true })}
+                {...register("textarea", {
+                  required: true,
+                  onChange: (event) => setQuestion(event.currentTarget.value),
+                })}
                 placeholder={
                   errors.textarea
                     ? ERROR_MESSAGE
@@ -402,7 +511,11 @@ export default function FormComponent({
                       type="radio"
                       value={item["text"]}
                       id={item["text"]}
-                      {...register("services", { required: true })}
+                      {...register("services", {
+                        required: true,
+                        onBlur: (event) =>
+                          setSelectServices(event.target.value),
+                      })}
                       placeholder="Оберіть спосіб отримання відповіді."
                     />
                     <label

@@ -74,7 +74,7 @@ export default function Header({ nav, routes, logo }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    storage.generateUserInfo(searchParams);
+    return () => setTimeout(() => storage.generateUserInfo(searchParams), 3000);
   }, []);
 
   useEffect(() => {
