@@ -6,6 +6,7 @@ import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
+import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
@@ -35,6 +36,7 @@ export default async function page({ params }) {
       questions_list,
       bread_crumbs,
       description_lawyer,
+      statistics,
       seo,
     },
   } = data[0];
@@ -49,6 +51,7 @@ export default async function page({ params }) {
         about_block={about_block}
         questions={questions_list}
       />
+      <AboutCards type={"family"} listCard={statistics} />
       <SuccessfulBusiness type={"family"} />
       <Specialists type={"family"} {...employeer_list} />
       <Description type={"family"} title={description_lawyer} />

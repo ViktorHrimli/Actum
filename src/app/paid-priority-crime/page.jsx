@@ -47,13 +47,13 @@ export default async function Crimes() {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"crime"} />
+      {/* <AboutCards type={"crime"} /> */}
       <SuccessfulBusiness type={"crime"} />
       <Specialists type={"crime"} {...employeer_list} />
       <Description type={"crime"} description={description_lawyer} />
       <Response type={"crime"} {...responses} />
       <StepsLawyers type={"crime"} />
-      <Price type={"crime"} />
+      {/* <Price type={"crime"} /> */}
       <FormSection type={"crime"} formData={form} {...info} />
     </>
   );

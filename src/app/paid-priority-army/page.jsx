@@ -47,13 +47,13 @@ export default async function PaidArmy() {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"army"} />
+      {/* <AboutCards type={"army"} /> */}
       <SuccessfulBusiness type={"army"} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
       <StepsLawyers type={"army"} />
-      <Price type={"army"} />
+      {/* <Price type={"army"} /> */}
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );
