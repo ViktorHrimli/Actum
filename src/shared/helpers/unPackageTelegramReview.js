@@ -1,13 +1,6 @@
 import axios from "axios";
 import cheerio from "cheerio";
 
-const {
-  ACCESS_CONTROL_ALLOW_CREDENTIALS,
-  ACCESS_CONTROL_ALLOW_ORIGIN,
-  ACCESS_CONTROL_ALLOW_METHODS,
-  ACCESS_CONTROL_ALLOW_HEADERS,
-} = process.env;
-
 const unPackageTelegramReview = async () => {
   const allReviews = await axios(
     "https://script.google.com/macros/s/AKfycbzDPGoplMwrF7Rd0pHR2SfjcfdzNNQvpmt8d6qGmAHtIQ3AH3THKS2qYHZo21xOSwUu/exec"
@@ -25,8 +18,9 @@ const unPackageTelegramReview = async () => {
     const body = $(".tgme_widget_message_text").text();
     const photo = $("img").attr("src");
     const date = $(".datetime").text();
+    const link = $(".tgme_widget_message_link a").attr("href");
 
-    return { name, body, photo, date };
+    return { name, body, photo, date, link };
   });
 };
 

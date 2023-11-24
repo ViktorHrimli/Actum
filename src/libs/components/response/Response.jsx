@@ -22,7 +22,7 @@ export default function Response({ type, button, description, title }) {
   const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
-  const [reviewsList, setReviewsList] = useState([]);
+  const [reviewsList, setReviewsList] = useState(dataReviewsStatic);
 
   const path = usePathname();
   const screen = useIsSmall();
@@ -61,7 +61,7 @@ export default function Response({ type, button, description, title }) {
                 setIsChange={setIsChange}
                 setIsLeft={setIsLeft}
                 isChange={isChange}
-                dataLength={reviewsList.length ?? 0}
+                dataLength={reviewsList.length}
               />
             </div>
             <ItemsList
@@ -78,7 +78,7 @@ export default function Response({ type, button, description, title }) {
                 setIsChange={setIsChange}
                 setIsLeft={setIsLeft}
                 isChange={isChange}
-                dataLength={reviewsList.length ?? 0}
+                dataLength={reviewsList.length}
               />
             </div>
             {isHome && (

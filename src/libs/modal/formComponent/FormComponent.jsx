@@ -3,6 +3,7 @@ import IMask from "react-input-mask";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import { RotatingLines } from "react-loader-spinner";
 
 import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect, useSearchParams } from "@/shared/hooks/hooks";
@@ -50,11 +51,16 @@ export default function FormComponent({
   );
 
   const pagename = window.location.href;
-
   const searcParams = useSearchParams();
 
-  const { border, color_text, options_hover, border_check_color, check_color } =
-    borderEnums[isStyleModalForm];
+  const {
+    border,
+    color_text,
+    options_hover,
+    border_check_color,
+    check_color,
+    fill,
+  } = borderEnums[isStyleModalForm];
 
   const {
     register,
@@ -529,6 +535,17 @@ export default function FormComponent({
           </div>
         </div>
         <div className={styles.btn_wrapper}>
+          {isLoading && (
+            <div className={styles.loader_container}>
+              <RotatingLines
+                strokeColor={fill}
+                strokeWidth="5"
+                animationDuration="0.75"
+                className={styles.loader}
+                visible={true}
+              />
+            </div>
+          )}
           <Button type="submit" text={button["text"]} style="button_service" />
         </div>
       </form>
