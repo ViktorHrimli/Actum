@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, usePathname } from "@/shared/hooks/hooks";
+import { useState, usePathname, useEffect } from "@/shared/hooks/hooks";
 
 import styles from "./Accordion.module.scss";
 
@@ -10,7 +10,7 @@ import ClickIcon from "@/shared/components/click/Click";
 
 import { themsColor } from "@/shared/enums/enum";
 
-export default function Accordion({ title, description, type, link }) {
+export default function Accordion({ title, description, type, link, id, isCurent, setIsCurent }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname().replace("/", "");
@@ -19,7 +19,15 @@ export default function Accordion({ title, description, type, link }) {
 
   const { fill } = themsColor[type];
 
-  const handleClickOpen = () => setIsOpen(!isOpen);
+  const handleClickOpen = () =>  setIsCurent(isOpen ? false : id);
+
+  useEffect(() => {
+    if (isCurent === id) {
+      setIsOpen(true)
+    } else {
+      setIsOpen(false)
+    }
+  },[isCurent, id])
 
   return (
     <>
