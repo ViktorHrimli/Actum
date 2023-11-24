@@ -1,9 +1,10 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect } from "@/shared/hooks/hooks";
+import { useState, useEffect, usePathname } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RotatingLines } from "react-loader-spinner";
+import axios from "axios";
 import IMask from "react-input-mask";
 
 import Button from "@/libs/components/button/Button";
@@ -15,9 +16,30 @@ import { borderEnums } from "./enumsForm/enumsForm";
 import { iconEnum, themsColor, staticEnums } from "@/shared/enums/enum";
 
 import styles from "./Form.module.scss";
-import axios from "axios";
+import { storage } from "@/shared/helpers/sessionStorageManager";
 
 const ERROR_MESSAGE = "Заповніть поле!";
+
+const bodySend = {
+  type: "",
+  medium: "",
+  content: "",
+  pagename: "",
+  term: "",
+  userId: "",
+  campaign: "",
+  source: "",
+  telephone: "",
+  client: "",
+  eventtime: "",
+  errorcond: false,
+  question: "",
+  messenger: "",
+  service: "",
+  referer: "https://www.google.com",
+};
+
+const BASE_PATH = "https://actum.fun/";
 
 export default function Form({
   type,
@@ -35,15 +57,19 @@ export default function Form({
   const [selectValue, setSelectValue] = useState("");
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [client, setClient] = useState("");
+  const [question, setQuestion] = useState("");
+
   const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
 
+  const pagename = BASE_PATH + usePathname();
+
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
-  
+
   const {
     register,
     handleSubmit,
@@ -58,6 +84,11 @@ export default function Form({
     reValidateMode: "onChange",
   });
 
+  const sendFormOnMessenger = (data) => {
+    console.log(data);
+    // axios.post("/api/form", data);
+  };
+
   const handleCLickOnSelect = (event) => {
     setSelectValue(event.currentTarget.innerText);
     setValue("message", event.currentTarget.innerText, { shouldTouch: true });
@@ -67,6 +98,12 @@ export default function Form({
   const handleToggleSelect = () => {
     setIsOpen(!isOpen);
     setIsOpenCountry(false);
+  };
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    const numericValue = inputValue.replace(/\D/g, "");
+    setPhoneNumber(numericValue);
   };
 
   const onSubmit = async (data) => {
@@ -100,11 +137,22 @@ export default function Form({
     };
   }, [isOpenModal]);
 
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    const numericValue = inputValue.replace(/\D/g, "");
-    setPhoneNumber(numericValue);
-  };
+  useEffect(() => {
+    const isSendMessage = selectValue === "Telegram" || selectValue === "Viber";
+    const testObj = storage.getInfo();
+
+    if (isSendMessage) {
+      sendFormOnMessenger({
+        ...bodySend,
+        telephone: phoneNumber,
+        form: selectValue,
+        client,
+        pagename,
+        question,
+        ...testObj,
+      });
+    }
+  }, [selectValue]);
 
   return (
     <>
@@ -134,6 +182,7 @@ export default function Form({
                 id="name"
                 type="text"
                 {...register("name", {
+                  onChange: (event) => setClient(event.target.value),
                   required: true,
                   minLength: 2,
                 })}
@@ -170,6 +219,7 @@ export default function Form({
                 }
                 id="textarea"
                 {...register("textarea", {
+                  onChange: (event) => setQuestion(event.currentTarget.value),
                   required: true,
                   minLength: 3,
                 })}

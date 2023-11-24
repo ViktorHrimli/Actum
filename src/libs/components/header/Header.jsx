@@ -9,7 +9,7 @@ import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
 import SideBar from "@/libs/components/side_bar//SideBar";
 
 import { desktopLogoAnimate, mobileLogoAnimate } from "./enums/enum";
-
+import { storage } from "@/shared/helpers/helpers";
 import { gradientEnums } from "./enums/gradientEnums";
 
 import {
@@ -20,6 +20,7 @@ import {
   useIsBig,
   useIsTab,
   useClient,
+  useSearchParams,
 } from "@/shared/hooks/hooks";
 
 import Logo from "@/assets/svg/LOGO.png";
@@ -42,6 +43,7 @@ export default function Header({ nav, routes, logo }) {
 
   const path = usePathname();
   const patnName = path.replace("/", "");
+  const searchParams = useSearchParams();
   const isClient = useClient();
 
   const logoAnimated = isDesktopOrLaptop
@@ -71,6 +73,8 @@ export default function Header({ nav, routes, logo }) {
     setTimeout(() => {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
+
+    storage.generateUserInfo(searchParams);
   }, []);
 
   useEffect(() => {
