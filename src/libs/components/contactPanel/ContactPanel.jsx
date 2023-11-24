@@ -23,6 +23,7 @@ import styles from "./ContactPanel.module.scss";
 import { iconEnum } from "@/shared/enums/enum";
 
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
+import { icon } from "@fortawesome/fontawesome-svg-core";
 
 export default function ContactPanel({ form, Telephones, Icons }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState(null);
@@ -46,6 +47,7 @@ export default function ContactPanel({ form, Telephones, Icons }) {
 
   const FIRST_ICON = Icons[0];
   const SECOND_ICON = Icons[1];
+  console.log(Icons);
 
   const hanldeChangeLocale = () => {
     if (!path.includes("/ru")) {
