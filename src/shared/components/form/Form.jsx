@@ -432,7 +432,7 @@ export default function Form({
                       key={id}
                     >
                       <FontAwesomeIcon
-                        icon={iconEnum[item["text"]]}
+                        icon={iconEnum[item["icons"]]}
                         className={styles.options_icon}
                       />
                       {item["text"]}

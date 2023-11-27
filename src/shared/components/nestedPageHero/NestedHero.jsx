@@ -19,7 +19,7 @@ import { getFormById } from "@/shared/helpers/helpers";
 
 export default function NestedHero({
   type,
-  img,
+  background_photo,
   description,
   title,
   actum,
@@ -80,7 +80,7 @@ export default function NestedHero({
 
       <section className={styles.section}>
         <Image
-          src={img}
+          src={background_photo["data"]["attributes"]["url"]}
           alt="background photo"
           fill
           priority={true}
@@ -102,7 +102,7 @@ export default function NestedHero({
             className={styles.title_wotemark}
           >
             <Image
-              src={actum["data"]["attributes"]["url"] ?? watemark}
+              src={actum["data"]["attributes"]["url"]}
               alt="ACTUM"
               fill
               loading="eager"

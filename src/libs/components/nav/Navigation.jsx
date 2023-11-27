@@ -19,6 +19,8 @@ export default function Navigation({
 }) {
   const SERVICES = "послуги";
 
+  console.log(route);
+
   return (
     <div style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
@@ -34,7 +36,9 @@ export default function Navigation({
           >
             <Link
               className={
-                route === path ? styles.active_link : styles.not_active_link
+                route === `/${path}`
+                  ? styles.active_link
+                  : styles.not_active_link
               }
               href={isLocal ? `/${isLocal}/${path}` : path}
               onClick={onClick}

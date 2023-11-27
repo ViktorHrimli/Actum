@@ -1,5 +1,4 @@
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import ContactHero from "@/assets/svg/ContactHero.png";
 import Contacts from "@/libs/pages/contacts/contacts/Contacts";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
@@ -42,7 +41,7 @@ export default async function Conacts() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <NestedHero type={"home"} {...hero} img={ContactHero} form={modal} />
+      <NestedHero type={"home"} {...hero} form={modal} />
       <Contacts
         {...info}
         social_list={social}
