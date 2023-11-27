@@ -22,8 +22,6 @@ export default function Accordion({
   const [isOpen, setIsOpen] = useState(false);
 
   const pathName = usePathname().replace("/", "");
-  const pathDefault = usePathname();
-  const isNestedPage = pathName.includes("services");
 
   const { fill } = themsColor[type];
 

@@ -5,6 +5,11 @@ import Button from "@/libs/components/button/Button";
 import Link from "next/link";
 
 export default function Items({ items }) {
+  const objClass = {
+    background_crime: "background_crime",
+    background_family: "background_family",
+  };
+
   return (
     <ul className={styles.items_list}>
       {items.map((el, id) => (
@@ -19,7 +24,7 @@ export default function Items({ items }) {
                 alt={el.title}
                 style={{ objectFit: "cover" }}
               />
-              <div className={styles[el.styles]}></div>
+              <div className={styles[objClass[el.style]]}></div>
               <div className={styles.img_btn}>
                 <Link href={el?.button["link"]}>
                   <Button

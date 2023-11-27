@@ -23,7 +23,7 @@ export default function Items({
         <div className={styles.text_wrapper}>
           <h2 className={styles.title_text}>{title}</h2>
 
-          <p className={styles.lawyer_text}>{button["style"]}</p>
+          <p className={styles.lawyer_text}>adad</p>
 
           <div
             className={styles.text}
