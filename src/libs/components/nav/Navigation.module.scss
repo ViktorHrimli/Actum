@@ -27,21 +27,32 @@
         max-width: 100px;
     }
 
-
-
-    :hover {
-        text-decoration-line: underline;
-        text-decoration-color: #E32F7A;
+    @media screen and (min-width: 1280px) {
+        :hover {
+            text-decoration-line: underline;
+            text-decoration-color: #E32F7A;
+        }
     }
+
+
+
+
 
     max-width: 100%;
 }
 
 .active_link {
-    text-decoration-line: underline;
+    @media screen and (min-width: 1280px) {
+        text-decoration-line: underline;
+    }
+
+
 }
 
 .not_active_link {
-    text-decoration-line: none;
-    text-decoration: none;
+
+    @media screen and (max-width: 1280px) {
+        text-decoration-line: none;
+        text-decoration: none;
+    }
 }

@@ -4,8 +4,6 @@ import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import Lawyers from "@/libs/pages/services/components/lawyers/Lawyers";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import service_back_photo from "@/assets/svg/service_back_photo.png";
-
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
@@ -47,12 +45,7 @@ export default async function Services() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <NestedHero
-        type={"home"}
-        {...hero}
-        img={service_back_photo}
-        form={modal}
-      />
+      <NestedHero type={"home"} {...hero} form={modal} />
       <AboutServices type={"home"} list={services_blocks} title={desk_title} />
       <Lawyers
         type={"home"}
