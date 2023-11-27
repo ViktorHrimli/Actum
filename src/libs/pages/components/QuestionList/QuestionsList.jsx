@@ -37,19 +37,28 @@ export default function QuestionsList({ type, questions, about_block }) {
           </div>
           <ul className={styles.list}>
             {questions.map((items, id) => {
-              return <li key={id}>
-                <Accordion {...items} type={type} id={id} setIsCurent={setIsCurent} isCurent={isCurent} />
-              </li>
-            }
-            )}
+              return (
+                <li key={id}>
+                  <Accordion
+                    {...items}
+                    type={type}
+                    id={id}
+                    setIsCurent={setIsCurent}
+                    isCurent={isCurent}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
         {/* SEO */}
-        <ul style={{visibility: "hidden", display: "none"}}>
+        <ul style={{ visibility: "hidden", position: "absolute" }}>
           {questions.map((items, id) => {
-            return <li key={id}>
-              <p>{items.description}</p>
-            </li>
+            return (
+              <li key={id}>
+                <p>{items.description}</p>
+              </li>
+            );
           })}
         </ul>
       </section>
