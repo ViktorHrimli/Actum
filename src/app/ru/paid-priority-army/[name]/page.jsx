@@ -31,6 +31,7 @@ export default async function page() {
         Responses: responses,
         questions_list,
         bread_crumbs,
+        statistics,
         description_lawyer,
         seo,
       },
@@ -46,7 +47,7 @@ export default async function page() {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"army"} />
+      <AboutCards type={"army"} listCard={statistics} />
       <SuccessfulBusiness type={"army"} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />

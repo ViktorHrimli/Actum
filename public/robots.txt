@@ -6,4 +6,4 @@ Allow: /
 Host: https://actum.fun
 
 # Sitemaps
-Sitemap: https://actum.fun/sitemap.xml
+Sitemap: https://strapi-actum.space/api/sitemap/index.xml

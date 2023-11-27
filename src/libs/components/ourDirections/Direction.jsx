@@ -87,7 +87,7 @@ export default function Direction({ title_text, Family, Army, Crime, button }) {
     isClient && (
       <section className={styles.direction_section}>
         <div className={styles.direction_container}>
-          <div className={styles.background}></div>
+          {/* <div className={styles.background}></div> */}
 
           <div className={styles.box_title}>
             <div className={styles.direction_line}></div>

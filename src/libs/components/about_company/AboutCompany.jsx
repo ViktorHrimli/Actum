@@ -75,7 +75,7 @@ export default function AboutCompany({
           <div className={styles.about_conteiner}>
             <h2 className={styles.title_text}>{title}</h2>
             <p className={styles.text}>{first_text}</p>
-            <p className={styles.text_adaptive_display}>{second_text}</p>
+            <p className={styles.text}>{second_text}</p>
             <p className={styles.text}>{third_text}</p>
 
             <div className={styles.wrapper_signatur}>

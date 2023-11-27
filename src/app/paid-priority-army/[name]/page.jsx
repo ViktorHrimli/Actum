@@ -15,7 +15,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_ARMY_PAGE, API_ARMY_SERVICES } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_ARMY_PAGE);
 }
 
@@ -36,6 +36,7 @@ export default async function page({ params }) {
       questions_list,
       bread_crumbs,
       description_lawyer,
+      statistics,
       seo,
     },
   } = data[0];
@@ -50,7 +51,7 @@ export default async function page({ params }) {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"army"} />
+      <AboutCards type={"army"} listCard={statistics} />
       <SuccessfulBusiness type={"army"} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
