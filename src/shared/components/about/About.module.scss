@@ -42,11 +42,13 @@
     @media screen and (min-width: 1280px) {
         width: 1280px;
         padding: 54px 109px 20px 64px;
+        justify-content: start;
     }
 
     @media screen and (min-width: 1440px) {
         width: 1440px;
-        padding: 78px 138px 20px 92px;
+        padding: 78px 111px 20px 92px;
+        justify-content: center;
     }
 }
 
@@ -201,7 +203,7 @@
     position: relative;
     z-index: 1;
     width: 280px;
-    height: 192px;
+    height: 200px;
     margin-top: 36px;
     display: flex;
     justify-content: center;
@@ -210,19 +212,19 @@
     
     @media screen and (min-width: 768px) {
         width: 299px;
-        height: 223px;
+        height: 213px;
         margin-right: 77px;
         margin-top: 0;
     }
     @media screen and (min-width: 1280px) {
-        margin-right: 144px;
+        margin-right: 95px;
         width: 545px;
-        height: 377px;
+        height: 389px;
     }
     @media screen and (min-width: 1440px) {
-        margin-right: 107px;
+        margin-right: 63px;
         width: 756px;
-        height: 554px;
+        height: 540px;
     }
 }
 

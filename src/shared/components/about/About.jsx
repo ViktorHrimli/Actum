@@ -36,17 +36,17 @@ export default function About({
           ></div>
         </div>
         <div className={styles.box}>
-          <div className={styles.image_wrapper}>
+          {/* <div className={styles.image_wrapper}> */}
             <Image
               src={photo["data"]["attributes"]["url"]}
               loading="lazy"
               quality={100}
               alt="natalia"
               fill
-              style={{
-                objectFit: "contain",
-                borderRadius: "4px",
-              }}
+              // style={{
+              //   objectFit: "contain",
+              //   borderRadius: "4px",
+              // }}
             />
             <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
               <Button
@@ -55,7 +55,7 @@ export default function About({
                 type={type}
                 typeStyle={type}
               />
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>
