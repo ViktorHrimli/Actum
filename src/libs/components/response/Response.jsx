@@ -43,7 +43,7 @@ export default function Response({ type, button, description, title }) {
   return (
     isClient && (
       <section className={styles.section}>
-        <div className={isHome ? styles.background : ""}></div>
+        {/* <div className={isHome ? styles.background : ""}></div> */}
 
         <div className={styles.conteiner_section}>
           <div className={styles.left_text_conteiner}>
