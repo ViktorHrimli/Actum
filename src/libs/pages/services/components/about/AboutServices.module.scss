@@ -47,68 +47,7 @@
         width: 992px;
     }
 
-
     @media screen and (min-width: 1440px) {
         width: 1147px;
-    }
-
-}
-
-.about_border_text_conteiner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 260px;
-
-    margin-bottom: 84px;
-    gap: 18px;
-
-    @media screen and (min-width: 768px) {
-        gap: 20px;
-        height: 220px;
-        margin-bottom: 90px;
-
-    }
-
-    @media screen and (min-width: 1280px) {
-        gap: 37px;
-        height: 220px;
-        margin-bottom: 170px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        gap: 40px;
-        height: 220px;
-        margin-bottom: 184px;
-    }
-
-}
-
-.borders {
-    width: 4px;
-    height: 100%;
-    background-color: var(--primary-color);
-
-    @media screen and (min-width: 768px) {
-        width: 10px;
-    }
-}
-
-.text {
-    color: var(--secondary-color);
-    font-size: 20px;
-    text-transform: none;
-
-    @media screen and (min-width: 768px) {
-        font-size: 26px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        font-size: 36px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        font-size: 40px;
     }
 }
