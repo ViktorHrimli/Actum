@@ -8,7 +8,7 @@ import { gradientEnums } from "./libs/enums";
 
 import styles from "./SuccessfulBusiness.module.scss";
 
-export default function SuccessfulBusiness({ type }) {
+export default function SuccessfulBusiness({ type, title, successful_list }) {
   const [isChang, setisChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [isLeft, setIsLeft] = useState(true);
@@ -26,11 +26,12 @@ export default function SuccessfulBusiness({ type }) {
       <div className={styles[gradient]}></div>
       <div className={styles.container}>
         <div className={styles.container_title}>
-          <h2 className={styles.title}>Успішні справи</h2>
+          <h2 className={styles.title}>{title}</h2>
         </div>
         <div>
           {isClient && (
             <Items
+              list={successful_list}
               color={color}
               type={type}
               screen={isDesktop}

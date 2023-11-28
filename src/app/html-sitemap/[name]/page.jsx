@@ -10,38 +10,32 @@ import FormSection from "@/shared/components/formSection/FormSection";
 import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import { getLawyerDynamicPage } from "@/shared/services/api/api";
+import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_PAGE, API_ARMY_SERVICES } = process.env;
+const { API_ARMY_PAGE } = process.env;
 
-export async function generateMetadata() {
+export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_ARMY_PAGE);
 }
 
-export default async function page({ params }) {
-  const { data } = await getLawyerDynamicPage(
-    params["name"],
-    API_ARMY_SERVICES
-  );
-
+export default async function PaidArmy() {
   const {
-    attributes: {
-      Hero: hero,
-      about_block,
-      Employeers_list: employeer_list,
-      Form: form,
-      Info: info,
-      Responses: responses,
-      questions_list,
-      bread_crumbs,
-      description_lawyer,
-      statistics,
-      Steps: steps,
-      successful_deals,
-      seo,
+    data: {
+      attributes: {
+        Hero: hero,
+        about_block,
+        Employeers_list: employeer_list,
+        Form: form,
+        Info: info,
+        Responses: responses,
+        questions_list,
+        bread_crumbs,
+        description_lawyer,
+        seo,
+      },
     },
-  } = data[0];
+  } = await getStaticLawyersPage(API_ARMY_PAGE);
 
   return (
     <>
@@ -53,13 +47,13 @@ export default async function page({ params }) {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"army"} listCard={statistics} />
-      <SuccessfulBusiness type={"army"} {...successful_deals} />
+      {/* <AboutCards type={"army"} /> */}
+      <SuccessfulBusiness type={"army"} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
-      <StepsLawyers type={"army"} {...steps} />
-      <Price type={"army"} />
+      <StepsLawyers type={"army"} />
+      {/* <Price type={"army"} /> */}
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );

@@ -79,12 +79,14 @@ export default function Accordion({
           >
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{description}</p>
-              <div style={{ marginTop: "50px", display: "block" }}>
-                <ClickIcon
-                  path={link ? `${pathName}/${link}` : false}
-                  color={fill}
-                />
-              </div>
+              {link && (
+                <div style={{ marginTop: "50px", display: "block" }}>
+                  <ClickIcon
+                    path={link ? `${pathName}/${link}` : false}
+                    color={fill}
+                  />
+                </div>
+              )}
             </div>
           </motion.section>
         )}

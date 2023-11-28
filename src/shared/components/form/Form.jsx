@@ -1,6 +1,11 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect, useSearchParams } from "@/shared/hooks/hooks";
+import {
+  useState,
+  useEffect,
+  useSearchParams,
+  usePathname,
+} from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RotatingLines } from "react-loader-spinner";
@@ -19,7 +24,7 @@ import {
   bodySend,
 } from "@/shared/enums/enum";
 
-import { storage } from "@/shared/helpers/sessionStorageManager";
+import { storage } from "@/shared/helpers/helpers";
 
 import styles from "./Form.module.scss";
 
@@ -50,8 +55,9 @@ export default function Form({
   const [isOpen, setIsOpen] = useState(false);
   const [isStep, setIsStep] = useState(false);
 
-  const pagename = window.location.href;
+  const pathName = usePathname();
   const searcParams = useSearchParams();
+  const pagename = pathName === "/" ? window.location.href : pathName;
 
   const { border, color_text, options_hover, border_check_color, check_color } =
     borderEnums[type];
@@ -70,27 +76,24 @@ export default function Form({
     reValidateMode: "onChange",
   });
 
-  const sendFormOnMessenger = (data) => {
-    axios.post("/api/form", data);
-  };
-
   const sendFormByError = () => {
     const makeObjParams = storage.getInfo(searcParams);
 
     const errorObj = {
-      ...bodySend,
       ...makeObjParams,
+      errorcond: true,
+      type: "form",
       telephone: phoneNumber,
-      type: selectValue,
       client,
       pagename,
       question,
       service: selectServices,
       messenger: selectValue,
-      errorcond: true,
     };
 
-    axios.post("/api/form", errorObj);
+    const data = storage.sendObjData(errorObj);
+
+    axios.post("/api/form", data);
   };
 
   const handleCLickOnSelect = (event) => {
@@ -115,10 +118,9 @@ export default function Form({
       const makeObjParams = storage.getInfo(searcParams);
 
       const bodySubmitSuccsses = {
-        ...bodySend,
         ...makeObjParams,
         telephone: phoneNumber,
-        type: selectValue,
+        type: "form",
         client,
         pagename,
         question,
@@ -126,14 +128,14 @@ export default function Form({
         messenger: selectValue,
       };
 
+      const data = storage.sendObjData(bodySubmitSuccsses);
+
       setIsLoading(true);
 
+      console.log(data);
       axios
-        .post("/api/form", bodySubmitSuccsses)
-        .catch(
-          () => setTimeout(() => axios.post("/api/form"), bodySubmitSuccsses),
-          10000
-        );
+        .post("/api/form", data)
+        .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
 
       setTimeout(() => {
         setIsLoading(false);
@@ -160,26 +162,6 @@ export default function Form({
       header.style.display = "flex";
     };
   }, [isOpenModal]);
-
-  useEffect(() => {
-    const isSendMessage = selectValue === "Telegram" || selectValue === "Viber";
-
-    if (isSendMessage) {
-      const makeObjParams = storage.getInfo(searcParams);
-
-      sendFormOnMessenger({
-        ...bodySend,
-        ...makeObjParams,
-        telephone: phoneNumber,
-        type: selectValue,
-        client,
-        pagename,
-        question,
-        service: selectServices,
-        messenger: selectValue,
-      });
-    }
-  }, [selectValue]);
 
   useEffect(() => {
     switch (true) {

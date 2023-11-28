@@ -19,8 +19,6 @@ export default function Navigation({
 }) {
   const SERVICES = "послуги";
 
-  console.log(route);
-
   return (
     <div style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
@@ -40,7 +38,7 @@ export default function Navigation({
                   ? styles.active_link
                   : styles.not_active_link
               }
-              href={isLocal ? `/${isLocal}/${path}` : path}
+              href={path}
               onClick={onClick}
             >
               <p>{title.toUpperCase()}</p>

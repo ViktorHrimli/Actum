@@ -32,6 +32,8 @@ export default async function PaidArmy() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        Steps: steps,
+        successful_deals,
         seo,
       },
     },
@@ -47,13 +49,11 @@ export default async function PaidArmy() {
         about_block={about_block}
         questions={questions_list}
       />
-      {/* <AboutCards type={"army"} /> */}
-      <SuccessfulBusiness type={"army"} />
+      <SuccessfulBusiness type={"army"} {...successful_deals} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
-      <StepsLawyers type={"army"} />
-      {/* <Price type={"army"} /> */}
+      <StepsLawyers type={"army"} {...steps} />
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );
