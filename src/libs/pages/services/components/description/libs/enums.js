@@ -5,6 +5,12 @@ const descriptionEnums = {
     gradient: "",
     text: "title",
   },
+  home: {
+    line: "line",
+    background: "section",
+    gradient: "",
+    text: "title",
+  },
   family: {
     line: "line",
     background: "section_black",
