@@ -42,7 +42,7 @@ export default async function Conacts() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <NestedHero type={"home"} {...hero} form={modal} img={ContactHero} />
+      <NestedHero type={"home"} {...hero} form={modal} />
       <Contacts
         {...info}
         social_list={social}

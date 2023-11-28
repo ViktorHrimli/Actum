@@ -81,8 +81,8 @@ export default function Footer({
   useEffect(() => {
     if (isOpenModal) {
       setIsScroll(window.scrollY);
-        document.body.style.overflow = "hidden";
-        document.body.style.maxHeight = "100vh";
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
     }
     window.scrollTo(0, isScroll);
 
@@ -140,17 +140,17 @@ export default function Footer({
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Phone:</p>
               <div>
-                <a className={styles.phone} href="tel:+380671797213">
+                <a className={styles.phone} href={`tel:+${Phones["KiyvStar"]}`}>
                   {Phones["KiyvStar"]}
                 </a>
-                <a className={styles.phone} href="tel:+380503334897">
+                <a className={styles.phone} href={`tel:+${Phones["Vodafone"]}`}>
                   {Phones["Vodafone"]}
                 </a>
               </div>
             </div>
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Email:</p>
-              <a className={styles.email} href="mailto:info@actum.com.ua">
+              <a className={styles.email} href={`mailto:${email}`}>
                 {email}
               </a>
             </div>

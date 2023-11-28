@@ -5,8 +5,6 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-import publics_img from "@/assets/svg/publics_hero.png";
-
 const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
   process.env;
 
@@ -31,7 +29,7 @@ export default async function page() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <NestedHero type={"home"} img={publics_img} {...hero} form={modal} />
+      <NestedHero type={"home"} {...hero} form={modal} />
       <Publics blog_list={blog_list} />
     </>
   );

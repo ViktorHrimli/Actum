@@ -6,8 +6,6 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
-import heroBook from "@/assets/svg/book_hero.png";
-
 const { API_BOOK_PAGE, QUERY_BOOK_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
@@ -25,7 +23,7 @@ export default async function Book() {
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <NestedHero type={"home"} img={heroBook} {...hero} />
+      <NestedHero type={"home"} {...hero} />
       <StepsLawyers type="family" />
       <FormSection type="family" formData={form} {...info} />
     </>

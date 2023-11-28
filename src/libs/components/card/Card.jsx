@@ -21,16 +21,7 @@ export default function Card({ name, photo, date, body, type, link }) {
           />
         </Link>
       </div>
-{/* <<<<<<< HEAD */}
-      <p className={`${styles.text_name} ${styles[color]}`}>{name}</p>
-    <div className={styles.flex}>
-      <div className={styles.box_text}>
-          <p className={styles.text}>{body}</p>
-      </div>
-        
-      <span className={`${styles.date} ${styles[color]}`}>{date}</span>
-    </div>    
-{/* =======
+
       <Link href={link} target="_blank">
         <p className={`${styles.text_name} ${styles[color]}`}>{name}</p>
       </Link>
@@ -41,7 +32,6 @@ export default function Card({ name, photo, date, body, type, link }) {
           <span className={`${styles.date} ${styles[color]}`}>{date}</span>
         </Link>
       </div>
->>>>>>> release */}
     </li>
   );
 }

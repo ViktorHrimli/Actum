@@ -27,6 +27,7 @@ import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 export default function ContactPanel({ form, Telephones, Icons }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState(null);
   const [isStyleModal, setIsStyleModal] = useState(null);
+  const [isScreenY, setIsScreenY] = useState(0);
 
   const [isTrue, setIsTrue] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);

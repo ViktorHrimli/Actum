@@ -6,7 +6,6 @@ import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
@@ -14,7 +13,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_POLAND_LAWYER_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_POLAND_LAWYER_PAGE);
 }
 

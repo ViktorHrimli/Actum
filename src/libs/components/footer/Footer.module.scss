@@ -426,7 +426,7 @@
 }
 
 .phone {
-  width: 190px;
+  width: 195px;
   display: block;
   color: #F8F5F5;
   font-style: normal;
@@ -557,12 +557,14 @@
   width: 264px;
   position: absolute;
   bottom: 53px;
+
   @media screen and (min-width: 768px) {
     width: 34px;
     height: 34px;
     bottom: 230px;
     right: 33px;
   }
+
   @media screen and (min-width: 1280px) {
     display: none;
   }
@@ -572,7 +574,6 @@
   width: 34px;
   height: 34px;
   margin-left: auto;
-  @media screen and (min-width: 768px) {
-    
-  }
+
+  @media screen and (min-width: 768px) {}
 }

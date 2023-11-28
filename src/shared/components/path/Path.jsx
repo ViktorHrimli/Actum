@@ -2,10 +2,10 @@
 import styles from "./Path.module.scss";
 
 import { useRouter, usePathname } from "next/navigation";
+import { useEffect } from "@/shared/hooks/hooks";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-
 
 export default function Path({
   type,
@@ -25,6 +25,10 @@ export default function Path({
   const handleClickOnPrevPage = () => {
     return router.push(`/${children_link}`, { scroll: true });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   return (
     <div className={styles.conteiner}>
