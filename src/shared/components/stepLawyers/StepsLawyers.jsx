@@ -10,7 +10,12 @@ import StepsImagePc from "src/assets/svg/StepsLawyersPC.jpg";
 import styles from "./StepsLawyers.module.scss";
 import Button from "@/libs/components/button/Button";
 
-export default function StepsLawyers({type}) {
+export default function StepsLawyers({
+  type,
+  background_photo,
+  blocks,
+  button,
+}) {
   const handleClickOnBtn = () => {
     getFormById("form_section");
   };
@@ -19,7 +24,7 @@ export default function StepsLawyers({type}) {
     <section className={styles.section}>
       <div className={styles.background}></div>
       <div className={styles.img}>
-        <Image
+        {/* <Image
           className={styles.img_tel}
           src={StepsImageMob}
           alt={"our team"}
@@ -36,12 +41,13 @@ export default function StepsLawyers({type}) {
           sizes="100vw"
           loading="lazy"
           style={{ objectFit: "cover" }}
-        />
+        /> */}
         <Image
           className={styles.img_pc}
-          src={StepsImagePc}
+          src={background_photo["data"]["attributes"]["url"]}
           alt={"our team"}
           fill
+          quality={100}
           sizes="100vw"
           loading="lazy"
           style={{ objectFit: "cover" }}
@@ -49,65 +55,22 @@ export default function StepsLawyers({type}) {
       </div>
       <div className={styles.container}>
         <ul className={styles.list}>
-          <li className={styles.link}>
-            <div className={styles.container_number}>
-              <p className={styles.number}>1</p>
-            </div>
-            <div className={styles.container_text}>
-              <p className={styles.title}>
-                знайомтесь з варіантами наших послуг
-              </p>
-              <p className={styles.text}>
-                Оберіть варіант запропонованої послуги: супровід справи,
-                консультація в офісі або онлайн.
-              </p>
-            </div>
-          </li>
-          <li className={styles.link}>
-            <div className={styles.container_number}>
-              <p className={styles.number}>2</p>
-            </div>
-            <div className={styles.container_text}>
-              <p className={styles.title}>
-                Зв’яжіться з помічником Адвокатів “Актум”
-              </p>
-              <p className={styles.text}>
-                Опишіть якісно свою проблему. Заповніть форму або подзвоніть
-                нам, щоб обрати час бесіди і фахівця.
-              </p>
-            </div>
-          </li>
-          <li className={styles.link}>
-            <div className={styles.container_number}>
-              <p className={styles.number}>3</p>
-            </div>
-            <div className={styles.container_text}>
-              <p className={styles.title}>Отримайте консультацію адвоката</p>
-              <p className={styles.text}>
-                Проведіть бесіду з адвокатом за допомогою месенджера,
-                телефонного дзвінка або бесіди в нашому офісі. Отримайте
-                відповіді на всі питання та доцільний план дій.
-              </p>
-            </div>
-          </li>
-          <li className={styles.link}>
-            <div className={styles.container_number}>
-              <p className={styles.number}>4</p>
-            </div>
-            <div className={styles.container_text}>
-              <p className={styles.title}>Залишайтесь під захистом</p>
-              <p className={styles.text}>
-                Підтримуйте зв’язок з адвокатом та вирішуйте наявні проблеми.
-                Якщо адвокат буде працювати з Вами після консультації,
-                консультація, за яку Ви заплатили, буде безкоштовна.
-              </p>
-            </div>
-          </li>
+          {blocks.map(({ title, description, number }, id) => (
+            <li className={styles.link} key={id}>
+              <div className={styles.container_number}>
+                <p className={styles.number}>{number}</p>
+              </div>
+              <div className={styles.container_text}>
+                <p className={styles.title}>{title}</p>
+                <p className={styles.text}>{description}</p>
+              </div>
+            </li>
+          ))}
         </ul>
         <div className={styles.box_btn} onClick={handleClickOnBtn}>
           <Button
             style={"button_service"}
-            text={"замовити консультацію"}
+            text={button["text"]}
             type={"button"}
             typeStyle={type}
           />

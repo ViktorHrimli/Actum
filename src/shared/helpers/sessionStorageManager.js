@@ -1,5 +1,6 @@
 "use client";
 
+import { bodySend } from "@/shared/enums/enum";
 class ManageSessionStorage {
   setSessionPage(key) {
     sessionStorage.setItem(key, JSON.stringify(false));
@@ -7,6 +8,10 @@ class ManageSessionStorage {
 
   getSessionPage(key) {
     return JSON.parse(sessionStorage.getItem(key));
+  }
+
+  sendObjData(data) {
+    return { ...bodySend, ...data };
   }
 
   generateUserInfo(urlParams) {

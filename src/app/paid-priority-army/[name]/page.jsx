@@ -37,6 +37,8 @@ export default async function page({ params }) {
       bread_crumbs,
       description_lawyer,
       statistics,
+      Steps: steps,
+      successful_deals,
       seo,
     },
   } = data[0];
@@ -52,11 +54,11 @@ export default async function page({ params }) {
         questions={questions_list}
       />
       <AboutCards type={"army"} listCard={statistics} />
-      <SuccessfulBusiness type={"army"} />
+      <SuccessfulBusiness type={"army"} {...successful_deals} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
-      <StepsLawyers type={"army"} />
+      <StepsLawyers type={"army"} {...steps} />
       <Price type={"army"} />
       <FormSection type={"army"} formData={form} {...info} />
     </>

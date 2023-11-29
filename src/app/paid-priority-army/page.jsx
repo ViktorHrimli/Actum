@@ -4,10 +4,8 @@ import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
 import Descrition from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
-import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
@@ -15,7 +13,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_ARMY_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_ARMY_PAGE);
 }
 
@@ -32,6 +30,8 @@ export default async function PaidArmy() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        Steps: steps,
+        successful_deals,
         seo,
       },
     },
@@ -47,13 +47,11 @@ export default async function PaidArmy() {
         about_block={about_block}
         questions={questions_list}
       />
-      {/* <AboutCards type={"army"} /> */}
-      <SuccessfulBusiness type={"army"} />
+      <SuccessfulBusiness type={"army"} {...successful_deals} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
-      <StepsLawyers type={"army"} />
-      {/* <Price type={"army"} /> */}
+      <StepsLawyers type={"army"} {...steps} />
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );

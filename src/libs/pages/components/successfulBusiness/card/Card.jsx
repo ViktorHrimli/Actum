@@ -2,21 +2,24 @@ import Image from "next/image";
 
 import styles from "./Card.module.scss";
 
-export default function Card({ type, enums, title, description, image }) {
+export default function Card({ type, enums, title, description, photo }) {
   const { background, borderTop, borderRight, borderBottom, bordeerLeft } =
     enums[type];
   return (
     <li className={styles.position}>
-      
       <div className={styles.container_img}>
-        <Image src={image} alt={"sucsses bussines"} fill loading="lazy" />
+        <Image
+          src={photo["data"]["attributes"]["url"]}
+          alt={"sucsses bussines"}
+          fill
+          loading="lazy"
+        />
       </div>
       <div className={styles[background]}>
         <div className={`${styles[borderTop]}`}>
           <div className={styles[borderRight]}></div>
         </div>
         <div className={styles.container_text}>
-          
           <div className={styles.container_title}>
             <p className={styles.title}>{title}</p>
           </div>
@@ -28,7 +31,6 @@ export default function Card({ type, enums, title, description, image }) {
           <div className={styles[bordeerLeft]}></div>
         </div>
       </div>
-      
     </li>
   );
 }

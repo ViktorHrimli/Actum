@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
 import {
   useState,
@@ -10,6 +11,7 @@ import {
   useClient,
   usePathname,
   useRouter,
+  useSearchParams,
 } from "@/shared/hooks/hooks";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
@@ -18,16 +20,15 @@ import ScrollButtonUp from "./halpers/showScrollButtonUp";
 
 import Form from "@/assets/svg/Form.png";
 
-import styles from "./ContactPanel.module.scss";
+import { storage } from "@/shared/helpers/sessionStorageManager";
 
 import { iconEnum } from "@/shared/enums/enum";
-
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
+import styles from "./ContactPanel.module.scss";
 
 export default function ContactPanel({ form, Telephones, Icons }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState(null);
   const [isStyleModal, setIsStyleModal] = useState(null);
-  const [isScreenY, setIsScreenY] = useState(0);
 
   const [isTrue, setIsTrue] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -42,11 +43,25 @@ export default function ContactPanel({ form, Telephones, Icons }) {
   const clearPath = path.split("/")[1];
   const router = useRouter();
   const isClient = useClient();
+  const searchParams = useSearchParams();
 
   let isSessionStorageSave;
 
   const FIRST_ICON = Icons[0];
   const SECOND_ICON = Icons[1];
+
+  const sendFormByMessenger = (type) => {
+    const makeObjParams = storage.getInfo(searchParams);
+
+    const msgObj = {
+      ...makeObjParams,
+      type,
+    };
+
+    const data = storage.sendObjData(msgObj);
+
+    axios.post("/api/form", data);
+  };
 
   const hanldeChangeLocale = () => {
     if (!path.includes("/ru")) {
@@ -173,7 +188,10 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                   RU
                 </p>
               </li>
-              <li className={styles.link} onClick={() => setIsPhoneMob(false)}>
+              <li
+                className={styles.link}
+                onClick={() => sendFormByMessenger(FIRST_ICON["icon"])}
+              >
                 <a target="_blank" referrerPolicy="" href={FIRST_ICON["link"]}>
                   <FontAwesomeIcon
                     icon={iconEnum[FIRST_ICON["icon"]]}
@@ -182,7 +200,10 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                   />
                 </a>
               </li>
-              <li className={`${styles.link} ${styles.mob_none}`}>
+              <li
+                className={`${styles.link} ${styles.mob_none}`}
+                onClick={() => sendFormByMessenger(SECOND_ICON["icon"])}
+              >
                 <a target="_blank" referrerPolicy="" href={SECOND_ICON["link"]}>
                   <FontAwesomeIcon
                     icon={iconEnum[SECOND_ICON["icon"]]}

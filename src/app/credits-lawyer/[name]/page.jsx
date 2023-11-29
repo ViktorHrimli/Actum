@@ -7,6 +7,8 @@ import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
+import Price from "@/libs/pages/components/priceCards/Price";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
@@ -34,6 +36,9 @@ export default async function page({ params }) {
       questions_list,
       bread_crumbs,
       description_lawyer,
+      statistics,
+      Steps: steps,
+      successful_deals,
       seo,
     },
   } = data[0];
@@ -48,11 +53,13 @@ export default async function page({ params }) {
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"family"} />
+      <AboutCards type={"army"} listCard={statistics} />
+      <SuccessfulBusiness type={"family"} {...successful_deals} />
       <Specialists type={"family"} {...employeer_list} />
       <Description type={"family"} title={description_lawyer} />
       <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} />
+      <StepsLawyers type={"family"} {...steps} />
+      <Price type={"army"} />
       <FormSection type={"family"} formData={form} {...info} />
     </>
   );

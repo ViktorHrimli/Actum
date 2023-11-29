@@ -6,7 +6,12 @@ import { motion } from "framer-motion";
 import { RotatingLines } from "react-loader-spinner";
 
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect, useSearchParams } from "@/shared/hooks/hooks";
+import {
+  useState,
+  useEffect,
+  useSearchParams,
+  usePathname,
+} from "@/shared/hooks/hooks";
 
 import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
@@ -51,8 +56,9 @@ export default function FormComponent({
     "paid-priority-family"
   );
 
-  const pagename = window.location.href;
+  const pathName = usePathname();
   const searcParams = useSearchParams();
+  const pagename = pathName === "/" ? window.location.href : pathName;
 
   const {
     border,
@@ -108,29 +114,24 @@ export default function FormComponent({
     setIsOpenCountry(!isOpenCountry);
   };
 
-  const sendFormOnMessenger = (data) => {
-    axios.post("/api/form", data);
-    console.log(data);
-  };
-
   const sendFormByError = () => {
     const makeObjParams = storage.getInfo(searcParams);
 
     const errorObj = {
-      ...bodySend,
       ...makeObjParams,
+      errorcond: true,
+      type: "form",
       telephone: phoneNumber,
-      type: selectValue,
       client,
       pagename,
       question,
       service: selectServices,
       messenger: selectValue,
-      errorcond: true,
     };
 
-    axios.post("/api/form", errorObj);
-    console.log(errorObj);
+    const data = storage.sendObjData(errorObj);
+
+    axios.post("/api/form", data);
   };
 
   const handleInputChange = (e) => {
@@ -144,10 +145,9 @@ export default function FormComponent({
       const makeObjParams = storage.getInfo(searcParams);
 
       const bodySubmitSuccsses = {
-        ...bodySend,
         ...makeObjParams,
         telephone: phoneNumber,
-        type: selectValue,
+        type: "form",
         client,
         pagename,
         question,
@@ -155,15 +155,15 @@ export default function FormComponent({
         messenger: selectValue,
       };
 
+      const data = storage.sendObjData(bodySubmitSuccsses);
+      console.log(data);
+
       setIsLoading(true);
       // SEND
       axios
-        .post("/api/form", bodySubmitSuccsses)
-        .catch(
-          () => setTimeout(() => axios.post("/api/form"), bodySubmitSuccsses),
-          10000
-        );
-      console.log(bodySubmitSuccsses);
+        .post("/api/form", data)
+        .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
+
       // TIMEOUT THANKS
       setTimeout(() => {
         setIsLoading(false);
@@ -198,26 +198,6 @@ export default function FormComponent({
       header.style.display = "flex";
     };
   }, [isOpenModal]);
-
-  useEffect(() => {
-    const isSendMessage = selectValue === "Telegram" || selectValue === "Viber";
-
-    if (isSendMessage) {
-      const makeObjParams = storage.getInfo(searcParams);
-
-      sendFormOnMessenger({
-        ...bodySend,
-        ...makeObjParams,
-        telephone: phoneNumber,
-        type: selectValue,
-        client,
-        pagename,
-        question,
-        service: selectServices,
-        messenger: selectValue,
-      });
-    }
-  }, [selectValue]);
 
   useEffect(() => {
     switch (true) {
@@ -493,6 +473,9 @@ export default function FormComponent({
               />
             </div>
           )}
+
+          {/* --------- radio ---------- */}
+
 
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>

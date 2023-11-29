@@ -140,10 +140,10 @@ export default function Footer({
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Phone:</p>
               <div>
-                <a className={styles.phone} href={`tel:+${Phones["KiyvStar"]}`}>
+                <a className={styles.phone} href={`tel:${Phones["KiyvStar"]}`}>
                   {Phones["KiyvStar"]}
                 </a>
-                <a className={styles.phone} href={`tel:+${Phones["Vodafone"]}`}>
+                <a className={styles.phone} href={`tel:${Phones["Vodafone"]}`}>
                   {Phones["Vodafone"]}
                 </a>
               </div>
