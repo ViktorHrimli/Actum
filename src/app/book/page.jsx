@@ -16,7 +16,7 @@ export async function generateMetadata() {
 export default async function Book() {
   const {
     data: {
-      attributes: { Hero: hero, Form: form, Info: info, seo },
+      attributes: { Hero: hero, Form: form, Info: info, seo, Steps: steps },
     },
   } = await getStaticPage(API_BOOK_PAGE, QUERY_BOOK_PAGE);
 
@@ -25,7 +25,7 @@ export default async function Book() {
       <StructureData data={seo["structuredData"]} />
 
       <NestedHero type={"home"} {...hero} />
-      <StepsLawyers type="family" />
+      <StepsLawyers type="family" {...steps} />
       <FormSection type="family" formData={form} {...info} />
     </>
   );

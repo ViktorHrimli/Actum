@@ -30,15 +30,21 @@ export default function FormSection({
                 Phone:
               </p>
               <div className={styles.text_wrapper_info}>
-                <p className={styles.text}>{phones["KiyvStar"]}</p>
-                <p className={styles.text}>{phones["Vodafone"]}</p>
+                <a href={`tel:${phones["KiyvStar"]}`}>
+                  <p className={styles.text}>{phones["KiyvStar"]}</p>
+                </a>
+                <a href={`tel:${phones["Vodafone"]}`}>
+                  <p className={styles.text}>{phones["Vodafone"]}</p>
+                </a>
               </div>
             </div>
             <div className={styles.email_wrapper}>
               <p className={`${styles.title_info} ${styles[color_text]}`}>
                 Email:
               </p>
-              <p className={styles.text}>{email}</p>
+              <a target="_blank" href={`mailto:${email}`}>
+                <p className={styles.text}>{email}</p>
+              </a>
             </div>
           </div>
         </div>

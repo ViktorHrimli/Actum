@@ -30,6 +30,8 @@ export default async function page() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        Steps: steps,
+        successful_deals,
         seo,
       },
     },
@@ -45,11 +47,11 @@ export default async function page() {
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"other"} />
+      <SuccessfulBusiness type={"other"} {...successful_deals} />
       <Specialists type={"other"} {...employeer_list} />
       <Description type={"other"} description={description_lawyer} />
       <Response type={"other"} {...responses} />
-      <StepsLawyers type={"other"} />
+      <StepsLawyers type={"other"} {...steps} />
       <FormSection type={"other"} formData={form} {...info} />
     </>
   );

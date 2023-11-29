@@ -6,7 +6,6 @@ import Response from "@/libs/components/response/Response";
 import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
@@ -14,7 +13,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_FAMILY_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_FAMILY_PAGE);
 }
 
@@ -31,6 +30,8 @@ export default async function Family() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        Steps: steps,
+        successful_deals,
         seo,
       },
     },
@@ -46,11 +47,11 @@ export default async function Family() {
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"family"} />
+      <SuccessfulBusiness type={"family"} {...successful_deals} />
       <Specialists type={"family"} {...employeer_list} />
       <Description type={"family"} description={description_lawyer} />
       <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} />
+      <StepsLawyers type={"family"} {...steps} />
       <FormSection type={"family"} formData={form} {...info} />
     </>
   );
