@@ -1,6 +1,6 @@
 import { builder } from "@/shared/helpers/helpers";
 
-const { API_FAMILY_SERVICES, QUERY_LAWYERS_PAGE, CACHE_OPTIONS } = process.env;
+const { QUERY_LAWYERS_PAGE, CACHE_OPTIONS } = process.env;
 
 export const getLawyerDynamicPage = async (
   name_page,

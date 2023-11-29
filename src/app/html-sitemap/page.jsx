@@ -22,7 +22,7 @@ const {
 export default async function page() {
   const {
     data: {
-      attributes: { Hero: hero },
+      attributes: { Hero: hero, List_nav: nav },
     },
   } = await getStaticPage(API_SITE_MAP_PAGE, QUERY_SITE_MAP_PAGE);
 
@@ -35,7 +35,7 @@ export default async function page() {
   return (
     <>
       <NestedHero img={hero_img} {...hero} form={modal} />
-      <SiteMap />
+      <SiteMap list={nav} />
     </>
   );
 }
