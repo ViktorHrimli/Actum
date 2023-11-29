@@ -36,7 +36,7 @@ const borderEnums = {
     color_text: "text_criminal",
     border_check_color: "check_color_border_family",
     check_color: "lable_radio_check",
-    options_hover: "options_family",
+    options_hover: "options_crime",
     fill: "#3F2E64",
   },
 };
