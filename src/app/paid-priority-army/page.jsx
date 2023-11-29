@@ -13,7 +13,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_ARMY_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_ARMY_PAGE);
 }
 

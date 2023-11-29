@@ -4,10 +4,8 @@ import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
 import Description from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
-import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
@@ -32,6 +30,8 @@ export default async function Crimes() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        Steps: steps,
+        successful_deals,
         seo,
       },
     },
@@ -47,13 +47,11 @@ export default async function Crimes() {
         about_block={about_block}
         questions={questions_list}
       />
-      {/* <AboutCards type={"crime"} /> */}
-      <SuccessfulBusiness type={"crime"} />
+      <SuccessfulBusiness type={"crime"} {...successful_deals} />
       <Specialists type={"crime"} {...employeer_list} />
       <Description type={"crime"} description={description_lawyer} />
       <Response type={"crime"} {...responses} />
-      <StepsLawyers type={"crime"} />
-      {/* <Price type={"crime"} /> */}
+      <StepsLawyers type={"crime"} {...steps} />
       <FormSection type={"crime"} formData={form} {...info} />
     </>
   );

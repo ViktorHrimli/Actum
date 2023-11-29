@@ -8,6 +8,8 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
+import Price from "@/libs/pages/components/priceCards/Price";
+
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
@@ -44,7 +46,6 @@ export default async function page({ params }) {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-
       <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
 
       <QuestionsList
@@ -58,6 +59,7 @@ export default async function page({ params }) {
       <Description type={"family"} description={description_lawyer} />
       <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} {...steps} />
+      <Price type={"crime"} />
       <FormSection type={"family"} formData={form} {...info} />
     </>
   );
