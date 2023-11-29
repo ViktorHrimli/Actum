@@ -40,11 +40,12 @@ export default function FormComponent({
   services_list,
 }) {
   const [selectValue, setSelectValue] = useState("");
+  const [selectServices, setSelectServices] = useState("");
+
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [client, setClient] = useState("");
   const [question, setQuestion] = useState("");
-  const [selectServices, setSelectServices] = useState("");
 
   const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -94,6 +95,12 @@ export default function FormComponent({
     setIsOpenRadio(false);
     setIsOpenCountry(false);
   };
+
+  const handleClickOnRadio = (event) => {
+    setSelectServices(event.currentTarget.innerText);
+    setValue("services", event.currentTarget.innerText, { shouldTouch: true });
+    setIsOpenRadio(false);
+  }
 
   const handleToggleRadio = () => {
     setIsOpenRadio(!isOpenRadio);
@@ -219,6 +226,10 @@ export default function FormComponent({
     errors.message,
     errors.services,
   ]);
+
+
+  console.log(selectServices);
+  console.log(selectValue);
 
   return (
     <>
@@ -374,7 +385,7 @@ export default function FormComponent({
             )}
           </div>
         </div>
-
+            {/* messenger */}
         <div className={styles.wrapper_name}>
           <label
             htmlFor="message"
@@ -444,14 +455,17 @@ export default function FormComponent({
           </div>
         </div>
 
-        <div className={styles.wrapper_name}>
+        
+          {/* --------- radio ---------- */}
+          <div className={styles.wrapper_name}>
           <label
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {services}
           </label>
-          {errors.services && (
+
+          {errors.services && !selectServices && (
             <div className={styles.error_services}>
               <FontAwesomeIcon
                 icon={iconEnum["warningIcon"]}
@@ -459,9 +473,66 @@ export default function FormComponent({
               />
             </div>
           )}
+
           {/* --------- radio ---------- */}
 
-          <motion.div
+
+          <div className={styles.conteiner_name}>
+            <div className={styles[border]}>
+              <input
+                onClick={handleToggleRadio}
+                value={selectServices}
+                readOnly
+                {...register("services", { required: true })}
+                className={
+                  errors.services && !selectServices
+                    ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
+                    : `${styles.input} ${styles.second_input} ${styles.select}`
+                }
+                placeholder={
+                  errors.services
+                    ? "Виберіть питання!"
+                    : "Виберіть питання"
+                }
+              />
+              </div>
+              
+            <motion.div
+              animate={{ rotate: isOpenRadio ? "180deg" : "0deg" }}
+              transition={{ duration: 0.5 }}
+              className={styles.conteiner_icon}
+              onClick={handleToggleRadio}
+            >
+              <FontAwesomeIcon
+                icon={iconEnum["arrowOpen"]}
+                className={`${styles.icon} ${styles[color_text]}`}
+                style={errors.services && !selectServices ? { color: "#fff" } : {}}
+              />
+            </motion.div>
+            {isOpenRadio && (
+              <motion.div className={styles.options_conteiner}>
+                {services_list.map((item, id) => {
+                  return (
+                    <div
+                      onClick={handleClickOnRadio}
+                      className={`${styles.options} ${styles[options_hover]}`}
+                      key={id}
+                    >
+                      <FontAwesomeIcon
+                        icon={iconEnum[item["icons"]]}
+                        className={styles.options_icon}
+                      />
+                      {item["text"]}
+                    </div>
+                  );
+                })}
+              </motion.div>
+            )}
+          </div>
+          {/* --------- radio old ---------- */}
+
+        {/* </div> */}
+          {/* <motion.div
             animate={{ rotate: isOpenRadio ? "180deg" : "0deg" }}
             transition={{ duration: 0.5 }}
             className={styles.conteiner_icon_radio}
@@ -471,15 +542,16 @@ export default function FormComponent({
               icon={iconEnum["arrowOpen"]}
               className={`${styles.icon_radio} ${styles[color_text]}`}
             />
-          </motion.div>
-          <div
+          </motion.div> */}
+          {/* <div
             className={
               isOpenRadio
                 ? styles.conteiner_radio_groupe
                 : styles.conteiner_radio_groupe_hidden
             }
-          >
-            {services_list.map((item, id) => {
+          > */}
+            
+            {/* {services_list.map((item, id) => {
               return (
                 <div
                   className={`${styles.conteiner_radio} ${styles[border]}`}
@@ -511,9 +583,8 @@ export default function FormComponent({
                   </div>
                 </div>
               );
-            })}
+            })} */}
           </div>
-        </div>
         <div className={styles.btn_wrapper}>
           {isLoading && (
             <div className={styles.loader_container}>
