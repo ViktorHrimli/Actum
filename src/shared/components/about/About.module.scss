@@ -120,6 +120,7 @@
     gap: 15px;
 
     color: var(--secondary-color);
+    text-indent: 20px;
     font-size: 14px;
     line-height: 1.23;
     text-transform: none;
@@ -209,18 +210,20 @@
     justify-content: center;
     align-items: center;
     background-color: #F8F5F5;
-    
+
     @media screen and (min-width: 768px) {
         width: 299px;
         height: 213px;
         margin-right: 77px;
         margin-top: 0;
     }
+
     @media screen and (min-width: 1280px) {
         margin-right: 95px;
         width: 545px;
         height: 389px;
     }
+
     @media screen and (min-width: 1440px) {
         margin-right: 63px;
         width: 756px;

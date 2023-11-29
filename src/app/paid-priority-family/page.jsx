@@ -31,6 +31,8 @@ export default async function Family() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        Steps: steps,
+        successful_deals,
         seo,
       },
     },
@@ -46,11 +48,11 @@ export default async function Family() {
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"family"} />
+      <SuccessfulBusiness type={"family"} {...successful_deals} />
       <Specialists type={"family"} {...employeer_list} />
       <Description type={"family"} description={description_lawyer} />
       <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} />
+      <StepsLawyers type={"family"} {...steps} />
       <FormSection type={"family"} formData={form} {...info} />
     </>
   );
