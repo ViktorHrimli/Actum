@@ -8,20 +8,21 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
+import Price from "@/libs/pages/components/priceCards/Price";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { APi_ADMINISTRATIVE_SERVICES, API_ACCIDENT_PAGE } = process.env;
+const { API_SERVICES_COMUNITY, API_FAMILY_PAGE } = process.env;
 
-export async function generateMetadata() {
-  return makeSeoTemplate(API_ACCIDENT_PAGE);
+export async function generateMetadata({ params, searchParams }, parent) {
+  return makeSeoTemplate(API_FAMILY_PAGE);
 }
 
-export default async function page({ params }) {
+export default async function page({ params, searchParams }) {
   const { data } = await getLawyerDynamicPage(
     params["name"],
-    APi_ADMINISTRATIVE_SERVICES
+    API_SERVICES_COMUNITY
   );
 
   const {
@@ -34,8 +35,8 @@ export default async function page({ params }) {
       Responses: responses,
       questions_list,
       bread_crumbs,
-      statistics,
       description_lawyer,
+      statistics,
       Steps: steps,
       successful_deals,
       seo,
@@ -58,6 +59,7 @@ export default async function page({ params }) {
       <Description type={"family"} description={description_lawyer} />
       <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} {...steps} />
+      <Price type={"crime"} />
       <FormSection type={"family"} formData={form} {...info} />
     </>
   );
