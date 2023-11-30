@@ -597,7 +597,7 @@ export default function FormComponent({
               />
             </div>
           )}
-          <Button type="submit" text={button["text"]} style="button_service" />
+          <Button type="submit" text={button["text"]} style="button_service" typeStyle={type} />
         </div>
       </form>
       {isStep && (
