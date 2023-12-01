@@ -1,7 +1,7 @@
 import styles from "./siteMap.module.scss";
 import Link from "next/link";
 
-export default function SiteMap() {
+export default function SiteMap({ list }) {
   return (
     <section className={styles.section}>
       <div className={styles.container_decor}>
@@ -36,130 +36,34 @@ export default function SiteMap() {
           <a href="/services" className={styles.title}>
             наші послуги
           </a>
-        </div>
-        <div className={styles.position}>
-          {/* ------- Family ------ */}
-          <div className={styles.container_link}>
-            <h3 className={styles.title_link}>Сімейні справи</h3>
-            <ul className={styles.list}>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-family" className={styles.text}>
-                  Адвокат по сімейним спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-family" className={styles.text}>
-                  Адвокат по сімейним спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-family" className={styles.text}>
-                  Адвокат по сімейним спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-family" className={styles.text}>
-                  Адвокат по сімейним спорам
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* ------- Army ------ */}
-          <div className={styles.container_link}>
-            <h3 className={styles.title_link}>Військовий адвокат</h3>
-            <ul className={styles.list}>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-army" className={styles.text}>
-                  Адвокат по військовим спорам
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* ------- Criminal ------ */}
-          <div className={styles.container_link}>
-            <h3 className={styles.title_link}>Кримінальні справи</h3>
-            <ul className={styles.list}>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-crime" className={styles.text}>
-                  Адвокат по кримінальним спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-crime" className={styles.text}>
-                  Адвокат по кримінальним спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-crime" className={styles.text}>
-                  Адвокат по кримінальним спорам
-                </a>
-              </li>
-              <li className={styles.link_box}>
-                <span className={styles.marker}></span>
-                <a href="/paid-priority-crime" className={styles.text}>
-                  Адвокат по кримінальним спорам
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={styles.container_title}>
           <a href="/book" className={styles.title}>
             консультація
           </a>
           <a href="/contacts" className={styles.title}>
             контакти
           </a>
+        </div>
+        <div className={styles.position}>
+          <div className={styles.container_link}>
+            {list.map((item, id) => (
+              <div key={id} className={styles.box}>
+                <Link href={item.path}>
+                  <h3 className={styles.title_link}>{item.Title}</h3>
+                </Link>
+
+                <ul className={styles.list}>
+                  {item.List.map((item, id) => (
+                    <li key={id} className={styles.link_box}>
+                      <span className={styles.marker}></span>
+                      <a href={item.path} className={styles.text}>
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
