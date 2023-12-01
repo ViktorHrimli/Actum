@@ -18,6 +18,9 @@
     padding-right: 64px;
     padding-bottom: 61px;
   }
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+  }
   @media screen and (min-width: 1280px) {
     width: 1280px;
     padding-top: 117px;
@@ -139,8 +142,26 @@
 .container_link {
   display: flex;
   flex-direction: column;
+
   margin-top: 16px;
   margin-bottom: 16px;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 900px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1200px;
+  }
 }
 
 .title_link {
@@ -207,4 +228,8 @@
     flex-direction: row;
     gap: 74px;
   }
+}
+
+.box {
+  min-width: 260px;
 }

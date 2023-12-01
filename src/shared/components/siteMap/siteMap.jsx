@@ -46,7 +46,7 @@ export default function SiteMap({ list }) {
         <div className={styles.position}>
           <div className={styles.container_link}>
             {list.map((item, id) => (
-              <div key={id}>
+              <div key={id} className={styles.box}>
                 <Link href={item.path}>
                   <h3 className={styles.title_link}>{item.Title}</h3>
                 </Link>
