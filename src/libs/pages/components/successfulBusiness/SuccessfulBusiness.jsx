@@ -1,21 +1,47 @@
 "use client";
+import {
+  useIsBig,
+  useState,
+  useEffect,
+  useIsSmall,
+} from "@/shared/hooks/hooks";
+import Slider from "react-slick";
 
-import { useIsBig, useState, useEffect } from "@/shared/hooks/hooks";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import Items from "./items/Items";
+import Card from "@/libs/pages/components/successfulBusiness/card/Card";
 
-import { gradientEnums } from "./libs/enums";
+import { gradientEnums, cardsEnums } from "./libs/enums";
+
+import { iconEnum } from "@/shared/enums/enum";
 
 import styles from "./SuccessfulBusiness.module.scss";
 
 export default function SuccessfulBusiness({ type, title, successful_list }) {
-  const [isChang, setisChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
-  const [isLeft, setIsLeft] = useState(true);
-
   const isDesktop = useIsBig();
+  const isMobile = useIsSmall();
 
   const { gradient, gradientRight, color } = gradientEnums[type];
+
+  function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+      <div className={styles.next_icon} onClick={onClick}>
+        {iconEnum["horizontalArrow"](color)}
+      </div>
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+      <div className={styles.prev_icon} onClick={onClick}>
+        {iconEnum["horizontalArrow"](color)}
+      </div>
+    );
+  }
 
   useEffect(() => {
     setIsClient(true);
@@ -28,20 +54,25 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
         <div className={styles.container_title}>
           <h2 className={styles.title}>{title}</h2>
         </div>
-        <div>
-          {isClient && (
-            <Items
-              list={successful_list}
-              color={color}
-              type={type}
-              screen={isDesktop}
-              current={isChang}
-              setIsChange={setisChange}
-              setIsLeft={setIsLeft}
-              isLeft={isLeft}
-            />
-          )}
-        </div>
+
+        {isClient && (
+          <Slider
+            infinite={true}
+            speed={800}
+            slidesToShow={isDesktop ? 3 : 1}
+            slidesToScroll={1}
+            arrows={!isMobile ? true : false}
+            nextArrow={<SampleNextArrow />}
+            prevArrow={<SamplePrevArrow />}
+            swipeToSlide={true}
+            swipe={true}
+            className={styles.slider}
+          >
+            {successful_list.map((item, id) => {
+              return <Card {...item} key={id} type={type} enums={cardsEnums} />;
+            })}
+          </Slider>
+        )}
       </div>
       <div className={styles[gradientRight]}></div>
     </section>

@@ -2,8 +2,11 @@
 
 .conteiner {
     position: relative;
-
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
     border-radius: 4px;
+
 
     background: #F8F5F5;
 
@@ -34,14 +37,40 @@
 
     @media screen and (min-width: 1440px) {
         width: 395px;
-        height: 439px;
+        height: 400px;
         padding: 77px 56px 10px 56px;
 
         @media screen and (min-height: 700px) and (max-height: 799px) {
             height: 400px;
         }
     }
+}
 
+.list_conteiner {
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+
+
+    @media screen and (min-width: 320px) {
+        height: 340px;
+        width: 250px;
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 440px;
+        width: 299px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        height: 440px;
+        width: 395px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        height: 440px;
+        width: 395px;
+    }
 }
 
 .color_text_family {
@@ -90,7 +119,6 @@
         width: 73px;
         top: -33px;
         height: 73px;
-
     }
 }
 
@@ -116,6 +144,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
     width: 100%;
 
@@ -137,6 +166,10 @@
 .text {
     overflow: hidden;
     color: var(--secondary-color);
+    text-transform: none;
+    width: 100%;
+    text-align: left;
+
 
     @media screen and (min-width: 320px) {
         font-size: 14px;
@@ -162,10 +195,12 @@
 }
 
 .text_name {
-
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    width: 100%;
+    text-align: left;
+
 
     @media screen and (min-width: 320px) {
         margin-bottom: 24px;
@@ -191,13 +226,11 @@
 .date {
     display: flex;
     justify-content: end;
+    width: 100%;
 
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-
-    text-align: right;
-
 
     @media screen and (min-width: 320px) {
         font-size: 10px;

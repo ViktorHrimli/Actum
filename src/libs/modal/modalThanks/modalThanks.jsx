@@ -90,6 +90,7 @@ export default function ModalThanks({
                   style={"button_service"}
                   text={"телеграмм"}
                   type={"button"}
+                  // typeStyle={type}
                 />
               </Link>
             </div>

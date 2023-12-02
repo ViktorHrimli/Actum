@@ -14,6 +14,8 @@ export default function QuestionsList({ type, questions, about_block }) {
 
   const [isCurent, setIsCurent] = useState(null);
 
+  const [first, second] = about_block.name_block.split(" ");
+
   return (
     <>
       <About type={type} {...about_block} />
@@ -25,12 +27,12 @@ export default function QuestionsList({ type, questions, about_block }) {
               <h2
                 className={`${styles.title_questions} ${styles.left_questions}`}
               >
-                Популярні
+                {first}
               </h2>
               <h2
                 className={`${styles.title_questions} ${styles.right_questions}`}
               >
-                Запитання
+                {second}
               </h2>
             </div>
             <div className={styles[color]}></div>

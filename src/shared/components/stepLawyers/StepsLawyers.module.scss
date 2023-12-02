@@ -37,7 +37,7 @@
   @media screen and (min-width: 1280px) {
     width: 1280px;
     height: 859px;
-    padding: 0px 30px 44px 30px;
+    padding: 346px 30px 44px 30px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -47,7 +47,7 @@
   @media screen and (min-width:1440px) {
     width: 1440px;
     height: 859px;
-    padding: 0px 51px 66px 51px;
+    padding: 275px 51px 66px 51px;
   }
 }
 
@@ -115,6 +115,7 @@
   @media screen and (min-width: 1280px) {
     margin-top: auto;
     margin-right: 18px;
+    height: 240px;
   }
 }
 
@@ -135,18 +136,21 @@
 .link:nth-child(2) {
   @media screen and (min-width: 1280px) {
     margin-bottom: 65px;
+    height: 264px;
   }
 }
 
 .link:nth-child(3) {
   @media screen and (min-width: 1280px) {
     margin-bottom: 107px;
+    height: 360px;
   }
 }
 
 .link:nth-child(4) {
   @media screen and (min-width: 1280px) {
     margin-bottom: 41px;
+    height: 312px;
   }
 }
 

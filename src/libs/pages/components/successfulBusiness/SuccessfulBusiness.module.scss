@@ -80,6 +80,27 @@
   }
 }
 
+.container_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 1280px) {
+    align-items: flex-end;
+    gap: 48px;
+  }
+
+  @media screen and (min-width: 1440px) {}
+}
+
 .gradient_family {
   z-index: 1;
   position: absolute;
@@ -353,4 +374,32 @@
     top: 645px;
     right: -337px;
   }
+}
+
+.slider {
+  position: relative;
+  width: 110%;
+  z-index: 4;
+
+  li {
+    height: 100%;
+
+    @media screen and (max-width: 1024px) {
+      height: 700px;
+    }
+
+  }
+}
+
+.next_icon {
+  position: absolute;
+  right: 34px;
+  top: 50%;
+  rotate: 180deg;
+}
+
+.prev_icon {
+  position: absolute;
+  left: -46px;
+  top: 50%;
 }

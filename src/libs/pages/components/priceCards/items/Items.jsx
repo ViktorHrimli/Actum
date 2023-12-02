@@ -1,26 +1,39 @@
 import styles from "./Items.module.scss";
 
-import CardA from "./cards/cardA/CardA";
 import CardB from "./cards/cardB/CardB";
-import CardC from "./cards/cardC/CardC";
-import CardD from "./cards/cardD/CardD";
 
-import MobileSlider from "@/shared/components/mobile_animation/MobileSlider";
-
-const arrListCard = [CardA, CardB, CardC, CardD];
-
-export default function Items({ type, isMobile, current, isLeft }) {
+export default function Items({ type, isMobile, list, Slider }) {
   return (
     <div className={styles.container}>
       {isMobile ? (
-        <MobileSlider isStart={isLeft} key={current}>
-          {arrListCard.map(
-            (Item, id) => id === current && <Item key={id} type={type} />
-          )}
-        </MobileSlider>
+        <Slider
+          infinite={true}
+          speed={800}
+          slidesToShow={1}
+          slidesToScroll={1}
+          swipeToSlide={true}
+          swipe={true}
+          className={styles.slider}
+        >
+          {list.map((item, id) => (
+            <CardB type={type} {...item} key={id} />
+          ))}
+        </Slider>
       ) : (
-        arrListCard.map((Item, id) => <Item key={id} type={type} />)
+        list.map((item, id) => <CardB type={type} {...item} key={id} />)
       )}
     </div>
   );
 }
+
+//  {
+//    isMobile ? (
+//      <MobileSlider isStart={isLeft} key={current}>
+//        {arrListCard.map(
+//          (Item, id) => id === current && <Item key={id} type={type} />
+//        )}
+//      </MobileSlider>
+//    ) : (
+//      arrListCard.map((Item, id) => <Item key={id} type={type} />)
+//    );
+//  }
