@@ -89,7 +89,7 @@ export default function Response({ type, button, description, title }) {
               className={styles.slider}
             >
               {reviewsList.map((item, id) => (
-                <div style={{ height: 439 }}>
+                <div key={id} style={{ height: 439 }}>
                   <Card {...item} key={id} type={type} />
                 </div>
               ))}
