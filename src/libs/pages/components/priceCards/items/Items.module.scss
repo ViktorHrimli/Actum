@@ -13,6 +13,7 @@
     flex-wrap: wrap;
     flex-direction: row;
   }
+
   @media screen and (min-width: 1280px) {
     width: 100%;
     flex-direction: column;
@@ -20,6 +21,18 @@
     align-items: flex-start;
     gap: 26px;
   }
-  @media screen and (min-width: 1440px) {
+
+  @media screen and (min-width: 1440px) {}
+}
+
+.slider {
+  width: 270px;
+  overflow: hidden;
+
+  div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: inherit;
   }
 }

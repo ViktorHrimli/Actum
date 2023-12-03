@@ -33,7 +33,7 @@
         background: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
         border-radius: 4px;
         position: absolute;
-        right: -12px;
+        right: 28px;
         top: 320px;
         z-index: 3;
     }
@@ -58,11 +58,11 @@
         z-index: 15;
         padding: 1px;
         background: linear-gradient(to right, #E32F7A 0%,
-            #F16E74 42%,
-            #FBB663 81%);
+                #F16E74 42%,
+                #FBB663 81%);
         border-radius: 4px;
         position: absolute;
-        right: -12px;
+        right: 28px;
         top: 320px;
         z-index: 3;
     }
@@ -90,7 +90,7 @@
         background: linear-gradient(to right, #41664B, #3F2E64);
         border-radius: 4px;
         position: absolute;
-        right: -12px;
+        right: 28px;
         top: 320px;
         z-index: 3;
     }
@@ -191,6 +191,7 @@
         background: linear-gradient(to left, #E32F7A, #912E6F, #3F2E64);
     }
 }
+
 .border_top_other {
     display: none;
 
@@ -202,9 +203,9 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background: linear-gradient(to left,#E32F7A 0%,
-            #F16E74 42%,
-            #FBB663 81%);
+        background: linear-gradient(to left, #E32F7A 0%,
+                #F16E74 42%,
+                #FBB663 81%);
     }
 }
 
@@ -296,8 +297,8 @@
         width: 100%;
         height: 2px;
         background: linear-gradient(to right, #E32F7A 0%,
-            #F16E74 42%,
-            #FBB663 81%);
+                #F16E74 42%,
+                #FBB663 81%);
     }
 }
 
@@ -391,6 +392,7 @@
 
 .border_family:hover .border_right {
     display: none;
+
     @media screen and (min-width: 1280px) {
         display: block;
         transition: all 0.7s;
@@ -399,8 +401,10 @@
         background: linear-gradient(to bottom, #E32F7A, #912E6F, #3F2E64);
     }
 }
+
 .border_family:hover .border_left {
     display: none;
+
     @media screen and (min-width: 1280px) {
         display: block;
         transition: all 0.7s;
@@ -443,8 +447,8 @@
         height: 494px;
         width: 2px;
         background: linear-gradient(to bottom, #E32F7A 0%,
-            #F16E74 42%,
-            #FBB663 81%);
+                #F16E74 42%,
+                #FBB663 81%);
     }
 }
 
@@ -457,7 +461,7 @@
         height: 494px;
         width: 2px;
         background: linear-gradient(to top, #E32F7A 0%,
-            #F16E74 42%,
-            #FBB663 81%);
+                #F16E74 42%,
+                #FBB663 81%);
     }
 }

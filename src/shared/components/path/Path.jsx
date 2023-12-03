@@ -1,7 +1,8 @@
 "use client";
+import Link from "next/link";
+
 import styles from "./Path.module.scss";
 
-import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "@/shared/hooks/hooks";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,16 +17,6 @@ export default function Path({
   isNestedPage,
   nested_page_title,
 }) {
-  const router = useRouter();
-
-  const handleClickOnPath = () => {
-    return router.push(`/${parent_link}`, { scroll: true });
-  };
-
-  const handleClickOnPrevPage = () => {
-    return router.push(`/${children_link}`, { scroll: true });
-  };
-
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
@@ -33,20 +24,19 @@ export default function Path({
   return (
     <div className={styles.conteiner}>
       <div className={styles.wrapper_path}>
-        <p className={styles.service_text} onClick={handleClickOnPath}>
-          {parent_page}
-        </p>
+        <Link href={`/${parent_link}`} scroll={true}>
+          <p className={styles.service_text}>{parent_page}</p>
+        </Link>
 
         <FontAwesomeIcon
           icon={faAnglesRight}
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
-        <p
-          className={`${styles.path_text} ${styles[type]}`}
-          onClick={isNestedPage ? handleClickOnPrevPage : () => {}}
-        >
-          {children_page}
-        </p>
+        <Link href={isNestedPage ? `/${children_link}` : ""}>
+          <p className={`${styles.path_text} ${styles[type]} ${styles.link}`}>
+            {children_page}
+          </p>
+        </Link>
         {isNestedPage && (
           <>
             <FontAwesomeIcon

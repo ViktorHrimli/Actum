@@ -13,6 +13,7 @@ export default function ArrowMenu({
   id = 0,
   setIsOpen = () => {},
   isOpen = false,
+  isHaveList = true,
 }) {
   return (
     <motion.div
@@ -28,6 +29,10 @@ export default function ArrowMenu({
       initial={{ x: 0 }}
       transition={{ duration: 0.8 }}
       aria-pressed={isOpenSelect}
+      style={{
+        opacity: isHaveList ? 1 : 0,
+        pointerEvents: isHaveList ? "all" : "none",
+      }}
       role="button"
     >
       <Image src={arrow} alt="arrow" fill loading="lazy" sizes="24px" />

@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import axios from "axios";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import Button from "@/libs/components/button/Button";
-import ItemsList from "@/libs/components/response/list/ItemsList";
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
-import Arrow from "@/libs/components/arrowCard/Arrow";
+import Card from "@/libs/components/card/Card";
+
 import dataReviewsStatic from "@/assets/json/reviews.json";
+
+import { iconEnum, themsColor } from "@/shared/enums/enum";
 
 import styles from "./Response.module.scss";
 
@@ -16,18 +21,36 @@ import {
   useIsSmall,
   useState,
   usePathname,
+  useIsBig,
 } from "@/shared/hooks/hooks";
 
 export default function Response({ type, button, description, title }) {
-  const [isChange, setIsChange] = useState(0);
   const [isClient, setIsClient] = useState(false);
-  const [isLeft, setIsLeft] = useState(true);
   const [reviewsList, setReviewsList] = useState(dataReviewsStatic);
 
   const path = usePathname();
-  const screen = useIsSmall();
+  const isMobile = useIsSmall();
 
+  const { fill } = themsColor[type];
   const isHome = path === "/";
+
+  function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+      <div className={styles.next_icon} onClick={onClick}>
+        {iconEnum["horizontalArrow"](fill)}
+      </div>
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+      <div className={styles.prev_icon} onClick={onClick}>
+        {iconEnum["horizontalArrow"](fill)}
+      </div>
+    );
+  }
 
   useEffect(() => {
     setIsClient(true);
@@ -43,8 +66,6 @@ export default function Response({ type, button, description, title }) {
   return (
     isClient && (
       <section className={styles.section}>
-        {/* <div className={isHome ? styles.background : ""}></div> */}
-
         <div className={styles.conteiner_section}>
           <div className={styles.left_text_conteiner}>
             <LeftBar text={title} type={type} />
@@ -54,33 +75,26 @@ export default function Response({ type, button, description, title }) {
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{description}</p>
             </div>
-            <div className={styles.position_arr_left}>
-              <Arrow
-                type={type}
-                left={true}
-                setIsChange={setIsChange}
-                setIsLeft={setIsLeft}
-                isChange={isChange}
-                dataLength={reviewsList.length}
-              />
-            </div>
-            <ItemsList
-              type={type}
-              isMobie={screen}
-              slide={isChange}
-              start={isLeft}
-              reviews={reviewsList}
-            />
-            <div className={styles.position_arr_right}>
-              <Arrow
-                type={type}
-                left={false}
-                setIsChange={setIsChange}
-                setIsLeft={setIsLeft}
-                isChange={isChange}
-                dataLength={reviewsList.length}
-              />
-            </div>
+
+            <Slider
+              infinite={true}
+              speed={800}
+              slidesToShow={!isMobile ? 2 : 1}
+              slidesToScroll={1}
+              arrows={!isMobile ? true : false}
+              nextArrow={<SampleNextArrow />}
+              prevArrow={<SamplePrevArrow />}
+              swipeToSlide={true}
+              swipe={true}
+              className={styles.slider}
+            >
+              {reviewsList.map((item, id) => (
+                <div key={id} style={{ height: 439 }}>
+                  <Card {...item} key={id} type={type} />
+                </div>
+              ))}
+            </Slider>
+
             {isHome && (
               <div className={styles.btn_wrapper}>
                 <Link href={button["link"]}>
@@ -99,3 +113,31 @@ export default function Response({ type, button, description, title }) {
     )
   );
 }
+
+//  <div className={styles.position_arr_left}>
+//               <Arrow
+//                 type={type}
+//                 left={true}
+//                 setIsChange={setIsChange}
+//                 setIsLeft={setIsLeft}
+//                 isChange={isChange}
+//                 dataLength={reviewsList.length}
+//               />
+//             </div>
+//             <ItemsList
+//               type={type}
+//               isMobie={screen}
+//               slide={isChange}
+//               start={isLeft}
+//               reviews={reviewsList}
+//             />
+//             <div className={styles.position_arr_right}>
+//               <Arrow
+//                 type={type}
+//                 left={false}
+//                 setIsChange={setIsChange}
+//                 setIsLeft={setIsLeft}
+//                 isChange={isChange}
+//                 dataLength={reviewsList.length}
+//               />
+//             </div>

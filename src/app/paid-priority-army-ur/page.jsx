@@ -1,9 +1,9 @@
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
 import Description from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
+import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
@@ -11,13 +11,13 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_CRIME_PAGE } = process.env;
+const { API_CREDIT_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_CRIME_PAGE);
+  return makeSeoTemplate(API_CREDIT_PAGE);
 }
 
-export default async function Crimes() {
+export default async function page() {
   const {
     data: {
       attributes: {
@@ -35,24 +35,24 @@ export default async function Crimes() {
         seo,
       },
     },
-  } = await getStaticLawyersPage(API_CRIME_PAGE);
+  } = await getStaticLawyersPage(API_CREDIT_PAGE);
 
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <HeroLawyers type={"crime"} {...hero} bread_crumbs={bread_crumbs} />
+      <HeroLawyers type={"other"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
-        type={"crime"}
+        type={"other"}
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"crime"} {...successful_deals} />
-      <Specialists type={"crime"} {...employeer_list} />
-      <Description type={"crime"} description={description_lawyer} />
-      <Response type={"crime"} {...responses} />
-      <StepsLawyers type={"crime"} {...steps} />
-      <FormSection type={"crime"} formData={form} {...info} />
+      <SuccessfulBusiness type={"other"} {...successful_deals} />
+      <Specialists type={"other"} {...employeer_list} />
+      <Description type={"other"} description={description_lawyer} />
+      <Response type={"other"} {...responses} />
+      <StepsLawyers type={"other"} {...steps} />
+      <FormSection type={"other"} formData={form} {...info} />
     </>
   );
 }

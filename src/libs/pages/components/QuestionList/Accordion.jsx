@@ -8,7 +8,7 @@ import styles from "./Accordion.module.scss";
 import arrow from "@/assets/svg/arrow_up.svg";
 import ClickIcon from "@/shared/components/click/Click";
 
-import { themsColor } from "@/shared/enums/enum";
+import { themsColor, apiServices } from "@/shared/enums/enum";
 
 export default function Accordion({
   title,
@@ -18,10 +18,11 @@ export default function Accordion({
   id,
   isCurent,
   setIsCurent,
+  enums_env,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const pathName = usePathname().replace("/", "");
+  const pathName = usePathname();
 
   const { fill } = themsColor[type];
 
@@ -82,7 +83,7 @@ export default function Accordion({
               {link && (
                 <div style={{ marginTop: "50px", display: "block" }}>
                   <ClickIcon
-                    path={link ? `${pathName}/${link}` : false}
+                    path={`${pathName}/${link}?api=${apiServices[enums_env]}`}
                     color={fill}
                   />
                 </div>

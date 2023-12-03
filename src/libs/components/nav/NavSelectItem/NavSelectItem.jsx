@@ -6,6 +6,8 @@ import ArrowMenu from "@/shared/components/arrow_menu/ArrowMenu";
 
 import styles from "./NavSelectItem.module.scss";
 
+import { apiServices } from "@/shared/enums/enum";
+
 export default function NavSelectItem({
   Title: title,
   path,
@@ -13,9 +15,11 @@ export default function NavSelectItem({
   onClick,
   setisCurrent,
   isCurrent,
+  enums_env,
   id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
+  console.log(path);
 
   useEffect(() => {
     setIsOpenSelect(isCurrent === id ? true : false);
@@ -40,6 +44,7 @@ export default function NavSelectItem({
           isOpenSelect={isOpenSelect}
           setIsCurrent={setisCurrent}
           id={id}
+          isHaveList={list.length}
         />
 
         <div className={styles.line}></div>
@@ -47,9 +52,11 @@ export default function NavSelectItem({
 
       {isOpenSelect && (
         <ul className={styles.nested_select_list}>
-          {list.map(({ text, path: pathsService }, id) => (
+          {list.map(({ text, path: pathsService, env }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
-              <Link href={`${path}${pathsService}`}>
+              <Link
+                href={`${path}${pathsService}?api=${apiServices[enums_env]}`}
+              >
                 <p className={styles.text_current}>{text}</p>
               </Link>
             </li>

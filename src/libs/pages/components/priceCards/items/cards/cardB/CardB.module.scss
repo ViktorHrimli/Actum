@@ -2,6 +2,7 @@
   padding: 2px;
   background: linear-gradient(to right, #E32F7A, #3F2E64);
   border-radius: 4px;
+
 }
 
 .position_army {
@@ -91,6 +92,31 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .flex_conteiner {
+    overflow: hidden;
+  }
+
+  .conteiner_block {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .container_title {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .conteiner_box_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+}
+
 .title {
   display: block;
   position: relative;
@@ -131,10 +157,10 @@
   margin-bottom: 9px;
 
   @media screen and (min-width: 1280px) {
-      font-size: 16px;
-      text-align: end;
-      margin-bottom: 12px;
-    }
+    font-size: 16px;
+    text-align: end;
+    margin-bottom: 12px;
+  }
 }
 
 .container_text {
@@ -143,6 +169,7 @@
 
 .transfer {
   display: block;
+
   @media screen and (min-width: 1280px) {
     display: none;
   }

@@ -15,7 +15,6 @@ export default function Navigation({
   nav,
   servicesRoute,
   isOpenMenu,
-  isLocal = "",
 }) {
   const SERVICES = "послуги";
 
@@ -38,7 +37,7 @@ export default function Navigation({
                   ? styles.active_link
                   : styles.not_active_link
               }
-              href={path}
+              href={`/${path}`}
               onClick={onClick}
             >
               <p>{title.toUpperCase()}</p>

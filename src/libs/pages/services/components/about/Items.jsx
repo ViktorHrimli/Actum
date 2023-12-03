@@ -26,7 +26,7 @@ export default function Items({ items }) {
               />
               <div className={styles[objClass[el.style]]}></div>
               <div className={styles.img_btn}>
-                <Link href={el?.button["link"]}>
+                <Link href={`/${el?.button["link"]}`}>
                   <Button
                     text="детальніше"
                     type="button"

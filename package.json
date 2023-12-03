@@ -35,9 +35,10 @@
     "react-hook-form": "7.44.3",
     "react-input-mask": "^2.0.4",
     "react-loader-spinner": "^5.4.5",
-    "react-material-ui-carousel": "^3.4.2",
     "react-responsive": "^9.0.2",
-    "sharp": "^0.32.6"
+    "react-slick": "^0.29.0",
+    "sharp": "^0.32.6",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "sass": "1.63.4",
