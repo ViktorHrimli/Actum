@@ -8,10 +8,10 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
-import Price from "@/libs/pages/components/priceCards/Price";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { styles_enum } from "@/shared/enums/enum";
 
 const { API_SERVICES_COMUNITY, API_FAMILY_PAGE } = process.env;
 
@@ -39,28 +39,30 @@ export default async function page({ params, searchParams }) {
       statistics,
       Steps: steps,
       successful_deals,
+      page_style,
       seo,
     },
   } = data[0];
+
+  const color = styles_enum[page_style];
 
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
+      <HeroLawyers type={color} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
-        type={"family"}
+        type={color}
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"family"} listCard={statistics} />
-      <SuccessfulBusiness type={"family"} {...successful_deals} />
-      <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
-      <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} {...steps} />
-      <Price type={"crime"} />
-      <FormSection type={"family"} formData={form} {...info} />
+      <AboutCards type={color} listCard={statistics} />
+      <SuccessfulBusiness type={color} {...successful_deals} />
+      <Specialists type={color} {...employeer_list} />
+      <Description type={color} description={description_lawyer} />
+      <Response type={color} {...responses} />
+      <StepsLawyers type={color} {...steps} />
+      <FormSection type={color} formData={form} {...info} />
     </>
   );
 }

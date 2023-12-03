@@ -18,6 +18,7 @@ export default function Accordion({
   id,
   isCurent,
   setIsCurent,
+  enums_env,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -13,16 +13,16 @@ import Price from "@/libs/pages/components/priceCards/Price";
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_LAND_SERVICES, API_ACCIDENT_PAGE } = process.env;
+const { API_CREDIT_SERVICES, API_ACCIDENT_PAGE } = process.env;
 
-export async function generateMetadata() {
+export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_ACCIDENT_PAGE);
 }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
     params["name"],
-    API_LAND_SERVICES
+    API_CREDIT_SERVICES
   );
 
   const {
@@ -53,13 +53,13 @@ export default async function page({ params }) {
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"family"} listCard={statistics} />
+      <AboutCards type={"army"} listCard={statistics} />
       <SuccessfulBusiness type={"family"} {...successful_deals} />
       <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
+      <Description type={"family"} title={description_lawyer} />
       <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} {...steps} />
-      <Price type={"family"} />
+      <Price type={"army"} />
       <FormSection type={"family"} formData={form} {...info} />
     </>
   );

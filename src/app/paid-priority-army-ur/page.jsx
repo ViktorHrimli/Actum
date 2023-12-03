@@ -11,13 +11,13 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_FAMILY_PAGE } = process.env;
+const { API_CREDIT_PAGE } = process.env;
 
-export async function generateMetadata() {
-  return makeSeoTemplate(API_FAMILY_PAGE);
+export async function generateMetadata({ params, searchParams }, parent) {
+  return makeSeoTemplate(API_CREDIT_PAGE);
 }
 
-export default async function Family() {
+export default async function page() {
   const {
     data: {
       attributes: {
@@ -35,24 +35,24 @@ export default async function Family() {
         seo,
       },
     },
-  } = await getStaticLawyersPage(API_FAMILY_PAGE);
+  } = await getStaticLawyersPage(API_CREDIT_PAGE);
 
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
+      <HeroLawyers type={"other"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
-        type={"family"}
+        type={"other"}
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"family"} {...successful_deals} />
-      <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
-      <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} {...steps} />
-      <FormSection type={"family"} formData={form} {...info} />
+      <SuccessfulBusiness type={"other"} {...successful_deals} />
+      <Specialists type={"other"} {...employeer_list} />
+      <Description type={"other"} description={description_lawyer} />
+      <Response type={"other"} {...responses} />
+      <StepsLawyers type={"other"} {...steps} />
+      <FormSection type={"other"} formData={form} {...info} />
     </>
   );
 }

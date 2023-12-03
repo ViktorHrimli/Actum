@@ -13,14 +13,13 @@ import Price from "@/libs/pages/components/priceCards/Price";
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_FAMILY_SERVICES, API_FAMILY_PAGE } = process.env;
+const { API_FAMILY_PAGE } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_FAMILY_PAGE);
 }
 
 export default async function page({ params, searchParams }) {
-  console.log(params);
   const { data } = await getLawyerDynamicPage(
     params["slug"],
     searchParams["api"]
