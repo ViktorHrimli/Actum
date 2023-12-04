@@ -2,8 +2,8 @@ import { builder } from "@/shared/helpers/helpers";
 
 const { CACHE_OPTIONS } = process.env;
 
-export const getSeo = async (path) => {
-  const res = await fetch(builder.getSeo(path), {
+export const getSeoDynamicPage = async (api, path) => {
+  const res = await fetch(builder.getDynamicSeo(api, path), {
     cache: CACHE_OPTIONS,
   });
 

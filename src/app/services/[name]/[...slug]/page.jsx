@@ -11,12 +11,11 @@ import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import Price from "@/libs/pages/components/priceCards/Price";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
+import { styles_enum } from "@/shared/enums/enum";
 
-const { API_FAMILY_PAGE } = process.env;
-
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_FAMILY_PAGE);
+export async function generateMetadata({ params, searchParams }) {
+  return makeDynamicSeoTemplate(params["slug"], searchParams["api"]);
 }
 
 export default async function page({ params, searchParams }) {
@@ -41,28 +40,33 @@ export default async function page({ params, searchParams }) {
       successful_deals,
       price_block,
       title_price_block,
+      page_style,
       seo,
     },
   } = data[0];
 
+  const color = styles_enum[page_style];
+
+  const crimeOrArmy = color === "army" ? color : "crime";
+
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-      <HeroLawyers type={"family"} {...hero} bread_crumbs={bread_crumbs} />
+      <HeroLawyers type={color} {...hero} bread_crumbs={bread_crumbs} />
 
       <QuestionsList
-        type={"family"}
+        type={color}
         about_block={about_block}
         questions={questions_list}
       />
-      <AboutCards type={"family"} listCard={statistics} />
-      <SuccessfulBusiness type={"family"} {...successful_deals} />
-      <Specialists type={"family"} {...employeer_list} />
-      <Description type={"family"} description={description_lawyer} />
-      <Response type={"family"} {...responses} />
-      <StepsLawyers type={"family"} {...steps} />
-      <Price type={"crime"} title={title_price_block} list={price_block} />
-      <FormSection type={"family"} formData={form} {...info} />
+      <AboutCards type={crimeOrArmy} listCard={statistics} />
+      <SuccessfulBusiness type={color} {...successful_deals} />
+      <Specialists type={color} {...employeer_list} />
+      <Description type={color} description={description_lawyer} />
+      <Response type={color} {...responses} />
+      <StepsLawyers type={color} {...steps} />
+      <Price type={crimeOrArmy} title={title_price_block} list={price_block} />
+      <FormSection type={color} formData={form} {...info} />
     </>
   );
 }

@@ -24,6 +24,10 @@ export default function Accordion({
 
   const pathName = usePathname();
 
+  const isOtherPAge = pathName.includes("html-sitemap");
+
+  console.log(isOtherPAge);
+
   const { fill } = themsColor[type];
 
   const handleClickOpen = () => setIsCurent(isOpen ? false : id);
@@ -83,7 +87,9 @@ export default function Accordion({
               {link && (
                 <div style={{ marginTop: "50px", display: "block" }}>
                   <ClickIcon
-                    path={`${pathName}/${link}?api=${apiServices[enums_env]}`}
+                    path={`${isOtherPAge ? "" : pathName}/${link}?api=${
+                      apiServices[enums_env]
+                    }`}
                     color={fill}
                   />
                 </div>

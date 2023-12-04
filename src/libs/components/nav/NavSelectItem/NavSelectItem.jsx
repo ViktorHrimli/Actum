@@ -16,10 +16,13 @@ export default function NavSelectItem({
   setisCurrent,
   isCurrent,
   enums_env,
+  directions,
   id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
-  console.log(path);
+  console.log(directions);
+
+  ("SERVICES / FIRST / SECOND");
 
   useEffect(() => {
     setIsOpenSelect(isCurrent === id ? true : false);
@@ -37,7 +40,11 @@ export default function NavSelectItem({
           textDecoration: "none",
         }}
       >
-        <Link href={path} onClick={onClick} className={styles.link_service}>
+        <Link
+          href={`${directions === "root" ? "" : `/${directions}`}/${path}`}
+          onClick={onClick}
+          className={styles.link_service}
+        >
           <p className={styles.text}>{title}</p>
         </Link>
         <ArrowMenu
@@ -52,10 +59,12 @@ export default function NavSelectItem({
 
       {isOpenSelect && (
         <ul className={styles.nested_select_list}>
-          {list.map(({ text, path: pathsService, env }, id) => (
+          {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link
-                href={`${path}${pathsService}?api=${apiServices[enums_env]}`}
+                href={`/${
+                  directions === "root" ? "" : directions
+                }/${path}/${pathsService}?api=${apiServices[enums_env]}`}
               >
                 <p className={styles.text_current}>{text}</p>
               </Link>
