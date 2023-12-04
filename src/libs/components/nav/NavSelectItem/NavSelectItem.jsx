@@ -62,8 +62,8 @@ export default function NavSelectItem({
           {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link
-                href={`/${
-                  directions === "root" ? "" : directions
+                href={`${
+                  directions === "root" ? "" : `/${directions}`
                 }/${path}/${pathsService}?api=${apiServices[enums_env]}`}
               >
                 <p className={styles.text_current}>{text}</p>
