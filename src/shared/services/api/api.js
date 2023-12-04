@@ -3,3 +3,4 @@ export { getSeo } from "./getSeo";
 export { getLawyerDynamicPage } from "./getLawyerDynamicPage";
 export { getStaticLawyersPage } from "./getBulderStaticLawyersPage";
 export { getStaticPage } from "./getStaticPage";
+export {getSeoDynamicPage} from './getSeoDynamicPage'
