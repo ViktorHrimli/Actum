@@ -15,9 +15,9 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_RELTY_SERVICES, API_ACCIDENT_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_ACCIDENT_PAGE);
-}
+// export async function generateMetadata({ params, searchParams }, parent) {
+//   return makeSeoTemplate(API_ACCIDENT_PAGE);
+// }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(

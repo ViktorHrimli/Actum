@@ -13,9 +13,9 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_CREDIT_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_CREDIT_PAGE);
-}
+// export async function generateMetadata({ params, searchParams }, parent) {
+//   return makeSeoTemplate(API_CREDIT_PAGE);
+// }
 
 export default async function page() {
   const {
