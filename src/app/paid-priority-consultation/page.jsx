@@ -13,33 +13,33 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_REALTY_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_REALTY_PAGE);
-}
+// export async function generateMetadata({ params, searchParams }, parent) {
+//   return makeSeoTemplate(API_REALTY_PAGE);
+// }
 
 export default async function page() {
-  const {
-    data: {
-      attributes: {
-        Hero: hero,
-        about_block,
-        Employeers_list: employeer_list,
-        Form: form,
-        Info: info,
-        Responses: responses,
-        questions_list,
-        bread_crumbs,
-        description_lawyer,
-        Steps: steps,
-        successful_deals,
-        seo,
-      },
-    },
-  } = await getStaticLawyersPage(API_REALTY_PAGE);
+  // const {
+  //   data: {
+  //     attributes: {
+  //       Hero: hero,
+  //       about_block,
+  //       Employeers_list: employeer_list,
+  //       Form: form,
+  //       Info: info,
+  //       Responses: responses,
+  //       questions_list,
+  //       bread_crumbs,
+  //       description_lawyer,
+  //       Steps: steps,
+  //       successful_deals,
+  //       seo,
+  //     },
+  //   },
+  // } = await getStaticLawyersPage(API_REALTY_PAGE);
 
   return (
     <>
-      <StructureData data={seo["structuredData"]} />
+      {/* <StructureData data={seo["structuredData"]} />
 
       <HeroLawyers type={"other"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
@@ -52,7 +52,7 @@ export default async function page() {
       <Description type={"other"} description={description_lawyer} />
       <Response type={"other"} {...responses} />
       <StepsLawyers type={"other"} {...steps} />
-      <FormSection type={"other"} formData={form} {...info} />
+      <FormSection type={"other"} formData={form} {...info} /> */}
     </>
   );
 }
