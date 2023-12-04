@@ -39,6 +39,10 @@ export default async function page({ params }) {
       statistics,
       Steps: steps,
       successful_deals,
+
+      price_block,
+      title_price_block,
+
       seo,
     },
   } = data[0];
@@ -59,7 +63,7 @@ export default async function page({ params }) {
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
       <StepsLawyers type={"army"} {...steps} />
-      <Price type={"army"} />
+      <Price type={"army"} list={price_block} title={title_price_block} />
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );
