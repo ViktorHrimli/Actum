@@ -21,7 +21,6 @@ import styles from "./SuccessfulBusiness.module.scss";
 export default function SuccessfulBusiness({ type, title, successful_list }) {
   const [isClient, setIsClient] = useState(false);
   const isDesktop = useIsBig();
-  const isMobile = useIsSmall();
 
   const { gradient, gradientRight, color } = gradientEnums[type];
 
@@ -61,7 +60,7 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
             speed={800}
             slidesToShow={isDesktop ? 3 : 1}
             slidesToScroll={1}
-            arrows={!isMobile ? true : false}
+            arrows={true}
             nextArrow={<SampleNextArrow />}
             prevArrow={<SamplePrevArrow />}
             swipeToSlide={true}

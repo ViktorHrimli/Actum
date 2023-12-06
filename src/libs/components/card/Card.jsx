@@ -12,7 +12,7 @@ export default function Card({ name, photo, date, body, type, link }) {
     <li key={name} className={styles.list_conteiner}>
       <div className={styles.conteiner}>
         <div className={styles.wrapper_image}>
-          <Link href={link} target="_blank">
+          <Link href={link ? link : ""} target="_blank">
             <Image
               src={photo}
               alt="Person"
@@ -23,13 +23,17 @@ export default function Card({ name, photo, date, body, type, link }) {
           </Link>
         </div>
 
-        <Link href={link} target="_blank" className={styles.text_name}>
+        <Link
+          href={link ? link : ""}
+          target="_blank"
+          className={styles.text_name}
+        >
           <p className={styles[color]}>{name}</p>
         </Link>
 
         <div className={styles.box_text}>
           <p className={styles.text}>{body}</p>
-          <Link href={link} className={styles.date} target="_blank">
+          <Link href={link ? link : ""} className={styles.date} target="_blank">
             <span className={styles[color]}>{date}</span>
           </Link>
         </div>

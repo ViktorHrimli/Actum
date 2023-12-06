@@ -26,8 +26,6 @@ export default function Accordion({
 
   const isOtherPAge = pathName.includes("html-sitemap");
 
-  console.log(isOtherPAge);
-
   const { fill } = themsColor[type];
 
   const handleClickOpen = () => setIsCurent(isOpen ? false : id);

@@ -39,10 +39,8 @@ export default async function page({ params }) {
       statistics,
       Steps: steps,
       successful_deals,
-
       price_block,
       title_price_block,
-
       seo,
     },
   } = data[0];

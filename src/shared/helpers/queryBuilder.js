@@ -34,9 +34,6 @@ class QueryBuilder {
   }
 
   getDynamicSeo(api, path) {
-    console.log(
-      `${URL_CLOUD_STRAPI}/${path}?filters[name_page][$eq]=${api}&${QUERY_SEO_OPTIONS}`
-    );
     return `${URL_CLOUD_STRAPI}/${path}?filters[name_page][$eq]=${api}&${QUERY_SEO_OPTIONS}`;
   }
 }

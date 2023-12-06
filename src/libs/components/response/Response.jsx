@@ -21,7 +21,6 @@ import {
   useIsSmall,
   useState,
   usePathname,
-  useIsBig,
 } from "@/shared/hooks/hooks";
 
 export default function Response({ type, button, description, title }) {
@@ -36,6 +35,11 @@ export default function Response({ type, button, description, title }) {
 
   function SampleNextArrow(props) {
     const { onClick } = props;
+    if (reviewsList.length <= 40) {
+      setReviewsList((prev) => {
+        return prev.concat(dataReviewsStatic);
+      });
+    }
     return (
       <div className={styles.next_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](fill)}
@@ -81,7 +85,7 @@ export default function Response({ type, button, description, title }) {
               speed={800}
               slidesToShow={!isMobile ? 2 : 1}
               slidesToScroll={1}
-              arrows={!isMobile ? true : false}
+              arrows={true}
               nextArrow={<SampleNextArrow />}
               prevArrow={<SamplePrevArrow />}
               swipeToSlide={true}
@@ -113,31 +117,3 @@ export default function Response({ type, button, description, title }) {
     )
   );
 }
-
-//  <div className={styles.position_arr_left}>
-//               <Arrow
-//                 type={type}
-//                 left={true}
-//                 setIsChange={setIsChange}
-//                 setIsLeft={setIsLeft}
-//                 isChange={isChange}
-//                 dataLength={reviewsList.length}
-//               />
-//             </div>
-//             <ItemsList
-//               type={type}
-//               isMobie={screen}
-//               slide={isChange}
-//               start={isLeft}
-//               reviews={reviewsList}
-//             />
-//             <div className={styles.position_arr_right}>
-//               <Arrow
-//                 type={type}
-//                 left={false}
-//                 setIsChange={setIsChange}
-//                 setIsLeft={setIsLeft}
-//                 isChange={isChange}
-//                 dataLength={reviewsList.length}
-//               />
-//             </div>
