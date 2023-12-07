@@ -15,7 +15,7 @@ const borderEnums = {
     options_hover: "options_family",
     fill: "#E32F7A",
   },
-  "paid-priority-family": {
+  family: {
     border: "border_family",
     color_text: "text_family",
     border_check_color: "check_color_border_family",
@@ -23,7 +23,7 @@ const borderEnums = {
     options_hover: "options_family",
     fill: "#E32F7A",
   },
-  "paid-priority-army": {
+  army: {
     border: "border_army",
     color_text: "text_army",
     border_check_color: "check_color_border_army",
@@ -31,7 +31,7 @@ const borderEnums = {
     options_hover: "options_army",
     fill: "#536641",
   },
-  "paid-priority-crime": {
+  crime: {
     border: "border_family",
     color_text: "text_criminal",
     border_check_color: "check_color_border_family",

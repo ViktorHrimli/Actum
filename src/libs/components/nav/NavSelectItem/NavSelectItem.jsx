@@ -20,9 +20,6 @@ export default function NavSelectItem({
   id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
-  console.log(directions);
-
-  ("SERVICES / FIRST / SECOND");
 
   useEffect(() => {
     setIsOpenSelect(isCurrent === id ? true : false);

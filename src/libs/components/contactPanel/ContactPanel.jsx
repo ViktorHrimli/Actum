@@ -38,12 +38,14 @@ export default function ContactPanel({ form, Telephones, Icons }) {
   const [isScroll, setIsScroll] = useState(null);
 
   const isDesktop = useIsBig();
-
   const path = usePathname();
-  const clearPath = path.split("/")[1];
   const router = useRouter();
   const isClient = useClient();
   const searchParams = useSearchParams();
+
+  const crime = path.includes("crim");
+  const army = path.includes("army");
+  const family = path.includes("fami");
 
   let isSessionStorageSave;
 
@@ -98,14 +100,28 @@ export default function ContactPanel({ form, Telephones, Icons }) {
   }, []);
 
   useEffect(() => {
-    if (colorGradient[clearPath]) {
-      setsetIsStylePanel(colorGradient[clearPath]);
-      setIsStyleModal(clearPath);
-    } else {
-      setsetIsStylePanel(colorGradient["home"]);
-      setIsStyleModal("home");
+    switch (true) {
+      case army:
+        setsetIsStylePanel(colorGradient["army"]);
+        setIsStyleModal("army");
+        return;
+
+      case crime:
+        setsetIsStylePanel(colorGradient["crime"]);
+        setIsStyleModal("crime");
+        return;
+
+      case family:
+        setsetIsStylePanel(colorGradient["family"]);
+        setIsStyleModal("family");
+        return;
+
+      default:
+        setsetIsStylePanel(colorGradient["home"]);
+        setIsStyleModal("home");
+        return;
     }
-  }, [clearPath]);
+  }, [path]);
 
   useEffect(() => {
     if (isOpenModal) {
@@ -255,9 +271,7 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                 className={styles.link}
                 onClick={() => setIsOpenModal(true) & setIsPhoneMob(false)}
               >
-                <a>
-                  <Image src={Form} alt="Form" width={34} height={34} />
-                </a>
+                <Image src={Form} alt="Form" width={34} height={34} />
               </li>
             </ul>
 

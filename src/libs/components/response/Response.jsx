@@ -35,11 +35,11 @@ export default function Response({ type, button, description, title }) {
 
   function SampleNextArrow(props) {
     const { onClick } = props;
-    if (reviewsList.length <= 40) {
-      setReviewsList((prev) => {
-        return prev.concat(dataReviewsStatic);
-      });
-    }
+    // if (reviewsList.length <= 40) {
+    //   setReviewsList((prev) => {
+    //     return prev.concat(dataReviewsStatic);
+    //   });
+    // }
     return (
       <div className={styles.next_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](fill)}
