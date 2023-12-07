@@ -32,11 +32,17 @@ export default function Path({
           icon={faAnglesRight}
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
-        <Link href={isNestedPage ? `/${children_link}` : ""}>
+        {isNestedPage ? (
+          <Link href={children_link}>
+            <p className={`${styles.path_text} ${styles[type]} ${styles.link}`}>
+              {children_page}
+            </p>
+          </Link>
+        ) : (
           <p className={`${styles.path_text} ${styles[type]} ${styles.link}`}>
             {children_page}
           </p>
-        </Link>
+        )}
         {isNestedPage && (
           <>
             <FontAwesomeIcon

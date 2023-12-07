@@ -1,9 +1,9 @@
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
+import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
-import Description from "@/libs/pages/services/components/description/Description";
+import Descrition from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
-import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
@@ -11,13 +11,13 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_CREDIT_PAGE } = process.env;
+const { API_ARMY_JURIST } = process.env;
 
-// export async function generateMetadata({ params, searchParams }, parent) {
-//   return makeSeoTemplate(API_CREDIT_PAGE);
-// }
+export async function generateMetadata() {
+  return await makeSeoTemplate(API_ARMY_JURIST);
+}
 
-export default async function page() {
+export default async function PaidArmy() {
   const {
     data: {
       attributes: {
@@ -35,24 +35,24 @@ export default async function page() {
         seo,
       },
     },
-  } = await getStaticLawyersPage(API_CREDIT_PAGE);
+  } = await getStaticLawyersPage(API_ARMY_JURIST);
 
   return (
     <>
       <StructureData data={seo["structuredData"]} />
 
-      <HeroLawyers type={"other"} {...hero} bread_crumbs={bread_crumbs} />
+      <HeroLawyers type={"army"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
-        type={"other"}
+        type={"army"}
         about_block={about_block}
         questions={questions_list}
       />
-      <SuccessfulBusiness type={"other"} {...successful_deals} />
-      <Specialists type={"other"} {...employeer_list} />
-      <Description type={"other"} description={description_lawyer} />
-      <Response type={"other"} {...responses} />
-      <StepsLawyers type={"other"} {...steps} />
-      <FormSection type={"other"} formData={form} {...info} />
+      <SuccessfulBusiness type={"army"} {...successful_deals} />
+      <Specialists type={"army"} {...employeer_list} />
+      <Descrition type={"army"} description={description_lawyer} />
+      <Response type={"army"} {...responses} />
+      <StepsLawyers type={"army"} {...steps} />
+      <FormSection type={"army"} formData={form} {...info} />
     </>
   );
 }
