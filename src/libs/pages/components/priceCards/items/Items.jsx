@@ -25,8 +25,6 @@ export default function Items({ type, isMobile, list, Slider }) {
     );
   }
 
-  console.log(mobileList);
-
   return (
     <div className={styles.container}>
       {isMobile ? (

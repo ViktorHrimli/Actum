@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
@@ -10,7 +11,6 @@ import {
   useEffect,
   useClient,
   usePathname,
-  useRouter,
   useSearchParams,
 } from "@/shared/hooks/hooks";
 
@@ -39,7 +39,6 @@ export default function ContactPanel({ form, Telephones, Icons }) {
 
   const isDesktop = useIsBig();
   const path = usePathname();
-  const router = useRouter();
   const isClient = useClient();
   const searchParams = useSearchParams();
 
@@ -66,21 +65,12 @@ export default function ContactPanel({ form, Telephones, Icons }) {
   };
 
   const hanldeChangeLocale = () => {
-    if (!path.includes("/ru")) {
-      localStorage.setItem("locale", "ru");
-      const newUrl = path.replace("/", "/ru/");
-
-      router.push(newUrl, { scroll: true });
-    }
+    localStorage.setItem("locale", "ru");
   };
 
   const handleClearLocale = () => {
     localStorage.removeItem("locale");
-
-    const lengthUrl = path.length > 3;
-    const newUrl = path.replace("/ru", lengthUrl ? "" : "/");
-
-    router.push(newUrl, { scroll: true });
+    console.log("awdawd");
   };
 
   const hanldePhoneNumber = () => {
@@ -139,14 +129,14 @@ export default function ContactPanel({ form, Telephones, Icons }) {
   }, [isOpenModal]);
 
   useEffect(() => {
-    const languageData = localStorage.getItem("locale", "ru");
+    const languageData = localStorage.getItem("locale");
 
     if (languageData) {
       setIsLanguage(true);
     } else {
       setIsLanguage(false);
     }
-  }, []);
+  }, [path]);
 
   //  in scrol mob
   useEffect(() => {
@@ -189,19 +179,25 @@ export default function ContactPanel({ form, Telephones, Icons }) {
           <div className={styles.contact_panel_conteiner}>
             <ul className={styles.list_panel}>
               <li className={`${styles.link} ${styles.link_translator}`}>
-                <p
-                  className={styles.focus}
-                  onClick={handleClearLocale}
-                  style={isLanguage ? {} : { fontWeight: "700" }}
+                <Link
+                  href={path.includes("ru") ? path.replace("ru/", "") : path}
                 >
-                  UA
-                </p>
+                  <p
+                    className={styles.focus}
+                    onClick={handleClearLocale}
+                    style={isLanguage ? {} : { fontWeight: "700" }}
+                  >
+                    UA
+                  </p>
+                </Link>
                 <p
                   className={styles.focus}
                   onClick={hanldeChangeLocale}
                   style={isLanguage ? { fontWeight: "700" } : {}}
                 >
-                  RU
+                  <Link href={path.includes("ru") ? path : `/ru${path}`}>
+                    RU
+                  </Link>
                 </p>
               </li>
               <li

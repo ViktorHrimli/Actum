@@ -21,6 +21,8 @@ export default function Path({
     window.scrollTo({ top: 0 });
   }, []);
 
+  console.log(children_link);
+
   return (
     <div className={styles.conteiner}>
       <div className={styles.wrapper_path}>
@@ -33,7 +35,7 @@ export default function Path({
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
         {isNestedPage ? (
-          <Link href={children_link}>
+          <Link href={`/${children_link}`}>
             <p className={`${styles.path_text} ${styles[type]} ${styles.link}`}>
               {children_page}
             </p>
