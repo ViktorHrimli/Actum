@@ -27,7 +27,8 @@
 
 .slider {
   width: 270px;
-  overflow: hidden;
+  // overflow: hidden;
+  position: relative;
 
   div {
     display: flex;
@@ -35,4 +36,21 @@
     justify-content: center;
     background-color: inherit;
   }
+}
+
+.next_icon {
+  position: absolute;
+  top: 170px;
+  left: 265px;
+  rotate: 180deg;
+
+  cursor: pointer;
+}
+
+.prev_icon {
+  position: absolute;
+  left: -20px;
+  top: 170px;
+
+  cursor: pointer;
 }

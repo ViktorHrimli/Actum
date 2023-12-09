@@ -50,10 +50,6 @@
     z-index: 2;
 
     @media screen and (min-width: 320px) {
-        // bottom: 0;
-        // left: 15px;
-        // width: 160px;
-        // height: 180px;
         bottom: -40px;
         left: -9px;
         width: 169px;
@@ -300,6 +296,196 @@
     @media screen and (min-width: 1280px) {
         top: 217px;
         left: 236px;
+    }
+}
+
+.vinitsa {
+    top: 55px;
+    left: 36px;
+
+    @media screen and (min-width: 1280px) {
+        top: 130px;
+        left: 130px;
+    }
+}
+
+.dnipro {
+    top: 70px;
+    left: 120px;
+
+    @media screen and (min-width: 1280px) {
+        top: 170px;
+        left: 300px;
+    }
+}
+
+.doneck {
+    top: 70px;
+    left: 140px;
+
+    @media screen and (min-width: 1280px) {
+        top: 170px;
+        left: 340px;
+    }
+}
+
+.zaporishya {
+    top: 80px;
+    left: 110px;
+
+    @media screen and (min-width: 1280px) {
+        top: 180px;
+        left: 290px;
+    }
+}
+
+.ivano_frankivsk {
+    top: 60px;
+    left: 30px;
+
+    @media screen and (min-width: 1280px) {
+        top: 120px;
+        left: 80px;
+    }
+}
+
+.kropevnitsky {
+    top: 70px;
+    left: 128px;
+
+    @media screen and (min-width: 1280px) {
+        top: 170px;
+        left: 330px;
+    }
+}
+
+.lugansk {
+    top: 60px;
+    left: 150px;
+
+    @media screen and (min-width: 1280px) {
+        top: 140px;
+        left: 360px;
+    }
+}
+
+.luck {
+    top: 16px;
+    left: 40px;
+
+    @media screen and (min-width: 1280px) {
+        top: 40px;
+        left: 100px;
+    }
+}
+
+.odesa {
+    top: 100px;
+    left: 105px;
+
+    @media screen and (min-width: 1280px) {
+        top: 214px;
+        left: 228px;
+    }
+}
+
+.poltava {
+    top: 28px;
+    left: 34px;
+
+    @media screen and (min-width: 1280px) {
+        top: 106px;
+        left: 280px;
+    }
+}
+
+.rivne {
+    top: 34px;
+    left: 25px;
+
+    @media screen and (min-width: 1280px) {
+        top: 50px;
+        left: 74px;
+    }
+}
+
+.sumu {
+    top: 28px;
+    left: 142px;
+
+    @media screen and (min-width: 1280px) {
+        top: 58px;
+        left: 300px;
+    }
+}
+
+.thernopil {
+    top: 40px;
+    left: 50px;
+
+    @media screen and (min-width: 1280px) {
+        top: 100px;
+        left: 90px;
+    }
+}
+
+.ushgorod {
+    top: 66px;
+    left: 8px;
+
+    @media screen and (min-width: 1280px) {
+        top: 140px;
+        left: 12px;
+    }
+}
+
+.harkiv {
+    top: 48px;
+    left: 166px;
+
+    @media screen and (min-width: 1280px) {
+        top: 102px;
+        left: 346px;
+    }
+}
+
+.hmelnickiy {
+    top: 44px;
+    left: 58px;
+
+    @media screen and (min-width: 1280px) {
+        top: 102px;
+        left: 130px;
+    }
+}
+
+.cherkasu {
+    top: 56px;
+    left: 90px;
+
+    @media screen and (min-width: 1280px) {
+        top: 110px;
+        left: 210px;
+    }
+}
+
+.chernivci {
+    top: 66px;
+    left: 52px;
+
+    @media screen and (min-width: 1280px) {
+        top: 136px;
+        left: 106px;
+    }
+}
+
+.chernigiv {
+    top: 24px;
+    left: 124px;
+
+    @media screen and (min-width: 1280px) {
+        top: 30px;
+        left: 244px;
     }
 }
 

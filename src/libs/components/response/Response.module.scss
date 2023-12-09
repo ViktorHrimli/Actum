@@ -244,10 +244,9 @@
         margin-bottom: 30px;
 
         div {
-            display: flex;
+            display: flex!important;
             align-items: center;
             justify-content: center;
-        }
     }
 
     @media screen and (min-width: 768px) {
@@ -275,34 +274,39 @@
             margin-bottom: auto;
         }
     }
-
+    }
 }
 
 
 
 .next_icon {
     position: absolute;
-    top: 50%;
+    top: 170px;
+    left: 260px;
     rotate: 180deg;
 
     cursor: pointer;
 
     @media screen and (min-width: 768px) {
-        right: 10px;
+        top: 220px;
+        left: 684px;
     }
 
     @media screen and (min-width: 1280px) {
-        right: 34px;
-
+        left: 916px;
     }
 }
 
 .prev_icon {
     position: absolute;
-    left: -46px;
-    top: 50%;
+    left: -25px;
+    top: 170px;
 
     cursor: pointer;
+    @media screen and (min-width: 768px) {
+        top: 220px;
+        left: -15px;
+    }
 }
 
 .card_list_response {

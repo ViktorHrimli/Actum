@@ -8,7 +8,7 @@ export default function Items({ type, isMobile, list, Slider }) {
   const mobileList = list;
   function SampleNextArrow(props) {
     const { onClick } = props;
-    mobileList.push(...list);
+    // mobileList.push(...list);
     return (
       <div className={styles.next_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](fill)}
@@ -24,8 +24,6 @@ export default function Items({ type, isMobile, list, Slider }) {
       </div>
     );
   }
-
-  console.log(mobileList);
 
   return (
     <div className={styles.container}>
