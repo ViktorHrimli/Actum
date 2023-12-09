@@ -11,10 +11,10 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_PAGE } = process.env;
+const { API_ARMY_PAGE, API_LOCALIZATION } = process.env;
 
 export async function generateMetadata() {
-  return await makeSeoTemplate(API_ARMY_PAGE);
+  return await makeSeoTemplate(API_ARMY_PAGE, API_LOCALIZATION);
 }
 
 export default async function PaidArmy() {
@@ -35,7 +35,7 @@ export default async function PaidArmy() {
         seo,
       },
     },
-  } = await getStaticLawyersPage(API_ARMY_PAGE);
+  } = await getStaticLawyersPage(API_ARMY_PAGE, API_LOCALIZATION);
 
   return (
     <>

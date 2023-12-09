@@ -14,7 +14,7 @@ const {
   API_LOCALIZATION,
 } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_BLOG_PAGE, API_LOCALIZATION);
 }
 

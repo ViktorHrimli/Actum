@@ -125,15 +125,16 @@
   font-style: normal;
   font-weight: 700;
   line-height: 0.9;
+  text-align: end;
 
   @media screen and (min-width: 1280px) {
-    width: 184px;
+    // width: 184px;
     font-size: 50px;
     margin-bottom: 10px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 184px;
+    // width: 184px;
     font-size: 50px;
     margin-bottom: 10px;
   }
@@ -182,8 +183,8 @@
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
-  margin-top: 51px;
-  margin-bottom: 12px;
+  // margin-top: 51px;
+  // margin-bottom: 12px;
 
   @media screen and (min-width: 1280px) {
     font-size: 24px;

@@ -8,7 +8,7 @@ import hero_public from "@/assets/svg/publications_hero.png";
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_BLOG_PAGE, QUERY_BLOG_PAGE } = process.env;
+const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_LOCALIZATION } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return makeSeoTemplate(API_BLOG_PAGE);
@@ -19,11 +19,11 @@ export default async function page({ params }) {
     data: {
       attributes: { Hero: hero, seo },
     },
-  } = await getStaticPage(API_BLOG_PAGE, QUERY_BLOG_PAGE);
+  } = await getStaticPage(API_BLOG_PAGE, QUERY_BLOG_PAGE, API_LOCALIZATION);
 
   const {
     data: [dataObj],
-  } = await getBlogPublication(params["name"]);
+  } = await getBlogPublication(params["name"], API_LOCALIZATION);
 
   const { bread_crumbs, button, Blog: blog } = dataObj["attributes"]["Topic"];
 
