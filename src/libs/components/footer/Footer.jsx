@@ -31,6 +31,10 @@ export default function Footer({
 
   const path = usePathname().replace("/", "");
 
+  const crime = path.includes("crim");
+  const army = path.includes("army");
+  const family = path.includes("fami");
+
   const handleClickOnBtn = () => {
     getFormById("form_section");
 
@@ -71,10 +75,22 @@ export default function Footer({
   }, [isFristRender]);
 
   useEffect(() => {
-    if (footerEnums[path]) {
-      setIsStyleFooter(footerEnums[path]);
-    } else {
-      setIsStyleFooter(null);
+    switch (true) {
+      case army:
+        setIsStyleFooter(footerEnums["army"]);
+        return;
+
+      case crime:
+        setIsStyleFooter(footerEnums["crime"]);
+        return;
+
+      case family:
+        setIsStyleFooter(footerEnums["family"]);
+        return;
+
+      default:
+        setIsStyleFooter(null);
+        return;
     }
   }, [path]);
 

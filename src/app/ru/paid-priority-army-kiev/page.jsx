@@ -7,17 +7,19 @@ import Response from "@/libs/components/response/Response";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+import Price from "@/libs/pages/components/priceCards/Price";
+import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_PAGE } = process.env;
+const { API_LAWYER_KYIV, API_LOCALIZATION } = process.env;
 
 export async function generateMetadata() {
-  return await makeSeoTemplate(API_ARMY_PAGE);
+  return await makeSeoTemplate(API_LAWYER_KYIV, API_LOCALIZATION);
 }
 
-export default async function PaidArmy() {
+export default async function page() {
   const {
     data: {
       attributes: {
@@ -30,12 +32,15 @@ export default async function PaidArmy() {
         questions_list,
         bread_crumbs,
         description_lawyer,
+        statistics,
+        title_price_block,
+        price_block,
         Steps: steps,
         successful_deals,
         seo,
       },
     },
-  } = await getStaticLawyersPage(API_ARMY_PAGE);
+  } = await getStaticLawyersPage(API_LAWYER_KYIV, API_LOCALIZATION);
 
   return (
     <>
@@ -47,11 +52,13 @@ export default async function PaidArmy() {
         about_block={about_block}
         questions={questions_list}
       />
+      <AboutCards type={"army"} listCard={statistics} />
       <SuccessfulBusiness type={"army"} {...successful_deals} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
       <StepsLawyers type={"army"} {...steps} />
+      <Price type={"army"} list={price_block} title={title_price_block} />
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );

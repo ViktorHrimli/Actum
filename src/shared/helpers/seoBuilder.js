@@ -2,12 +2,12 @@ import { getSeo, getSeoDynamicPage } from "@/shared/services/api/api";
 
 import logo from "@/assets/svg/LOGO.png";
 
-const makeSeoTemplate = async (api_name) => {
+const makeSeoTemplate = async (api_name, locale = "uk") => {
   const {
     data: {
       attributes: { seo },
     },
-  } = await getSeo(api_name);
+  } = await getSeo(api_name, locale);
 
   return {
     title: seo["metaTitle"],

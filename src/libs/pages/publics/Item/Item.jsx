@@ -1,13 +1,18 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+
+import { usePathname } from "@/shared/hooks/hooks";
 
 import styles from "./Item.module.scss";
 
 export default function Item({ description, title, photo, date, link }) {
+  const pathName = usePathname();
+
   return (
     <div className={styles.card}>
       <h2 className={styles.title_text}>
-        <Link href={`/blog-3-1/${link}`}>{title}</Link>
+        <Link href={`${pathName}/${link}`}>{title}</Link>
       </h2>
       <div className={styles.conteiner_text}>
         <div className={styles.image_conteiner}>
@@ -22,7 +27,7 @@ export default function Item({ description, title, photo, date, link }) {
         <div className={styles.description_wrapper}>
           <p className={styles.text}>
             {description}
-            <Link href={`/blog-3-1/${link}`} className={styles.link_item}>
+            <Link href={`${pathName}/${link}`} className={styles.link_item}>
               читати повністю
             </Link>
           </p>

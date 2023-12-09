@@ -13,24 +13,24 @@ class QueryBuilder {
   localQuery(path, options) {
     return `${API_LOCALE_BASE_URL}/${path}?${options}`;
   }
-  cloudQuery(path, options) {
-    return `${URL_CLOUD_STRAPI}/${path}?${options}`;
+  cloudQuery(path, options, locale) {
+    return `${URL_CLOUD_STRAPI}/${path}?locale=${locale}&${options}`;
   }
 
-  getOneById(name, path, options) {
-    return `${URL_CLOUD_STRAPI}/${path}?filters[Topic][name_page][$eq]=${name}&${options}`;
+  getOneById(name, path, options, locale) {
+    return `${URL_CLOUD_STRAPI}/${path}?filters[Topic][name_page][$eq]=${name}&locale=${locale}&${options}`;
   }
 
-  getLawyersStaticPage(api_page) {
-    return `${URL_CLOUD_STRAPI}/${api_page}?${QUERY_LAWYERS_PAGE}`;
+  getLawyersStaticPage(api_page, locale) {
+    return `${URL_CLOUD_STRAPI}/${api_page}?locale=${locale}&${QUERY_LAWYERS_PAGE}`;
   }
 
   getLawyersServicesPage(name, path, options) {
     return `${URL_CLOUD_STRAPI}/${path}?filters[name_page][$eq]=${name}&${options}`;
   }
 
-  getSeo(path) {
-    return `${URL_CLOUD_STRAPI}/${path}?${QUERY_SEO_OPTIONS}`;
+  getSeo(path, locale) {
+    return `${URL_CLOUD_STRAPI}/${path}?locale=${locale}&${QUERY_SEO_OPTIONS}`;
   }
 
   getDynamicSeo(api, path) {
