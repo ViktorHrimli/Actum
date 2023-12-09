@@ -14,16 +14,19 @@ export default function Items({
   photo,
   button,
   city,
+  city_enums,
   side_picture,
   description,
 }) {
+
+  console.log(city_enums);
   return (
     <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
         <div className={styles.text_wrapper}>
           <h2 className={styles.title_text}>{title}</h2>
 
-          <p className={styles.lawyer_text}>adad</p>
+          {/* <p className={styles.lawyer_text}>adad</p> */}
 
           <div
             className={styles.text}
@@ -32,9 +35,90 @@ export default function Items({
         </div>
         <div className={styles.map_wrapper}>
           <IconMap />
-          <div className={`${styles.conteiner_pin} ${styles[city]}`}>
-            <p>{cityEnum[city]}</p>
-            {iconEnum["pin"]()}
+          <div className={`${styles.conteiner_pin} ${styles[cityEnum[city_enums]]}`}>
+            {city_enums.length > 12 ?
+              <>
+                {iconEnum["pin"]()}
+                <p>{city_enums}</p>
+              </>
+              :
+              <>
+                {city_enums === "Луцьк" ?
+                  <>
+                    {iconEnum["pin"]()}
+                    <p>{city_enums}</p>
+                  </>
+                  :
+                  <>
+                    {city_enums === "Львів" ?
+                    <>
+                      {iconEnum["pin"]()}
+                      <p>{city_enums}</p>
+                    </>
+                    :
+                    <>
+                      {city_enums === "Ужгород" ?
+                      <>
+                        {iconEnum["pin"]()}
+                        <p>{city_enums}</p>
+                      </>
+                      :
+                      <>
+                        {city_enums === "Одеса" ?
+                        <>
+                          {iconEnum["pin"]()}
+                          <p>{city_enums}</p>
+                        </>
+                        :
+                        <>
+                          {city_enums === "Тернопіль" ?
+                          <>
+                            {iconEnum["pin"]()}
+                            <p>{city_enums}</p>
+                          </>
+                          :
+                          <>
+                            {city_enums === "Хмельницький" ?
+                            <>
+                              {iconEnum["pin"]()}
+                              <p>{city_enums}</p>
+                            </>
+                            :
+                            <>
+                              {city_enums === "Чернівці" ?
+                              <>
+                                {iconEnum["pin"]()}
+                                <p>{city_enums}</p>
+                              </>
+                              :
+                              <>
+                                {city_enums === "Чернігів" ?
+                                <>
+                                  {iconEnum["pin"]()}
+                                  <p>{city_enums}</p>
+                                </>
+                                :
+                                <>
+                                  <p>{city_enums}</p>
+                                  {iconEnum["pin"]()}
+                              </>
+                              }
+                          </>
+                          }
+                        </>
+                      }
+                    </>
+                      }
+                    </>
+                      }
+                    </>
+                      }
+                    </>
+                  }
+                </>
+                }
+              </>
+            }
           </div>
         </div>
 

@@ -392,13 +392,22 @@
 
 .next_icon {
   position: absolute;
-  right: 34px;
-  top: 50%;
+  left: 260px;
+  top: 196px;
   rotate: 180deg;
+  @media screen and (min-width: 768px) {
+    top: 163px;
+    left: 456px;
+  }
 }
 
 .prev_icon {
   position: absolute;
-  left: -46px;
-  top: 50%;
+  left: 0px;
+  top: 200px;
+  z-index: 1;
+  @media screen and (min-width: 768px) {
+        top: 167px;
+        left: -30px;
+  }
 }
