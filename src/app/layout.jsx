@@ -16,7 +16,7 @@ const montserrat = Montserrat({ subsets: ["cyrillic"] });
 const { API_LAYOUT, QUERY_LAYOUT, QUERY_MODAL_FORM, API_MODAL_FORM } =
   process.env;
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }) {
   return makeSeoTemplate(API_LAYOUT);
 }
 

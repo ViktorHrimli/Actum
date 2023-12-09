@@ -52,9 +52,7 @@ export default function FormComponent({
   const [isLoading, setIsLoading] = useState(false);
   const [isOpenRadio, setIsOpenRadio] = useState(false);
   const [isStep, setIsStep] = useState(false);
-  const [isStyleModalForm, setIsStyleModalForm] = useState(
-    "paid-priority-family"
-  );
+  const [isStyleModalForm, setIsStyleModalForm] = useState("family");
 
   const pathName = usePathname();
   const searcParams = useSearchParams();
@@ -100,7 +98,7 @@ export default function FormComponent({
     setSelectServices(event.currentTarget.innerText);
     setValue("services", event.currentTarget.innerText, { shouldTouch: true });
     setIsOpenRadio(false);
-  }
+  };
 
   const handleToggleRadio = () => {
     setIsOpenRadio(!isOpenRadio);
@@ -226,7 +224,6 @@ export default function FormComponent({
     errors.message,
     errors.services,
   ]);
-
 
   console.log(selectServices);
   console.log(selectValue);
@@ -385,7 +382,7 @@ export default function FormComponent({
             )}
           </div>
         </div>
-            {/* messenger */}
+        {/* messenger */}
         <div className={styles.wrapper_name}>
           <label
             htmlFor="message"
@@ -455,9 +452,8 @@ export default function FormComponent({
           </div>
         </div>
 
-        
-          {/* --------- radio ---------- */}
-          <div className={styles.wrapper_name}>
+        {/* --------- radio ---------- */}
+        <div className={styles.wrapper_name}>
           <label
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
@@ -476,7 +472,6 @@ export default function FormComponent({
 
           {/* --------- radio ---------- */}
 
-
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
               <input
@@ -490,13 +485,11 @@ export default function FormComponent({
                     : `${styles.input} ${styles.second_input} ${styles.select}`
                 }
                 placeholder={
-                  errors.services
-                    ? "Виберіть питання!"
-                    : "Виберіть питання"
+                  errors.services ? "Виберіть питання!" : "Виберіть питання"
                 }
               />
-              </div>
-              
+            </div>
+
             <motion.div
               animate={{ rotate: isOpenRadio ? "180deg" : "0deg" }}
               transition={{ duration: 0.5 }}
@@ -506,7 +499,9 @@ export default function FormComponent({
               <FontAwesomeIcon
                 icon={iconEnum["arrowOpen"]}
                 className={`${styles.icon} ${styles[color_text]}`}
-                style={errors.services && !selectServices ? { color: "#fff" } : {}}
+                style={
+                  errors.services && !selectServices ? { color: "#fff" } : {}
+                }
               />
             </motion.div>
             {isOpenRadio && (
@@ -531,7 +526,7 @@ export default function FormComponent({
           </div>
           {/* --------- radio old ---------- */}
 
-        {/* </div> */}
+          {/* </div> */}
           {/* <motion.div
             animate={{ rotate: isOpenRadio ? "180deg" : "0deg" }}
             transition={{ duration: 0.5 }}
@@ -550,8 +545,8 @@ export default function FormComponent({
                 : styles.conteiner_radio_groupe_hidden
             }
           > */}
-            
-            {/* {services_list.map((item, id) => {
+
+          {/* {services_list.map((item, id) => {
               return (
                 <div
                   className={`${styles.conteiner_radio} ${styles[border]}`}
@@ -584,7 +579,7 @@ export default function FormComponent({
                 </div>
               );
             })} */}
-          </div>
+        </div>
         <div className={styles.btn_wrapper}>
           {isLoading && (
             <div className={styles.loader_container}>
@@ -597,7 +592,12 @@ export default function FormComponent({
               />
             </div>
           )}
-          <Button type="submit" text={button["text"]} style="button_service" typeStyle={type} />
+          <Button
+            type="submit"
+            text={button["text"]}
+            style="button_service"
+            typeStyle={type}
+          />
         </div>
       </form>
       {isStep && (
