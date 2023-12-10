@@ -5,7 +5,6 @@ import styles from "./CurrentPublication.module.scss";
 import Button from "@/libs/components/button/Button";
 
 import img from "@/assets/svg/publics_item_1.png";
-import Search from "@/shared/components/search/Search";
 
 export default function CurrentPublication({
   button,
@@ -46,7 +45,6 @@ export default function CurrentPublication({
             </div>
           </div>
         </div>
-        <Search />
       </div>
     </section>
   );

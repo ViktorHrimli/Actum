@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useEffect, useState, usePathname } from "@/shared/hooks/hooks";
 import { getFormById } from "@/shared/helpers/helpers";
@@ -13,6 +14,7 @@ import ModalForm from "@/libs/modal/modalForm/modalForm";
 import ScrollButtonUp from "@/libs/components/contactPanel/halpers/showScrollButtonUp";
 
 export default function Footer({
+  files,
   address,
   City,
   LOGO_TITLE,
@@ -125,14 +127,14 @@ export default function Footer({
             />
             <p className={styles.footer_logo_text}>{LOGO_TEXT["Title"]}</p>
             <div className={styles.policy_mob_none}>
-              <a className={styles.policy_text} href="">
-                {Links[0]["title"]}
-              </a>
-              <a className={styles.policy_text} href="">
-                {Links[1]["title"]}
+              <Link className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
+                {Links[0]["Title"]}
+              </Link>
+              <a className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
+                {Links[1]["Title"]}
               </a>
               <a className={styles.policy_text} href={Links[2]["path"]}>
-                {Links[2]["title"]}
+                {Links[2]["Title"]}
               </a>
             </div>
           </div>
@@ -172,14 +174,14 @@ export default function Footer({
             </div>
 
             <div className={styles.policy}>
-              <a className={styles.policy_text} href="">
-                Політика конфідеційності
+              <Link className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
+                {Links[0]["Title"]}
+              </Link>
+              <a className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
+                {Links[1]["Title"]}
               </a>
-              <a className={styles.policy_text} href="">
-                Правила надання онлайн-консультації
-              </a>
-              <a className={styles.policy_text} href="/html-sitemap">
-                Мапа сайту
+              <a className={styles.policy_text} href={Links[2]["path"]}>
+                {Links[2]["Title"]}
               </a>
             </div>
             <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>

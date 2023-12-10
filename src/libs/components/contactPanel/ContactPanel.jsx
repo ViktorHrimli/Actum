@@ -180,7 +180,11 @@ export default function ContactPanel({ form, Telephones, Icons }) {
             <ul className={styles.list_panel}>
               <li className={`${styles.link} ${styles.link_translator}`}>
                 <Link
-                  href={path.includes("ru") ? path.replace("ru/", "") : path}
+                  href={
+                    path.includes("ru")
+                      ? path.replace("ru/", "") + window.location.search
+                      : path + window.location.search
+                  }
                 >
                   <p
                     className={styles.focus}
@@ -195,7 +199,13 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                   onClick={hanldeChangeLocale}
                   style={isLanguage ? { fontWeight: "700" } : {}}
                 >
-                  <Link href={path.includes("ru") ? path : `/ru${path}`}>
+                  <Link
+                    href={
+                      path.includes("ru")
+                        ? path + window.location.search
+                        : `/ru${path}` + window.location.search
+                    }
+                  >
                     RU
                   </Link>
                 </p>

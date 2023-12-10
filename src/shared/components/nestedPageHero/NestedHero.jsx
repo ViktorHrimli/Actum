@@ -12,8 +12,6 @@ import { motion } from "framer-motion";
 import Button from "@/libs/components/button/Button";
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
-import watemark from "@/assets/svg/Actum_HERO.png";
-
 import styles from "./NestedHero.module.scss";
 import { getFormById } from "@/shared/helpers/helpers";
 

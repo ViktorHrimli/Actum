@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,6 +9,7 @@ import { useState } from "@/shared/hooks/hooks";
 
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Button from "@/libs/components/button/Button";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import touch from "@/assets/svg/Klick_icon.png";
 import MapUkraine from "@/assets/svg/Contacts_map_white.svg";
@@ -20,16 +22,23 @@ export default function Contacts({
   type,
   title,
   social_list,
-  discriptions,
+  description,
   email,
   phones,
   button,
   city_description,
   city_services,
+  modal
 }) {
   const [isVisible, setIsVisible] = useState(true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const modalOnClick = () => {
+    setIsOpenModal(true)
+  }
 
   return (
+    <>
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.container_left_bar_position}>
@@ -100,7 +109,7 @@ export default function Contacts({
                 </div>
               </div>
             </div>
-            <div className={styles.container_btn}>
+            <div className={styles.container_btn} onClick={modalOnClick}>
               <Button
                 style={"button_service"}
                 text={button["text"]}
@@ -116,7 +125,7 @@ export default function Contacts({
               </div>
               <p className={styles.footer_title}>Філії по містах:</p>
 
-              <p className={styles.footer_text}>{discriptions}</p>
+              <p className={styles.footer_text}>{description}</p>
             </div>
             <div className={styles.footer_contact_box}>
               <div className={styles.social_block}>
@@ -150,20 +159,23 @@ export default function Contacts({
                     Наші інформаційні канали
                   </p>
                   <ul className={styles.list}>
-                    {social_list.map(({ name, path, icons_name }, id) => (
+                    {social_list.map(({ name, link, icons }, id) => (
                       <li key={id} className={styles.link}>
-                        <a className={styles.social} href={path}>
+                        <Link
+                          href={link}
+                          target="_blank"
+                          className={styles.conteiner_link}
+                        >
                           <div className={styles.svg_hover}>
                             <FontAwesomeIcon
-                              icon={iconEnum[icons_name]}
+                              icon={iconEnum[icons]}
                               className={styles.path}
                             />
                           </div>
                           <p className={styles.social_text}>{name}</p>
-                        </a>
+                        </Link>
                       </li>
                     ))}
-                    
                   </ul>
                 </div>
               </div>
@@ -171,6 +183,8 @@ export default function Contacts({
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      {isOpenModal && <ModalForm type={"family"} form={modal} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />}
+    </>
   );
 }
