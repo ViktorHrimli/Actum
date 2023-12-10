@@ -88,7 +88,7 @@
   height: 460px;
   padding: 2px;
   border-radius: 4px;
-  z-index: 15;
+  z-index: 14;
   background-image: linear-gradient(to right, #E32F7A, #912E6F, #3F2E64),
     linear-gradient(to right, #E32F7A, #912E6F, #3F2E64);
   background-size: 100% 2px;
@@ -608,6 +608,10 @@
   @media screen and (min-width: 1280px) {
     margin-top: 40px;
   }
+
+  :hover {
+    text-decoration-color: var(--primary-color) !important;
+  }
 }
 
 .link {
@@ -616,11 +620,11 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
 
-  @media screen and (min-width: 1280px) {
-    width: 100%;
-    height: 100%;
-  }
+
+.conteiner_link {
+  display: flex;
 }
 
 .social {
@@ -629,6 +633,7 @@
   align-items: baseline;
   justify-content: start;
   flex-direction: row;
+
 
 
   @media screen and (min-width: 320px) and (max-width: 1279px) {
@@ -652,6 +657,9 @@
   line-height: normal;
   text-transform: lowercase;
   margin-left: 13px;
+
+
+
 }
 
 

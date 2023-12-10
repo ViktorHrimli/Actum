@@ -45,19 +45,22 @@ export default function SiteMap({ list }) {
         </div>
         <div className={styles.position}>
           <div className={styles.container_link}>
-            {list.map((item, id) => (
+            {list.map((el, id) => (
               <div key={id} className={styles.box}>
-                <Link href={item.path}>
-                  <h3 className={styles.title_link}>{item.Title}</h3>
+                <Link href={el.path}>
+                  <h3 className={styles.title_link}>{el.Title}</h3>
                 </Link>
 
                 <ul className={styles.list}>
-                  {item.List.map((item, id) => (
+                  {el.List.map((item, id) => (
                     <li key={id} className={styles.link_box}>
                       <span className={styles.marker}></span>
-                      <a href={item.path} className={styles.text}>
+                      <Link
+                        href={`${item.path}?api=${process.env[el.enums_env]}`}
+                        className={styles.text}
+                      >
                         {item.text}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
