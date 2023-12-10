@@ -270,7 +270,6 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                 <Image src={Form} alt="Form" width={34} height={34} />
               </li>
             </ul>
-
             <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
               <ul className={styles.list_panel_phone}>
                 <li className={styles.link_panel_phone}>
@@ -292,7 +291,7 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                   </a>
                 </li>
               </ul>
-            </ScrollAwareSection>
+              </ScrollAwareSection>
             <div onClick={() => setIsPhoneMob(false)}>
               <ScrollButtonUp />
             </div>
