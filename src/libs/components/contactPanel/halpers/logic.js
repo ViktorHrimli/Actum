@@ -27,7 +27,14 @@ const ScrollAwareSection = ({ children, hideOnScrollEnd }) => {
     };
   }, [hideOnScrollEnd]);
 
-  return <div className={shouldHide ? styles.hidden : ""}>{children}</div>;
+  return (
+    <div
+      style={{ marginBottom: "auto" }}
+      className={shouldHide ? styles.hidden : ""}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default ScrollAwareSection;

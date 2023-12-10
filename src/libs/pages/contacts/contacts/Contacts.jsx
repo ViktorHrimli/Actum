@@ -9,6 +9,7 @@ import { useState } from "@/shared/hooks/hooks";
 
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Button from "@/libs/components/button/Button";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import touch from "@/assets/svg/Klick_icon.png";
 import MapUkraine from "@/assets/svg/Contacts_map_white.svg";
@@ -27,10 +28,17 @@ export default function Contacts({
   button,
   city_description,
   city_services,
+  modal
 }) {
   const [isVisible, setIsVisible] = useState(true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const modalOnClick = () => {
+    setIsOpenModal(true)
+  }
 
   return (
+    <>
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.container_left_bar_position}>
@@ -101,7 +109,7 @@ export default function Contacts({
                 </div>
               </div>
             </div>
-            <div className={styles.container_btn}>
+            <div className={styles.container_btn} onClick={modalOnClick}>
               <Button
                 style={"button_service"}
                 text={button["text"]}
@@ -175,6 +183,8 @@ export default function Contacts({
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      {isOpenModal && <ModalForm type={"family"} form={modal} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />}
+    </>
   );
 }

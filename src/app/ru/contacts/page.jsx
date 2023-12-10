@@ -49,6 +49,7 @@ export default async function Conacts() {
       <NestedHero type={"home"} {...hero} form={modal} />
       <Contacts
         {...info}
+        modal={modal}
         social_list={social}
         button={button}
         city_description={city_description}
