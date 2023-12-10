@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,7 +21,7 @@ export default function Contacts({
   type,
   title,
   social_list,
-  discriptions,
+  description,
   email,
   phones,
   button,
@@ -116,7 +117,7 @@ export default function Contacts({
               </div>
               <p className={styles.footer_title}>Філії по містах:</p>
 
-              <p className={styles.footer_text}>{discriptions}</p>
+              <p className={styles.footer_text}>{description}</p>
             </div>
             <div className={styles.footer_contact_box}>
               <div className={styles.social_block}>
@@ -150,20 +151,23 @@ export default function Contacts({
                     Наші інформаційні канали
                   </p>
                   <ul className={styles.list}>
-                    {social_list.map(({ name, path, icons_name }, id) => (
+                    {social_list.map(({ name, link, icons }, id) => (
                       <li key={id} className={styles.link}>
-                        <a className={styles.social} href={path}>
+                        <Link
+                          href={link}
+                          target="_blank"
+                          className={styles.conteiner_link}
+                        >
                           <div className={styles.svg_hover}>
                             <FontAwesomeIcon
-                              icon={iconEnum[icons_name]}
+                              icon={iconEnum[icons]}
                               className={styles.path}
                             />
                           </div>
                           <p className={styles.social_text}>{name}</p>
-                        </a>
+                        </Link>
                       </li>
                     ))}
-                    
                   </ul>
                 </div>
               </div>
