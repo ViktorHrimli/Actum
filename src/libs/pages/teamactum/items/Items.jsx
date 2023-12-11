@@ -133,11 +133,11 @@ export default function Items({
           />
         </div>
       </div>
-      <div className={styles.btn_wrapper}>
+      {/* <div className={styles.btn_wrapper}>
         <Link href={button["link"]}>
           <Button type="button" text="зв’язатися" style="button_service" />
         </Link>
-      </div>
+      </div> */}
 
       <div className={styles.btn_wrapper_lawyer}>
         <Link href={button["link"]}>

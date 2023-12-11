@@ -36,6 +36,12 @@ export default function Footer({
   const crime = path.includes("crim");
   const army = path.includes("army");
   const family = path.includes("fami");
+  const admin = path.includes("admin");
+  const credit = path.includes("credit");
+  const dtp = path.includes("dtp");
+  const land = path.includes("land");
+  const reality = path.includes("reality");
+
 
   const handleClickOnBtn = () => {
     getFormById("form_section");
@@ -88,6 +94,26 @@ export default function Footer({
 
       case family:
         setIsStyleFooter(footerEnums["family"]);
+        return;
+      
+      case admin:
+        setIsStyleFooter(footerEnums["other"]);
+        return;
+      
+      case credit:
+        setIsStyleFooter(footerEnums["other"]);
+        return;
+      
+      case dtp:
+        setIsStyleFooter(footerEnums["other"]);
+        return;
+      
+      case land:
+        setIsStyleFooter(footerEnums["other"]);
+        return;
+      
+      case reality:
+        setIsStyleFooter(footerEnums["other"]);
         return;
 
       default:
