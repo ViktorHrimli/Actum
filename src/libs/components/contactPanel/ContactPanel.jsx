@@ -26,7 +26,7 @@ import { iconEnum } from "@/shared/enums/enum";
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import styles from "./ContactPanel.module.scss";
 
-export default function ContactPanel({ form, Telephones, Icons }) {
+export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState(null);
   const [isStyleModal, setIsStyleModal] = useState(null);
 
@@ -40,6 +40,7 @@ export default function ContactPanel({ form, Telephones, Icons }) {
   const isDesktop = useIsBig();
   const path = usePathname();
   const isClient = useClient();
+  const isHome = path === "/ru";
   const searchParams = useSearchParams();
 
   const crime = path.includes("crim");
@@ -70,7 +71,6 @@ export default function ContactPanel({ form, Telephones, Icons }) {
 
   const handleClearLocale = () => {
     localStorage.removeItem("locale");
-    console.log("awdawd");
   };
 
   const hanldePhoneNumber = () => {
@@ -182,7 +182,8 @@ export default function ContactPanel({ form, Telephones, Icons }) {
                 <Link
                   href={
                     path.includes("ru")
-                      ? path.replace("ru/", "") + window.location.search
+                      ? path.replace("/ru", isHome ? "/" : "") +
+                        window.location.search
                       : path + window.location.search
                   }
                 >
@@ -311,7 +312,7 @@ export default function ContactPanel({ form, Telephones, Icons }) {
         {isOpenModal && (
           <ModalForm
             type={isStyleModal}
-            form={form}
+            form={isLanguage ? ruForm : uaForm}
             setIsOpenModal={setIsOpenModal}
             isOpenModal={isOpenModal}
           />

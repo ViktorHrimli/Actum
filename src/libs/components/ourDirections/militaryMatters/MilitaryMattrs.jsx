@@ -6,11 +6,13 @@ import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 
 import styles from "./MilitaryMattrs.module.scss";
+import Link from "next/link";
 
 export default function MilitaryMattrs({
   openModalhalmet,
   title,
   description,
+  link,
 }) {
   return (
     <div className={styles.military}>
@@ -31,7 +33,7 @@ export default function MilitaryMattrs({
         height={180}
         className={styles.military_icon}
       />
-      <a href="/paid-priority-army">
+      <Link href={link}>
         <Image
           src={Click}
           alt="Click"
@@ -39,7 +41,7 @@ export default function MilitaryMattrs({
           height={40}
           className={styles.criminal_icon_click}
         />
-      </a>
+      </Link>
     </div>
   );
 }

@@ -13,45 +13,50 @@ import styles from "./page.module.scss";
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
-const { API_LAYOUT, QUERY_LAYOUT, QUERY_MODAL_FORM, API_MODAL_FORM } =
-  process.env;
+const {
+  API_LAYOUT,
+  QUERY_LAYOUT,
+  QUERY_MODAL_FORM,
+  API_MODAL_FORM,
+  API_LOCALIZATION,
+} = process.env;
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params, searchParams }) {
   return makeSeoTemplate(API_LAYOUT);
 }
 
 export default async function RootLayout({ children }) {
-  const {
-    data: {
-      attributes: {
-        Header: headers,
-        Footer: footer,
-        Navigation: service_page,
-        contacts_panel,
-      },
-    },
-  } = await getStaticPage(API_LAYOUT, QUERY_LAYOUT);
+  const UA = await getStaticPage(API_LAYOUT, QUERY_LAYOUT);
+
+  const RU = await getStaticPage(API_LAYOUT, QUERY_LAYOUT, API_LOCALIZATION);
 
   const {
     data: {
-      attributes: { Form: modal },
+      attributes: { Form: modalUa },
     },
   } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+  const {
+    data: {
+      attributes: { Form: modalRu },
+    },
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM, API_LOCALIZATION);
+
+  const {
+    data: {
+      attributes: { contacts_panel },
+    },
+  } = UA;
 
   return (
     <html lang="uk-UA">
       <body className={montserrat.className}>
-        <Header
-          logo={headers["LOGO"]}
-          nav={headers["Navigation"]}
-          routes={service_page}
-        />
+        <Header ru={RU} uk={UA} />
         <main className={styles.page}>
-          <ContactPanel form={modal} {...contacts_panel} />
+          <ContactPanel {...contacts_panel} ruForm={modalRu} uaForm={modalUa} />
           {children}
         </main>
 
-        <Footer {...footer} form={modal} />
+        <Footer ruFooter={RU} uaFooter={UA} ruForm={modalRu} uaForm={modalUa} />
       </body>
     </html>
   );

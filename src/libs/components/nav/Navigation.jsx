@@ -15,8 +15,9 @@ export default function Navigation({
   nav,
   servicesRoute,
   isOpenMenu,
+  isLocal = false,
 }) {
-  const SERVICES = "послуги";
+  const SERVICES = isLocal ? "услуги" : "послуги";
 
   return (
     <div style={{ position: "relative" }}>
