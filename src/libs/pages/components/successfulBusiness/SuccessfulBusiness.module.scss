@@ -378,7 +378,7 @@
 
 .slider {
   position: relative;
-  width: 110%;
+  width: 101%;
   z-index: 4;
 
   li {
@@ -386,6 +386,9 @@
 
     @media screen and (max-width: 1024px) {
       height: 700px;
+    }
+    @media screen and (max-width: 1440px) {
+      width: 110%;
     }
   }
 }
@@ -399,6 +402,14 @@
     top: 163px;
     left: 456px;
   }
+  @media screen and (min-width: 1280px) {
+    top: 212px;
+    left: 1060px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 212px;
+    left: 1174px;
+  }
 }
 
 .prev_icon {
@@ -407,7 +418,11 @@
   top: 200px;
   z-index: 1;
   @media screen and (min-width: 768px) {
-        top: 167px;
-        left: -30px;
+    top: 167px;
+    left: -30px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 216px;
+    left: -30px;
   }
 }

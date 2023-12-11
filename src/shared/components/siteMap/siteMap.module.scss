@@ -178,6 +178,9 @@
   @media screen and (min-width: 1440px) {
     font-size: 28px;
   }
+    &:hover {
+      color: #E32F7A;
+    }
 }
 
 .list {
@@ -188,7 +191,7 @@
 }
 
 .link_box {
-  height: 22px;
+  height: 40px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -207,7 +210,8 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 12px;
+  line-height: 20px;
+  width: 236px;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -231,5 +235,8 @@
 }
 
 .box {
-  min-width: 260px;
+  width: 300px;
+  @media screen and (min-width: 1280px) {
+    width: 380px;
+  }
 }

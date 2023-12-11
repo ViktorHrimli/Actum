@@ -36,12 +36,7 @@ export default function SiteMap({ list }) {
           <a href="/services" className={styles.title}>
             наші послуги
           </a>
-          <a href="/book" className={styles.title}>
-            консультація
-          </a>
-          <a href="/contacts" className={styles.title}>
-            контакти
-          </a>
+        
         </div>
         <div className={styles.position}>
           <div className={styles.container_link}>
@@ -67,6 +62,14 @@ export default function SiteMap({ list }) {
               </div>
             ))}
           </div>
+        </div>
+        <div className={styles.container_title}>
+          <a href="/book" className={styles.title}>
+            консультація
+          </a>
+          <a href="/contacts" className={styles.title}>
+            контакти
+          </a>
         </div>
       </div>
     </section>
