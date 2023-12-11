@@ -46,7 +46,6 @@ export default async function page() {
     <>
       <StructureData data={seo["structuredData"]} />
       <HeroLawyers type={"other"} {...hero} bread_crumbs={bread_crumbs} />
-
       <QuestionsList
         type={"other"}
         about_block={about_block}

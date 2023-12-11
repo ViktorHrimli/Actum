@@ -23,11 +23,21 @@ import {
   useSearchParams,
 } from "@/shared/hooks/hooks";
 
-import Logo from "@/assets/svg/LOGO.png";
-
 import styles from "./Header.module.scss";
 
-export default function Header({ nav, routes, logo }) {
+export default function Header({ ru, uk }) {
+  const {
+    data: {
+      attributes: { Header: ruHeaders, Navigation: ruService_page },
+    },
+  } = ru;
+
+  const {
+    data: {
+      attributes: { Header: uaHeaders, Navigation: uaService_page },
+    },
+  } = uk;
+
   const [isStep, setIsStep] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
   const [isScreenHeight, setIsScreenHeight] = useState(false);
@@ -83,6 +93,8 @@ export default function Header({ nav, routes, logo }) {
     } else {
       setIsStyleHeader(null);
     }
+
+    setIsLocal(localStorage.getItem("locale") || "");
   }, [patnName]);
 
   useEffect(() => {
@@ -101,15 +113,13 @@ export default function Header({ nav, routes, logo }) {
     setIsScreenHeight(Boolean(window?.innerHeight > 798));
 
     setTimeout(() => setIsStep(true), 1200);
-
-    setIsLocal(localStorage.getItem("locale") || "");
   }, []);
 
   return (
     <section className={styles.header_section}>
       <div className={styles.header_conteiner} id="header">
         {isClient && (
-          <Link href={isLocal ? "/ru" : "/"} locale={isLocal ? "ru" : "ua"}>
+          <Link href={isLocal ? isLocal : "/"}>
             <motion.div
               className={styles.logo_conteiner}
               animate={
@@ -124,7 +134,7 @@ export default function Header({ nav, routes, logo }) {
               transition={logoAnimated["transition"]}
             >
               <Image
-                src={logo["data"]["attributes"]["url"] || Logo}
+                src={uaHeaders["LOGO"]["data"]["attributes"]["url"]}
                 alt="Logo ACTUM"
                 fill
                 priority={true}
@@ -145,8 +155,8 @@ export default function Header({ nav, routes, logo }) {
             transition={{ duration: 0.8, delay: 2.5 }}
           >
             <Navigation
-              nav={nav}
-              servicesRoute={routes}
+              nav={isLocal ? ruHeaders["Navigation"] : uaHeaders["Navigation"]}
+              servicesRoute={isLocal ? ruService_page : uaService_page}
               route={path}
               onClick={handleClickOnMenu}
               onHover={onHover}
@@ -183,8 +193,10 @@ export default function Header({ nav, routes, logo }) {
           >
             <SideBar isStyleHeader={isStyleHeader}>
               <Navigation
-                nav={nav}
-                servicesRoute={routes}
+                nav={
+                  isLocal ? ruHeaders["Navigation"] : uaHeaders["Navigation"]
+                }
+                servicesRoute={isLocal ? ruService_page : uaService_page}
                 route={path}
                 onClick={handleClickOnBar}
                 setOnHover={setOnHover}

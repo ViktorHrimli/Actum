@@ -2,36 +2,37 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useEffect, useState, usePathname } from "@/shared/hooks/hooks";
-import { getFormById } from "@/shared/helpers/helpers";
-
 import Button from "@/libs/components/button/Button";
-import Logo from "@/assets/svg/Actum_HERO.png";
-import { footerEnums } from "@/shared/enums/enum";
-
-import styles from "./Footer.module.scss";
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 import ScrollButtonUp from "@/libs/components/contactPanel/halpers/showScrollButtonUp";
 
-export default function Footer({
-  files,
-  address,
-  City,
-  LOGO_TITLE,
-  LOGO_TEXT,
-  Links,
-  Phones,
-  email,
-  form,
-  Button: btnText,
-}) {
+import { useEffect, useState, usePathname } from "@/shared/hooks/hooks";
+import { footerEnums } from "@/shared/enums/enum";
+import { getFormById } from "@/shared/helpers/helpers";
+
+import styles from "./Footer.module.scss";
+
+export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isStyleFooter, setIsStyleFooter] = useState(null);
   const [isClient, setIsClient] = useState(false);
+  const [isLocale, setIsLocale] = useState("");
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(null);
 
   const path = usePathname().replace("/", "");
+
+  const {
+    data: {
+      attributes: { Footer: ruFooterData },
+    },
+  } = ruFooter;
+
+  const {
+    data: {
+      attributes: { Footer: uaFooterData },
+    },
+  } = uaFooter;
 
   const crime = path.includes("crim");
   const army = path.includes("army");
@@ -41,7 +42,6 @@ export default function Footer({
   const dtp = path.includes("dtp");
   const land = path.includes("land");
   const reality = path.includes("reality");
-
 
   const handleClickOnBtn = () => {
     getFormById("form_section");
@@ -83,6 +83,7 @@ export default function Footer({
   }, [isFristRender]);
 
   useEffect(() => {
+    setIsLocale(localStorage.getItem("locale") || "");
     switch (true) {
       case army:
         setIsStyleFooter(footerEnums["army"]);
@@ -95,23 +96,23 @@ export default function Footer({
       case family:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case admin:
         setIsStyleFooter(footerEnums["other"]);
         return;
-      
+
       case credit:
         setIsStyleFooter(footerEnums["other"]);
         return;
-      
+
       case dtp:
         setIsStyleFooter(footerEnums["other"]);
         return;
-      
+
       case land:
         setIsStyleFooter(footerEnums["other"]);
         return;
-      
+
       case reality:
         setIsStyleFooter(footerEnums["other"]);
         return;
@@ -145,23 +146,37 @@ export default function Footer({
         <div className={styles.footer_container}>
           <div className={styles.box_logo}>
             <Image
-              src={LOGO_TITLE["data"]["attributes"]["url"] || Logo}
+              src={uaFooterData.LOGO_TITLE["data"]["attributes"]["url"]}
               alt="Logo"
               width={400}
               height={117}
               className={styles.footer_logo}
             />
-            <p className={styles.footer_logo_text}>{LOGO_TEXT["Title"]}</p>
+            <p className={styles.footer_logo_text}>
+              {isLocale
+                ? ruFooterData.LOGO_TEXT["Title"]
+                : uaFooterData.LOGO_TEXT["Title"]}
+            </p>
             <div className={styles.policy_mob_none}>
-              <Link className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
-                {Links[0]["Title"]}
-              </Link>
-              <a className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
-                {Links[1]["Title"]}
-              </a>
-              <a className={styles.policy_text} href={Links[2]["path"]}>
-                {Links[2]["Title"]}
-              </a>
+              {isLocale
+                ? ruFooterData.Links.map((item, id) => (
+                    <Link
+                      key={id}
+                      className={styles.policy_text}
+                      href={item.path}
+                    >
+                      {item.Title}
+                    </Link>
+                  ))
+                : uaFooterData.Links.map((item, id) => (
+                    <Link
+                      key={id}
+                      className={styles.policy_text}
+                      href={item.path}
+                    >
+                      {item.Title}
+                    </Link>
+                  ))}
             </div>
           </div>
 
@@ -169,51 +184,78 @@ export default function Footer({
             <p className={styles.footer_title_phone_only}>
               <span className={styles.footer_title_bold_phone_only}>
                 Головний офіс:
-              </span>{" "}
-              {address}
+              </span>
+              {isLocale ? ruFooterData.address : uaFooterData.address}
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>Головний офіс:</p>
-              <p className={styles.footer_text}>{address}</p>
+              <p className={styles.footer_text}>
+                {isLocale ? ruFooterData.address : uaFooterData.address}
+              </p>
             </div>
             <p className={styles.footer_title}>Філії по містах:</p>
 
-            <p className={styles.footer_text}>{City}</p>
+            <p className={styles.footer_text}>
+              {isLocale ? ruFooterData.City : uaFooterData.City}
+            </p>
           </div>
           <div className={styles.footer_contact_box}>
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Phone:</p>
               <div>
-                <a className={styles.phone} href={`tel:${Phones["KiyvStar"]}`}>
-                  {Phones["KiyvStar"]}
-                </a>
-                <a className={styles.phone} href={`tel:${Phones["Vodafone"]}`}>
-                  {Phones["Vodafone"]}
-                </a>
+                <Link
+                  className={styles.phone}
+                  href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
+                >
+                  {uaFooterData.Phones["KiyvStar"]}
+                </Link>
+                <Link
+                  className={styles.phone}
+                  href={`tel:${uaFooterData.Phones["Vodafone"]}`}
+                >
+                  {uaFooterData.Phones["Vodafone"]}
+                </Link>
               </div>
             </div>
             <div className={styles.footer_contact}>
               <p className={styles.footer_contact_title}>Email:</p>
-              <a className={styles.email} href={`mailto:${email}`}>
-                {email}
-              </a>
+              <Link
+                className={styles.email}
+                href={`mailto:${uaFooterData.email}`}
+              >
+                {uaFooterData.email}
+              </Link>
             </div>
 
             <div className={styles.policy}>
-              <Link className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
-                {Links[0]["Title"]}
-              </Link>
-              <a className={styles.policy_text} target="_blank" href="/PrivacyPolicy.pdf">
-                {Links[1]["Title"]}
-              </a>
-              <a className={styles.policy_text} href={Links[2]["path"]}>
-                {Links[2]["Title"]}
-              </a>
+              {isLocale
+                ? uaFooterData.Links.map((item, id) => (
+                    <Link
+                      key={id}
+                      className={styles.policy_text}
+                      href={item.path}
+                    >
+                      {item.Title}
+                    </Link>
+                  ))
+                : uaFooterData.Links.map((item, id) => (
+                    <Link
+                      key={id}
+                      className={styles.policy_text}
+                      href={item.path}
+                    >
+                      {item.Title}
+                    </Link>
+                  ))}
             </div>
             <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
               <Button
                 style={"button_prymary"}
-                text={btnText["text"]}
+                text={
+                  isLocale
+                    ? ruFooterData.Button["text"]
+                    : uaFooterData.Button["text"]
+                }
                 type={"button"}
                 typeStyle={
                   isStyleFooter === "footer_army_gradient"
@@ -234,7 +276,7 @@ export default function Footer({
         {isOpenModal && (
           <ModalForm
             type={"home"}
-            form={form}
+            form={isLocale ? ruForm : uaForm}
             setIsOpenModal={setIsOpenModal}
             isOpenModal={isOpenModal}
           />

@@ -6,11 +6,13 @@ import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 
 import styles from "./CriminalMattrs.module.scss";
+import Link from "next/link";
 
 export default function CriminalMattrs({
   openModalCriminal,
   title,
   description,
+  link,
 }) {
   return (
     <div className={styles.criminal}>
@@ -32,7 +34,7 @@ export default function CriminalMattrs({
         loading="lazy"
         className={styles.criminal_icon}
       />
-      <a href="/paid-priority-crime">
+      <Link href={link}>
         <Image
           src={Click}
           alt="Click"
@@ -41,7 +43,7 @@ export default function CriminalMattrs({
           height={40}
           className={styles.criminal_icon_click}
         />
-      </a>
+      </Link>
     </div>
   );
 }
