@@ -5,8 +5,14 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import LinkedPath from "@/assets/svg/Detail_icon.png";
 import Click from "@/assets/svg/Klick_icon.png";
 import styles from "./FamilyMattrs.module.scss";
+import Link from "next/link";
 
-export default function FamilyMattrs({ openModalHands, title, description }) {
+export default function FamilyMattrs({
+  openModalHands,
+  title,
+  description,
+  link,
+}) {
   return (
     <div className={styles.family}>
       <div onClick={openModalHands} className={styles.closed}>
@@ -27,7 +33,7 @@ export default function FamilyMattrs({ openModalHands, title, description }) {
         loading="lazy"
         className={styles.family_icon}
       />
-      <a href="/paid-priority-family">
+      <Link href={link}>
         <Image
           src={Click}
           alt="Click"
@@ -37,7 +43,7 @@ export default function FamilyMattrs({ openModalHands, title, description }) {
           style={{ zIndex: 5 }}
           className={styles.family_icon_click}
         />
-      </a>
+      </Link>
     </div>
   );
 }

@@ -7,6 +7,8 @@ import Response from "@/libs/components/response/Response";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+import Price from "@/libs/pages/components/priceCards/Price";
+import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
@@ -32,6 +34,9 @@ export default async function PaidArmy() {
         description_lawyer,
         Steps: steps,
         successful_deals,
+        statistics,
+        title_price_block,
+        price_block,
         seo,
       },
     },
@@ -40,18 +45,19 @@ export default async function PaidArmy() {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-
       <HeroLawyers type={"army"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"army"}
         about_block={about_block}
         questions={questions_list}
       />
+      <AboutCards type={"army"} listCard={statistics} />
       <SuccessfulBusiness type={"army"} {...successful_deals} />
       <Specialists type={"army"} {...employeer_list} />
       <Descrition type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
       <StepsLawyers type={"army"} {...steps} />
+      <Price type={"army"} list={price_block} title={title_price_block} />
       <FormSection type={"army"} formData={form} {...info} />
     </>
   );
