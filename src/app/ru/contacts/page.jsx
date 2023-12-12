@@ -14,7 +14,7 @@ const {
 } = process.env;
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_CONTACT_PAGE, API_LOCALIZATION);
+  return await makeSeoTemplate(API_CONTACT_PAGE, API_LOCALIZATION);
 }
 
 export default async function Conacts() {

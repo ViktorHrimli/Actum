@@ -62,7 +62,8 @@ class ManageSessionStorage {
     const objUTM = {};
 
     utmParams.forEach(function (param) {
-      objUTM[param.slice(4)] = urlParams.get(param);
+      const params = param.slice(4);
+      objUTM[params] = urlParams.get(param);
     });
 
     localStorage.setItem("utm", JSON.stringify(objUTM));

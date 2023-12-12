@@ -16,7 +16,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 const { API_BLITZ_CONSULTATION } = process.env;
 
 export async function generateMetadata() {
-  return makeSeoTemplate(API_BLITZ_CONSULTATION);
+  return await makeSeoTemplate(API_BLITZ_CONSULTATION);
 }
 
 export default async function page() {

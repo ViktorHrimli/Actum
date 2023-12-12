@@ -11,12 +11,12 @@ import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_PAGE, API_ARMY_SERVICES } = process.env;
+const { API_ARMY_SERVICES } = process.env;
 
-export async function generateMetadata() {
-  return makeSeoTemplate(API_ARMY_PAGE);
+export async function generateMetadata({ params }) {
+  return await makeDynamicSeoTemplate(params["name"], API_ARMY_SERVICES);
 }
 
 export default async function page({ params }) {

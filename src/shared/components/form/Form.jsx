@@ -132,7 +132,6 @@ export default function Form({
 
       setIsLoading(true);
 
-      console.log(data);
       axios
         .post("/api/form", data)
         .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);

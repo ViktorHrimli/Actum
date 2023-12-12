@@ -22,7 +22,7 @@ const {
 export default async function page() {
   const {
     data: {
-      attributes: { Hero: hero, List_nav: nav },
+      attributes: { Hero: hero, List_nav: nav, Navigation },
     },
   } = await getStaticPage(
     API_SITE_MAP_PAGE,
@@ -39,7 +39,7 @@ export default async function page() {
   return (
     <>
       <NestedHero type={"family"} {...hero} form={modal} />
-      <SiteMap list={nav} />
+      <SiteMap list={nav} rootNav={Navigation} />
     </>
   );
 }
