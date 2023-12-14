@@ -95,11 +95,15 @@
 @media screen and (max-width: 768px) {
   .flex_conteiner {
     overflow: hidden;
+    width: 250px;
+    overflow: hidden;
+
   }
 
   .conteiner_block {
     display: flex;
     flex-direction: column;
+
 
   }
 

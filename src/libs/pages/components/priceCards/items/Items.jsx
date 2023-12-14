@@ -4,11 +4,11 @@ import CardB from "./cards/cardB/CardB";
 import { iconEnum, themsColor } from "@/shared/enums/enum";
 
 export default function Items({ type, isMobile, list, Slider }) {
-  const { fill } = themsColor[type];
-  const mobileList = list;
+  var { fill } = themsColor[type];
+  var mobileList = list;
   function SampleNextArrow(props) {
-    const { onClick } = props;
-    // mobileList.push(...list);
+    var { onClick } = props;
+
     return (
       <div className={styles.next_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](fill)}
@@ -17,7 +17,7 @@ export default function Items({ type, isMobile, list, Slider }) {
   }
 
   function SamplePrevArrow(props) {
-    const { onClick } = props;
+    var { onClick } = props;
     return (
       <div className={styles.prev_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](fill)}
