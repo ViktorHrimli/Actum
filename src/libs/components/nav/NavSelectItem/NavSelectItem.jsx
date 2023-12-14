@@ -17,6 +17,7 @@ export default function NavSelectItem({
   isCurrent,
   enums_env,
   directions,
+  locale,
   id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
@@ -24,6 +25,8 @@ export default function NavSelectItem({
   useEffect(() => {
     setIsOpenSelect(isCurrent === id ? true : false);
   }, [isCurrent]);
+
+  const shortDir = locale ? `/ru/${directions}` : `/${directions}`;
 
   return (
     <li className={styles.link} onClick={() => {}}>
@@ -38,7 +41,7 @@ export default function NavSelectItem({
         }}
       >
         <Link
-          href={`${directions === "root" ? "" : `/${directions}`}/${path}`}
+          href={`${directions === "root" ? "" : shortDir}/${path}`}
           onClick={onClick}
           className={styles.link_service}
         >
@@ -60,7 +63,7 @@ export default function NavSelectItem({
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link
                 href={`${
-                  directions === "root" ? "" : `/${directions}`
+                  directions === "root" ? "" : shortDir
                 }/${path}/${pathsService}?api=${apiServices[enums_env]}`}
               >
                 <p className={styles.text_current}>{text}</p>
