@@ -53,6 +53,7 @@ export default function Navigation({
 
             {isMobile && isOpenMenu && title.toLowerCase() === SERVICES && (
               <Select
+                locale={isLocal}
                 routes={servicesRoute}
                 onClick={onClick}
                 isOpen={isOpenMenu}
@@ -86,6 +87,7 @@ export default function Navigation({
       {!isMobile && onHover && (
         <Select
           isOpen={onHover}
+          locale={isLocal}
           onClick={onClick}
           routes={servicesRoute}
           isMobile={isMobile}

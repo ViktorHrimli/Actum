@@ -26,8 +26,8 @@ const makeSeoTemplate = async (api_name, locale = "uk") => {
   };
 };
 
-const makeDynamicSeoTemplate = async (api, path) => {
-  const { data } = await getSeoDynamicPage(api, path);
+const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
+  const { data } = await getSeoDynamicPage(api, path, locale);
 
   const {
     attributes: { seo },
