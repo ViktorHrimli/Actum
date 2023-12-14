@@ -26,22 +26,14 @@
 }
 
 .slider {
-  width: 270px;
-  // overflow: hidden;
+  width: 260px;
   position: relative;
-
-  div {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    background-color: inherit;
-  }
 }
 
 .next_icon {
   position: absolute;
   top: 170px;
-  left: 265px;
+  left: 258px;
   rotate: 180deg;
 
   cursor: pointer;
@@ -49,7 +41,7 @@
 
 .prev_icon {
   position: absolute;
-  left: -20px;
+  left: -32px;
   top: 170px;
 
   cursor: pointer;
