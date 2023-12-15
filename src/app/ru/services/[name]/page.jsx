@@ -12,16 +12,21 @@ import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 import { styles_enum } from "@/shared/enums/enum";
 
-const { API_SERVICES_COMUNITY } = process.env;
+const { API_SERVICES_COMUNITY, API_LOCALIZATION } = process.env;
 
 export async function generateMetadata({ params }) {
-  return await makeDynamicSeoTemplate(params["name"], API_SERVICES_COMUNITY);
+  return await makeDynamicSeoTemplate(
+    params["name"],
+    API_SERVICES_COMUNITY,
+    API_LOCALIZATION
+  );
 }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
     params["name"],
-    API_SERVICES_COMUNITY
+    API_SERVICES_COMUNITY,
+    API_LOCALIZATION
   );
 
   const {

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Disallow: /
+
+# Host
+Host: https://actum.fun
+
+# Sitemaps
+Sitemap: https://strapi-actum.space/api/sitemap/index.xml

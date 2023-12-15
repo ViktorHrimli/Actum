@@ -6,7 +6,7 @@ import NavSelectItem from "../NavSelectItem/NavSelectItem";
 
 import styles from "./Select.module.scss";
 
-export default function Select({ routes, isOpen, onClick, isMobile }) {
+export default function Select({ routes, isOpen, onClick, isMobile, locale }) {
   const [isCurrent, setisCurrent] = useState(null);
 
   return (
@@ -30,6 +30,7 @@ export default function Select({ routes, isOpen, onClick, isMobile }) {
                 <NavSelectItem
                   key={id}
                   id={id}
+                  locale={locale}
                   setisCurrent={setisCurrent}
                   isCurrent={isCurrent}
                   onClick={onClick}
