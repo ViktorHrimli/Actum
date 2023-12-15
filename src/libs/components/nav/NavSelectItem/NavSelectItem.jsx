@@ -1,12 +1,10 @@
 import Link from "next/link";
 
-import { useState, useEffect } from "@/shared/hooks/hooks";
+import { useState, useEffect, usePathname } from "@/shared/hooks/hooks";
 
 import ArrowMenu from "@/shared/components/arrow_menu/ArrowMenu";
 
 import styles from "./NavSelectItem.module.scss";
-
-import { apiServices } from "@/shared/enums/enum";
 
 export default function NavSelectItem({
   Title: title,
@@ -15,18 +13,40 @@ export default function NavSelectItem({
   onClick,
   setisCurrent,
   isCurrent,
-  enums_env,
   directions,
   locale,
   id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
+  const [dirPage, setDirPage] = useState("");
+
+  const pathName = usePathname();
 
   useEffect(() => {
     setIsOpenSelect(isCurrent === id ? true : false);
   }, [isCurrent]);
 
-  const shortDir = locale ? `/ru/${directions}` : `/${directions}`;
+  useEffect(() => {
+    switch (directions) {
+      case "root":
+        setDirPage("");
+        break;
+
+      case "services":
+        setDirPage("services");
+        break;
+
+      case "other":
+        setDirPage("other");
+        break;
+
+      default:
+        setDirPage("");
+        break;
+    }
+  }, [pathName]);
+
+  var shortDir = locale ? `/ru/${dirPage}` : `/${dirPage}`;
 
   return (
     <li className={styles.link} onClick={() => {}}>
@@ -62,9 +82,11 @@ export default function NavSelectItem({
           {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link
-                href={`${
-                  directions === "root" ? "" : shortDir
-                }/${path}/${pathsService}?api=${apiServices[enums_env]}`}
+                href={
+                  dirPage
+                    ? `${shortDir}/${path}/${pathsService}`
+                    : `/${path}/${pathsService}`
+                }
               >
                 <p className={styles.text_current}>{text}</p>
               </Link>

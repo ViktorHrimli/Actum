@@ -43,12 +43,7 @@ export default function SiteMap({ list, rootNav }) {
                             {el.List.map((item, id) => (
                               <li key={id} className={styles.link_box}>
                                 <span className={styles.marker}></span>
-                                <Link
-                                  href={`${item.path}?api=${
-                                    process.env[el.enums_env]
-                                  }`}
-                                  className={styles.text}
-                                >
+                                <Link href={item.path} className={styles.text}>
                                   {item.text}
                                 </Link>
                               </li>

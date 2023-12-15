@@ -11,23 +11,26 @@ import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import Price from "@/libs/pages/components/priceCards/Price";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
-import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
+import {
+  makeDynamicSeoTemplate,
+  parseQueryNestedPage,
+} from "@/shared/helpers/helpers";
 import { styles_enum } from "@/shared/enums/enum";
 
 const { API_LOCALIZATION } = process.env;
 
 export async function generateMetadata({ params, searchParams }) {
-  return makeDynamicSeoTemplate(
-    params["slug"],
-    searchParams["api"],
-    API_LOCALIZATION
-  );
+  const slugsApi = parseQueryNestedPage(params["name"]);
+
+  return makeDynamicSeoTemplate(...params["slug"], slugsApi, API_LOCALIZATION);
 }
 
 export default async function page({ params, searchParams }) {
+  const slugsApi = parseQueryNestedPage(params["name"]);
+
   const { data } = await getLawyerDynamicPage(
     params["slug"],
-    searchParams["api"],
+    slugsApi,
     API_LOCALIZATION
   );
 
