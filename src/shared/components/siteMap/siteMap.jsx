@@ -1,7 +1,7 @@
 import styles from "./siteMap.module.scss";
 import Link from "next/link";
 
-export default function SiteMap({ list }) {
+export default function SiteMap({ list, rootNav }) {
   return (
     <section className={styles.section}>
       <div className={styles.container_decor}>
@@ -23,54 +23,46 @@ export default function SiteMap({ list }) {
         <p className={styles.text_decor}>діємо задля результату</p>
       </div>
       <div className={styles.container}>
-        <div className={styles.container_title}>
-          <a href="/" className={styles.title}>
-            головна
-          </a>
-          <a href="/teamactum" className={styles.title}>
-            компанія
-          </a>
-          <a href="/blog-3-1" className={styles.title}>
-            Наші публікації
-          </a>
-          <a href="/services" className={styles.title}>
-            наші послуги
-          </a>
-        
-        </div>
-        <div className={styles.position}>
-          <div className={styles.container_link}>
-            {list.map((el, id) => (
-              <div key={id} className={styles.box}>
-                <Link href={el.path}>
-                  <h3 className={styles.title_link}>{el.Title}</h3>
+        <ul className={styles.container_title}>
+          {rootNav.map((item, id) => {
+            return (
+              <li key={id}>
+                <Link href={item["path"]} className={styles.title}>
+                  {item["title"]}
                 </Link>
+                {item["path"].includes("services") && (
+                  <div className={styles.position}>
+                    <div className={styles.container_link}>
+                      {list.map((el, id) => (
+                        <div key={id} className={styles.box}>
+                          <Link href={el.path}>
+                            <h3 className={styles.title_link}>{el.Title}</h3>
+                          </Link>
 
-                <ul className={styles.list}>
-                  {el.List.map((item, id) => (
-                    <li key={id} className={styles.link_box}>
-                      <span className={styles.marker}></span>
-                      <Link
-                        href={`${item.path}?api=${process.env[el.enums_env]}`}
-                        className={styles.text}
-                      >
-                        {item.text}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className={styles.container_title}>
-          <a href="/book" className={styles.title}>
-            консультація
-          </a>
-          <a href="/contacts" className={styles.title}>
-            контакти
-          </a>
-        </div>
+                          <ul className={styles.list}>
+                            {el.List.map((item, id) => (
+                              <li key={id} className={styles.link_box}>
+                                <span className={styles.marker}></span>
+                                <Link
+                                  href={`${item.path}?api=${
+                                    process.env[el.enums_env]
+                                  }`}
+                                  className={styles.text}
+                                >
+                                  {item.text}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

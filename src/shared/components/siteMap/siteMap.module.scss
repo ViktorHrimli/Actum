@@ -11,6 +11,7 @@
   padding-left: 20px;
   padding-bottom: 45px;
   margin: auto;
+
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-top: 76px;
@@ -18,15 +19,18 @@
     padding-right: 64px;
     padding-bottom: 61px;
   }
+
   @media screen and (min-width: 1024px) {
     width: 1024px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 1280px;
     padding-top: 117px;
     padding-left: 64px;
     padding-bottom: 102px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 1440px;
     padding-top: 102px;
@@ -51,11 +55,13 @@
     padding-left: 32px;
     overflow: hidden;
   }
+
   @media screen and (min-width: 1280px) {
     width: 650px;
     height: 77px;
     top: 112px;
   }
+
   @media screen and (min-width: 1440px) {
     top: 102px;
     width: 749px;
@@ -69,13 +75,14 @@
   left: 0;
   width: 400px;
   height: 150px;
-  background: -webkit-linear-gradient(right, #E32F7A 0%,#912E6F  41.67%, #D70F74 80.88%);
+  background: -webkit-linear-gradient(right, #E32F7A 0%, #912E6F 41.67%, #D70F74 80.88%);
   opacity: 0.6;
 
   @media screen and (min-width: 1280px) {
     width: 650px;
     height: 77px;
   }
+
   @media screen and (min-width: 1440px) {
     width: 749px;
     height: 91px;
@@ -87,7 +94,7 @@
   margin-right: 16px;
   z-index: 2;
   width: 36px;
-  
+
   @media screen and (min-width: 1280px) {
     margin-bottom: 0;
     width: 40px;
@@ -104,15 +111,18 @@
   font-weight: 500;
   line-height: 32px;
   text-transform: uppercase;
+
   @media screen and (min-width: 1280px) {
     width: 500px;
     font-size: 28px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 500px;
     font-size: 32px;
   }
 }
+
 .container_title {
   display: flex;
   flex-direction: column;
@@ -120,7 +130,7 @@
 }
 
 .title {
-  display: block;
+  display: inline-block;
   color: #1F1F1F;
   font-size: 20px;
   font-style: normal;
@@ -131,9 +141,11 @@
   @media screen and (min-width: 768px) {
     font-size: 24px;
   }
+
   @media screen and (min-width: 1440px) {
     font-size: 28px;
   }
+
   &:hover {
     color: #E32F7A;
   }
@@ -172,15 +184,18 @@
   line-height: normal;
   font-variant: small-caps;
   margin-bottom: 12px;
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
   }
+
   @media screen and (min-width: 1440px) {
     font-size: 28px;
   }
-    &:hover {
-      color: #E32F7A;
-    }
+
+  &:hover {
+    color: #E32F7A;
+  }
 }
 
 .list {
@@ -216,18 +231,20 @@
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
+
   @media screen and (min-width: 1440px) {
     font-size: 20px;
   }
 
   &:hover {
-      color: #E32F7A;
-    }
+    color: #E32F7A;
+  }
 }
 
 .position {
   display: flex;
   flex-direction: column;
+
   @media screen and (min-width: 1280px) {
     flex-direction: row;
     gap: 74px;
@@ -236,6 +253,7 @@
 
 .box {
   width: 300px;
+
   @media screen and (min-width: 1280px) {
     width: 380px;
   }

@@ -12,8 +12,8 @@ const {
   QUERY_MODAL_FORM,
 } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_CONTACT_PAGE);
+export async function generateMetadata() {
+  return await makeSeoTemplate(API_CONTACT_PAGE);
 }
 
 export default async function Conacts() {

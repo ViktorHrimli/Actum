@@ -4,19 +4,17 @@ import Specialists from "@/libs/pages/components/specialists/Specialists";
 import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
 import Descrition from "@/libs/pages/services/components/description/Description";
 import Response from "@/libs/components/response/Response";
-import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
 import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
 import FormSection from "@/shared/components/formSection/FormSection";
-import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_PAGE, API_OTHER_PAGE } = process.env;
+const { API_OTHER_PAGE } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_ARMY_PAGE);
+export async function generateMetadata({ params }) {
+  return makeDynamicSeoTemplate(params["name"], API_OTHER_PAGE);
 }
 
 export default async function page({ params }) {

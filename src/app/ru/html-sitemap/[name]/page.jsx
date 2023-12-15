@@ -11,17 +11,20 @@ import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_PAGE, API_OTHER_PAGE } = process.env;
+const { API_OTHER_PAGE, API_LOCALIZATION } = process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return makeSeoTemplate(API_ARMY_PAGE);
+export async function generateMetadata({ params }) {
+  return makeDynamicSeoTemplate(params["name"], API_OTHER_PAGE);
 }
 
 export default async function page({ params }) {
-  console.log(params);
-  const { data } = await getLawyerDynamicPage(params["name"], API_OTHER_PAGE);
+  const { data } = await getLawyerDynamicPage(
+    params["name"],
+    API_OTHER_PAGE,
+    API_LOCALIZATION
+  );
 
   const {
     attributes: {
@@ -34,7 +37,6 @@ export default async function page({ params }) {
       questions_list,
       bread_crumbs,
       description_lawyer,
-      statistics,
       Steps: steps,
       successful_deals,
       seo,
