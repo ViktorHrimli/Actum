@@ -18,9 +18,10 @@ export default function Accordion({
   id,
   isCurent,
   setIsCurent,
-  enums_env,
+  dir,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [dirPage, setDirPage] = useState("");
 
   const pathName = usePathname();
 
@@ -37,6 +38,26 @@ export default function Accordion({
       setIsOpen(false);
     }
   }, [isCurent, id]);
+
+  useEffect(() => {
+    switch (dir) {
+      case "root":
+        setDirPage("");
+        break;
+
+      case "services":
+        setDirPage("services");
+        break;
+
+      case "other":
+        setDirPage("other");
+        break;
+
+      default:
+        setDirPage("");
+        break;
+    }
+  }, [pathName]);
 
   return (
     <>
@@ -85,9 +106,11 @@ export default function Accordion({
               {link && (
                 <div style={{ marginTop: "50px", display: "block" }}>
                   <ClickIcon
-                    path={`${isOtherPAge ? "" : pathName}/${link}?api=${
-                      apiServices[enums_env]
-                    }`}
+                    path={
+                      dir
+                        ? dirPage + `/${link}`
+                        : `${isOtherPAge ? dirPage : pathName}/${link}`
+                    }
                     color={fill}
                   />
                 </div>

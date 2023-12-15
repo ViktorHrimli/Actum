@@ -129,6 +129,11 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   }, [isOpenModal]);
 
   useEffect(() => {
+    if (path.includes("/ru")) {
+      localStorage.setItem("locale", "ru");
+    } else {
+      localStorage.removeItem("locale");
+    }
     const languageData = localStorage.getItem("locale");
 
     if (languageData) {
@@ -302,7 +307,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   </a>
                 </li>
               </ul>
-              </ScrollAwareSection>
+            </ScrollAwareSection>
             <div onClick={() => setIsPhoneMob(false)}>
               <ScrollButtonUp />
             </div>

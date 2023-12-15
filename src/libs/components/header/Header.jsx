@@ -93,9 +93,11 @@ export default function Header({ ru, uk }) {
     } else {
       setIsStyleHeader(null);
     }
-
-    setIsLocal(localStorage.getItem("locale") || "");
   }, [patnName]);
+
+  useEffect(() => {
+    setIsLocal(localStorage.getItem("locale") || "");
+  }, [path]);
 
   useEffect(() => {
     if (isSideBar) {
