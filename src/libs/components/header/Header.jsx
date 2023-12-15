@@ -88,16 +88,18 @@ export default function Header({ ru, uk }) {
   }, []);
 
   useEffect(() => {
+    if (patnName.includes("ru")) {
+      setIsLocal(localStorage.getItem("locale") || "");
+    } else {
+      setIsLocal("");
+    }
+
     if (gradientEnums[patnName]) {
       setIsStyleHeader(gradientEnums[patnName]);
     } else {
       setIsStyleHeader(null);
     }
   }, [patnName]);
-
-  useEffect(() => {
-    setIsLocal(localStorage.getItem("locale") || "");
-  }, [path]);
 
   useEffect(() => {
     if (isSideBar) {
@@ -115,13 +117,15 @@ export default function Header({ ru, uk }) {
     setIsScreenHeight(Boolean(window?.innerHeight > 798));
 
     setTimeout(() => setIsStep(true), 1200);
+
+    setIsLocal(localStorage.getItem("locale") || "");
   }, []);
 
   return (
     <section className={styles.header_section}>
       <div className={styles.header_conteiner} id="header">
         {isClient && (
-          <Link href={isLocal ? isLocal : "/"}>
+          <Link href={isLocal ? `/ru` : "/"}>
             <motion.div
               className={styles.logo_conteiner}
               animate={
