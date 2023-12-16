@@ -28,11 +28,12 @@ export default function Hero({
   form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(null);
+  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
   const [isClient, setIsClient] = useState(false);
 
   const isDesktop = useIsBig();
   const isMobile = useIsSmall();
+  
 
   let isSessionStorageSave = true;
 
@@ -41,6 +42,7 @@ export default function Hero({
       sessionStorage.getItem("hero_page") || true
     );
   }
+
 
   useEffect(() => {
     const scrollY = document.body.style.top;
