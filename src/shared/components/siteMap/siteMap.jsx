@@ -36,7 +36,7 @@ export default function SiteMap({ list, rootNav }) {
                       {list.map((el, id) => (
                         <div key={id} className={styles.box}>
                           <Link href={el.path}>
-                            <h3 className={styles.title_link}>{el.Title}</h3>
+                            <h3 className={styles.title_link}>{ el.Title}</h3>
                           </Link>
 
                           <ul className={styles.list}>
