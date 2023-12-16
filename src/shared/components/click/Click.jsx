@@ -6,7 +6,6 @@ import LinkedPath from "@/assets/svg/black_detail_icon.png";
 import styles from "./Click.module.scss";
 
 export default function ClickIcon({ path, color }) {
-  console.log(path, "DaDad");
   return (
     <>
       <div className={styles.box_icon}>

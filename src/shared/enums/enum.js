@@ -3,6 +3,7 @@ export {
   META_DATA_TITLE,
   bodySend,
   apiServices,
+  slugs,
 } from "./app/app";
 export { ButtonsText } from "./button/buttons";
 export { iconEnum } from "./icons/enums";
