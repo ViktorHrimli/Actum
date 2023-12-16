@@ -11,8 +11,8 @@ export default function Card({ name, photo, date, body, type, link }) {
   return (
     <li key={name} className={styles.list_conteiner}>
       <div className={styles.conteiner}>
-        <div className={styles.wrapper_image}>
-          <Link href={link ? link : ""} target="_blank">
+        <Link href={link ? link : ""} target="_blank">
+          <div className={styles.wrapper_image}>
             <Image
               src={photo}
               alt="Person"
@@ -20,8 +20,8 @@ export default function Card({ name, photo, date, body, type, link }) {
               loading="eager"
               style={{ borderRadius: "50%" }}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
 
         <Link
           href={link ? link : ""}

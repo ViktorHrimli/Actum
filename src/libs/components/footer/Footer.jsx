@@ -183,17 +183,21 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
           <div className={styles.footer_text_box}>
             <p className={styles.footer_title_phone_only}>
               <span className={styles.footer_title_bold_phone_only}>
-                Головний офіс:
+                {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
             </p>
             <div className={styles.display_none}>
-              <p className={styles.footer_title}>Головний офіс:</p>
+              <p className={styles.footer_title}>
+                {isLocale ? "Главный офис" : "Головний офіс"}:
+              </p>
               <p className={styles.footer_text}>
                 {isLocale ? ruFooterData.address : uaFooterData.address}
               </p>
             </div>
-            <p className={styles.footer_title}>Філії по містах:</p>
+            <p className={styles.footer_title}>
+              {isLocale ? "Филии по городам" : "Філії по містах"}:
+            </p>
 
             <p className={styles.footer_text}>
               {isLocale ? ruFooterData.City : uaFooterData.City}
@@ -229,7 +233,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
             <div className={styles.policy}>
               {isLocale
-                ? uaFooterData.Links.map((item, id) => (
+                ? ruFooterData.Links.map((item, id) => (
                     <Link
                       key={id}
                       className={styles.policy_text}

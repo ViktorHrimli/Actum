@@ -103,18 +103,19 @@ export default function Accordion({
           >
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{description}</p>
-              {link && (
-                <div style={{ marginTop: "50px", display: "block" }}>
-                  <ClickIcon
-                    path={
-                      dir
+
+              <div style={{ marginTop: "50px", display: "block" }}>
+                <ClickIcon
+                  path={
+                    link
+                      ? dir
                         ? dirPage + `/${link}`
                         : `${isOtherPAge ? dirPage : pathName}/${link}`
-                    }
-                    color={fill}
-                  />
-                </div>
-              )}
+                      : false
+                  }
+                  color={fill}
+                />
+              </div>
             </div>
           </motion.section>
         )}

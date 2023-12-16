@@ -1,22 +1,19 @@
+import { getStaticPage } from "@/shared/services/api/api";
+const { API_ROBOTS, QUERY_ROBOTS } = process.env;
+
 export default async function sitemap() {
-  return [
-    {
-      url: "https://acme.com",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
+  const {
+    data: {
+      attributes: { BASE_URL, obj },
     },
-    {
-      url: "https://acme.com/about",
+  } = await getStaticPage(API_ROBOTS, QUERY_ROBOTS);
+
+  return obj.map((item) => {
+    return {
+      url: BASE_URL + item.url,
+      changeFrequency: item.changeFrequency,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://acme.com/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-  ];
+      priority: item.priority,
+    };
+  });
 }
