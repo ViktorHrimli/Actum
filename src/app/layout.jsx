@@ -101,36 +101,32 @@ export default async function RootLayout({ children }) {
         elem = document.head;elem.appendChild(script);
       `}
       </Script>
+
       <Head>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<a href="https://www.clickcease.com" rel="nofollow">
-          <img src="https://monitor.clickcease.com" alt="ClickCease" />
-        </a>`,
-          }}
-        ></noscript>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-MQMDB7V"
-                height="0"
-                width="0"
-                style="display:none;visibility:hidden"
-              ></iframe>`,
-          }}
-        ></noscript>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<img
-          height="1"
-          width="1"
-          style="display:none"
-          src="https://www.facebook.com/tr?id=463829011921350&ev=PageView&noscript=1"/>`,
-          }}
-        ></noscript>
+        <noscript>
+          <a href="https://www.clickcease.com" rel="nofollow">
+            <img src="https://monitor.clickcease.com" alt="ClickCease" />
+          </a>
+        </noscript>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MQMDB7V"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          ></iframe>
+        </noscript>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=463829011921350&ev=PageView&noscript=1"
+          />
+        </noscript>
       </Head>
 
-      <body className={montserrat.className}>
+      <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header ru={RU} uk={UA} />
         <main className={styles.page}>
           <ContactPanel {...contacts_panel} ruForm={modalRu} uaForm={modalUa} />

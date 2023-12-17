@@ -42,6 +42,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn4.cdn-telegram.org",
       },
+      {
+        protocol: "https",
+        hostname: "google.com",
+      },
     ],
   },
 };

@@ -15,7 +15,7 @@ import {
   makeDynamicSeoTemplate,
   parseQueryNestedPage,
 } from "@/shared/helpers/helpers";
-import { styles_enum, slugs } from "@/shared/enums/enum";
+import { styles_enum } from "@/shared/enums/enum";
 
 export async function generateMetadata({ params }) {
   const slugsApi = parseQueryNestedPage(params["name"]);
