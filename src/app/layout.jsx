@@ -55,14 +55,14 @@ export default async function RootLayout({ children }) {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-Q9Y47E76PM"
       ></Script>
-      <Script strategy="afterInteractive">
+      <Script strategy="afterInteractive" id="gtm">
         {`
          window.dataLayer = window.dataLayer || []; function gtag()
         {dataLayer.push(arguments)}
         gtag('js', new Date()); gtag('config', 'G-Q9Y47E76PM');
        `}
       </Script>
-      <Script strategy="afterInteractive">
+      <Script strategy="afterInteractive" id="google-tag">
         {`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -70,7 +70,7 @@ export default async function RootLayout({ children }) {
           })(window,document,'script','dataLayer','GTM-MQMDB7V');</script>
         `}
       </Script>
-      <Script strategy="afterInteractive">
+      <Script strategy="afterInteractive" id="fb-event">
         {`!function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -83,12 +83,17 @@ export default async function RootLayout({ children }) {
           fbq('track', 'PageView');`}
       </Script>
       <Script
+        id="crazyegg"
         type="text/javascript"
         src="//script.crazyegg.com/pages/scripts/0119/8897.js"
         async="async"
       ></Script>
 
-      <Script type="text/javascript" strategy="afterInteractive">
+      <Script
+        type="text/javascript"
+        strategy="afterInteractive"
+        id="click-case"
+      >
         {`
           var script = document.createElement('script'); script.async = true;
         script.type = 'text/javascript'; var target =
