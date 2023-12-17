@@ -27,7 +27,7 @@ import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import styles from "./ContactPanel.module.scss";
 
 export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
-  const [setIsStylePanel, setsetIsStylePanel] = useState(null);
+  const [setIsStylePanel, setsetIsStylePanel] = useState("family");
   const [isStyleModal, setIsStyleModal] = useState(null);
 
   const [isTrue, setIsTrue] = useState(false);
@@ -43,7 +43,10 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const isHome = path === "/ru";
   const searchParams = useSearchParams();
 
+
   const crime = path.includes("crim");
+  const kryminalnyi = path.includes("kryminalnyi")
+
   const army = path.includes("army");
   const family = path.includes("fami");
 
@@ -97,6 +100,11 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
         return;
 
       case crime:
+        setsetIsStylePanel(colorGradient["crime"]);
+        setIsStyleModal("crime");
+        return;
+      
+      case kryminalnyi:
         setsetIsStylePanel(colorGradient["crime"]);
         setIsStyleModal("crime");
         return;

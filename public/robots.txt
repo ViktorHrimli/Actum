@@ -6,4 +6,4 @@ Disallow: /
 Host: https://actum.fun
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://actum.fun/sitemap.xml

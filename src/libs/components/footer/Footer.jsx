@@ -13,7 +13,7 @@ import { getFormById } from "@/shared/helpers/helpers";
 import styles from "./Footer.module.scss";
 
 export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
-  const [isStyleFooter, setIsStyleFooter] = useState(null);
+  const [isStyleFooter, setIsStyleFooter] = useState("other");
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
 
@@ -36,13 +36,22 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   } = uaFooter;
 
   const crime = path.includes("crim");
+  const kryminalnyi = path.includes("kryminalnyi")
   const army = path.includes("army");
   const family = path.includes("fami");
-  const admin = path.includes("admin");
-  const credit = path.includes("credit");
-  const dtp = path.includes("dtp");
-  const land = path.includes("land");
-  const reality = path.includes("reality");
+
+  const home = path === "";
+  const homeRu = path === "ru";
+
+  const services = path === "services";
+  const RUservices = path === "ru/services";
+
+  const teamactum = path.includes("teamactum");
+  const book = path.includes("book");
+  const contacts = path.includes("contacts");
+  const blog = path.includes("blog");
+
+
 
   const handleClickOnBtn = () => {
     getFormById("form_section");
@@ -63,6 +72,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "book":
         setIsOpenModal(false);
         break;
+      
       default:
         setIsOpenModal(true);
         break;
@@ -86,6 +96,15 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   useEffect(() => {
     setIsLocale(localStorage.getItem("locale") || "");
     switch (true) {
+
+      case home:
+        setIsStyleFooter(footerEnums["family"]);
+        return;
+      
+      case homeRu:
+        setIsStyleFooter(footerEnums["family"]);
+        return;
+      
       case army:
         setIsStyleFooter(footerEnums["army"]);
         return;
@@ -93,33 +112,41 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case crime:
         setIsStyleFooter(footerEnums["crime"]);
         return;
+      
+      case kryminalnyi:
+        setIsStyleFooter(footerEnums["crime"]);
+        return;
 
       case family:
         setIsStyleFooter(footerEnums["family"]);
         return;
-
-      case admin:
-        setIsStyleFooter(footerEnums["other"]);
+      
+      case services:
+        setIsStyleFooter(footerEnums["family"]);
+        return;
+      
+      case RUservices:
+        setIsStyleFooter(footerEnums["family"]);
+        return;
+      
+      case teamactum:
+        setIsStyleFooter(footerEnums["family"]);
         return;
 
-      case credit:
-        setIsStyleFooter(footerEnums["other"]);
+      case book:
+        setIsStyleFooter(footerEnums["family"]);
         return;
-
-      case dtp:
-        setIsStyleFooter(footerEnums["other"]);
+      
+      case contacts:
+        setIsStyleFooter(footerEnums["family"]);
         return;
-
-      case land:
-        setIsStyleFooter(footerEnums["other"]);
-        return;
-
-      case reality:
-        setIsStyleFooter(footerEnums["other"]);
+      
+      case blog:
+        setIsStyleFooter(footerEnums["family"]);
         return;
 
       default:
-        setIsStyleFooter(null);
+        setIsStyleFooter(footerEnums["other"]);
         return;
     }
   }, [path]);
