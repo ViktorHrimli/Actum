@@ -65,7 +65,7 @@ export default function SideBar({ children, isStyleHeader }) {
             </div>
             <ul className={styles.icon_list}>
               <li>
-                <a href="https://t.me/actum_help">
+                <a href="https://t.me/actum_help" target="_blank">
                   <Image src={Telegram} alt="Telegram" width={34} height={34} />
                 </a>
               </li>

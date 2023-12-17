@@ -62,6 +62,8 @@ export default function NavSelectItem({
       >
         <Link
           href={`${directions === "root" ? "" : shortDir}/${path}`}
+          rel="alternate"
+          hrefLang={locale ? "ru" : "uk"}
           onClick={onClick}
           className={styles.link_service}
         >
@@ -82,6 +84,8 @@ export default function NavSelectItem({
           {list.map(({ text, path: pathsService }, id) => (
             <li key={id} className={styles.item_list} onClick={onClick}>
               <Link
+                rel="alternate"
+                hrefLang={locale ? "ru" : "uk"}
                 href={
                   dirPage
                     ? `${shortDir}/${path}/${pathsService}`
