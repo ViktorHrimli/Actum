@@ -38,6 +38,8 @@ export default function Navigation({
                   ? styles.active_link
                   : styles.not_active_link
               }
+              rel="alternate"
+              hrefLang={isLocal ? "ru" : "uk"}
               href={`/${path}`}
               onClick={onClick}
             >
@@ -69,13 +71,21 @@ export default function Navigation({
           return (
             <li key={id}>
               <p>{Title}</p>
-              <Link href={path}></Link>
+              <Link
+                href={path}
+                rel="alternate"
+                hrefLang={isLocal ? "ru" : "uk"}
+              ></Link>
               <ul>
                 {List.map(({ text, path }, id) => {
                   return (
                     <li key={id}>
                       <p>{text}</p>
-                      <Link href={path}></Link>
+                      <Link
+                        rel="alternate"
+                        hrefLang={isLocal ? "ru" : "uk"}
+                        href={path}
+                      ></Link>
                     </li>
                   );
                 })}

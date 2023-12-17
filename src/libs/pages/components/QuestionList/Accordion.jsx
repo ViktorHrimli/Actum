@@ -8,7 +8,7 @@ import styles from "./Accordion.module.scss";
 import arrow from "@/assets/svg/arrow_up.svg";
 import ClickIcon from "@/shared/components/click/Click";
 
-import { themsColor, apiServices } from "@/shared/enums/enum";
+import { themsColor } from "@/shared/enums/enum";
 
 export default function Accordion({
   title,

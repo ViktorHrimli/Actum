@@ -23,7 +23,11 @@ export default function ClickIcon({ path, color }) {
           className={styles.criminal_icon}
         />
         {path ? (
-          <Link href={path}>
+          <Link
+            href={path}
+            rel="alternate"
+            hrefLang={path.includes("/ru") ? "ru" : "uk"}
+          >
             <svg
               className={styles.criminal_icon_click}
               xmlns="http://www.w3.org/2000/svg"
