@@ -453,7 +453,7 @@ export default function FormComponent({
         </div>
 
         {/* --------- radio ---------- */}
-        <div className={styles.wrapper_name}>
+        <div className={styles.wrapper_name} style={{opacity: "0", zIndex: "-1"}}>
           <label
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
@@ -470,7 +470,6 @@ export default function FormComponent({
             </div>
           )}
 
-          {/* --------- radio ---------- */}
 
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>

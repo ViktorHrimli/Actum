@@ -113,6 +113,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 7px;
+
+    @media screen and (min-width: 768px) {
+        margin-left: 40px;
+    }
 
     @media screen and (min-width: 1280px) {
         margin-left: 11px;

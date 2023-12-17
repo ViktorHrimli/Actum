@@ -24,4 +24,5 @@ export const cityEnum = {
   Черкаси: "cherkasu",
   Чернівці: "chernivci",
   Чернігів: "chernigiv",
+  "Слов'янськ": "slovianck",
 };

@@ -18,7 +18,8 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isLocale, setIsLocale] = useState("");
 
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(null);
+  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
+  
 
   const path = usePathname().replace("/", "");
 
@@ -186,6 +187,8 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
+                <span style={{display: "block"}}>без вихідних з 8:00 до 22:00</span>
+
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>
@@ -193,6 +196,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               </p>
               <p className={styles.footer_text}>
                 {isLocale ? ruFooterData.address : uaFooterData.address}
+                  <span style={{display: "block"}}>без вихідних з 8:00 до 22:00</span>
               </p>
             </div>
             <p className={styles.footer_title}>

@@ -25,9 +25,8 @@ export default function NestedHero({
   form = {},
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(null);
+  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
   const [isPaymentHero, setIsPaymentHero] = useState(false);
-
   const isClient = useClient();
 
   const path = usePathname();
@@ -67,7 +66,7 @@ export default function NestedHero({
     window.scrollTo(0, isScroll);
 
     return () => {
-      document.body.style.overflowX = "hidden";
+      document.body.style.overflow = "hidden";
       document.body.style.maxHeight = "";
     };
   }, [isOpenModal, isScroll]);
@@ -109,7 +108,7 @@ export default function NestedHero({
               sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             />
           </motion.div>
-          <motion.h2
+          <motion.h1
             animate={IS_FIRST_RENDER ? "open" : false}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
             initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
@@ -117,7 +116,7 @@ export default function NestedHero({
             className={styles.title_text}
           >
             {title}
-          </motion.h2>
+          </motion.h1>
           <motion.p
             animate={IS_FIRST_RENDER ? "open" : false}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}

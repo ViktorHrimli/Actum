@@ -489,6 +489,15 @@
     }
 }
 
+.slovianck {
+    top: 58px;
+    left: 128px;
+    @media screen and (min-width: 1280px) {
+        top: 134px;
+        left: 314px;
+    }
+}
+
 .btn_wrapper_lawyer {
     position: absolute;
     border-radius: 4px;

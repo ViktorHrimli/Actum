@@ -20,7 +20,7 @@ export default function Items({
               <div className={styles.container_title}>
                 <p className={styles.title}>{el.name}</p>
               </div>
-              <a className={styles.text}>{el.description}</a>
+              <p className={styles.text}>{el.description}</p>
               <div className={styles.img}>
                 <Image
                   src={el.photo["data"]["attributes"]["url"]}
