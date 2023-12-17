@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       disallow: "/",
     },
-    sitemap: "https://strapi-actum.space/api/sitemap/index.xml",
+    sitemap: "https://actum.fun/sitemap.xml",
   };
 }

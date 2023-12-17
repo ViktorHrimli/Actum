@@ -125,7 +125,11 @@ export default function Header({ ru, uk }) {
     <section className={styles.header_section}>
       <div className={styles.header_conteiner} id="header">
         {isClient && (
-          <Link href={isLocal ? `/ru` : "/"}>
+          <Link
+            href={isLocal ? `/ru` : "/"}
+            rel="alternate"
+            hrefLang={isLocal ? "ru" : "uk"}
+          >
             <motion.div
               className={styles.logo_conteiner}
               animate={

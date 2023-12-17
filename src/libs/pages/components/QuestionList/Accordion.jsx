@@ -8,7 +8,7 @@ import styles from "./Accordion.module.scss";
 import arrow from "@/assets/svg/arrow_up.svg";
 import ClickIcon from "@/shared/components/click/Click";
 
-import { themsColor, apiServices } from "@/shared/enums/enum";
+import { themsColor } from "@/shared/enums/enum";
 
 export default function Accordion({
   title,
@@ -103,18 +103,19 @@ export default function Accordion({
           >
             <div className={styles.conteiner_text}>
               <p className={styles.text}>{description}</p>
-              {link && (
-                <div style={{ marginTop: "50px", display: "block" }}>
-                  <ClickIcon
-                    path={
-                      dir
+
+              <div style={{ marginTop: "50px", display: "block" }}>
+                <ClickIcon
+                  path={
+                    link
+                      ? dir
                         ? dirPage + `/${link}`
                         : `${isOtherPAge ? dirPage : pathName}/${link}`
-                    }
-                    color={fill}
-                  />
-                </div>
-              )}
+                      : false
+                  }
+                  color={fill}
+                />
+              </div>
             </div>
           </motion.section>
         )}

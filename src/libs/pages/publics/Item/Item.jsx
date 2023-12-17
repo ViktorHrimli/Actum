@@ -17,7 +17,7 @@ export default function Item({ description, title, photo, date, link }) {
       <div className={styles.conteiner_text}>
         <div className={styles.image_conteiner}>
           <Image
-            src={photo["data"]["attributes"]["url"] ?? img}
+            src={photo["data"]["attributes"]["url"]}
             alt={title}
             fill
             fetchPriority="low"

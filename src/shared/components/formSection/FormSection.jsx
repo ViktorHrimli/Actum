@@ -17,7 +17,7 @@ export default function FormSection({
     <section className={styles.section} id="form_section" name="form">
       <div className={styles.conteiner}>
         <div className={styles.wrapper_title}>
-          <LeftBar text={"контактна форма"} type={type} />
+          <LeftBar text={formData.block_title} type={type} />
         </div>
 
         <Form type={type} {...formData} />
