@@ -50,6 +50,8 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const book = path.includes("book");
   const contacts = path.includes("contacts");
   const blog = path.includes("blog");
+  const sitemap = path.includes("sitemap");
+
 
 
 
@@ -118,6 +120,10 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
         return;
 
       case family:
+        setIsStyleFooter(footerEnums["family"]);
+        return;
+      
+      case sitemap:
         setIsStyleFooter(footerEnums["family"]);
         return;
       
