@@ -3,7 +3,7 @@ import Items from "../items/Items";
 
 import styles from "./TeamList.module.scss";
 
-export default async function TeamList({ items }) {
+export default async function TeamList({ items, type, form }) {
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
@@ -12,7 +12,7 @@ export default async function TeamList({ items }) {
         </div>
         <ul className={styles.list}>
           {items.map((item, id) => (
-            <Items key={id} {...item} />
+            <Items type={type} form={form} key={id} {...item} />
           ))}
         </ul>
       </div>

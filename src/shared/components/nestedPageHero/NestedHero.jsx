@@ -91,10 +91,12 @@ export default function NestedHero({
           style={isPaymentHero ? { marginTop: "74px" } : { marginTop: "0px" }}
         >
           <motion.div
-            animate={IS_FIRST_RENDER ? "start" : false}
+            // animate={IS_FIRST_RENDER ? "start" : false}
+            animate={false}
             viewport={{ once: true }}
             variants={{ start: { scale: 1, opacity: 1 } }}
-            initial={IS_FIRST_RENDER ? { scale: 0.5, opacity: 0 } : false}
+            // initial={IS_FIRST_RENDER ? { scale: 0.5, opacity: 0 } : false}
+            initial={false}
             transition={{ delay: 0.5, duration: 0.7 }}
             className={styles.title_wotemark}
           >
@@ -109,18 +111,23 @@ export default function NestedHero({
             />
           </motion.div>
           <motion.h1
-            animate={IS_FIRST_RENDER ? "open" : false}
+            // animate={IS_FIRST_RENDER ? "open" : false}
+            animate={false}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
-            initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+            // initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+            initial={false}
+
             transition={{ delay: 1, duration: 0.7 }}
             className={styles.title_text}
           >
             {title}
           </motion.h1>
           <motion.p
-            animate={IS_FIRST_RENDER ? "open" : false}
+            // animate={IS_FIRST_RENDER ? "open" : false}
+            animate={false}
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
-            initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+            // initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+            initial={false}
             transition={{ delay: 1, duration: 0.7 }}
             className={styles.paragraph}
           >

@@ -40,7 +40,7 @@ export default function FormComponent({
   services_list,
 }) {
   const [selectValue, setSelectValue] = useState("");
-  const [selectServices, setSelectServices] = useState("");
+  const [selectServices, setSelectServices] = useState(" ");
 
   const [phone, setPhone] = useState("38");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -225,7 +225,7 @@ export default function FormComponent({
     errors.services,
   ]);
 
-  console.log(selectServices);
+  // console.log(selectServices);
   console.log(selectValue);
 
   return (

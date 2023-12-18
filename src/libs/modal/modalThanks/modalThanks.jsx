@@ -15,6 +15,8 @@ export default function ModalThanks({
   setIsOpenModal = () => { },
 }) {
 
+  console.log(type);
+
   const { gradient: { color, border } } = styleEnums[type];
 
   const handleToggle = () => {

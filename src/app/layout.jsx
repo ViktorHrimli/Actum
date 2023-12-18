@@ -51,16 +51,16 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="uk-UA">
-      <Script
+      <Script strategy="afterInteractive"
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-Q9Y47E76PM"
       ></Script>
       <Script strategy="afterInteractive" id="gtm">
         {`
-         window.dataLayer = window.dataLayer || []; function gtag()
-        {dataLayer.push(arguments)}
-        gtag('js', new Date()); gtag('config', 'G-Q9Y47E76PM');
-       `}
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-Q9Y47E76PM');
+        `}
       </Script>
       <Script strategy="afterInteractive" id="google-tag">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -82,7 +82,7 @@ export default async function RootLayout({ children }) {
           fbq('init', '463829011921350');
           fbq('track', 'PageView');`}
       </Script>
-      <Script
+      <Script strategy="afterInteractive"
         id="crazyegg"
         type="text/javascript"
         src="//script.crazyegg.com/pages/scripts/0119/8897.js"
