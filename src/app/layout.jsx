@@ -51,7 +51,8 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="uk-UA">
-      <Script strategy="afterInteractive"
+      <Script
+        strategy="afterInteractive"
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-Q9Y47E76PM"
       ></Script>
@@ -82,7 +83,8 @@ export default async function RootLayout({ children }) {
           fbq('init', '463829011921350');
           fbq('track', 'PageView');`}
       </Script>
-      <Script strategy="afterInteractive"
+      <Script
+        strategy="afterInteractive"
         id="crazyegg"
         type="text/javascript"
         src="//script.crazyegg.com/pages/scripts/0119/8897.js"

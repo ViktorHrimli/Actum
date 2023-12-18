@@ -20,31 +20,39 @@ import styles from "./SuccessfulBusiness.module.scss";
 
 export default function SuccessfulBusiness({ type, title, successful_list }) {
   const [isClient, setIsClient] = useState(false);
+  const [filterDeals, setfilterDeals] = useState([]);
+  const [currentCount, setCurrentCount] = useState(5);
   const isDesktop = useIsBig();
 
   const { gradient, gradientRight, color } = gradientEnums[type];
 
-  function SampleNextArrow(props) {
+  const SampleNextArrow = (props) => {
     const { onClick } = props;
+
     return (
       <div className={styles.next_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](color)}
       </div>
     );
-  }
+  };
 
-  function SamplePrevArrow(props) {
+  const SamplePrevArrow = (props) => {
     const { onClick } = props;
+
     return (
       <div className={styles.prev_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](color)}
       </div>
     );
-  }
+  };
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    setfilterDeals(successful_list.filter((_, id) => id < currentCount));
+  }, [currentCount]);
 
   return (
     <section className={styles.section}>
@@ -63,11 +71,19 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
             arrows={true}
             nextArrow={<SampleNextArrow />}
             prevArrow={<SamplePrevArrow />}
+            afterChange={(curNum) => {
+              if (curNum < successful_list.length) {
+                setCurrentCount(currentCount + 1);
+              }
+            }}
             swipeToSlide={true}
             swipe={true}
+            swipeEvent={(ev) => {
+              console.log(ev);
+            }}
             className={styles.slider}
           >
-            {successful_list.map((item, id) => {
+            {filterDeals.map((item, id) => {
               return <Card {...item} key={id} type={type} enums={cardsEnums} />;
             })}
           </Slider>

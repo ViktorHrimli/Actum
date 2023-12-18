@@ -37,10 +37,18 @@ const makeSeoTemplate = async (api_name, locale = "uk") => {
 
 const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
   const { data } = await getSeoDynamicPage(api, path, locale);
+  let alt = {};
 
   const {
     attributes: { seo },
   } = data[0];
+
+  seo["metaLinks"].forEach((item) => (alt[item.hrefLang] = item.href));
+
+  const alternates = {
+    canonical: seo["canonicalURL"],
+    languages: alt,
+  };
 
   return {
     title: seo["metaTitle"],
@@ -48,6 +56,7 @@ const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
     name: "viewport",
     content: seo["metaViewport"],
     keywords: seo["keywords"],
+    alternates,
     openGraph: {
       title: seo["metaTitle"],
       description: seo["metaDescription"],
