@@ -20,7 +20,10 @@ import styles from "./SuccessfulBusiness.module.scss";
 
 export default function SuccessfulBusiness({ type, title, successful_list }) {
   const [isClient, setIsClient] = useState(false);
+  const [filterDeals, setfilterDeals] = useState([]);
   const isDesktop = useIsBig();
+
+  let currentCount = 5;
 
   const { gradient, gradientRight, color } = gradientEnums[type];
 
@@ -46,6 +49,10 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    setfilterDeals(successful_list.filter((_, id) => id < currentCount));
+  }, []);
+
   return (
     <section className={styles.section}>
       <div className={styles[gradient]}></div>
@@ -67,7 +74,7 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
             swipe={true}
             className={styles.slider}
           >
-            {successful_list.map((item, id) => {
+            {filterDeals.map((item, id) => {
               return <Card {...item} key={id} type={type} enums={cardsEnums} />;
             })}
           </Slider>
