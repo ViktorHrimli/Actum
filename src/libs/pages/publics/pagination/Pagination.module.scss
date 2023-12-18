@@ -1,0 +1,38 @@
+@import '/src/assets/css/styles.scss';
+
+.conteiner_pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    margin-top: 10px;
+
+    font-size: 20px;
+
+}
+
+.wrapper_arrow {
+    display: flex;
+    align-items: center;
+
+    :hover {
+        cursor: pointer;
+    }
+
+}
+
+.previos_arrow {
+    display: flex;
+    align-items: center;
+
+    color: var(--primary-color);
+}
+
+.next_arrow {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    color: var(--primary-color);
+}

@@ -1,13 +1,15 @@
 import styles from "./Search.module.scss";
 
-export default function Search() {
+export default function Search({ setSearch, value }) {
   return (
     <div className={styles.serch_conteiner}>
       <div className={styles.border_gradient}>
         <input
           className={styles.search_input}
+          value={value}
           type="search"
           placeholder="Шукати публікацію"
+          onChange={(event) => setSearch(event.currentTarget.value)}
         />
       </div>
       <div className={styles.serch_icon_wrapper}>

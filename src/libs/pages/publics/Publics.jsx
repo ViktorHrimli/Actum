@@ -1,44 +1,54 @@
-import styles from "./Publics.module.scss";
+"use client";
+
+import { useEffect, useState } from "@/shared/hooks/hooks";
 
 import PublicList from "./publics_list/PublicList";
 import Search from "@/shared/components/search/Search";
 
+import styles from "./Publics.module.scss";
+import Pagination from "./pagination/Pagination";
+
 export default function Publics({ blog_list }) {
-  const totalPages = 70; // Общее количество страниц
-  let currentPage = 10; // Текущая страница
+  const [maxCount, setMaxCount] = useState(6);
+  const [minCount, setMinCount] = useState(0);
+  const [dataBlog, setDataBlog] = useState([]);
+  const [search, setSearch] = useState("");
+
+  var blogListLength = blog_list.length || 0;
 
   function goToPreviousPage() {
-    if (currentPage > 1) {
-      currentPage--;
-      // Здесь можно добавить логику обновления содержимого страницы
-      console.log("Переход на предыдущую страницу:", currentPage);
-    } else {
-      console.log("Вы находитесь на первой странице");
+    if (minCount > 0) {
+      setMaxCount((prev) => prev - 5);
+      setMinCount((prev) => prev - 5);
     }
   }
 
   function goToNextPage() {
-    if (currentPage < totalPages) {
-      currentPage++;
-      // Здесь можно добавить логику обновления содержимого страницы
-      console.log("Переход на следующую страницу:", currentPage);
-    } else {
-      console.log("Вы находитесь на последней странице");
+    if (maxCount < blogListLength) {
+      setMaxCount((prev) => prev + 5);
+      setMinCount((prev) => prev + 5);
     }
   }
 
-  function filterBlogs(blog_list) {
-    return blog_list.filter((blog, id) => id < pageCount);
-  }
+  useEffect(() => {
+    if (search) {
+      setDataBlog(
+        blog_list.filter((blog) => blog.title.includes(search.toUpperCase()))
+      );
+    } else {
+      setDataBlog(blog_list.filter((_, id) => minCount < id && id < maxCount));
+    }
+  }, [minCount, maxCount, search]);
 
-  const data = blog_list.filter((blog, id) => id < 5);
   return (
     <section className={styles.section}>
       <div className={styles.conteiner}>
-        <PublicList blog_list={data} />
+        <PublicList blog_list={dataBlog} />
       </div>
-
-      <Search />
+      <div className={styles.wrapper_search_pagination}>
+        <Pagination next={goToNextPage} prev={goToPreviousPage} />
+        <Search setSearch={setSearch} value={search} />
+      </div>
     </section>
   );
 }
