@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import IconMap from "./IconMap";
 import Button from "@/libs/components/button/Button";
@@ -8,6 +10,7 @@ import styles from "./Items.module.scss";
 
 import { cityEnum } from "../libs/enums/enums";
 import { iconEnum } from "@/shared/enums/enum";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 export default function Items({
   title,
@@ -17,10 +20,18 @@ export default function Items({
   city_enums,
   side_picture,
   description,
+  type,
+  form,
 }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
-  console.log(city_enums);
+
+  const handleClickOnBtn = () => {
+      setIsOpenModal(true);
+  };
+
   return (
+    <>
     <li style={{ position: "relative" }}>
       <div className={styles.conteiner_card}>
         <div className={styles.text_wrapper}>
@@ -139,11 +150,19 @@ export default function Items({
         </Link>
       </div> */}
 
-      <div className={styles.btn_wrapper_lawyer}>
-        <Link href={button["link"]}>
+      <div className={styles.btn_wrapper_lawyer} onClick={handleClickOnBtn}>
+        {/* <Link href={button["link"]}> */}
           <Button type="button" text={button["text"]} style="button_service" />
-        </Link>
+        {/* </Link> */}
       </div>
-    </li>
+      </li>
+      {isOpenModal && (
+        <ModalForm
+          type={type}
+          form={form}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />)}
+      </>
   );
 }

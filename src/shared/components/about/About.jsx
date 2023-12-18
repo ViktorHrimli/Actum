@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 
 import Button from "@/libs/components/button/Button";
 import Quotes from "@/shared/components/quotes/Quotes";
@@ -8,6 +9,7 @@ import { getFormById } from "@/shared/helpers/helpers";
 import { themsColor } from "@/shared/enums/enum";
 
 import styles from "./About.module.scss";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 export default function About({
   type = "family",
@@ -15,12 +17,17 @@ export default function About({
   description,
   photo,
   button,
+  form,
 }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const handleClickOnBtn = () => {
-    getFormById("form_section");
+    // getFormById("form_section");
+    setIsOpenModal(true);
   };
 
   return (
+    <>
     <section className={styles.section}>
       <div className={styles.conteiner}>
         <div className={styles.conteiner_text}>
@@ -53,6 +60,14 @@ export default function About({
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      {isOpenModal && (
+        <ModalForm
+          type={type}
+          form={form}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />)}
+    </>
   );
 }
