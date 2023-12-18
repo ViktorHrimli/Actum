@@ -11,7 +11,7 @@ export default function Pagination({ prev, next }) {
         onClick={prev}
       >
         {iconEnum["horizontalArrow"](pink)}
-        <p>попередня сторінка</p>
+        <p className={styles.left}>попередня сторінка</p>
       </div>
       <div
         className={`${styles.wrapper_arrow} ${styles.next_arrow}`}
@@ -20,7 +20,7 @@ export default function Pagination({ prev, next }) {
         <div style={{ rotate: "180deg" }}>
           {iconEnum["horizontalArrow"](pink)}
         </div>
-        <p>наступна сторінка</p>
+        <p className={styles.right}>наступна сторінка</p>
       </div>
     </div>
   );
