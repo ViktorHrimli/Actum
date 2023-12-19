@@ -170,13 +170,18 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   return (
     isClient && (
-      <section className={styles.footer_section}>
+      <section
+        className={styles.footer_section}
+        itemScope
+        itemType="http://schema.org/Organization"
+      >
         <div
           className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
         ></div>
         <div className={styles.footer_container}>
           <div className={styles.box_logo}>
             <Image
+              itemProp="logo"
               src={uaFooterData.LOGO_TITLE["data"]["attributes"]["url"]}
               alt="Logo"
               width={400}
@@ -195,6 +200,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
+                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
@@ -204,6 +210,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
+                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
@@ -211,32 +218,52 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             </div>
           </div>
 
-          <div className={styles.footer_text_box}>
-            <p className={styles.footer_title_phone_only}>
+          <div
+            className={styles.footer_text_box}
+            itemProp="address"
+            itemScope
+            itemType="http://schema.org/PostalAddress"
+          >
+            <p
+              className={styles.footer_title_phone_only}
+              itemProp="addressLocality"
+            >
               <span className={styles.footer_title_bold_phone_only}>
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
-              <span style={{ display: "block" }}>
+              <time
+                style={{ display: "block" }}
+                itemProp="openingHours"
+                dateTime="Mo-Sun 08:00-22:00"
+              >
                 без вихідних з 8:00 до 22:00
-              </span>
+              </time>
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </p>
-              <p className={styles.footer_text}>
+              <p
+                className={styles.footer_text}
+                itemScope
+                itemType="http://schema.org/LocalBusiness"
+              >
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                <span style={{ display: "block" }}>
+                <time
+                  style={{ display: "block" }}
+                  itemProp="openingHours"
+                  dateTime="Mo-Sun 08:00-22:00"
+                >
                   без вихідних з 8:00 до 22:00
-                </span>
+                </time>
               </p>
             </div>
             <p className={styles.footer_title}>
               {isLocale ? "Филии по городам" : "Філії по містах"}:
             </p>
 
-            <p className={styles.footer_text}>
+            <p className={styles.footer_text} itemProp="addressLocality">
               {isLocale ? ruFooterData.City : uaFooterData.City}
             </p>
           </div>
@@ -246,12 +273,15 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <div>
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-2"}`}
+                  itemProp="telephone"
                   href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
                 >
                   {uaFooterData.Phones["KiyvStar"]}
                 </Link>
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-1"}`}
+                  itemProp="telephone"
+
                   href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                 >
                   {uaFooterData.Phones["Vodafone"]}
@@ -263,6 +293,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <Link
                 className={styles.email}
                 href={`mailto:${uaFooterData.email}`}
+                itemProp="email"
               >
                 {uaFooterData.email}
               </Link>
@@ -275,6 +306,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
+                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
@@ -284,6 +316,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
+                      itemProp="url"
                     >
                       {item.Title}
                     </Link>

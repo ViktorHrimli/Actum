@@ -113,3 +113,43 @@ export default function AboutCompany({
     )
   );
 }
+
+{
+  /* <html itemscope itemtype="https://schema.org/FAQPage">
+  <head>
+    <title>Часто задаваемые вопросы</title>
+  </head>
+  <body>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <span itemprop="name">Текст вопроса 1</span>
+      <div
+        itemscope
+        itemprop="acceptedAnswer"
+        itemtype="https://schema.org/Answer"
+      >
+        <div itemprop="text">Текст ответа 1</div>
+      </div>
+    </div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <span itemprop="name">Текст вопроса 2</span>
+      <div
+        itemscope
+        itemprop="acceptedAnswer"
+        itemtype="https://schema.org/Answer"
+      >
+        <div itemprop="text">Текст ответа 2</div>
+      </div>
+    </div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <span itemprop="name">Текст вопроса 3</span>
+      <div
+        itemscope
+        itemprop="acceptedAnswer"
+        itemtype="https://schema.org/Answer"
+      >
+        <div itemprop="text">Текст ответа 3</div>
+      </div>
+    </div>
+  </body>
+</html>; */
+}
