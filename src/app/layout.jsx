@@ -66,7 +66,7 @@ export default async function RootLayout({ children }) {
       <Script strategy="afterInteractive" id="google-tag">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=false;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-MQMDB7V');
         `}
@@ -97,7 +97,7 @@ export default async function RootLayout({ children }) {
         id="click-case"
       >
         {`
-          var script = document.createElement('script'); script.async = true;
+          var script = document.createElement('script'); script.async = false;
         script.type = 'text/javascript'; var target =
         'https://www.clickcease.com/monitor/stat.js'; script.src = target;var
         elem = document.head;elem.appendChild(script);
