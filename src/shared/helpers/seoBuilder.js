@@ -10,7 +10,11 @@ const makeSeoTemplate = async (api_name, locale = "uk") => {
     },
   } = await getSeo(api_name, locale);
 
-  seo["metaLinks"].forEach((item) => (alt[item.hrefLang] = item.href));
+  if (seo["alternatedLink"]) {
+    seo["alternatedLink"].forEach((item) => (alt[item.hrefLang] = item.href));
+  }
+
+  var robotsPremissions = seo["metaRobotsIndex"];
 
   const alternates = {
     canonical: seo["canonicalURL"],
@@ -24,6 +28,11 @@ const makeSeoTemplate = async (api_name, locale = "uk") => {
     content: seo["metaViewport"],
     keywords: seo["keywords"],
     alternates,
+    robots: {
+      index: robotsPremissions ? true : false,
+      follow: robotsPremissions ? true : false,
+      nocache: true,
+    },
     openGraph: {
       title: seo["metaTitle"],
       description: seo["metaDescription"],
@@ -43,7 +52,11 @@ const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
     attributes: { seo },
   } = data[0];
 
-  seo["metaLinks"].forEach((item) => (alt[item.hrefLang] = item.href));
+  if (seo["alternatedLink"]) {
+    seo["alternatedLink"].forEach((item) => (alt[item.hrefLang] = item.href));
+  }
+
+  var robotsPremissions = seo["metaRobotsIndex"];
 
   const alternates = {
     canonical: seo["canonicalURL"],
@@ -57,6 +70,11 @@ const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
     content: seo["metaViewport"],
     keywords: seo["keywords"],
     alternates,
+    robots: {
+      index: robotsPremissions ? true : false,
+      follow: robotsPremissions ? true : false,
+      nocache: true,
+    },
     openGraph: {
       title: seo["metaTitle"],
       description: seo["metaDescription"],

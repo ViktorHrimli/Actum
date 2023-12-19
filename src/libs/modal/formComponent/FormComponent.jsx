@@ -154,10 +154,12 @@ export default function FormComponent({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
-      console.log(data);
+
+      window.dataLayer.push({ event: "formissentmodal" });
 
       setIsLoading(true);
       // SEND
+      axios.post("/api/send", data);
       axios
         .post("/api/form", data)
         .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
@@ -453,7 +455,10 @@ export default function FormComponent({
         </div>
 
         {/* --------- radio ---------- */}
-        <div className={styles.wrapper_name} style={{opacity: "0", zIndex: "-1"}}>
+        <div
+          className={styles.wrapper_name}
+          style={{ opacity: "0", zIndex: "-1" }}
+        >
           <label
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
@@ -469,7 +474,6 @@ export default function FormComponent({
               />
             </div>
           )}
-
 
           <div className={styles.conteiner_name}>
             <div className={styles[border]}>
