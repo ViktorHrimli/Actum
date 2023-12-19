@@ -129,6 +129,8 @@ export default function FormComponent({
 
     const data = storage.sendObjData(errorObj);
 
+    window.dataLayer.push({ event: "formissenterror" });
+
     axios.post("/api/form", data);
   };
 

@@ -16,8 +16,29 @@ export default function Navigation({
   servicesRoute,
   isOpenMenu,
   isLocal = false,
+  dirPage,
 }) {
   const SERVICES = isLocal ? "услуги" : "послуги";
+
+  // useEffect(() => {
+  //   switch (directions) {
+  //     case "root":
+  //       setDirPage("");
+  //       break;
+
+  //     case "services":
+  //       setDirPage("services");
+  //       break;
+
+  //     case "other":
+  //       setDirPage("other");
+  //       break;
+
+  //     default:
+  //       setDirPage("");
+  //       break;
+  //   }
+  // }, [pathName]);
 
   return (
     <div style={{ position: "relative" }}>
@@ -67,30 +88,35 @@ export default function Navigation({
       </ul>
       {/* SEO */}
       <ul style={{ visibility: "hidden", position: "absolute" }}>
-        {servicesRoute.map(({ List, Title, id, path }) => {
+        {servicesRoute.map(({ List, Title, id, path, directions }) => {
+          var dir = directions === "root" ? "" : directions;
+          var shortDir = isLocal ? `/ru/${dir}` : `/${dir}`;
           return (
             <li key={id}>
               <p itemProp="title">{Title}</p>
               <Link
                 href={isLocal ? `/ru${path}` : `/${path}`}
                 itemProp="url"
-                rel="canonical"
                 hrefLang={isLocal ? "ru" : "uk"}
               ></Link>
-              {/* <ul>
-                {List.map(({ text, path }, id) => {
+              <ul>
+                {List.map(({ text, path: pathService }, id) => {
                   return (
                     <li key={id}>
-                      <p>{text}</p>
+                      <p itemProp="title">{text}</p>
                       <Link
                         rel="alternate"
                         hrefLang={isLocal ? "ru" : "uk"}
-                        href={path}
+                        href={
+                          dirPage
+                            ? `${shortDir}/${path}/${pathService}`
+                            : `/${path}/${pathService}`
+                        }
                       ></Link>
                     </li>
                   );
                 })}
-              </ul> */}
+              </ul>
             </li>
           );
         })}

@@ -93,6 +93,7 @@ export default function Form({
 
     const data = storage.sendObjData(errorObj);
 
+    window.dataLayer.push({ event: "formissenterror" });
     axios.post("/api/form", data);
   };
 

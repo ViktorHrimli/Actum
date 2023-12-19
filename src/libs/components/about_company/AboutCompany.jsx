@@ -32,14 +32,20 @@ export default function AboutCompany({
   const isClient = useClient();
   return (
     isClient && (
-      <section className={styles.section}>
+      <section
+        className={styles.section}
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
         <div className={styles.container}>
           <div className={styles.conteiner_map}>
             <div
               className={styles.ukraine_inner_text}
+              itemProp="text"
               dangerouslySetInnerHTML={{ __html: service_description }}
             ></div>
             <div
+              itemProp="text"
               className={styles.ukraine_inner_city}
               dangerouslySetInnerHTML={{ __html: city_description }}
             ></div>
@@ -72,11 +78,24 @@ export default function AboutCompany({
               />
             </div>
           </div>
-          <div className={styles.about_conteiner}>
-            <h2 className={styles.title_text}>{title}</h2>
-            <p className={styles.text}>{first_text}</p>
-            <p className={styles.text}>{second_text}</p>
-            <p className={styles.text}>{third_text}</p>
+          <div
+            className={styles.about_conteiner}
+            itemScope
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
+          >
+            <h2 className={styles.title_text} itemProp="title">
+              {title}
+            </h2>
+            <p itemProp="text" className={styles.text}>
+              {first_text}
+            </p>
+            <p itemProp="text" className={styles.text}>
+              {second_text}
+            </p>
+            <p itemProp="text" className={styles.text}>
+              {third_text}
+            </p>
 
             <div className={styles.wrapper_signatur}>
               <div className={styles.conteiner_partner_olena}>
@@ -99,7 +118,7 @@ export default function AboutCompany({
               </div>
             </div>
             <div className={styles.btn_wrapper}>
-              <Link href={button["link"]}>
+              <Link href={button["link"]} rel="alternate">
                 <Button
                   style={"button_prymary"}
                   text={button["text"]}
