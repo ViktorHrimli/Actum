@@ -66,7 +66,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "paid-priority-crime":
         setIsOpenModal(false);
         break;
-      case "book" || "ru/book":
+      case "book":
         setIsOpenModal(false);
         break;
 
