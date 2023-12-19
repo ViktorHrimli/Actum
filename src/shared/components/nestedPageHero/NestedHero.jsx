@@ -25,7 +25,9 @@ export default function NestedHero({
   form = {},
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
+  const [isScroll, setIsScroll] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
   const [isPaymentHero, setIsPaymentHero] = useState(false);
   const isClient = useClient();
 
@@ -116,7 +118,6 @@ export default function NestedHero({
             variants={{ open: { x: 0, y: 0, opacity: 1 } }}
             // initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
             initial={false}
-
             transition={{ delay: 1, duration: 0.7 }}
             className={styles.title_text}
           >
