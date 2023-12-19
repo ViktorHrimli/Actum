@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import IconMap from "./IconMap";
 import Button from "@/libs/components/button/Button";
@@ -24,7 +24,24 @@ export default function Items({
   form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isScroll, setIsScroll] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
 
+    useEffect(() => {
+    if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    }
+    window.scrollTo(0, isScroll);
+
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
 
   const handleClickOnBtn = () => {
       setIsOpenModal(true);
