@@ -22,10 +22,16 @@ export default function Path({
   }, []);
 
   return (
-    <div className={styles.conteiner}>
-      <div className={styles.wrapper_path}>
-        <Link href={`/${parent_link}`} scroll={true}>
-          <p className={styles.service_text}>{parent_page}</p>
+    <div className={styles.breadcrumbs}>
+      <div
+        className={styles.wrapper_path}
+        itemScope
+        itemType="https://schema.org/BreadcrumbList"
+      >
+        <Link href={`/${parent_link}`} scroll={true} itemProp="url">
+          <p className={styles.service_text} itemProp="title">
+            {parent_page}
+          </p>
         </Link>
 
         <FontAwesomeIcon
@@ -33,13 +39,19 @@ export default function Path({
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
         {isNestedPage ? (
-          <Link href={`/${children_link}`}>
-            <p className={`${styles.path_text} ${styles[type]} ${styles.link}`}>
+          <Link href={`/${children_link}`} itemProp="url">
+            <p
+              className={`${styles.path_text} ${styles[type]} ${styles.link}`}
+              itemProp="title"
+            >
               {children_page}
             </p>
           </Link>
         ) : (
-          <p className={`${styles.path_text} ${styles[type]} ${styles.link}`}>
+          <p
+            className={`${styles.path_text} ${styles[type]} ${styles.link}`}
+            itemProp="title"
+          >
             {children_page}
           </p>
         )}
@@ -49,7 +61,10 @@ export default function Path({
               icon={faAnglesRight}
               className={`${styles.arrow_icon} ${styles[type]}`}
             />
-            <p className={`${styles.path_text} ${styles[type]}`}>
+            <p
+              className={`${styles.path_text} ${styles[type]}`}
+              itemProp="title"
+            >
               {nested_page_title}
             </p>
           </>

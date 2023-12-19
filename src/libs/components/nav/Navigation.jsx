@@ -70,13 +70,14 @@ export default function Navigation({
         {servicesRoute.map(({ List, Title, id, path }) => {
           return (
             <li key={id}>
-              <p>{Title}</p>
+              <p itemProp="title">{Title}</p>
               <Link
-                href={path}
-                rel="alternate"
+                href={isLocal ? `/ru${path}` : `/${path}`}
+                itemProp="url"
+                rel="canonical"
                 hrefLang={isLocal ? "ru" : "uk"}
               ></Link>
-              <ul>
+              {/* <ul>
                 {List.map(({ text, path }, id) => {
                   return (
                     <li key={id}>
@@ -89,7 +90,7 @@ export default function Navigation({
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
             </li>
           );
         })}

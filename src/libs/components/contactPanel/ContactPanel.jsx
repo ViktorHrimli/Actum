@@ -194,6 +194,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
             <ul className={styles.list_panel}>
               <li className={`${styles.link} ${styles.link_translator}`}>
                 <Link
+                  itemProp="url"
                   href={
                     path.includes("/ru")
                       ? path.replace("/ru", isHome ? "/" : "") +
@@ -229,7 +230,12 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 className={styles.link}
                 onClick={() => sendFormByMessenger(FIRST_ICON["icon"])}
               >
-                <a target="_blank" referrerPolicy="" href={FIRST_ICON["link"]}>
+                <a
+                  target="_blank"
+                  referrerPolicy=""
+                  itemProp="url"
+                  href={FIRST_ICON["link"]}
+                >
                   <FontAwesomeIcon
                     icon={iconEnum[FIRST_ICON["icon"]]}
                     className={styles.options_icon}
@@ -241,7 +247,12 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 className={`${styles.link} ${styles.mob_none}`}
                 onClick={() => sendFormByMessenger(SECOND_ICON["icon"])}
               >
-                <a target="_blank" referrerPolicy="" href={SECOND_ICON["link"]}>
+                <a
+                  target="_blank"
+                  referrerPolicy=""
+                  itemProp="url"
+                  href={SECOND_ICON["link"]}
+                >
                   <FontAwesomeIcon
                     icon={iconEnum[SECOND_ICON["icon"]]}
                     className={styles.options_icon}
@@ -254,11 +265,16 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 onClick={() => hanldePhoneNumber()}
               >
                 {isPhoneMob && (
-                  <motion.ul className={styles.list_phone}>
+                  <motion.ul
+                    className={styles.list_phone}
+                    itemScope
+                    itemType="http://schema.org/LocalBusiness"
+                  >
                     <li className={styles.link_panel_phone}>
                       <a
                         target="_blank"
                         referrerPolicy=""
+                        itemProp="telephone"
                         href={`tel:${Telephones["KiyvStar"]}`}
                       >
                         {Telephones["KiyvStar"]}
@@ -268,6 +284,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                       <a
                         target="_blank"
                         referrerPolicy=""
+                        itemProp="telephone"
                         href={`tel:${Telephones["Vodafone"]}`}
                       >
                         {Telephones["Vodafone"]}
@@ -291,17 +308,23 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
               <li
                 className={styles.link}
                 onClick={() => setIsOpenModal(true) & setIsPhoneMob(false)}
+                itemProp="url"
               >
                 <Image src={Form} alt="Form" width={34} height={34} />
               </li>
             </ul>
             <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
-              <ul className={styles.list_panel_phone}>
+              <ul
+                className={styles.list_panel_phone}
+                itemScope
+                itemType="http://schema.org/LocalBusiness"
+              >
                 <li className={styles.link_panel_phone}>
                   <a
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["KiyvStar"]}`}
+                    itemProp="telephone"
                   >
                     {Telephones["KiyvStar"]}
                   </a>
@@ -311,6 +334,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["Vodafone"]}`}
+                    itemProp="telephone"
                   >
                     {Telephones["Vodafone"]}
                   </a>
