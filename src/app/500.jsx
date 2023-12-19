@@ -17,7 +17,11 @@ export default function Custom500() {
       }}
     >
       <h1>Щось сталось (:</h1>
-      <Link className={styles.error_text} href={"/"}>
+      <Link
+        className={styles.error_text}
+        href={"/"}
+        onClick={() => window.location.reload()}
+      >
         <h2>Повернутися на головну</h2>
       </Link>
     </div>
