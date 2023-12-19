@@ -57,9 +57,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
     getFormById("form_section");
 
     switch (path) {
-      case "home":
-        setIsOpenModal(false);
-        break;
       case "paid-priority-family":
         setIsOpenModal(false);
         break;
@@ -86,15 +83,22 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   }
 
   useEffect(() => {
-    if (isFristRender) {
-      setTimeout(() => setIsClient(true), 3800);
+    // FUCK I HAVnot use another way blyat so sorry for me beacame of future but dont touch pidor) joke...lol
+    if (home || homeRu) {
+      if (isFristRender) {
+        setTimeout(() => setIsClient(true), 3800);
+      } else {
+        setTimeout(() => setIsClient(true), 1000);
+      }
     } else {
-      setTimeout(() => setIsClient(true), 1000);
+      setIsClient(true);
     }
   }, [isFristRender]);
 
   useEffect(() => {
     setIsLocale(localStorage.getItem("locale") || "");
+    // Look and never... listen? NEVER blyat dont do this...but we are have not chois (:
+
     switch (true) {
       case home:
         setIsStyleFooter(footerEnums["family"]);
@@ -155,6 +159,8 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   }, [path]);
 
   useEffect(() => {
+    // Ok its fine)
+
     if (isOpenModal) {
       setIsScroll(window.scrollY);
       document.body.style.overflow = "hidden";
@@ -281,7 +287,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-1"}`}
                   itemProp="telephone"
-
                   href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                 >
                   {uaFooterData.Phones["Vodafone"]}

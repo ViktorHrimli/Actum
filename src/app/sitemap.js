@@ -9,7 +9,6 @@ export default async function sitemap() {
   } = await getStaticPage(API_ROBOTS, QUERY_ROBOTS);
 
   return obj.map((item) => {
-    console.log(item);
     return {
       url: BASE_URL + item.url,
       lastModified: new Date().toISOString(),

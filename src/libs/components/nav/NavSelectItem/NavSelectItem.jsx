@@ -14,7 +14,7 @@ export default function NavSelectItem({
   setisCurrent,
   isCurrent,
   directions,
-  locale,
+  locale = false,
   id,
 }) {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
