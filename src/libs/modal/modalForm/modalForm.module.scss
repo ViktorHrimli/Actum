@@ -61,7 +61,7 @@
   border-radius: 2px;
   background: #E2E0E0;
 
-  overflow-y: scroll;
+  overflow: visible;
 
   @media screen and (min-width: 320px) {
     width: 310px;

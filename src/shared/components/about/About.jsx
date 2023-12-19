@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Button from "@/libs/components/button/Button";
 import Quotes from "@/shared/components/quotes/Quotes";
@@ -21,6 +21,9 @@ export default function About({
   form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isScroll, setIsScroll] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
 
   const handleClickOnBtn = () => {
     if (form) {
@@ -29,6 +32,21 @@ export default function About({
       getFormById("form_section");
     }
   };
+
+  useEffect(() => {
+    if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    }
+    window.scrollTo(0, isScroll);
+
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
 
   return (
     <>
