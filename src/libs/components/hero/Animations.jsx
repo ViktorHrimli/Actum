@@ -62,6 +62,7 @@ export default function Animations({
 
   const eventTestLayer = () => {
     window.dataLayer.push({ event: "formissent" });
+    console.log("formissent");
   };
 
   useEffect(() => {

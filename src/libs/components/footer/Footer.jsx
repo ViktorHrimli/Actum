@@ -272,15 +272,16 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <p className={styles.footer_contact_title}>Phone:</p>
               <div>
                 <Link
-                  className={styles.phone}
+                  className={`${styles.phone} ${"binct-phone-number-2"}`}
                   itemProp="telephone"
                   href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
                 >
                   {uaFooterData.Phones["KiyvStar"]}
                 </Link>
                 <Link
-                  className={styles.phone}
+                  className={`${styles.phone} ${"binct-phone-number-1"}`}
                   itemProp="telephone"
+
                   href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                 >
                   {uaFooterData.Phones["Vodafone"]}

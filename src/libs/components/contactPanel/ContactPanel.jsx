@@ -271,24 +271,26 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                     itemType="http://schema.org/LocalBusiness"
                   >
                     <li className={styles.link_panel_phone}>
-                      <a
+                      <Link
+                        className="binct-phone-number-2"
                         target="_blank"
                         referrerPolicy=""
                         itemProp="telephone"
                         href={`tel:${Telephones["KiyvStar"]}`}
                       >
                         {Telephones["KiyvStar"]}
-                      </a>
+                      </Link>
                     </li>
                     <li className={styles.link_panel_phone}>
-                      <a
+                      <Link
+                        className="binct-phone-number-1"
                         target="_blank"
                         referrerPolicy=""
                         itemProp="telephone"
                         href={`tel:${Telephones["Vodafone"]}`}
                       >
                         {Telephones["Vodafone"]}
-                      </a>
+                      </Link>
                     </li>
                   </motion.ul>
                 )}
@@ -320,24 +322,26 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 itemType="http://schema.org/LocalBusiness"
               >
                 <li className={styles.link_panel_phone}>
-                  <a
+                  <Link
+                    className="binct-phone-number-2"
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["KiyvStar"]}`}
                     itemProp="telephone"
                   >
                     {Telephones["KiyvStar"]}
-                  </a>
+                  </Link>
                 </li>
                 <li className={styles.link_panel_phone}>
-                  <a
+                  <Link
+                    className="binct-phone-number-1"
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["Vodafone"]}`}
                     itemProp="telephone"
                   >
                     {Telephones["Vodafone"]}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </ScrollAwareSection>
