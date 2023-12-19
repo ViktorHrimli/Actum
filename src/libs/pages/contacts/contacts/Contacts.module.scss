@@ -445,7 +445,6 @@
 .footer_text {
   display: block;
 
-  width: 304px;
 
   font-style: normal;
   font-weight: 400;
@@ -551,6 +550,7 @@
   font-weight: 400;
   line-height: normal;
   text-transform: lowercase;
+  width: 200px;
 
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     font-size: 14px;
@@ -558,6 +558,7 @@
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
+    width: 220px;
   }
 
   @media screen and (min-width: 1440px) {
