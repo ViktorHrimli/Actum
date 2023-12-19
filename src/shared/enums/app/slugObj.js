@@ -10,14 +10,14 @@ const {
 } = process.env;
 
 const slugs = {
-  fami: API_FAMILY_SERVICES,
+  simein: API_FAMILY_SERVICES,
   krymi: API_CRIME_SERVICES,
-  land: API_LAND_SERVICES,
-  realty: API_RELTY_SERVICES,
-  admin: APi_ADMINISTRATIVE_SERVICES,
+  zemelny: API_LAND_SERVICES,
+  nerukhomost: API_RELTY_SERVICES,
+  administ: APi_ADMINISTRATIVE_SERVICES,
   army: API_ARMY_SERVICES,
-  credit: API_CREDIT_SERVICES,
-  drive: API_ACCIDENT_SERVICES,
+  kredytak: API_CREDIT_SERVICES,
+  dtp: API_ACCIDENT_SERVICES,
 };
 
 export { slugs };

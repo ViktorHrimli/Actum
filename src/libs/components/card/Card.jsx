@@ -5,6 +5,8 @@ import styles from "./Card.module.scss";
 
 import { enumsColor } from "./libs/enumsColor";
 
+import skeleton from "@/assets/svg/skeleton.jpg";
+
 export default function Card({ name, photo, date, body, type, link }) {
   const { color } = enumsColor[type];
 
@@ -14,7 +16,7 @@ export default function Card({ name, photo, date, body, type, link }) {
         <Link href={link ? link : ""} target="_blank">
           <div className={styles.wrapper_image}>
             <Image
-              src={photo}
+              src={photo ? photo : skeleton}
               alt="Person"
               fill
               loading="eager"
