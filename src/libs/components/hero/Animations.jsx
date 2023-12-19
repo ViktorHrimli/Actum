@@ -60,11 +60,6 @@ export default function Animations({
     ? desktopWatemarkLine
     : mobileWatemarkLine;
 
-  const eventTestLayer = () => {
-    window.dataLayer.push({ event: "formissent" });
-    console.log("formissent");
-  };
-
   useEffect(() => {
     setIsClient(true);
     setscreenWidth(window.innerWidth);
@@ -216,7 +211,7 @@ export default function Animations({
       {isClient && (
         <motion.div
           animate={isSessionStorageSave ? isStep && "open" : false}
-          onClick={eventTestLayer}
+          onClick={() => setIsOpenModal(true)}
           key={"btn_wrapper"}
           variants={{ open: { y: "0", opacity: 1 } }}
           initial={isSessionStorageSave ? { y: "90px", opacity: 0 } : false}
@@ -227,7 +222,7 @@ export default function Animations({
           className={styles.btn_wrapper}
         >
           <Button
-            onClick={eventTestLayer}
+            onClick={() => setIsOpenModal(true)}
             type={"button"}
             text={button["text"]}
             style="button_prymary"

@@ -131,9 +131,9 @@ export default function Form({
       const data = storage.sendObjData(bodySubmitSuccsses);
 
       setIsLoading(true);
+      window.dataLayer.push({ event: "formissent" });
 
       axios.post("/api/send", data);
-
       axios
         .post("/api/form", data)
         .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
