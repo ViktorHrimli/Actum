@@ -1,7 +1,6 @@
 import Link from "next/link";
-import styles from "./page.module.scss";
 
-export default function NotFound() {
+export default function Custom500() {
   return (
     <div
       style={{
