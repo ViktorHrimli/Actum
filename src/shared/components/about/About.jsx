@@ -22,44 +22,47 @@ export default function About({
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const handleClickOnBtn = () => {
-    // getFormById("form_section");
-    setIsOpenModal(true);
+    if (form) {
+      setIsOpenModal(true);
+    } else {
+      getFormById("form_section");
+    }
   };
 
   return (
     <>
-    <section className={styles.section}>
-      <div className={styles.conteiner}>
-        <div className={styles.conteiner_text}>
-          <div className={styles.conteiner_title}>
-            <div className={styles.icons_conteiner}>
-              <Quotes color={themsColor[type]["fill"]} />
+      <section className={styles.section}>
+        <div className={styles.conteiner}>
+          <div className={styles.conteiner_text}>
+            <div className={styles.conteiner_title}>
+              <div className={styles.icons_conteiner}>
+                <Quotes color={themsColor[type]["fill"]} />
+              </div>
+              <h2 className={styles.title_text}>{title}</h2>
             </div>
-            <h2 className={styles.title_text}>{title}</h2>
+            <div
+              className={styles.conteiner_description}
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></div>
           </div>
-          <div
-            className={styles.conteiner_description}
-            dangerouslySetInnerHTML={{ __html: description }}
-          ></div>
-        </div>
-        <div className={styles.box}>
-          <Image
-            src={photo["data"]["attributes"]["url"]}
-            loading="lazy"
-            quality={100}
-            alt="natalia"
-            fill
-          />
-          <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
-            <Button
-              style={"button_service"}
-              text={button["text"]}
-              type={type}
-              typeStyle={type}
+          <div className={styles.box}>
+            <Image
+              src={photo["data"]["attributes"]["url"]}
+              loading="lazy"
+              quality={100}
+              alt="natalia"
+              fill
             />
+            <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
+              <Button
+                style={"button_service"}
+                text={button["text"]}
+                type={type}
+                typeStyle={type}
+              />
+            </div>
           </div>
         </div>
-      </div>
       </section>
       {isOpenModal && (
         <ModalForm
@@ -67,7 +70,8 @@ export default function About({
           form={form}
           setIsOpenModal={setIsOpenModal}
           isOpenModal={isOpenModal}
-        />)}
+        />
+      )}
     </>
   );
 }

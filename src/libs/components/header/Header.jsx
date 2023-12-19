@@ -47,6 +47,8 @@ export default function Header({ ru, uk }) {
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isStyleHeader, setIsStyleHeader] = useState(null);
+  // SEO DROP MENU
+  const [isDirPage, setIsDirPage] = useState("");
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
   const isTab = useIsTab();
@@ -61,7 +63,7 @@ export default function Header({ ru, uk }) {
     : mobileLogoAnimate;
 
   let isSessionStorageSave;
-  const isHoome = path === "/" || path === "/ru"
+  const isHoome = path === "/" || path === "/ru";
 
   if (typeof window !== "undefined") {
     isSessionStorageSave = JSON.parse(
@@ -133,7 +135,13 @@ export default function Header({ ru, uk }) {
           >
             <motion.div
               className={styles.logo_conteiner}
-              animate={isHoome ? isSessionStorageSave ? logoAnimated["animate"](isStep) : false : false }
+              animate={
+                isHoome
+                  ? isSessionStorageSave
+                    ? logoAnimated["animate"](isStep)
+                    : false
+                  : false
+              }
               // animate={
               //   isSessionStorageSave ? logoAnimated["animate"](isStep) : false
               // }
@@ -144,9 +152,11 @@ export default function Header({ ru, uk }) {
               //     : false
               // }
               initial={
-               isHoome ? isSessionStorageSave
-                  ? logoAnimated["initial"](window?.innerHeight > 798)
-                  : false : false 
+                isHoome
+                  ? isSessionStorageSave
+                    ? logoAnimated["initial"](window?.innerHeight > 798)
+                    : false
+                  : false
               }
               transition={logoAnimated["transition"]}
             >
@@ -165,12 +175,18 @@ export default function Header({ ru, uk }) {
         {isDesktopOrLaptop && isClient ? (
           <motion.div
             // animate={isSessionStorageSave ? "open" : false}
-            animate={isHoome ? isSessionStorageSave ? "open" : false : false}
+            animate={isHoome ? (isSessionStorageSave ? "open" : false) : false}
             variants={{
               open: { x: 0, y: 0, opacity: 1 },
             }}
             // initial={isSessionStorageSave ? { x: 0, y: 50, opacity: 0 } : false}
-            initial={isHoome ? isSessionStorageSave ? { x: 0, y: 50, opacity: 0 } : false :  false }
+            initial={
+              isHoome
+                ? isSessionStorageSave
+                  ? { x: 0, y: 50, opacity: 0 }
+                  : false
+                : false
+            }
             transition={{ duration: 0.8, delay: 2.5 }}
           >
             <Navigation

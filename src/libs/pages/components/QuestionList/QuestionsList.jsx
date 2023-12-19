@@ -9,7 +9,7 @@ import About from "@/shared/components/about/About";
 
 import { specialistsEnums } from "@/libs/pages/components/specialists/libs/enums";
 
-export default function QuestionsList({ type, questions, about_block }) {
+export default function QuestionsList({ type, questions, about_block, form }) {
   const { color } = specialistsEnums[type];
 
   const [isCurent, setIsCurent] = useState(null);
@@ -18,7 +18,7 @@ export default function QuestionsList({ type, questions, about_block }) {
 
   return (
     <>
-      <About type={type} {...about_block} />
+      <About type={type} {...about_block} form={form} />
       <section className={styles.section}>
         <div className={styles.questions_conteiner}>
           <div className={styles.container_title}>
