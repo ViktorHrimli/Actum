@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "next build && npm run postbuild",
+    "build": "next build",
     "lint": "next lint",
     "latest": "git pull origin && npm i && npm run build && npm start"
   },
