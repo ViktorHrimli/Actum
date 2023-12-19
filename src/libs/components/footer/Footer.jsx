@@ -18,8 +18,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isLocale, setIsLocale] = useState("");
 
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
-  
+  const [isScroll, setIsScroll] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
 
   const path = usePathname().replace("/", "");
 
@@ -36,9 +37,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   } = uaFooter;
 
   const crime = path.includes("crim");
-  const kryminalnyi = path.includes("kryminalnyi")
+  const kryminalnyi = path.includes("kryminalnyi");
   const army = path.includes("army");
-  const family = path.includes("fami");
+  const family = path.includes("simeinyk");
 
   const home = path === "";
   const homeRu = path === "ru";
@@ -51,9 +52,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const contacts = path.includes("contacts");
   const blog = path.includes("blog");
   const sitemap = path.includes("sitemap");
-
-
-
 
   const handleClickOnBtn = () => {
     getFormById("form_section");
@@ -74,7 +72,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "book":
         setIsOpenModal(false);
         break;
-      
+
       default:
         setIsOpenModal(true);
         break;
@@ -98,15 +96,14 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   useEffect(() => {
     setIsLocale(localStorage.getItem("locale") || "");
     switch (true) {
-
       case home:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case homeRu:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case army:
         setIsStyleFooter(footerEnums["army"]);
         return;
@@ -114,7 +111,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case crime:
         setIsStyleFooter(footerEnums["crime"]);
         return;
-      
+
       case kryminalnyi:
         setIsStyleFooter(footerEnums["crime"]);
         return;
@@ -122,19 +119,19 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case family:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case sitemap:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case services:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case RUservices:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case teamactum:
         setIsStyleFooter(footerEnums["family"]);
         return;
@@ -142,11 +139,11 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case book:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case contacts:
         setIsStyleFooter(footerEnums["family"]);
         return;
-      
+
       case blog:
         setIsStyleFooter(footerEnums["family"]);
         return;
@@ -220,8 +217,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
-                <span style={{display: "block"}}>без вихідних з 8:00 до 22:00</span>
-
+              <span style={{ display: "block" }}>
+                без вихідних з 8:00 до 22:00
+              </span>
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>
@@ -229,7 +227,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               </p>
               <p className={styles.footer_text}>
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                  <span style={{display: "block"}}>без вихідних з 8:00 до 22:00</span>
+                <span style={{ display: "block" }}>
+                  без вихідних з 8:00 до 22:00
+                </span>
               </p>
             </div>
             <p className={styles.footer_title}>

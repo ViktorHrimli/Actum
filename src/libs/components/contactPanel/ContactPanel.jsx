@@ -35,7 +35,9 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [isPhoneMob, setIsPhoneMob] = useState(false);
 
   const [isLanguage, setIsLanguage] = useState(false);
-  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
+  const [isScroll, setIsScroll] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
 
   const isDesktop = useIsBig();
   const path = usePathname();
@@ -43,12 +45,11 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const isHome = path === "/ru";
   const searchParams = useSearchParams();
 
-
   const crime = path.includes("crim");
-  const kryminalnyi = path.includes("kryminalnyi")
+  const kryminalnyi = path.includes("kryminalnyi");
 
   const army = path.includes("army");
-  const family = path.includes("fami");
+  const family = path.includes("simeinyk");
 
   let isSessionStorageSave;
 
@@ -103,7 +104,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
         setsetIsStylePanel(colorGradient["crime"]);
         setIsStyleModal("crime");
         return;
-      
+
       case kryminalnyi:
         setsetIsStylePanel(colorGradient["crime"]);
         setIsStyleModal("crime");
@@ -194,7 +195,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
               <li className={`${styles.link} ${styles.link_translator}`}>
                 <Link
                   href={
-                    path.includes("ru")
+                    path.includes("/ru")
                       ? path.replace("/ru", isHome ? "/" : "") +
                         window.location.search
                       : path + window.location.search
@@ -215,7 +216,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 >
                   <Link
                     href={
-                      path.includes("ru")
+                      path.includes("/ru")
                         ? path + window.location.search
                         : `/ru${path}` + window.location.search
                     }
