@@ -16,29 +16,8 @@ export default function Navigation({
   servicesRoute,
   isOpenMenu,
   isLocal = false,
-  dirPage,
 }) {
   const SERVICES = isLocal ? "услуги" : "послуги";
-
-  // useEffect(() => {
-  //   switch (directions) {
-  //     case "root":
-  //       setDirPage("");
-  //       break;
-
-  //     case "services":
-  //       setDirPage("services");
-  //       break;
-
-  //     case "other":
-  //       setDirPage("other");
-  //       break;
-
-  //     default:
-  //       setDirPage("");
-  //       break;
-  //   }
-  // }, [pathName]);
 
   return (
     <div style={{ position: "relative" }}>
@@ -91,11 +70,18 @@ export default function Navigation({
         {servicesRoute.map(({ List, Title, id, path, directions }) => {
           var dir = directions === "root" ? "" : directions;
           var shortDir = isLocal ? `/ru/${dir}` : `/${dir}`;
+
           return (
             <li key={id}>
               <p itemProp="title">{Title}</p>
               <Link
-                href={isLocal ? `/ru${path}` : `/${path}`}
+                href={
+                  isLocal
+                    ? path.includes("ru/")
+                      ? path
+                      : `ru/${path}`
+                    : `/${path}`
+                }
                 itemProp="url"
                 hrefLang={isLocal ? "ru" : "uk"}
               ></Link>
@@ -108,7 +94,7 @@ export default function Navigation({
                         rel="alternate"
                         hrefLang={isLocal ? "ru" : "uk"}
                         href={
-                          dirPage
+                          dir
                             ? `${shortDir}/${path}/${pathService}`
                             : `/${path}/${pathService}`
                         }

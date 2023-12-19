@@ -47,8 +47,6 @@ export default function Header({ ru, uk }) {
   const [onHover, setOnHover] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isStyleHeader, setIsStyleHeader] = useState(null);
-  // SEO DROP MENU
-  const [isDirPage, setIsDirPage] = useState("");
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
   const isTab = useIsTab();
@@ -132,6 +130,7 @@ export default function Header({ ru, uk }) {
             href={isLocal ? `/ru` : "/"}
             rel="alternate"
             hrefLang={isLocal ? "ru" : "uk"}
+            itemProp="url"
           >
             <motion.div
               className={styles.logo_conteiner}
@@ -162,6 +161,7 @@ export default function Header({ ru, uk }) {
             >
               <Image
                 src={uaHeaders["LOGO"]["data"]["attributes"]["url"]}
+                itemProp="logo"
                 alt="Logo ACTUM"
                 fill
                 priority={true}
