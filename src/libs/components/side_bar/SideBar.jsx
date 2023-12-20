@@ -8,8 +8,6 @@ import { colorImg } from "./libs/enums";
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import Telegram from "@/assets/svg/telegram.svg";
-// import Viber from "@/assets/svg/Viber.png";
-// import Whatsapp from "@/assets/svg/Whatsapp.png";
 import Form from "@/assets/svg/Form.png";
 
 export default function SideBar({ children, isStyleHeader }) {
@@ -69,19 +67,6 @@ export default function SideBar({ children, isStyleHeader }) {
                   <Image src={Telegram} alt="Telegram" width={34} height={34} />
                 </a>
               </li>
-
-              {/* <li>
-                <a href="https://invite.viber.com/?g2=AQAIAxhPHjjf809lW9EPmDdLNrTBIB8uE1N0EfCEBTA5C3kI7AdyB85tcGxAzay%2F&lang=ru">
-                  <Image src={Viber} alt="Viber" width={34} height={34} />
-                </a>
-              </li> */}
-
-              {/* <li>
-                <a href="">
-                  <Image src={Whatsapp} alt="Whatsapp" width={34} height={34} />
-                </a>
-              </li> */}
-
               <li onClick={() => setIsOpenModal(true)}>
                 <a>
                   <Image src={Form} alt="Form" width={34} height={34} />

@@ -33,6 +33,7 @@ export default function Navigation({
             }
           >
             <Link
+              prefetch={false}
               className={
                 route === `/${path}`
                   ? styles.active_link
@@ -75,12 +76,13 @@ export default function Navigation({
             <li key={id}>
               <p itemProp="title">{Title}</p>
               <Link
+                prefetch={false}
                 href={
                   isLocal
-                    ? path.includes("ru/")
-                      ? path
-                      : `ru/${path}`
-                    : `/${path}`
+                    ? dir
+                      ? `ru/${dir}/${path}`
+                      : `${path}`
+                    : `${dir}/${path}`
                 }
                 itemProp="url"
                 hrefLang={isLocal ? "ru" : "uk"}
@@ -91,6 +93,7 @@ export default function Navigation({
                     <li key={id}>
                       <p itemProp="title">{text}</p>
                       <Link
+                        prefetch={false}
                         rel="alternate"
                         hrefLang={isLocal ? "ru" : "uk"}
                         href={

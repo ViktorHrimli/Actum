@@ -122,6 +122,7 @@ export default function Form({
         ...makeObjParams,
         telephone: phoneNumber,
         type: "form",
+        formType: "formPage",
         client,
         pagename,
         question,

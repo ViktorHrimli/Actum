@@ -84,7 +84,7 @@ export default function NestedHero({
           fill
           priority={true}
           style={{ zIndex: -1, objectFit: "cover" }}
-          loading="eager"
+          loading="lazy"
           sizes="100vw"
         />
 
@@ -106,7 +106,7 @@ export default function NestedHero({
               src={actum["data"]["attributes"]["url"]}
               alt="ACTUM"
               fill
-              loading="eager"
+              loading="lazy"
               priority={true}
               sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             />
