@@ -12,18 +12,18 @@ export default function Scripts() {
     isClient && (
       <>
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Q9Y47E76PM"
         ></Script>
-        <Script strategy="afterInteractive" id="gtm">
+        <Script strategy="lazyOnload" id="gtm">
           {`
           window.dataLayer = window.dataLayer || []; function gtag()
           {dataLayer.push(arguments)}
           gtag('js', new Date()); gtag('config', 'G-Q9Y47E76PM');
         `}
         </Script>
-        <Script strategy="afterInteractive" id="google-tag">
+        <Script strategy="lazyOnload" id="google-tag">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=false;j.src=
@@ -31,7 +31,7 @@ export default function Scripts() {
           })(window,document,'script','dataLayer','GTM-MQMDB7V');
         `}
         </Script>
-        <Script strategy="afterInteractive" id="fb-event">
+        <Script strategy="lazyOnload" id="fb-event">
           {`!function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -44,17 +44,13 @@ export default function Scripts() {
           fbq('track', 'PageView');`}
         </Script>
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           id="crazyegg"
           type="text/javascript"
           src="//script.crazyegg.com/pages/scripts/0119/8897.js"
           async="async"
         ></Script>
-        <Script
-          type="text/javascript"
-          strategy="afterInteractive"
-          id="click-case"
-        >
+        <Script type="text/javascript" strategy="lazyOnload" id="click-case">
           {`
           var script = document.createElement('script'); script.async = false;
         script.type = 'text/javascript'; var target =
