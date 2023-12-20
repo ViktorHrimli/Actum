@@ -85,7 +85,7 @@ export default function Header({ ru, uk }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    return () => setTimeout(() => storage.generateUserInfo(searchParams), 3000);
+    setTimeout(() => storage.generateUserInfo(searchParams), 3000);
   }, []);
 
   useEffect(() => {
