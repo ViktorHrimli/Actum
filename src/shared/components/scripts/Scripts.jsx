@@ -6,7 +6,7 @@ import { useEffect, useState } from "@/shared/hooks/hooks";
 export default function Scripts() {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
-    setIsClient(true);
+    setTimeout(() => setIsClient(true), 3000);
   }, []);
   return (
     isClient && (
