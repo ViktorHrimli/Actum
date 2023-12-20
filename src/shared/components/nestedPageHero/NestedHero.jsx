@@ -108,7 +108,6 @@ export default function NestedHero({
               fill
               loading="eager"
               priority={true}
-              style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             />
           </motion.div>

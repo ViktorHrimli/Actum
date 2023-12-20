@@ -3,7 +3,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import femida from "@/assets/svg/HERO_FEMIDA.png";
-import watemark from "@/assets/svg/Actum_HERO.png";
 
 import {
   useState,
@@ -92,11 +91,10 @@ export default function Animations({
           className={styles.conteiner_wordmark}
         >
           <Image
-            src={Actum_Logo["data"]["attributes"]["url"] || watemark}
+            src={Actum_Logo["data"]["attributes"]["url"]}
             alt="ACTUM"
             fetchPriority="high"
             priority={true}
-            style={{ objectFit: "cover" }}
             sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             fill
           />

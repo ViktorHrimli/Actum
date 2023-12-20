@@ -13,7 +13,7 @@ const TIME_REFETCH = 30;
 
 export async function GET(req, res) {
   try {
-    if (false) {
+    if (TIME_REFETCH < TIME) {
       const dataReviews = await unPackageTelegramReview();
 
       await fs.writeFile(resolvePath, JSON.stringify(dataReviews));

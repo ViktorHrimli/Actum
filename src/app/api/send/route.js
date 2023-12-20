@@ -13,7 +13,7 @@ export async function POST(req) {
     resend.emails.send({
       from: "onboarding@resend.dev",
       to: "info@actum.com.ua",
-      subject: "Отправлен запрос на консультацию",
+      subject: `Отправлен запрос на консультацию з ${data["pagename"]}`,
       html: markDown,
     });
     return Response.json({ text: "OK" });
