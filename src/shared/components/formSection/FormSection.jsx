@@ -31,10 +31,10 @@ export default function FormSection({
               </p>
               <div className={styles.text_wrapper_info}>
                 <a href={`tel:${phones["KiyvStar"]}`}>
-                  <p className={styles.text}>{phones["KiyvStar"]}</p>
+                  <p className={`${styles.text} ${"binct-phone-number-2"}`}>{phones["KiyvStar"]}</p>
                 </a>
                 <a href={`tel:${phones["Vodafone"]}`}>
-                  <p className={styles.text}>{phones["Vodafone"]}</p>
+                  <p className={`${styles.text} ${"binct-phone-number-1"}`}>{phones["Vodafone"]}</p>
                 </a>
               </div>
             </div>
