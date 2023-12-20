@@ -86,9 +86,11 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
     // FUCK I HAVnot use another way blyat so sorry for me beacame of future but dont touch pidor) joke...lol
     if (home || homeRu) {
       if (isFristRender) {
-        setTimeout(() => setIsClient(true), 1000);
+        // setTimeout(() => setIsClient(true), 3800);
+        setTimeout(() => setIsClient(true), 0);
       } else {
-        setTimeout(() => setIsClient(true), 1000);
+        // setTimeout(() => setIsClient(true), 1000);
+        setTimeout(() => setIsClient(true), 0);
       }
     } else {
       setIsClient(true);
