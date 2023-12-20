@@ -1,9 +1,32 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   i18n: {
     defaultLocale: "uk",
     locales: ["uk", "ru"],
     localeDetection: false,
+  },
+
+  async redirects() {
+    const res = await fetch(
+      `https://strapi-actum.space/api/redirects-301?populate=*`
+    );
+
+    const data = await res.json();
+
+    const {
+      data: {
+        attributes: { redirects },
+      },
+    } = data;
+
+    return redirects.map((item) => {
+      return {
+        source: item.oldPath,
+        destination: item.newPath,
+        permanent: true,
+      };
+    });
   },
 
   async headers() {
