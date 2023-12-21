@@ -41,11 +41,13 @@ export default function Path({
             {parent_page}
           </p>
         </Link>
-
+        
+      
         <FontAwesomeIcon
           icon={faAnglesRight}
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
+        </div>
         {isNestedPage ? (
           <span itemScope itemType="https://schema.org/BreadcrumbList">
           <Link href={`/${children_link}`} itemProp="url">
@@ -85,7 +87,6 @@ export default function Path({
             </p>
           </>
         )}
-      </div>
     </div>
   );
 }
