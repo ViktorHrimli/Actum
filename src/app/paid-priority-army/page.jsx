@@ -8,6 +8,8 @@ import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/Succe
 import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
+
+
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 

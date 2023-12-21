@@ -26,6 +26,7 @@ import { iconEnum } from "@/shared/enums/enum";
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import styles from "./ContactPanel.module.scss";
 
+
 export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState("family");
   const [isStyleModal, setIsStyleModal] = useState(null);
@@ -35,9 +36,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [isPhoneMob, setIsPhoneMob] = useState(false);
 
   const [isLanguage, setIsLanguage] = useState(false);
-  const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [isScroll, setIsScroll] = useState(0);
 
   const isDesktop = useIsBig();
   const path = usePathname();
@@ -362,3 +361,4 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
     )
   );
 }
+

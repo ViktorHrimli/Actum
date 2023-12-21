@@ -18,9 +18,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isLocale, setIsLocale] = useState("");
 
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [isScroll, setIsScroll] = useState(0);
 
   const path = usePathname().replace("/", "");
 
@@ -87,10 +85,10 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
     if (home || homeRu) {
       if (isFristRender) {
         // setTimeout(() => setIsClient(true), 3800);
-        setTimeout(() => setIsClient(true), 0);
+        setTimeout(() => setIsClient(true), 1000);
       } else {
         // setTimeout(() => setIsClient(true), 1000);
-        setTimeout(() => setIsClient(true), 0);
+        setTimeout(() => setIsClient(true), 1000);
       }
     } else {
       setIsClient(true);

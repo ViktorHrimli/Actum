@@ -5,6 +5,7 @@ import { useEffect, useState } from "@/shared/hooks/hooks";
 
 export default function Scripts() {
   const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
     setTimeout(() => setIsClient(true), 3500);
   }, []);
@@ -23,6 +24,7 @@ export default function Scripts() {
           gtag('js', new Date()); gtag('config', 'G-Q9Y47E76PM');
         `}
         </Script>
+        {/*  mask */}
         <Script strategy="lazyOnload" id="google-tag">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -31,6 +33,7 @@ export default function Scripts() {
           })(window,document,'script','dataLayer','GTM-MQMDB7V');
         `}
         </Script>
+        {/* --- */}
         <Script strategy="lazyOnload" id="fb-event">
           {`!function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
