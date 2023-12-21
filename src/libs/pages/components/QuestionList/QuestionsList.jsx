@@ -75,21 +75,27 @@ export default function QuestionsList({ type, questions, about_block, form }) {
                 itemProp="mainEntity"
                 itemType="https://schema.org/Question"
               >
-                <Link
-                  rel="alternate"
-                  hrefLang={items.link?.includes("/ru") ? "ru" : "uk"}
-                  itemProp="url"
-                  href={
-                    items.link
-                      ? items.dir
-                        ? dir + `/${items.link}`
-                        : `${isOtherPAge ? dir : pathName}/${items.link}`
-                      : ""
-                  }
-                ></Link>
+                <div
+                  itemScope
+                  itemProp="acceptedAnswer"
+                  itemType="https://schema.org/Answer"
+                >
+                  <Link
+                    rel="alternate"
+                    hrefLang={items.link?.includes("/ru") ? "ru" : "uk"}
+                    itemProp="url"
+                    href={
+                      items.link
+                        ? items.dir
+                          ? dir + `/${items.link}`
+                          : `${isOtherPAge ? dir : pathName}/${items.link}`
+                        : ""
+                    }
+                  ></Link>
+                </div>
                 <h2 itemProp="name">{items.title}</h2>
                 <div
-                  itemscope
+                  itemScope
                   itemProp="acceptedAnswer"
                   itemType="https://schema.org/Answer"
                 >

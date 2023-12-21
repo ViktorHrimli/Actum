@@ -9,7 +9,7 @@ import { makeSeoTemplate } from "@/shared/helpers/helpers";
 const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
   process.env;
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_BLOG_PAGE);
 }
 

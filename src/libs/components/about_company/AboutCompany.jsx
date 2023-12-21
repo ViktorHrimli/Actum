@@ -57,20 +57,22 @@ export default function AboutCompany({
             {/* PHOTO */}
             <div className={styles.olga_conteiner}>
               <Image
-                src={left_picture["data"]["attributes"]["url"] || Natalia}
+                src={left_picture["data"]["attributes"]["url"]}
                 alt="Olga"
                 quality={100}
+                priority={false}
                 fill
-                loading="eager"
+                loading="lazy"
               />
             </div>
             <div className={styles.natalia_conteiner}>
               <Image
-                src={right_picture["data"]["attributes"]["url"] || Olena}
+                src={right_picture["data"]["attributes"]["url"]}
                 alt="Natalia"
                 fill
+                priority={false}
                 quality={100}
-                loading="eager"
+                loading="lazy"
               />
             </div>
           </div>
@@ -124,44 +126,4 @@ export default function AboutCompany({
       </section>
     )
   );
-}
-
-{
-  /* <html itemscope itemtype="https://schema.org/FAQPage">
-  <head>
-    <title>Часто задаваемые вопросы</title>
-  </head>
-  <body>
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <span itemprop="name">Текст вопроса 1</span>
-      <div
-        itemscope
-        itemprop="acceptedAnswer"
-        itemtype="https://schema.org/Answer"
-      >
-        <div itemprop="text">Текст ответа 1</div>
-      </div>
-    </div>
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <span itemprop="name">Текст вопроса 2</span>
-      <div
-        itemscope
-        itemprop="acceptedAnswer"
-        itemtype="https://schema.org/Answer"
-      >
-        <div itemprop="text">Текст ответа 2</div>
-      </div>
-    </div>
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <span itemprop="name">Текст вопроса 3</span>
-      <div
-        itemscope
-        itemprop="acceptedAnswer"
-        itemtype="https://schema.org/Answer"
-      >
-        <div itemprop="text">Текст ответа 3</div>
-      </div>
-    </div>
-  </body>
-</html>; */
 }

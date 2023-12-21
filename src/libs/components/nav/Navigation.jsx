@@ -71,7 +71,6 @@ export default function Navigation({
         {servicesRoute.map(({ List, Title, id, path, directions }) => {
           var dir = directions === "root" ? "" : directions;
           var shortDir = isLocal ? `/ru/${dir}` : `/${dir}`;
-
           return (
             <li key={id}>
               <p>{Title}</p>

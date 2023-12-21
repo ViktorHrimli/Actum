@@ -66,6 +66,7 @@ export default function About({
             <Image
               src={photo["data"]["attributes"]["url"]}
               loading="lazy"
+              priority={false}
               quality={100}
               alt="natalia"
               fill

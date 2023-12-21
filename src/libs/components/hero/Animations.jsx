@@ -120,9 +120,9 @@ export default function Animations({
           <Image
             src={femida}
             alt="Femida"
-            priority={true}
+            priority={false}
             placeholder="blur"
-            fetchPriority="high"
+            fetchPriority="low"
             sizes="(max-width: 768px) 700px, (max-width: 1280px) 900px, 1300px"
             fill
           />

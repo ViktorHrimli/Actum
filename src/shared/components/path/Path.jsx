@@ -30,6 +30,7 @@ export default function Path({
       >
         <Link
           href={`/${parent_link}`}
+          prefetch={false}
           scroll={true}
           itemProp="url"
           itemScope

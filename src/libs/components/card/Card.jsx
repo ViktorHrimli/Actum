@@ -20,7 +20,7 @@ export default function Card({ name, photo, date, body, type, link }) {
               alt="Person"
               fill
               sizes="70px"
-              loading="eager"
+              loading="lazy"
               style={{ borderRadius: "50%" }}
             />
           </div>
