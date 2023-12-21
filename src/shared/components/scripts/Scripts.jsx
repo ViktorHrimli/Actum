@@ -13,7 +13,7 @@ export default function Scripts() {
     isClient && (
       <>
         <Script
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Q9Y47E76PM"
         ></Script>
@@ -34,7 +34,7 @@ export default function Scripts() {
         `}
         </Script>
         {/* --- */}
-        <Script strategy="lazyOnload" id="fb-event">
+        <Script strategy="afterInteractive" id="fb-event">
           {`!function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -53,7 +53,11 @@ export default function Scripts() {
           src="//script.crazyegg.com/pages/scripts/0119/8897.js"
           async="async"
         ></Script>
-        <Script type="text/javascript" strategy="lazyOnload" id="click-case">
+        <Script
+          type="text/javascript"
+          strategy="afterInteractive"
+          id="click-case"
+        >
           {`
           var script = document.createElement('script'); script.async = false;
         script.type = 'text/javascript'; var target =
