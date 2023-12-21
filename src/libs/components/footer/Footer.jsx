@@ -194,7 +194,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               height={117}
               className={styles.footer_logo}
             />
-            <p className={styles.footer_logo_text} itemprop="name">
+            <p className={styles.footer_logo_text} itemProp="name">
               {isLocale
                 ? ruFooterData.LOGO_TEXT["Title"]
                 : uaFooterData.LOGO_TEXT["Title"]}
@@ -230,6 +230,11 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             itemScope
             itemType="http://schema.org/PostalAddress"
           >
+            <span itemprop="addressCountry" style={{ display: "none" }}>Україна</span>
+            <span itemprop="streetAddress" style={{ display: "none" }}>м. Київ, вул. Оболонська набережна 15, корпус 5</span>
+            <span itemprop="postalCode" style={{ display: "none" }} >02000</span>
+            <span itemprop="description" style={{ display: "none" }} >Ми, Адвокатське Об’єднання Актум, надаємо ефективну правову допомогу та захист, поєднуючи традиційну юриспруденцію з інформаційними технологіями.</span>
+
             <p
               className={styles.footer_title_phone_only}
               itemProp="addressLocality"
@@ -281,6 +286,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-2"}`}
                   itemProp="telephone"
+                  target="_blank"
                   href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
                 >
                   {uaFooterData.Phones["KiyvStar"]}
@@ -288,6 +294,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-1"}`}
                   itemProp="telephone"
+                  target="_blank"
                   href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                 >
                   {uaFooterData.Phones["Vodafone"]}

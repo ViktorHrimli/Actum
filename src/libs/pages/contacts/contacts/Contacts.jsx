@@ -135,12 +135,14 @@ export default function Contacts({
                     <p className={styles.footer_contact_title}>Phone:</p>
                     <div className={styles.box_tel}>
                       <Link
+                        target="_blank"
                         className={`${styles.phone} ${"binct-phone-number-2"}`}
                         href={`tel:${phones["KiyvStar"]}`}
                       >
                         {phones["KiyvStar"]}
                       </Link>
                       <Link
+                        target="_blank"
                         className={`${styles.phone} ${"binct-phone-number-1"}`}
                         href={`tel:${phones["Vodafone"]}`}
                       >
