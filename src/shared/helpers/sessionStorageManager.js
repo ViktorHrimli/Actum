@@ -20,6 +20,7 @@ class ManageSessionStorage {
 
     this.generateUtm(urlParams);
     this.generateReferrer();
+    this.getUtm();
   }
 
   getInfo(urlParams) {
@@ -77,12 +78,15 @@ class ManageSessionStorage {
     let objUTMTime;
     objUTM = JSON.parse(localStorage.getItem("utm"));
     objUTMTime = JSON.parse(localStorage.getItem("utm_time"));
-    if (document.referrer == "") {
+    if (document.referrer === "") {
+      console.log(document.referrer, "REFERER");
       return objUTM;
     }
     if (timeNow - objUTMTime < oneDay) {
+      console.log(timeNow - objUTMTime < oneDay, "TIME");
       return objUTM;
     } else {
+      console.log("REMUVE");
       localStorage.removeItem("utm");
       localStorage.removeItem("utm_time");
       return {

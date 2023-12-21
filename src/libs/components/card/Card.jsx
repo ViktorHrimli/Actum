@@ -19,6 +19,7 @@ export default function Card({ name, photo, date, body, type, link }) {
               src={photo ? photo : skeleton}
               alt="Person"
               fill
+              sizes="70px"
               loading="eager"
               style={{ borderRadius: "50%" }}
             />

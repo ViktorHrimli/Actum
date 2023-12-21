@@ -25,7 +25,7 @@ import {
 
 import styles from "./Header.module.scss";
 
-export default function Header({ ru, uk }) {
+export default function Header({ ru, uk, ruForm, uaForm, }) {
   const {
     data: {
       attributes: { Header: ruHeaders, Navigation: ruService_page },
@@ -85,7 +85,7 @@ export default function Header({ ru, uk }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    return () => setTimeout(() => storage.generateUserInfo(searchParams), 3000);
+    setTimeout(() => storage.generateUserInfo(searchParams), 3000);
   }, []);
 
   useEffect(() => {
@@ -226,7 +226,7 @@ export default function Header({ ru, uk }) {
               background: "#0F021C",
             }}
           >
-            <SideBar isStyleHeader={isStyleHeader}>
+            <SideBar isStyleHeader={isStyleHeader} ruForm={ruForm} uaForm={uaForm}>
               <Navigation
                 nav={
                   isLocal ? ruHeaders["Navigation"] : uaHeaders["Navigation"]

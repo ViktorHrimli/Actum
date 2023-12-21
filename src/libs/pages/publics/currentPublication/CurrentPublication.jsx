@@ -1,10 +1,13 @@
+"use client"
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 import styles from "./CurrentPublication.module.scss";
 
 import Button from "@/libs/components/button/Button";
-
 import img from "@/assets/svg/publics_item_1.png";
+import ModalForm from "@/libs/modal/modalForm/modalForm";
+
 
 export default function CurrentPublication({
   button,
@@ -12,8 +15,34 @@ export default function CurrentPublication({
   description,
   topic_text,
   picture,
+  form,
+  type,
 }) {
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isScroll, setIsScroll] = useState(0);
+
+  useEffect(() => {
+    if (isOpenModal) {
+      setIsScroll(window.scrollY);
+
+      document.body.style.overflow = "hidden";
+      document.body.style.maxHeight = "100vh";
+    }
+    window.scrollTo(0, isScroll);
+
+    return () => {
+      document.body.style.overflowX = "hidden";
+      document.body.style.maxHeight = "";
+    };
+  }, [isOpenModal]);
+
+  const modalOnClick = () => {
+    setIsOpenModal(true);
+  };
+
   return (
+    <>
     <section className={styles.section}>
       <div className={styles.conteiner}>
         <h2 className={styles.title_text}>{title}</h2>
@@ -36,7 +65,7 @@ export default function CurrentPublication({
               fetchPriority="low"
               style={{ objectFit: "cover" }}
             />
-            <div className={styles.btn_wrapper}>
+            <div className={styles.btn_wrapper} onClick={modalOnClick}>
               <Button
                 style={"button_service"}
                 text={button["text"]}
@@ -46,6 +75,15 @@ export default function CurrentPublication({
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      {isOpenModal && (
+        <ModalForm
+          type={type}
+          form={form}
+          setIsOpenModal={setIsOpenModal}
+          isOpenModal={isOpenModal}
+        />
+      )}
+    </>
   );
 }

@@ -119,6 +119,7 @@ export default function FormComponent({
       ...makeObjParams,
       errorcond: true,
       type: "form",
+      formType: "formPage",
       telephone: phoneNumber,
       client,
       pagename,
@@ -148,6 +149,7 @@ export default function FormComponent({
         ...makeObjParams,
         telephone: phoneNumber,
         type: "form",
+        formType: "modalForm",
         client,
         pagename,
         question,
@@ -156,7 +158,6 @@ export default function FormComponent({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
-
       window.dataLayer.push({ event: "formissentmodal" });
 
       setIsLoading(true);

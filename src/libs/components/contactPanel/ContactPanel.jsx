@@ -26,30 +26,6 @@ import { iconEnum } from "@/shared/enums/enum";
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import styles from "./ContactPanel.module.scss";
 
-function Phones({ Telephones }) {
-  return (
-    <div>
-        <Link
-          className="binct-phone-number-2"
-          target="_blank"
-          referrerPolicy=""
-          itemProp="telephone"
-          href={`tel:${Telephones["KiyvStar"]}`}
-        >
-          {Telephones["KiyvStar"]}
-        </Link>
-        <Link
-          className="binct-phone-number-1"
-          target="_blank"
-          referrerPolicy=""
-          itemProp="telephone"
-          href={`tel:${Telephones["Vodafone"]}`}
-        >
-          {Telephones["Vodafone"]}
-      </Link>
-      </div>
-  )
-} 
 
 export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState("family");
@@ -60,9 +36,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [isPhoneMob, setIsPhoneMob] = useState(false);
 
   const [isLanguage, setIsLanguage] = useState(false);
-  const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [isScroll, setIsScroll] = useState(0);
 
   const isDesktop = useIsBig();
   const path = usePathname();

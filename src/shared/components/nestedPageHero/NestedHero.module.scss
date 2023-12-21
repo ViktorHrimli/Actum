@@ -60,6 +60,8 @@
     transform: translate(-50%, -50%);
     gap: 16px;
 
+    object-fit: cover;
+
     @media screen and (min-width: 768px) {
         gap: 36px;
     }
@@ -142,10 +144,12 @@
         text-align: center;
         margin-top: 0;
     }
+
     @media screen and (min-width: 1280px) {
         width: 771px;
         font-size: 24px;
     }
+
     @media screen and (min-width: 1440px) {
         width: 783px;
     }

@@ -28,12 +28,11 @@ export default function Hero({
   form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(typeof window !== 'undefined' ? window.scrollY : 0);
+  const [isScroll, setIsScroll] = useState(0);
   const [isClient, setIsClient] = useState(false);
 
   const isDesktop = useIsBig();
   const isMobile = useIsSmall();
-  
 
   let isSessionStorageSave = true;
 
@@ -42,7 +41,6 @@ export default function Hero({
       sessionStorage.getItem("hero_page") || true
     );
   }
-
 
   useEffect(() => {
     const scrollY = document.body.style.top;
@@ -108,15 +106,17 @@ export default function Hero({
               src={back}
               alt="background"
               fill
-              fetchPriority="high"
-              loading="eager"
+              priority={false}
+              // fetchPriority="high"
+              // loading="eager"
             />
             <Image
               src={backFilter}
               alt="background-filter"
               fill
-              loading="eager"
-              fetchPriority="high"
+              priority={false}
+              // loading="eager"
+              // fetchPriority="high"
               style={{ zIndex: "5" }}
             />
           </motion.div>

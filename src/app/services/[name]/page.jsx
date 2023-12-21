@@ -1,11 +1,26 @@
+import dynamic from "next/dynamic";
+
+const Specialists = dynamic(() =>
+  import("@/libs/pages/components/specialists/Specialists")
+);
+const StepsLawyers = dynamic(() =>
+  import("@/shared/components/stepLawyers/StepsLawyers")
+);
+const Description = dynamic(() =>
+  import("@/libs/pages/services/components/description/Description")
+);
+const Response = dynamic(() => import("@/libs/components/response/Response"));
+const SuccessfulBusiness = dynamic(() =>
+  import("@/libs/pages/components/successfulBusiness/SuccessfulBusiness")
+);
+const QuestionsList = dynamic(() =>
+  import("@/libs/pages/components/QuestionList/QuestionsList")
+);
+const FormSection = dynamic(() =>
+  import("@/shared/components/formSection/FormSection")
+);
+
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import Specialists from "@/libs/pages/components/specialists/Specialists";
-import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
-import Description from "@/libs/pages/services/components/description/Description";
-import Response from "@/libs/components/response/Response";
-import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
-import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
