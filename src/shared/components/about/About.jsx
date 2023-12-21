@@ -21,9 +21,7 @@ export default function About({
   form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-    const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [isScroll, setIsScroll] = useState(0);
 
   const handleClickOnBtn = () => {
     if (form) {

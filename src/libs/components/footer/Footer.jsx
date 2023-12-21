@@ -18,9 +18,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isLocale, setIsLocale] = useState("");
 
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [isScroll, setIsScroll] = useState(0);
 
   const path = usePathname().replace("/", "");
 
@@ -87,10 +85,10 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
     if (home || homeRu) {
       if (isFristRender) {
         // setTimeout(() => setIsClient(true), 3800);
-        setTimeout(() => setIsClient(true), 0);
+        setTimeout(() => setIsClient(true), 1000);
       } else {
         // setTimeout(() => setIsClient(true), 1000);
-        setTimeout(() => setIsClient(true), 0);
+        setTimeout(() => setIsClient(true), 1000);
       }
     } else {
       setIsClient(true);
@@ -196,7 +194,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               height={117}
               className={styles.footer_logo}
             />
-            <p className={styles.footer_logo_text}>
+            <p className={styles.footer_logo_text} itemProp="name">
               {isLocale
                 ? ruFooterData.LOGO_TEXT["Title"]
                 : uaFooterData.LOGO_TEXT["Title"]}
@@ -232,6 +230,12 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             itemScope
             itemType="http://schema.org/PostalAddress"
           >
+            <div itemProp="address" itemsCope itemType="http://schema.org/PostalAddress" style={{ display: "none" }}>
+              <span itemprop="streetAddress" style={{ display: "none" }}>м. Київ, вул. Оболонська набережна 15, корпус 5</span>
+              <span itemprop="description" style={{ display: "none" }} >Ми, Адвокатське Об’єднання Актум, надаємо ефективну правову допомогу та захист, поєднуючи традиційну юриспруденцію з інформаційними технологіями.</span>
+              <span itemprop="postalCode" style={{ display: "none" }} >02000</span>
+              <span itemprop="addressCountry" style={{ display: "none" }}>Україна</span>
+            </div>
             <p
               className={styles.footer_title_phone_only}
               itemProp="addressLocality"
@@ -255,6 +259,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <p
                 className={styles.footer_text}
                 itemScope
+                itemProp="acceptedAnswer"
                 itemType="http://schema.org/LocalBusiness"
               >
                 {isLocale ? ruFooterData.address : uaFooterData.address}
@@ -282,6 +287,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-2"}`}
                   itemProp="telephone"
+                  target="_blank"
                   href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
                 >
                   {uaFooterData.Phones["KiyvStar"]}
@@ -289,6 +295,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-1"}`}
                   itemProp="telephone"
+                  target="_blank"
                   href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                 >
                   {uaFooterData.Phones["Vodafone"]}

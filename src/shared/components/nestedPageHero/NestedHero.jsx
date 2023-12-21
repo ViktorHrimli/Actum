@@ -25,9 +25,7 @@ export default function NestedHero({
   form = {},
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [isScroll, setIsScroll] = useState(0);
   const [isPaymentHero, setIsPaymentHero] = useState(false);
   const isClient = useClient();
 
@@ -82,7 +80,7 @@ export default function NestedHero({
           src={background_photo["data"]["attributes"]["url"]}
           alt="background photo"
           fill
-          priority={true}
+          // priority={true}
           style={{ zIndex: -1, objectFit: "cover" }}
           loading="lazy"
           sizes="100vw"
@@ -107,7 +105,7 @@ export default function NestedHero({
               alt="ACTUM"
               fill
               loading="lazy"
-              priority={true}
+              // priority={true}
               sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             />
           </motion.div>

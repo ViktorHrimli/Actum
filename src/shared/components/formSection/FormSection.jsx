@@ -23,17 +23,18 @@ export default function FormSection({
         <Form type={type} {...formData} />
 
         <div className={styles.info_block}>
-          <p className={styles.text}>{discriptions}</p>
+          <p className={styles.text} style={{maxWidth: 350}}>{discriptions}</p>
           <div className={styles.block_info}>
             <div className={styles.phone_wrapper}>
               <p className={`${styles.title_info} ${styles[color_text]}`}>
                 Phone:
               </p>
               <div className={styles.text_wrapper_info}>
-                <a href={`tel:${phones["KiyvStar"]}`}>
+                <a href={`tel:${phones["KiyvStar"]}`} target="_blank">
+                  
                   <p className={`${styles.text} ${"binct-phone-number-2"}`}>{phones["KiyvStar"]}</p>
                 </a>
-                <a href={`tel:${phones["Vodafone"]}`}>
+                <a href={`tel:${phones["Vodafone"]}`} target="_blank">
                   <p className={`${styles.text} ${"binct-phone-number-1"}`}>{phones["Vodafone"]}</p>
                 </a>
               </div>

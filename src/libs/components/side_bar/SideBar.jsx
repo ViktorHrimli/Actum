@@ -2,17 +2,21 @@ import styles from "./SideBar.module.scss";
 
 import Image from "next/image";
 
-import { useEffect, useState } from "@/shared/hooks/hooks";
+import { useEffect, useState, usePathname } from "@/shared/hooks/hooks";
 import { colorImg } from "./libs/enums";
 
 import ModalForm from "@/libs/modal/modalForm/modalForm";
 
 import Telegram from "@/assets/svg/telegram.svg";
-import Form from "@/assets/svg/Form.png";
+import iconF from "@/assets/svg/Form.png";
 
-export default function SideBar({ children, isStyleHeader }) {
+export default function SideBar({ children, isStyleHeader, ruForm, uaForm }) {
   const [type, setIsType] = useState("family");
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isLanguage, setIsLanguage] = useState(false);
+  const path = usePathname();
+
+
   const { background } = colorImg[type];
 
   useEffect(() => {
@@ -28,6 +32,21 @@ export default function SideBar({ children, isStyleHeader }) {
         break;
     }
   }, [type]);
+
+  useEffect(() => {
+    if (path.includes("/ru")) {
+      localStorage.setItem("locale", "ru");
+    } else {
+      localStorage.removeItem("locale");
+    }
+    const languageData = localStorage.getItem("locale");
+
+    if (languageData) {
+      setIsLanguage(true);
+    } else {
+      setIsLanguage(false);
+    }
+  }, [path]);
 
   return (
     <>
@@ -69,7 +88,7 @@ export default function SideBar({ children, isStyleHeader }) {
               </li>
               <li onClick={() => setIsOpenModal(true)}>
                 <a>
-                  <Image src={Form} alt="Form" width={34} height={34} />
+                  <Image src={iconF} alt="FormIcon" width={34} height={34} />
                 </a>
               </li>
             </ul>
@@ -79,6 +98,7 @@ export default function SideBar({ children, isStyleHeader }) {
       {isOpenModal && (
         <ModalForm
           type={type}
+          form={isLanguage ? ruForm : uaForm}
           isOpenModal={isOpenModal}
           setIsOpenModal={setIsOpenModal}
         />

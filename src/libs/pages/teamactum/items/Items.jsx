@@ -24,10 +24,7 @@ export default function Items({
   form,
 }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isScroll, setIsScroll] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
-
+  const [isScroll, setIsScroll] = useState(0);
     useEffect(() => {
     if (isOpenModal) {
       setIsScroll(window.scrollY);
