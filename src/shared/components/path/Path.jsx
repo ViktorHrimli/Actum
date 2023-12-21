@@ -30,6 +30,7 @@ export default function Path({
       >
         <Link
           href={`/${parent_link}`}
+          prefetch={false}
           scroll={true}
           itemProp="itemListElement"
           itemScope
@@ -44,7 +45,11 @@ export default function Path({
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
         {isNestedPage ? (
-          <Link href={`/${children_link}`} itemProp="itemListElement">
+          <Link
+            href={`/${children_link}`}
+            itemProp="itemListElement"
+            prefetch={false}
+          >
             <p
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
               itemProp="name"

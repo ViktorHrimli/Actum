@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import axios from "axios";
 import Slider from "react-slick";
@@ -35,11 +34,6 @@ export default function Response({ type, button, description, title }) {
 
   function SampleNextArrow(props) {
     const { onClick } = props;
-    // if (reviewsList.length <= 40) {
-    //   setReviewsList((prev) => {
-    //     return prev.concat(dataReviewsStatic);
-    //   });
-    // }
     return (
       <div className={styles.next_icon} onClick={onClick}>
         {iconEnum["horizontalArrow"](fill)}

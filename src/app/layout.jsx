@@ -23,7 +23,7 @@ const {
   API_LOCALIZATION,
 } = process.env;
 
-export async function generateMetadata({ params, searchParams }) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_LAYOUT);
 }
 
@@ -77,7 +77,7 @@ export default async function RootLayout({ children }) {
       </Head>
 
       <body className={montserrat.className} suppressHydrationWarning={true}>
-        <Header ru={RU} uk={UA} ruForm={modalRu} uaForm={modalUa}/>
+        <Header ru={RU} uk={UA} ruForm={modalRu} uaForm={modalUa} />
         <main className={styles.page}>
           <ContactPanel {...contacts_panel} ruForm={modalRu} uaForm={modalUa} />
           {children}

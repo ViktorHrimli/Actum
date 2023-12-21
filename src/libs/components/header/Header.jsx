@@ -10,7 +10,7 @@ import SideBar from "@/libs/components/side_bar//SideBar";
 
 import { desktopLogoAnimate, mobileLogoAnimate } from "./enums/enum";
 import { storage } from "@/shared/helpers/helpers";
-import { gradientEnums } from "./enums/gradientEnums";
+// import { gradientEnums } from "./enums/gradientEnums";
 
 import {
   usePathname,
@@ -25,7 +25,7 @@ import {
 
 import styles from "./Header.module.scss";
 
-export default function Header({ ru, uk, ruForm, uaForm, }) {
+export default function Header({ ru, uk, ruForm, uaForm }) {
   const {
     data: {
       attributes: { Header: ruHeaders, Navigation: ruService_page },
@@ -85,22 +85,22 @@ export default function Header({ ru, uk, ruForm, uaForm, }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    // setTimeout(() => storage.generateUserInfo(searchParams), 3000);
+    return () => storage.generateUserInfo(searchParams);
   }, []);
 
   useEffect(() => {
-    storage.generateUserInfo(searchParams);
+    storage.getUtm();
     if (patnName.includes("ru")) {
       setIsLocal(localStorage.getItem("locale") || "");
     } else {
       setIsLocal("");
     }
 
-    if (gradientEnums[patnName]) {
-      setIsStyleHeader(gradientEnums[patnName]);
-    } else {
-      setIsStyleHeader(null);
-    }
+    // if (gradientEnums[patnName]) {
+    //   setIsStyleHeader(gradientEnums[patnName]);
+    // } else {
+    //   setIsStyleHeader(null);
+    // }
   }, [patnName]);
 
   useEffect(() => {
@@ -227,7 +227,11 @@ export default function Header({ ru, uk, ruForm, uaForm, }) {
               background: "#0F021C",
             }}
           >
-            <SideBar isStyleHeader={isStyleHeader} ruForm={ruForm} uaForm={uaForm}>
+            <SideBar
+              isStyleHeader={isStyleHeader}
+              ruForm={ruForm}
+              uaForm={uaForm}
+            >
               <Navigation
                 nav={
                   isLocal ? ruHeaders["Navigation"] : uaHeaders["Navigation"]
