@@ -13,7 +13,6 @@ const AboutCompany = dynamic(() =>
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
-// import HomeSeo from "@/shared/seo/homePageSeo";
 
 const { API_HOME_PAGE, QUERY_HOME_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
   process.env;
@@ -43,8 +42,7 @@ export default async function Home() {
 
   return (
     <>
-      <StructureData data={seo["structuredData"]} /> 
-      {/* <HomeSeo /> */}
+      <StructureData data={seo["structuredData"]} />
 
       <Hero type={"home"} {...hero} form={modal} />
       <Direction {...directions} />

@@ -9,7 +9,6 @@ import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import Scripts from "@/shared/components/scripts/Scripts";
 
 import { getStaticPage } from "@/shared/services/api/api";
-// import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
 import styles from "./page.module.scss";
 
@@ -22,10 +21,6 @@ const {
   API_MODAL_FORM,
   API_LOCALIZATION,
 } = process.env;
-
-// export async function generateMetadata({ params, searchParams }) {
-//   return makeSeoTemplate(API_LAYOUT);
-// }
 
 export default async function RootLayout({ children }) {
   const UA = await getStaticPage(API_LAYOUT, QUERY_LAYOUT);

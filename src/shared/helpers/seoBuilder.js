@@ -1,7 +1,5 @@
 import { getSeo, getSeoDynamicPage } from "@/shared/services/api/api";
 
-import logo from "@/assets/svg/LOGO.png";
-
 const makeSeoTemplate = async (api_name, locale = "uk") => {
   let alt = {};
   const {
@@ -39,7 +37,7 @@ const makeSeoTemplate = async (api_name, locale = "uk") => {
       url: seo["canonicalURL"],
       type: "website",
       locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"] ?? logo,
+      images: seo["metaImage"]["data"]["attributes"]["url"],
     },
   };
 };
@@ -81,7 +79,7 @@ const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
       url: seo["canonicalURL"],
       type: "website",
       locale: "uk-UA",
-      images: seo["metaImage"]["data"]["attributes"]["url"] ?? logo,
+      images: seo["metaImage"]["data"]["attributes"]["url"],
     },
   };
 };
