@@ -194,7 +194,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               height={117}
               className={styles.footer_logo}
             />
-            <p className={styles.footer_logo_text}>
+            <p className={styles.footer_logo_text} itemprop="name">
               {isLocale
                 ? ruFooterData.LOGO_TEXT["Title"]
                 : uaFooterData.LOGO_TEXT["Title"]}
@@ -253,6 +253,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <p
                 className={styles.footer_text}
                 itemScope
+                itemProp="acceptedAnswer"
                 itemType="http://schema.org/LocalBusiness"
               >
                 {isLocale ? ruFooterData.address : uaFooterData.address}

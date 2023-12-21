@@ -89,6 +89,7 @@ export default function QuestionsList({ type, questions, about_block, form }) {
                 ></Link>
                 <h2 itemProp="name">{items.title}</h2>
                 <div
+                  itemscope
                   itemProp="acceptedAnswer"
                   itemType="https://schema.org/Answer"
                 >
