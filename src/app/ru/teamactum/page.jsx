@@ -4,9 +4,6 @@ import About from "@/shared/components/about/About";
 import TeamList from "@/libs/pages/teamactum/teamList/TeamList";
 
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
-
-import ourTeam from "@/assets/svg/our_team.png";
-
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
