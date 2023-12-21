@@ -48,7 +48,9 @@ export default function QuestionsList({ type, questions, about_block, form }) {
             </div>
             <div className={styles[color]}></div>
           </div>
-          <ul className={styles.list}>
+          <ul className={styles.list} itemScope
+            itemType="itemListElement">
+            
             {questions.map((items, id) => {
               return (
                 <li key={id}>
