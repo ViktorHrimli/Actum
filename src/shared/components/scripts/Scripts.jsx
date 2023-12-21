@@ -7,7 +7,7 @@ export default function Scripts() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsClient(true), 3500);
+    setTimeout(() => setIsClient(true), 1000);
   }, []);
   return (
     isClient && (
@@ -25,7 +25,7 @@ export default function Scripts() {
         `}
         </Script>
         {/*  mask */}
-        <Script strategy="lazyOnload" id="google-tag">
+        <Script strategy="afterInteractive" id="google-tag">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=false;j.src=

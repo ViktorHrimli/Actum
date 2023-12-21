@@ -1,12 +1,7 @@
 "use client";
-import {
-  useIsBig,
-  useState,
-  useEffect,
-  useIsSmall,
-} from "@/shared/hooks/hooks";
-import Slider from "react-slick";
+import { useIsBig, useState, useEffect } from "@/shared/hooks/hooks";
 
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

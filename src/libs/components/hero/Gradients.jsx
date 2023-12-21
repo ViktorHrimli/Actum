@@ -37,16 +37,16 @@ export default function Gradients({
             src={tabBack}
             alt="background"
             fill
-            priority={false}
-            // loading="eager"
+            priority={true}
+            loading="eager"
           />
           <Image
             className={styles.back_desctop}
             src={desctopBack}
             alt="background"
-            priority={false}
+            priority={true}
             fill
-            // loading="eager"
+            loading="eager"
           />
         </motion.div>
 
@@ -65,17 +65,17 @@ export default function Gradients({
             className={styles.tel_back_filter}
             src={tabBackFilter}
             alt="background-filter"
-            priority={false}
+            priority={true}
             fill
-            // loading="eager"
+            loading="eager"
           />
           <Image
             className={styles.back_desctop_filter}
             src={desctopBackFilter}
             alt="background-filter"
             fill
-            priority={false}
-            // loading="eager"
+            priority={true}
+            loading="eager"
           />
         </motion.div>
       </>

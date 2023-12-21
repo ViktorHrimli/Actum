@@ -77,7 +77,7 @@ export default async function RootLayout({ children }) {
       </Head>
 
       <body className={montserrat.className} suppressHydrationWarning={true}>
-        <Header ru={RU} uk={UA} ruForm={modalRu} uaForm={modalUa}/>
+        <Header ru={RU} uk={UA} ruForm={modalRu} uaForm={modalUa} />
         <main className={styles.page}>
           <ContactPanel {...contacts_panel} ruForm={modalRu} uaForm={modalUa} />
           {children}

@@ -81,14 +81,7 @@ class ManageSessionStorage {
     if (document.referrer === "") {
       console.log(document.referrer, "REFERER");
       return objUTM;
-    }
-    if (timeNow - objUTMTime < oneDay) {
-      console.log(timeNow - objUTMTime < oneDay, "TIME");
-      return objUTM;
     } else {
-      console.log("REMUVE");
-      localStorage.removeItem("utm");
-      localStorage.removeItem("utm_time");
       return {
         source: null,
         medium: null,
@@ -97,6 +90,15 @@ class ManageSessionStorage {
         term: null,
       };
     }
+    // if (timeNow - objUTMTime < oneDay) {
+    //   console.log(timeNow - objUTMTime < oneDay, "TIME");
+    //   return objUTM;
+    // } else {
+    //   console.log("REMUVE");
+    //   localStorage.removeItem("utm");
+    //   localStorage.removeItem("utm_time");
+
+    // }
   }
 }
 
