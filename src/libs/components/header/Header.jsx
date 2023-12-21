@@ -85,10 +85,11 @@ export default function Header({ ru, uk }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    setTimeout(() => storage.generateUserInfo(searchParams), 3000);
+    // setTimeout(() => storage.generateUserInfo(searchParams), 3000);
   }, []);
 
   useEffect(() => {
+    storage.generateUserInfo(searchParams);
     if (patnName.includes("ru")) {
       setIsLocal(localStorage.getItem("locale") || "");
     } else {
