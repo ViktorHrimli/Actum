@@ -65,7 +65,10 @@ export default function QuestionsList({ type, questions, about_block, form }) {
           </ul>
         </div>
         {/* SEO */}
-        <ul style={{ visibility: "hidden", position: "absolute" }}>
+        <ul style={{ visibility: "hidden", position: "absolute" }}
+            itemScope
+            itemType="itemListElement">
+          
           {questions.map((items, id) => {
             const dir = items.dir === "root" ? "" : items.dir;
             return (
