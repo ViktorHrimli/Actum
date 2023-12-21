@@ -34,19 +34,14 @@ export default function AboutCompany({
     isClient && (
       <section
         className={styles.section}
-        itemscope
-        itemprop="acceptedAnswer"
-        itemtype="https://schema.org/Answer"
       >
         <div className={styles.container}>
           <div className={styles.conteiner_map}>
             <div
               className={styles.ukraine_inner_text}
-              itemProp="text"
               dangerouslySetInnerHTML={{ __html: service_description }}
             ></div>
             <div
-              itemProp="text"
               className={styles.ukraine_inner_city}
               dangerouslySetInnerHTML={{ __html: city_description }}
             ></div>
@@ -83,20 +78,17 @@ export default function AboutCompany({
           </div>
           <div
             className={styles.about_conteiner}
-            itemScope
-            itemProp="mainEntity"
-            itemType="https://schema.org/Question"
           >
-            <h2 className={styles.title_text} itemProp="name">
+            <h2 className={styles.title_text}>
               {title}
             </h2>
-            <p itemProp="text" className={styles.text}>
+            <p className={styles.text}>
               {first_text}
             </p>
-            <p itemProp="text" className={styles.text}>
+            <p className={styles.text}>
               {second_text}
             </p>
-            <p itemProp="text" className={styles.text}>
+            <p className={styles.text}>
               {third_text}
             </p>
 

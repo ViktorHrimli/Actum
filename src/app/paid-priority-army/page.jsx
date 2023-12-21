@@ -12,7 +12,6 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
-import HomeSeo from "@/shared/seo/homePageSeo";
 
 const { API_ARMY_PAGE } = process.env;
 
