@@ -193,7 +193,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
             <ul className={styles.list_panel}>
               <li className={`${styles.link} ${styles.link_translator}`}>
                 <Link
-                  itemProp="url"
                   href={
                     path.includes("/ru")
                       ? path.replace("/ru", isHome ? "/" : "") +
@@ -232,7 +231,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 <a
                   target="_blank"
                   referrerPolicy=""
-                  itemProp="url"
                   href={FIRST_ICON["link"]}
                 >
                   <FontAwesomeIcon
@@ -249,7 +247,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 <a
                   target="_blank"
                   referrerPolicy=""
-                  itemProp="url"
                   href={SECOND_ICON["link"]}
                 >
                   <FontAwesomeIcon
@@ -274,7 +271,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                         className="binct-phone-number-2"
                         target="_blank"
                         referrerPolicy=""
-                        itemProp="telephone"
                         href={`tel:${Telephones["KiyvStar"]}`}
                       >
                         {Telephones["KiyvStar"]}
@@ -285,7 +281,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                         className="binct-phone-number-1"
                         target="_blank"
                         referrerPolicy=""
-                        itemProp="telephone"
                         href={`tel:${Telephones["Vodafone"]}`}
                       >
                         {Telephones["Vodafone"]}
@@ -309,7 +304,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
               <li
                 className={styles.link}
                 onClick={() => setIsOpenModal(true) & setIsPhoneMob(false)}
-                itemProp="url"
               >
                 <Image src={Form} alt="Form" width={34} height={34} />
               </li>
@@ -326,7 +320,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["KiyvStar"]}`}
-                    itemProp="telephone"
                   >
                     {Telephones["KiyvStar"]}
                   </Link>
@@ -337,7 +330,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["Vodafone"]}`}
-                    itemProp="telephone"
                   >
                     {Telephones["Vodafone"]}
                   </Link>

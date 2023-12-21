@@ -73,7 +73,7 @@ export default function Navigation({
           var shortDir = isLocal ? `/ru/${dir}` : `/${dir}`;
           return (
             <li key={id}>
-              <p itemProp="title">{Title}</p>
+              <p>{Title}</p>
               <Link
                 prefetch={false}
                 href={
@@ -83,14 +83,13 @@ export default function Navigation({
                       : `${path}`
                     : `${dir}/${path}`
                 }
-                itemProp="url"
                 hrefLang={isLocal ? "ru" : "uk"}
               ></Link>
               <ul>
                 {List.map(({ text, path: pathService }, id) => {
                   return (
                     <li key={id}>
-                      <p itemProp="title">{text}</p>
+                      <p>{text}</p>
                       <Link
                         prefetch={false}
                         rel="alternate"
