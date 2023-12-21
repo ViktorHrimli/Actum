@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 import Hero from "@/libs/components/hero/Hero";
-import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+// import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 const Direction = dynamic(() =>
   import("@/libs/components/ourDirections/Direction")
@@ -12,15 +12,15 @@ const AboutCompany = dynamic(() =>
 );
 
 import { getStaticPage } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+// import { makeSeoTemplate } from "@/shared/helpers/helpers";
 import HomeSeo from "@/shared/seo/homePageSeo";
 
 const { API_HOME_PAGE, QUERY_HOME_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
   process.env;
 
-export async function generateMetadata() {
-  return makeSeoTemplate(API_HOME_PAGE);
-}
+// export async function generateMetadata() {
+//   return makeSeoTemplate(API_HOME_PAGE);
+// }
 
 export default async function Home() {
   const {
