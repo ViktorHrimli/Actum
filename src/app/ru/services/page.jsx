@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
