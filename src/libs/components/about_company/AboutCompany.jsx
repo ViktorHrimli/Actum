@@ -34,8 +34,9 @@ export default function AboutCompany({
     isClient && (
       <section
         className={styles.section}
-        itemScope
-        itemType="https://schema.org/FAQPage"
+        itemscope
+        itemprop="acceptedAnswer"
+        itemtype="https://schema.org/Answer"
       >
         <div className={styles.container}>
           <div className={styles.conteiner_map}>
@@ -84,7 +85,7 @@ export default function AboutCompany({
             itemProp="mainEntity"
             itemType="https://schema.org/Question"
           >
-            <h2 className={styles.title_text} itemProp="title">
+            <h2 className={styles.title_text} itemProp="name">
               {title}
             </h2>
             <p itemProp="text" className={styles.text}>

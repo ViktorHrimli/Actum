@@ -32,7 +32,11 @@ export default function HomeSeo() {
       ☎: <span itemProp="telephone">+38 (098) 665-05-40</span>
       ☎:<span itemProp="faxNumber">+38 (050) 665-05-60</span>
       ✉: <span itemProp="email">info@actum.com.ua</span>
-      <span itemScope itemType="http://schema.org/LocalBusiness">
+      <span
+        itemProp="address"
+        itemScope
+        itemType="http://schema.org/LocalBusiness"
+      >
         <time itemProp="openingHours" dateTime="8:00 до 22:00">
           без вихідних 8:00 до 22:00
         </time>
