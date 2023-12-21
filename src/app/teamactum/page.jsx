@@ -5,8 +5,6 @@ import TeamList from "@/libs/pages/teamactum/teamList/TeamList";
 
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
-import ourTeam from "@/assets/svg/our_team.png";
-
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
@@ -46,7 +44,7 @@ export default async function Team() {
       <StructureData data={seo["structuredData"]} />
 
       <NestedHero type={"home"} {...hero} form={modal} />
-      <About {...desk} form={modal}/>
+      <About {...desk} form={modal} />
       <TeamList type={"family"} items={items} form={modal} />
       <Descrition type="classic" {...wrapper} />
     </>
