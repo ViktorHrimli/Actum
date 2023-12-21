@@ -43,7 +43,7 @@ export default async function Home() {
 
   return (
     <>
-      <StructureData data={seo["structuredData"]} />
+      {/* <StructureData data={seo["structuredData"]} />  */}
       <HomeSeo />
 
       <Hero type={"home"} {...hero} form={modal} />
