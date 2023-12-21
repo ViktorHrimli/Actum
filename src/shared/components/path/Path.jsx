@@ -22,11 +22,13 @@ export default function Path({
   }, []);
 
   return (
-    <div className={styles.breadcrumbs}>
+    <div className={styles.breadcrumbs}
+        itemScope
+        itemType="https://schema.org/BreadcrumbList">
       <div
         className={styles.wrapper_path}
         itemScope
-        itemType="https://schema.org/BreadcrumbList"
+        itemType="itemListElement"
       >
         <Link
           href={`/${parent_link}`}
@@ -56,12 +58,18 @@ export default function Path({
             </Link>
           </span>
         ) : (
-          <p
-            className={`${styles.path_text} ${styles[type]} ${styles.link}`}
-            itemProp="title"
-          >
-            {children_page}
-          </p>
+        <span itemScope itemType="https://schema.org/BreadcrumbList">
+          <div
+            itemScope
+            itemType="itemListElement">
+            <p
+              className={`${styles.path_text} ${styles[type]} ${styles.link}`}
+              itemProp="title"
+            >
+              {children_page}
+                </p>
+            </div>
+          </span>
         )}
         {isNestedPage && (
           <>
