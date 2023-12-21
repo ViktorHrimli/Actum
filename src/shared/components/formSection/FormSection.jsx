@@ -23,7 +23,7 @@ export default function FormSection({
         <Form type={type} {...formData} />
 
         <div className={styles.info_block}>
-          <p className={styles.text}>{discriptions}</p>
+          <p className={styles.text} style={{maxWidth: 350}}>{discriptions}</p>
           <div className={styles.block_info}>
             <div className={styles.phone_wrapper}>
               <p className={`${styles.title_info} ${styles[color_text]}`}>

@@ -121,18 +121,18 @@
     }
 
     @media screen and (min-width: 768px) {
-        // max-width: 281px;
+        max-width: 300px;
         font-size: 16px;
     }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
-        max-width: 380px;
+        width: 380px;
     }
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
-        max-width: 380px;
+        width: 400px;
     }
 }
 
