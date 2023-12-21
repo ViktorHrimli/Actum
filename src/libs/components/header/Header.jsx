@@ -130,7 +130,6 @@ export default function Header({ ru, uk, ruForm, uaForm, }) {
             href={isLocal ? `/ru` : "/"}
             rel="alternate"
             hrefLang={isLocal ? "ru" : "uk"}
-            itemProp="url"
           >
             <motion.div
               className={styles.logo_conteiner}
@@ -161,7 +160,6 @@ export default function Header({ ru, uk, ruForm, uaForm, }) {
             >
               <Image
                 src={uaHeaders["LOGO"]["data"]["attributes"]["url"]}
-                itemProp="logo"
                 alt="Logo ACTUM"
                 fill
                 priority={true}

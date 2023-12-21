@@ -31,10 +31,10 @@ export default function Path({
         <Link
           href={`/${parent_link}`}
           scroll={true}
-          itemProp="itemListElement"
+          itemProp="url"
           itemScope
         >
-          <p className={styles.service_text} itemProp="name">
+          <p className={styles.service_text} itemProp="title">
             {parent_page}
           </p>
         </Link>
@@ -44,18 +44,20 @@ export default function Path({
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
         {isNestedPage ? (
-          <Link href={`/${children_link}`} itemProp="itemListElement">
+          <span itemScope itemType="https://schema.org/BreadcrumbList">
+          <Link href={`/${children_link}`} itemProp="url">
             <p
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
-              itemProp="name"
+              itemProp="title"
             >
               {children_page}
             </p>
-          </Link>
+            </Link>
+          </span>
         ) : (
           <p
             className={`${styles.path_text} ${styles[type]} ${styles.link}`}
-            itemProp="name"
+            itemProp="title"
           >
             {children_page}
           </p>
@@ -68,7 +70,7 @@ export default function Path({
             />
             <p
               className={`${styles.path_text} ${styles[type]}`}
-              itemProp="name"
+              itemProp="title"
             >
               {nested_page_title}
             </p>
