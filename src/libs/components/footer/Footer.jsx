@@ -176,25 +176,20 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   return (
     isClient && (
-      <section
-        className={styles.footer_section}
-        itemScope
-        itemType="http://schema.org/Organization"
-      >
+      <section className={styles.footer_section}>
         <div
           className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
         ></div>
         <div className={styles.footer_container}>
           <div className={styles.box_logo}>
             <Image
-              itemProp="logo"
               src={uaFooterData.LOGO_TITLE["data"]["attributes"]["url"]}
               alt="Logo"
               width={400}
               height={117}
               className={styles.footer_logo}
             />
-            <p className={styles.footer_logo_text} itemProp="name">
+            <p className={styles.footer_logo_text}>
               {isLocale
                 ? ruFooterData.LOGO_TEXT["Title"]
                 : uaFooterData.LOGO_TEXT["Title"]}
@@ -206,7 +201,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
-                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
@@ -216,7 +210,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
-                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
@@ -225,30 +218,14 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
           </div>
 
           <div
-            className={styles.footer_text_box}
-            itemProp="address"
-            itemScope
-            itemType="http://schema.org/PostalAddress"
-          >
-            <div itemProp="address" itemsCope itemType="http://schema.org/PostalAddress" style={{ display: "none" }}>
-              <span itemprop="streetAddress" style={{ display: "none" }}>м. Київ, вул. Оболонська набережна 15, корпус 5</span>
-              <span itemprop="description" style={{ display: "none" }} >Ми, Адвокатське Об’єднання Актум, надаємо ефективну правову допомогу та захист, поєднуючи традиційну юриспруденцію з інформаційними технологіями.</span>
-              <span itemprop="postalCode" style={{ display: "none" }} >02000</span>
-              <span itemprop="addressCountry" style={{ display: "none" }}>Україна</span>
-            </div>
-            <p
-              className={styles.footer_title_phone_only}
-              itemProp="addressLocality"
-            >
+            className={styles.footer_text_box}>
+
+            <p className={styles.footer_title_phone_only}>
               <span className={styles.footer_title_bold_phone_only}>
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
-              <time
-                style={{ display: "block" }}
-                itemProp="openingHours"
-                dateTime="Mo-Sun 08:00-22:00"
-              >
+              <time>
                 без вихідних з 8:00 до 22:00
               </time>
             </p>
@@ -258,16 +235,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               </p>
               <p
                 className={styles.footer_text}
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="http://schema.org/LocalBusiness"
               >
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                <time
-                  style={{ display: "block" }}
-                  itemProp="openingHours"
-                  dateTime="Mo-Sun 08:00-22:00"
-                >
+                <time>
                   без вихідних з 8:00 до 22:00
                 </time>
               </p>
@@ -276,7 +246,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               {isLocale ? "Филии по городам" : "Філії по містах"}:
             </p>
 
-            <p className={styles.footer_text} itemProp="addressLocality">
+            <p className={styles.footer_text} >
               {isLocale ? ruFooterData.City : uaFooterData.City}
             </p>
           </div>
@@ -286,7 +256,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <div>
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-2"}`}
-                  itemProp="telephone"
                   target="_blank"
                   href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
                 >
@@ -294,7 +263,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 </Link>
                 <Link
                   className={`${styles.phone} ${"binct-phone-number-1"}`}
-                  itemProp="telephone"
                   target="_blank"
                   href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                 >
@@ -307,7 +275,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <Link
                 className={styles.email}
                 href={`mailto:${uaFooterData.email}`}
-                itemProp="email"
               >
                 {uaFooterData.email}
               </Link>
@@ -320,7 +287,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
-                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
@@ -330,7 +296,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                       key={id}
                       className={styles.policy_text}
                       href={item.path}
-                      itemProp="url"
                     >
                       {item.Title}
                     </Link>
