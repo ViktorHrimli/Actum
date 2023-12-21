@@ -7,7 +7,7 @@ export default function Scripts() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsClient(true), 1000);
+    setTimeout(() => setIsClient(true), 4000);
   }, []);
   return (
     isClient && (
