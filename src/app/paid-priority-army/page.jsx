@@ -43,7 +43,6 @@ export default async function PaidArmy() {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-      <HomeSeo />
       <HeroLawyers type={"army"} {...hero} bread_crumbs={bread_crumbs} />
       <QuestionsList
         type={"army"}
