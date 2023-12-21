@@ -230,11 +230,12 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             itemScope
             itemType="http://schema.org/PostalAddress"
           >
-            <span itemprop="addressCountry" style={{ display: "none" }}>Україна</span>
-            <span itemprop="streetAddress" style={{ display: "none" }}>м. Київ, вул. Оболонська набережна 15, корпус 5</span>
-            <span itemprop="postalCode" style={{ display: "none" }} >02000</span>
-            <span itemprop="description" style={{ display: "none" }} >Ми, Адвокатське Об’єднання Актум, надаємо ефективну правову допомогу та захист, поєднуючи традиційну юриспруденцію з інформаційними технологіями.</span>
-
+            <div itemProp="address" itemsCope itemType="http://schema.org/PostalAddress" style={{ display: "none" }}>
+              <span itemprop="streetAddress" style={{ display: "none" }}>м. Київ, вул. Оболонська набережна 15, корпус 5</span>
+              <span itemprop="description" style={{ display: "none" }} >Ми, Адвокатське Об’єднання Актум, надаємо ефективну правову допомогу та захист, поєднуючи традиційну юриспруденцію з інформаційними технологіями.</span>
+              <span itemprop="postalCode" style={{ display: "none" }} >02000</span>
+              <span itemprop="addressCountry" style={{ display: "none" }}>Україна</span>
+            </div>
             <p
               className={styles.footer_title_phone_only}
               itemProp="addressLocality"
