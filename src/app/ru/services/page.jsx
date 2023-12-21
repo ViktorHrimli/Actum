@@ -1,8 +1,15 @@
-import AboutServices from "@/libs/pages/services/components/about/AboutServices";
-import Descrition from "@/libs/pages/services/components/description/Description";
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import Lawyers from "@/libs/pages/services/components/lawyers/Lawyers";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const Lawyers = dynamic(() =>
+  import("@/libs/pages/services/components/lawyers/Lawyers")
+);
+const Descrition = dynamic(() =>
+  import("@/libs/pages/services/components/description/Description")
+);
+const AboutServices = dynamic(() =>
+  import("@/libs/pages/services/components/about/AboutServices")
+);
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
