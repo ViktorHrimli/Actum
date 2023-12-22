@@ -1,12 +1,23 @@
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
-import Specialists from "@/libs/pages/components/specialists/Specialists";
-import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
-import Descrition from "@/libs/pages/services/components/description/Description";
-import Response from "@/libs/components/response/Response";
-import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const Specialists = dynamic(() =>
+  import("@/libs/pages/components/specialists/Specialists")
+);
+
+const StepsLawyers = dynamic(() =>
+  import("@/shared/components/stepLawyers/StepsLawyers")
+);
+const Response = dynamic(() => import("@/libs/components/response/Response"));
+const SuccessfulBusiness = dynamic(() =>
+  import("@/libs/pages/components/successfulBusiness/SuccessfulBusiness")
+);
+const QuestionsList = dynamic(() =>
+  import("@/libs/pages/components/QuestionList/QuestionsList")
+);
+const FormSection = dynamic(() =>
+  import("@/shared/components/formSection/FormSection")
+);
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";

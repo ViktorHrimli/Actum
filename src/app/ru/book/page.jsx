@@ -1,8 +1,14 @@
-import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
-import FormSection from "@/shared/components/formSection/FormSection";
+import dynamic from "next/dynamic";
 
+import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const FormSection = dynamic(() =>
+  import("@/shared/components/formSection/FormSection")
+);
+const StepsLawyers = dynamic(() =>
+  import("@/shared/components/stepLawyers/StepsLawyers")
+);
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";

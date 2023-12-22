@@ -1,14 +1,26 @@
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
-import Specialists from "@/libs/pages/components/specialists/Specialists";
-import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
-import Descrition from "@/libs/pages/services/components/description/Description";
-import Response from "@/libs/components/response/Response";
-import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
-import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import FormSection from "@/shared/components/formSection/FormSection";
-import Price from "@/libs/pages/components/priceCards/Price";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const Specialists = dynamic(() =>
+  import("@/libs/pages/components/specialists/Specialists")
+);
+
+const StepsLawyers = dynamic(() =>
+  import("@/shared/components/stepLawyers/StepsLawyers")
+);
+const Description = dynamic(() =>
+  import("@/libs/pages/services/components/description/Description")
+);
+const Response = dynamic(() => import("@/libs/components/response/Response"));
+const SuccessfulBusiness = dynamic(() =>
+  import("@/libs/pages/components/successfulBusiness/SuccessfulBusiness")
+);
+const QuestionsList = dynamic(() =>
+  import("@/libs/pages/components/QuestionList/QuestionsList")
+);
+const FormSection = dynamic(() =>
+  import("@/shared/components/formSection/FormSection")
+);
 
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
@@ -55,7 +67,7 @@ export default async function page({ params }) {
       />
       <SuccessfulBusiness type={"family"} {...successful_deals} />
       <Specialists type={"family"} {...employeer_list} />
-      <Descrition type={"family"} description={description_lawyer} />
+      <Description type={"family"} description={description_lawyer} />
       <Response type={"family"} {...responses} />
       <StepsLawyers type={"family"} {...steps} />
       <FormSection type={"family"} formData={form} {...info} />

@@ -85,7 +85,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    return () => storage.generateUserInfo(searchParams);
+    storage.generateUserInfo(searchParams);
   }, []);
 
   useEffect(() => {
