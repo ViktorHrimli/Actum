@@ -9,6 +9,9 @@ const StepsLawyers = dynamic(() =>
   import("@/shared/components/stepLawyers/StepsLawyers")
 );
 const Response = dynamic(() => import("@/libs/components/response/Response"));
+const Descrition = dynamic(() =>
+  import("@/libs/pages/services/components/description/Description")
+);
 const SuccessfulBusiness = dynamic(() =>
   import("@/libs/pages/components/successfulBusiness/SuccessfulBusiness")
 );
