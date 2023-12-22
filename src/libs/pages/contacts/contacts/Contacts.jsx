@@ -39,7 +39,7 @@ export default function Contacts({
   };
 
     // useEffect(() => {
-    //   window.BinotelCallTracking[ХЕШ].replacePhoneNumbersOnDynamicContent()
+    //   window.BinotelCallTracking["510914"].replacePhoneNumbersOnDynamicContent()
     // }, []);
   
   const PidorScript = () => {
