@@ -17,7 +17,7 @@ export default function QuestionsList({ type, questions, about_block, form }) {
 
   const pathName = usePathname();
 
-  const isOtherPAge = pathName.includes("html-sitemap");
+  const isOtherPage = pathName.includes("html-sitemap");
 
   const [first, second] = about_block.name_block.split(" ");
 
@@ -67,7 +67,7 @@ export default function QuestionsList({ type, questions, about_block, form }) {
         </div>
         {/* SEO */}
        <div itemScope itemType="https://schema.org/FAQPage">
-            <ul style={{ display: "none" }} itemScope>
+            <ul style={{ display: "none" }} itemScope itemProp="itemListElement">
               {questions.map((items, id) => {
                 const dir = items.dir === "root" ? "" : items.dir;
                 return (
