@@ -13,7 +13,8 @@ export default function Card({ type, enums, title, description, photo }) {
           src={photo["data"]["attributes"]["url"]}
           alt={"sucsses bussines"}
           fill
-          loading="lazy"
+            loading="lazy"
+            objectFit="cover"
         />
       </div>
       <div className={styles[background]}>
