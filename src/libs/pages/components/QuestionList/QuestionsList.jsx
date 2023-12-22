@@ -26,8 +26,6 @@ export default function QuestionsList({ type, questions, about_block, form }) {
       <About type={type} {...about_block} form={form} />
       <section
         className={styles.section}
-        itemScope
-        itemType="https://schema.org/FAQPage"
       >
         <div className={styles.questions_conteiner}>
           <div className={styles.container_title}>
@@ -35,13 +33,11 @@ export default function QuestionsList({ type, questions, about_block, form }) {
             <div className={styles.wrapper_text}>
               <h2
                 className={`${styles.title_questions} ${styles.left_questions}`}
-                itemProp="title"
               >
                 {first}
               </h2>
               <h2
                 className={`${styles.title_questions} ${styles.right_questions}`}
-                itemProp="title"
               >
                 {second}
               </h2>
@@ -67,7 +63,7 @@ export default function QuestionsList({ type, questions, about_block, form }) {
         </div>
         {/* SEO */}
        <div itemScope itemType="https://schema.org/FAQPage">
-            <ul style={{ display: "none" }} itemScope itemProp="itemListElement">
+            <ul style={{ display: "none" }}>
               {questions.map((items, id) => {
                 const dir = items.dir === "root" ? "" : items.dir;
                 return (
