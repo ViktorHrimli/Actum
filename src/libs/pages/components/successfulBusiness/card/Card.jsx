@@ -6,7 +6,8 @@ export default function Card({ type, enums, title, description, photo }) {
   const { background, borderTop, borderRight, borderBottom, bordeerLeft } =
     enums[type];
   return (
-    <div className={styles.position}>
+    <ul>
+    <li className={styles.position}>
       <div className={styles.container_img}>
         <Image
           src={photo["data"]["attributes"]["url"]}
@@ -31,6 +32,7 @@ export default function Card({ type, enums, title, description, photo }) {
           <div className={styles[bordeerLeft]}></div>
         </div>
       </div>
-    </div>
+      </li>
+    </ul>
   );
 }
