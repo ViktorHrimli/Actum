@@ -48,8 +48,7 @@ export default function QuestionsList({ type, questions, about_block, form }) {
             </div>
             <div className={styles[color]}></div>
           </div>
-          <ul className={styles.list} itemScope
-            itemType="itemListElement">
+          <ul className={styles.list}>
             
             {questions.map((items, id) => {
               return (
@@ -67,49 +66,50 @@ export default function QuestionsList({ type, questions, about_block, form }) {
           </ul>
         </div>
         {/* SEO */}
-        <ul style={{ visibility: "hidden", position: "absolute" }}
-            itemScope
-            itemType="itemListElement">
-          
-          {questions.map((items, id) => {
-            const dir = items.dir === "root" ? "" : items.dir;
-            return (
-              <li
-                key={id}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-              >
-                <div
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                >
-                  <Link
-                    rel="alternate"
-                    hrefLang={items.link?.includes("/ru") ? "ru" : "uk"}
-                    itemProp="url"
-                    href={
-                      items.link
-                        ? items.dir
-                          ? dir + `/${items.link}`
-                          : `${isOtherPAge ? dir : pathName}/${items.link}`
-                        : ""
-                    }
-                  ></Link>
-                </div>
-                <h2 itemProp="name">{items.title}</h2>
-                <div
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                >
-                  <p itemProp="text">{items.description}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+       <div itemScope itemType="https://schema.org/FAQPage">
+            <ul style={{ display: "none" }} itemScope itemProp="itemListElement">
+              {questions.map((items, id) => {
+                const dir = items.dir === "root" ? "" : items.dir;
+                return (
+                  <li
+                    key={id}
+                    itemProp="mainEntity"
+                    itemScope
+                    itemType="https://schema.org/Question"
+                  >
+                    <meta itemProp="position" content={(id + 1).toString()} />
+
+                    <div
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <Link
+                        rel="alternate"
+                        hrefLang={items.link?.includes("/ru") ? "ru" : "uk"}
+                        itemProp="url"
+                        href={
+                          items.link
+                            ? items.dir
+                              ? dir + `/${items.link}`
+                              : `${isOtherPage ? dir : pathName}/${items.link}`
+                            : ""
+                        }
+                      ></Link>
+                    </div>
+                    <h2 itemProp="name">{items.title}</h2>
+                    <div
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <p itemProp="text">{items.description}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
       </section>
     </>
   );
