@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
