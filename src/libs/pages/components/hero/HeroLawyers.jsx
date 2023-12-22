@@ -34,6 +34,7 @@ export default function HeroLawyers({
                 alt="ACTUM"
                 fill
                 loading="eager"
+                style={{ objectFit: "contain" }}
               />
             </div>
             <h1 className={styles.title_text}>{title}</h1>

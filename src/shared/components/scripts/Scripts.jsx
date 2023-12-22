@@ -6,6 +6,12 @@ import { useEffect, useState } from "@/shared/hooks/hooks";
 export default function Scripts() {
   const [isClient, setIsClient] = useState(false);
 
+  // const KEY = "510914";
+
+  // useEffect(() => {
+  //   window.BinotelCallTracking[KEY].replacePhoneNumbersOnDynamicContent()
+  // }, []);
+
   useEffect(() => {
     setTimeout(() => setIsClient(true), 4000);
   }, []);

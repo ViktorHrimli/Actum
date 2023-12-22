@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useState } from "@/shared/hooks/hooks";
+import { useState, useEffect } from "@/shared/hooks/hooks";
 
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Button from "@/libs/components/button/Button";
@@ -18,6 +17,7 @@ import MapUkraine from "@/assets/svg/Contacts_map_white.svg";
 import { iconEnum } from "@/shared/enums/enum";
 
 import styles from "./Contacts.module.scss";
+
 
 export default function Contacts({
   type,
@@ -33,28 +33,19 @@ export default function Contacts({
 }) {
   const [isVisible, setIsVisible] = useState(true);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  // const KEY = "510914";
 
   const modalOnClick = () => {
     setIsOpenModal(true);
   };
 
-  const PidorScript = () => {
-    return (
-      <Script strategy="afterInteractive" id="google-tag">
-        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=false;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-MQMDB7V');
-        `}
-      </Script>
-    );
-  };
+  // useEffect(() => {
+  //   window.BinotelCallTracking[KEY].replacePhoneNumbersOnDynamicContent()
+  // }, []);
 
   return (
     <>
       <section className={styles.section}>
-        <PidorScript />
         <div className={styles.container}>
           <div className={styles.container_left_bar_position}>
             <div className={styles.container_left_bar}>

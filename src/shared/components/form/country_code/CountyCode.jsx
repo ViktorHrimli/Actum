@@ -54,6 +54,7 @@ export default function CountyCode({
         <div className={styles.image_wrapper}>
           <img
             className={styles.img_country}
+            alt="country"
             src={`https://flagsapi.com/${codeCountry}/shiny/64.png`}
             width={30}
             height={30}
@@ -100,6 +101,7 @@ export default function CountyCode({
                 <div className={styles.container_countris}>
                   <div className={styles.image_wrapper}>
                     <img
+                      alt="country"
                       src={`https://flagsapi.com/${item.code}/shiny/64.png`}
                     />
                   </div>

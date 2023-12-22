@@ -12,7 +12,7 @@ const Path = dynamic(() => import("@/shared/components/path/Path"));
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_LOCALIZATION } = process.env;
+const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_LOCALIZATION, QUERY_MODAL_FORM, API_MODAL_FORM,} = process.env;
 
 export async function generateMetadata() {
   return makeSeoTemplate(API_BLOG_PAGE);
@@ -29,6 +29,12 @@ export default async function page({ params }) {
     data: [dataObj],
   } = await getBlogPublication(params["name"], API_LOCALIZATION);
 
+    const {
+    data: {
+      attributes: { Form: modal },
+    },
+    } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+  
   const { bread_crumbs, button, Blog: blog } = dataObj["attributes"]["Topic"];
 
   return (
@@ -37,7 +43,7 @@ export default async function page({ params }) {
 
       <NestedHero {...hero} />
       <Path type="family_color" {...bread_crumbs} />
-      <CurrentPublication button={button} {...blog} />
+      <CurrentPublication button={button} {...blog} type={"family"} form={modal} />
     </>
   );
 }

@@ -263,8 +263,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 {isPhoneMob && (
                   <motion.ul
                     className={styles.list_phone}
-                    itemScope
-                    itemType="http://schema.org/LocalBusiness"
+
                   >
                     <li className={styles.link_panel_phone}>
                       <Link
@@ -311,8 +310,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
             <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
               <ul
                 className={styles.list_panel_phone}
-                itemScope
-                itemType="http://schema.org/LocalBusiness"
+
               >
                 <li className={styles.link_panel_phone}>
                   <Link

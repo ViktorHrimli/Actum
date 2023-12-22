@@ -17,6 +17,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
 
+
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(0);
 
@@ -67,7 +68,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "book":
         setIsOpenModal(false);
         break;
-
+      
       default:
         setIsOpenModal(true);
         break;
@@ -225,9 +226,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
-              <time>
+              <span style={{display: "block"}}>
                 без вихідних з 8:00 до 22:00
-              </time>
+              </span>
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>
@@ -237,9 +238,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 className={styles.footer_text}
               >
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                <time>
+                <span style={{display: "block"}}>
                   без вихідних з 8:00 до 22:00
-                </time>
+                </span>
               </p>
             </div>
             <p className={styles.footer_title}>
@@ -326,6 +327,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             </div>
           </div>
         </div>
+        
         {isOpenModal && (
           <ModalForm
             type={"home"}

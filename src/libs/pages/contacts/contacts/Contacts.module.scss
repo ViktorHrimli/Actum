@@ -499,14 +499,8 @@
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 768px) {
-    // flex-direction: column;
-    // margin-bottom: 7px;
-  }
-
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-    // margin-bottom: 7px;
   }
 }
 
@@ -658,9 +652,6 @@
   line-height: normal;
   text-transform: lowercase;
   margin-left: 13px;
-
-
-
 }
 
 

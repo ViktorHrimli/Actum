@@ -11,7 +11,7 @@ export default function Card({ name, photo, date, body, type, link }) {
   const { color } = enumsColor[type];
 
   return (
-    <li key={name} className={styles.list_conteiner}>
+    <div key={name} className={styles.list_conteiner}>
       <div className={styles.conteiner}>
         <Link href={link ? link : ""} target="_blank" itemProp="url">
           <div className={styles.wrapper_image}>
@@ -47,6 +47,6 @@ export default function Card({ name, photo, date, body, type, link }) {
           </Link>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

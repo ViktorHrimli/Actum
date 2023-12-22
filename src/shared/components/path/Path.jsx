@@ -22,62 +22,68 @@ export default function Path({
   }, []);
 
   return (
-    <div className={styles.breadcrumbs}>
-      <div
-        className={styles.wrapper_path}
-        itemScope
-        itemType="https://schema.org/BreadcrumbList"
-      >
-        <Link
-          href={`/${parent_link}`}
-          prefetch={false}
-          scroll={true}
-          itemProp="url"
-          itemScope
-        >
-          <p className={styles.service_text} itemProp="title">
-            {parent_page}
-          </p>
-        </Link>
+    <div className={styles.breadcrumbs} itemScope itemType="https://schema.org/BreadcrumbList">
+  <div className={styles.wrapper_path} itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
 
+        <Link href={`/${parent_link}`} prefetch={false} scroll={true}>
+        <meta itemProp="position" content="1" />
+          
+      <p className={styles.service_text} itemProp="item" itemScope itemType="https://schema.org/WebPage">
+        <span itemProp="name">{parent_page}</span>
+        <meta itemProp="position" content="2" />
+      </p>
+    </Link>
+
+    <FontAwesomeIcon
+      icon={faAnglesRight}
+      className={`${styles.arrow_icon} ${styles[type]}`}
+    />
+
+    {isNestedPage ? (
+      <Link href={`/${children_link}`}>
+        <p
+          className={`${styles.path_text} ${styles[type]} ${styles.link}`}
+          itemProp="item"
+          itemScope
+          itemType="https://schema.org/WebPage"
+        >
+          <span itemProp="name">{children_page}</span>
+          <meta itemProp="position" content="3" />
+        </p>
+      </Link>
+    ) : (
+      <div itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
+        <p
+          className={`${styles.path_text} ${styles[type]} ${styles.link}`}
+          itemProp="item"
+          itemScope
+          itemType="https://schema.org/WebPage"
+        >
+          <span itemProp="name">{children_page}</span>
+          <meta itemProp="position" content="3" />
+        </p>
+      </div>
+    )}
+
+    {isNestedPage && (
+      <>
         <FontAwesomeIcon
           icon={faAnglesRight}
           className={`${styles.arrow_icon} ${styles[type]}`}
         />
-        {isNestedPage ? (
-          <span itemScope itemType="https://schema.org/BreadcrumbList">
-          <Link href={`/${children_link}`} itemProp="url">
-            <p
-              className={`${styles.path_text} ${styles[type]} ${styles.link}`}
-              itemProp="title"
-            >
-              {children_page}
-            </p>
-            </Link>
-          </span>
-        ) : (
-          <p
-            className={`${styles.path_text} ${styles[type]} ${styles.link}`}
-            itemProp="title"
-          >
-            {children_page}
-          </p>
-        )}
-        {isNestedPage && (
-          <>
-            <FontAwesomeIcon
-              icon={faAnglesRight}
-              className={`${styles.arrow_icon} ${styles[type]}`}
-            />
-            <p
-              className={`${styles.path_text} ${styles[type]}`}
-              itemProp="title"
-            >
-              {nested_page_title}
-            </p>
-          </>
-        )}
-      </div>
-    </div>
+        <p
+          className={`${styles.path_text} ${styles[type]}`}
+          itemProp="item"
+          itemScope
+          itemType="https://schema.org/WebPage"
+        >
+          <span itemProp="name">{nested_page_title}</span>
+          <meta itemProp="position" content="4" />
+        </p>
+      </>
+    )}
+  </div>
+</div>
+
   );
 }
