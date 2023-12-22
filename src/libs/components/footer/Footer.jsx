@@ -16,11 +16,14 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isStyleFooter, setIsStyleFooter] = useState("other");
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
+  const [isPhoneNum, setIsPhoneNum] = useState(false);
+
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(0);
 
   const path = usePathname().replace("/", "");
+  console.log(isPhoneNum);
 
   const {
     data: {
@@ -67,7 +70,11 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "book":
         setIsOpenModal(false);
         break;
-
+      
+      case "contacts":
+        setIsPhoneNum(true);
+        break;
+      
       default:
         setIsOpenModal(true);
         break;
@@ -97,6 +104,16 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   useEffect(() => {
     setIsLocale(localStorage.getItem("locale") || "");
+
+    switch (path) {
+      case "contacts":
+        setIsPhoneNum(true);
+        break;
+      
+      default:
+        setIsPhoneNum(false);
+        break;
+    }
     // Look and never... listen? NEVER blyat dont do this...but we are have not chois (:
 
     switch (true) {
@@ -176,6 +193,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   return (
     isClient && (
+      <>
       <section className={styles.footer_section}>
         <div
           className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
@@ -326,6 +344,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             </div>
           </div>
         </div>
+        
         {isOpenModal && (
           <ModalForm
             type={"home"}
@@ -335,6 +354,25 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
           />
         )}
       </section>
+        <div className={styles.phone_bin_contacts} style={isPhoneNum ? {display: "block"}: {display: "none"}}>
+          <Link
+            className={`${styles.phone} ${"binct-phone-number-2"}`}
+            target="_blank"
+            style={{ color: "black", width: "380px" }}
+            href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
+          >
+            {uaFooterData.Phones["KiyvStar"]}
+          </Link>
+          <Link
+            className={`${styles.phone} ${"binct-phone-number-1"}`}
+            target="_blank"
+            style={{ color: "black", width: "380px" }}
+            href={`tel:${uaFooterData.Phones["Vodafone"]}`}
+          >
+            {uaFooterData.Phones["Vodafone"]}
+          </Link>
+        </div>
+    </>
     )
   );
 }

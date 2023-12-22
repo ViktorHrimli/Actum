@@ -19,6 +19,7 @@ import { iconEnum } from "@/shared/enums/enum";
 
 import styles from "./Contacts.module.scss";
 
+
 export default function Contacts({
   type,
   title,
@@ -33,14 +34,16 @@ export default function Contacts({
 }) {
   const [isVisible, setIsVisible] = useState(true);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  // const KEY = 510914;
 
   const modalOnClick = () => {
     setIsOpenModal(true);
   };
 
-    // useEffect(() => {
-    //   window.BinotelCallTracking["510914"].replacePhoneNumbersOnDynamicContent()
-    // }, []);
+  useEffect(() => {
+    // window.location.reload();
+    //   window.BinotelCallTracking[KEY].replacePhoneNumbersOnDynamicContent()
+    }, []);
   
   const PidorScript = () => {
     return (
@@ -152,7 +155,7 @@ export default function Contacts({
                 <div className={styles.social_block}>
                   <div className={styles.footer_contact}>
                     <p className={styles.footer_contact_title}>Phone:</p>
-                    <div className={styles.box_tel}>
+                    {/* <div className={styles.box_tel}>
                       <Link
                         target="_blank"
                         className={`${styles.phone} ${"binct-phone-number-2"}`}
@@ -167,7 +170,7 @@ export default function Contacts({
                       >
                         {phones["Vodafone"]}
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                   <div className={styles.footer_contact}>
                     <p className={styles.footer_contact_title}>Email:</p>
