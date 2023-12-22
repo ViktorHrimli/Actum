@@ -6,27 +6,27 @@ export default function Items({ items, desk, button }) {
   return (
     <ul className={styles.container}>
       {items?.map((el, id) => (
-        <Link key={id} href={el.link} className={styles.container_cards}>
-          <li className={styles.container_cards}>
-            <div className={styles.border}>
-              <div className={styles.border_right}></div>
-            </div>
-            <div style={{ zIndex: 5 }}>
-              <p className={styles.title}>{el.title}</p>
-            </div>
-            <ul>
-              {el.texts?.map(({ text }, id) => (
-                <li className={styles.list} key={id}>
-                  <span className={styles.marker}></span>
-                  <p className={styles.link}>{text}</p>
-                </li>
-              ))}
-            </ul>
-            <div className={styles.border_bottom}>
-              <div className={styles.border_left}></div>
-            </div>
+        <li key={id} className={styles.container_cards}>
+            <Link  href={el.link} className={styles.container_cards}>
+                <div className={styles.border}>
+                  <div className={styles.border_right}></div>
+                </div>
+                <div style={{ zIndex: 5 }}>
+                  <p className={styles.title}>{el.title}</p>
+                </div>
+                <ul>
+                  {el.texts?.map(({ text }, id) => (
+                    <li className={styles.list} key={id}>
+                      <span className={styles.marker}></span>
+                      <p className={styles.link}>{text}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div className={styles.border_bottom}>
+                  <div className={styles.border_left}></div>
+                </div>
+            </Link>
           </li>
-        </Link>
       ))}
       <li className={styles.container_text}>
         <p className={styles.description}>{desk}</p>
