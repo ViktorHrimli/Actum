@@ -1,7 +1,13 @@
+import dynamic from "next/dynamic";
+
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import Path from "@/shared/components/path/Path";
-import CurrentPublication from "@/libs/pages/publics/currentPublication/CurrentPublication";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const CurrentPublication = dynamic(() =>
+  import("@/libs/pages/publics/currentPublication/CurrentPublication")
+);
+
+const Path = dynamic(() => import("@/shared/components/path/Path"));
 
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";

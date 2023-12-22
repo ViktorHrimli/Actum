@@ -1,6 +1,10 @@
+import dynamic from "next/dynamic";
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import Contacts from "@/libs/pages/contacts/contacts/Contacts";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const Contacts = dynamic(() =>
+  import("@/libs/pages/contacts/contacts/Contacts")
+);
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";

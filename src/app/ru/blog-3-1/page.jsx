@@ -1,5 +1,8 @@
-import Publics from "@/libs/pages/publics/Publics";
+import dynamic from "next/dynamic";
+
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
+
+const Publics = dynamic(() => import("@/libs/pages/publics/Publics"));
 
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
