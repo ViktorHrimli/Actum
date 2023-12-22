@@ -29,8 +29,8 @@ export default async function page() {
   return (
     <>
       <StructureData data={seo["structuredData"]} />
-      <NestedHero type={"home"} {...hero} form={modal} />
-      <Publics blog_list={blog_list} />
+      <NestedHero type={"family"} {...hero} form={modal} />
+      <Publics type={"family"}  blog_list={blog_list} />
     </>
   );
 }
