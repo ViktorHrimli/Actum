@@ -1,22 +1,23 @@
 .container_img {
     position: relative;
     width: 250px;
-    height: 361px;
+    height: 350px;
     border-radius: 4px;
 
     @media screen and (min-width: 768px) {
         width: 243px;
-        height: 361px;
+        height: 340px;
         z-index: 2;
     }
 
     @media screen and (min-width: 1280px) {
         width: 326px;
-        height: 492px;
+        height: 457px;
     }
 
     @media screen and (min-width: 1440px) {
         width: 364px;
+        height: 510px;
     }
 }
 
