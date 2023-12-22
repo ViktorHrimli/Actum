@@ -6,7 +6,7 @@ import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useState } from "@/shared/hooks/hooks";
+import { useState, useEffect } from "@/shared/hooks/hooks";
 
 import LeftBar from "@/shared/components/left_bar_text/LeftBar";
 import Button from "@/libs/components/button/Button";
@@ -38,6 +38,10 @@ export default function Contacts({
     setIsOpenModal(true);
   };
 
+    // useEffect(() => {
+    //   window.BinotelCallTracking[ХЕШ].replacePhoneNumbersOnDynamicContent()
+    // }, []);
+  
   const PidorScript = () => {
     return (
       <Script strategy="afterInteractive" id="google-tag">
