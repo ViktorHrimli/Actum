@@ -67,7 +67,7 @@ export default function QuestionsList({ type, questions, about_block, form }) {
         </div>
         {/* SEO */}
        <div itemScope itemType="https://schema.org/FAQPage">
-            <ul style={{ display: "none" }} itemScope itemProp="itemListElement">
+            <ul style={{ display: "none" }} itemScope>
               {questions.map((items, id) => {
                 const dir = items.dir === "root" ? "" : items.dir;
                 return (
