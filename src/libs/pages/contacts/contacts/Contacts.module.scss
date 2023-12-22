@@ -497,17 +497,10 @@
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-bottom: 0;
-    margin-bottom: 34px;
-  }
-
-  @media screen and (min-width: 768px) {
-    // flex-direction: column;
-    // margin-bottom: 7px;
   }
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-    // margin-bottom: 7px;
   }
 }
 
@@ -659,9 +652,6 @@
   line-height: normal;
   text-transform: lowercase;
   margin-left: 13px;
-
-
-
 }
 
 

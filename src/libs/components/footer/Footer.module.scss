@@ -575,28 +575,4 @@
   width: 34px;
   height: 34px;
   margin-left: auto;
-
-  @media screen and (min-width: 768px) {}
-}
-
-.phone_bin_contacts {
-  position: absolute;
-  color: #0F021C;
-  z-index: 2;
-  bottom: 975px;
-  right: -126px;
-
-  @media screen and (min-width: 768px) {
-    bottom: 787px;
-    right: -115px;
-  }
-  @media screen and (min-width: 1280px) {
-    bottom: 1043px;
-    right: -21px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    bottom: 993px;
-    right: 237px;
-  }
 }
