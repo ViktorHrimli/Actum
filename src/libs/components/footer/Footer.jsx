@@ -23,6 +23,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isScroll, setIsScroll] = useState(0);
 
   const path = usePathname().replace("/", "");
+  console.log(path);
 
   const {
     data: {
@@ -105,7 +106,11 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "contacts":
         setIsPhoneBin(true);
         break;
-
+      
+      case "ru/contacts":
+        setIsPhoneBin(true);
+        break;
+      
       default:
         setIsPhoneBin(false);
         break;
