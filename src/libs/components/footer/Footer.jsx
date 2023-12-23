@@ -17,7 +17,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
 
-
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(0);
 
@@ -68,7 +67,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "book":
         setIsOpenModal(false);
         break;
-      
+
       default:
         setIsOpenModal(true);
         break;
@@ -177,7 +176,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   return (
     isClient && (
-      <section className={styles.footer_section}>
+      <footer className={styles.footer_section}>
         <div
           className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
         ></div>
@@ -218,15 +217,13 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             </div>
           </div>
 
-          <div
-            className={styles.footer_text_box}>
-
+          <div className={styles.footer_text_box}>
             <p className={styles.footer_title_phone_only}>
               <span className={styles.footer_title_bold_phone_only}>
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
-              <span style={{display: "block"}}>
+              <span style={{ display: "block" }}>
                 без вихідних з 8:00 до 22:00
               </span>
             </p>
@@ -234,11 +231,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <p className={styles.footer_title}>
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </p>
-              <p
-                className={styles.footer_text}
-              >
+              <p className={styles.footer_text}>
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                <span style={{display: "block"}}>
+                <span style={{ display: "block" }}>
                   без вихідних з 8:00 до 22:00
                 </span>
               </p>
@@ -247,7 +242,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               {isLocale ? "Филии по городам" : "Філії по містах"}:
             </p>
 
-            <p className={styles.footer_text} >
+            <p className={styles.footer_text}>
               {isLocale ? ruFooterData.City : uaFooterData.City}
             </p>
           </div>
@@ -327,7 +322,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             </div>
           </div>
         </div>
-        
+
         {isOpenModal && (
           <ModalForm
             type={"home"}
@@ -336,7 +331,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             isOpenModal={isOpenModal}
           />
         )}
-      </section>
+      </footer>
     )
   );
 }
