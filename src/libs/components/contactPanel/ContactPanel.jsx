@@ -260,11 +260,9 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 className={`${styles.link} ${styles.mob_yes}`}
                 onClick={() => hanldePhoneNumber()}
               >
-                {isPhoneMob && (
-                  <motion.ul
-                    className={styles.list_phone}
+                {/* {isPhoneMob && ( */}
+                  <motion.ul className={styles.list_phone} style={isPhoneMob ? {display: "flex"} : {display: "none"}}>
 
-                  >
                     <li className={styles.link_panel_phone}>
                       <Link
                         className="binct-phone-number-2"
@@ -285,8 +283,9 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                         {Telephones["Vodafone"]}
                       </Link>
                     </li>
+
                   </motion.ul>
-                )}
+                {/* )} */}
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
