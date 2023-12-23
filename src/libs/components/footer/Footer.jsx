@@ -18,7 +18,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isLocale, setIsLocale] = useState("");
   const [isPhoneBin, setIsPhoneBin] = useState(false);
 
-
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isScroll, setIsScroll] = useState(0);
 
@@ -99,23 +98,21 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   }, [isFristRender]);
 
   // binotel page contacts
-  
+
   useEffect(() => {
     switch (path) {
-
       case "contacts":
         setIsPhoneBin(true);
         break;
-      
+
       case "ru/contacts":
         setIsPhoneBin(true);
         break;
-      
+
       default:
         setIsPhoneBin(false);
         break;
     }
-    
   }, [path]);
 
   useEffect(() => {
@@ -199,173 +196,173 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   return (
     isClient && (
-    <div style={{position: "relative"}}>
-      <section className={styles.footer_section}>
-        <div
-          className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
-        ></div>
-        <div className={styles.footer_container}>
-          <div className={styles.box_logo}>
-            <Image
-              src={uaFooterData.LOGO_TITLE["data"]["attributes"]["url"]}
-              alt="Logo"
-              width={400}
-              height={117}
-              className={styles.footer_logo}
-            />
-            <p className={styles.footer_logo_text}>
-              {isLocale
-                ? ruFooterData.LOGO_TEXT["Title"]
-                : uaFooterData.LOGO_TEXT["Title"]}
-            </p>
-            <div className={styles.policy_mob_none}>
-              {isLocale
-                ? ruFooterData.Links.map((item, id) => (
-                    <Link
-                      key={id}
-                      className={styles.policy_text}
-                      href={item.path}
-                    >
-                      {item.Title}
-                    </Link>
-                  ))
-                : uaFooterData.Links.map((item, id) => (
-                    <Link
-                      key={id}
-                      className={styles.policy_text}
-                      href={item.path}
-                    >
-                      {item.Title}
-                    </Link>
-                  ))}
-            </div>
-          </div>
-
+      <div style={{ position: "relative" }}>
+        <section className={styles.footer_section}>
           <div
-            className={styles.footer_text_box}>
-
-            <p className={styles.footer_title_phone_only}>
-              <span className={styles.footer_title_bold_phone_only}>
-                {isLocale ? "Главный офис" : "Головний офіс"}:
-              </span>
-              {isLocale ? ruFooterData.address : uaFooterData.address}
-              <span style={{display: "block"}}>
-                без вихідних з 8:00 до 22:00
-              </span>
-            </p>
-            <div className={styles.display_none}>
-              <p className={styles.footer_title}>
-                {isLocale ? "Главный офис" : "Головний офіс"}:
+            className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
+          ></div>
+          <div className={styles.footer_container}>
+            <div className={styles.box_logo}>
+              <Image
+                src={uaFooterData.LOGO_TITLE["data"]["attributes"]["url"]}
+                alt="Logo"
+                width={400}
+                height={117}
+                className={styles.footer_logo}
+              />
+              <p className={styles.footer_logo_text}>
+                {isLocale
+                  ? ruFooterData.LOGO_TEXT["Title"]
+                  : uaFooterData.LOGO_TEXT["Title"]}
               </p>
-              <p
-                className={styles.footer_text}
-              >
+              <div className={styles.policy_mob_none}>
+                {isLocale
+                  ? ruFooterData.Links.map((item, id) => (
+                      <Link
+                        key={id}
+                        className={styles.policy_text}
+                        href={item.path}
+                      >
+                        {item.Title}
+                      </Link>
+                    ))
+                  : uaFooterData.Links.map((item, id) => (
+                      <Link
+                        key={id}
+                        className={styles.policy_text}
+                        href={item.path}
+                      >
+                        {item.Title}
+                      </Link>
+                    ))}
+              </div>
+            </div>
+
+            <div className={styles.footer_text_box}>
+              <p className={styles.footer_title_phone_only}>
+                <span className={styles.footer_title_bold_phone_only}>
+                  {isLocale ? "Главный офис" : "Головний офіс"}:
+                </span>
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                <span style={{display: "block"}}>
+                <span style={{ display: "block" }}>
                   без вихідних з 8:00 до 22:00
                 </span>
               </p>
-            </div>
-            <p className={styles.footer_title}>
-              {isLocale ? "Филии по городам" : "Філії по містах"}:
-            </p>
+              <div className={styles.display_none}>
+                <p className={styles.footer_title}>
+                  {isLocale ? "Главный офис" : "Головний офіс"}:
+                </p>
+                <p className={styles.footer_text}>
+                  {isLocale ? ruFooterData.address : uaFooterData.address}
+                  <span style={{ display: "block" }}>
+                    без вихідних з 8:00 до 22:00
+                  </span>
+                </p>
+              </div>
+              <p className={styles.footer_title}>
+                {isLocale ? "Филии по городам" : "Філії по містах"}:
+              </p>
 
-            <p className={styles.footer_text} >
-              {isLocale ? ruFooterData.City : uaFooterData.City}
-            </p>
-          </div>
-          <div className={styles.footer_contact_box}>
-            <div className={styles.footer_contact}>
-              <p className={styles.footer_contact_title}>Phone:</p>
-              <div>
+              <p className={styles.footer_text}>
+                {isLocale ? ruFooterData.City : uaFooterData.City}
+              </p>
+            </div>
+            <div className={styles.footer_contact_box}>
+              <div className={styles.footer_contact}>
+                <p className={styles.footer_contact_title}>Phone:</p>
+                <div>
+                  <Link
+                    className={`${styles.phone} ${"binct-phone-number-2"}`}
+                    target="_blank"
+                    href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
+                  >
+                    {uaFooterData.Phones["KiyvStar"]}
+                  </Link>
+                  <Link
+                    className={`${styles.phone} ${"binct-phone-number-1"}`}
+                    target="_blank"
+                    href={`tel:${uaFooterData.Phones["Vodafone"]}`}
+                  >
+                    {uaFooterData.Phones["Vodafone"]}
+                  </Link>
+                </div>
+              </div>
+              <div className={styles.footer_contact}>
+                <p className={styles.footer_contact_title}>Email:</p>
                 <Link
-                  className={`${styles.phone} ${"binct-phone-number-2"}`}
-                  target="_blank"
-                  href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
+                  className={styles.email}
+                  href={`mailto:${uaFooterData.email}`}
                 >
-                  {uaFooterData.Phones["KiyvStar"]}
-                </Link>
-                <Link
-                  className={`${styles.phone} ${"binct-phone-number-1"}`}
-                  target="_blank"
-                  href={`tel:${uaFooterData.Phones["Vodafone"]}`}
-                >
-                  {uaFooterData.Phones["Vodafone"]}
+                  {uaFooterData.email}
                 </Link>
               </div>
-            </div>
-            <div className={styles.footer_contact}>
-              <p className={styles.footer_contact_title}>Email:</p>
-              <Link
-                className={styles.email}
-                href={`mailto:${uaFooterData.email}`}
-              >
-                {uaFooterData.email}
-              </Link>
-            </div>
 
-            <div className={styles.policy}>
-              {isLocale
-                ? ruFooterData.Links.map((item, id) => (
-                    <Link
-                      key={id}
-                      className={styles.policy_text}
-                      href={item.path}
-                    >
-                      {item.Title}
-                    </Link>
-                  ))
-                : uaFooterData.Links.map((item, id) => (
-                    <Link
-                      key={id}
-                      className={styles.policy_text}
-                      href={item.path}
-                    >
-                      {item.Title}
-                    </Link>
-                  ))}
-            </div>
-            <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
-              <Button
-                style={"button_prymary"}
-                text={
-                  isLocale
-                    ? ruFooterData.Button["text"]
-                    : uaFooterData.Button["text"]
-                }
-                type={"button"}
-                typeStyle={
-                  isStyleFooter === "footer_army_gradient"
-                    ? "army"
-                    : isStyleFooter === "footer_gradient_other"
-                    ? "other"
-                    : "family"
-                }
-              />
-            </div>
-            <div className={styles.scroll_button_up}>
-              <div className={styles.icon_up}>
-                <ScrollButtonUp />
+              <div className={styles.policy}>
+                {isLocale
+                  ? ruFooterData.Links.map((item, id) => (
+                      <Link
+                        key={id}
+                        className={styles.policy_text}
+                        href={item.path}
+                      >
+                        {item.Title}
+                      </Link>
+                    ))
+                  : uaFooterData.Links.map((item, id) => (
+                      <Link
+                        key={id}
+                        className={styles.policy_text}
+                        href={item.path}
+                      >
+                        {item.Title}
+                      </Link>
+                    ))}
+              </div>
+              <div className={styles.btn_wrapper} onClick={handleClickOnBtn}>
+                <Button
+                  style={"button_prymary"}
+                  text={
+                    isLocale
+                      ? ruFooterData.Button["text"]
+                      : uaFooterData.Button["text"]
+                  }
+                  type={"button"}
+                  typeStyle={
+                    isStyleFooter === "footer_army_gradient"
+                      ? "army"
+                      : isStyleFooter === "footer_gradient_other"
+                      ? "other"
+                      : "family"
+                  }
+                />
+              </div>
+              <div className={styles.scroll_button_up}>
+                <div className={styles.icon_up}>
+                  <ScrollButtonUp />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {isOpenModal && (
-          <ModalForm
-            type={"home"}
-            form={isLocale ? ruForm : uaForm}
-            setIsOpenModal={setIsOpenModal}
-            isOpenModal={isOpenModal}
-          />
+
+          {isOpenModal && (
+            <ModalForm
+              type={"home"}
+              form={isLocale ? ruForm : uaForm}
+              setIsOpenModal={setIsOpenModal}
+              isOpenModal={isOpenModal}
+            />
           )}
         </section>
 
         <div className={styles.container_binatel}>
-          <div className={styles.phone_bin_contacts} style={isPhoneBin ? {display: "block"} : {display: "none"}}>
+          <div
+            className={styles.phone_bin_contacts}
+            style={isPhoneBin ? { display: "block" } : { display: "none" }}
+          >
             <Link
               className={`${styles.phone} ${"binct-phone-number-2"}`}
               target="_blank"
-              style={{color: "black"}}
+              style={{ color: "black" }}
               href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
             >
               {uaFooterData.Phones["KiyvStar"]}
@@ -373,7 +370,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             <Link
               className={`${styles.phone} ${"binct-phone-number-1"}`}
               target="_blank"
-              style={{color: "black"}}
+              style={{ color: "black" }}
               href={`tel:${uaFooterData.Phones["Vodafone"]}`}
             >
               {uaFooterData.Phones["Vodafone"]}

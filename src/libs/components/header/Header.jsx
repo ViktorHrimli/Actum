@@ -89,7 +89,6 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
   }, []);
 
   useEffect(() => {
-    localStorage && storage.getUtm();
     if (patnName.includes("ru")) {
       setIsLocal(localStorage.getItem("locale") || "");
     } else {
@@ -124,7 +123,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
   }, []);
 
   return (
-    <section className={styles.header_section}>
+    <header className={styles.header_section}>
       <div className={styles.header_conteiner} id="header">
         {isClient && (
           <Link
@@ -248,6 +247,6 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </header>
   );
 }
