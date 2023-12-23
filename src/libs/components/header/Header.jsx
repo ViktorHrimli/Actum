@@ -85,11 +85,11 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    return () => storage.generateUserInfo(searchParams);
+    localStorage && storage.generateUserInfo(searchParams);
   }, []);
 
   useEffect(() => {
-    storage.getUtm();
+    localStorage && storage.getUtm();
     if (patnName.includes("ru")) {
       setIsLocal(localStorage.getItem("locale") || "");
     } else {

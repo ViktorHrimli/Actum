@@ -1,14 +1,31 @@
+import dynamic from "next/dynamic";
+
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import QuestionsList from "@/libs/pages/components/QuestionList/QuestionsList";
-import Specialists from "@/libs/pages/components/specialists/Specialists";
-import StepsLawyers from "@/shared/components/stepLawyers/StepsLawyers";
-import Descrition from "@/libs/pages/services/components/description/Description";
-import Response from "@/libs/components/response/Response";
-import SuccessfulBusiness from "@/libs/pages/components/successfulBusiness/SuccessfulBusiness";
-import FormSection from "@/shared/components/formSection/FormSection";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
-import Price from "@/libs/pages/components/priceCards/Price";
-import AboutCards from "@/libs/pages/components/aboutCards/AboutCards";
+
+const Specialists = dynamic(() =>
+  import("@/libs/pages/components/specialists/Specialists")
+);
+const AboutCards = dynamic(() =>
+  import("@/libs/pages/components/aboutCards/AboutCards")
+);
+const Price = dynamic(() => import("@/libs/pages/components/priceCards/Price"));
+const StepsLawyers = dynamic(() =>
+  import("@/shared/components/stepLawyers/StepsLawyers")
+);
+const Description = dynamic(() =>
+  import("@/libs/pages/services/components/description/Description")
+);
+const Response = dynamic(() => import("@/libs/components/response/Response"));
+const SuccessfulBusiness = dynamic(() =>
+  import("@/libs/pages/components/successfulBusiness/SuccessfulBusiness")
+);
+const QuestionsList = dynamic(() =>
+  import("@/libs/pages/components/QuestionList/QuestionsList")
+);
+const FormSection = dynamic(() =>
+  import("@/shared/components/formSection/FormSection")
+);
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
@@ -55,7 +72,7 @@ export default async function page() {
       <AboutCards type={"army"} listCard={statistics} />
       <SuccessfulBusiness type={"army"} {...successful_deals} />
       <Specialists type={"army"} {...employeer_list} />
-      <Descrition type={"army"} description={description_lawyer} />
+      <Description type={"army"} description={description_lawyer} />
       <Response type={"army"} {...responses} />
       <StepsLawyers type={"army"} {...steps} />
       <Price type={"army"} list={price_block} title={title_price_block} />

@@ -97,7 +97,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
     }
   }, [isFristRender]);
 
-  // binotel all page
+  // binotel page contacts
   
   useEffect(() => {
     switch (path) {
@@ -110,7 +110,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
         break;
     }
     
-  }, [isFristRender]);
+  }, [path]);
 
   useEffect(() => {
     setIsLocale(localStorage.getItem("locale") || "");

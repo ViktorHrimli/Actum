@@ -1,8 +1,9 @@
+import dynamic from "next/dynamic";
 import { META_DATA_DESCRIPTION, META_DATA_TITLE } from "@/shared/enums/enum";
 
 import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 
-import SiteMap from "@/shared/components/siteMap/siteMap";
+const SiteMap = dynamic(() => import("@/shared/components/siteMap/siteMap"));
 
 export const metadata = {
   title: META_DATA_TITLE.BOOK,

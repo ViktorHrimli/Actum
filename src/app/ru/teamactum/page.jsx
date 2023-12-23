@@ -1,9 +1,16 @@
-import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import Descrition from "@/libs/pages/services/components/description/Description";
-import About from "@/shared/components/about/About";
-import TeamList from "@/libs/pages/teamactum/teamList/TeamList";
+import dynamic from "next/dynamic";
 
+import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
+
+const Descrition = dynamic(() =>
+  import("@/libs/pages/services/components/description/Description")
+);
+const About = dynamic(() => import("@/shared/components/about/About"));
+const TeamList = dynamic(() =>
+  import("@/libs/pages/teamactum/teamList/TeamList")
+);
+
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";
 
