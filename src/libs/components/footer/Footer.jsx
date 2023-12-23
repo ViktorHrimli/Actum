@@ -16,7 +16,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isStyleFooter, setIsStyleFooter] = useState("other");
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
-  const [isPhoneBin, setIsPhoneBin] = useState(false);
+  const [isPhoneBin, setIsPhoneBin] = useState(true);
 
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -103,16 +103,40 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   useEffect(() => {
     switch (path) {
 
-      case "contacts":
-        setIsPhoneBin(true);
+      case "":
+        setIsPhoneBin(false);
         break;
       
-      case "ru/contacts":
-        setIsPhoneBin(true);
+      case "ru":
+        setIsPhoneBin(false);
+        break;
+      
+      case "teamactum":
+        setIsPhoneBin(false);
+        break;
+      
+      case "ru/teamactum":
+        setIsPhoneBin(false);
+        break;
+      
+      case "blog":
+        setIsPhoneBin(false);
+        break;
+      
+      case "ru/blog-3-1":
+        setIsPhoneBin(false);
+        break;
+      
+      case "html-sitemap":
+        setIsPhoneBin(false);
+        break;
+      
+      case "ru/html-sitemap":
+        setIsPhoneBin(false);
         break;
       
       default:
-        setIsPhoneBin(false);
+        setIsPhoneBin(true);
         break;
     }
     
@@ -360,10 +384,10 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
           )}
         </section>
 
-        <div className={styles.container_binatel}>
-          <div className={styles.phone_bin_contacts} style={isPhoneBin ? {display: "block"} : {display: "none"}}>
+        <div className={path === "contacts" ? styles.container_binatel_contacts : styles.container_binatel_other}>
+          <div className={path === "contacts" ? styles.phone_bin_contacts : styles.phone_bin_book} style={isPhoneBin ? {display: "block"} : {display: "none"}}>
             <Link
-              className={`${styles.phone} ${"binct-phone-number-2"}`}
+              className={`${path === "contacts" ? styles.phone : styles.phone_binatel_other} ${"binct-phone-number-2"}`}
               target="_blank"
               style={{color: "black"}}
               href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
@@ -371,7 +395,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               {uaFooterData.Phones["KiyvStar"]}
             </Link>
             <Link
-              className={`${styles.phone} ${"binct-phone-number-1"}`}
+              className={`${path === "contacts" ? styles.phone : styles.phone_binatel_other} ${"binct-phone-number-1"}`}
               target="_blank"
               style={{color: "black"}}
               href={`tel:${uaFooterData.Phones["Vodafone"]}`}

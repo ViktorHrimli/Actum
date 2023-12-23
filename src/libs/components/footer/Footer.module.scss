@@ -577,7 +577,7 @@
   margin-left: auto;
 }
 
-.container_binatel {
+.container_binatel_contacts {
   position: absolute;
   right: 50%;
   transform: translate(50%, 0%);
@@ -610,14 +610,67 @@
   @media screen and (min-width: 320px) {
     margin-right: 29px;
   }
-  
-    @media screen and (min-width: 768px) {}
-  
-    @media screen and (min-width: 1280px) {
+}
 
-    }
-  
-    @media screen and (min-width: 1440px) {
+.container_binatel_other {
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, 0%);
 
-    }
+  display: flex;
+
+  @media screen and (min-width: 320px) {
+    width: 264px;
+    bottom: 680px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 630px;
+    bottom: 514px;
+    justify-content: flex-end;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1058px;
+    bottom: 1274px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1230px;
+    bottom: 1238px;
+  }
+}
+
+.phone_bin_book {
+  @media screen and (min-width: 320px) {
+    margin-left: 54px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 50px;
+  }
+}
+
+.phone_binatel_other {
+  display: block;
+  color: var(--secondary-color);
+  text-transform: none;
+
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: 0em;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+  }
 }
