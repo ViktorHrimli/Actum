@@ -139,7 +139,7 @@ export default function Contacts({
                 <div className={styles.social_block}>
                   <div className={styles.footer_contact}>
                     <p className={styles.footer_contact_title}>Phone:</p>
-                    <div className={styles.box_tel}>
+                    <div className={styles.box_tel} style={{zIndex: "-1"}}>
                       <Link
                         target="_blank"
                         className={`${styles.phone} ${"binct-phone-number-2"}`}

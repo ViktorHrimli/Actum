@@ -16,6 +16,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isStyleFooter, setIsStyleFooter] = useState("other");
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
+  const [isPhoneBin, setIsPhoneBin] = useState(false);
 
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -68,7 +69,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       case "book":
         setIsOpenModal(false);
         break;
-      
+
       default:
         setIsOpenModal(true);
         break;
@@ -95,6 +96,21 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
       setIsClient(true);
     }
   }, [isFristRender]);
+
+  // binotel page contacts
+  
+  useEffect(() => {
+    switch (path) {
+      case "contacts":
+        setIsPhoneBin(true);
+        break;
+
+      default:
+        setIsPhoneBin(false);
+        break;
+    }
+    
+  }, [path]);
 
   useEffect(() => {
     setIsLocale(localStorage.getItem("locale") || "");
@@ -177,6 +193,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   return (
     isClient && (
+      <>
       <section className={styles.footer_section}>
         <div
           className={`${styles[isStyleFooter]} ${styles.footer_gradient}`}
@@ -226,9 +243,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 {isLocale ? "Главный офис" : "Головний офіс"}:
               </span>
               {isLocale ? ruFooterData.address : uaFooterData.address}
-              <span style={{display: "block"}}>
+              <time>
                 без вихідних з 8:00 до 22:00
-              </span>
+              </time>
             </p>
             <div className={styles.display_none}>
               <p className={styles.footer_title}>
@@ -238,9 +255,9 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
                 className={styles.footer_text}
               >
                 {isLocale ? ruFooterData.address : uaFooterData.address}
-                <span style={{display: "block"}}>
+                <time>
                   без вихідних з 8:00 до 22:00
-                </span>
+                </time>
               </p>
             </div>
             <p className={styles.footer_title}>
@@ -327,7 +344,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             </div>
           </div>
         </div>
-        
         {isOpenModal && (
           <ModalForm
             type={"home"}
@@ -336,7 +352,28 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             isOpenModal={isOpenModal}
           />
         )}
-      </section>
+        </section>
+        <div className={styles.container_binatel}>
+          <div className={styles.phone_bin_contacts} style={isPhoneBin ? {display: "block"} : {display: "none"}}>
+            <Link
+              className={`${styles.phone} ${"binct-phone-number-2"}`}
+              target="_blank"
+              style={{color: "black"}}
+              href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
+            >
+              {uaFooterData.Phones["KiyvStar"]}
+            </Link>
+            <Link
+              className={`${styles.phone} ${"binct-phone-number-1"}`}
+              target="_blank"
+              style={{color: "black"}}
+              href={`tel:${uaFooterData.Phones["Vodafone"]}`}
+            >
+              {uaFooterData.Phones["Vodafone"]}
+            </Link>
+            </div>
+          </div>
+    </>
     )
   );
 }
