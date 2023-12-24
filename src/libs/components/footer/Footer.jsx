@@ -23,7 +23,6 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isScroll, setIsScroll] = useState(0);
 
   const path = usePathname().replace("/", "");
-  console.log(path);
 
   const {
     data: {
@@ -102,10 +101,11 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
 
   useEffect(() => {
     switch (path) {
-
+    
       case "":
         setIsPhoneBin(false);
-        console.log(path);
+      console.log(path);
+
         break;
       
       case "ru":
@@ -381,10 +381,16 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
           )}
         </section>
 
-        <div className={path === "contacts" || "ru/contacts" ? styles.container_binatel_contacts : styles.container_binatel_other}>
+        <div className={path === "contacts" ? styles.container_binatel_contacts
+          : path === "ru/contacts" ? styles.container_binatel_contacts
+            : styles.container_binatel_other}>
+          
           <div style={isPhoneBin ? {display: "block"} : {display: "none"}}>
             <Link
-              className={`${path === "contacts" || "ru/contacts"  ? styles.phone_bin_contacts : styles.phone_binatel_other} ${"binct-phone-number-2"}`}
+              className={`${path === "contacts" ? styles.phone_bin_contacts
+                : path === "ru/contacts" ? styles.phone_bin_contacts
+                  : styles.phone_binatel_other} ${"binct-phone-number-2"}`}
+              
               target="_blank"
               style={{ color: "black" }}
               href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
@@ -392,7 +398,10 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               {uaFooterData.Phones["KiyvStar"]}
             </Link>
             <Link
-              className={`${path === "contacts" || "ru/contacts"  ? styles.phone_bin_contacts : styles.phone_binatel_other} ${"binct-phone-number-1"}`}
+              className={`${path === "contacts" ? styles.phone_bin_contacts
+                : path === "ru/contacts" ? styles.phone_bin_contacts
+                  : styles.phone_binatel_other} ${"binct-phone-number-1"}`}    
+              
               target="_blank"
               style={{ color: "black" }}
               href={`tel:${uaFooterData.Phones["Vodafone"]}`}
