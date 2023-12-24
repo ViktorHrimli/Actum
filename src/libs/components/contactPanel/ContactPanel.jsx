@@ -256,36 +256,28 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   />
                 </a>
               </li>
-              <li
-                className={`${styles.link} ${styles.mob_yes}`}
-                onClick={() => hanldePhoneNumber()}
-              >
-                {/* {isPhoneMob && ( */}
+              <li className={`${styles.link} ${styles.mob_yes}`}
+                  onClick={() => hanldePhoneNumber()}>
                   <motion.ul className={styles.list_phone} style={isPhoneMob ? {display: "flex"} : {display: "none"}}>
-
                     <li className={styles.link_panel_phone}>
                       <Link
                         className="binct-phone-number-2"
-                        target="_blank"
+                        // target="_blank"
                         referrerPolicy=""
-                        href={`tel:${Telephones["KiyvStar"]}`}
-                      >
+                        href={`tel:${Telephones["KiyvStar"]}`}>
                         {Telephones["KiyvStar"]}
                       </Link>
                     </li>
                     <li className={styles.link_panel_phone}>
                       <Link
                         className="binct-phone-number-1"
-                        target="_blank"
+                        // target="_blank"
                         referrerPolicy=""
-                        href={`tel:${Telephones["Vodafone"]}`}
-                      >
+                        href={`tel:${Telephones["Vodafone"]}`}>
                         {Telephones["Vodafone"]}
                       </Link>
                     </li>
-
                   </motion.ul>
-                {/* )} */}
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

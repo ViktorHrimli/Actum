@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     width: 100vw;
 
@@ -15,20 +15,24 @@
 
     @media screen and (min-width: 320px) {
         padding: 36px 20px 63px 20px;
+        height: 1097px;
     }
 
     @media screen and (min-width: 768px) {
         padding: 70px 100px 88px 58px;
+        height: 1241px;
     }
 
     @media screen and (min-width: 1280px) {
         padding: 120px 96px 100px 33px;
         width: 1280px;
+        height: 1084px;
     }
 
     @media screen and (min-width:1440px) {
         padding: 164px 118px 130px 70px;
         width: 1440px;
+        height: 1190px;
     }
 }
 
@@ -121,18 +125,16 @@
     }
 
     @media screen and (min-width: 768px) {
-        max-width: 300px;
         font-size: 16px;
     }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
-        width: 380px;
+        width: 330px;
     }
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
-        width: 400px;
     }
 }
 
