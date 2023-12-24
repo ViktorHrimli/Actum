@@ -48,8 +48,8 @@ export default async function Team() {
       <StructureData data={seo["structuredData"]} />
 
       <NestedHero type={"home"} {...hero} form={modal} />
-      <About {...desk} />
-      <TeamList items={items} />
+      <About {...desk} form={modal} />
+      <TeamList type={"family"} items={items} form={modal} />
       <Descrition type="classic" {...wrapper} />
     </>
   );
