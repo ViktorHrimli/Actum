@@ -15,10 +15,12 @@
 
     @media screen and (min-width: 320px) {
         padding: 36px 20px 63px 20px;
+        height: 1097px;
     }
 
     @media screen and (min-width: 768px) {
         padding: 70px 100px 88px 58px;
+        height: 1241px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -123,18 +125,16 @@
     }
 
     @media screen and (min-width: 768px) {
-        max-width: 300px;
         font-size: 16px;
     }
 
     @media screen and (min-width: 1280px) {
         font-size: 18px;
-        width: 380px;
+        width: 330px;
     }
 
     @media screen and (min-width: 1440px) {
         font-size: 20px;
-        width: 400px;
     }
 }
 

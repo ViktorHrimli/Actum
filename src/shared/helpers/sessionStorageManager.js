@@ -20,11 +20,10 @@ class ManageSessionStorage {
 
     this.generateUtm(urlParams);
     this.generateReferrer();
-    this.getUtm();
   }
 
   getInfo(urlParams) {
-    this.generateUtm(urlParams);
+    // this.generateUtm(urlParams);
 
     const userId = localStorage.getItem("userId");
     const referer = this.getReferrer();
@@ -78,27 +77,25 @@ class ManageSessionStorage {
     let objUTMTime;
     objUTM = JSON.parse(localStorage.getItem("utm"));
     objUTMTime = JSON.parse(localStorage.getItem("utm_time"));
-    if (document.referrer === "") {
-      console.log(document.referrer, "REFERER");
+    var getTimeObjectTime = new Date(objUTMTime).getMilliseconds();
+
+    if (document.referrer == "") {
+      return objUTM;
+    }
+    if (timeNow - getTimeObjectTime < oneDay) {
       return objUTM;
     } else {
+      console.log("REMUVE");
+      localStorage.removeItem("utm");
+      localStorage.removeItem("utm_time");
       return {
-        source: null,
         medium: null,
-        campaign: null,
-        content: null,
         term: null,
+        content: null,
+        campaign: null,
+        source: null,
       };
     }
-    // if (timeNow - objUTMTime < oneDay) {
-    //   console.log(timeNow - objUTMTime < oneDay, "TIME");
-    //   return objUTM;
-    // } else {
-    //   console.log("REMUVE");
-    //   localStorage.removeItem("utm");
-    //   localStorage.removeItem("utm_time");
-
-    // }
   }
 }
 

@@ -1,14 +1,6 @@
-"use client";
-
-import { useEffect, useRouter } from "@/shared/hooks/hooks";
-
-import styles from "./page.module.scss";
+import Link from "next/link";
 
 export default function NotFound() {
-  const route = useRouter();
-  const clickPush = () => {
-    route.push("/");
-  };
   return (
     <div
       style={{
@@ -24,11 +16,9 @@ export default function NotFound() {
         overflow: "hidden",
       }}
     >
-      <h1>Щось сталось (:</h1>
-
-      <div className={styles.error_text} onClick={clickPush}>
-        <h2>Повернутися на головну</h2>
-      </div>
+      <h2>Not Found</h2>
+      <p>Could not find requested resource</p>
+      <Link href="/">Return Home</Link>
     </div>
   );
 }

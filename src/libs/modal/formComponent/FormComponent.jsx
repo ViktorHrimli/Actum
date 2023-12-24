@@ -158,10 +158,10 @@ export default function FormComponent({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
-      window.dataLayer.push({ event: "formissentmodal" });
 
       setIsLoading(true);
       // SEND
+      window.dataLayer.push({ event: "formissentmodal" });
       axios.post("/api/send", data);
       axios
         .post("/api/form", data)

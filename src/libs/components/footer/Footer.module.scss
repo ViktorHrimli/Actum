@@ -5,9 +5,13 @@
   overflow: hidden;
   z-index: 10;
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {}
+  @media screen and (min-width: 320px){
+    height: 600px;
+  }
 
-  @media screen and (min-width: 768px) {}
+  @media screen and (min-width: 768px) {
+    height: 390px;
+  }
 
   @media screen and (min-width: 1280px) {
     width: 1280px;
@@ -16,6 +20,7 @@
     padding-right: 60px;
     padding-bottom: 26px;
     z-index: 17;
+    height: 490px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -26,6 +31,7 @@
     padding-right: 150px;
     padding-bottom: 31px;
     overflow: hidden;
+    height: 415px;
   }
 }
 
@@ -39,7 +45,7 @@
     padding-top: 44px;
     padding-left: 28px;
     padding-right: 28px;
-    margin-bottom: 51px;
+    // margin-bottom: 51px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -48,7 +54,7 @@
     padding-top: 70px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom: 35px;
+    // padding-bottom: 35px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -270,7 +276,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 200px;
+    width: 240px;
     font-size: 12px;
     margin-top: 0px;
   }
@@ -303,6 +309,8 @@
   @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
     margin-bottom: 24px;
+    width: 300px;
+
   }
 
   @media screen and (min-width: 768px) {
@@ -366,7 +374,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 172px;
+    width: 178px;
     font-size: 14px;
   }
 
@@ -516,7 +524,7 @@
 
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     font-size: 14px;
-    width: 217px;
+    // width: 217px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -577,6 +585,8 @@
   margin-left: auto;
 }
 
+// binatel
+
 .container_binatel_contacts {
   position: absolute;
   right: 50%;
@@ -587,7 +597,7 @@
 
   @media screen and (min-width: 320px) {
       width: 264px;
-      bottom: 940px;
+      bottom: 986px;
     }
   
     @media screen and (min-width: 768px) {
@@ -606,11 +616,36 @@
 }
 
 .phone_bin_contacts {
-  // border: 1px solid red;
-  @media screen and (min-width: 320px) {
-    margin-right: 29px;
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: lowercase;
+  z-index: 6;
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    font-size: 14px;
+    margin-right: 25px;
+  }
+  @media screen and (min-width: 768px) {
+      margin-right: 25px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 16px;
+    margin-right: 50px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    width: 100%;
+    margin-right: 42px;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 }
+
 
 .container_binatel_other {
   position: absolute;
@@ -621,7 +656,8 @@
 
   @media screen and (min-width: 320px) {
     width: 264px;
-    bottom: 680px;
+    bottom: 694px;
+    justify-content: flex-end;
   }
 
   @media screen and (min-width: 768px) {
@@ -632,23 +668,16 @@
 
   @media screen and (min-width: 1280px) {
     width: 1058px;
-    bottom: 1274px;
+    bottom: 1280px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 1230px;
-    bottom: 1238px;
+    bottom: 1230px;
   }
 }
 
-.phone_bin_book {
-  @media screen and (min-width: 320px) {
-    margin-left: 54px;
-  }
-  @media screen and (min-width: 768px) {
-    margin-right: 50px;
-  }
-}
+
 
 .phone_binatel_other {
   display: block;
@@ -660,10 +689,12 @@
     font-weight: 600;
     line-height: 1.16;
     letter-spacing: 0em;
+    margin-right: 55px;
   }
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
+    margin-right: 50px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -672,5 +703,6 @@
 
   @media screen and (min-width: 1440px) {
     font-size: 20px;
+    margin-right: 46px;
   }
 }
