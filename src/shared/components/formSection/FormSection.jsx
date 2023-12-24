@@ -29,7 +29,7 @@ export default function FormSection({
               <p className={`${styles.title_info} ${styles[color_text]}`}>
                 Phone:
               </p>
-              <div className={styles.text_wrapper_info} style={{zIndex: "-1"}}>
+              <div className={styles.text_wrapper_info}>
                 <a href={`tel:${phones["KiyvStar"]}`} target="_blank">
                   
                   <p className={`${styles.text} ${"binct-phone-number-2"}`}>{phones["KiyvStar"]}</p>

@@ -16,7 +16,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   const [isStyleFooter, setIsStyleFooter] = useState("other");
   const [isClient, setIsClient] = useState(false);
   const [isLocale, setIsLocale] = useState("");
-  const [isPhoneBin, setIsPhoneBin] = useState(true);
+  const [isPhoneBin, setIsPhoneBin] = useState(false);
 
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -102,42 +102,24 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
   useEffect(() => {
     switch (path) {
     
-      case "":
-        setIsPhoneBin(false);
-      console.log(path);
-
-        break;
-      
-      case "ru":
+      case "contacts":
         setIsPhoneBin(false);
         break;
       
-      case "blog-3-1":
-        setIsPhoneBin(false);
+      case "ru/contacts":
+        setIsPhoneBin(true);
         break;
       
-      case "ru/blog-3-1":
-        setIsPhoneBin(false);
-        break;
+      // case "book":
+      //   setIsPhoneBin(true);
+      //   break;
       
-      case "teamactum":
-          setIsPhoneBin(false);
-          break;
-      
-      case "ru/teamactum":
-        setIsPhoneBin(false);
-        break;
-      
-      case "html-sitemap":
-        setIsPhoneBin(false);
-        break;
-      
-      case "ru/html-sitemap":
-        setIsPhoneBin(false);
-        break;
+      // case "ru/book":
+      //   setIsPhoneBin(true);
+      //   break;
       
       default:
-        setIsPhoneBin(true);
+        setIsPhoneBin(false);
         break;
     }
   }, [path]);
