@@ -103,7 +103,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
     switch (path) {
     
       case "contacts":
-        setIsPhoneBin(false);
+        setIsPhoneBin(true);
         break;
       
       case "ru/contacts":
