@@ -34,7 +34,7 @@ class ManageSessionStorage {
   }
 
   getReferrer() {
-    return localStorage.getItem("referer") || "";
+    return localStorage.getItem("referer");
   }
 
   getUtmTime() {
@@ -42,7 +42,7 @@ class ManageSessionStorage {
   }
 
   generateReferrer() {
-    if (document.referrer == "") {
+    if (document.referrer === "") {
       localStorage.setItem("referer", "");
     } else {
       let refererAll = new URL(document.referrer);
@@ -79,15 +79,14 @@ class ManageSessionStorage {
     objUTMTime = JSON.parse(localStorage.getItem("utm_time"));
     var getTimeObjectTime = new Date(objUTMTime).getMilliseconds();
 
-    if (document.referrer == "") {
-      return objUTM;
-    }
-    if (timeNow - getTimeObjectTime < oneDay) {
+    if (document.referrer !== "") {
+      if (timeNow - getTimeObjectTime < oneDay) {
+        localStorage.removeItem("utm");
+        localStorage.removeItem("utm_time");
+      }
+
       return objUTM;
     } else {
-      console.log("REMUVE");
-      localStorage.removeItem("utm");
-      localStorage.removeItem("utm_time");
       return {
         medium: null,
         term: null,
