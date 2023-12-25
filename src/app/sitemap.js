@@ -26,8 +26,6 @@ export default async function sitemap() {
   const sitemapFilePath = path.join(publicFolderPath, "sitemap.xml");
 
   fs.writeFileSync(sitemapFilePath, sitemapXml);
-
-  console.log("Sitemap.xml успешно создан и сохранен в папке public.");
 }
 
 function generateSitemapXml(data) {
