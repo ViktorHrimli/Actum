@@ -594,6 +594,7 @@
 
   display: flex;
   justify-content: flex-end;
+  z-index: 100;
 
   @media screen and (min-width: 320px) {
       width: 264px;
@@ -601,16 +602,16 @@
     }
   
     @media screen and (min-width: 768px) {
-      width: 594px;
+      width: 626px;
       bottom: 788px;
     }
     @media screen and (min-width: 1280px) {
-      width: 1044px;
+      width: 1048px;
       bottom: 1044px;
     }
   
     @media screen and (min-width: 1440px) {
-      width: 1026px;
+      width: 1068px;
       bottom: 992px;
     }
 }
@@ -629,16 +630,16 @@
   }
   @media screen and (min-width: 768px) {
       margin-right: 25px;
+    font-size: 16px;
   }
   @media screen and (min-width: 1280px) {
-    font-size: 16px;
+    font-size: 18px;
     margin-right: 50px;
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 16px;
+    font-size: 20px;
     width: 100%;
-    margin-right: 60px;
   }
 
   &:hover {
