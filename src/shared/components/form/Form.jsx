@@ -77,7 +77,8 @@ export default function Form({
   });
 
   const sendFormByError = () => {
-    const makeObjParams = storage.getInfo(searcParams);
+    // const makeObjParams = storage.getInfo(searcParams);
+    var makeObjParams = coockiesManager.coockiesObj;
 
     const errorObj = {
       ...makeObjParams,

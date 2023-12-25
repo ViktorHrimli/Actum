@@ -4,7 +4,6 @@ export default function NotFound() {
   return (
     <div
       style={{
-        position: "relative",
         width: "100vw",
         height: "100vh",
         display: "flex",
@@ -13,12 +12,10 @@ export default function NotFound() {
         justifyContent: "center",
         background: "#0F021C",
         gap: "40px",
-        overflow: "hidden",
       }}
     >
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
+      <h2>Нічого не знайденно(:</h2>
+      <Link href="/">Повернутися на головну.</Link>
     </div>
   );
 }

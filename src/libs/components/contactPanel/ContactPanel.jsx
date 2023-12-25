@@ -20,12 +20,11 @@ import ScrollButtonUp from "./halpers/showScrollButtonUp";
 
 import Form from "@/assets/svg/Form.png";
 
-import { storage } from "@/shared/helpers/sessionStorageManager";
+import { storage, coockiesManager } from "@/shared/helpers/helpers";
 
 import { iconEnum } from "@/shared/enums/enum";
 import { colorGradient } from "@/libs/components/contactPanel/libs/enums";
 import styles from "./ContactPanel.module.scss";
-
 
 export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const [setIsStylePanel, setsetIsStylePanel] = useState("family");
@@ -56,10 +55,11 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
   const SECOND_ICON = Icons[1];
 
   const sendFormByMessenger = (type) => {
-    const makeObjParams = storage.getInfo(searchParams);
+    // const makeObjParams = storage.getInfo(searchParams);
+    var theObjParams = coockiesManager.coockiesObj;
 
     const msgObj = {
-      ...makeObjParams,
+      ...theObjParams,
       type,
     };
 
@@ -228,11 +228,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 className={styles.link}
                 onClick={() => sendFormByMessenger(FIRST_ICON["icon"])}
               >
-                <a
-                  target="_blank"
-                  referrerPolicy=""
-                  href={FIRST_ICON["link"]}
-                >
+                <a target="_blank" referrerPolicy="" href={FIRST_ICON["link"]}>
                   <FontAwesomeIcon
                     icon={iconEnum[FIRST_ICON["icon"]]}
                     className={styles.options_icon}
@@ -244,11 +240,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 className={`${styles.link} ${styles.mob_none}`}
                 onClick={() => sendFormByMessenger(SECOND_ICON["icon"])}
               >
-                <a
-                  target="_blank"
-                  referrerPolicy=""
-                  href={SECOND_ICON["link"]}
-                >
+                <a target="_blank" referrerPolicy="" href={SECOND_ICON["link"]}>
                   <FontAwesomeIcon
                     icon={iconEnum[SECOND_ICON["icon"]]}
                     className={styles.options_icon}
@@ -256,28 +248,35 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   />
                 </a>
               </li>
-              <li className={`${styles.link} ${styles.mob_yes}`}
-                  onClick={() => hanldePhoneNumber()}>
-                  <motion.ul className={styles.list_phone} style={isPhoneMob ? {display: "flex"} : {display: "none"}}>
-                    <li className={styles.link_panel_phone}>
-                      <Link
-                        className="binct-phone-number-2"
-                        // target="_blank"
-                        referrerPolicy=""
-                        href={`tel:${Telephones["KiyvStar"]}`}>
-                        {Telephones["KiyvStar"]}
-                      </Link>
-                    </li>
-                    <li className={styles.link_panel_phone}>
-                      <Link
-                        className="binct-phone-number-1"
-                        // target="_blank"
-                        referrerPolicy=""
-                        href={`tel:${Telephones["Vodafone"]}`}>
-                        {Telephones["Vodafone"]}
-                      </Link>
-                    </li>
-                  </motion.ul>
+              <li
+                className={`${styles.link} ${styles.mob_yes}`}
+                onClick={() => hanldePhoneNumber()}
+              >
+                <motion.ul
+                  className={styles.list_phone}
+                  style={isPhoneMob ? { display: "flex" } : { display: "none" }}
+                >
+                  <li className={styles.link_panel_phone}>
+                    <Link
+                      className="binct-phone-number-2"
+                      // target="_blank"
+                      referrerPolicy=""
+                      href={`tel:${Telephones["KiyvStar"]}`}
+                    >
+                      {Telephones["KiyvStar"]}
+                    </Link>
+                  </li>
+                  <li className={styles.link_panel_phone}>
+                    <Link
+                      className="binct-phone-number-1"
+                      // target="_blank"
+                      referrerPolicy=""
+                      href={`tel:${Telephones["Vodafone"]}`}
+                    >
+                      {Telephones["Vodafone"]}
+                    </Link>
+                  </li>
+                </motion.ul>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -299,10 +298,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
               </li>
             </ul>
             <ScrollAwareSection hideOnScrollEnd={setIsTrue}>
-              <ul
-                className={styles.list_panel_phone}
-
-              >
+              <ul className={styles.list_panel_phone}>
                 <li className={styles.link_panel_phone}>
                   <Link
                     className="binct-phone-number-2"
@@ -342,4 +338,3 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
     )
   );
 }
-

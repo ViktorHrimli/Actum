@@ -28,18 +28,18 @@ class Coockies {
     return this.getCoockiesGoogle(JSON.parse(coock));
   }
 
-  findCoockies(allCoockies) {
-    const cookieArray = allCoockies.split("; ");
+  // findCoockies(allCoockies) {
+  //   const cookieArray = allCoockies.split("; ");
 
-    for (let i = 0; i < cookieArray.length; i++) {
-      const cookiePair = cookieArray[i].split("=");
+  //   for (let i = 0; i < cookieArray.length; i++) {
+  //     const cookiePair = cookieArray[i].split("=");
 
-      if (cookiePair[0] === this.coockieName) {
-        return this.decodeCoockies(decodeURIComponent(cookiePair[1]));
-      }
-    }
-    return null;
-  }
+  //     if (cookiePair[0] === this.coockieName) {
+  //       return this.decodeCoockies(decodeURIComponent(cookiePair[1]));
+  //     }
+  //   }
+  //   return null;
+  // }
 
   makeReadebleUtm(utmObj) {
     var newUtmObj = {};
@@ -51,7 +51,7 @@ class Coockies {
   }
 
   generatedCoockies(coockies) {
-    this.findCoockies(coockies);
+    this.decodeCoockies(coockies);
   }
 
   getCoockies() {
