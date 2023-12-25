@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { getCookie } from "cookies-next";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
@@ -84,7 +85,12 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    document && coockiesManager.generatedCoockies(document.cookie);
+    var getCoockie = getCookie(coockiesManager.coockieName, {
+      sameSite: "none",
+      secure: true,
+    });
+
+    coockiesManager.generatedCoockies(getCoockie);
     localStorage && storage.generateUserInfo(searchParams);
   }, []);
 

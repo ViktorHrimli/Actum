@@ -17,10 +17,10 @@ import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import Button from "@/libs/components/button/Button";
 
-import { iconEnum, colorEnums, bodySend } from "@/shared/enums/enum";
+import { iconEnum, colorEnums } from "@/shared/enums/enum";
 import { borderEnums } from "./enumsForm/enumsForm";
 
-import { storage } from "@/shared/helpers/sessionStorageManager";
+import { storage, coockiesManager } from "@/shared/helpers//helpers";
 
 import styles from "./FormComponent.module.scss";
 
@@ -113,10 +113,11 @@ export default function FormComponent({
   };
 
   const sendFormByError = () => {
-    const makeObjParams = storage.getInfo(searcParams);
+    // const makeObjParams = storage.getInfo(searcParams);
+    var makeObjParamsError = coockiesManager.coockiesObj;
 
     const errorObj = {
-      ...makeObjParams,
+      ...makeObjParamsError,
       errorcond: true,
       type: "form",
       formType: "formPage",
@@ -143,7 +144,8 @@ export default function FormComponent({
 
   const onSubmit = (data) => {
     if (phoneNumber.length >= 12) {
-      const makeObjParams = storage.getInfo(searcParams);
+      // const makeObjParams = storage.getInfo(searcParams);
+      var makeObjParams = coockiesManager.coockiesObj;
 
       const bodySubmitSuccsses = {
         ...makeObjParams,
