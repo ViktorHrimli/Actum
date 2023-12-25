@@ -20,7 +20,7 @@ export default async function sitemap() {
     };
   });
 
-  const sitemapXml = generateSitemapXml(sitemapData);
+  const sitemapXml = await generateSitemapXml(sitemapData);
 
   const publicFolderPath = path.join(process.cwd(), "public");
   const sitemapFilePath = path.join(publicFolderPath, "sitemap.xml");
@@ -28,7 +28,7 @@ export default async function sitemap() {
   fs.writeFileSync(sitemapFilePath, sitemapXml);
 }
 
-function generateSitemapXml(data) {
+async function generateSitemapXml(data) {
   const xmlString = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${data
