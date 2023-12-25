@@ -1,48 +1,56 @@
-import { getStaticPage } from "@/shared/services/api/api";
-import fs from "fs";
-import path from "path";
+// import { getStaticPage } from "@/shared/services/api/api";
+// import fs from "fs/promises";
+// import path from "path";
 
-const { API_ROBOTS, QUERY_ROBOTS } = process.env;
+// const { API_ROBOTS, QUERY_ROBOTS } = process.env;
 
-export default async function sitemap() {
-  const {
-    data: {
-      attributes: { BASE_URL, obj },
-    },
-  } = await getStaticPage(API_ROBOTS, QUERY_ROBOTS);
+// export default async function sitemap() {
+//   const {
+//     data: {
+//       attributes: { BASE_URL, obj },
+//     },
+//   } = await getStaticPage(API_ROBOTS, QUERY_ROBOTS);
 
-  const sitemapData = obj.map((item) => {
-    return {
-      url: BASE_URL + item.url,
-      lastModified: new Date().toISOString(),
-      changeFrequency: item.changeFrequency,
-      priority: item.priority,
-    };
-  });
+//   const sitemapData = obj.map((item) => {
+//     return {
+//       url: BASE_URL + item.url,
+//       lastModified: new Date().getFullYear(),
+//       changeFrequency: item.changeFrequency,
+//       priority: item.priority,
+//     };
+//   });
 
-  const sitemapXml = await generateSitemapXml(sitemapData);
+//   const sitemapXml = generateSitemapXml(sitemapData);
 
-  const publicFolderPath = path.join(process.cwd(), "public");
-  const sitemapFilePath = path.join(publicFolderPath, "sitemap.xml");
+//   const publicFolderPath = path.join(process.cwd(), "public");
+//   const sitemapFilePath = path.join(publicFolderPath, "sitemap.xml");
 
-  fs.writeFileSync(sitemapFilePath, sitemapXml);
-}
+//   fs.writeFile(sitemapFilePath, sitemapXml);
+// }
 
-async function generateSitemapXml(data) {
-  const xmlString = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${data
-    .map(
-      (item) => `
-  <url>
-    <loc>${item.url}</loc>
-    <lastmod>${item.lastModified}</lastmod>
-    <changefreq>${item.changeFrequency}</changefreq>
-    <priority>${item.priority}</priority>
-  </url>`
-    )
-    .join("\n")}
-</urlset>`;
+// // function formatDate(dateString) {
+// //   const date = new Date(dateString);
+// //   console.log(date);
 
-  return xmlString;
-}
+// //   const formattedDate = date.toISOString().split("T")[0];
+// //   return formattedDate;
+// // }
+
+// function generateSitemapXml(data) {
+//   const xmlString = `<?xml version="1.0" encoding="UTF-8"?>
+// <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+//   ${data
+//     .map(
+//       (item) => `
+//   <url>
+//     <loc>${item.url}</loc>
+//     <lastmod>${item.lastModified}</lastmod>
+//     <changefreq>${item.changeFrequency}</changefreq>
+//     <priority>${item.priority}</priority>
+//   </url>`
+//     )
+//     .join("\n")}
+// </urlset>`;
+
+//   return xmlString;
+// }
