@@ -85,14 +85,17 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
 
-    var getCoockie = getCookie(coockiesManager.coockieName, {
-      sameSite: "none",
-      secure: true,
-    });
+    setTimeout(() => {
+      var getCoockie = getCookie(coockiesManager.coockieName, {
+        sameSite: "none",
+        secure: true,
+      });
 
-    console.log(getCoockie);
+      console.log(getCoockie);
 
-    coockiesManager.generatedCoockies(getCoockie);
+      coockiesManager.generatedCoockies(getCoockie);
+    }, 1500);
+
     localStorage && storage.generateUserInfo(searchParams);
   }, []);
 
