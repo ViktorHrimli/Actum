@@ -33,8 +33,10 @@ const nextConfig = {
     return [
       {
         // matching all API routes
+
         source: "/api/:path*",
         headers: [
+          { key: "Set-Cookie", value: "SameSite=None; Secure" },
           { key: "Access-Control-Allow-Credentials", value: "false" },
           {
             key: "Access-Control-Allow-Origin",
