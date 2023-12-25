@@ -1,5 +1,3 @@
-import { bodySend } from "@/shared/enums/enum";
-
 class Coockies {
   coockieName = "biatv-cookie";
   coockiesObj = {};
@@ -57,6 +55,7 @@ class Coockies {
   }
 
   getCoockies() {
+    console.log(this.coockiesObj);
     return this.coockiesObj;
   }
 }
