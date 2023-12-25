@@ -25,7 +25,9 @@ class Coockies {
   }
 
   decodeCoockies(coock) {
-    return this.getCoockiesGoogle(JSON.parse(coock));
+    if (coock) {
+      return this.getCoockiesGoogle(JSON.parse(coock));
+    }
   }
 
   // findCoockies(allCoockies) {
