@@ -131,6 +131,7 @@ export default function Form({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
+      console.log(data);
 
       setIsLoading(true);
       window.dataLayer.push({ event: "formissent" });
