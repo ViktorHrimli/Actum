@@ -90,6 +90,8 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
       secure: true,
     });
 
+    console.log(getCoockie);
+
     coockiesManager.generatedCoockies(getCoockie);
     localStorage && storage.generateUserInfo(searchParams);
   }, []);
