@@ -23,8 +23,6 @@ class ManageSessionStorage {
   }
 
   getInfo(urlParams) {
-    // this.generateUtm(urlParams);
-
     const userId = localStorage.getItem("userId");
     const referer = this.getReferrer();
     const eventtime = this.getUtmTime();
