@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { getCookie } from "cookies-next";
 
 import Navigation from "@/libs/components/nav/Navigation";
 import BtnSideBar from "@/libs/components/btn_side_bar/BtnSideBar";
 import SideBar from "@/libs/components/side_bar//SideBar";
 
 import { desktopLogoAnimate, mobileLogoAnimate } from "./enums/enum";
-import { storage } from "@/shared/helpers/helpers";
-// import { gradientEnums } from "./enums/gradientEnums";
+import { storage, coockiesManager } from "@/shared/helpers/helpers";
 
 import {
   usePathname,
@@ -84,6 +84,17 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
     setTimeout(() => {
       sessionStorage.setItem("hero_heder", "false");
     }, 3000);
+
+    setTimeout(() => {
+      var getCoockie = getCookie(coockiesManager.coockieName, {
+        sameSite: "none",
+        secure: true,
+      });
+
+      console.log(getCoockie);
+
+      coockiesManager.generatedCoockies(getCoockie);
+    }, 1500);
 
     localStorage && storage.generateUserInfo(searchParams);
   }, []);

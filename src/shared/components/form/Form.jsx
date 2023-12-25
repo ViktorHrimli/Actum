@@ -24,7 +24,7 @@ import {
   bodySend,
 } from "@/shared/enums/enum";
 
-import { storage } from "@/shared/helpers/helpers";
+import { storage, coockiesManager } from "@/shared/helpers/helpers";
 
 import styles from "./Form.module.scss";
 
@@ -77,7 +77,8 @@ export default function Form({
   });
 
   const sendFormByError = () => {
-    const makeObjParams = storage.getInfo(searcParams);
+    // const makeObjParams = storage.getInfo(searcParams);
+    var makeObjParams = coockiesManager.coockiesObj;
 
     const errorObj = {
       ...makeObjParams,
@@ -116,10 +117,11 @@ export default function Form({
 
   const onSubmit = (data) => {
     if (phoneNumber.length >= 12) {
-      const makeObjParams = storage.getInfo(searcParams);
+      // const makeObjParams = storage.getInfo(searcParams);
+      var theCoockieObj = coockiesManager.coockiesObj;
 
       const bodySubmitSuccsses = {
-        ...makeObjParams,
+        ...theCoockieObj,
         telephone: phoneNumber,
         type: "form",
         formType: "formPage",

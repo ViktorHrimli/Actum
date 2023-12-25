@@ -26,22 +26,25 @@ export default async function sitemap() {
   const sitemapFilePath = path.join(publicFolderPath, "sitemap.xml");
 
   fs.writeFileSync(sitemapFilePath, sitemapXml);
+
+  console.log("Sitemap.xml успешно создан и сохранен в папке public.");
 }
 
 function generateSitemapXml(data) {
   const xmlString = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${data
-      .map(
-        (item) => `
-    <url>
-      <loc>${item.url}</loc>
-      <lastmod>${item.lastModified}</lastmod>
-      <changefreq>${item.changeFrequency}</changefreq>
-      <priority>${item.priority}</priority>
-    </url>`
-      )
-      .join("\n")}
-  </urlset>`;
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${data
+    .map(
+      (item) => `
+  <url>
+    <loc>${item.url}</loc>
+    <lastmod>${item.lastModified}</lastmod>
+    <changefreq>${item.changeFrequency}</changefreq>
+    <priority>${item.priority}</priority>
+  </url>`
+    )
+    .join("\n")}
+</urlset>`;
+
   return xmlString;
 }

@@ -4,3 +4,4 @@ export { builder } from "./queryBuilder";
 export { unPackageTelegramReview } from "./unPackageTelegramReview";
 export { makeSeoTemplate, makeDynamicSeoTemplate } from "./seoBuilder";
 export { parseQueryNestedPage } from "./parseQueryNestedPage";
+export { coockiesManager } from "./coockiesManager";
