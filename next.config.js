@@ -34,14 +34,14 @@ const nextConfig = {
       {
         // matching all API routes
 
-        source: "/api/:path*",
+        source: "/",
         headers: [
           { key: "Set-Cookie", value: "SameSite=None; Secure" },
           { key: "Access-Control-Allow-Credentials", value: "false" },
           {
             key: "Access-Control-Allow-Origin",
             value: "*",
-          }, // replace this your actual origin
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,DELETE,PATCH,POST,PUT",
