@@ -27,7 +27,7 @@ export default async function page({ params }) {
 
   const {
     data: [dataObj],
-  } = await getBlogPublication(params["name"], API_LOCALIZATION);
+  } = await getBlogPublication(params["name"].toLowerCase(), API_LOCALIZATION);
 
     const {
     data: {
