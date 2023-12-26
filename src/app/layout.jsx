@@ -23,7 +23,7 @@ const {
   API_LOCALIZATION,
 } = process.env;
 
-export async function generateMetadata({ params, searchParams }) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_LAYOUT);
 }
 
@@ -37,6 +37,7 @@ export default async function RootLayout({ children }) {
       attributes: { Form: modalUa },
     },
   } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+  
   const {
     data: {
       attributes: { Form: modalRu },
@@ -80,3 +81,4 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
+
