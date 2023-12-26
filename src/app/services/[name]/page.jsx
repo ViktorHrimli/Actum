@@ -30,12 +30,15 @@ import { styles_enum } from "@/shared/enums/enum";
 const { API_SERVICES_COMUNITY } = process.env;
 
 export async function generateMetadata({ params }) {
-  return await makeDynamicSeoTemplate(params["name"], API_SERVICES_COMUNITY);
+  return await makeDynamicSeoTemplate(
+    params["name"].toLowerCase(),
+    API_SERVICES_COMUNITY
+  );
 }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
-    params["name"],
+    params["name"].toLowerCase(),
     API_SERVICES_COMUNITY
   );
 

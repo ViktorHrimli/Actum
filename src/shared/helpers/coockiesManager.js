@@ -30,19 +30,6 @@ class Coockies {
     }
   }
 
-  // findCoockies(allCoockies) {
-  //   const cookieArray = allCoockies.split("; ");
-
-  //   for (let i = 0; i < cookieArray.length; i++) {
-  //     const cookiePair = cookieArray[i].split("=");
-
-  //     if (cookiePair[0] === this.coockieName) {
-  //       return this.decodeCoockies(decodeURIComponent(cookiePair[1]));
-  //     }
-  //   }
-  //   return null;
-  // }
-
   makeReadebleUtm(utmObj) {
     var newUtmObj = {};
     this.utmParams.forEach((utm) => {
