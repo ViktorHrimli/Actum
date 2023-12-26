@@ -6,7 +6,8 @@ import StructureData from "@/shared/components/structure_data_tamplate/Structure
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } = process.env;
+const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
+  process.env;
 
 export async function generateMetadata() {
   return makeSeoTemplate(API_BLOG_PAGE);
@@ -21,7 +22,7 @@ export default async function page({ params }) {
 
   const {
     data: [dataObj],
-  } = await getBlogPublication(params["name"]);
+  } = await getBlogPublication(params["name"].toLowerCase());
 
   const { bread_crumbs, button, Blog: blog } = dataObj["attributes"]["Topic"];
 
@@ -37,7 +38,12 @@ export default async function page({ params }) {
 
       <NestedHero type="family" {...hero} form={modal} />
       <Path type="family_color" {...bread_crumbs} />
-      <CurrentPublication type="family" button={button} {...blog} form={modal} />
+      <CurrentPublication
+        type="family"
+        button={button}
+        {...blog}
+        form={modal}
+      />
     </>
   );
 }

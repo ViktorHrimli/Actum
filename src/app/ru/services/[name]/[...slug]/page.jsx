@@ -36,17 +36,21 @@ import { styles_enum } from "@/shared/enums/enum";
 
 const { API_LOCALIZATION } = process.env;
 
-export async function generateMetadata({ params, searchParams }) {
-  const slugsApi = parseQueryNestedPage(params["name"]);
+export async function generateMetadata({ params }) {
+  const slugsApi = parseQueryNestedPage(params["name"].toLowerCase());
 
-  return makeDynamicSeoTemplate(...params["slug"], slugsApi, API_LOCALIZATION);
+  return makeDynamicSeoTemplate(
+    ...params["slug"].toLowerCase(),
+    slugsApi,
+    API_LOCALIZATION
+  );
 }
 
 export default async function page({ params, searchParams }) {
-  const slugsApi = parseQueryNestedPage(params["name"]);
+  const slugsApi = parseQueryNestedPage(params["name"].toLowerCase());
 
   const { data } = await getLawyerDynamicPage(
-    params["slug"],
+    params["slug"].toLowerCase(),
     slugsApi,
     API_LOCALIZATION
   );

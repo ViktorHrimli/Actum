@@ -14,12 +14,15 @@ import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 const { API_OTHER_PAGE } = process.env;
 
 export async function generateMetadata({ params }) {
-  return makeDynamicSeoTemplate(params["name"], API_OTHER_PAGE);
+  return makeDynamicSeoTemplate(params["name"].toLowerCase(), API_OTHER_PAGE);
 }
 
 export default async function page({ params }) {
   console.log(params);
-  const { data } = await getLawyerDynamicPage(params["name"], API_OTHER_PAGE);
+  const { data } = await getLawyerDynamicPage(
+    params["name"].toLowerCase(),
+    API_OTHER_PAGE
+  );
 
   const {
     attributes: {
