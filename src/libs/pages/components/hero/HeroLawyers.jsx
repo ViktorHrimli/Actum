@@ -24,6 +24,8 @@ export default function HeroLawyers({
             src={background["data"]["attributes"]["url"]}
             alt={"background"}
             fill
+            fetchPriority="high"
+            priority={true}
             loading="eager"
             style={{ objectFit: "cover" }}
           />

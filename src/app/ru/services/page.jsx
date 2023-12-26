@@ -1,6 +1,4 @@
 import dynamic from "next/dynamic";
-import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
-import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 const Lawyers = dynamic(() =>
   import("@/libs/pages/services/components/lawyers/Lawyers")
@@ -11,6 +9,9 @@ const Descrition = dynamic(() =>
 const AboutServices = dynamic(() =>
   import("@/libs/pages/services/components/about/AboutServices")
 );
+
+import NestedHero from "@/shared/components/nestedPageHero/NestedHero";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/seoBuilder";

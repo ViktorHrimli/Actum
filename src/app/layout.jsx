@@ -1,19 +1,21 @@
 import "./globals.scss";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
 import { Montserrat } from "next/font/google";
 
+const Footer = dynamic(() => import("@/libs/components/footer/Footer"));
+
 import Header from "@/libs/components/header/Header";
-import Footer from "@/libs/components/footer/Footer";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
 import Scripts from "@/shared/components/scripts/Scripts";
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-import styles from "./page.module.scss";
-
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
+
+import styles from "./page.module.scss";
 
 const {
   API_LAYOUT,
@@ -37,7 +39,7 @@ export default async function RootLayout({ children }) {
       attributes: { Form: modalUa },
     },
   } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
-  
+
   const {
     data: {
       attributes: { Form: modalRu },
@@ -81,4 +83,3 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
-

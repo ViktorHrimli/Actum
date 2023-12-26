@@ -1,8 +1,5 @@
 import dynamic from "next/dynamic";
 
-import Hero from "@/libs/components/hero/Hero";
-import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
-
 const Direction = dynamic(() =>
   import("@/libs/components/ourDirections/Direction")
 );
@@ -10,6 +7,9 @@ const Response = dynamic(() => import("@/libs/components/response/Response"));
 const AboutCompany = dynamic(() =>
   import("@/libs/components/about_company/AboutCompany")
 );
+
+import Hero from "@/libs/components/hero/Hero";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";

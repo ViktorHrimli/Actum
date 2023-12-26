@@ -105,17 +105,17 @@ export default function Hero({
               src={back}
               alt="background"
               fill
-              priority={false}
-              // fetchPriority="high"
-              // loading="eager"
+              priority={true}
+              fetchPriority="high"
+              loading="eager"
             />
             <Image
               src={backFilter}
               alt="background-filter"
               fill
-              priority={false}
-              // loading="eager"
-              // fetchPriority="high"
+              priority={true}
+              fetchPriority="high"
+              loading="eager"
               style={{ zIndex: "5" }}
             />
           </motion.div>
