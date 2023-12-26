@@ -83,19 +83,15 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
   useEffect(() => {
     setTimeout(() => {
       sessionStorage.setItem("hero_heder", "false");
-    }, 3000);
-
-    while (!sessionStorage.getItem("coockie")) {
       var getCoockie = getCookie(coockiesManager.coockieName, {
         sameSite: "none",
         secure: true,
       });
 
       if (getCoockie) {
-        sessionStorage.setItem("coockie", true);
         coockiesManager.generatedCoockies(getCoockie);
       }
-    }
+    }, 3000);
 
     localStorage && storage.generateUserInfo(searchParams);
   }, []);
