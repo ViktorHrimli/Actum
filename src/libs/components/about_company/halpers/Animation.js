@@ -7,7 +7,7 @@ const Animation = ({ animationData, playOnScroll }) => {
   const [animation, setAnimation] = useState(null);
 
   useEffect(() => {
-    if (animationContainer.current) {
+    if (animationContainer) {
       const anim = lottie.loadAnimation({
         container: animationContainer.current,
         animationData,
@@ -32,7 +32,7 @@ const Animation = ({ animationData, playOnScroll }) => {
     }
   }, [animation, playOnScroll]);
 
-  return <div ref={animationContainer} />;
+  return animationContainer ? <div ref={animationContainer} /> : null;
 };
 
 export default Animation;

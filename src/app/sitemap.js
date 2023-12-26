@@ -1,19 +1,28 @@
 import { getStaticPage } from "@/shared/services/api/api";
+
 const { API_ROBOTS, QUERY_ROBOTS } = process.env;
 
 export default async function sitemap() {
-  const {
-    data: {
-      attributes: { BASE_URL, obj },
-    },
-  } = await getStaticPage(API_ROBOTS, QUERY_ROBOTS);
+  try {
+    const { data } = await getStaticPage(API_ROBOTS, QUERY_ROBOTS);
 
-  return obj.map((item) => {
-    return {
+    if (!data) {
+      console.error("Invalid or non-iterable data:", data);
+      return [];
+    }
+
+    const {
+      attributes: { BASE_URL, obj },
+    } = data;
+
+    return obj.map((item) => ({
       url: BASE_URL + item.url,
-      lastModified: new Date().toISOString(),
-      changeFrequency: item.changeFrequency,
+      lastModified: item.dateChange,
+      changeFrequency: item.changeFrequency.toLowerCase(),
       priority: item.priority,
-    };
-  });
+    }));
+  } catch (error) {
+    console.error("Error during sitemap generation:", error);
+    return [];
+  }
 }

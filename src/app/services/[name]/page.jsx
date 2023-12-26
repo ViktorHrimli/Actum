@@ -35,7 +35,7 @@ export async function generateMetadata({ params }) {
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
-    params["name"],
+    params["name"].toLowerCase(),
     API_SERVICES_COMUNITY
   );
 
