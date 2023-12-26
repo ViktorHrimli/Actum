@@ -34,18 +34,25 @@ import {
 } from "@/shared/helpers/helpers";
 import { styles_enum } from "@/shared/enums/enum";
 
-export async function generateMetadata({ params }) {
-  const slugsApi = parseQueryNestedPage(params["name"]);
+const { API_LOCALIZATION } = process.env;
 
-  return makeDynamicSeoTemplate(...params["slug"].toLowerCase(), slugsApi);
+export async function generateMetadata({ params }) {
+  const slugsApi = parseQueryNestedPage(params["name"].toLowerCase());
+
+  return makeDynamicSeoTemplate(
+    params["slug"].toLowerCase(),
+    slugsApi,
+    API_LOCALIZATION
+  );
 }
 
 export default async function page({ params }) {
   const slugsApi = parseQueryNestedPage(params["name"].toLowerCase());
 
   const { data } = await getLawyerDynamicPage(
-    ...params["slug"].toLowerCase(),
-    slugsApi
+    params["slug"].toLowerCase(),
+    slugsApi,
+    API_LOCALIZATION
   );
 
   const {
