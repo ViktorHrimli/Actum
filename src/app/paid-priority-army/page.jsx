@@ -1,8 +1,5 @@
 import dynamic from "next/dynamic";
 
-import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
-
 const Specialists = dynamic(() =>
   import("@/libs/pages/components/specialists/Specialists")
 );
@@ -22,6 +19,9 @@ const QuestionsList = dynamic(() =>
 const FormSection = dynamic(() =>
   import("@/shared/components/formSection/FormSection")
 );
+
+import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
