@@ -32,12 +32,15 @@ import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 const { API_ARMY_SERVICES } = process.env;
 
 export async function generateMetadata({ params }) {
-  return await makeDynamicSeoTemplate(params["name"], API_ARMY_SERVICES);
+  return await makeDynamicSeoTemplate(
+    params["name"].toLowerCase(),
+    API_ARMY_SERVICES
+  );
 }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
-    params["name"],
+    params["name"].toLowerCase(),
     API_ARMY_SERVICES
   );
 

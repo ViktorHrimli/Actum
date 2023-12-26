@@ -11,7 +11,10 @@ class ManageSessionStorage {
   }
 
   sendObjData(data) {
-    return { ...bodySend, ...data };
+    var userId = localStorage.getItem("userId");
+    var referer = this.getReferrer();
+    var eventtime = this.getUtmTime();
+    return { ...bodySend, ...data, userId, referer, eventtime };
   }
 
   generateUserInfo(urlParams) {
@@ -22,7 +25,7 @@ class ManageSessionStorage {
     this.generateReferrer();
   }
 
-  getInfo(urlParams) {
+  getInfo() {
     const userId = localStorage.getItem("userId");
     const referer = this.getReferrer();
     const eventtime = this.getUtmTime();

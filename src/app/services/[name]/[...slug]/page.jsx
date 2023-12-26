@@ -37,13 +37,16 @@ import { styles_enum } from "@/shared/enums/enum";
 export async function generateMetadata({ params }) {
   const slugsApi = parseQueryNestedPage(params["name"]);
 
-  return makeDynamicSeoTemplate(...params["slug"], slugsApi);
+  return makeDynamicSeoTemplate(...params["slug"].toLowerCase(), slugsApi);
 }
 
 export default async function page({ params }) {
-  const slugsApi = parseQueryNestedPage(params["name"]);
+  const slugsApi = parseQueryNestedPage(params["name"].toLowerCase());
 
-  const { data } = await getLawyerDynamicPage(...params["slug"], slugsApi);
+  const { data } = await getLawyerDynamicPage(
+    ...params["slug"].toLowerCase(),
+    slugsApi
+  );
 
   const {
     attributes: {

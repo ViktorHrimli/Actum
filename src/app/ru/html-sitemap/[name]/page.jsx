@@ -29,7 +29,7 @@ import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 const { API_OTHER_PAGE, API_LOCALIZATION } = process.env;
 
 export async function generateMetadata({ params }) {
-  return makeDynamicSeoTemplate(params["name"], API_OTHER_PAGE);
+  return makeDynamicSeoTemplate(params["name"].toLowerCase(), API_OTHER_PAGE);
 }
 
 export default async function page({ params }) {
