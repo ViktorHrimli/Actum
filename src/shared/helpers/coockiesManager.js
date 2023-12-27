@@ -1,3 +1,5 @@
+import { storage } from "./sessionStorageManager";
+
 class Coockies {
   coockieName = "biatv-cookie";
   coockiesObj = {};
@@ -44,8 +46,11 @@ class Coockies {
   }
 
   getCoockies() {
-    console.log(this.coockiesObj);
-    return this.coockiesObj;
+    if (this.coockiesObj.hasOwnProperty("visitsCount")) {
+      return this.coockiesObj;
+    } else {
+      return storage.getInfo();
+    }
   }
 }
 
