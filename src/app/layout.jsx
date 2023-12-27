@@ -13,6 +13,7 @@ import Scripts from "@/shared/components/scripts/Scripts";
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
+
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
 import styles from "./page.module.scss";
@@ -24,6 +25,7 @@ const {
   API_MODAL_FORM,
   API_LOCALIZATION,
 } = process.env;
+
 
 export async function generateMetadata() {
   return makeSeoTemplate(API_LAYOUT);
@@ -73,6 +75,7 @@ export default async function RootLayout({ children }) {
 
       <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header ru={RU} uk={UA} ruForm={modalRu} uaForm={modalUa} />
+
         <main className={styles.page}>
           <ContactPanel {...contacts_panel} ruForm={modalRu} uaForm={modalUa} />
           {children}
