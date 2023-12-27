@@ -56,7 +56,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
 
   const sendFormByMessenger = (type) => {
     // const makeObjParams = storage.getInfo(searchParams);
-    var theObjParams = coockiesManager.coockiesObj;
+    var theObjParams = coockiesManager.getCoockies();
 
     const msgObj = {
       ...theObjParams,

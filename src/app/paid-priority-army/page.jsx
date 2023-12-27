@@ -21,7 +21,6 @@ const FormSection = dynamic(() =>
 );
 
 import HeroLawyers from "@/libs/pages/components/hero/HeroLawyers";
-import LazyLoadComponent from "@/libs/components/lazyLoadComponent/LazyLoad";
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticLawyersPage } from "@/shared/services/api/api";
@@ -58,20 +57,18 @@ export default async function PaidArmy() {
       <StructureData data={seo["structuredData"]} />
 
       <HeroLawyers type={"army"} {...hero} bread_crumbs={bread_crumbs} />
-      <LazyLoadComponent key={"awdawd"}>
-        <QuestionsList
-          type={"army"}
-          about_block={about_block}
-          questions={questions_list}
-        />
+      <QuestionsList
+        type={"army"}
+        about_block={about_block}
+        questions={questions_list}
+      />
 
-        <SuccessfulBusiness type={"army"} {...successful_deals} />
-        <Specialists type={"army"} {...employeer_list} />
-        <Description type={"army"} description={description_lawyer} />
-        <Response type={"army"} {...responses} />
-        <StepsLawyers type={"army"} {...steps} />
-        <FormSection type={"army"} formData={form} {...info} />
-      </LazyLoadComponent>
+      <SuccessfulBusiness type={"army"} {...successful_deals} />
+      <Specialists type={"army"} {...employeer_list} />
+      <Description type={"army"} description={description_lawyer} />
+      <Response type={"army"} {...responses} />
+      <StepsLawyers type={"army"} {...steps} />
+      <FormSection type={"army"} formData={form} {...info} />
     </>
   );
 }
