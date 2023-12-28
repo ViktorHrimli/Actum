@@ -250,16 +250,16 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
               </li>
               <li
                 className={`${styles.link} ${styles.mob_yes}`}
-                onClick={() => hanldePhoneNumber()}
+                
               >
                 <motion.ul
                   className={styles.list_phone}
-                  style={isPhoneMob ? { display: "flex" } : { display: "none" }}
+                  style={isPhoneMob ? { display: "flex", zIndex: "20" } : { display: "none" }}
                 >
                   <li className={styles.link_panel_phone}>
                     <a
-                      onClick={()=> setIsPhoneMob(true)}
                       className="binct-phone-number-2"
+                      style={isPhoneMob ? {zIndex: "20"}: {zIndex: "0"}}
                       referrerPolicy=""
                       href={`tel:${Telephones["KiyvStar"]}`}
                     >
@@ -268,8 +268,8 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   </li>
                   <li className={styles.link_panel_phone}>
                     <a
-                      onClick={()=> setIsPhoneMob(true)}
                       className="binct-phone-number-1"
+                      style={isPhoneMob ? {zIndex: "20"}: {zIndex: "0"}}
                       referrerPolicy=""
                       href={`tel:${Telephones["Vodafone"]}`}
                     >
@@ -280,6 +280,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 </motion.ul>
 
                 <svg
+                  onClick={() => hanldePhoneNumber()}
                   xmlns="http://www.w3.org/2000/svg"
                   width={30}
                   height={30}
