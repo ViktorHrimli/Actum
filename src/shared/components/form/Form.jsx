@@ -77,7 +77,6 @@ export default function Form({
   });
 
   const sendFormByError = () => {
-    // const makeObjParams = storage.getInfo(searcParams);
     var makeObjParams = coockiesManager.getCoockies();
 
     const errorObj = {
@@ -117,7 +116,6 @@ export default function Form({
 
   const onSubmit = (data) => {
     if (phoneNumber.length >= 12) {
-      // const makeObjParams = storage.getInfo(searcParams);
       var theCoockieObj = coockiesManager.getCoockies();
 
       const bodySubmitSuccsses = {

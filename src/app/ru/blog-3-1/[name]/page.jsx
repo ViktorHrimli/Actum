@@ -10,12 +10,23 @@ const CurrentPublication = dynamic(() =>
 const Path = dynamic(() => import("@/shared/components/path/Path"));
 
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_LOCALIZATION, QUERY_MODAL_FORM, API_MODAL_FORM,} = process.env;
+const {
+  API_BLOG_PAGE,
+  QUERY_BLOG_PAGE,
+  API_LOCALIZATION,
+  QUERY_MODAL_FORM,
+  API_MODAL_FORM,
+  API_CURENT_BLOG_PAGE,
+} = process.env;
 
-export async function generateMetadata() {
-  return makeSeoTemplate(API_BLOG_PAGE);
+export async function generateMetadata({ params }) {
+  return makeDynamicSeoTemplate(
+    params["name"].toLowerCase(),
+    API_CURENT_BLOG_PAGE,
+    API_LOCALIZATION
+  );
 }
 
 export default async function page({ params }) {
@@ -29,21 +40,26 @@ export default async function page({ params }) {
     data: [dataObj],
   } = await getBlogPublication(params["name"].toLowerCase(), API_LOCALIZATION);
 
-    const {
+  const {
     data: {
       attributes: { Form: modal },
     },
-    } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
-  
+  } = await getStaticPage(API_MODAL_FORM, QUERY_MODAL_FORM);
+
   const { bread_crumbs, button, Blog: blog } = dataObj["attributes"]["Topic"];
 
   return (
     <>
-      <StructureData data={seo["structuredData"]} />
+      <StructureData data={dataObj["attributes"]["seo"]["structuredData"]} />
 
       <NestedHero {...hero} />
       <Path type="family_color" {...bread_crumbs} />
-      <CurrentPublication button={button} {...blog} type={"family"} form={modal} />
+      <CurrentPublication
+        button={button}
+        {...blog}
+        type={"family"}
+        form={modal}
+      />
     </>
   );
 }
