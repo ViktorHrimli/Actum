@@ -145,7 +145,7 @@ export default function FormComponent({
   const onSubmit = (data) => {
     if (phoneNumber.length >= 12) {
       // const makeObjParams = storage.getInfo(searcParams);
-      var makeObjParams = coockiesManager.coockiesObj;
+      var makeObjParams = coockiesManager.getCoockies();
 
       const bodySubmitSuccsses = {
         ...makeObjParams,
