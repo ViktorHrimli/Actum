@@ -280,30 +280,28 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               <div className={styles.footer_contact}>
                 <p className={styles.footer_contact_title}>Phone:</p>
                 <div>
-                  <Link
+                  <a
                     className={`${styles.phone} ${"binct-phone-number-2"}`}
-                    target="_blank"
                     href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
                   >
                     {uaFooterData.Phones["KiyvStar"]}
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     className={`${styles.phone} ${"binct-phone-number-1"}`}
-                    target="_blank"
                     href={`tel:${uaFooterData.Phones["Vodafone"]}`}
                   >
                     {uaFooterData.Phones["Vodafone"]}
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className={styles.footer_contact}>
                 <p className={styles.footer_contact_title}>Email:</p>
-                <Link
+                <a
                   className={styles.email}
                   href={`mailto:${uaFooterData.email}`}
                 >
                   {uaFooterData.email}
-                </Link>
+                </a>
               </div>
 
               <div className={styles.policy}>
