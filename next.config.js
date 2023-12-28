@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const fetch = require("isomorphic-unfetch");
+// const fetch = require("isomorphic-unfetch");
 
 const nextConfig = {
   i18n: {
