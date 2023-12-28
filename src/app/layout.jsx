@@ -12,7 +12,6 @@ import Scripts from "@/shared/components/scripts/Scripts";
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
-// import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
@@ -28,7 +27,7 @@ const {
 } = process.env;
 
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
   return makeSeoTemplate(API_LAYOUT);
 }
 
@@ -55,15 +54,8 @@ export default async function RootLayout({ children }) {
     },
   } = UA;
 
-  // const {
-  //   data: {
-  //     seo,
-  //   },
-  // } = await getStaticPage(API_LAYOUT);
-
   return (
     <html lang="uk-UA">
-      {/* <StructureData data={seo["structuredData"]} /> */}
       <Scripts />
       <Head>
         <noscript>
