@@ -33,15 +33,10 @@ export default function Contacts({
 }) {
   const [isVisible, setIsVisible] = useState(true);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  // const KEY = "510914";
 
   const modalOnClick = () => {
     setIsOpenModal(true);
   };
-
-  // useEffect(() => {
-  //   window.BinotelCallTracking[KEY].replacePhoneNumbersOnDynamicContent()
-  // }, []);
 
   return (
     <>
@@ -139,7 +134,7 @@ export default function Contacts({
                 <div className={styles.social_block}>
                   <div className={styles.footer_contact}>
                     <p className={styles.footer_contact_title}>Phone:</p>
-                    <div className={styles.box_tel} style={{zIndex: "-1"}}>
+                    <div className={styles.box_tel}>
                       <Link
                         target="_blank"
                         className={`${styles.phone} ${"binct-phone-number-2"}`}
