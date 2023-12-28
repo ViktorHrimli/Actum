@@ -132,7 +132,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
 
   return (
     <header className={styles.header_section}>
-      <div className={styles.header_conteiner} id="header">
+      <section className={styles.header_conteiner} id="header">
         {isClient && (
           <Link
             href={isLocal ? `/ru` : "/"}
@@ -211,7 +211,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
         ) : (
           <BtnSideBar isBarSide={isSideBar} onClick={handleClickOnBar} />
         )}
-      </div>
+      </section>
 
       <AnimatePresence>
         {isSideBar && (

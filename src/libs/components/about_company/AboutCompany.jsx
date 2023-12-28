@@ -32,10 +32,8 @@ export default function AboutCompany({
   const isClient = useClient();
   return (
     isClient && (
-      <section
-        className={styles.section}
-      >
-        <div className={styles.container}>
+      <article className={styles.section}>
+        <section className={styles.container}>
           <div className={styles.conteiner_map}>
             <div
               className={styles.ukraine_inner_text}
@@ -76,21 +74,11 @@ export default function AboutCompany({
               />
             </div>
           </div>
-          <div
-            className={styles.about_conteiner}
-          >
-            <h2 className={styles.title_text}>
-              {title}
-            </h2>
-            <p className={styles.text}>
-              {first_text}
-            </p>
-            <p className={styles.text}>
-              {second_text}
-            </p>
-            <p className={styles.text}>
-              {third_text}
-            </p>
+          <section className={styles.about_conteiner}>
+            <h2 className={styles.title_text}>{title}</h2>
+            <p className={styles.text}>{first_text}</p>
+            <p className={styles.text}>{second_text}</p>
+            <p className={styles.text}>{third_text}</p>
 
             <div className={styles.wrapper_signatur}>
               <div className={styles.conteiner_partner_olena}>
@@ -121,9 +109,9 @@ export default function AboutCompany({
                 />
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        </section>
+      </article>
     )
   );
 }
