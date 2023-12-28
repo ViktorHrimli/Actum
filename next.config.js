@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 
+// const fetch = require("isomorphic-unfetch");
+
 const nextConfig = {
   i18n: {
     defaultLocale: "uk",
@@ -72,6 +74,22 @@ const nextConfig = {
         hostname: "google.com",
       },
     ],
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        destination: "/:path*",
+        permanent: true,
+        has: [
+          {
+            type: "query",
+            key: "_rsc",
+          },
+        ],
+      },
+    ];
   },
 };
 
