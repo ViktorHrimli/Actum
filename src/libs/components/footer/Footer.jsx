@@ -366,28 +366,26 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
             : styles.container_binatel_other}>
           
           <div style={isPhoneBin ? {display: "block"} : {display: "none"}}>
-            <Link
+            <a
               className={`${path === "contacts" ? styles.phone_bin_contacts
                 : path === "ru/contacts" ? styles.phone_bin_contacts
                   : styles.phone_binatel_other} ${"binct-phone-number-2"}`}
               
-              target="_blank"
               style={{ color: "black" }}
               href={`tel:${uaFooterData.Phones["KiyvStar"]}`}
             >
               {uaFooterData.Phones["KiyvStar"]}
-            </Link>
-            <Link
+            </a>
+            <a
               className={`${path === "contacts" ? styles.phone_bin_contacts
                 : path === "ru/contacts" ? styles.phone_bin_contacts
                   : styles.phone_binatel_other} ${"binct-phone-number-1"}`}    
               
-              target="_blank"
               style={{ color: "black" }}
               href={`tel:${uaFooterData.Phones["Vodafone"]}`}
             >
               {uaFooterData.Phones["Vodafone"]}
-            </Link>
+            </a>
           </div>
         </div> */}
       </div>

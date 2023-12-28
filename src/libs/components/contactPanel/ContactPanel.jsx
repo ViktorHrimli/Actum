@@ -258,22 +258,20 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 >
                   <li className={styles.link_panel_phone}>
                     <a
+                      onClick={()=> setIsPhoneMob(true)}
                       className="binct-phone-number-2"
-                      // target="_blank"
                       referrerPolicy=""
                       href={`tel:${Telephones["KiyvStar"]}`}
-
                     >
                       {Telephones["KiyvStar"]}
                     </a>
                   </li>
                   <li className={styles.link_panel_phone}>
                     <a
+                      onClick={()=> setIsPhoneMob(true)}
                       className="binct-phone-number-1"
-                      // target="_blank"
                       referrerPolicy=""
                       href={`tel:${Telephones["Vodafone"]}`}
-
                     >
                       {Telephones["Vodafone"]}
 
