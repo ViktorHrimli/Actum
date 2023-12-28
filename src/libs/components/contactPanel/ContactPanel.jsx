@@ -258,7 +258,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 >
                   <li className={styles.link_panel_phone}>
                     <a
-                      onClick={()=> setIsPhoneMob(true)}
                       className="binct-phone-number-2"
                       referrerPolicy=""
                       href={`tel:${Telephones["KiyvStar"]}`}
@@ -268,7 +267,6 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   </li>
                   <li className={styles.link_panel_phone}>
                     <a
-                      onClick={()=> setIsPhoneMob(true)}
                       className="binct-phone-number-1"
                       referrerPolicy=""
                       href={`tel:${Telephones["Vodafone"]}`}
