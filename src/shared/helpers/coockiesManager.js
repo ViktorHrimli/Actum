@@ -4,9 +4,9 @@ class Coockies {
   coockieName = "biatv-cookie";
   coockiesObj = {};
   stateMachineUtm = {
-    direct: "origin",
-    none: null,
-    "not set": null,
+    "(direct)": "origin",
+    "(none)": null,
+    "(not set)": null,
   };
   utmParams = [
     "utm_source",
@@ -36,7 +36,11 @@ class Coockies {
     var newUtmObj = {};
     this.utmParams.forEach((utm) => {
       var paramsSlice = utm.slice(4);
-      newUtmObj[paramsSlice] = utmObj[utm];
+      if (Object.keys(this.stateMachineUtm).includes(utmObj[utm])) {
+        newUtmObj[paramsSlice] = null;
+      } else {
+        newUtmObj[paramsSlice] = utmObj[utm];
+      }
     });
     return newUtmObj;
   }

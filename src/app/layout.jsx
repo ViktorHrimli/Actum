@@ -8,11 +8,11 @@ const Footer = dynamic(() => import("@/libs/components/footer/Footer"));
 
 import Header from "@/libs/components/header/Header";
 import ContactPanel from "@/libs/components/contactPanel/ContactPanel";
+import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 import Scripts from "@/shared/components/scripts/Scripts";
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
-
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
@@ -25,7 +25,6 @@ const {
   API_MODAL_FORM,
   API_LOCALIZATION,
 } = process.env;
-
 
 export async function generateMetadata() {
   return makeSeoTemplate(API_LAYOUT);
@@ -50,7 +49,7 @@ export default async function RootLayout({ children }) {
 
   const {
     data: {
-      attributes: { contacts_panel },
+      attributes: { contacts_panel, seo },
     },
   } = UA;
 
@@ -71,6 +70,7 @@ export default async function RootLayout({ children }) {
             style="display:none;visibility:hidden"
           ></iframe>
         </noscript>
+        <StructureData data={seo["structuredData"]} />
       </Head>
 
       <body className={montserrat.className} suppressHydrationWarning={true}>

@@ -88,7 +88,6 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
         secure: true,
       });
 
-      console.log(getCoockie);
       if (getCoockie) {
         coockiesManager.generatedCoockies(getCoockie);
       }
