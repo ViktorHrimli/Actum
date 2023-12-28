@@ -12,6 +12,7 @@ import Scripts from "@/shared/components/scripts/Scripts";
 
 import { getStaticPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
+// import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 
 const montserrat = Montserrat({ subsets: ["cyrillic"] });
@@ -27,7 +28,7 @@ const {
 } = process.env;
 
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }) {
   return makeSeoTemplate(API_LAYOUT);
 }
 
@@ -54,8 +55,15 @@ export default async function RootLayout({ children }) {
     },
   } = UA;
 
+  // const {
+  //   data: {
+  //     seo,
+  //   },
+  // } = await getStaticPage(API_LAYOUT);
+
   return (
     <html lang="uk-UA">
+      {/* <StructureData data={seo["structuredData"]} /> */}
       <Scripts />
       <Head>
         <noscript>
@@ -75,7 +83,6 @@ export default async function RootLayout({ children }) {
 
       <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header ru={RU} uk={UA} ruForm={modalRu} uaForm={modalUa} />
-
         <main className={styles.page}>
           <ContactPanel {...contacts_panel} ruForm={modalRu} uaForm={modalUa} />
           {children}
