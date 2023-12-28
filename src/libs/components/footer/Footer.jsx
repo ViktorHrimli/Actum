@@ -363,7 +363,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
           )}
         </section>
 
-        <div className={path === "contacts" ? styles.container_binatel_contacts
+        {/* <div className={path === "contacts" ? styles.container_binatel_contacts
           : path === "ru/contacts" ? styles.container_binatel_contacts
             : styles.container_binatel_other}>
           
@@ -391,7 +391,7 @@ export default function Footer({ ruFooter, uaFooter, ruForm, uaForm }) {
               {uaFooterData.Phones["Vodafone"]}
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   );

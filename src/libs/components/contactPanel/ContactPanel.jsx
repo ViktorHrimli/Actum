@@ -258,7 +258,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 >
                   <li className={styles.link_panel_phone}>
                     <Link
-                      className="binct-phone-number-2"
+                      // className="binct-phone-number-2"
                       // target="_blank"
                       referrerPolicy=""
                       href={`tel:${Telephones["KiyvStar"]}`}
@@ -268,7 +268,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   </li>
                   <li className={styles.link_panel_phone}>
                     <Link
-                      className="binct-phone-number-1"
+                      // className="binct-phone-number-1"
                       // target="_blank"
                       referrerPolicy=""
                       href={`tel:${Telephones["Vodafone"]}`}
@@ -301,7 +301,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
               <ul className={styles.list_panel_phone}>
                 <li className={styles.link_panel_phone}>
                   <Link
-                    className="binct-phone-number-2"
+                    // className="binct-phone-number-2"
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["KiyvStar"]}`}
@@ -311,7 +311,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                 </li>
                 <li className={styles.link_panel_phone}>
                   <Link
-                    className="binct-phone-number-1"
+                    // className="binct-phone-number-1"
                     target="_blank"
                     referrerPolicy=""
                     href={`tel:${Telephones["Vodafone"]}`}
