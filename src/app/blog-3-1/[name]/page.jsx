@@ -4,19 +4,19 @@ import CurrentPublication from "@/libs/pages/publics/currentPublication/CurrentP
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
-import { makeSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 
 const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
   process.env;
 
-export async function generateMetadata() {
-  return makeSeoTemplate(API_BLOG_PAGE);
+export async function generateMetadata({ params }) {
+  return makeDynamicSeoTemplate(params["name"].toLowerCase(), "topic-blogs");
 }
 
 export default async function page({ params }) {
   const {
     data: {
-      attributes: { Hero: hero, seo },
+      attributes: { Hero: hero },
     },
   } = await getStaticPage(API_BLOG_PAGE, QUERY_BLOG_PAGE);
 
@@ -34,7 +34,7 @@ export default async function page({ params }) {
 
   return (
     <>
-      <StructureData data={seo["structuredData"]} />
+      <StructureData data={dataObj["attributes"]["seo"]["structuredData"]} />
 
       <NestedHero type="family" {...hero} form={modal} />
       <Path type="family_color" {...bread_crumbs} />
