@@ -68,7 +68,7 @@ export default async function RootLayout({ children }) {
       <Head>
         <noscript>
           <a href="https://www.clickcease.com" rel="nofollow">
-            {/* <img src="https://monitor.clickcease.com" alt="ClickCease" /> */}
+            <img src="https://monitor.clickcease.com" alt="ClickCease" />
           </a>
         </noscript>
         <noscript>
