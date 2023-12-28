@@ -179,7 +179,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
         )}
 
         {isDesktopOrLaptop && isClient ? (
-          <motion.div
+          <motion.nav
             // animate={isSessionStorageSave ? "open" : false}
             animate={isHoome ? (isSessionStorageSave ? "open" : false) : false}
             variants={{
@@ -207,7 +207,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
               isOpenMenu={isOpenMenu}
               isLocal={isLocal}
             />
-          </motion.div>
+          </motion.nav>
         ) : (
           <BtnSideBar isBarSide={isSideBar} onClick={handleClickOnBar} />
         )}
@@ -215,7 +215,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
 
       <AnimatePresence>
         {isSideBar && (
-          <motion.div
+          <motion.nav
             animate={isSideBar ? "open" : "closed"}
             variants={{ open: { x: 0, opacity: 1 } }}
             initial={{ x: "100%" }}
@@ -252,7 +252,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
                 isOpenMenu={isOpenMenu}
               />
             </SideBar>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>

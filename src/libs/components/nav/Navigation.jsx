@@ -20,7 +20,7 @@ export default function Navigation({
   const SERVICES = isLocal ? "услуги" : "послуги";
 
   return (
-    <div style={{ position: "relative" }}>
+    <section style={{ position: "relative" }}>
       <ul className={styles.nav_list}>
         {nav.map(({ title, path, id }) => (
           <li
@@ -44,7 +44,7 @@ export default function Navigation({
               href={`/${path}`}
               onClick={onClick}
             >
-              <p>{title.toUpperCase()}</p>
+              <p itemProp="name">{title.toUpperCase()}</p>
             </Link>
 
             {isMobile && title.toLowerCase() === SERVICES && (
@@ -67,43 +67,51 @@ export default function Navigation({
         ))}
       </ul>
       {/* SEO */}
-      <ul style={{ visibility: "hidden", position: "absolute" }}>
+      <ul style={{ visibility: "hidden", position: "absolute" }} itemScope>
         {servicesRoute.map(({ List, Title, id, path, directions }) => {
           var dir = directions === "root" ? "" : directions;
           var shortDir = isLocal ? `/ru/${dir}` : `/${dir}`;
           return (
             <li key={id}>
-              <p>{Title}</p>
-              <Link
-                prefetch={false}
-                href={
-                  isLocal
-                    ? dir
-                      ? `ru/${dir}/${path}`
-                      : `${path}`
-                    : `${dir}/${path}`
-                }
-                hrefLang={isLocal ? "ru" : "uk"}
-              ></Link>
-              <ul>
-                {List.map(({ text, path: pathService }, id) => {
-                  return (
-                    <li key={id}>
-                      <p>{text}</p>
-                      <Link
-                        prefetch={false}
-                        rel="alternate"
-                        hrefLang={isLocal ? "ru" : "uk"}
-                        href={
-                          dir
-                            ? `${shortDir}/${path}/${pathService}`
-                            : `/${path}/${pathService}`
-                        }
-                      ></Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <article>
+                <section>
+                  <strong>{Title}</strong>
+                  <Link
+                    prefetch={false}
+                    href={
+                      isLocal
+                        ? dir
+                          ? `ru/${dir}/${path}`
+                          : `${path}`
+                        : `${dir}/${path}`
+                    }
+                    hrefLang={isLocal ? "ru" : "uk"}
+                  ></Link>
+                  <ul>
+                    {List.map(({ text, path: pathService }, id) => {
+                      return (
+                        <li key={id}>
+                          <article>
+                            <section>
+                              <strong>{text}</strong>
+                              <Link
+                                prefetch={false}
+                                rel="alternate"
+                                hrefLang={isLocal ? "ru" : "uk"}
+                                href={
+                                  dir
+                                    ? `${shortDir}/${path}/${pathService}`
+                                    : `/${path}/${pathService}`
+                                }
+                              ></Link>
+                            </section>
+                          </article>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              </article>
             </li>
           );
         })}
@@ -117,6 +125,6 @@ export default function Navigation({
           isMobile={isMobile}
         />
       )}
-    </div>
+    </section>
   );
 }

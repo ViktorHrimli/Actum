@@ -121,7 +121,11 @@ export default function Hero({
           </motion.div>
         )}
 
-        <div id="hero_section" className={styles.hero_conteiner}>
+        <article id="hero_section" className={styles.hero_conteiner}>
+          <h2 hidden>
+            <strong>{title_text}</strong>
+            {underline_text}
+          </h2>
           <Animations
             isSessionStorageSave={isSessionStorageSave}
             setIsOpenModal={setIsOpenModal}
@@ -130,7 +134,7 @@ export default function Hero({
             Actum_Logo={Actum_Logo}
             button={button}
           />
-        </div>
+        </article>
       </section>
       {isOpenModal && (
         <ModalForm

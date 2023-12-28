@@ -18,8 +18,11 @@ export default function HeroLawyers({
   return (
     <>
       <div className={styles[backgroundPage]}></div>
-      <section className={styles.section}>
-        <div className={styles.conteiner}>
+      <article className={styles.section}>
+        <h1 hidden>
+          <strong>{title}</strong>
+        </h1>
+        <section className={styles.conteiner}>
           <Image
             src={background["data"]["attributes"]["url"]}
             alt={"background"}
@@ -29,7 +32,7 @@ export default function HeroLawyers({
             loading="eager"
             style={{ objectFit: "cover" }}
           />
-          <div className={styles.conteiner_hero_watemark}>
+          <section className={styles.conteiner_hero_watemark}>
             <div className={styles.title_wotemark}>
               <Image
                 src={actum_png["data"]["attributes"]["url"]}
@@ -40,11 +43,11 @@ export default function HeroLawyers({
               />
             </div>
             <h1 className={styles.title_text}>{title}</h1>
-          </div>
+          </section>
           <div className={styles[style]}></div>
-        </div>
+        </section>
         <Path type={color} {...bread_crumbs} />
-      </section>
+      </article>
     </>
   );
 }
