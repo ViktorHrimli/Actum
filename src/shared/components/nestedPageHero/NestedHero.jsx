@@ -37,6 +37,8 @@ export default function NestedHero({
 
     if (patnName === "book") {
       setIsOpenModal(false);
+    } else if (patnName === "ru/book") {
+      setIsOpenModal(false);
     } else {
       setIsOpenModal(true);
     }

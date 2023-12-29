@@ -21,7 +21,6 @@ const nextConfig = {
         attributes: { redirects },
       },
     } = data;
-
     return redirects.map((item) => {
       return {
         source: item.oldPath,
@@ -74,22 +73,6 @@ const nextConfig = {
         hostname: "google.com",
       },
     ],
-  },
-
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        destination: "/:path*",
-        permanent: true,
-        has: [
-          {
-            type: "query",
-            key: "_rsc",
-          },
-        ],
-      },
-    ];
   },
 };
 

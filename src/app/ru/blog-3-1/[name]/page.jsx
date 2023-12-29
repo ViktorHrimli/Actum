@@ -52,7 +52,7 @@ export default async function page({ params }) {
     <>
       <StructureData data={dataObj["attributes"]["seo"]["structuredData"]} />
 
-      <NestedHero {...hero} />
+      <NestedHero type="family" {...hero} form={modal}/>
       <Path type="family_color" {...bread_crumbs} />
       <CurrentPublication
         button={button}
