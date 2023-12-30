@@ -1,4 +1,5 @@
 import { builder } from "@/shared/helpers/helpers";
+import { notFound } from "next/navigation";
 
 const { CACHE_OPTIONS } = process.env;
 
@@ -8,6 +9,10 @@ export const getSeoDynamicPage = async (api, path, locale) => {
   });
 
   const data = await res.json();
+
+  if (!data["data"].length) {
+    return null;
+  }
 
   return data;
 };
