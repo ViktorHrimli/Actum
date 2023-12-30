@@ -60,8 +60,8 @@ export default function Accordion({
   }, [pathName]);
 
   return (
-    <>
-      <motion.div
+    <section>
+      <motion.article
         initial={false}
         className={styles.header_conteiner}
         animate={{
@@ -83,7 +83,7 @@ export default function Accordion({
             className={styles.icon}
           />
         </motion.div>
-      </motion.div>
+      </motion.article>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.section
@@ -101,8 +101,10 @@ export default function Accordion({
             }}
             transition={{ duration: 0.6, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            <div className={styles.conteiner_text}>
-              <p className={styles.text}>{description}</p>
+            <article className={styles.conteiner_text}>
+              <p itemProp="name" className={styles.text}>
+                {description}
+              </p>
 
               <div style={{ marginTop: "50px", display: "block" }}>
                 <ClickIcon
@@ -116,10 +118,10 @@ export default function Accordion({
                   color={fill}
                 />
               </div>
-            </div>
+            </article>
           </motion.section>
         )}
       </AnimatePresence>
-    </>
+    </section>
   );
 }

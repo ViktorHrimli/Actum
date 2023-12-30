@@ -50,7 +50,7 @@ export default function NavSelectItem({
 
   return (
     <li className={styles.link} onClick={() => {}}>
-      <div
+      <article
         style={{
           display: "flex",
           position: "relative",
@@ -78,7 +78,7 @@ export default function NavSelectItem({
         />
 
         <div className={styles.line}></div>
-      </div>
+      </article>
 
       {isOpenSelect && (
         <ul className={styles.nested_select_list}>

@@ -76,7 +76,7 @@ export default function Animations({
   return (
     <>
       {isClient && (
-        <motion.div
+        <motion.section
           key={"watemark"}
           animate={
             isSessionStorageSave ? watemarkAnimated["animate"](isStep) : false
@@ -98,7 +98,7 @@ export default function Animations({
             sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             fill
           />
-        </motion.div>
+        </motion.section>
       )}
 
       {isClient && (
@@ -184,7 +184,7 @@ export default function Animations({
       )}
 
       {isClient ? (
-        <motion.div
+        <motion.p
           key={"text"}
           animate={
             isSessionStorageSave
@@ -201,7 +201,7 @@ export default function Animations({
           className={styles.text}
         >
           {underline_text}
-        </motion.div>
+        </motion.p>
       ) : (
         <div style={{ height: "400px" }}></div>
       )}

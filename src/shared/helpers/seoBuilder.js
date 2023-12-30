@@ -1,4 +1,5 @@
 import { getSeo, getSeoDynamicPage } from "@/shared/services/api/api";
+import { notFound } from "next/navigation";
 
 const makeSeoTemplate = async (api_name, locale = "uk") => {
   let alt = {};
@@ -43,7 +44,12 @@ const makeSeoTemplate = async (api_name, locale = "uk") => {
 };
 
 const makeDynamicSeoTemplate = async (api, path, locale = "uk") => {
-  const { data } = await getSeoDynamicPage(api, path, locale);
+  var res = await getSeoDynamicPage(api, path, locale);
+  if (!res) {
+    notFound();
+    return {};
+  }
+  const { data } = res;
   let alt = {};
 
   const {

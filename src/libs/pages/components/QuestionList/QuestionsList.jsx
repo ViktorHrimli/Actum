@@ -22,12 +22,10 @@ export default function QuestionsList({ type, questions, about_block, form }) {
   const [first, second] = about_block.name_block.split(" ");
 
   return (
-    <>
+    <section>
       <About type={type} {...about_block} form={form} />
-      <section
-        className={styles.section}
-      >
-        <div className={styles.questions_conteiner}>
+      <section className={styles.section}>
+        <article className={styles.questions_conteiner}>
           <div className={styles.container_title}>
             <div className={styles[color]}></div>
             <div className={styles.wrapper_text}>
@@ -45,7 +43,6 @@ export default function QuestionsList({ type, questions, about_block, form }) {
             <div className={styles[color]}></div>
           </div>
           <ul className={styles.list}>
-            
             {questions.map((items, id) => {
               return (
                 <li key={id}>
@@ -60,22 +57,23 @@ export default function QuestionsList({ type, questions, about_block, form }) {
               );
             })}
           </ul>
-        </div>
+        </article>
         {/* SEO */}
-       <div itemScope itemType="https://schema.org/FAQPage">
-            <ul style={{ display: "none" }}>
-              {questions.map((items, id) => {
-                const dir = items.dir === "root" ? "" : items.dir;
-                return (
-                  <li
-                    key={id}
-                    itemProp="mainEntity"
-                    itemScope
-                    itemType="https://schema.org/Question"
-                  >
+        <section itemScope itemType="https://schema.org/FAQPage">
+          <ol style={{ display: "none" }}>
+            {questions.map((items, id) => {
+              const dir = items.dir === "root" ? "" : items.dir;
+              return (
+                <li
+                  key={id}
+                  itemProp="mainEntity"
+                  itemScope
+                  itemType="https://schema.org/Question"
+                >
+                  <section>
                     <meta itemProp="position" content={(id + 1).toString()} />
 
-                    <div
+                    <article
                       itemScope
                       itemProp="acceptedAnswer"
                       itemType="https://schema.org/Answer"
@@ -92,21 +90,24 @@ export default function QuestionsList({ type, questions, about_block, form }) {
                             : ""
                         }
                       ></Link>
-                    </div>
-                    <h2 itemProp="name">{items.title}</h2>
-                    <div
+                    </article>
+                    <h2 itemProp="name">
+                      <strong>{items.title}</strong>
+                    </h2>
+                    <section
                       itemScope
                       itemProp="acceptedAnswer"
                       itemType="https://schema.org/Answer"
                     >
                       <p itemProp="text">{items.description}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                    </section>
+                  </section>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
       </section>
-    </>
+    </section>
   );
 }

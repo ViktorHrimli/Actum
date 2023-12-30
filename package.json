@@ -27,7 +27,6 @@
     "eslint-config-next": "13.4.12",
     "framer-motion": "^10.15.0",
     "fs": "^0.0.1-security",
-    "isomorphic-unfetch": "^4.0.2",
     "lottie-web": "^5.12.2",
     "negotiator": "^0.6.3",
     "next": "13.4.12",

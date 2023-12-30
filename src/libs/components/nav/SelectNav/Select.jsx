@@ -11,7 +11,7 @@ export default function Select({ routes, isOpen, onClick, isMobile, locale }) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <motion.section
         key={"menu_conteiner"}
         initial={{ opacity: 0, y: -50 }}
         animate={{ y: 0, opacity: 1 }}
@@ -40,7 +40,7 @@ export default function Select({ routes, isOpen, onClick, isMobile, locale }) {
             </ul>
           </>
         )}
-      </motion.div>
+      </motion.section>
     </AnimatePresence>
   );
 }

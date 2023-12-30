@@ -74,10 +74,13 @@ export default function NestedHero({
   }, [isOpenModal, isScroll]);
 
   return (
-    <>
+    <section>
+      <h5 hidden>
+        <strong>{title}</strong>
+      </h5>
       <div className={styles.background_page}></div>
 
-      <section className={styles.section}>
+      <article className={styles.section}>
         <Image
           src={background_photo["data"]["attributes"]["url"]}
           alt="background photo"
@@ -88,7 +91,7 @@ export default function NestedHero({
           sizes="100vw"
         />
 
-        <div
+        <section
           className={styles.conteiner_hero_watemark}
           style={isPaymentHero ? { marginTop: "74px" } : { marginTop: "0px" }}
         >
@@ -133,7 +136,7 @@ export default function NestedHero({
           >
             {description && description}
           </motion.p>
-        </div>
+        </section>
         {!isPaymentHero && isClient && (
           <div className={styles.wrapper_btn} onClick={handleClickOnBtn}>
             <Button
@@ -144,7 +147,7 @@ export default function NestedHero({
           </div>
         )}
         <div className={styles.section_background}></div>
-      </section>
+      </article>
       {isOpenModal && (
         <ModalForm
           type={type}
@@ -153,6 +156,6 @@ export default function NestedHero({
           isOpenModal={isOpenModal}
         />
       )}
-    </>
+    </section>
   );
 }

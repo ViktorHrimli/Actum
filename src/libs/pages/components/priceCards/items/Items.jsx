@@ -26,7 +26,7 @@ export default function Items({ type, isMobile, list, Slider }) {
   }
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       {isMobile ? (
         <Slider
           infinite={true}
@@ -47,6 +47,6 @@ export default function Items({ type, isMobile, list, Slider }) {
       ) : (
         list.map((item, id) => <CardB type={type} {...item} key={id} />)
       )}
-    </div>
+    </section>
   );
 }
