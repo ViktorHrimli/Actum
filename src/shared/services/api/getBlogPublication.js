@@ -18,5 +18,9 @@ export const getBlogPublication = async (name, locale = "uk") => {
 
   const data = await res.json();
 
+  if (!data["data"].length) {
+    return null;
+  }
+
   return data;
 };

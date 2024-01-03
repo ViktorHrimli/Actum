@@ -10,11 +10,13 @@ export default function Item({ description, title, photo, date, link }) {
   const pathName = usePathname();
 
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <h2 className={styles.title_text}>
-        <Link href={`${pathName}/${link}`}>{title}</Link>
+        <Link href={`${pathName}/${link}`}>
+          <strong>{title}</strong>
+        </Link>
       </h2>
-      <div className={styles.conteiner_text}>
+      <section className={styles.conteiner_text}>
         <div className={styles.image_conteiner}>
           <Image
             src={photo["data"]["attributes"]["url"]}
@@ -24,16 +26,16 @@ export default function Item({ description, title, photo, date, link }) {
             style={{ objectFit: "cover" }}
           />
         </div>
-        <div className={styles.description_wrapper}>
+        <article className={styles.description_wrapper}>
           <p className={styles.text}>
             {description}
             <Link href={`${pathName}/${link}`} className={styles.link_item}>
               читати повністю
             </Link>
           </p>
-        </div>
-      </div>
+        </article>
+      </section>
       <span className={styles.date}>{date}</span>
-    </div>
+    </article>
   );
 }

@@ -1,11 +1,6 @@
 "use client";
 import { useForm, Controller } from "react-hook-form";
-import {
-  useState,
-  useEffect,
-  useSearchParams,
-  usePathname,
-} from "@/shared/hooks/hooks";
+import { useState, useEffect, usePathname } from "@/shared/hooks/hooks";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RotatingLines } from "react-loader-spinner";
@@ -56,7 +51,6 @@ export default function Form({
   const [isStep, setIsStep] = useState(false);
 
   const pathName = usePathname();
-  const searcParams = useSearchParams();
   const pagename = pathName === "/" ? window.location.href : pathName;
 
   const { border, color_text, options_hover, border_check_color, check_color } =
@@ -93,8 +87,8 @@ export default function Form({
 
     const data = storage.sendObjData(errorObj);
 
-    window.dataLayer.push({ event: "formissenterror" });
-    axios.post("/api/form", data);
+    // window.dataLayer.push({ event: "formissenterror" });
+    // axios.post("/api/form", data);
   };
 
   const handleCLickOnSelect = (event) => {
@@ -115,7 +109,7 @@ export default function Form({
   };
 
   const onSubmit = (data) => {
-    if (phoneNumber.length >= 12) {
+    if (phoneNumber.length >= 12 && phoneNumber.length <= 13) {
       var theCoockieObj = coockiesManager.getCoockies();
 
       const bodySubmitSuccsses = {
@@ -134,12 +128,12 @@ export default function Form({
       console.log(data);
 
       setIsLoading(true);
-      window.dataLayer.push({ event: "formissent" });
+      // window.dataLayer.push({ event: "formissent" });
 
-      axios.post("/api/send", data);
-      axios
-        .post("/api/form", data)
-        .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
+      // axios.post("/api/send", data);
+      // axios
+      //   .post("/api/form", data)
+      //   .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
 
       setTimeout(() => {
         setIsLoading(false);
@@ -194,6 +188,8 @@ export default function Form({
     errors.message,
     errors.services,
   ]);
+
+  console.log(phone);
 
   return (
     <>
@@ -321,7 +317,7 @@ export default function Form({
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
                 render={({ field }) => (
                   <IMask
-                    mask={`+${phone} (999) 999 99 99`}
+                    mask={`+${phone} (999) 999 99 99 99`}
                     maskChar={" "}
                     type="text"
                     alwaysShowMask={true}

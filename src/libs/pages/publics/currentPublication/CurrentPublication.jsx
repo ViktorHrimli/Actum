@@ -42,8 +42,10 @@ export default function CurrentPublication({
   return (
     <>
       <section className={styles.section}>
-        <div className={styles.conteiner}>
-          <h2 className={styles.title_text}>{title}</h2>
+        <article className={styles.conteiner}>
+          <h2 className={styles.title_text}>
+            <strong>{title}</strong>
+          </h2>
           <div className={styles.wrapper_content}>
             <div className={styles.text_conteiner}>
               <p className={styles.text}>{description}</p>
@@ -72,7 +74,7 @@ export default function CurrentPublication({
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </section>
       {isOpenModal && (
         <ModalForm
