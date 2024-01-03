@@ -32,6 +32,7 @@ export default function Path({
           itemScope
           itemType="https://schema.org/ListItem"
           itemProp="itemListElement"
+          id={`/${parent_link}`}
         >
           <Link href={`/${parent_link}`} prefetch={false} scroll={true}>
 
@@ -57,6 +58,7 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
+            id={`/${children_link}`}
           >
             <Link href={`/${children_link}`}>
               <p
@@ -75,8 +77,8 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
+            id={`/${children_link}`}
             >
-              
             <p
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
               itemProp="item"
@@ -85,7 +87,7 @@ export default function Path({
             >
               <span itemProp="name">{children_page}</span>
               </p>
-            <meta itemProp="position" content="3" />
+            <meta itemProp="position" content="2" />
               
           </article>
         )}
@@ -96,6 +98,7 @@ export default function Path({
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
             style={{ display: "flex", alignItems: "center", gap: 5 }}
+            id={nested_page_title}
           >
             <FontAwesomeIcon
               icon={faAnglesRight}
@@ -109,7 +112,7 @@ export default function Path({
             >
               <span itemProp="name">{nested_page_title}</span>
             </p>
-            <meta itemProp="position" content="4" />
+            <meta itemProp="position" content="3" />
           </article>
         )}
       </section>
