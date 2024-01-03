@@ -4,13 +4,13 @@ import CurrentPublication from "@/libs/pages/publics/currentPublication/CurrentP
 import StructureData from "@/shared/components/structure_data_tamplate/StructureData";
 
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
-import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplateTopicBlogs } from "@/shared/helpers/helpers";
 
 const { API_BLOG_PAGE, QUERY_BLOG_PAGE, API_MODAL_FORM, QUERY_MODAL_FORM } =
   process.env;
 
 export async function generateMetadata({ params }) {
-  return makeDynamicSeoTemplate(params["name"].toLowerCase(), "topic-blogs");
+  return makeDynamicSeoTemplateTopicBlogs(params["name"].toLowerCase(), "uk");
 }
 
 export default async function page({ params }) {

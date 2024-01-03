@@ -10,7 +10,7 @@ const CurrentPublication = dynamic(() =>
 const Path = dynamic(() => import("@/shared/components/path/Path"));
 
 import { getStaticPage, getBlogPublication } from "@/shared/services/api/api";
-import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
+import { makeDynamicSeoTemplateTopicBlogs } from "@/shared/helpers/helpers";
 
 const {
   API_BLOG_PAGE,
@@ -18,13 +18,11 @@ const {
   API_LOCALIZATION,
   QUERY_MODAL_FORM,
   API_MODAL_FORM,
-  API_CURENT_BLOG_PAGE,
 } = process.env;
 
 export async function generateMetadata({ params }) {
-  return makeDynamicSeoTemplate(
+  return makeDynamicSeoTemplateTopicBlogs(
     params["name"].toLowerCase(),
-    API_CURENT_BLOG_PAGE,
     API_LOCALIZATION
   );
 }
@@ -52,7 +50,7 @@ export default async function page({ params }) {
     <>
       <StructureData data={dataObj["attributes"]["seo"]["structuredData"]} />
 
-      <NestedHero type="family" {...hero} form={modal}/>
+      <NestedHero type="family" {...hero} form={modal} />
       <Path type="family_color" {...bread_crumbs} />
       <CurrentPublication
         button={button}

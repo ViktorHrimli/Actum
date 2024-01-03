@@ -36,7 +36,7 @@ export default function CountyCode({
 
   const handleChangeNumberCountry = (code, phone) => {
     setcodeCountry(code);
-    setPhone(phone.toString());
+    setPhone(phone.toString().replaceAll("9", `\\9`));
     setPhoneNumber("");
     resetField("phone");
     setIsOpen(false);
