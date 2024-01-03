@@ -34,7 +34,6 @@ export default function Path({
           itemProp="itemListElement"
         >
           <Link href={`/${parent_link}`} prefetch={false} scroll={true}>
-            <meta itemProp="position" content="1" />
 
             <p
               className={styles.service_text}
@@ -43,9 +42,9 @@ export default function Path({
               itemType="https://schema.org/WebPage"
             >
               <span itemProp="name">{parent_page}</span>
-              <meta itemProp="position" content="2" />
             </p>
           </Link>
+            <meta itemProp="position" content="1" />
         </article>
 
         <FontAwesomeIcon
@@ -67,16 +66,17 @@ export default function Path({
                 itemType="https://schema.org/WebPage"
               >
                 <span itemProp="name">{children_page}</span>
-                <meta itemProp="position" content="3" />
               </p>
             </Link>
+              <meta itemProp="position" content="2" />
           </article>
         ) : (
           <article
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
-          >
+            >
+              
             <p
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
               itemProp="item"
@@ -84,8 +84,9 @@ export default function Path({
               itemType="https://schema.org/WebPage"
             >
               <span itemProp="name">{children_page}</span>
-              <meta itemProp="position" content="3" />
-            </p>
+              </p>
+            <meta itemProp="position" content="3" />
+              
           </article>
         )}
 
@@ -107,8 +108,8 @@ export default function Path({
               itemType="https://schema.org/WebPage"
             >
               <span itemProp="name">{nested_page_title}</span>
-              <meta itemProp="position" content="4" />
             </p>
+            <meta itemProp="position" content="4" />
           </article>
         )}
       </section>
