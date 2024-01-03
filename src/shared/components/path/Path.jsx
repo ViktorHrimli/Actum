@@ -32,9 +32,8 @@ export default function Path({
           itemScope
           itemType="https://schema.org/ListItem"
           itemProp="itemListElement"
-          id="99"
         >
-          <Link href={`/${parent_link}`} prefetch={false} scroll={true}>
+          <Link id="99" href={`/${parent_link}`} prefetch={false} scroll={true}>
             <p
               className={styles.service_text}
               itemProp="item"
@@ -57,9 +56,9 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
-            id="100"
+            
           >
-            <Link href={`/${children_link}`}>
+            <Link id="100" href={`/${children_link}`}>
               <p
                 className={`${styles.path_text} ${styles[type]} ${styles.link}`}
                 itemProp="item"
@@ -76,9 +75,9 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
-            id="100"
             >
             <p
+              id="100"
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
               itemProp="item"
               itemScope
@@ -97,13 +96,14 @@ export default function Path({
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
             style={{ display: "flex", alignItems: "center", gap: 5 }}
-            id="101"
+            
           >
             <FontAwesomeIcon
               icon={faAnglesRight}
               className={`${styles.arrow_icon} ${styles[type]}`}
             />
             <p
+              id="101"
               className={`${styles.path_text} ${styles[type]}`}
               itemProp="item"
               itemScope
