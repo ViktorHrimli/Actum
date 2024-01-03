@@ -87,8 +87,8 @@ export default function Form({
 
     const data = storage.sendObjData(errorObj);
 
-    // window.dataLayer.push({ event: "formissenterror" });
-    // axios.post("/api/form", data);
+    window.dataLayer.push({ event: "formissenterror" });
+    axios.post("/api/form", data);
   };
 
   const handleCLickOnSelect = (event) => {
@@ -128,12 +128,12 @@ export default function Form({
       console.log(data);
 
       setIsLoading(true);
-      // window.dataLayer.push({ event: "formissent" });
+      window.dataLayer.push({ event: "formissent" });
 
-      // axios.post("/api/send", data);
-      // axios
-      //   .post("/api/form", data)
-      //   .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
+      axios.post("/api/send", data);
+      axios
+        .post("/api/form", data)
+        .catch(() => setTimeout(() => axios.post("/api/form"), data), 10000);
 
       setTimeout(() => {
         setIsLoading(false);
