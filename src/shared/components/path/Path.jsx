@@ -33,9 +33,7 @@ export default function Path({
           itemType="https://schema.org/ListItem"
           itemProp="itemListElement"
         >
-          <Link href={`/${parent_link}`} prefetch={false} scroll={true}>
-            <meta itemProp="position" content="1" />
-
+          <Link id="99" itemProp="item" href={`/${parent_link}`} prefetch={false} scroll={true}>
             <p
               className={styles.service_text}
               itemProp="item"
@@ -43,9 +41,9 @@ export default function Path({
               itemType="https://schema.org/WebPage"
             >
               <span itemProp="name">{parent_page}</span>
-              <meta itemProp="position" content="2" />
             </p>
           </Link>
+            <meta itemProp="position" content="1" />
         </article>
 
         <FontAwesomeIcon
@@ -58,8 +56,9 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
+            
           >
-            <Link href={`/${children_link}`}>
+            <Link id="100" itemProp="item" href={`/${children_link}`}>
               <p
                 className={`${styles.path_text} ${styles[type]} ${styles.link}`}
                 itemProp="item"
@@ -67,25 +66,27 @@ export default function Path({
                 itemType="https://schema.org/WebPage"
               >
                 <span itemProp="name">{children_page}</span>
-                <meta itemProp="position" content="3" />
               </p>
             </Link>
+              <meta itemProp="position" content="2" />
           </article>
         ) : (
           <article
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
-          >
+            >
             <p
+              id="100"
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
               itemProp="item"
               itemScope
               itemType="https://schema.org/WebPage"
             >
               <span itemProp="name">{children_page}</span>
-              <meta itemProp="position" content="3" />
-            </p>
+              </p>
+            <meta itemProp="position" content="2" />
+              
           </article>
         )}
 
@@ -95,20 +96,22 @@ export default function Path({
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
             style={{ display: "flex", alignItems: "center", gap: 5 }}
+            
           >
             <FontAwesomeIcon
               icon={faAnglesRight}
               className={`${styles.arrow_icon} ${styles[type]}`}
             />
             <p
+              id="101"
               className={`${styles.path_text} ${styles[type]}`}
               itemProp="item"
               itemScope
               itemType="https://schema.org/WebPage"
             >
               <span itemProp="name">{nested_page_title}</span>
-              <meta itemProp="position" content="4" />
             </p>
+            <meta itemProp="position" content="3" />
           </article>
         )}
       </section>
