@@ -33,7 +33,7 @@ export default function Path({
           itemType="https://schema.org/ListItem"
           itemProp="itemListElement"
         >
-          <Link id="99" href={`/${parent_link}`} prefetch={false} scroll={true}>
+          <Link id="99" itemProp="item" href={`/${parent_link}`} prefetch={false} scroll={true}>
             <p
               className={styles.service_text}
               itemProp="item"
@@ -58,7 +58,7 @@ export default function Path({
             itemProp="itemListElement"
             
           >
-            <Link id="100" href={`/${children_link}`}>
+            <Link id="100" itemProp="item" href={`/${children_link}`}>
               <p
                 className={`${styles.path_text} ${styles[type]} ${styles.link}`}
                 itemProp="item"
