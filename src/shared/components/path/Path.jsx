@@ -32,10 +32,9 @@ export default function Path({
           itemScope
           itemType="https://schema.org/ListItem"
           itemProp="itemListElement"
-          id={`/${parent_link}`}
+          id="99"
         >
           <Link href={`/${parent_link}`} prefetch={false} scroll={true}>
-
             <p
               className={styles.service_text}
               itemProp="item"
@@ -58,7 +57,7 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
-            id={`/${children_link}`}
+            id="100"
           >
             <Link href={`/${children_link}`}>
               <p
@@ -77,7 +76,7 @@ export default function Path({
             itemScope
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
-            id={`/${children_link}`}
+            id="100"
             >
             <p
               className={`${styles.path_text} ${styles[type]} ${styles.link}`}
@@ -98,7 +97,7 @@ export default function Path({
             itemType="https://schema.org/ListItem"
             itemProp="itemListElement"
             style={{ display: "flex", alignItems: "center", gap: 5 }}
-            id={nested_page_title}
+            id="101"
           >
             <FontAwesomeIcon
               icon={faAnglesRight}
