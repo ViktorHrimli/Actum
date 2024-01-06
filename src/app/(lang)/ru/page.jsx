@@ -26,7 +26,7 @@ export async function generateMetadata() {
   return makeSeoTemplate(API_HOME_PAGE, API_LOCALIZATION);
 }
 
-export default async function Home() {
+export default async function page() {
   const {
     data: {
       attributes: {

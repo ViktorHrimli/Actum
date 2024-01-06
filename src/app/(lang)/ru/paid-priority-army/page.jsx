@@ -52,6 +52,8 @@ export default async function PaidArmy() {
     },
   } = await getStaticLawyersPage(API_ARMY_PAGE, API_LOCALIZATION);
 
+  console.log(about_block);
+
   return (
     <>
       <StructureData data={seo["structuredData"]} />
