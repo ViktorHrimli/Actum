@@ -12,12 +12,7 @@ import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
 import CountyCode from "./country_code/CountyCode";
 
 import { borderEnums } from "./enumsForm/enumsForm";
-import {
-  iconEnum,
-  themsColor,
-  staticEnums,
-  bodySend,
-} from "@/shared/enums/enum";
+import { iconEnum, themsColor, staticEnums } from "@/shared/enums/enum";
 
 import { storage, coockiesManager } from "@/shared/helpers/helpers";
 
@@ -108,7 +103,7 @@ export default function Form({
     setPhoneNumber(numericValue);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     if (phoneNumber.length >= 12 && phoneNumber.length <= 13) {
       var theCoockieObj = coockiesManager.getCoockies();
 
@@ -125,7 +120,6 @@ export default function Form({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
-      console.log(data);
 
       setIsLoading(true);
       window.dataLayer.push({ event: "formissent" });
@@ -188,8 +182,6 @@ export default function Form({
     errors.message,
     errors.services,
   ]);
-
-  console.log(phone);
 
   return (
     <>
@@ -317,7 +309,9 @@ export default function Form({
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
                 render={({ field }) => (
                   <IMask
-                    mask={`+${phone} (999) 999 99 99 99`}
+                    mask={`+${phone} (999) 999 99 99 ${
+                      phone === "38" ? "" : "99"
+                    }`}
                     maskChar={" "}
                     type="text"
                     alwaysShowMask={true}
