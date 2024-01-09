@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-// const fetch = require("isomorphic-unfetch");
-
 const nextConfig = {
   i18n: {
     defaultLocale: "uk",
-    locales: ["uk", "ru"],
+    locales: ["uk"],
+    domains: [{ domain: "localhost", defaultLocale: "uk", locales: ["uk"] }],
     localeDetection: false,
   },
 
@@ -67,6 +66,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn4.cdn-telegram.org",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn1.cdn-telegram.org",
       },
       {
         protocol: "https",
