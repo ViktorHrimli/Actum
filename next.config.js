@@ -1,10 +1,18 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  // i18n: {
+  //   defaultLocale: "uk",
+  //   locales: ["uk"],
+  //   domains: [
+  //     { domain: "www.actum.com.ua", defaultLocale: "uk", locales: ["uk"] },
+  //   ],
+  //   localeDetection: false,
+  // },
+
   i18n: {
-    defaultLocale: "uk",
-    locales: ["uk"],
-    domains: [{ domain: "localhost", defaultLocale: "uk", locales: ["uk"] }],
+    defaultLocale: "uk-UA",
+    locales: ["uk-UA", "ru"],
     localeDetection: false,
   },
 
