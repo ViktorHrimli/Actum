@@ -7,6 +7,7 @@ class Coockies {
     "(direct)": "origin",
     "(none)": null,
     "(not set)": null,
+    "(not provided)": null,
   };
   utmParams = [
     "utm_source",
