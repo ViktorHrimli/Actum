@@ -157,17 +157,17 @@ export default function Form({
 
   useEffect(() => {
     switch (true) {
-      case Boolean(errors.name):
-        return sendFormByError();
+      // case Boolean(errors.name):
+      //   return sendFormByError();
 
-      case Boolean(errors.textarea):
-        return sendFormByError();
+      // case Boolean(errors.textarea):
+      //   return sendFormByError();
 
       case Boolean(errors.phone):
         return sendFormByError();
 
-      case Boolean(errors.message):
-        return sendFormByError();
+      // case Boolean(errors.message):
+      //   return sendFormByError();
 
       case Boolean(errors.services):
         return sendFormByError();
@@ -176,10 +176,10 @@ export default function Form({
         return;
     }
   }, [
-    errors.name,
-    errors.textarea,
+    // errors.name,
+    // errors.textarea,
     errors.phone,
-    errors.message,
+    // errors.message,
     errors.services,
   ]);
 
@@ -203,31 +203,33 @@ export default function Form({
             <div className={styles[border]}>
               <input
                 onClick={() => setIsOpenCountry(false)}
-                className={
-                  errors.name
-                    ? `${styles.input} ${styles.error_input}`
-                    : styles.input
-                }
+                // className={
+                //   errors.name
+                //     ? `${styles.input} ${styles.error_input}`
+                //     : styles.input
+                // }
+                className={styles.input}
                 id="name"
                 type="text"
                 {...register("name", {
                   onChange: (event) => setClient(event.target.value),
-                  required: true,
-                  minLength: 2,
+                  // required: true,
+                  // minLength: 2,
                 })}
-                placeholder={
-                  errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"
-                }
+                // placeholder={
+                //   errors.name ? ERROR_MESSAGE : "Вкажіть ім'я і прізвище"
+                // }
+                placeholder="Вкажіть ім'я і прізвище"
               />
             </div>
-            {errors.name && (
+            {/* {errors.name && (
               <div className={styles.error_name}>
                 <FontAwesomeIcon
                   icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
         <div className={styles.wrapper_name}>
@@ -241,33 +243,35 @@ export default function Form({
             <div className={styles[border]}>
               <textarea
                 onClick={() => setIsOpenCountry(false)}
-                className={
-                  errors.textarea
-                    ? `${styles.textarea} ${styles.error_input}`
-                    : styles.textarea
-                }
+                className={styles.textarea}
+                // className={
+                //   errors.textarea
+                //     ? `${styles.textarea} ${styles.error_input}`
+                //     : styles.textarea
+                // }
                 id="textarea"
                 {...register("textarea", {
                   onChange: (event) => setQuestion(event.currentTarget.value),
-                  required: true,
-                  minLength: 3,
+                  // required: true,
+                  // minLength: 3,
                 })}
-                placeholder={
-                  errors.textarea
-                    ? ERROR_MESSAGE
-                    : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
-                }
+                placeholder="Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
+                // placeholder={
+                //   errors.textarea
+                //     ? ERROR_MESSAGE
+                //     : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді експерта."
+                // }
               />
             </div>
 
-            {errors.textarea && (
+            {/* {errors.textarea && (
               <div className={styles.error_textarea}>
                 <FontAwesomeIcon
                   icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -277,7 +281,7 @@ export default function Form({
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {/* Номер телефону */}
-            {phonesText}
+            {phonesText + " *"}
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
@@ -336,14 +340,14 @@ export default function Form({
                 <p>{errors.phone.message}</p>
               </div>
             )}
-            {errors.phone && (
+            {/* {errors.phone && (
               <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
                   icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -364,29 +368,31 @@ export default function Form({
                 name="message"
                 readOnly
                 {...register("message", {
-                  required: true,
+                  // required: true,
                 })}
-                className={
-                  errors.message && !selectValue
-                    ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
-                    : `${styles.input} ${styles.second_input} ${styles.select}`
-                }
-                placeholder={
-                  errors.message
-                    ? "Виберіть мессенджер!"
-                    : "Оберіть спосіб отримання відповіді"
-                }
+                className={`${styles.input} ${styles.second_input} ${styles.select}`}
+                // className={
+                //   errors.message && !selectValue
+                //     ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
+                //     : `${styles.input} ${styles.second_input} ${styles.select}`
+                // }
+                placeholder="Оберіть спосіб отримання відповіді"
+                // placeholder={
+                //   errors.message
+                //     ? "Виберіть мессенджер!"
+                //     : "Оберіть спосіб отримання відповіді"
+                // }
               />
             </div>
 
-            {errors.message && !selectValue && (
+            {/* {errors.message && !selectValue && (
               <div className={styles.error_message}>
                 <FontAwesomeIcon
                   icon={iconEnum.warningIcon}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
             <motion.div
               animate={{ rotate: isOpen ? "180deg" : "0deg" }}
               transition={{ duration: 0.5 }}
@@ -420,21 +426,28 @@ export default function Form({
           </div>
         </div>
 
-        <div className={styles.wrapper_name}>
+        <div className={styles.wrapper_name}
+            style={errors.services ? {
+                border: "2px solid #661135",
+                borderRadius: "4px",
+                padding: "4px",
+                background: "#66113561"
+                }:{}}
+            >
           <label
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            {services}
+            {services+ " *"}
           </label>
-          {errors.services && (
+          {/* {errors.services && (
             <div className={styles.error_services}>
               <FontAwesomeIcon
                 icon={iconEnum.warningIcon}
                 className={styles.error_icon_service}
               />
             </div>
-          )}
+          )} */}
           {/* --------- radio ---------- */}
           <div className={styles.conteiner_radio_groupe}>
             {services_list.map((item, id) => {
