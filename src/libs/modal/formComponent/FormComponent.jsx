@@ -6,12 +6,7 @@ import { motion } from "framer-motion";
 import { RotatingLines } from "react-loader-spinner";
 
 import { useForm, Controller } from "react-hook-form";
-import {
-  useState,
-  useEffect,
-  useSearchParams,
-  usePathname,
-} from "@/shared/hooks/hooks";
+import { useState, useEffect, usePathname } from "@/shared/hooks/hooks";
 
 import CountyCode from "@/shared/components/form/country_code/CountyCode";
 import ModalThanks from "@/libs/modal/modalThanks/modalThanks";
@@ -55,7 +50,6 @@ export default function FormComponent({
   const [isStyleModalForm, setIsStyleModalForm] = useState("family");
 
   const pathName = usePathname();
-  const searcParams = useSearchParams();
   const pagename = pathName === "/" ? window.location.href : pathName;
 
   const {
@@ -78,7 +72,7 @@ export default function FormComponent({
 
     formState: { errors },
   } = useForm({
-    shouldFocusError: true,
+    shouldFocusError: false,
     reValidateMode: "onChange",
   });
 
@@ -113,7 +107,6 @@ export default function FormComponent({
   };
 
   const sendFormByError = () => {
-    // const makeObjParams = storage.getInfo(searcParams);
     var makeObjParamsError = coockiesManager.coockiesObj;
 
     const errorObj = {
@@ -142,9 +135,8 @@ export default function FormComponent({
     setPhoneNumber(numericValue);
   };
 
-  const onSubmit = (data) => {
-    if (phoneNumber.length >= 12) {
-      // const makeObjParams = storage.getInfo(searcParams);
+  const onSubmit = () => {
+    if (phoneNumber.length >= 12 && phoneNumber.length <= 13) {
       var makeObjParams = coockiesManager.getCoockies();
 
       const bodySubmitSuccsses = {
@@ -206,31 +198,15 @@ export default function FormComponent({
 
   useEffect(() => {
     switch (true) {
-      // case Boolean(errors.name):
-      //   return sendFormByError();
-
-      // case Boolean(errors.textarea):
-      //   return sendFormByError();
-
       case Boolean(errors.phone):
         return sendFormByError();
-
-      // case Boolean(errors.message):
-      //   return sendFormByError();
-
       case Boolean(errors.services):
         return sendFormByError();
 
       default:
         return;
     }
-  }, [
-    // errors.name,
-    // errors.textarea,
-    errors.phone,
-    // errors.message,
-    errors.services,
-  ]);
+  }, [errors.phone, errors.services]);
 
   return (
     <>
@@ -355,7 +331,9 @@ export default function FormComponent({
                 placeholder={errors.phone ? ERROR_MESSAGE : ""}
                 render={({ field }) => (
                   <IMask
-                    mask={`+${phone} (999) 999 99 99`}
+                    mask={`+${phone} (999) 999 99 99 ${
+                      phone === "38" ? "" : "99"
+                    }`}
                     maskChar={" "}
                     alwaysShowMask={true}
                     {...field}
@@ -403,7 +381,8 @@ export default function FormComponent({
                 onClick={handleToggleSelect}
                 value={selectValue}
                 readOnly
-                {...register("message",
+                {...register(
+                  "message"
                   // { required: true }
                 )}
                 className={`${styles.input} ${styles.second_input} ${styles.select}`}

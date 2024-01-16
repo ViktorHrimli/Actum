@@ -157,17 +157,8 @@ export default function Form({
 
   useEffect(() => {
     switch (true) {
-      // case Boolean(errors.name):
-      //   return sendFormByError();
-
-      // case Boolean(errors.textarea):
-      //   return sendFormByError();
-
       case Boolean(errors.phone):
         return sendFormByError();
-
-      // case Boolean(errors.message):
-      //   return sendFormByError();
 
       case Boolean(errors.services):
         return sendFormByError();
@@ -175,13 +166,7 @@ export default function Form({
       default:
         return;
     }
-  }, [
-    // errors.name,
-    // errors.textarea,
-    errors.phone,
-    // errors.message,
-    errors.services,
-  ]);
+  }, [errors.phone, errors.services]);
 
   return (
     <>
@@ -426,19 +411,20 @@ export default function Form({
           </div>
         </div>
 
-        <div className={styles.wrapper_name}
-            // style={errors.services ? {
-            //     border: "2px solid #661135",
-            //     borderRadius: "4px",
-            //     padding: "4px",
-            //     background: "#66113561"
-            //     }:{}}
-            >
+        <div
+          className={styles.wrapper_name}
+          // style={errors.services ? {
+          //     border: "2px solid #661135",
+          //     borderRadius: "4px",
+          //     padding: "4px",
+          //     background: "#66113561"
+          //     }:{}}
+        >
           <label
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            {services+ " *"}
+            {services + " *"}
           </label>
           {/* {errors.services && (
             <div className={styles.error_services}>
@@ -449,15 +435,20 @@ export default function Form({
             </div>
           )} */}
           {/* --------- radio ---------- */}
-          <div className={styles.conteiner_radio_groupe}
-            style={errors.services ? {
-              border: "2px solid #661135",
-              borderRadius: "4px",
-              padding: "4px",
-              background: "#66113561",
-              width: "100%"
-              }:{}}
-            >
+          <div
+            className={styles.conteiner_radio_groupe}
+            style={
+              errors.services
+                ? {
+                    border: "2px solid #661135",
+                    borderRadius: "4px",
+                    padding: "4px",
+                    background: "#66113561",
+                    width: "100%",
+                  }
+                : {}
+            }
+          >
             {services_list.map((item, id) => {
               return (
                 <div className={styles.conteiner_radio} key={id}>
