@@ -427,12 +427,12 @@ export default function Form({
         </div>
 
         <div className={styles.wrapper_name}
-            style={errors.services ? {
-                border: "2px solid #661135",
-                borderRadius: "4px",
-                padding: "4px",
-                background: "#66113561"
-                }:{}}
+            // style={errors.services ? {
+            //     border: "2px solid #661135",
+            //     borderRadius: "4px",
+            //     padding: "4px",
+            //     background: "#66113561"
+            //     }:{}}
             >
           <label
             htmlFor="services"
@@ -449,7 +449,15 @@ export default function Form({
             </div>
           )} */}
           {/* --------- radio ---------- */}
-          <div className={styles.conteiner_radio_groupe}>
+          <div className={styles.conteiner_radio_groupe}
+            style={errors.services ? {
+              border: "2px solid #661135",
+              borderRadius: "4px",
+              padding: "4px",
+              background: "#66113561",
+              width: "100%"
+              }:{}}
+            >
             {services_list.map((item, id) => {
               return (
                 <div className={styles.conteiner_radio} key={id}>

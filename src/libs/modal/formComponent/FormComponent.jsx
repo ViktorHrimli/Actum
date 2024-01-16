@@ -206,17 +206,17 @@ export default function FormComponent({
 
   useEffect(() => {
     switch (true) {
-      case Boolean(errors.name):
-        return sendFormByError();
+      // case Boolean(errors.name):
+      //   return sendFormByError();
 
-      case Boolean(errors.textarea):
-        return sendFormByError();
+      // case Boolean(errors.textarea):
+      //   return sendFormByError();
 
       case Boolean(errors.phone):
         return sendFormByError();
 
-      case Boolean(errors.message):
-        return sendFormByError();
+      // case Boolean(errors.message):
+      //   return sendFormByError();
 
       case Boolean(errors.services):
         return sendFormByError();
@@ -225,15 +225,12 @@ export default function FormComponent({
         return;
     }
   }, [
-    errors.name,
-    errors.textarea,
+    // errors.name,
+    // errors.textarea,
     errors.phone,
-    errors.message,
+    // errors.message,
     errors.services,
   ]);
-
-  // console.log(selectServices);
-  // console.log(selectValue);
 
   return (
     <>
@@ -250,28 +247,29 @@ export default function FormComponent({
             <div className={styles[border]}>
               <input
                 onClick={() => setIsOpenCountry(false)}
-                className={
-                  errors.name
-                    ? `${styles.input} ${styles.error_input}`
-                    : styles.input
-                }
+                className={styles.input}
+                // className={
+                //   errors.name
+                //     ? `${styles.input} ${styles.error_input}`
+                //     : styles.input
+                // }
                 id="name"
                 type="text"
                 {...register("name", {
-                  required: true,
+                  // required: true,
                   onChange: (event) => setClient(event.target.value),
                 })}
                 placeholder={errors.name ? ERROR_MESSAGE : name}
               />
             </div>
-            {errors.name && (
+            {/* {errors.name && (
               <div className={styles.error_name}>
                 <FontAwesomeIcon
                   icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -286,32 +284,34 @@ export default function FormComponent({
             <div className={styles[border]}>
               <textarea
                 onClick={() => setIsOpenCountry(false)}
-                className={
-                  errors.textarea
-                    ? `${styles.textarea} ${styles.error_input}`
-                    : styles.textarea
-                }
+                className={styles.textarea}
+                // className={
+                //   errors.textarea
+                //     ? `${styles.textarea} ${styles.error_input}`
+                //     : styles.textarea
+                // }
                 id="textarea"
                 {...register("textarea", {
-                  required: true,
+                  // required: true,
                   onChange: (event) => setQuestion(event.currentTarget.value),
                 })}
-                placeholder={
-                  errors.textarea
-                    ? ERROR_MESSAGE
-                    : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді фахівця."
-                }
+                placeholder="Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді фахівця."
+                // placeholder={
+                //   errors.textarea
+                //     ? ERROR_MESSAGE
+                //     : "Будь ласка, напишіть ваше питання. Від якості переданої інформації буде залежати і якість відповіді фахівця."
+                // }
               />
             </div>
 
-            {errors.textarea && (
+            {/* {errors.textarea && (
               <div className={styles.error_textarea}>
                 <FontAwesomeIcon
                   icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -321,7 +321,7 @@ export default function FormComponent({
             className={`${styles.lable} ${styles[color_text]}`}
           >
             {/* Номер телефону */}
-            {phonesText}
+            {phonesText + " *"}
           </label>
           <div className={styles.conteiner_name}>
             <CountyCode
@@ -379,14 +379,14 @@ export default function FormComponent({
                 <p>{errors.phone.message}</p>
               </div>
             )}
-            {errors.phone && (
+            {/* {errors.phone && (
               <div className={styles.error_phone_icon}>
                 <FontAwesomeIcon
                   icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
         {/* messenger */}
@@ -403,28 +403,32 @@ export default function FormComponent({
                 onClick={handleToggleSelect}
                 value={selectValue}
                 readOnly
-                {...register("message", { required: true })}
-                className={
-                  errors.message && !selectValue
-                    ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
-                    : `${styles.input} ${styles.second_input} ${styles.select}`
-                }
-                placeholder={
-                  errors.message
-                    ? "Виберіть мессенджер!"
-                    : "Оберіть спосіб отримання відповіді"
-                }
+                {...register("message",
+                  // { required: true }
+                )}
+                className={`${styles.input} ${styles.second_input} ${styles.select}`}
+                // className={
+                //   errors.message && !selectValue
+                //     ? `${styles.input} ${styles.second_input} ${styles.select} ${styles.error_input}`
+                //     : `${styles.input} ${styles.second_input} ${styles.select}`
+                // }
+                placeholder="Оберіть спосіб отримання відповіді"
+                // placeholder={
+                //   errors.message
+                //     ? "Виберіть мессенджер!"
+                //     : "Оберіть спосіб отримання відповіді"
+                // }
               />
             </div>
 
-            {errors.message && !selectValue && (
+            {/* {errors.message && !selectValue && (
               <div className={styles.error_message}>
                 <FontAwesomeIcon
                   icon={iconEnum["warningIcon"]}
                   className={styles.error_icon}
                 />
               </div>
-            )}
+            )} */}
             <motion.div
               animate={{ rotate: isOpen ? "180deg" : "0deg" }}
               transition={{ duration: 0.5 }}
@@ -434,7 +438,7 @@ export default function FormComponent({
               <FontAwesomeIcon
                 icon={iconEnum["arrowOpen"]}
                 className={`${styles.icon} ${styles[color_text]}`}
-                style={errors.message && !selectValue ? { color: "#fff" } : {}}
+                // style={errors.message && !selectValue ? { color: "#fff" } : {}}
               />
             </motion.div>
             {isOpen && (
