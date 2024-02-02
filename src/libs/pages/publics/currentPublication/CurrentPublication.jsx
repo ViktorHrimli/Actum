@@ -43,9 +43,9 @@ export default function CurrentPublication({
     <>
       <section className={styles.section}>
         <article className={styles.conteiner}>
-          <h2 className={styles.title_text}>
+          <h1 className={styles.title_text}>
             <strong>{title}</strong>
-          </h2>
+          </h1>
           <div className={styles.wrapper_content}>
             <div className={styles.text_conteiner}>
               <p className={styles.text}>{description}</p>
