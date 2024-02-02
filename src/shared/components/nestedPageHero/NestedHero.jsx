@@ -114,17 +114,31 @@ export default function NestedHero({
               sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             />
           </motion.div>
-          <motion.h1
-            // animate={IS_FIRST_RENDER ? "open" : false}
-            animate={false}
-            variants={{ open: { x: 0, y: 0, opacity: 1 } }}
-            // initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
-            initial={false}
-            transition={{ delay: 1, duration: 0.7 }}
-            className={styles.title_text}
-          >
-            {title}
-          </motion.h1>
+          {patnName === "blog-3-1" || patnName === "ru/blog-3-1" ? 
+            <motion.p
+              // animate={IS_FIRST_RENDER ? "open" : false}
+              animate={false}
+              variants={{ open: { x: 0, y: 0, opacity: 1 } }}
+              // initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+              initial={false}
+              transition={{ delay: 1, duration: 0.7 }}
+              className={styles.title_text}
+            >
+              {title}
+            </motion.p>
+            :
+            <motion.h1
+              // animate={IS_FIRST_RENDER ? "open" : false}
+              animate={false}
+              variants={{ open: { x: 0, y: 0, opacity: 1 } }}
+              // initial={IS_FIRST_RENDER ? { x: "100%", opacity: 0 } : false}
+              initial={false}
+              transition={{ delay: 1, duration: 0.7 }}
+              className={styles.title_text}
+            >
+              {title}
+            </motion.h1>
+            } 
           <motion.p
             // animate={IS_FIRST_RENDER ? "open" : false}
             animate={false}

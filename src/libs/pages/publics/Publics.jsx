@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "@/shared/hooks/hooks";
+import { useEffect, useState, useRef } from "@/shared/hooks/hooks";
 
 import PublicList from "./publics_list/PublicList";
 import Search from "@/shared/components/search/Search";
@@ -10,25 +10,28 @@ import Pagination from "./pagination/Pagination";
 
 export default function Publics({ blog_list }) {
   const [maxCount, setMaxCount] = useState(6);
-  const [minCount, setMinCount] = useState(0);
+  const [minCount, setMinCount] = useState(-1);
   const [dataBlog, setDataBlog] = useState([]);
   const [search, setSearch] = useState("");
 
-  var blogListLength = blog_list.length || 0;
+  var blogListLength = blog_list.reverse().length || 0;
+
 
   function goToPreviousPage() {
     if (minCount > 0) {
-      setMaxCount((prev) => prev - 5);
-      setMinCount((prev) => prev - 5);
+      setMaxCount((prev) => prev - 6);
+      setMinCount((prev) => prev - 6);
     }
   }
 
-  function goToNextPage() {
-    if (maxCount < blogListLength) {
-      setMaxCount((prev) => prev + 5);
-      setMinCount((prev) => prev + 5);
+  const sectionRef = useRef(null);
+
+    function goToNextPage() {
+      if (maxCount < blogListLength) {
+        setMaxCount((prev) => prev + 6);
+        setMinCount((prev) => prev + 6);
+      }
     }
-  }
 
   useEffect(() => {
     if (search) {
@@ -38,10 +41,14 @@ export default function Publics({ blog_list }) {
     } else {
       setDataBlog(blog_list.filter((_, id) => minCount < id && id < maxCount));
     }
+
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [minCount, maxCount, search]);
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={sectionRef}>
       <div className={styles.conteiner}>
         <PublicList blog_list={dataBlog} />
       </div>
