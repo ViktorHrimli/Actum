@@ -13,6 +13,7 @@ export default function Publics({ blog_list }) {
   const [minCount, setMinCount] = useState(-1);
   const [dataBlog, setDataBlog] = useState([]);
   const [search, setSearch] = useState("");
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   var blogListLength = blog_list.reverse().length || 0;
 
@@ -40,6 +41,11 @@ export default function Publics({ blog_list }) {
       );
     } else {
       setDataBlog(blog_list.filter((_, id) => minCount < id && id < maxCount));
+    }
+
+    if (isInitialLoad) {
+      setIsInitialLoad(false);
+      return;
     }
 
     if (sectionRef.current) {
