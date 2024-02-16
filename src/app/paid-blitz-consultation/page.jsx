@@ -29,11 +29,12 @@ const FormSection = dynamic(() =>
 import { getStaticLawyersPage } from "@/shared/services/api/api";
 import { makeSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_BLITZ_CONSULTATION } = process.env;
+const { API_BLITZ_CONSULTATION} = process.env;
 
 export async function generateMetadata() {
   return await makeSeoTemplate(API_BLITZ_CONSULTATION);
 }
+
 
 export default async function page() {
   const {

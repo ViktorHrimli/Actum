@@ -76,7 +76,7 @@ export default function Form({
       client,
       pagename,
       question,
-      service: selectServices,
+      // service: selectServices,
       messenger: selectValue,
     };
 
@@ -424,7 +424,9 @@ export default function Form({
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            {services + " *"}
+            {services
+              // + " *"
+            }
           </label>
           {/* {errors.services && (
             <div className={styles.error_services}>
@@ -465,7 +467,7 @@ export default function Form({
                       value={item["text"]}
                       id={item["text"]}
                       {...register("services", {
-                        required: true,
+                        // required: true,
                         onBlur: (event) =>
                           setSelectServices(event.target.value),
                       })}

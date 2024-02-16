@@ -24,20 +24,19 @@
     flex-direction: column;
 
     width: 100vw;
-    height: 280px;
+    height: 75vh;
 
     @media screen and (min-width: 768px) {
         height: 258px;
+        height: 100vh;
     }
 
     @media screen and (min-width: 1280px) {
         width: 1280px;
-        height: 248px;
     }
 
     @media screen and (min-width:1440px) {
         width: 1440px;
-        height: 400px;
     }
 
     overflow: hidden;
@@ -58,7 +57,7 @@
     justify-content: center;
     align-items: center;
 
-    top: 65%;
+    top: 50%;
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -115,14 +114,14 @@
 }
 
 .title_text {
-    font-size: 18px;
-
+    font-size: 23px;
+    margin-top: 40px;
     @media screen and (min-width: 768px) {
-        font-size: 26px;
+        font-size: 32px;
     }
 
     @media screen and (min-width: 1440px) {
-        font-size: 32px;
+        font-size: 46px;
     }
 }
 

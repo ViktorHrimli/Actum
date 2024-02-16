@@ -381,17 +381,25 @@
 .slider {
   z-index: 4;
   position: relative;
+  
   @media screen and (min-width: 320px) {
     width: 285px;
+    height: 568px;
   }
   @media screen and (min-width: 768px) {
     width: 100%;
+    height: 330px;
   }
   @media screen and (min-width: 1024px) {
     width: 641px;
   }
   @media screen and (min-width: 1280px) {
     width: 101%;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 570px;
   }
 
   li {
@@ -441,5 +449,27 @@
   @media screen and (min-width: 1280px) {
     top: 216px;
     left: -30px;
+  }
+}
+
+.btn {
+  width: 209px;
+  height: 39px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  @media screen and (min-width: 768px) {
+    width: 290px;
+    height: 52px;
+    margin-right: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 322px;
+    height: 54px;
+    margin-right: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 364px;
+    height: 66px;
   }
 }
