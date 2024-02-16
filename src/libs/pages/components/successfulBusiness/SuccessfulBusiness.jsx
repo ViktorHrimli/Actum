@@ -1,4 +1,5 @@
 "use client";
+
 import { useIsBig, useState, useEffect } from "@/shared/hooks/hooks";
 
 import Slider from "react-slick";
@@ -12,11 +13,15 @@ import { gradientEnums, cardsEnums } from "./libs/enums";
 import { iconEnum } from "@/shared/enums/enum";
 
 import styles from "./SuccessfulBusiness.module.scss";
+import Button from "@/libs/components/button/Button";
+// import ModalForm from "@/libs/modal/modalForm/modalForm";
 
-export default function SuccessfulBusiness({ type, title, successful_list }) {
+export default function SuccessfulBusiness({ type, title, successful_list, form }) {
   const [isClient, setIsClient] = useState(false);
   const [filterDeals, setfilterDeals] = useState([]);
   const [currentCount, setCurrentCount] = useState(5);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const isDesktop = useIsBig();
 
   const { gradient, gradientRight, color } = gradientEnums[type];
@@ -50,6 +55,7 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
   }, [currentCount]);
 
   return (
+    <>
     <section className={styles.section}>
       <div className={styles[gradient]}></div>
       <div className={styles.container}>
@@ -83,8 +89,22 @@ export default function SuccessfulBusiness({ type, title, successful_list }) {
             })}
           </Slider>
         )}
+        <div className={styles.btn} onClick={()=> setIsOpenModal(true)}>
+        <Button
+          text={"qwertyu"}
+          style="button_prymary"
+          typeStyle={type}
+        />
+      </div>
       </div>
       <div className={styles[gradientRight]}></div>
-    </section>
+      </section>
+      {/* {isOpenModal && <ModalForm
+        type={type}
+        form={form}
+        setIsOpenModal={setIsOpenModal}
+        isOpenModal={isOpenModal}
+      />} */}
+  </>
   );
 }
