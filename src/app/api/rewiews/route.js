@@ -9,11 +9,11 @@ import dataReviewStatic from "@/assets/json/reviews.json";
 const resolvePath = path.join(process.cwd(), "/src/assets/json/reviews.json");
 
 const TIME = new Date().getMinutes();
-const TIME_REFETCH = 30;
+const TIME_REFETCH = 15;
 
 export async function GET(req, res) {
   try {
-    if (TIME > TIME_REFETCH) {
+    if (true) {
       const dataReviews = await unPackageTelegramReview();
 
       await fs.writeFile(resolvePath, JSON.stringify(dataReviews));
