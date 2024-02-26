@@ -11,6 +11,7 @@ export default function robots() {
           "/*_openstat",
           "/*from=adwords",
           "/*gclid=",
+          "/offer.pdf",
         ],
       },
       {
@@ -23,6 +24,7 @@ export default function robots() {
           "/*_openstat",
           "/*from=adwords",
           "/*gclid=",
+          "/offer.pdf",
         ],
       },
       {
@@ -35,6 +37,7 @@ export default function robots() {
           "/*_openstat",
           "/*from=adwords",
           "/*gclid=",
+          "/offer.pdf",
         ],
       },
     ],
