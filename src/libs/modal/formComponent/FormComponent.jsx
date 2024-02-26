@@ -52,14 +52,8 @@ export default function FormComponent({
   const pathName = usePathname();
   const pagename = pathName === "/" ? window.location.href : pathName;
 
-  const {
-    border,
-    color_text,
-    options_hover,
-    border_check_color,
-    check_color,
-    fill,
-  } = borderEnums[isStyleModalForm];
+  const { border, color_text, options_hover, fill } =
+    borderEnums[isStyleModalForm];
 
   const {
     register,
@@ -107,7 +101,7 @@ export default function FormComponent({
   };
 
   const sendFormByError = () => {
-    var makeObjParamsError = coockiesManager.coockiesObj;
+    var makeObjParamsError = coockiesManager.getCoockies();
 
     const errorObj = {
       ...makeObjParamsError,
@@ -152,7 +146,7 @@ export default function FormComponent({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
-
+      console.log(data);
       setIsLoading(true);
       // SEND
       window.dataLayer.push({ event: "formissentmodal" });

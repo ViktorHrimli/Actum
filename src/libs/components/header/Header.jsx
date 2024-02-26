@@ -91,11 +91,11 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
       coockiesManager.gclid =
         getCookie(coockiesManager.gclIdName, {
           secure: true,
-        }) || null;
+        })
+          .match(/[^.]+$/)
+          .toString() || null;
 
-      if (getCoockie) {
-        coockiesManager.generatedCoockies(getCoockie);
-      }
+      getCoockie && coockiesManager.generatedCoockies(getCoockie);
     }, 3000);
 
     localStorage && storage.generateUserInfo(searchParams);

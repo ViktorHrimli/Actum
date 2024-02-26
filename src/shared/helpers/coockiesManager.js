@@ -1,11 +1,8 @@
-import { storage } from "./sessionStorageManager";
-
 class Coockies {
   // coockieName = "biatv-cookie";
   coockieName = "rngst2";
   gclIdName = "_gcl_aw";
   gclid;
-
   coockiesObj = {};
   stateMachineUtm = {
     "(direct)": "origin",
@@ -25,11 +22,6 @@ class Coockies {
     this.coockiesObj = {
       gclid: this.gclid,
       ...this.makeReadebleUtm(coockieObj["utmz"]),
-      // ############
-      // visitsCount: coockieObj["visitsCount"],
-      // currentVisitLandingPage: coockieObj["currentVisitLandingPage"],
-      // currentVisitOpenPages: coockieObj["currentVisitOpenPages"],
-      // utmDataFirst: this.makeReadebleUtm(coockieObj["utmDataFirst"]),
     };
 
     localStorage.setItem("coock", JSON.stringify(this.coockiesObj));
@@ -57,11 +49,16 @@ class Coockies {
   }
 
   getCoockies() {
-    if (this.coockiesObj.hasOwnProperty("visitsCount")) {
-      return this.coockiesObj;
-    } else {
-      return storage.getInfo();
-    }
+    var theMap = {};
+
+    var coockie = JSON.parse(localStorage.getItem("coock"));
+    var urlUtm = JSON.parse(localStorage.getItem("utm"));
+    var theArr = Object.keys(urlUtm);
+
+    theArr.forEach((key) => {
+      coockie[key] ? (theMap[key] = coockie[key]) : (theMap[key] = urlUtm[key]);
+    });
+    return theMap;
   }
 }
 

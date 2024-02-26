@@ -22,8 +22,6 @@ class ManageSessionStorage {
     return JSON.parse(sessionStorage.getItem(key));
   }
 
-  doMakeObjutm(obj) {}
-
   sendObjData(data) {
     var userId = localStorage.getItem("userId");
     var referer = this.getReferrer();
