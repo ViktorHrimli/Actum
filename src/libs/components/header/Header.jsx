@@ -88,14 +88,11 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
         secure: true,
       });
 
-      coockiesManager.gclid =
-        getCookie(coockiesManager.gclIdName, {
-          secure: true,
-        })
-          .match(/[^.]+$/)
-          .toString() || null;
+      var googleClickID = getCookie(coockiesManager.gclIdName, {
+        secure: true,
+      });
 
-      console.log(coockiesManager.coockieName);
+      googleClickID && coockiesManager.getGoogleClickId(googleClickID);
       getCoockie && coockiesManager.generatedCoockies(getCoockie);
     }, 3000);
 

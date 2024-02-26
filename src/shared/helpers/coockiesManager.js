@@ -2,7 +2,7 @@ class Coockies {
   // coockieName = "biatv-cookie";
   coockieName = "rngst2";
   gclIdName = "_gcl_aw";
-  gclid;
+  gclid = null;
   coockiesObj = {};
   stateMachineUtm = {
     "(direct)": "origin",
@@ -17,6 +17,10 @@ class Coockies {
     "utm_content",
     "utm_term",
   ];
+
+  getGoogleClickId(idOrNull) {
+    this.gclid = idOrNull;
+  }
 
   getCoockiesGoogle(coockieObj) {
     this.coockiesObj = {
