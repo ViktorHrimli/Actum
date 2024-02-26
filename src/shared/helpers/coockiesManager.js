@@ -1,7 +1,11 @@
 import { storage } from "./sessionStorageManager";
 
 class Coockies {
-  coockieName = "biatv-cookie";
+  // coockieName = "biatv-cookie";
+  coockieName = "rngst2";
+  gclIdName = "_gcl_aw";
+  gclid;
+
   coockiesObj = {};
   stateMachineUtm = {
     "(direct)": "origin",
@@ -19,18 +23,20 @@ class Coockies {
 
   getCoockiesGoogle(coockieObj) {
     this.coockiesObj = {
-      visitsCount: coockieObj["visitsCount"],
-      currentVisitLandingPage: coockieObj["currentVisitLandingPage"],
-      currentVisitOpenPages: coockieObj["currentVisitOpenPages"],
-      ...this.makeReadebleUtm(coockieObj["utmDataCurrent"]),
-      utmDataFirst: this.makeReadebleUtm(coockieObj["utmDataFirst"]),
+      gclid: this.gclid,
+      ...this.makeReadebleUtm(coockieObj["utmz"]),
+      // ############
+      // visitsCount: coockieObj["visitsCount"],
+      // currentVisitLandingPage: coockieObj["currentVisitLandingPage"],
+      // currentVisitOpenPages: coockieObj["currentVisitOpenPages"],
+      // utmDataFirst: this.makeReadebleUtm(coockieObj["utmDataFirst"]),
     };
+
+    localStorage.setItem("coock", JSON.stringify(this.coockiesObj));
   }
 
   decodeCoockies(coock) {
-    if (coock) {
-      return this.getCoockiesGoogle(JSON.parse(coock));
-    }
+    return coock && this.getCoockiesGoogle(JSON.parse(coock));
   }
 
   makeReadebleUtm(utmObj) {

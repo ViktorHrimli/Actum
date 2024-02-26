@@ -1,7 +1,19 @@
 "use client";
-
 import { bodySend } from "@/shared/enums/enum";
 class ManageSessionStorage {
+  utmParams = [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+  ];
+
+  oneDay = 86400000;
+  objUTM = {};
+  resultObj = {};
+  objUTMTime;
+
   setSessionPage(key) {
     sessionStorage.setItem(key, JSON.stringify(false));
   }
@@ -9,6 +21,8 @@ class ManageSessionStorage {
   getSessionPage(key) {
     return JSON.parse(sessionStorage.getItem(key));
   }
+
+  doMakeObjutm(obj) {}
 
   sendObjData(data) {
     var userId = localStorage.getItem("userId");
@@ -52,43 +66,33 @@ class ManageSessionStorage {
   }
 
   generateUtm(urlParams) {
-    const utmParams = [
-      "utm_source",
-      "utm_medium",
-      "utm_campaign",
-      "utm_content",
-      "utm_term",
-    ];
+    this.objUTM.gclid = urlParams.get("gclid");
 
-    const objUTM = {};
-
-    utmParams.forEach(function (param) {
-      const params = param.slice(4);
-      objUTM[params] = urlParams.get(param);
+    this.utmParams.forEach((param) => {
+      var params = param.slice(4);
+      this.objUTM[params] = urlParams.get(param);
     });
 
-    localStorage.setItem("utm", JSON.stringify(objUTM));
+    localStorage.setItem("utm", JSON.stringify(this.objUTM));
     localStorage.setItem("utm_time", JSON.stringify(new Date()));
   }
 
   getUtm() {
-    let oneDay = 86400000;
-    let timeNow = Date.now();
-    let objUTM = {};
-    let objUTMTime;
-    objUTM = JSON.parse(localStorage.getItem("utm"));
-    objUTMTime = JSON.parse(localStorage.getItem("utm_time"));
-    var getTimeObjectTime = new Date(objUTMTime).getMilliseconds();
+    var timeNow = Date.now();
+    this.objUTM = JSON.parse(localStorage.getItem("utm"));
+    this.objUTMTime = JSON.parse(localStorage.getItem("utm_time"));
+    var getTimeObjectTime = new Date(this.objUTMTime).getMilliseconds();
 
     if (document.referrer !== "") {
-      if (timeNow - getTimeObjectTime < oneDay) {
+      if (timeNow - getTimeObjectTime < this.oneDay) {
         localStorage.removeItem("utm");
         localStorage.removeItem("utm_time");
       }
 
-      return objUTM;
+      return this.objUTM;
     } else {
       return {
+        gclid: null,
         medium: null,
         term: null,
         content: null,
