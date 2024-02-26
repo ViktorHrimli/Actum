@@ -50,7 +50,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
   // SCREEN
   const isDesktopOrLaptop = useIsBig();
   const isTab = useIsTab();
-
+  // HOOKS
   const path = usePathname();
   const patnName = path.replace("/", "");
   const searchParams = useSearchParams();
@@ -83,14 +83,19 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
   useEffect(() => {
     setTimeout(() => {
       sessionStorage.setItem("hero_heder", "false");
+
       var getCoockie = getCookie(coockiesManager.coockieName, {
-        sameSite: "none",
         secure: true,
       });
 
-      if (getCoockie) {
-        coockiesManager.generatedCoockies(getCoockie);
-      }
+      coockiesManager.gclid =
+        getCookie(coockiesManager.gclIdName, {
+          secure: true,
+        })
+          .match(/[^.]+$/)
+          .toString() || null;
+
+      getCoockie && coockiesManager.generatedCoockies(getCoockie);
     }, 3000);
 
     localStorage && storage.generateUserInfo(searchParams);
@@ -102,12 +107,6 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
     } else {
       setIsLocal("");
     }
-
-    // if (gradientEnums[patnName]) {
-    //   setIsStyleHeader(gradientEnums[patnName]);
-    // } else {
-    //   setIsStyleHeader(null);
-    // }
   }, [patnName]);
 
   useEffect(() => {

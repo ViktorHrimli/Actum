@@ -76,7 +76,7 @@ export default function Form({
       client,
       pagename,
       question,
-      // service: selectServices,
+      service: selectServices,
       messenger: selectValue,
     };
 
@@ -112,7 +112,7 @@ export default function Form({
         telephone: phoneNumber,
         type: "form",
         formType: "formPage",
-        client,
+        client: client ? client : "no name",
         pagename,
         question,
         service: selectServices,
@@ -424,9 +424,7 @@ export default function Form({
             htmlFor="services"
             className={`${styles.lable} ${styles[color_text]}`}
           >
-            {services
-              // + " *"
-            }
+            {services}
           </label>
           {/* {errors.services && (
             <div className={styles.error_services}>
