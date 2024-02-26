@@ -144,7 +144,7 @@ export default function FormComponent({
         telephone: phoneNumber,
         type: "form",
         formType: "modalForm",
-        client,
+        client: client ? client : "no name",
         pagename,
         question,
         service: selectServices,
