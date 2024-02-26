@@ -95,6 +95,7 @@ export default function Header({ ru, uk, ruForm, uaForm }) {
           .match(/[^.]+$/)
           .toString() || null;
 
+      console.log(coockiesManager.coockieName);
       getCoockie && coockiesManager.generatedCoockies(getCoockie);
     }, 3000);
 
