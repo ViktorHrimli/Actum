@@ -2,7 +2,7 @@ class Coockies {
   // coockieName = "biatv-cookie";
   coockieName = "rngst2";
   gclIdName = "_gcl_aw";
-  gclid = null;
+  gclid;
   coockiesObj = {};
   stateMachineUtm = {
     "(direct)": "origin",
@@ -19,7 +19,7 @@ class Coockies {
   ];
 
   getGoogleClickId(idOrNull) {
-    this.gclid = idOrNull;
+    this.gclid = idOrNull ? idOrNull : null;
   }
 
   getCoockiesGoogle(coockieObj) {
@@ -59,9 +59,16 @@ class Coockies {
     var urlUtm = JSON.parse(localStorage.getItem("utm"));
     var theArr = Object.keys(urlUtm);
 
-    theArr.forEach((key) => {
-      coockie[key] ? (theMap[key] = coockie[key]) : (theMap[key] = urlUtm[key]);
-    });
+    if (!coockie) {
+      theMap = urlUtm;
+    } else {
+      theArr.forEach((key) => {
+        coockie[key]
+          ? (theMap[key] = coockie[key])
+          : (theMap[key] = urlUtm[key]);
+      });
+    }
+
     return theMap;
   }
 }
