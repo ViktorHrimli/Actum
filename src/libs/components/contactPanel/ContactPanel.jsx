@@ -224,19 +224,22 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                   </Link>
                 </p>
               </li>
+              {/* telegram icon */}
               <li
-                className={styles.link}
-                onClick={() => sendFormByMessenger(FIRST_ICON["icon"])}
+                className={styles.link_mob }
+                // onClick={() => sendFormByMessenger(FIRST_ICON["icon"])}
               >
                 <a target="_blank" referrerPolicy="" href={FIRST_ICON["link"]}>
                   <FontAwesomeIcon
-                    icon={iconEnum[FIRST_ICON["icon"]]}
+                    // icon={iconEnum[FIRST_ICON["icon"]]}
                     className={styles.options_icon}
                     style={{ width: 30, height: 30 }}
                   />
                 </a>
               </li>
-              <li
+
+              {/* viber icon */}
+              {/* <li
                 className={`${styles.link} ${styles.mob_none}`}
                 onClick={() => sendFormByMessenger(SECOND_ICON["icon"])}
               >
@@ -247,7 +250,7 @@ export default function ContactPanel({ Telephones, Icons, ruForm, uaForm }) {
                     style={{ width: 30, height: 30 }}
                   />
                 </a>
-              </li>
+              </li> */}
               <li
                 className={`${styles.link} ${styles.mob_yes}`}
                 
