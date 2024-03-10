@@ -1,8 +1,9 @@
+"use client";
 import Image from "next/image";
 
 import Path from "@/shared/components/path/Path";
-
-import { lawyersHeroEnums } from "./libs/enums/enums";
+import { lawyersHeroEnums, thePageObj } from "./libs/enums/enums";
+import { coockiesManager } from "@/shared/helpers/helpers";
 
 import styles from "./HeroLawyers.module.scss";
 
@@ -42,7 +43,12 @@ export default function HeroLawyers({
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <h1 className={styles.title_text}>{title}</h1>
+            <h1 className={styles.title_text}>
+              {title} <br />
+              <span>
+                {thePageObj[coockiesManager?.getCoockies()?.content || ""]}
+              </span>
+            </h1>
           </section>
           <div className={styles[style]}></div>
         </section>

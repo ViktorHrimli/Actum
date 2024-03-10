@@ -49,6 +49,8 @@ export default function FormComponent({
   const [isStep, setIsStep] = useState(false);
   const [isStyleModalForm, setIsStyleModalForm] = useState("family");
 
+  const [isFetch, setIsFetch] = useState(true);
+
   const pathName = usePathname();
   const pagename = pathName === "/" ? window.location.href : pathName;
 
@@ -118,9 +120,17 @@ export default function FormComponent({
 
     const data = storage.sendObjData(errorObj);
 
-    window.dataLayer.push({ event: "formissenterror" });
+    if (isFetch) {
+      setIsFetch(false);
 
-    axios.post("/api/form", data);
+      window.dataLayer.push({ event: "formissenterror" });
+
+      axios.post("/api/form", data);
+
+      setTimeout(() => {
+        setIsFetch(true);
+      }, 60000);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -191,16 +201,8 @@ export default function FormComponent({
   }, [isOpenModal]);
 
   useEffect(() => {
-    switch (true) {
-      case Boolean(errors.phone):
-        return sendFormByError();
-      case Boolean(errors.services):
-        return sendFormByError();
-
-      default:
-        return;
-    }
-  }, [errors.phone, errors.services]);
+    errors.phone && sendFormByError();
+  }, [errors.phone]);
 
   return (
     <>

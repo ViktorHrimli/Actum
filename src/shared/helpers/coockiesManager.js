@@ -57,7 +57,7 @@ class Coockies {
 
     var coockie = JSON.parse(localStorage.getItem("coock"));
     var urlUtm = JSON.parse(localStorage.getItem("utm"));
-    var theArr = Object.keys(urlUtm);
+    var theArr = Object.keys(urlUtm || {});
 
     if (!coockie) {
       theMap = urlUtm;

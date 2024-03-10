@@ -114,7 +114,7 @@ export default function NestedHero({
               sizes="(max-width: 768px) 250px, (max-width: 1280px) 500px, 700px"
             />
           </motion.div>
-          {patnName.includes("blog-3-1") ? 
+          {patnName.includes("blog-3-1") ? (
             <motion.p
               // animate={IS_FIRST_RENDER ? "open" : false}
               animate={false}
@@ -126,7 +126,7 @@ export default function NestedHero({
             >
               {title}
             </motion.p>
-            :
+          ) : (
             <motion.h1
               // animate={IS_FIRST_RENDER ? "open" : false}
               animate={false}
@@ -138,7 +138,7 @@ export default function NestedHero({
             >
               {title}
             </motion.h1>
-            } 
+          )}
           <motion.p
             // animate={IS_FIRST_RENDER ? "open" : false}
             animate={false}
