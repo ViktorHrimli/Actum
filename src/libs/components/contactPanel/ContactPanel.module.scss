@@ -21,7 +21,7 @@
     top: auto;
     bottom: -1px;
     width: 100vw;
-    height: 56px;
+    height: 64px;
     border-radius: 4px 4px 0px 0px;
     background: var(--background, #0F021C);
     opacity: 0.9;
@@ -183,7 +183,7 @@
     padding-bottom: 0;
     height: 50px;
     margin-top: auto;
-    margin-bottom: 3px;
+    margin-bottom: 8px;
     flex-direction: row;
   }
 
@@ -229,6 +229,15 @@
   cursor: pointer;
   width: 30px;
   height: 30px;
+}
+
+.link_mob {
+  display: none;
+  @media screen and (max-width: 1023px) {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .list_panel_phone {
