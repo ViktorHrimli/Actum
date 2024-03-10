@@ -39,6 +39,7 @@ export default function Form({
   const [client, setClient] = useState("");
   const [question, setQuestion] = useState("");
   const [selectServices, setSelectServices] = useState("");
+  const [isFetch, setIsFetch] = useState(true);
 
   const [isOpenCountry, setIsOpenCountry] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -82,8 +83,16 @@ export default function Form({
 
     const data = storage.sendObjData(errorObj);
 
-    window.dataLayer.push({ event: "formissenterror" });
-    axios.post("/api/form", data);
+    if (isFetch) {
+      setIsFetch(false);
+
+      window.dataLayer.push({ event: "formissenterror" });
+      axios.post("/api/form", data);
+
+      setTimeout(() => {
+        setIsFetch(true);
+      }, 60000);
+    }
   };
 
   const handleCLickOnSelect = (event) => {
@@ -156,17 +165,8 @@ export default function Form({
   }, [isOpenModal]);
 
   useEffect(() => {
-    switch (true) {
-      case Boolean(errors.phone):
-        return sendFormByError();
-
-      case Boolean(errors.services):
-        return sendFormByError();
-
-      default:
-        return;
-    }
-  }, [errors.phone, errors.services]);
+    errors.phone && sendFormByError();
+  }, [errors.phone]);
 
   return (
     <>
