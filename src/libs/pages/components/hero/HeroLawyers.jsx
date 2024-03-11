@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-
+import { useState } from "react";
 import Path from "@/shared/components/path/Path";
 import { lawyersHeroEnums, thePageObj } from "./libs/enums/enums";
-import { coockiesManager } from "@/shared/helpers/helpers";
+import { storage } from "@/shared/helpers/helpers";
 
 import styles from "./HeroLawyers.module.scss";
 
@@ -15,6 +15,10 @@ export default function HeroLawyers({
   bread_crumbs,
 }) {
   const { style, color, backgroundPage } = lawyersHeroEnums[type];
+  const [isContent, setIsContent] = useState(() => {
+    var json = JSON.parse(localStorage.getItem("utm"));
+    return json ? json["content"] : "";
+  });
 
   return (
     <>
@@ -45,9 +49,7 @@ export default function HeroLawyers({
             </div>
             <h1 className={styles.title_text}>
               {title}
-              <span>
-                {thePageObj[coockiesManager?.getCoockies()?.content || ""]}
-              </span>
+              <span>{thePageObj[isContent]}</span>
             </h1>
           </section>
           <div className={styles[style]}></div>

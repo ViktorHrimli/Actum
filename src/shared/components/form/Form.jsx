@@ -69,6 +69,8 @@ export default function Form({
   const sendFormByError = () => {
     var makeObjParams = coockiesManager.getCoockies();
 
+    var FUE = localStorage.getItem("FUE");
+
     const errorObj = {
       ...makeObjParams,
       errorcond: true,
@@ -83,15 +85,11 @@ export default function Form({
 
     const data = storage.sendObjData(errorObj);
 
-    if (isFetch) {
-      setIsFetch(false);
+    if (!FUE) {
+      localStorage.setItem("FUE", true);
 
       window.dataLayer.push({ event: "formissenterror" });
       axios.post("/api/form", data);
-
-      setTimeout(() => {
-        setIsFetch(true);
-      }, 60000);
     }
   };
 
@@ -131,6 +129,7 @@ export default function Form({
       const data = storage.sendObjData(bodySubmitSuccsses);
 
       setIsLoading(true);
+      localStorage.removeItem("FUE");
       window.dataLayer.push({ event: "formissent" });
 
       axios.post("/api/send", data);
