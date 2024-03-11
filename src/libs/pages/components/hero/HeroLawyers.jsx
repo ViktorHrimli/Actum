@@ -44,7 +44,7 @@ export default function HeroLawyers({
               />
             </div>
             <h1 className={styles.title_text}>
-              {title} <br />
+              {title}
               <span>
                 {thePageObj[coockiesManager?.getCoockies()?.content || ""]}
               </span>
