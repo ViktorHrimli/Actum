@@ -1,3 +1,5 @@
+
+    <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       
         <url>
@@ -1690,6 +1692,48 @@
         <url>
           <loc>https://www.actum.com.ua/ru/blog-3-1/status-ubd-ta-pilhy-dlia-uchasnykiv-boiovykh-dii</loc>
           <lastmod>2024-03-05</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.5</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/paid-priority-army/advokatskyj-zapyt-do-vijskovoji-chastyny</loc>
+          <lastmod>2024-03-10</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/ru/paid-priority-army/advokatskyj-zapyt-do-vijskovoji-chastyny</loc>
+          <lastmod>2024-03-10</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/paid-priority-army/otrymannja-ubd</loc>
+          <lastmod>2024-03-10</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/ru/paid-priority-army/otrymannja-ubd</loc>
+          <lastmod>2024-03-11</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>1</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/blog-3-1/khto-maie-pravo-na-vidstrochku-vid-mobilizatsii</loc>
+          <lastmod>2024-03-11</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.5</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/ru/blog-3-1/khto-maie-pravo-na-vidstrochku-vid-mobilizatsii</loc>
+          <lastmod>2024-03-11</lastmod>
           <changefreq>weekly</changefreq>
           <priority>0.5</priority>
         </url>
