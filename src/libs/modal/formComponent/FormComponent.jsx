@@ -49,8 +49,6 @@ export default function FormComponent({
   const [isStep, setIsStep] = useState(false);
   const [isStyleModalForm, setIsStyleModalForm] = useState("family");
 
-  const [isFetch, setIsFetch] = useState(true);
-
   const pathName = usePathname();
   const pagename = pathName === "/" ? window.location.href : pathName;
 
@@ -104,6 +102,7 @@ export default function FormComponent({
 
   const sendFormByError = () => {
     var makeObjParamsError = coockiesManager.getCoockies();
+    var FUE = localStorage.getItem("FUE");
 
     const errorObj = {
       ...makeObjParamsError,
@@ -120,16 +119,11 @@ export default function FormComponent({
 
     const data = storage.sendObjData(errorObj);
 
-    if (isFetch) {
-      setIsFetch(false);
+    if (!FUE) {
+      localStorage.setItem("FUE", true);
 
       window.dataLayer.push({ event: "formissenterror" });
-
       axios.post("/api/form", data);
-
-      setTimeout(() => {
-        setIsFetch(true);
-      }, 60000);
     }
   };
 
@@ -156,8 +150,10 @@ export default function FormComponent({
       };
 
       const data = storage.sendObjData(bodySubmitSuccsses);
-      console.log(data);
+
       setIsLoading(true);
+      localStorage.removeItem("FUE");
+
       // SEND
       window.dataLayer.push({ event: "formissentmodal" });
       axios.post("/api/send", data);
