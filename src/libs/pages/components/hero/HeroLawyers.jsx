@@ -14,9 +14,10 @@ export default function HeroLawyers({
   background,
   bread_crumbs,
 }) {
+  var searchParams = useSearchParams();
   const { style, color, backgroundPage } = lawyersHeroEnums[type];
   const [isContent, setIsContent] = useState(() => {
-    var json = useSearchParams().get("utm_content");
+    var json = searchParams.get("utm_content");
     return json ? json : "";
   });
 
