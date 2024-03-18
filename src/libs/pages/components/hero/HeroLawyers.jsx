@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 import Path from "@/shared/components/path/Path";
 import { lawyersHeroEnums, thePageObj } from "./libs/enums/enums";
-import { storage } from "@/shared/helpers/helpers";
 
 import styles from "./HeroLawyers.module.scss";
 
@@ -16,8 +15,12 @@ export default function HeroLawyers({
 }) {
   const { style, color, backgroundPage } = lawyersHeroEnums[type];
   const [isContent, setIsContent] = useState(() => {
+  
     var json = JSON.parse(localStorage.getItem("utm"));
-    return json ? json["content"] : "";
+    var theTitle = json &&  thePageObj[json['content']]?.title;
+    var theText = json && thePageObj[json['content']]?.text;
+
+    return json ? {theTitle, theText} : "";
   });
 
   return (
@@ -49,7 +52,9 @@ export default function HeroLawyers({
             </div>
             <h1 className={styles.title_text}>
               {title}
-              <span>{thePageObj[isContent]}</span>
+              <span className={styles.the_title}>{ isContent.theTitle }
+                <span className={styles.the_text}>{isContent.theText}</span>
+              </span>
             </h1>
           </section>
           <div className={styles[style]}></div>
