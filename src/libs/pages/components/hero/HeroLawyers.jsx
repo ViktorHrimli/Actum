@@ -16,9 +16,13 @@ export default function HeroLawyers({
 }) {
   var searchParams = useSearchParams();
   const { style, color, backgroundPage } = lawyersHeroEnums[type];
-  const [isContent, setIsContent] = useState(() => {
-    var json = searchParams.get("utm_content");
-    return json ? json : "";
+  
+  const [isContent, setIsContent] = useState(() => {  
+    var json = JSON.parse(localStorage.getItem("utm"));
+    var theTitle = json &&  thePageObj[json['content']]?.title;
+    var theText = json && thePageObj[json['content']]?.text;
+
+    return json ? {theTitle, theText} : "";
   });
 
   return (
@@ -50,7 +54,9 @@ export default function HeroLawyers({
             </div>
             <h1 className={styles.title_text}>
               {title}
-              <span>{thePageObj[isContent]}</span>
+              <span className={styles.the_title}>{ isContent.theTitle }
+                <span className={styles.the_text}>{isContent.theText}</span>
+              </span>
             </h1>
           </section>
           <div className={styles[style]}></div>
