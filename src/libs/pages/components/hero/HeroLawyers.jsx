@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+
+import { useState, useSearchParams } from "@/shared/hooks/hooks";
 import Path from "@/shared/components/path/Path";
 import { lawyersHeroEnums, thePageObj } from "./libs/enums/enums";
 
@@ -13,9 +14,10 @@ export default function HeroLawyers({
   background,
   bread_crumbs,
 }) {
+  var searchParams = useSearchParams();
   const { style, color, backgroundPage } = lawyersHeroEnums[type];
-  const [isContent, setIsContent] = useState(() => {
   
+  const [isContent, setIsContent] = useState(() => {  
     var json = JSON.parse(localStorage.getItem("utm"));
     var theTitle = json &&  thePageObj[json['content']]?.title;
     var theText = json && thePageObj[json['content']]?.text;
