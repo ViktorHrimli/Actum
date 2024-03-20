@@ -1778,5 +1778,19 @@
           <priority>0.5</priority>
         </url>
       
+        <url>
+          <loc>https://www.actum.com.ua/blog-3-1/zvilnennia-z-viiskovoi-sluzhby-za-simeinymy-obstavynamy</loc>
+          <lastmod>2024-03-19</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.5</priority>
+        </url>
+      
+        <url>
+          <loc>https://www.actum.com.ua/ru/blog-3-1/zvilnennia-z-viiskovoi-sluzhby-za-simeinymy-obstavynamy</loc>
+          <lastmod>2024-03-19</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.5</priority>
+        </url>
+      
     </urlset>
   
