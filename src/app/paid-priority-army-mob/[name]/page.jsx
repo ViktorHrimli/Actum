@@ -29,19 +29,19 @@ const FormSection = dynamic(() =>
 import { getLawyerDynamicPage } from "@/shared/services/api/api";
 import { makeDynamicSeoTemplate } from "@/shared/helpers/helpers";
 
-const { API_ARMY_SERVICES } = process.env;
+const { API_ARMY_MOBILIZATION } = process.env;
 
 export async function generateMetadata({ params }) {
   return await makeDynamicSeoTemplate(
     params["name"].toLowerCase(),
-    API_ARMY_SERVICES
+    API_ARMY_MOBILIZATION
   );
 }
 
 export default async function page({ params }) {
   const { data } = await getLawyerDynamicPage(
     params["name"].toLowerCase(),
-    API_ARMY_SERVICES
+    API_ARMY_MOBILIZATION
   );
 
   const {
